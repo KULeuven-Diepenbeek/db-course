@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>5. Extras on Software Ontwerp in C(&#43;&#43;)</title>
+    <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/</link>
+    <description>Recent content in 5. Extras on Software Ontwerp in C(&#43;&#43;)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    
+	<atom:link href="https://kuleuven-diepenbeek.github.io/cpp-course/extra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Project opdracht</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/project/</link>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/project/</guid>
+      <description>Project opdracht academiejaar 2020 - 2021 Om jullie recent opgedane object-geörienteerde technieken te toetsen gaan jullie een GBA spel ontwerpen en ontwikkelen in C++11. De focus van de opdracht ligt niet op correcte low-level IO mapping maar op kritisch denken en testen zoals gezien in labo 7. Uiteraard komen zowel pointers en GBA programming technieken van de vroegere labo&amp;rsquo;s, als C++ class inheritance en abstractie lagen uit de latere labo&amp;rsquo;s aan bod.</description>
+    </item>
+    
+    <item>
+      <title>C Cheat Sheet</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/cheatsheet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/cheatsheet/</guid>
+      <description>Download hier: C Cheat Sheet
+Alternatief (non-hosted)</description>
+    </item>
+    
+    <item>
+      <title>Een introductie in C(&#43;&#43;) Build Systemen</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/buildsystems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/buildsystems/</guid>
+      <description>Zie ook labo 1: (herhaaldelijk) compileren
+Een greep uit de mogelijkheden, schematisch samengevat:
+mermaid.initialize({ startOnLoad: true, flowchart: { useMaxWidth: true } });  graph LR; compiler[compiler rechtstreeks uitvoeren] make[Makefiles roepen compiler aan] scons[SCons files roepen compiler aan] cmake[CMake files genereren Makefiles] qmake[QMake files genereren Makefiles] shell[Eigen script roept compiler aan] qmake -- make cmake -- make scons -- compiler make -- compiler shell -- compiler  Hoe compileer ik één file?</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/faq/</guid>
+      <description>Neem ook eens een kijkje bij de Installatieinstructies!
+MinGW installatie problemen Error RES Fout op Win omgevingen Zie ook https://sourceforge.net/p/mingw-w64/bugs/413/ - &amp;lsquo;oplossing&amp;rsquo; is een aantal keer hetzelfde bestand opnieuw te proberen downloaden &amp;amp; installeren. Antivirus die moeilijk doet kan ook een probleem zijn.
+Problemen met build omgevingen SH.exe was found in your path Fout:
+ sh.exe was found in your PATH, here: C:/Program Files/Git/user/bin/sh.exe For MinGW make to work correctly sh.</description>
+    </item>
+    
+    <item>
+      <title>Installatieinstructies</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/installaties/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/installaties/</guid>
+      <description>Onderstaande instructies gaan uit van Ubuntu als besturingssysteem. Windows of OSX is ook mogelijk, alle tools zijn platformonafhankelijk. Voor Windows installeer je MinGW 64 als compiler toolchain.
+Basisvereisten De volgende tools worden verwacht geïnstalleerd te worden via de package tool apt-get bij Ubuntu:
+ build-essential als gcc/g++ build tools (preinstalled?) git  Optionele editors (VSCode, Subl) zijn ook via de package tool te installeren. sublime-text (vereist toevoegen van een repository).</description>
+    </item>
+    
+    <item>
+      <title>Poll: Ben ik klaar voor mijn examen?</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/extra/poll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/extra/poll/</guid>
+      <description>Ga naar pollev.com/woutergroene532 om mee te doen. De mogelijke antwoorden zijn voor elke snippet hetzelfde:
+ Compileert NIET. (Fouten bij gcc commando) Compileert, maar runtime ERROR. (Fouten bij uitvoeren: segfaults e.d.) Runt, maar ONGEWENST gedrag. (Geen fouten maar bugs in gedrag) WERKT zoals verwacht.  Includes en namespaces worden buiten beschouwing gelaten.
+Klik op de snippet headers om de snippet te tonen.
+Snippet 1 class Student; class Teacher { private: std::vector&amp;lt;Student*&amp;gt; students; public: Teacher() { students.</description>
+    </item>
+    
+  </channel>
+</rss>

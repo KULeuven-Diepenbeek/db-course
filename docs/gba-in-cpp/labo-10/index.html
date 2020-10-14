@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt :: Software Ontwerp in C(&#43;&#43;)</title>
+
+    
+    <link href="../../css/nucleus.css?1602585869" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/hybrid.css?1602585869" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1602585869" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1602585869" rel="stylesheet">
+    <link href="../../css/theme.css?1602585869" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1602585869" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1602585869" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1602585869"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="/gba-in-cpp/labo-10/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1602585869"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1602585869"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/cpp-course\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1602585869"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <h3><a href="../../">Inhoudsopgave</a></h3>
+    <ul class="topics">
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../hoorcolleges/">
+          Hoorcolleges
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-1/" title="1. Introductie in C/C&#43;&#43;: context, ecosysteem" class="dd-item ">
+        <a href="../../hoorcolleges/slides-1/">
+        1. Introductie in C/C&#43;&#43;: context, ecosysteem
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-2/" title="2. Pointers in C, dynamisch geheugen in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-2/">
+        2. Pointers in C, dynamisch geheugen in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-3/" title="3. Introductie in Object-Georiënteerd denken in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-3/">
+        3. Introductie in Object-Georiënteerd denken in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info" class="dd-item ">
+        <a href="../../hoorcolleges/slides-4/">
+        4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c/" title="1. Introductie in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../c/">
+          1. Introductie in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-1/" title="Labo 1: Introductie in C" class="dd-item ">
+        <a href="../../c/labo-1/">
+        Labo 1: Introductie in C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-2/" title="Labo 2: Pointers in C en C&#43;&#43;" class="dd-item ">
+        <a href="../../c/labo-2/">
+        Labo 2: Pointers in C en C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/stack-vs-heap/" title="Labo 2b: De stack VS de heap" class="dd-item ">
+        <a href="../../c/stack-vs-heap/">
+        Labo 2b: De stack VS de heap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-c/" title="2. GBA programming in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../gba-in-c/">
+          2. GBA programming in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-3/" title="Labo 3: Introductie in GBA Programming" class="dd-item ">
+        <a href="../../gba-in-c/labo-3/">
+        Labo 3: Introductie in GBA Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-4/" title="Labo 4: GBA Tilesets, een simpel spel" class="dd-item ">
+        <a href="../../gba-in-c/labo-4/">
+        Labo 4: GBA Tilesets, een simpel spel
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/cpp/" title="3. Introductie in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../cpp/">
+          3. Introductie in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-5/" title="Labo 5: Weg met C, Hallo C&#43;&#43;" class="dd-item ">
+        <a href="../../cpp/labo-5/">
+        Labo 5: Weg met C, Hallo C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-6/" title="Labo 6: C&#43;&#43; Class Inheritance, operators en templates" class="dd-item ">
+        <a href="../../cpp/labo-6/">
+        Labo 6: C&#43;&#43; Class Inheritance, operators en templates
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-7/" title="Labo 7: Software ontwerpen" class="dd-item ">
+        <a href="../../cpp/labo-7/">
+        Labo 7: Software ontwerpen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-cpp/" title="4. GBA Programming in C&#43;&#43;" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../gba-in-cpp/">
+          4. GBA Programming in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-8/" title="Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-8/">
+        Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-9/" title="Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-9/">
+        Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-10/" title="Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt" class="dd-item active">
+        <a href="../../gba-in-cpp/labo-10/">
+        Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-11/" title="Labo 11: een GBA spel porten naar Qt" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-11/">
+        Labo 11: een GBA spel porten naar Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/extra/" title="5. Extras" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../extra/">
+          5. Extras
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
+        <a href="../../extra/project/">
+        Project opdracht
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/cheatsheet/" title="C Cheat Sheet" class="dd-item ">
+        <a href="../../extra/cheatsheet/">
+        C Cheat Sheet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/buildsystems/" title="Een introductie in C(&#43;&#43;) Build Systemen" class="dd-item ">
+        <a href="../../extra/buildsystems/">
+        Een introductie in C(&#43;&#43;) Build Systemen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/faq/" title="FAQ" class="dd-item ">
+        <a href="../../extra/faq/">
+        FAQ
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/installaties/" title="Installatieinstructies" class="dd-item ">
+        <a href="../../extra/installaties/">
+        Installatieinstructies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/poll/" title="Poll: Ben ik klaar voor mijn examen?" class="dd-item ">
+        <a href="../../extra/poll/">
+        Poll: Ben ik klaar voor mijn examen?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../gba-in-cpp/'>4. GBA Programming in C++</a> > Labo 10: Een introductie in GUI ontwerp met C++ in Qt
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ui-frameworks">UI Frameworks</a></li>
+<li><a href="#het-qt-ecosysteem">Het Qt ecosysteem</a></li>
+<li><a href="#een-minimale-interface-ontwerpen">Een minimale interface ontwerpen</a>
+<ul>
+<li><a href="#de-layout-van-een-qt-applicatie">De layout van een Qt applicatie</a></li>
+<li><a href="#slots-en-signals">Slots en Signals</a></li>
+<li><a href="#qt-s-objectenboom">Qt&rsquo;s objectenboom</a></li>
+</ul></li>
+<li><a href="#een-kijkje-achter-de-c-extensions">Een kijkje achter de C++ extensions</a></li>
+<li><a href="#a-name-oef-a-labo-oefeningen"><a name="oef"></a>Labo oefeningen</a></li>
+<li><a href="#denkvragen">Denkvragen</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt
+            </h1>
+          
+
+        
+
+
+
+
+<h2 id="ui-frameworks">UI Frameworks</h2>
+
+<p>De C++ taal is een krachtige tool om native code te compileren voor specifieke CPU en OS systemen. Daardoor is het ook vaak een logische keuze om complexe interfaces in te ontwerpen en ontwikkelen, van Photoshop tot Google Chrome. Interfaces brengen echter weer andere problemen met zich mee: elk besturingssysteem heeft ondertussen zijn eigen interpretatie.</p>
+
+<p>De Windows standaard was MFC die de WinAPI wrapt, voor OSX was dit de Carbon API. Ondertussen zijn beide frameworks vervangen door WPF (Ook in C#) en Cocoa (enkel in Objective-C). Voor Linux waren er 2 grote Window Managers: KDE en Gnome, die beiden hun eigen UI framework implementeerden: Qt en GTK.</p>
+
+<p>We betreden nu het domein van &ldquo;frameworks&rdquo;: libraries die we samen met een programmeertaal gebruiken om sneller tot het gewenst resultaat te komen. Het zou nogal dom zijn om elke keer opnieuw een Button in de UI te moeten &ldquo;uitvinden&rdquo; - die zijn gewoon meegeleverd als predefined klasse in elk framework.</p>
+
+<p>Wat is een Framework?</p>
+
+<blockquote>
+<p>a basic structure underlying a system, concept, or text.</p>
+</blockquote>
+
+<p>In ons geval een set van libraries waar we mee linken (met <code>g++</code>) zodat we <code>#include &lt;ui_component.h&gt;</code> in onze code kunnen gebruiken zonder die zelf te moeten maken. Dat brengt buiten een hoop componenten en includes, een aantal erg belangrijke <strong>nadelen</strong> met zich mee:</p>
+
+<ol>
+<li>Frameworks leggen vaak een stricte structuur op. Code moet op een bepaalde manier geschreven zijn, zoals voor Qt de <code>Q_OBJECT</code> macro in je klasse.</li>
+<li>Frameworks leven: ze ontstaan, groeien en gaan dood. Dat betekent dat wij als ontwikkelaar een doordachte keuze moeten maken, en na x jaar ons moeten aanpassen.</li>
+</ol>
+
+<p>Qt en GTK zijn <em>cross-platform</em> UI frameworks: die kan je zowel op UNIX als op Windows compilen. Schrijf je je programma met behulp van Qt, dan zal (met minimale aanpassingen) het zowel voor UNIX als voor Windows kunnen compileren, en dan zal je doelpubliek vergroten. Qt werkt zelfs op <a href="http://doc.qt.io/qt-5/ios-support.html">iOS</a> en <a href="http://doc.qt.io/qt-5/android-support.html">Android</a> - dus waarom ooit Android-specifieke Widgets leren?</p>
+
+<h2 id="het-qt-ecosysteem">Het Qt ecosysteem</h2>
+
+<p><a href="https://www.qt.io/download">Download Qt</a> hier. Je zal merken dat 2gb aan HDD ruimte opgeslokt wordt: dat is erg veel voor een framework! Er zit echter een gigantische hoeveelheid aan bruikbare spullen in:</p>
+
+<ul>
+<li>Standaard UI componenten</li>
+<li>2D en 3D rendering in OpenGL</li>
+<li>Een SQL object-mapper interface naar verschillende databases</li>
+<li>XML, JSON, &hellip; support</li>
+<li>Mobile OS support</li>
+<li>Web specifieke componenten</li>
+<li>Netwerk integratie</li>
+<li>Een eigen concurrency model</li>
+<li>&hellip;</li>
+</ul>
+
+<p>Met als belangrijkste extra&rsquo;s Qt Designer en Qt Creator, de grafische UI designer (zoals je SceneGraph kent van JavaFX) en een hele eigen IDE.</p>
+
+<p><img src="../../img/teaching/cpp/qtcreator.png" class="bordered" /></p>
+
+<h2 id="een-minimale-interface-ontwerpen">Een minimale interface ontwerpen</h2>
+
+<p>Er zijn zéér veel goede Qt tutorials te vinden, waaronder:</p>
+
+<ul>
+<li>De ingebouwde tutorials bij het opstarten van Qt Creator</li>
+<li>Qt.io: <a href="https://wiki.qt.io/Qt_for_Beginners">Qt for beginners</a></li>
+<li>Qt.io: <a href="https://wiki.qt.io/New_Signal_Slot_Syntax">Signal Slot syntax</a></li>
+<li>YouTube: <a href="https://www.youtube.com/watch?v=VigUMAfE2q4">Qt for beginners video series</a></li>
+<li>BogoToBogo <a href="http://www.bogotobogo.com/Qt/Qt5_MainWindowTriggerAction.php">Qt5 tutorials</a></li>
+</ul>
+
+<p>De beste manier om te leren hoe Qt werkt is met experimentjes in de Creator.</p>
+
+<h3 id="de-layout-van-een-qt-applicatie">De layout van een Qt applicatie</h3>
+
+<p>In de main.cpp file zal je altijd dit vinden:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mainwindow.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;QApplication&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    <span style="color:#66d9ef">return</span> a.exec();
+}</code></pre></div>
+<p>Dit noemen we het <strong>bootstrappen</strong> van de Qt applicatie waarbij je een specifiek scherm aanmaakt en toont. <code>a.exec()</code> blokkeert de main thread totdat de UI stopt (bij het afsluiten van alle schermen bijvoorbeeld).</p>
+
+<p><code>MainWindow</code> is een subklasse van <code>QMainWindow</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">namespace Ui {
+  class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget <span style="color:#f92672">*</span>parent <span style="color:#f92672">=</span> nullptr);
+    <span style="color:#f92672">~</span>MainWindow();
+
+private slots:
+    <span style="color:#66d9ef">void</span> on_slider_sliderMoved(<span style="color:#66d9ef">int</span> position);
+
+private:
+    Ui<span style="color:#f92672">::</span>MainWindow <span style="color:#f92672">*</span>ui;
+};</code></pre></div>
+<p>Merk hier framework-specifieke zaken op:</p>
+
+<ol>
+<li>De <code>Q_OBJECT</code> macro moet in elk Qt object aanwezig zijn dat <em>signals</em> en <em>slots</em> gebruikt.</li>
+<li>Een private reference naar&hellip; jezelf? De Qt Designer genereert code! De forward reference is een reference naar een gegenereerde header file die je zelf nooit mag wijzigen.</li>
+<li>De <code>private slots</code> accessor bestaat natuurlijk niet in C++. Qt voorziet een aparte plek om slots te definiëren.</li>
+</ol>
+
+<p>Qt genereert deze code voor jou - de destructor verwijdert de onderliggende ui pointer met <code>delete</code>.</p>
+
+<p>In de source file include je beide headers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mainwindow.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;ui_mainwindow.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+MainWindow<span style="color:#f92672">::</span>MainWindow(QWidget <span style="color:#f92672">*</span>parent) <span style="color:#f92672">:</span>
+    QMainWindow(parent),
+    ui(new Ui<span style="color:#f92672">::</span>MainWindow)
+{
+    ui<span style="color:#f92672">-&gt;</span>setupUi(this);
+}</code></pre></div>
+<p>De <code>setupUi</code> methode voegt de componenten toe aan het scherm die jij met de Qt Designer op het scherm gesleept hebt. Dankzij deze (ietwat vreemde) manier kan je overal in <code>MainWindow</code> met de <code>ui-&gt;</code> pointer reference aan componten geraken. Merk op dat je dus géén definities van componenten in je eigen header terugziet, die leven allemaal in <code>ui_mainwindow.h</code>.</p>
+
+<h3 id="slots-en-signals">Slots en Signals</h3>
+
+<p>Een actie aan een knop hangen kan op twee manieren: in de Designer of manueel. In beide gevallen gebruik je Qt&rsquo;s <strong>slots</strong> en <strong>signals</strong>. Een &ldquo;Signal&rdquo; is een bericht dat uitgestuurd wordt, waarop eender wie kan luisteren. Een &ldquo;slot&rdquo; definiëert de ruimte die gebruikt wordt om dat signaal op te vangen. Het concept is hetzelfde als het <strong>observer pattern</strong>.</p>
+
+<p>De volgende code verbindt een progress bar <code>valueChanged</code> slot met een C++11 lambda callback als signal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    connect(ui<span style="color:#f92672">-&gt;</span>progress, <span style="color:#f92672">&amp;</span>QProgressBar<span style="color:#f92672">::</span>valueChanged, [](<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>newVal) {
+        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> newVal <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+    });</code></pre></div>
+<p>Dit kan je zelf in de constructor van je window toevoegen. <code>connect</code> geeft een <code>QMetaObject::Connection</code> object terug, zodat je dit kan disconnecten wanneer je zelf wilt.</p>
+
+<p>Een eenvoudigere manier om zaken met elkaar te verbinden is via de UI designer rechtermsuiknop op een element -&gt; &ldquo;Go to slot&hellip;&rdquo; en een voorstel selecteren. Op dat moment wordt de juiste slot code gegenereerd.</p>
+
+<p>Vergeet <code>Q_OBJECT</code> niet als je gebruik maakt van slots en signals.</p>
+
+<h3 id="qt-s-objectenboom">Qt&rsquo;s objectenboom</h3>
+
+<p>Elk UI object leidt af van <code>QObject</code>, net zoals in JavaFX. De <a href="http://doc.qt.io/qt-5/hierarchy.html">Qt Inheritance Hierarchy</a> is in de documentatie beschikbaar, waarvan voor ons de belangrijkste klassen bijvoorbeeld <code>QTextEdit</code> en <code>QLabel</code> zijn:</p>
+
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="center" >
+	
+graph TD;
+  A[QObject]
+  B[QThread]
+  C[QWidget]
+  D[QFrame]
+  E[QProgressBar]
+  F[QLabel]
+  G[QAbstractScrollArea]
+  H[QTextEdit]
+  I[QGraphicsView]
+  J[QAbstractButton]
+  K[QPushButton]
+  L[QRadioButton]
+  B --> A
+  C --> A
+  D --> C
+  E --> C
+  F --> D
+  G --> D
+  I --> G
+  H --> G
+  J --> C
+  K --> J
+  L --> J
+
+</div>
+
+<p>Voor een eigen widget implementatie lijkt ons overerven van <code>QWidget</code> dus een goede keuze.</p>
+
+<h2 id="een-kijkje-achter-de-c-extensions">Een kijkje achter de C++ extensions</h2>
+
+<p>Waar dient die vreemde macro nu eigenlijk voor? Hoe werkt <code>private slots:</code>? Qt gebruikt een Meta-Object Compiler (<a href="http://doc.qt.io/qt-5/moc.html">MOC</a>). Dit programma scant header files en genereert C++ source files met metadata die nodig is om onder andere:</p>
+
+<ul>
+<li>Slots en signals te laten werken (<code>signal:</code>)</li>
+<li>Dynamische properties te kunnen gebruiken (<code>Q_PROPERTY</code>)</li>
+<li>Run-time type informatie te kunnen lezen (<code>Q_CLASSINFO</code>)</li>
+</ul>
+
+<p>Die gegenereerde source file moet ook meegecompileerd worden. Qt projecten worden meestal met <code>QMake</code> gecompileerd die de MOC automatisch afhandelt. Lees ook <a href="http://doc.qt.io/qt-5/why-moc.html">Why Does Qt Use Moc for Signals and Slots?</a></p>
+
+<p>Qt komt met een eigen <code>Makefile</code> generator in de vorm van <code>QMake</code> in plaats van <code>CMake</code> dat centraal staat in CLion. <a href="https://stackoverflow.com/questions/30235175/how-to-configure-clion-ide-for-qt-framework">Het is mogelijk</a> om CLion Qt projecten te laten builden gegeven enkele wijzigingen in de <code>CMakeLists.txt</code> file om Qt libraries te linken. Het probleem is echter de gegenereerde source files door MOC. Dit zou ons echter te ver leiden.</p>
+
+<h2 id="a-name-oef-a-labo-oefeningen"><a name="oef"></a>Labo oefeningen</h2>
+
+<ol>
+<li>Maak een programma dat de gebruiker 2 breuken laat ingeven in de vorm van 4 aparte textfields. Een knop &ldquo;som&rdquo; drukt het resultaat af in een output textfield. Valideer de input en geef een foutboodschap in de vorm van een <code>QMessageBox</code> indien een ongeldige waarde ingegeven.</li>
+<li>Als uitbreiding moet een tweede window openen die bereken knoppen bevat als een rekenmachine. Scherm 1: input fields, output. Scherm 2: knop &ldquo;plus&rdquo;, knop &ldquo;maal&rdquo;. Het tweede scherm kan men openen via een menu &ldquo;Bestand -&gt; Acites&rdquo; in scherm 1.<br /></li>
+</ol>
+
+<h2 id="denkvragen">Denkvragen</h2>
+
+<ol>
+<li>Beargumenteer waarom ik als software ontwikkelaar voor een UI framework als Qt zou kiezen in plaats van het <em>native</em> alternatief voor mijn ontwikkelplatform. Zijn hier ook nadelen aan verbonden?</li>
+<li>Hoe komt het dat ik <code>connect()</code> in de constructor van een <code>QMainWindow</code> klasse kan uitvoeren? Waar is deze methode gedefiniëerd?</li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../gba-in-cpp/labo-9/" title="Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../gba-in-cpp/labo-11/" title="Labo 11: een GBA spel porten naar Qt" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1602585869"></script>
+    <script src="../../js/jquery.sticky.js?1602585869"></script>
+    <script src="../../js/featherlight.min.js?1602585869"></script>
+    <script src="../../js/highlight.pack.js?1602585869"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1602585869"></script>
+    <script src="../../js/learn.js?1602585869"></script>
+    <script src="../../js/hugo-learn.js?1602585869"></script>
+
+    <link href="../../mermaid/mermaid.css?1602585869" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1602585869"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

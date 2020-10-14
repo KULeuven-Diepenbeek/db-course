@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+
+    <title>Tags :: Software Ontwerp in C(&#43;&#43;)</title>
+
+    
+    <link href="../css/nucleus.css?1602585869" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1602585869" rel="stylesheet">
+    <link href="../css/hybrid.css?1602585869" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1602585869" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1602585869" rel="stylesheet">
+    <link href="../css/auto-complete.css?1602585869" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1602585869" rel="stylesheet">
+    <link href="../css/theme.css?1602585869" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1602585869" rel="stylesheet">
+    
+    <link href="../css/theme-kul.css?1602585869" rel="stylesheet">
+    
+    
+
+    <script src="../js/jquery-3.3.1.min.js?1602585869"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../js/osc.js></script>
+  </head>
+  <body class="" data-url="/tags/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../js/lunr.min.js?1602585869"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1602585869"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/cpp-course\/";
+    
+</script>
+<script type="text/javascript" src="../js/search.js?1602585869"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <h3><a href="../">Inhoudsopgave</a></h3>
+    <ul class="topics">
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../hoorcolleges/">
+          Hoorcolleges
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-1/" title="1. Introductie in C/C&#43;&#43;: context, ecosysteem" class="dd-item ">
+        <a href="../hoorcolleges/slides-1/">
+        1. Introductie in C/C&#43;&#43;: context, ecosysteem
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-2/" title="2. Pointers in C, dynamisch geheugen in C&#43;&#43;" class="dd-item ">
+        <a href="../hoorcolleges/slides-2/">
+        2. Pointers in C, dynamisch geheugen in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-3/" title="3. Introductie in Object-Georiënteerd denken in C&#43;&#43;" class="dd-item ">
+        <a href="../hoorcolleges/slides-3/">
+        3. Introductie in Object-Georiënteerd denken in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info" class="dd-item ">
+        <a href="../hoorcolleges/slides-4/">
+        4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c/" title="1. Introductie in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../c/">
+          1. Introductie in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-1/" title="Labo 1: Introductie in C" class="dd-item ">
+        <a href="../c/labo-1/">
+        Labo 1: Introductie in C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-2/" title="Labo 2: Pointers in C en C&#43;&#43;" class="dd-item ">
+        <a href="../c/labo-2/">
+        Labo 2: Pointers in C en C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/stack-vs-heap/" title="Labo 2b: De stack VS de heap" class="dd-item ">
+        <a href="../c/stack-vs-heap/">
+        Labo 2b: De stack VS de heap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-c/" title="2. GBA programming in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../gba-in-c/">
+          2. GBA programming in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../gba-in-c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-3/" title="Labo 3: Introductie in GBA Programming" class="dd-item ">
+        <a href="../gba-in-c/labo-3/">
+        Labo 3: Introductie in GBA Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-4/" title="Labo 4: GBA Tilesets, een simpel spel" class="dd-item ">
+        <a href="../gba-in-c/labo-4/">
+        Labo 4: GBA Tilesets, een simpel spel
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/cpp/" title="3. Introductie in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../cpp/">
+          3. Introductie in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-5/" title="Labo 5: Weg met C, Hallo C&#43;&#43;" class="dd-item ">
+        <a href="../cpp/labo-5/">
+        Labo 5: Weg met C, Hallo C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-6/" title="Labo 6: C&#43;&#43; Class Inheritance, operators en templates" class="dd-item ">
+        <a href="../cpp/labo-6/">
+        Labo 6: C&#43;&#43; Class Inheritance, operators en templates
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-7/" title="Labo 7: Software ontwerpen" class="dd-item ">
+        <a href="../cpp/labo-7/">
+        Labo 7: Software ontwerpen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-cpp/" title="4. GBA Programming in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../gba-in-cpp/">
+          4. GBA Programming in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../gba-in-cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-8/" title="Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag" class="dd-item ">
+        <a href="../gba-in-cpp/labo-8/">
+        Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-9/" title="Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds" class="dd-item ">
+        <a href="../gba-in-cpp/labo-9/">
+        Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-10/" title="Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt" class="dd-item ">
+        <a href="../gba-in-cpp/labo-10/">
+        Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-11/" title="Labo 11: een GBA spel porten naar Qt" class="dd-item ">
+        <a href="../gba-in-cpp/labo-11/">
+        Labo 11: een GBA spel porten naar Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/extra/" title="5. Extras" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../extra/">
+          5. Extras
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
+        <a href="../extra/project/">
+        Project opdracht
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/cheatsheet/" title="C Cheat Sheet" class="dd-item ">
+        <a href="../extra/cheatsheet/">
+        C Cheat Sheet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/buildsystems/" title="Een introductie in C(&#43;&#43;) Build Systemen" class="dd-item ">
+        <a href="../extra/buildsystems/">
+        Een introductie in C(&#43;&#43;) Build Systemen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/faq/" title="FAQ" class="dd-item ">
+        <a href="../extra/faq/">
+        FAQ
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/installaties/" title="Installatieinstructies" class="dd-item ">
+        <a href="../extra/installaties/">
+        Installatieinstructies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/poll/" title="Poll: Ben ik klaar voor mijn examen?" class="dd-item ">
+        <a href="../extra/poll/">
+        Poll: Ben ik klaar voor mijn examen?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='../'>Software ontwerp in C/C++</a> > Tags
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Tags
+            </h1>
+          
+
+        
+
+
+
+
+
+<ul>
+	
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+		
+			<a class="nav nav-next" href="../hoorcolleges/" title="Hoorcolleges" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../js/clipboard.min.js?1602585869"></script>
+    <script src="../js/perfect-scrollbar.min.js?1602585869"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1602585869"></script>
+    <script src="../js/jquery.sticky.js?1602585869"></script>
+    <script src="../js/featherlight.min.js?1602585869"></script>
+    <script src="../js/highlight.pack.js?1602585869"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/modernizr.custom-3.6.0.js?1602585869"></script>
+    <script src="../js/learn.js?1602585869"></script>
+    <script src="../js/hugo-learn.js?1602585869"></script>
+
+    <link href="../mermaid/mermaid.css?1602585869" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1602585869"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

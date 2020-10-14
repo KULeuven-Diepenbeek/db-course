@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Labo 7: Software ontwerpen :: Software Ontwerp in C(&#43;&#43;)</title>
+
+    
+    <link href="../../css/nucleus.css?1602585869" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/hybrid.css?1602585869" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1602585869" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1602585869" rel="stylesheet">
+    <link href="../../css/theme.css?1602585869" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1602585869" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1602585869" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1602585869"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="/cpp/labo-7/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1602585869"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1602585869"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/cpp-course\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1602585869"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <h3><a href="../../">Inhoudsopgave</a></h3>
+    <ul class="topics">
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../hoorcolleges/">
+          Hoorcolleges
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-1/" title="1. Introductie in C/C&#43;&#43;: context, ecosysteem" class="dd-item ">
+        <a href="../../hoorcolleges/slides-1/">
+        1. Introductie in C/C&#43;&#43;: context, ecosysteem
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-2/" title="2. Pointers in C, dynamisch geheugen in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-2/">
+        2. Pointers in C, dynamisch geheugen in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-3/" title="3. Introductie in Object-Georiënteerd denken in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-3/">
+        3. Introductie in Object-Georiënteerd denken in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info" class="dd-item ">
+        <a href="../../hoorcolleges/slides-4/">
+        4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c/" title="1. Introductie in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../c/">
+          1. Introductie in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-1/" title="Labo 1: Introductie in C" class="dd-item ">
+        <a href="../../c/labo-1/">
+        Labo 1: Introductie in C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-2/" title="Labo 2: Pointers in C en C&#43;&#43;" class="dd-item ">
+        <a href="../../c/labo-2/">
+        Labo 2: Pointers in C en C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/stack-vs-heap/" title="Labo 2b: De stack VS de heap" class="dd-item ">
+        <a href="../../c/stack-vs-heap/">
+        Labo 2b: De stack VS de heap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-c/" title="2. GBA programming in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../gba-in-c/">
+          2. GBA programming in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-3/" title="Labo 3: Introductie in GBA Programming" class="dd-item ">
+        <a href="../../gba-in-c/labo-3/">
+        Labo 3: Introductie in GBA Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-4/" title="Labo 4: GBA Tilesets, een simpel spel" class="dd-item ">
+        <a href="../../gba-in-c/labo-4/">
+        Labo 4: GBA Tilesets, een simpel spel
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/cpp/" title="3. Introductie in C&#43;&#43;" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../cpp/">
+          3. Introductie in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-5/" title="Labo 5: Weg met C, Hallo C&#43;&#43;" class="dd-item ">
+        <a href="../../cpp/labo-5/">
+        Labo 5: Weg met C, Hallo C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-6/" title="Labo 6: C&#43;&#43; Class Inheritance, operators en templates" class="dd-item ">
+        <a href="../../cpp/labo-6/">
+        Labo 6: C&#43;&#43; Class Inheritance, operators en templates
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-7/" title="Labo 7: Software ontwerpen" class="dd-item active">
+        <a href="../../cpp/labo-7/">
+        Labo 7: Software ontwerpen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-cpp/" title="4. GBA Programming in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../gba-in-cpp/">
+          4. GBA Programming in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-8/" title="Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-8/">
+        Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-9/" title="Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-9/">
+        Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-10/" title="Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-10/">
+        Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-11/" title="Labo 11: een GBA spel porten naar Qt" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-11/">
+        Labo 11: een GBA spel porten naar Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/extra/" title="5. Extras" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../extra/">
+          5. Extras
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
+        <a href="../../extra/project/">
+        Project opdracht
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/cheatsheet/" title="C Cheat Sheet" class="dd-item ">
+        <a href="../../extra/cheatsheet/">
+        C Cheat Sheet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/buildsystems/" title="Een introductie in C(&#43;&#43;) Build Systemen" class="dd-item ">
+        <a href="../../extra/buildsystems/">
+        Een introductie in C(&#43;&#43;) Build Systemen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/faq/" title="FAQ" class="dd-item ">
+        <a href="../../extra/faq/">
+        FAQ
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/installaties/" title="Installatieinstructies" class="dd-item ">
+        <a href="../../extra/installaties/">
+        Installatieinstructies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/poll/" title="Poll: Ben ik klaar voor mijn examen?" class="dd-item ">
+        <a href="../../extra/poll/">
+        Poll: Ben ik klaar voor mijn examen?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../cpp/'>3. Introductie in C++</a> > Labo 7: Software ontwerpen
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#software-modelleren">Software Modelleren</a>
+<ul>
+<li><a href="#business-rules-analyseren">Business rules analyseren</a></li>
+</ul></li>
+<li><a href="#software-onderhouden">Software Onderhouden</a>
+<ul>
+<li><a href="#code-stockeren">Code stockeren</a></li>
+<li><a href="#clean-code">Clean Code</a></li>
+</ul></li>
+<li><a href="#software-testen">Software Testen</a>
+<ul>
+<li><a href="#acceptatie-testen">Acceptatie testen</a></li>
+<li><a href="#debug-statements">Debug statements</a></li>
+<li><a href="#unit-testen">Unit testen</a>
+<ul>
+<li><a href="#in-clion">In CLion</a></li>
+<li><a href="#in-commandline-met-cmake">In commandline met CMake</a></li>
+</ul></li>
+<li><a href="#regressie-tegen-gaan-met-testen">Regressie tegen gaan met testen</a></li>
+<li><a href="#debuggen-in-c">Debuggen in C++</a>
+<ul>
+<li><a href="#handmatig">Handmatig</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#a-name-oef-a-labo-oefeningen"><a name="oef"></a>Labo oefeningen</a></li>
+<li><a href="#denkvragen">Denkvragen</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Labo 7: Software ontwerpen
+            </h1>
+          
+
+        
+
+
+
+
+<p>Een programmeertaal als C++ leren vereist het achteroverslaan van heel wat syntaxtische cryptologie als <code>decltype()</code>, <code>template&lt;typename T&gt;</code> en <code>*(x-&gt;o)</code>. Met programmeren alleen kom je er echter niet: software <strong>ontwerpen</strong> vereist heel wat meer inzicht dan de juiste code op de juiste plaats typen.</p>
+
+<h2 id="software-modelleren">Software Modelleren</h2>
+
+<p>Als software ontwikkelaar ben jij de uitvoerende kracht die vereisten van de klant implementeert in het software systeem. Een analist staat tussen de klant en de ontwikkelaar in die de vertaalslag tussen de grillen van klanten en vereisten in de vorm van business regels maakt.</p>
+
+<p>Het is onze taak als ontwikkelaar om die regels met succes te verwerken in de code. Een software ontwikkelteam bestaat uit meer dan één ontwikkelaar, daarom is het belangrijk dat alles op een uniforme manier geïmplementeerd wordt. Collega&rsquo;s moeten eenvoudig concepten kunnen localiseren. De source files veranderen immers dagelijks, vaak jaren aan één stuk.</p>
+
+<h3 id="business-rules-analyseren">Business rules analyseren</h3>
+
+<p>Een analyse document van software uit de interimsector zou er zo kunnen uit zien:</p>
+
+<pre>
+STR006. Gebruikers kiezen zelf het werknemernummer
+
+Beschrijving:
+Als een uitzendkracht over 2 werknemernummers beschikt voor één statuut (statuut is 2x toegevoegd aan de persoonsfiche)
+dan kan de gebruiker zelf kiezen welk werknemernummer gebruikt moet worden op het contract in kwestie
+zodat het systeem geen blokkerende melding geeft bij het berekenen van de lonen
+
+Context: (meer achtergrond informatie ...)
+
+Acceptatiecriteria:
+- Achter de waarde die nu getoond wordt in het veld statuut op een contract wordt tussen haakjes het werknemernummer toegevoegd dat gekoppeld is aan deze persoon in dit statuut
+- Wanneer een gebruiker 2x hetzelfde statuut heeft toegevoegd aan zijn persoonsfiche, dan wordt dit statuut 2x getoond in het lijstje met statuten bij de aanmaak van een contract
+- Bij het kopiëren van het contract wordt het werknemernummer overgenomen van het broncontract
+- ...
+</pre>
+
+<p>Het is jouw taak als ontwikkelaar om dit document te bestuderen en de criteria te vertalen naar concrete code. Welke aspecten zijn hierin van groot belang?</p>
+
+<ol>
+<li><strong>Entiteiten</strong>: belangrijke concepten die herhaaldelijk terugkomen in de criteria zijn opmerkelijk genoeg om hun eigen klasse te verdienen.</li>
+<li><strong>Relaties</strong> tussen entiteiten. Die bepalen of object#1 in object#2 leeft of andersom, of object#3 een collectie van object#2 heeft, &hellip;</li>
+<li><strong>Acties</strong> tussen entiteiten. Welke mogelijkheden zijn er?</li>
+</ol>
+
+<p>Welke entiteiten leiden we af uit bovenstaande analyse?</p>
+
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="center" >
+	
+graph TD;
+  A[Statuut]
+  B[Werknemer]
+  C[Contract]
+
+</div>
+
+<p>Als woorden als &ldquo;werknemer&rdquo; en &ldquo;persoon&rdquo; (&ldquo;persoonsfiche&rdquo;) door elkaar gebruikt worden zal je de analist hierop moeten aanspreken en dit uitklaren. Iedereen moet bij het woord &ldquo;werknemer&rdquo; onmiddellijk aan hetzelfde denken.</p>
+
+<p>Welke relaties hebben de entiteiten?</p>
+
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="center" >
+	
+graph TD;
+  A[Statuut]
+  B[Werknemer]
+  C[Contract]
+  B -->|heeft meerdere|A
+  C -->|is voor een|B
+  C -->|in context van één|A
+
+</div>
+
+<p>Welke acties kan men met de entiteiten uitvoeren?</p>
+
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="center" >
+	
+graph TD;
+  A[Statuut]
+  B[Werknemer]
+  C[Contract]
+  D{Kopiëren}
+  E{Aanmaken}
+  F{Koppelen aan}
+  C --> E
+  C --> D
+  B --> E
+  A --> E
+  A --> F
+  F -.-> B
+
+</div>
+
+<p>Gegeven bovenstaande modellen extraheren we de volgende C++ klassen definities en methodes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">class Statuut {
+public:
+    Statuut();
+}
+class Werknemer {
+private:
+    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Statuut<span style="color:#f92672">&gt;</span> statuten;
+    <span style="color:#66d9ef">int</span> nummer;
+public:
+    Werknemer();
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">koppelAan</span>(<span style="color:#66d9ef">const</span> Statuut<span style="color:#f92672">&amp;</span> statuut);
+}
+class Contract {
+public:
+    Contract();
+    Contract <span style="color:#a6e22e">Kopieer</span>() {}
+}</code></pre></div>
+<h2 id="software-onderhouden">Software Onderhouden</h2>
+
+<p>Productie code leeft véél langer dan je gemiddeld project op de universiteit, afhankelijk van de sector en de grootte van het project. Het kan goed zijn dat er nog 10 jaar lang verder gewerkt wordt aan één pakket. Dat betekent dat het van enorm belang is om ordelijk en doordacht tewerk te gaan.</p>
+
+<p>Besef dat doorheen de jaren compilers komen en gaan en standaarden komen en gaan. C++11 is van 2011 geleden, De <a href="https://isocpp.org/std/status">C++17 standaard</a> introduceert weer een hele hoop nieuwigheden, en C++20 is onderweg, die we niet gaan behandelen maar misschien wel in dat project kunnen toegevoegd worden.</p>
+
+<p>Flexibiliteit naar onderhoud toe is belangrijk voor de succes van een project op lange termijn.</p>
+
+<h3 id="code-stockeren">Code stockeren</h3>
+
+<p><strong><a href="https://en.wikipedia.org/wiki/Version_control">Source Control</a></strong> is een sleutelbegrip voor ontwikkelteams. Het stelt iedereen in staat om aan dezelfde source file te werken zonder bestanden op- en neer te sturen, voorziet backups, maakt het mogelijk om releases en branches uit te rollen, &hellip;</p>
+
+<p>Vanaf nu wordt verondersteld dat labo oefeningen gecommit worden in <code>git</code> op <a href="https://github.com">Github</a>: een zeer populair open source software ontwikkelingsplatform dat gebruiksvriendelijk is. Het <a href="https://git-scm.com/book/en/v2">Pro Git</a> handboek leert je alles over de werking van git. Een typische workflow is als volgt:</p>
+
+<ol>
+<li><code>git clone [url]</code>: Maakt een lokale repository aan die je op Github hebt gecreëerd. Het commando maakt een subdirectory aan.</li>
+<li>Doe je programmeerwerk.</li>
+<li><code>git status</code> en <code>git diff</code>: Bekijk lokale changes voordat ze naar de server gaan.</li>
+<li><code>git add [.]</code>: Geef aan welke changes staged worden voor commit</li>
+<li><code>git commit -m [comment]</code>: commit naar je lokale repository.</li>
+<li><code>git push</code>: push lokale commits naar de Github server.</li>
+<li><code>git pull</code>: pull remote changes naar je lokale repository.</li>
+</ol>
+
+<p>De output van <code>git status</code> ziet er zo uit:</p>
+
+<pre>
+Wouters-MacBook-Air:brainbaking wgroenev$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   content/teaching/cpp/labo-1.md
+    modified:   content/teaching/cpp/labo-2.md
+    modified:   content/teaching/cpp/labo-3.md
+    modified:   content/teaching/cpp/labo-4.md
+    modified:   content/teaching/cpp/labo-5.md
+    modified:   content/teaching/cpp/labo-6.md
+    deleted:    docs/CNAME
+    deleted:    docs/essays/i-am-jealous-of-my-dog/index.html
+</pre>
+
+<p>De output van <code>git diff</code> ziet er zo uit:</p>
+
+<pre>
+    Wouters-MacBook-Air:brainbaking wgroenev$ git diff
+diff --git a/content/teaching/cpp/labo-1.md b/content/teaching/cpp/labo-1.md
+index 654a4f6..11f0597 100644
+--- a/content/teaching/cpp/labo-1.md
++++ b/content/teaching/cpp/labo-1.md
+@@ -4,7 +4,7 @@ accent: "#008eb3"
+ disableComments: true
+ ---
+
+-&laquo;&nbsp;[Terug naar Software ontwerp in C/C++ met Qt](/teaching/cpp)<br/>
++&laquo;&nbsp;[Terug naar Software ontwerp in C/C++](/teaching/cpp)<br/>
+ &raquo;&nbsp;[Naar de labo opgave](#oef)
+</pre>
+
+<h3 id="clean-code">Clean Code</h3>
+
+<p>Een quote uit het Clean Code boek van Robert C. Martin verduidelijkt het woordgebruik:</p>
+
+<blockquote>
+<p>Even bad code can function. But if code isn t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn t have to be that way.</p>
+</blockquote>
+
+<p>Raadpleeg het boek <a href="https://www.goodreads.com/book/show/3735293-clean-code?ac=1&amp;from_search=true">Clean Code</a> voor meer informatie.</p>
+
+<p>Inderdaad, slechte code compileert ook en wordt ook uitgevoerd, maar dit komt onderhoudbaarheid helemaal niet ten goede. Er is voor &ldquo;Modern C++&rdquo; (C++11) zelfs een aparte <a href="http://clean-cpp.org">clean-cpp</a> blog toegeweid aan proper C++ gebruik.</p>
+
+<p>Een voorbeeld ter verduidelijking:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">process</span>(Cl <span style="color:#f92672">&amp;</span>c, <span style="color:#66d9ef">int</span> times) {
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> times; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span>(login(c.user, c.pass)) { <span style="color:#66d9ef">break</span>;
+        } wait();
+    }
+}</code></pre></div>
+<p>Dit is een simpele functie, maar zie jij op het eerste zicht wat dit doet?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">tryToLoginAmountOfTimes</span>(<span style="color:#66d9ef">const</span> User <span style="color:#f92672">&amp;</span>user, <span style="color:#66d9ef">int</span> maxTimes) {
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> maxTimes; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span>(user.tryToLogin()) {
+            <span style="color:#66d9ef">return</span>;
+        }
+        wait();
+    }
+}</code></pre></div>
+<p>Subtiele verschillen maken vaak een wereld van verschil:</p>
+
+<ul>
+<li>Naamgeving is zéér belangrijk.</li>
+<li>Objecten die niet gewijzigd mogen worden voorzie je van <code>const</code>.</li>
+<li>Bad practices als <code>break</code> worden vermeden.</li>
+<li>Formattering in code maakt het lezen aangenamer.</li>
+<li>Denk na over de juiste plaats: waarom parameters doorgeven als <code>login</code> bij de gebruiker klasse kan horen?</li>
+</ul>
+
+<p><strong>Kritisch denken</strong> brengt je een heel eind. Wees streng genoeg: stel constant de vraag &ldquo;is dit wel nodig?&rdquo;. <code>maxTimes</code> is bijvoorbeeld nutteloos als de methode altijd aangeroepen wordt met eenzelfde constante waarde.</p>
+
+<p>Een laatste voorbeeld uit de realiteit gegrepen:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">PermissionItem CreatePermission(<span style="color:#66d9ef">const</span> std::<span style="color:#66d9ef">string</span>&amp; key, <span style="color:#66d9ef">bool</span> visible, <span style="color:#66d9ef">const</span> DBType type = DBType.Default) { }
+
+<span style="color:#75715e">// gebruik:
+</span><span style="color:#75715e"></span>auto pi1 = CreatePermission(<span style="color:#e6db74">&#34;some_key&#34;</span>, <span style="color:#66d9ef">true</span>);
+auto pi2 = CreatePermission(<span style="color:#e6db74">&#34;bla_key&#34;</span>, <span style="color:#66d9ef">false</span>, DBType.Default);
+
+PermissionItem CreateVisiblePermission(<span style="color:#66d9ef">const</span> std::<span style="color:#66d9ef">string</span>&amp; key) { }
+PermissionItem CreateInvisiblePermission(<span style="color:#66d9ef">const</span> std::<span style="color:#66d9ef">string</span>&amp; key) { }
+
+<span style="color:#75715e">// gebruik:
+</span><span style="color:#75715e"></span>auto pi1 = CreateVisiblePermission(<span style="color:#e6db74">&#34;some_key&#34;</span>);
+auto pi2 = CreateInvisiblePermission(<span style="color:#e6db74">&#34;bla_key&#34;</span>);
+</code></pre></div>
+<p>Het verschil is hemel en aarde:</p>
+
+<ol>
+<li>Het woord &ldquo;visible&rdquo; of &ldquo;invisible&rdquo; in de methodenaam <strong>verduidelijkt</strong> enorm veel. Vermijd altijd magische <code>bool</code> flags! Vergeet niet dat de methode definitie ergens in een header file leeft en er naar navigeren om te begrijpen wat welk argument doet véél tijd kost.</li>
+<li>Wees kritisch met parameters. Als een parameter altijd met default waardes wordt meegegeven kan je het net zo goed weglaten.</li>
+</ol>
+
+<p>Zie ook de verkorte <a href="https://wgroeneveld.github.io/cleancode-course/">Clean Code cursus</a> slides.</p>
+
+<h2 id="software-testen">Software Testen</h2>
+
+<p>Hoe weet ik of mijn feature in de software wel werkt? <br/>
+Door het te testen.</p>
+
+<h3 id="acceptatie-testen">Acceptatie testen</h3>
+
+<p>De eenvoudigste manier waarop je tot nu toe altijd tewerk bent gegaan is een vorm van &ldquo;acceptatie testen&rdquo;: het programma simpelweg proberen opstarten en navigeren tot waar je de code wijziging hebt doorgevoerd. Dit werkt natuurlijk, maar brengt een aantal nadelen met zich mee:</p>
+
+<ol>
+<li>Tijdverlies. Constant moeten navigeren tot aan het scherm waar je aan gewerkt hebt kan minuten in beslag nemen bij grote programma&rsquo;s.</li>
+<li>Vervelend. Je verliest je aandacht na een tijdje vanwege het herhaaldelijk werk dat eigenlijk geautomatiseerd kan worden.</li>
+</ol>
+
+<p>Natuurlijk veronderstelt men dat je tenminste één keer je programma <em>end-to-end</em> hebt doorlopen om controles uit te voeren, maar niet constant bij het schrijven van elke nieuwe lijn code. Wat zijn de alternatieven?</p>
+
+<h3 id="debug-statements">Debug statements</h3>
+
+<p>Een mogelijkheid is <code>cout &lt;&lt; var &lt;&lt; endl</code> rondstrooien, hopelijk met een of andere vorm van <code>#ifdef _DEBUG</code>, maar zoals Peter Ritchie zegt: &ldquo;If You’re Using “#if DEBUG”, You’re Doing it Wrong&rdquo;.</p>
+
+<p>Herinner je de belangrijkheid van Clean Code. Je Code is alles behalve Clean als het vol staat met debug statements om te controleren of een variabele een bepaalde state heeft dat jij niet kan achterhalen. Daar dient de debugger zelf voor (zie later).</p>
+
+<h3 id="unit-testen">Unit testen</h3>
+
+<p>Met een &ldquo;unit test&rdquo; automatiseer je in feite een klein stuk van een acceptatie scenario dat je zelf samenstelt. Met frameworks als <a href="https://github.com/google/googletest/blob/master/googletest/docs/primer.md">Google Test</a> schrijf je in code wat je verwacht dat bepaalde functies teruggeven in termen van <strong>gedrag</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">Factorial</span>(<span style="color:#66d9ef">int</span> n);  <span style="color:#75715e">// Returns the factorial of n
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Tests factorial of 0.
+</span><span style="color:#75715e"></span>TEST(FactorialTest, HandlesZeroInput) {
+  EXPECT_EQ(Factorial(<span style="color:#ae81ff">0</span>), <span style="color:#ae81ff">1</span>);
+}
+
+<span style="color:#75715e">// Tests factorial of positive numbers.
+</span><span style="color:#75715e"></span>TEST(FactorialTest, HandlesPositiveInput) {
+  EXPECT_EQ(Factorial(<span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">1</span>);
+  EXPECT_EQ(Factorial(<span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">2</span>);
+  EXPECT_EQ(Factorial(<span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">6</span>);
+  EXPECT_EQ(Factorial(<span style="color:#ae81ff">8</span>), <span style="color:#ae81ff">40320</span>);
+}</code></pre></div>
+<p>Google Test is deel van het xUnit framework dat we kennen in de Java wereld van JUnit. Zie bovenstaande link voor assertion documentatie. <a href="https://github.com/google/googletest/releases">Download De laatste Google Test Release</a> op Github.</p>
+
+<h4 id="in-clion">In CLion</h4>
+
+<p><img src="../../img/teaching/cpp/clion_gtest.png" class="bordered" /></p>
+
+<p>Volg de volgende stappen:</p>
+
+<ul>
+<li>Download en compileer googletest:
+
+<ul>
+<li>Download een release of clone de github repository</li>
+<li><code>cd googletest</code></li>
+<li>Maak een build directory: <code>mkdir build</code> <strong>in de map googletest</strong></li>
+<li>Build cmake: <code>cd build &amp;&amp; cmake ./../</code></li>
+<li>Build google test: <code>make</code>. Dit geeft <code>libgtest.a</code> en <code>libgtest_main.a</code><br /></li>
+</ul></li>
+<li>Integreer googletest in je CLion project met CMake:
+
+<ul>
+<li>Include de gtest headers met <code>include_directories()</code></li>
+<li>Link de libraries met <code>target_link_libraries()</code></li>
+<li>En (voor later) voorzie een omgevingsvariabele <code>$GTEST_DIR</code>.</li>
+</ul></li>
+</ul>
+
+<p>Het CMakeLists.txt ziet er dan als volgt uit:</p>
+
+<pre>
+cmake_minimum_required(VERSION 3.10)
+project(unittest)
+
+SET(google_test_dir "/Users/wgroenev/CLionProjects/googletest-release-1.8.0/googletest")
+include_directories(${google_test_dir}/include)
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(unittest main.cpp test.cpp)
+target_link_libraries(unittest ${google_test_dir}/build/libgtest.a ${google_test_dir}/build/libgtest_main.a)
+</pre>
+
+<p>Merk op dat we googlemock achterwege laten, de repository bevat 2 test frameworks. Om testen uit te voeren heb je een main functie nodig die google test opstart:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">// main.cpp
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;gtest/gtest.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+    <span style="color:#f92672">::</span>testing<span style="color:#f92672">::</span>InitGoogleTest(<span style="color:#f92672">&amp;</span>argc, argv);
+    <span style="color:#66d9ef">return</span> RUN_ALL_TESTS();
+}</code></pre></div>
+<p>De testen in de screenshot leven in test.cpp:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">// test.cpp
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;gtest/gtest.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> one, <span style="color:#66d9ef">int</span> two) {
+    <span style="color:#66d9ef">return</span> one <span style="color:#f92672">+</span> two;
+}
+
+class SuiteName : public <span style="color:#f92672">::</span>testing<span style="color:#f92672">::</span>Test {
+    <span style="color:#75715e">// setup en teardown hier
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#75715e">// gebruik bovenstaande suite
+</span><span style="color:#75715e"></span>TEST_F(SuiteName, TrueIsTrue) {
+    EXPECT_TRUE(true);
+}
+<span style="color:#75715e">// losstaande test
+</span><span style="color:#75715e"></span>TEST(AddTest, ShouldAddOneAndTo) {
+    EXPECT_EQ(add(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">5</span>);
+}</code></pre></div>
+<h4 id="in-commandline-met-cmake">In commandline met CMake</h4>
+
+<p>Bovenstaande procedure moet je ook volgen los van CLion. De binary die uit het build proces komt voert alle testen uit (zie main code). Testen worden commandline uitgevoerd:</p>
+
+<pre>
+Wouters-MacBook-Air:unittest wgroenev$ ./cmake-build-debug/unittest
+[==========] Running 2 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from SuiteName
+[ RUN      ] SuiteName.TrueIsTrue
+[       OK ] SuiteName.TrueIsTrue (0 ms)
+[----------] 1 test from SuiteName (0 ms total)
+
+[----------] 1 test from AddTest
+[ RUN      ] AddTest.ShouldAddOneAndTo
+/Users/wgroenev/CLionProjects/unittest/test.cpp:18: Failure
+      Expected: add(1, 2)
+      Which is: 3
+To be equal to: 5
+[  FAILED  ] AddTest.ShouldAddOneAndTo (0 ms)
+[----------] 1 test from AddTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 2 test cases ran. (0 ms total)
+[  PASSED  ] 1 test.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] AddTest.ShouldAddOneAndTo
+
+ 1 FAILED TEST
+</pre>
+
+<p>Enkele verbeterpunten:</p>
+
+<ul>
+<li>Het is vervelend dat je de gtest libraries manueel moet builden. <a href="https://crascit.com/2015/07/25/cmake-gtest/">CMake kan dit ook automatisch</a></li>
+<li>Je main binary voert nu testen uit in plaats van productie code. Een typisch C++ project is opgesplitst in een map <code>src</code> en een map <code>test</code>, en build 2 binaries. <a href="../../teaching/cpp/unittest_example.zip">Download hier een voorbeeld</a> met opgesplitste CMake files.</li>
+</ul>
+
+<h3 id="regressie-tegen-gaan-met-testen">Regressie tegen gaan met testen</h3>
+
+<p>Een bug oplossen betekent niet dat deze bug nooit meer kan voorkomen. Zeker wanneer je met meerdere mensen aan dezelfde source code werkt, kan het zijn dat per ongeluk bepaalde wijzigingen de bug laten terugkomen. Dit noemt men &ldquo;regressie&rdquo; en is een hel voor klanten die betalen voor software!</p>
+
+<p>Regressie is eenvoudig tegen te gaan met unit testen. Een test die faalt alarmeert onmiddellijk iemand dat bepaalde verwachte functionaliteit niet meer werkt. Een geïntegreerde build server zorgt voor het automatisch opvolgen van die testen.</p>
+
+<p>Gegeven de volgende klasse:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">class Interval {
+private:
+    <span style="color:#66d9ef">int</span> begin, einde;
+public:
+    Interval(<span style="color:#66d9ef">int</span> begin, <span style="color:#66d9ef">int</span> einde) <span style="color:#f92672">:</span> begin(begin), einde(einde) {}
+    <span style="color:#66d9ef">bool</span> inclusief(<span style="color:#66d9ef">int</span> ander) {
+        <span style="color:#66d9ef">return</span> ander <span style="color:#f92672">&gt;</span> begin <span style="color:#f92672">&amp;&amp;</span> ander <span style="color:#f92672">&lt;=</span> einde;
+    }
+};</code></pre></div>
+<p>We verwachten dat voor een interval [5-10] de getallen 5 en 10 ook nog in die range zitten. Dit zijn de testen voor de functie <code>inclusief()</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">class IntervalSuite : public <span style="color:#f92672">::</span>testing<span style="color:#f92672">::</span>Test {
+protected:
+    Interval <span style="color:#f92672">*</span>interval;
+protected:
+    virtual <span style="color:#66d9ef">void</span> TearDown() {
+        delete interval;
+    }
+
+    virtual <span style="color:#66d9ef">void</span> SetUp() {
+        interval <span style="color:#f92672">=</span> new Interval(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>);
+    }
+};
+
+TEST_F(IntervalSuite, BeginZitInInterval) {
+    ASSERT_TRUE(interval<span style="color:#f92672">-&gt;</span>inclusief(<span style="color:#ae81ff">5</span>));
+}
+TEST_F(IntervalSuite, EindeZitInInterval) {
+    ASSERT_TRUE(interval<span style="color:#f92672">-&gt;</span>inclusief(<span style="color:#ae81ff">10</span>));
+}
+TEST_F(IntervalSuite, GetalTussenBeginEnEindeZitInInterval) {
+    ASSERT_TRUE(interval<span style="color:#f92672">-&gt;</span>inclusief(<span style="color:#ae81ff">7</span>));
+}
+TEST_F(IntervalSuite, GetalGroterDanEindeZitNietInInterval) {
+    ASSERT_FALSE(interval<span style="color:#f92672">-&gt;</span>inclusief(<span style="color:#ae81ff">70</span>));
+}
+TEST_F(IntervalSuite, GetalKleinerDanBeginZitNietInInterval) {
+    ASSERT_FALSE(interval<span style="color:#f92672">-&gt;</span>inclusief(<span style="color:#ae81ff">2</span>));
+}</code></pre></div>
+<p>Waarvan <code>BeginZitInInterval</code> faalt. Verander in de implementatie <code>&gt;</code> door <code>&gt;=</code> en de suite zorgt er voor dat deze code altijd correct is.</p>
+
+<h3 id="debuggen-in-c">Debuggen in C++</h3>
+
+<p>De stack bekijken, lokale variabelen inspecteren, &hellip; kennen we van IDEs als NetBeans of IntelliJ. In CLion is dit exact hetzelfde. Zet een breakpoint in productie code en stap er door met de ingebouwde debugging tools:</p>
+
+<p><img src="../../img/teaching/cpp/clion_debugging.png" class="bordered" /></p>
+
+<h4 id="handmatig">Handmatig</h4>
+
+<p>De compiler toolchain voorziet een commandline debugger <code>gdb</code>. Daarvoor moet je debug informatie genereren bij compilatie met <code>g++</code> flag <code>-g</code>. De tool is vrij rudimentair in gebruik. Zie <a href="https://www.gnu.org/software/gdb/documentation/">documentatie</a> voor informatie rond commando&rsquo;s.</p>
+
+<h2 id="a-name-oef-a-labo-oefeningen"><a name="oef"></a>Labo oefeningen</h2>
+
+<p>Er wordt verwacht aan unit testen te denken voor (simpele) logica. Experimenteer dus eerst met Google Test en probeer de voorbeelden op deze pagina zelf. Maak voor de oefeningen een nieuwe Github repository aan, of een nieuwe submap in een bestaande als dat al gebeurd is.</p>
+
+<ol>
+<li>Gegeven het <a href="../../teaching/cpp/labo-7-analyse1.txt">volgende analyse document</a>: werk een implementatie uit. Begin met een model te tekenen en denk aan de relaties!</li>
+<li>Compileer Google Test <a href="../../extra/installaties">volgens de instructies</a>. <br/><a href="../../teaching/cpp/labo-7-unittest.zip">Download het CMake startproject</a> - open dit in CLion. Voorzie de <code>operator +</code> methode, die een nieuw interval berekent door de som te nemen van beide intervallen. <br/>Dus: <code>[3, 7]</code> + <code>[4, 9]</code> = <code>[3, 9]</code>. <br/>Schrijf <strong>eerst unit testen</strong> in GTest hiervoor, en denk aan <em>alle</em> mogelijke gevallen (elk geval is een nieuwe test). Wat met dezelfde beginwaardes? Of met negatieve waardes?</li>
+<li>Gegeven <a href="../../teaching/cpp/labo-7-analyse2.txt">de vervolganalyse</a>. Herwerk je implementatie en breid uit.</li>
+</ol>
+
+<h2 id="denkvragen">Denkvragen</h2>
+
+<ol>
+<li>Hoe komt het dat bij <code>TEST_F(Suite, TestNaam)</code> de test naam niet tussen quotes moet?</li>
+<li>Waarom is in het test suite voorbeeld <code>*Interval</code> een pointer en geen gewone instance van de klasse <code>Interval</code>? In dat geval hoeven we toch geen <code>delete</code> uit te voeren en is de tear down methode irrelevant&hellip;</li>
+<li>Bouw een repliek op tegen de stelling <em>&ldquo;code is code: kwaliteit is enkel ijdelheid&rdquo;</em>. Beargumenteer met minstens 3 voorbeelden.</li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../cpp/labo-6/" title="Labo 6: C&#43;&#43; Class Inheritance, operators en templates"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../gba-in-cpp/" title="4. GBA Programming in C&#43;&#43;" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1602585869"></script>
+    <script src="../../js/jquery.sticky.js?1602585869"></script>
+    <script src="../../js/featherlight.min.js?1602585869"></script>
+    <script src="../../js/highlight.pack.js?1602585869"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1602585869"></script>
+    <script src="../../js/learn.js?1602585869"></script>
+    <script src="../../js/hugo-learn.js?1602585869"></script>
+
+    <link href="../../mermaid/mermaid.css?1602585869" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1602585869"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

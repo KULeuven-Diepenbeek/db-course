@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3. Introductie in C&#43;&#43; on Software Ontwerp in C(&#43;&#43;)</title>
+    <link>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/</link>
+    <description>Recent content in 3. Introductie in C&#43;&#43; on Software Ontwerp in C(&#43;&#43;)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    
+	<atom:link href="https://kuleuven-diepenbeek.github.io/cpp-course/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Voorbereiding Thuis</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/prep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/prep/</guid>
+      <description> Installaties Volg de installatieinstructies en zorg ervoor dat:
+ CMake geïnstalleerd is een C++ compiler geïnstalleerd is De google test instructies doorgelopen zijn en geïnstalleerd is  Controle  Controleer of g++ werkt in cmdline. Download gcctest.cpp en compileer het met de g++ compiler (++ gcctest.cpp &amp;amp;&amp;amp; ./a.out). Is de output &amp;ldquo;het werkt!&amp;rdquo;, dan is alles ok.  </description>
+    </item>
+    
+    <item>
+      <title>Labo 5: Weg met C, Hallo C&#43;&#43;</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-5/</guid>
+      <description>De ++ in C++ De introductie van C++ in 1985 geeft de ervaren C programmeur enkele extra mogelijkheden om zijn of haar code te structureren. C++ wordt nog steeds omschreven als een &amp;ldquo;general purpose&amp;rdquo; low-level taal op Wikipedia:
+ C++ is a general-purpose programming language. It has imperative, object-oriented and generic programming features, while also providing facilities for low-level memory manipulation.
+ &amp;ldquo;Object-oriented&amp;rdquo; en &amp;ldquo;generic&amp;rdquo; zijn de sleutelwoorden hier. De C++ taal is geschreven als een extensie van C waarbij high-level features gebruikt kunnen worden om code te structureren.</description>
+    </item>
+    
+    <item>
+      <title>Labo 6: C&#43;&#43; Class Inheritance, operators en templates</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-6/</guid>
+      <description>C++ Classes revisited Nu je een basis van klassen hebt opgedaan in C++ gaan we erving introduceren. Gegeven de volgende modellen:
+mermaid.initialize({ startOnLoad: true, flowchart: { useMaxWidth: true } });  graph TD; A[Dier] B[Viervoeter] C[Hond] D[Kat] E[Vlinder] F[Vlees] G[Groenten] H[Voedsel] B -- A C -- B D -- B E -- A F -- H G -- H  Gegeven de volgende acceptatie criteria:
+ Elk dier kan een aantal centimeter bewegen.</description>
+    </item>
+    
+    <item>
+      <title>Labo 7: Software ontwerpen</title>
+      <link>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/cpp-course/cpp/labo-7/</guid>
+      <description>Een programmeertaal als C++ leren vereist het achteroverslaan van heel wat syntaxtische cryptologie als decltype(), template&amp;lt;typename T&amp;gt; en *(x-&amp;gt;o). Met programmeren alleen kom je er echter niet: software ontwerpen vereist heel wat meer inzicht dan de juiste code op de juiste plaats typen.
+Software Modelleren Als software ontwikkelaar ben jij de uitvoerende kracht die vereisten van de klant implementeert in het software systeem. Een analist staat tussen de klant en de ontwikkelaar in die de vertaalslag tussen de grillen van klanten en vereisten in de vorm van business regels maakt.</description>
+    </item>
+    
+  </channel>
+</rss>

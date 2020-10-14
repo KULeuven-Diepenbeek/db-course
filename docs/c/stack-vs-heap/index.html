@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Labo 2b: De stack VS de heap :: Software Ontwerp in C(&#43;&#43;)</title>
+
+    
+    <link href="../../css/nucleus.css?1602585869" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/hybrid.css?1602585869" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1602585869" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1602585869" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1602585869" rel="stylesheet">
+    <link href="../../css/theme.css?1602585869" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1602585869" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1602585869" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1602585869"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="/c/stack-vs-heap/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1602585869"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1602585869"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/cpp-course\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1602585869"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <h3><a href="../../">Inhoudsopgave</a></h3>
+    <ul class="topics">
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../hoorcolleges/">
+          Hoorcolleges
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-1/" title="1. Introductie in C/C&#43;&#43;: context, ecosysteem" class="dd-item ">
+        <a href="../../hoorcolleges/slides-1/">
+        1. Introductie in C/C&#43;&#43;: context, ecosysteem
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-2/" title="2. Pointers in C, dynamisch geheugen in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-2/">
+        2. Pointers in C, dynamisch geheugen in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-3/" title="3. Introductie in Object-Georiënteerd denken in C&#43;&#43;" class="dd-item ">
+        <a href="../../hoorcolleges/slides-3/">
+        3. Introductie in Object-Georiënteerd denken in C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info" class="dd-item ">
+        <a href="../../hoorcolleges/slides-4/">
+        4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/c/" title="1. Introductie in C" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../c/">
+          1. Introductie in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-1/" title="Labo 1: Introductie in C" class="dd-item ">
+        <a href="../../c/labo-1/">
+        Labo 1: Introductie in C
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/labo-2/" title="Labo 2: Pointers in C en C&#43;&#43;" class="dd-item ">
+        <a href="../../c/labo-2/">
+        Labo 2: Pointers in C en C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/c/stack-vs-heap/" title="Labo 2b: De stack VS de heap" class="dd-item active">
+        <a href="../../c/stack-vs-heap/">
+        Labo 2b: De stack VS de heap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-c/" title="2. GBA programming in C" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../gba-in-c/">
+          2. GBA programming in C
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-c/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-3/" title="Labo 3: Introductie in GBA Programming" class="dd-item ">
+        <a href="../../gba-in-c/labo-3/">
+        Labo 3: Introductie in GBA Programming
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-c/labo-4/" title="Labo 4: GBA Tilesets, een simpel spel" class="dd-item ">
+        <a href="../../gba-in-c/labo-4/">
+        Labo 4: GBA Tilesets, een simpel spel
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/cpp/" title="3. Introductie in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../cpp/">
+          3. Introductie in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-5/" title="Labo 5: Weg met C, Hallo C&#43;&#43;" class="dd-item ">
+        <a href="../../cpp/labo-5/">
+        Labo 5: Weg met C, Hallo C&#43;&#43;
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-6/" title="Labo 6: C&#43;&#43; Class Inheritance, operators en templates" class="dd-item ">
+        <a href="../../cpp/labo-6/">
+        Labo 6: C&#43;&#43; Class Inheritance, operators en templates
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/cpp/labo-7/" title="Labo 7: Software ontwerpen" class="dd-item ">
+        <a href="../../cpp/labo-7/">
+        Labo 7: Software ontwerpen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/gba-in-cpp/" title="4. GBA Programming in C&#43;&#43;" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../gba-in-cpp/">
+          4. GBA Programming in C&#43;&#43;
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/prep/" title="Voorbereiding Thuis" class="dd-item ">
+        <a href="../../gba-in-cpp/prep/">
+        Voorbereiding Thuis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-8/" title="Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-8/">
+        Labo 8: GBA Programming in C&#43;&#43;: een abstractielaag
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-9/" title="Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-9/">
+        Labo 9: GBA Programming in C&#43;&#43;: scrolling backgrounds
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-10/" title="Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-10/">
+        Labo 10: Een introductie in GUI ontwerp met C&#43;&#43; in Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/gba-in-cpp/labo-11/" title="Labo 11: een GBA spel porten naar Qt" class="dd-item ">
+        <a href="../../gba-in-cpp/labo-11/">
+        Labo 11: een GBA spel porten naar Qt
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/extra/" title="5. Extras" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../extra/">
+          5. Extras
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
+        <a href="../../extra/project/">
+        Project opdracht
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/cheatsheet/" title="C Cheat Sheet" class="dd-item ">
+        <a href="../../extra/cheatsheet/">
+        C Cheat Sheet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/buildsystems/" title="Een introductie in C(&#43;&#43;) Build Systemen" class="dd-item ">
+        <a href="../../extra/buildsystems/">
+        Een introductie in C(&#43;&#43;) Build Systemen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/faq/" title="FAQ" class="dd-item ">
+        <a href="../../extra/faq/">
+        FAQ
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/installaties/" title="Installatieinstructies" class="dd-item ">
+        <a href="../../extra/installaties/">
+        Installatieinstructies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/extra/poll/" title="Poll: Ben ik klaar voor mijn examen?" class="dd-item ">
+        <a href="../../extra/poll/">
+        Poll: Ben ik klaar voor mijn examen?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../c/'>1. Introductie in C</a> > Labo 2b: De stack VS de heap
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#de-stack-en-de-heap">De Stack en de Heap</a>
+<ul>
+<li><a href="#program-memory">Program Memory</a></li>
+<li><a href="#the-stack">The Stack</a></li>
+<li><a href="#the-heap">The Heap</a></li>
+<li><a href="#inspecting-program-memory-in-the-os">Inspecting program memory in the OS</a></li>
+<li><a href="#should-i-use-the-stack-or-the-heap">Should I use the stack or the heap?</a></li>
+</ul></li>
+<li><a href="#memory-management">Memory management</a>
+<ul>
+<li><a href="#freeing-up-space">Freeing up space</a></li>
+<li><a href="#dangling-pointers">Dangling pointers</a></li>
+<li><a href="#garbage-collection-not-happening-in-c">Garbage Collection - not happening in C&hellip;</a></li>
+<li><a href="#what-happens-when-the-stack-and-heap-collide">What happens when the stack and heap collide?</a></li>
+<li><a href="#what-s-a-stack-overflow">What&rsquo;s a stack overflow?</a></li>
+</ul></li>
+<li><a href="#optimizing-c-code">Optimizing C code</a>
+<ul>
+<li>
+<ul>
+<li><a href="#compiler-flags">Compiler flags</a></li>
+<li><a href="#volatile">volatile</a></li>
+<li><a href="#function-call-order">Function call order</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Labo 2b: De stack VS de heap
+            </h1>
+          
+
+        
+
+
+
+
+<h2 id="de-stack-en-de-heap">De Stack en de Heap</h2>
+
+<p>Dit hoofdstuk is een kopie van <a href="https://kuleuven-diepenbeek.github.io/osc-course/ch8-stack/stackvsheap/">hoofdstuk 8.1: Stack VS Heap</a> uit het vak Besturingssystemen en C voor 2de bachelor ICT/Electronica. Voor het vak Softwareontwerp in C/C++ wordt er eveneens verwacht de nodige kennis te bezitten over de werking van de stack en de heap.</p>
+
+<p>Optionele begeleidende videos en oefeningen zijn beschikbaar in hoofdstuk 8.2 en 8.3 in bovesntaande cursus.</p>
+
+<h3 id="program-memory">Program Memory</h3>
+
+<div>
+    <span style="float: left; width: 70%">
+        Compiled computer programs are divided into different sections, each with their own specific needs and properties. Together, they form the <strong>program memory</strong>.<br/>
+        The following image represents these sections, from bottom to top:
+
+        <ol>
+            <li>
+                <strong>text</strong><br/>
+                Read-only, fixed size. Contains executable instructions.
+            </li>
+            <li>
+                <strong>data</strong><br/>
+                Can be modified. Contains global or static variables that are initialized, such as <code>static int i = 5;</code>. Global variables are variables that live outside of any function scope, and are accessible everywhere, such as <code>int i = 5; int main() { printf("%d", i); }</code>. 
+            </li>
+            <li>
+                <strong>bss</strong><br/>
+                Can be modified. Contains <em>uninitialized</em> data, such as <code>static int i;</code>.
+            </li>
+            <li>
+                <strong>heap</strong><br/>
+                Dynamically growing. Contains data maintained by <code>malloc()</code> and <code>free()</code>, meaning most pointer variables. The heap is shared by all threads, shared librarys, and dynamically loaded modules in a process. Can be modified while the process is running. 
+            </li>
+            <li>
+                <strong>stack</strong><br/>
+                Set size. Contains <em>automatic variables</em>: variables created when (automatically) entered a function, such as <code>int main() { int i = 5; }</code>. Can be modified manually using the command <code>ulimit</code> - but this cannot be modified once the process is running. 
+            </li>
+        </ol>
+    </span>
+    <span style="float: right; width: 30%">
+        <img src="../../img/Program_memory_layout.pdf.jpg" title="Source: Wikipedia" />
+    </span>
+</div>
+<div style="clear: both;">&nbsp; </div>
+
+<h3 id="the-stack">The Stack</h3>
+
+<p>Besides (automatic) variables, a few more important things also live in the stack section of the program. These are the <strong>stack pointer</strong> (SP) and the &lsquo;program stack&rsquo; itself.</p>
+
+<p>Contrary to initialized pointers, arrays within functions are also bound to the stack, such as <code>char line[512];</code>.</p>
+
+<h3 id="the-heap">The Heap</h3>
+
+<p>Contrary to arrays, initialized pointers are bound to the heap, such as <code>char* line = malloc(sizeof(char) * 10)</code> - <em>except for</em> pointer values that are being assigned directly with a string constant such as <code>char* line = &quot;hello&quot;;</code>. Freeing the last line would result in the error <em>munmap_chunk(): invalid pointer</em>.</p>
+
+<p>The usage of <code>malloc()</code> and such is required if you want to reserve space on the heap. <a href="https://www.tutorialspoint.com/c_standard_library/c_function_memcpy">memcpy()</a> from <code>&lt;string.h&gt;</code> makes it possible to copy values from the stack to the heap, without having to reassign every single property. Make sure to reserve space first!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Data {
+    <span style="color:#66d9ef">int</span> one;
+    <span style="color:#66d9ef">int</span> two;
+} Data;
+
+Data<span style="color:#f92672">*</span> <span style="color:#a6e22e">from_stack</span>() {
+    Data data <span style="color:#f92672">=</span> { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> };
+    Data <span style="color:#f92672">*</span>heap_data <span style="color:#f92672">=</span> malloc(<span style="color:#66d9ef">sizeof</span>(Data));
+    memcpy(heap_data, <span style="color:#f92672">&amp;</span>data, <span style="color:#66d9ef">sizeof</span>(Data));
+    <span style="color:#66d9ef">return</span> heap_data;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    Data<span style="color:#f92672">*</span> heap <span style="color:#f92672">=</span> from_stack();
+    printf(<span style="color:#e6db74">&#34;one: %d, two: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, heap<span style="color:#f92672">-&gt;</span>one, heap<span style="color:#f92672">-&gt;</span>two);
+}</code></pre></div>
+<p>This is called creating a <strong>deep copy</strong>, while a <strong>shallow copy</strong> creates a copy of a pointer, still pointing to the same value in memory space.</p>
+
+
+<div class="ex">
+	<div class="inner">
+    	<p>What happens when you omit <code>malloc()</code> and simply write <code>Data *heap_data = memcpy(heap_data, &amp;data, sizeof(Data));</code>?</p>
+
+	</div>
+</div>
+
+<p>As another side node, it is possible to resize variables on the heap, using <code>realloc()</code>. This is simply not possible on the stack: they cannot be resized. Also, using <a href="https://www.tutorialspoint.com/c_standard_library/c_function_calloc.htm">calloc</a> instead of malloc initializes the allocated memory to zero instead of &ldquo;nothing&rdquo;. So now you know how to use <code>malloc</code>, <code>calloc</code>, <code>realloc</code>, and <code>free</code>.</p>
+
+<h3 id="inspecting-program-memory-in-the-os">Inspecting program memory in the OS</h3>
+
+<p>Unix-like operating systems implement <a href="https://en.wikipedia.org/wiki/Procfs">procfs</a>, a special filesystem mapped to <code>/proc</code>, that makes it easy for us to inspect program running program state. You will need the process ID (PID) as it is the subdir name. Interesting files to inspect are:</p>
+
+<ul>
+<li><code>/proc/PID/maps</code>, a text file containing information about mapped files and blocks (like heap and stack).</li>
+<li><code>/proc/PID/mem</code>, a binary image representing the process&rsquo;s virtual memory, can only be accessed by a ptrace&rsquo;ing process.</li>
+</ul>
+
+<p>We will take a closer look at these during the labs.</p>
+
+<p>Mac OSX Does not have <em>procfs</em>. Instead, you will have to rely on commandline tools such as <code>sysctl</code> to query process information.</p>
+
+<h3 id="should-i-use-the-stack-or-the-heap">Should I use the stack or the heap?</h3>
+
+<p>Good question. The answer is obviously <strong>both</strong>. Use the stack when:</p>
+
+<ul>
+<li>You do not want to de-allocate variables yourself.</li>
+<li>You need speed (space is managed efficiently by the CPU).</li>
+<li>Variable size is static.</li>
+</ul>
+
+<p>Use the heap when:</p>
+
+<ul>
+<li>You require a large amount of space (virtually no memory limit).</li>
+<li>You don&rsquo;t mind a bit slower access (fragmentation problems can occur).</li>
+<li>You want to pass on (global) objects between functions.</li>
+<li>You like managing things yourself.</li>
+<li>Variable size could be dynamic.</li>
+</ul>
+
+<p>What piece of code could be <em>dynamic</em> in size? Data structures, such as linked lists from <a href="../../ch3-pointers">chapter 3: pointers and arrays</a>, are a good candidate for this: arrays, sets, maps, and any other form of collection can grow and shrink in size, therefore need dynamic memory mapped. Using <code>[]</code> will, in most cases, not suffice in the C programming language, unless you are doing something very simple.</p>
+
+<h2 id="memory-management">Memory management</h2>
+
+<h3 id="freeing-up-space">Freeing up space</h3>
+
+<p>In order to create an instance of a structure and return it, you have to allocate memory using <code>malloc()</code> from <code>&lt;stdlib.h&gt;</code> - we now that already. In contrast with higher level languages such as Java, C requires programmes to clean up the allocaed memory themselves! This means calling <code>free()</code> to free up the space for future use. For instance:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">struct</span> Stuff {
+    <span style="color:#66d9ef">int</span> number;
+};
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Stuff Stuff;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">do_nasty_things</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    Stuff<span style="color:#f92672">*</span> ugly <span style="color:#f92672">=</span> malloc(<span style="color:#66d9ef">sizeof</span>(Stuff));
+    ugly<span style="color:#f92672">-&gt;</span>number <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    do_nasty_things();
+    <span style="color:#75715e">// other things
+</span><span style="color:#75715e"></span>}</code></pre></div>
+<p>As soon as the method <code>do_nasty_things()</code> ends, <code>ugly</code> is not accessible anymore because it was not returned and there are no other references to it. However, after the function, memory is still reserved for it. To counter <strong>memory leaks</strong> such as these, you can do a few things:</p>
+
+<ol>
+<li>Keep things <em>local</em>, by keeping things on the stack. The Stack, for that function, will be cleared after calling it. Change <code>Stuff*</code> to <code>Stuff</code>.</li>
+<li>Free the pointer space at the end of the function by calling <code>free(ugly)</code>.</li>
+</ol>
+
+<p>Since this is a small program that ends after <code>main()</code> statements are executed, it does not matter much. However, programs with a main loop that require a lot of work can also contain memory leaks. If that is the case, leak upon leak will cause the program to take op too much memory and simply freeze.</p>
+
+<p>Do not make the mistake to free up stack memory, such as in this nice example, from the &lsquo;<a href="https://www.acodersjourney.com/top-20-c-pointer-mistakes/">Top 20 C pointer mistakes</a>&lsquo;:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p1;
+  <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;  <span style="color:#75715e">// stack var
+</span><span style="color:#75715e"></span>  p1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>m;      <span style="color:#75715e">// pointer to stack var
+</span><span style="color:#75715e"></span>
+  free(p1);     <span style="color:#75715e">// BOOM headshot!
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}</code></pre></div>
+<pre>
+a.out(83471,0x7fff7e136000) malloc: *** error for object 0x7fff5a24046c: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6    
+</pre>
+
+<h3 id="dangling-pointers">Dangling pointers</h3>
+
+<p>A second mistake could be that things <em>are</em> indeed being freed, but pointers still refer to the freed up space, which is now being rendered invalid. This is called a <strong>dangling pointer</strong>, and can happen both on the heap (while <em>dereferencing</em> an invalid pointer after freeing up space):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p, <span style="color:#f92672">*</span>q, <span style="color:#f92672">*</span>r;
+p <span style="color:#f92672">=</span> malloc(<span style="color:#ae81ff">8</span>);
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>q <span style="color:#f92672">=</span> p;
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>free(p);
+r <span style="color:#f92672">=</span> malloc(<span style="color:#ae81ff">8</span>);
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>something <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>q; <span style="color:#f92672">//</span> aha<span style="color:#f92672">!</span> </code></pre></div>
+<p>, and on the stack (while <em>dereferencing</em> an invalid pointer after returning an address to a local variable that gets cleaned up because it resides on the stack):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>q;
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>() {
+    <span style="color:#66d9ef">int</span> a;
+    q <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    foo();
+    something <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>q; <span style="color:#75715e">// aha!
+</span><span style="color:#75715e"></span>}</code></pre></div>
+<h3 id="garbage-collection-not-happening-in-c">Garbage Collection - not happening in C&hellip;</h3>
+
+<p>The above mistakes are easily made if you are used to Java:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    Animal cow <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Animal<span style="color:#f92672">();</span>
+    cow<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    foo<span style="color:#f92672">();</span>
+    <span style="color:#75715e">// cow instances are cleaned up for you...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div>
+<p>This cleaning process, that automatically frees up space in multiple parts of the allocated memory space, is called <strong>garbage collecting</strong>. <br/>
+And it is completely <em>absent</em> in C, so beware!</p>
+
+<h3 id="what-happens-when-the-stack-and-heap-collide">What happens when the stack and heap collide?</h3>
+
+<p>That is <strong>platform-dependent</strong> and will hopefully crash instead of cause all forms of pain. There are a few possibilities:</p>
+
+<ol>
+<li>Stack &ndash;&gt; heap. The C compiler will silently overwrite the heap datastructure! On modern OS systems, there are <strong>guard pages</strong> that prevent the stack from growing, resulting in a <em>segmentation fault</em>. Also, modern compilers throw exceptions such as <strong>stack overflow</strong> if you attempt to go outside the reserved space (= segfault).</li>
+<li>Heap &ndash;&gt; Stack. The <code>malloc()</code> implementation will notice this and return <code>NULL</code>. It is up to you to do something with that result.</li>
+</ol>
+
+
+<div class="ex">
+	<div class="inner">
+    	<p>Write a program with an infinite loop that puts stuff on the stack. What is the program output?<br/>
+Do the same with infinite malloc()&rsquo;s. What happens now?</p>
+
+	</div>
+</div>
+
+<h3 id="what-s-a-stack-overflow">What&rsquo;s a stack overflow?</h3>
+
+<p>The stack is a limited, but fast piece of program memory, made available for your program by the OS. The keyword here is <strong>limited</strong>. Unlike the heap, it will not dynamically grow, and it is typically hard-wired in the OS. Simply keeping on adding stuff to the stack, such as calling methods within methods without a stop condition (infinite recursion), will cause a stack overflow exception, signaling that the OS prevented your program from taking over everything:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// forward definition
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flow</span>();
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flow</span>() {  <span style="color:#75715e">// on the stack
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>; <span style="color:#75715e">// on the stack
+</span><span style="color:#75715e"></span>    flow();    <span style="color:#75715e">// keep on going
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    flow();
+}</code></pre></div>
+<p>This causes a <em>segmentation fault</em> on my OSX machine, signaling that it was killed by the OS. Add <code>printf()</code> statements to your liking.</p>
+
+<p>How do I know how big the stack can be on my OS? Use <code>ulimit -a</code> to find out:</p>
+
+<pre>
+outers-MacBook-Air:ch8-stack wgroeneveld$ ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+file size               (blocks, -f) unlimited
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 4864
+pipe size            (512 bytes, -p) 1
+stack size              (kbytes, -s) 8192           **BINGO**
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 709
+virtual memory          (kbytes, -v) unlimited
+</pre>
+
+<p>So it&rsquo;s <strong>8.19 MB</strong>.</p>
+
+<h2 id="optimizing-c-code">Optimizing C code</h2>
+
+<h4 id="compiler-flags">Compiler flags</h4>
+
+<p>Depending on your compiler and your target platform, the C compiler will try to optimize code by rearranging declarations and possibly even removing lines such as completely unused variables. The GNU and LLVM <code>gcc</code> compilers offer multiple levels of optimization that can be enabled by passing along <code>-O1</code>, <code>-O2</code>, and <code>-O3</code> flags (O = Optimize). Consider the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stuff</span>() {
+    <span style="color:#66d9ef">char</span> dingdong[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello? who&#39;s there?&#34;</span>;
+    printf(<span style="color:#e6db74">&#34;doing things</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    stuff();
+}</code></pre></div>
+<p><code>stuff</code> is not doging anything with the char array. Compile with <code>gcc -g -O3 test.c</code> to enable debug output and optimize. When disassembling using <code>lldb</code> (LLVM) or <code>gdb</code> (GNU), we see something like this:</p>
+
+<pre>
+(lldb) disassemble --name stuff
+a.out`stuff at test.c:3:
+a.out[0x100000f30]:  pushq  %rbp
+a.out[0x100000f31]:  movq   %rsp, %rbp
+a.out[0x100000f34]:  leaq   0x4b(%rip), %rdi          ; "doing things"
+a.out[0x100000f3b]:  popq   %rbp
+a.out[0x100000f3c]:  jmp    0x100000f64               ; symbol stub for: puts
+
+a.out`main + 4 [inlined] stuff at test.c:12
+a.out`main + 4 at test.c:12:
+a.out[0x100000f54]:  leaq   0x2b(%rip), %rdi          ; "doing things"
+a.out[0x100000f5b]:  callq  0x100000f64               ; symbol stub for: puts
+a.out[0x100000f60]:  xorl   %eax, %eax
+</pre>
+
+<p>Where is <code>dingdong</code>? The compiler saw it was not used and removed it. Without the <code>-O3</code> flag:</p>
+
+<pre>
+(lldb) disassemble --name stuff
+a.out`stuff at test.c:3:
+a.out[0x100000e90]:  pushq  %rbp
+a.out[0x100000e91]:  movq   %rsp, %rbp
+a.out[0x100000e94]:  subq   $0x30, %rsp
+a.out[0x100000e98]:  movq   0x171(%rip), %rax         ; (void *)0x0000000000000000
+a.out[0x100000e9f]:  movq   (%rax), %rax
+a.out[0x100000ea2]:  movq   %rax, -0x8(%rbp)
+a.out[0x100000ea6]:  movq   0xc3(%rip), %rax          ; "hello? who's there?"
+a.out[0x100000ead]:  movq   %rax, -0x20(%rbp)
+a.out[0x100000eb1]:  movq   0xc0(%rip), %rax          ; "ho's there?"
+a.out[0x100000eb8]:  movq   %rax, -0x18(%rbp)
+a.out[0x100000ebc]:  movl   0xbe(%rip), %ecx          ; "re?"
+a.out[0x100000ec2]:  movl   %ecx, -0x10(%rbp)
+a.out[0x100000ec5]:  movl   $0x0, -0x24(%rbp)
+a.out[0x100000ecc]:  cmpl   $0xa, -0x24(%rbp)
+a.out[0x100000ed3]:  jge    0x100000ef2               ; stuff + 98 at test.c:5
+a.out[0x100000ed9]:  movslq -0x24(%rbp), %rax
+a.out[0x100000edd]:  movb   $0x63, -0x20(%rbp,%rax)
+a.out[0x100000ee2]:  movl   -0x24(%rbp), %eax
+a.out[0x100000ee5]:  addl   $0x1, %eax
+a.out[0x100000eea]:  movl   %eax, -0x24(%rbp)
+a.out[0x100000eed]:  jmp    0x100000ecc               ; stuff + 60 at test.c:5
+a.out[0x100000ef2]:  leaq   0x8b(%rip), %rdi          ; "doing things\n"
+a.out[0x100000ef9]:  movb   $0x0, %al
+a.out[0x100000efb]:  callq  0x100000f46               ; symbol stub for: printf
+a.out[0x100000f00]:  movq   0x109(%rip), %rdi         ; (void *)0x0000000000000000
+a.out[0x100000f07]:  movq   (%rdi), %rdi
+a.out[0x100000f0a]:  cmpq   -0x8(%rbp), %rdi
+a.out[0x100000f0e]:  movl   %eax, -0x28(%rbp)
+a.out[0x100000f11]:  jne    0x100000f1d               ; stuff + 141 at test.c:9
+a.out[0x100000f17]:  addq   $0x30, %rsp
+a.out[0x100000f1b]:  popq   %rbp
+a.out[0x100000f1c]:  retq
+a.out[0x100000f1d]:  callq  0x100000f40               ; symbol stub for: __stack_chk_fail
+</pre>
+
+<p>You can fiddle with options and such yourself in <a href="https://godbolt.org/">godbolt.org</a>.</p>
+
+
+<div class="notices note" ><p>Instead of bootstrapping the debugger to inspect disassembly, you can also simply dump the object contents using <code>objdump -D</code> (GNU) or <code>otool -tV</code> (OSX).</p>
+</div>
+
+
+<h4 id="volatile">volatile</h4>
+
+<p>When heavily optimizing, sometimes you do not want the compiler to leave things out. This is especially important on embedded devices with raw pointer access to certain memory mapped spaces. In that case, use the <code>volatile</code> keyword on a variable to tell the compiler to &ldquo;leave this variable alone&rdquo; - do not move it&rsquo;s declaration and do not leave it out. <a href="https://godbolt.org/z/Dm5YHx">For instance</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> array[<span style="color:#ae81ff">1024</span>];
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>) {
+    <span style="color:#66d9ef">int</span>  x;
+
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1024</span>; i<span style="color:#f92672">++</span>) {
+        x <span style="color:#f92672">=</span> array[i];
+    }
+}</code></pre></div>
+<p>Does pretty much nothing. Compiling with <code>-O3</code> results in 2 assembly instructions:</p>
+
+<pre>
+main:
+  xor eax, eax
+  ret
+</pre>
+
+<p>However, if you want <code>x</code> to be left alone, use <code>volatile int x;</code> and recompile:</p>
+
+<pre>
+main:
+  mov eax, OFFSET FLAT:array
+.L2:
+  mov edx, DWORD PTR [rax]
+  add rax, 4
+  mov DWORD PTR [rsp-4], edx
+  cmp rax, OFFSET FLAT:array+4096
+  jne .L2
+  xor eax, eax
+  ret
+</pre>
+
+<p>That&rsquo;s a big difference.</p>
+
+<h4 id="function-call-order">Function call order</h4>
+
+<p>Another part of optimizing code is the determination of function call order. For instance, consider the following statement: <code>x = f() + g() * h()</code>. Which function gets called first?</p>
+
+<p>The answer is <strong>we do not know</strong>. Do <em>not</em> rely on function order to calculate something! Each function should be completely independant. There should not be a global variable manipulated in <code>f()</code> which will then be needed in <code>g()</code> or <code>h()</code>. You can inspect disassembled code for different compilers on <a href="https://godbolt.org/">https://godbolt.org/</a>. It will differ from platform to platform, and from compiler to compiler (and even from option flag to flag).</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../c/labo-2/" title="Labo 2: Pointers in C en C&#43;&#43;"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../gba-in-c/" title="2. GBA programming in C" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1602585869"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1602585869"></script>
+    <script src="../../js/jquery.sticky.js?1602585869"></script>
+    <script src="../../js/featherlight.min.js?1602585869"></script>
+    <script src="../../js/highlight.pack.js?1602585869"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1602585869"></script>
+    <script src="../../js/learn.js?1602585869"></script>
+    <script src="../../js/hugo-learn.js?1602585869"></script>
+
+    <link href="../../mermaid/mermaid.css?1602585869" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1602585869"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
