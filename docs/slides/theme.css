@@ -3,34 +3,34 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  src: local('Montserrat-Bold'), url(/cpp-course/slides/fonts/montserrat.woff2) format('woff2');
+  src: local('Montserrat-Bold'), url(/db-course/slides/fonts/montserrat.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(/cpp-course/slides/fonts/os_regular.woff2) format('woff2');
+  src: local('Open Sans'), local('OpenSans'), url(/db-course/slides/fonts/os_regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(/cpp-course/slides/fonts/os_bold.woff2) format('woff2');
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(/db-course/slides/fonts/os_bold.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
   font-weight: 400;
-  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(/cpp-course/slides/fonts/os_italic.woff2) format('woff2');
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(/db-course/slides/fonts/os_italic.woff2) format('woff2');
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
   font-weight: 700;
-  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(/cpp-course/slides/fonts/os_bold_italic.woff2) format('woff2');
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(/db-course/slides/fonts/os_bold_italic.woff2) format('woff2');
 }
 
 /** mermaid + slides */
@@ -52,6 +52,10 @@ div.mermaid {
 body {
   background: #111;
   background-color: #111; }
+
+table {
+  color: white;
+}
 
 .reveal {
   font-family: 'Open Sans', sans-serif;
