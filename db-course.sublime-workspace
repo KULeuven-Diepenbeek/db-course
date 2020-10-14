@@ -4,541 +4,543 @@
 		"selected_items":
 		[
 			[
-				"remo",
-				"remove_comments"
+				"print",
+				"printIets"
 			],
 			[
-				"sea",
-				"searchfilter"
+				"stroke",
+				"strokeOpacity"
 			],
 			[
-				"search",
-				"searchstring"
-			],
-			[
-				"sear",
-				"searchstring"
-			],
-			[
-				"fac",
-				"factorIndex"
-			],
-			[
-				"st",
-				"studentId"
-			],
-			[
-				"cal",
-				"calculatedQs"
-			],
-			[
-				"da",
-				"dataStr"
-			],
-			[
-				"calc",
-				"calculateResults"
-			],
-			[
-				"linenr",
-				"linenrs"
-			],
-			[
-				"file",
-				"filename"
-			],
-			[
-				"repl",
-				"replace_citep_with_cite"
-			],
-			[
-				"in",
-				"interviewLength"
-			],
-			[
-				"ipo",
-				"importance"
-			],
-			[
-				"am",
+				"am4",
 				"am4core"
 			],
 			[
-				"value",
-				"valueAxis"
+				"good",
+				"goodreads"
 			],
 			[
-				"total",
-				"totalWeights"
+				"goodre",
+				"goodreads-fetch"
 			],
 			[
-				"chart",
-				"charthtml"
+				"navCo",
+				"navCollapsing"
 			],
 			[
-				"calcul",
-				"calculateResults"
+				"navC",
+				"navCollapse"
 			],
 			[
-				"quest",
-				"questionTemplate"
+				"cola",
+				"collapse"
 			],
 			[
-				"ar",
-				"Architectuur"
+				"box",
+				"box-shadow\tproperty"
 			],
 			[
-				"cvs",
-				"csvheader"
+				"border-co",
+				"border-color\tproperty"
 			],
 			[
-				"codes",
-				"codesByInterviews"
+				"text-s",
+				"text-transform\tproperty"
 			],
 			[
-				"categor",
-				"categoryAxis"
+				"pad",
+				"padding-top\tproperty"
 			],
 			[
-				"categ",
-				"categoryY"
+				"swi",
+				"switchPairs"
 			],
 			[
-				"cate",
-				"CategoryAxis"
+				"rando",
+				"randomWoorden"
 			],
 			[
-				"stop",
-				"stopskill"
+				"rand",
+				"randSchoenmaat"
 			],
 			[
-				"start",
-				"startskill"
+				"public",
+				"publiceerBoek"
 			],
 			[
-				"map",
-				"mapdata"
+				"Bi",
+				"Bibliothecaris"
 			],
 			[
-				"series",
-				"seriesDataItems"
+				"bi",
+				"BiConsumer"
 			],
 			[
-				"techni",
-				"techniques"
+				"boe",
+				"boekenKennis"
+			],
+			[
+				"cmp",
+				"cmp_fn"
+			],
+			[
+				"c",
+				"cmp_fn"
+			],
+			[
+				"cm",
+				"cmp_asc"
+			],
+			[
+				"tmp",
+				"tmp_title"
+			],
+			[
+				"sort",
+				"sort_books"
+			],
+			[
+				"create",
+				"create_book"
+			],
+			[
+				"Re",
+				"Repository"
+			],
+			[
+				"eind",
+				"eindDatum"
+			],
+			[
+				"Inc",
+				"Inception"
+			],
+			[
+				"Shop",
+				"ShoppingCart"
+			],
+			[
+				"connec",
+				"connectionString"
+			],
+			[
+				"con",
+				"connectionString"
+			],
+			[
+				"VW",
+				"VWScirocco"
+			],
+			[
+				"V",
+				"VWPassat"
+			],
+			[
+				"F",
+				"Factory"
+			],
+			[
+				"ass",
+				"assemble"
+			],
+			[
+				"car",
+				"carType1"
+			],
+			[
+				"carT",
+				"carType2"
+			],
+			[
+				"Cu",
+				"CustomCarDecorator"
+			],
+			[
+				"i",
+				"italic\tfont-style"
+			],
+			[
+				"font-s",
+				"font-style\tproperty"
+			],
+			[
+				"leef",
+				"leeftijdPtr"
+			],
+			[
+				"ta",
+				"teaching"
+			],
+			[
+				"ku",
+				"kul_data"
+			],
+			[
+				"kul",
+				"kul_palette"
+			],
+			[
+				"REG",
+				"REG_BG0"
 			],
 			[
 				"back",
-				"background\tproperty"
+				"background_data"
 			],
 			[
-				"cl",
-				"clsClass"
+				"scree",
+				"screen_block"
 			],
 			[
-				"ch",
-				"chartProjection"
+				"backgrou",
+				"background_palette"
 			],
 			[
-				"chr",
-				"charts"
+				"TILE",
+				"TILE_MEM"
 			],
 			[
-				"se",
-				"selfEval"
+				"u",
+				"uint32"
 			],
 			[
-				"csv",
-				"csvfile"
+				"pale",
+				"PALETTE_SIZE"
 			],
 			[
-				"a",
-				"amount"
+				"DIS",
+				"DISPLAY_BG0_ENABLE"
 			],
 			[
-				"fiel",
-				"fieldsLinker"
+				"is",
+				"is_hidden"
 			],
 			[
-				"links",
-				"linksForLoading"
+				"OAM",
+				"OAM_HIDE"
 			],
 			[
-				"generateM",
-				"generateMetadata"
-			],
-			[
-				"delphi",
-				"delphiData"
-			],
-			[
-				"repla",
-				"replaceTableBody"
-			],
-			[
-				"k",
-				"kat"
-			],
-			[
-				"insch",
-				"inschatting"
-			],
-			[
-				"bereke",
-				"berekenAccuraatheidEigenScores"
-			],
-			[
-				"zelf",
-				"zelfEvalCrit"
-			],
-			[
-				"zel",
-				"zelfEvalCrit"
-			],
-			[
-				"berek",
-				"berekenAccuraatheidEigenScores"
-			],
-			[
-				"cri",
-				"critIndex"
-			],
-			[
-				"groep",
-				"groepnr"
-			],
-			[
-				"stud",
-				"studIndex"
-			],
-			[
-				"do",
-				"docentPerc"
-			],
-			[
-				"stu",
-				"studentPerc"
-			],
-			[
-				"doce",
-				"docentPerc"
-			],
-			[
-				"studen",
-				"studentScore"
-			],
-			[
-				"doc",
-				"docentScore"
-			],
-			[
-				"herbere",
-				"herberekendeScores"
-			],
-			[
-				"stude",
-				"studentToScore"
-			],
-			[
-				"to",
-				"totalWeight"
-			],
-			[
-				"perc",
-				"percAcademics"
-			],
-			[
-				"genera",
-				"generatePercentageForSkill"
-			],
-			[
-				"abs",
-				"abslit"
-			],
-			[
-				"resu",
-				"results"
-			],
-			[
-				"li",
-				"literatureTotal"
-			],
-			[
-				"mapp",
-				"mappedData"
-			],
-			[
-				"del",
-				"delphiData"
-			],
-			[
-				"generate",
-				"generateCourseMap"
+				"bord",
+				"bordered"
 			],
 			[
 				"gene",
-				"generateLiteratureMap"
+				"generateOrcs"
 			],
 			[
-				"panel",
-				"panelNrs"
+				"nieu",
+				"nieuwGetal"
 			],
 			[
-				"pane",
-				"panelNr"
+				"SCREE",
+				"SCREEN_WIDTH"
 			],
 			[
-				"delph",
-				"delphiTotals"
+				"k",
+				"KEY_RIGHT"
 			],
 			[
-				"pan",
-				"panelNr"
+				"KEY",
+				"KEY_ANY"
 			],
 			[
-				"initF",
-				"initFieldLink2"
+				"crea",
+				"create_paddle"
 			],
 			[
-				"initf",
-				"initFieldLink1"
+				"stout",
+				"stouteBibliothecaris"
 			],
 			[
-				"add",
-				"addDelphiCategoryColors"
+				"so",
+				"sortedBoek"
 			],
 			[
-				"over",
-				"overflow-y\tproperty"
+				"geso",
+				"gesorteerd"
+			],
+			[
+				"str",
+				"strcmp_own"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"vege",
+				"no-vegetarians-do-not-eat-fish-403bc03781ab"
+			],
+			[
+				"crafst",
+				"craftsmanship"
+			],
+			[
+				"_",
+				"_ChromeDevTools"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"imp",
+				"important"
 			],
 			[
 				"backgr",
-				"background-color\tproperty"
+				"background-color"
 			],
 			[
-				"related",
-				"relatedTarget"
-			],
-			[
-				"fix",
-				"fixMermaidEl"
-			],
-			[
-				"hea",
-				"headerfill"
-			],
-			[
-				"he",
-				"headerfill"
-			],
-			[
-				"head",
-				"header\tTag"
-			],
-			[
-				"max-",
-				"max-width\tproperty"
-			],
-			[
-				"us",
-				"useRound3"
-			],
-			[
-				"data",
-				"dataround3"
-			],
-			[
-				"toggleDe",
-				"toggleDelphiB"
-			],
-			[
-				"off",
-				"offsetTarget"
-			],
-			[
-				"pae",
-				"parents"
-			],
-			[
-				"scrip",
-				"scriptbundle"
-			],
-			[
-				"cou",
-				"courseData"
-			],
-			[
-				"fil",
-				"filtered"
-			],
-			[
-				"on",
-				"onlydigits"
-			],
-			[
-				"polygonSer",
-				"polygonSeries"
-			],
-			[
-				"avg",
-				"avgoptional"
-			],
-			[
-				"calculateav",
-				"calculateAverageECTS"
-			],
-			[
-				"calculateAvera",
-				"calculateAverageYear"
-			],
-			[
-				"templa",
-				"templatedir"
-			],
-			[
-				"respec",
-				"respectively"
-			],
-			[
-				"international",
-				"internationally"
+				"font",
+				"font-weight"
 			],
 			[
 				"tex",
-				"textcolor"
+				"text-decoration"
 			],
 			[
-				"skillsC",
-				"skillsCom"
+				"margi",
+				"margin"
 			],
 			[
-				"auto",
-				"autonomously"
+				"fon",
+				"font-size"
 			],
 			[
-				"skillsP",
-				"skillsPers"
+				"mar",
+				"margin"
 			],
 			[
-				"skillsCo",
-				"skillsColl"
+				"BACK",
+				"background-color"
 			],
 			[
-				"skill",
-				"skillsCom"
+				"border-",
+				"border-left"
 			],
 			[
-				"zoomToGeo",
-				"zoomToGeoBegin"
+				"border",
+				"border-left"
 			],
 			[
-				"ite",
-				"itemForCountry"
+				"padding",
+				"padding-bottom"
 			],
 			[
-				"coursesFor",
-				"coursesForCountry"
+				"lis",
+				"list-style-type"
 			],
 			[
-				"red",
-				"reducedObject"
+				"paddi",
+				"padding-top"
 			],
 			[
-				"ex",
-				"excludeReasons"
+				"background",
+				"background-image"
 			],
 			[
-				"enrepre",
-				"entrepreneurial"
+				"ht",
+				"http-equiv\tAttr"
 			],
 			[
-				"exc",
-				"exclude"
+				"marg",
+				"margin-right"
 			],
 			[
-				"ra",
-				"rawqsdataUniversitiesAmount"
+				"ba",
+				"background-color"
 			],
 			[
-				"raqs",
-				"rawqsstats"
+				"b",
+				"border-bottom"
 			],
 			[
-				"uni",
-				"universitiesFromQs"
+				"FO",
+				"FOOTER\tTag"
 			],
 			[
-				"rawq",
-				"rawqsdataUniversitiesAmount"
+				"mari",
+				"margin"
 			],
 			[
-				"exclu",
-				"excludeReasons"
+				"foa",
+				"float"
 			],
 			[
-				"process_du",
-				"process_durations"
+				"margin",
+				"margin-top"
 			],
 			[
-				"universti",
-				"universities"
+				"H",
+				"HEAD\tTag"
 			],
 			[
-				"qs",
-				"qsuniv"
+				"img",
+				"border-image-outset"
 			],
 			[
-				"univers",
-				"university"
+				"padd",
+				"padding"
 			],
 			[
-				"ui",
-				"universities"
+				"d",
+				"display"
 			],
 			[
-				"count",
-				"country"
+				"li",
+				"list-style-position"
 			],
 			[
-				"univ",
-				"Universities"
+				"mag",
+				"margin-top"
 			],
 			[
-				"coutn",
-				"countries"
+				"backg",
+				"background"
 			],
 			[
-				"period2",
-				"period2begin"
+				"text",
+				"text-align"
 			],
 			[
-				"perio",
-				"period1begin"
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"LI",
+				"LI\tTag"
+			],
+			[
+				"f",
+				"font-family"
+			],
+			[
+				"backgroun",
+				"background"
+			],
+			[
+				"style",
+				"border-top-style"
+			],
+			[
+				"bo",
+				"border-top"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"m",
+				"margin-bottom"
+			],
+			[
+				"DI",
+				"DIV\tTag"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"A",
+				"ASIDE\tTag"
+			],
+			[
+				"N",
+				"NAV\tTag"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"HEA",
+				"HEADER\tTag"
+			],
+			[
+				"lit",
+				"list-style-position"
+			],
+			[
+				"upper",
+				"upper-roman"
+			],
+			[
+				"AR",
+				"ARTICLE\tTag"
+			],
+			[
+				"colo",
+				"background-color"
+			],
+			[
+				"IN",
+				"INPUT"
+			],
+			[
+				"klein",
+				"kleinDier1"
+			],
+			[
+				"ont",
+				"ontvangDier"
+			],
+			[
+				"klei",
+				"kleinDier1"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "static/slides/db/slide-1.md",
+			"settings":
+			{
+				"buffer_size": 6592,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/slides/db/slide-2.md",
+			"settings":
+			{
+				"buffer_size": 440,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
 	[
-		[
-			[
-				[
-					"Packages/Makefile/Make.sublime-build",
-					""
-				],
-				[
-					"Packages/Makefile/Make.sublime-build",
-					"Clean"
-				]
-			],
-			[
-				"Packages/Makefile/Make.sublime-build",
-				""
-			]
-		]
 	],
 	"build_varint": "",
 	"command_palette":
@@ -548,28 +550,32 @@
 		"selected_items":
 		[
 			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pytho",
+				"Build With: Python"
+			],
+			[
+				"package ma",
+				"Package Control: Remove Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
 				"install p",
 				"Package Control: Install Package"
 			],
 			[
-				"package ",
+				"instal pa",
 				"Package Control: Install Package"
-			],
-			[
-				"file hist",
-				"Sublime Merge: File History"
-			],
-			[
-				"package m",
-				"Package Control: Remove Package"
 			],
 			[
 				"package control",
 				"Package Control: List Packages"
-			],
-			[
-				"packa",
-				"Package Control: Install Package"
 			],
 			[
 				"mark",
@@ -584,8 +590,8 @@
 				"Convert Case: Upper Case"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"packa",
+				"Install Package Control"
 			],
 			[
 				"pack",
@@ -608,7 +614,7 @@
 	},
 	"console":
 	{
-		"height": 192.0,
+		"height": 146.0,
 		"history":
 		[
 		]
@@ -622,144 +628,149 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/jefklak/development/kul/db-course",
+		"/Users/jefklak/development/kul/db-course/content"
+	],
 	"file_history":
 	[
-		"/Users/jefklak/development/kul/cpp/cpp-course/cpp-course.sublime-project",
-		"/Users/jefklak/development/kul/cpp/cpp-course/cpp-course.sublime-workspace",
-		"/Users/jefklak/development/kul/kuleuven-diepenbeek.github.io/index.html",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report-icse.md",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/Makefile",
-		"/Users/jefklak/development/phd/content/onderzoek/02_delphi_id_skills/delphi_report.pd.md",
-		"/Users/jefklak/development/phd/content/pandoc/templates/ieee-pandoc-conf.tex",
-		"/Users/jefklak/development/kul/kuleuven-diepenbeek.github.io/css/kuleuven_diepenbeek.css",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report.bib",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report-icse_preamble.tex",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report.tex",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report.pd.md",
-		"/Users/jefklak/Downloads/Conference-LaTeX-template_10-17-19/conference_101719.tex",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/report-icse.pd.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/slides/cpp/slide-2.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/slides/cpp/slide-1.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/c/labo-1.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-c/labo-3.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/slides/cpp/slide-4.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/_index.md",
 		"/Users/jefklak/development/kul/bes/202021/modeloplossingen/week4_oplossing/week4_oplossing.py",
-		"/Users/jefklak/development/phd/content/pandoc/templates/IEEEtran.cls",
-		"/Users/jefklak/development/phd/content/pandoc/templates/acmart.cls",
-		"/Users/jefklak/development/phd/content/onderzoek/10_codequality/_index.md",
-		"/Users/jefklak/development/phd/content/onderzoek/10_codequality/mol.md",
-		"/Users/jefklak/development/phd/static/slides/20201015-mol.md",
-		"/Users/jefklak/Downloads/convert-netbeans-to-gradle.py",
-		"/Users/jefklak/development/java/gradlefxmlsample/convert-netbeans-to-gradle.py",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/6/src/main/java/pokemonfx/Charizard.java",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/10/src/main/java/Drijfvermogen/Blok.java",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/11/src/main/java/VierOpEenRij/SchijfView.java",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/creative-model.md",
-		"/Users/jefklak/development/phd/content/vergaderingen/slides/20201015_mol.md",
-		"/Users/jefklak/development/phd/content/onderzoek/10_codequalitymol",
-		"/Users/jefklak/development/phd/content/vergaderingen/verslagen/20200918_jacqui.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/_index.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test-subjects.md",
-		"/Users/jefklak/development/phd/content/onderzoek/voorstellen/mol.md",
-		"/Users/jefklak/.bash_profile",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/MasterMind/nbproject/project.xml",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/MasterMind/nbproject/build-impl.xml",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/NieuwePacXon19janOnze/build.xml",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/VierOpEenRij/build.xml",
-		"/Users/jefklak/Downloads/gradebook_o-INF1-1920_Verplichte20taak_2020-09-30-14-35-01/VierOpEenRij/nbproject/build-impl.xml",
-		"/Users/jefklak/development/phd/content/onderzoek/01_se_education_litreview/review.pd.md",
-		"/Users/jefklak/development/phd/content/onderzoek/09_creativity_slr/becker2019/search.js",
-		"/Users/jefklak/development/phd/content/onderzoek/09_creativity_slr/pilot.md",
-		"/Users/jefklak/development/phd/content/vergaderingen/verslagen/20200928_brett.md",
-		"/Users/jefklak/Dropbox/486/AUTOEXEC.BAT",
-		"/Users/jefklak/development/kul/bes/202021/csv/immo_national.csv",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/en/data.json",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/slides/cpp/slide-3.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/c/labo-2.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/installaties.md",
+		"/Users/jefklak/development/kul/bes/202021/modeloplossingen/week3_oplossing/src/oplossingen.py",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/project.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/js/osc.js",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/c/stack-vs-heap.md",
+		"/Users/jefklak/development/kul/osc/osc-course/config.toml",
+		"/Users/jefklak/development/kul/cpp/cpp-course/config.toml",
+		"/Users/jefklak/development/kul/osc/osc-course/content/ch8-stack/stackvsheap.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/_index.md",
 		"/Users/jefklak/Documents/486.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/nl/data.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/en/index.html",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/en/test.js",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/nl/test.js",
-		"/Users/jefklak/development/phd/content/onderzoek/09_creativity_slr/_index.md",
-		"/Users/jefklak/development/phd/content/onderzoek/01_se_education_litreview/_index.md",
-		"/Users/jefklak/development/phd/content/onderzoek/09_creativity_slr/becker2019/data.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/generatecsv.js",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/ranalyse.r",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/rdata.csv",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1436845.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1952315.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1953106.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1540895.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1745565.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1746250.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1746666.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1850922.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/1951948.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/nl/index.html",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/todo.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/self-assessment.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/main.js",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/package.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/pilot/participants.md",
-		"/Users/jefklak/Downloads/results (4).json",
-		"/Users/jefklak/development/phd/content/onderzoek/01_se_education_litreview/slr_website/heatmap.html",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/test.js",
-		"/Users/jefklak/Downloads/results (1).json",
-		"/Users/jefklak/Downloads/results.json",
-		"/Users/jefklak/development/phd/config.toml",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/Master.vue",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/TakeTheTest.vue",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/App.vue",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/Help.vue",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/.babelrc.js",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/webpack.config.js",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/src/index.html",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/data.json",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/test/index.html",
-		"/Users/jefklak/Documents/vps.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/refs.md",
-		"/Users/jefklak/development/phd/layouts/robots.txt",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/self-assessments-existing.md",
-		"/Users/jefklak/development/kul/ses/examenvragen-201920.md",
-		"/Users/jefklak/development/phd/content/concepten/development_scale.md",
-		"/Users/jefklak/development/phd/content/vergaderingen/slides/20200901_sefi2020.md",
-		"/Users/jefklak/development/phd/static/slides/20200901-sefi2020.md",
-		"/Users/jefklak/development/phd/static/slides/theme.css",
-		"/Users/jefklak/development/phd/layouts/slides/single.html",
-		"/Users/jefklak/development/phd/content/onderzoek/XX_assessment_agile_profile/_index.md",
-		"/Users/jefklak/development/phd/content/onderzoek/07_creativity_focus_group/_index.md",
-		"/Users/jefklak/development/phd/content/vergaderingen/verslagen/20200819_lesecfiiw.md",
-		"/Users/jefklak/development/phd/.gitignore",
-		"/Users/jefklak/development/phd/content/vergaderingen/verslagen/20200813_joost.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/how-to-measure.md",
-		"/Users/jefklak/development/phd/content/onderzoek/08_measuring_creativity/what-to-measure.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/filters/postprocessor.py",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/todo.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/chapters/ch-x.pd.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/Makefile",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/boek.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/preamble.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/chapters/ch-sample.pd.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/templates/pandoc-tufte.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/metadata.yml",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/fonts/fonttest.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/chapters/hf1.pd.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/fonts/test.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/fonts/t1superlegendboy.fd",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/afterbody.tex",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/fonts/superlegendboy.fd",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/voorblad.tex",
-		"/Users/jefklak/development/phd/content/onderzoek/02_delphi_id_skills/delphi_info_sheet_en.pd.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/filters/citep-to-cite.py",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/chapters/intro.pd.md",
-		"/Users/jefklak/development/phd/content/onderzoek/04_se_education_course_analysis/db_website/node_modules/bootstrap-vue/src/directives/scrollspy/README.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/idea.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/src/chapters/Makefile",
-		"/Users/jefklak/development/phd/books/retro-algorithms/toc-example.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/contacts.md",
-		"/Users/jefklak/development/phd/books/retro-algorithms/communication/dylancuthbert-x.md"
+		"/Users/jefklak/Downloads/testdisk.log",
+		"/Users/jefklak/Downloads/GBxCart_RW_Console_Interface_v1.29/rs232/demo_rx.c",
+		"/Users/jefklak/Downloads/GBxCart_RW_Console_Interface_v1.29/gbxcart_rw_console_v1.29.c",
+		"/Users/jefklak/Downloads/GBxCart_RW_Console_Interface_v1.29/setup.c",
+		"/Users/jefklak/Downloads/GBxCart_RW_Console_Interface_v1.29/rs232/rs232.c",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/slides-1.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/prep.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-c/prep.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/static/slides/theme.css",
+		"/Users/jefklak/Desktop/test.c",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/hc1.md",
+		"/Users/jefklak/Desktop/test.h",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/c/prep.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/gcctest.cpp",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/prep.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/labo-8.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/_index.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/cheatsheet.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/layouts/slides/single.html",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/slides-2.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/slides-3.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/hoorcolleges/slides-4.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/slides/_index.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/slides",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/buildsystems.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/labo-5.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/labo-9.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/labo-11.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-c/labo-4.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/labo-6.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/labo-7.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/faq.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/extra/poll.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/_index.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-cpp/labo-10.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/cpp/_index.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/c/_index.md",
+		"/Users/jefklak/development/kul/cpp/cpp-course/content/gba-in-c/_index.md",
+		"/Users/jefklak/development/kul/sigcse_additionallinks.png",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/github-classroom.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/extra/sessy.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/management.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/lifecycle/management.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/ci.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/facade.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/di.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/decorator.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/factory.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/singleton.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/patterns/facade.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/algoritmes/_index.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/tdd-mockito.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/capita.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/mockito.md",
+		"/Users/jefklak/development/kul/ses/ses-course/content/gradle/_index.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/versiebeheer.md",
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/dependency-management.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-x.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/preamble.tex",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-handheld-gb.md",
+		"/Users/jefklak/development/brainbaking/config.toml",
+		"/Users/jefklak/Desktop/todo.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/boek.tex",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-handheld-gba.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/todo.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/idea.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/references-todo.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/res/charts/timeline.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/Makefile",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-handheld.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/res/charts/sales.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/intro.md",
+		"/Users/jefklak/Downloads/tonc/sinlutgenerate.c",
+		"/Users/jefklak/Downloads/tonc/tonclib/src/tonc_math.c",
+		"/Users/jefklak/Downloads/tonc/tonclib/include/tonc_math.h",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/rendering/bresenham.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-wario.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/voorblad.tex",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/metadata.yml",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/rendering/viewspace.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/rendering/projectionspace.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/rendering/worldspace.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/boek.bib",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/rendering/screenspace.html",
+		"/Users/jefklak/Downloads/sample/index.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/communication/dylancuthbert-x.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/filters/postprocessor.py",
+		"/Users/jefklak/development/brainbaking/.gitignore",
+		"/Users/jefklak/development/brainbaking/content/post/2020/07/3d-software-rendering-on-gba.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/contacts.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/todo.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/communication/jvgames-nightfire.md",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/communication/nagytibor-gbabios.md",
+		"/Users/jefklak/development/brainbaking/themes/brainbaking-minimal/assets/sass/_brainbaking.sass",
+		"/Users/jefklak/development/brainbaking/content/tags/_index.md",
+		"/Users/jefklak/development/brainbaking/content/research/_index.md",
+		"/Users/jefklak/development/brainbaking/themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass",
+		"/Users/jefklak/development/brainbaking/content/teaching/cpp/sigcse2020.md",
+		"/Users/jefklak/development/brainbaking/themes/brainbaking-minimal/layouts/_default/single.html",
+		"/Users/jefklak/development/brainbaking/themes/brainbaking-minimal/layouts/_default/_markup/render-image.html",
+		"/Users/jefklak/development/brainbaking/layouts/shortcodes/col.html",
+		"/Users/jefklak/development/brainbaking/layouts/shortcodes/test.html",
+		"/Users/jefklak/development/brainbaking/content/post/2018/08/domain-driven-design-in-c.md",
+		"/Users/jefklak/development/brainbaking/layouts/shortcodes/wor.html",
+		"/Users/jefklak/development/brainbaking/layouts/shortcodes/row.html",
+		"/Users/jefklak/development/brainbaking/content/teaching/cpp/labo-4.md",
+		"/Users/jefklak/development/brainbaking/themes/brainbaking-minimal/layouts/partials/icons.html",
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/toc-example.md",
+		"/Users/jefklak/development/gba-sprite-engine/demos/demo3-foodthrowing/src/food_scene.cpp"
 	],
 	"find":
 	{
-		"height": 55.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
-		"height": 286.0,
+		"height": 232.0,
 		"where_history":
 		[
 		]
@@ -786,8 +797,245 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "static/slides/db/slide-1.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6438,
+								6474
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 2962,
+								"count": 487,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								5335.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5377.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "static/slides/db/slide-2.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								344,
+								344
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 80,
+								"count": 30,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -797,7 +1045,7 @@
 	},
 	"input":
 	{
-		"height": 102.0
+		"height": 75.0
 	},
 	"layout":
 	{
@@ -824,17 +1072,21 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 137.0
+		"height": 168.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
+	"output.help":
+	{
+		"height": 448.0
+	},
 	"output.mdpopups":
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "Packages/User/MakePandoc.sublime-build",
+	"pinned_build_system": "",
 	"project": "cpp-course.sublime-project",
 	"replace":
 	{
@@ -848,516 +1100,516 @@
 		"selected_items":
 		[
 			[
-				"icse",
-				"phd/content/onderzoek/07_creativity_focus_group/report-icse_preamble.tex"
+				"slide-2",
+				"static/slides/db/slide-2.md"
 			],
 			[
-				"ieeetran",
-				"phd/content/pandoc/templates/IEEEtran.cls"
+				"slide-1",
+				"static/slides/db/slide-1.md"
 			],
 			[
-				"acmar",
-				"phd/content/pandoc/templates/acmart.cls"
+				"slides-1",
+				"static/slides/cpp/slide-1.md"
 			],
 			[
-				"creative-mo",
-				"content/onderzoek/08_measuring_creativity/creative-model.md"
+				"labo-1",
+				"content/c/labo-1.md"
 			],
 			[
-				"20200918",
-				"content/vergaderingen/verslagen/20200918_jacqui.md"
+				"hoorcoll",
+				"content/hoorcolleges/_index.md"
 			],
 			[
-				"theme.css",
-				"static/slides/theme.css"
+				"slide-3.",
+				"static/slides/cpp/slide-3.md"
 			],
 			[
-				"slides.h",
-				"layouts/slides/single.html"
+				"labo-2",
+				"content/c/labo-2.md"
 			],
 			[
-				"giti",
-				".gitignore"
+				"labo-3",
+				"content/gba-in-c/labo-3.md"
 			],
 			[
-				"self-ass",
-				"content/onderzoek/08_measuring_creativity/self-assessment.md"
+				"slide-3",
+				"static/slides/cpp/slide-3.md"
 			],
 			[
-				"what-to",
-				"content/onderzoek/08_measuring_creativity/what-to-measure.md"
+				"slides-3",
+				"static/slides/cpp/slide-3.md"
 			],
 			[
-				"ch1.pd",
-				"books/retro-algorithms/src/chapters/hf1.pd.md"
+				"install",
+				"content/extra/installaties.md"
 			],
 			[
-				"boek.te",
-				"books/retro-algorithms/src/boek.tex"
-			],
-			[
-				"afterb",
-				"books/retro-algorithms/src/afterbody.tex"
-			],
-			[
-				"voor",
-				"books/retro-algorithms/src/voorblad.tex"
-			],
-			[
-				"what-to-mes",
-				"content/onderzoek/08_measuring_creativity/what-to-measure.md"
-			],
-			[
-				"single",
-				"layouts/_default/single.html"
-			],
-			[
-				"asterproe",
-				"content/onderzoek/voorstellen/masterproeven.md"
-			],
-			[
-				"script",
-				"themes/simpleit-hugo-theme/node_modules/jquery/src/ajax/script.js"
-			],
-			[
-				"biblio",
-				"content/bibliografie.md"
-			],
-			[
-				"gitigno",
-				".gitignore"
-			],
-			[
-				"gitig",
-				"themes/simpleit-hugo-theme/node_modules/caniuse-lite/data/features/async-iterations-and-generators.js"
-			],
-			[
-				"scientific-two",
-				"content/pandoc/filters/scientific-twocolumn-tables.py"
-			],
-			[
-				"2020040",
-				"static/slides/20200406-iticse.md"
-			],
-			[
-				"nomin",
-				"src/onderzoek/02_delphi_id_skills/db/nominees.enc.md"
-			],
-			[
-				"confi",
-				"config.toml"
-			],
-			[
-				"style",
-				"themes/simpleit-hugo-theme/assets/sass/styles.scss"
-			],
-			[
-				"masterpro",
-				"content/src/onderzoek/voorstellen/masterproeven.md"
-			],
-			[
-				"delphi_repo",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
-			],
-			[
-				"focusgr3_t",
-				"content/src/onderzoek/creativity_focus_group/data/focusgr3_transcriptannotations.md"
-			],
-			[
-				"con",
-				"config.toml"
-			],
-			[
-				"iticse",
-				"static/slides/20200406-iticse.md"
-			],
-			[
-				"theme-dubli",
-				"static/slides/theme-dublin.css"
-			],
-			[
-				"chart.ht",
-				"content/src/onderzoek/self_evaluation_studytime/evaluation_infcq_201920/chart.html"
-			],
-			[
-				"chart",
-				"content/src/onderzoek/self_evaluation_studytime/evaluation_infcq_201819/chart.html"
-			],
-			[
-				"chart.html",
-				"content/src/onderzoek/self_evaluation_studytime/evaluation_infcq_201819/chart.html"
-			],
-			[
-				"config",
-				"config.toml"
-			],
-			[
-				"theme-du",
-				"static/slides/theme-dublin.css"
-			],
-			[
-				"iticse.ht",
-				"content/src/vergaderingen/slides/20200406_iticse.html"
-			],
-			[
-				"theme-dub",
-				"static/slides/theme-dublin.css"
-			],
-			[
-				"202004",
-				"content/src/vergaderingen/slides/20200406_iticse.html"
-			],
-			[
-				"revealjs",
-				"layouts/shortcodes/revealjs.html"
-			],
-			[
-				"reveal",
-				"layouts/shortcodes/revealjs.html"
-			],
-			[
-				"sigcse",
-				"static/slides/20191115_ovi-sigcse.md"
-			],
-			[
-				"app.vu",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/App.vue"
-			],
-			[
-				"gapgra",
-				"content/src/onderzoek/skill_gaps_synthesis/gapgraph.html"
-			],
-			[
-				"print.css",
-				"static/revealjs/style/print.css"
-			],
-			[
-				"revea",
-				"layouts/shortcodes/revealjs.html"
-			],
-			[
-				"ovi-sig",
-				"static/slides/20191115_ovi-sigcse.md"
-			],
-			[
-				".git",
-				".gitattributes"
-			],
-			[
-				"scatter",
-				"content/src/onderzoek/self_evaluation_studytime/evaluation_infcq_201920/scatterchart.html"
-			],
-			[
-				"fieldslink",
-				"static/fieldsLinker.js"
-			],
-			[
-				"chart_histo",
-				"content/src/onderzoek/self_evaluation_studytime/evaluation_infcq_201819/chart_histogram.html"
-			],
-			[
-				"ieee_soft",
-				"content/pandoc/templates/ieee_software.tex"
-			],
-			[
-				"connect2",
-				"content/src/onderzoek/skill_gaps_synthesis/connect2.html"
-			],
-			[
-				"connect1",
-				"content/src/onderzoek/skill_gaps_synthesis/connect1.html"
-			],
-			[
-				"connect.htm",
-				"content/src/onderzoek/skill_gaps_synthesis/connect.html"
-			],
-			[
-				"fieldlink",
-				"static/fieldsLinker.js"
-			],
-			[
-				"connect",
-				"content/src/onderzoek/skill_gaps_synthesis/connect.html"
-			],
-			[
-				"fieldsli",
-				"static/fieldsLinker.js"
-			],
-			[
-				"1storal",
-				"static/slides/20191118_1storalpresentation.md"
-			],
-			[
-				"infobl",
-				"content/src/onderzoek/assessment_agile_profile/infoblad.pd.md"
-			],
-			[
-				"game boy develo",
-				"content/src/onderzoek/gameboy_development/integrated_gameboy_development.pd.md"
-			],
-			[
-				"reve",
-				"layouts/shortcodes/revealjs.html"
+				"proje",
+				"content/extra/project.md"
 			],
 			[
 				"theme",
 				"static/slides/theme.css"
 			],
 			[
-				"style.css",
-				"content/src/onderzoek/delphi_id_skills/website/node_modules/serve-index/public/style.css"
+				"slide-1.",
+				"static/slides/cpp/slide-1.md"
 			],
 			[
-				"revealj",
-				"layouts/shortcodes/revealjs.html"
+				"slid",
+				"content/hoorcolleges/slides-1.md"
 			],
 			[
-				"ovi-si",
-				"static/slides/20191115_ovi-sigcse.md"
+				"projec",
+				"content/extra/project.md"
 			],
 			[
-				"defin",
-				"content/src/concepten/definities.md"
+				"confi",
+				"config.toml"
 			],
 			[
-				"gbaposter.tex",
-				"content/src/onderzoek/gameboy_development/gbaposter.tex"
+				"github-cl",
+				"content/teaching/ses/github-classroom.md"
 			],
 			[
-				"gbaposter",
-				"content/src/onderzoek/gameboy_development/gbaposter.pd.md"
+				"sessy",
+				"content/teaching/ses/sessy.md"
 			],
 			[
-				"delphi_",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
-			],
-			[
-				"delphi_repor",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
-			],
-			[
-				"1storalpr",
-				"static/slides/20191118_1storalpresentation.md"
-			],
-			[
-				"index.html",
-				"static/public/index.html"
-			],
-			[
-				"manag",
-				"content/src/programma/management.md"
-			],
-			[
-				"-conf",
-				"content/pandoc/templates/acm-pandoc-conf.tex"
-			],
-			[
-				"gbaposter.",
-				"content/src/onderzoek/gameboy_development/gbaposter.pd.md"
-			],
-			[
-				"ovi-",
-				"static/slides/20191115_ovi-sigcse.md"
-			],
-			[
-				"promotoren",
-				"content/src/vergaderingen/verslagen/20191115_promotoren.md"
-			],
-			[
-				"ovi.m",
-				"static/slides/20181105_ovi.md"
-			],
-			[
-				"focusgroepcrea",
-				"static/slides/20191101_focusgroepcrea.md"
-			],
-			[
-				"promoto",
-				"content/src/vergaderingen/verslagen/20191021_promotoren.md"
-			],
-			[
-				"delphi.bib",
-				"content/src/onderzoek/delphi_id_skills/delphi.bib"
-			],
-			[
-				"delphi",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
-			],
-			[
-				"slr",
-				"content/src/concepten/literature_review.md"
-			],
-			[
-				"gbaposter.m",
-				"content/src/onderzoek/gameboy_development/gbaposter.pd.md"
+				"softw",
+				"content/teaching/ses/software.md"
 			],
 			[
 				"manageme",
-				"content/src/programma/management.md"
+				"content/teaching/ses/management.md"
 			],
 			[
-				"201911",
-				"content/src/vergaderingen/verslagen/20191101_promotoren.md"
+				"ci.m",
+				"content/teaching/ses/ci.md"
 			],
 			[
-				"links",
-				"content/src/links.md"
+				"singleto",
+				"content/teaching/ses/singleton.md"
 			],
 			[
-				"phdsemin",
-				"static/slides/20190503_phdseminar.md"
+				"fact",
+				"content/teaching/ses/factory.md"
 			],
 			[
-				"delphi_re",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
+				"decora",
+				"content/teaching/ses/decorator.md"
 			],
 			[
-				"foote",
-				"layouts/partials/footer.html"
+				"di.",
+				"content/teaching/ses/di.md"
 			],
 			[
-				"delphi_report.pd",
-				"content/src/onderzoek/delphi_id_skills/delphi_report.pd.md"
+				"faca",
+				"content/teaching/ses/facade.md"
 			],
 			[
-				"colorle",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Colorlegend.vue"
+				"tdd-",
+				"content/teaching/ses/tdd-mockito.md"
 			],
 			[
-				"qslis",
-				"onderzoek/se_education_course_analysis/db_website/src/qslist.js"
+				"dependen",
+				"content/teaching/ses/dependency-management.md"
 			],
 			[
-				"qsli",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/qslist.js"
+				"versie",
+				"content/teaching/ses/versiebeheer.md"
 			],
 			[
-				"mixins",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/mixins.js"
+				"boek.tex",
+				"books/retro-algorithms/src/boek.tex"
 			],
 			[
-				"ugent_",
-				"content/src/onderzoek/se_education_course_analysis/db/ugent_civilcs_project.md"
+				"pream",
+				"books/retro-algorithms/src/preamble.tex"
 			],
 			[
-				"ugent",
-				"content/src/onderzoek/se_education_course_analysis/db/ugent_civilcs_communication.md"
+				"brese",
+				"books/retro-algorithms/src/rendering/bresenham.html"
 			],
 			[
-				"ugen",
-				"content/src/onderzoek/se_education_course_analysis/db/ugent_civilcs_coaching.md"
+				"prea",
+				"books/retro-algorithms/src/preamble.tex"
 			],
 			[
-				"sefi_",
-				"content/src/onderzoek/se_education_litreview/review_sefi_src.pd.md"
+				"_brainba",
+				"themes/brainbaking-minimal/assets/sass/_brainbaking.sass"
 			],
 			[
-				"skills",
-				"content/src/onderzoek/delphi_id_skills/website/src/Skills.vue"
+				"_boot",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
 			],
 			[
-				"sefi",
-				"onderzoek/se_education_litreview/review_sefi_src.pd.md"
+				"sigcs",
+				"content/teaching/cpp/sigcse2020.md"
 			],
 			[
-				"parada",
-				"content/src/onderzoek/delphi_id_skills/website/src/Paradata.vue"
+				"single",
+				"themes/brainbaking-minimal/layouts/_default/single.html"
 			],
 			[
-				"paradata",
-				"content/src/onderzoek/delphi_id_skills/website/src/Paradata.vue"
+				"bootstrap",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
 			],
 			[
-				"masterta",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Mastertable.vue"
+				"icons",
+				"themes/brainbaking-minimal/layouts/partials/icons.html"
 			],
 			[
-				"mastertab",
-				"onderzoek/se_education_course_analysis/db_website/src/Mastertable.vue"
+				"single-",
+				"themes/brainbaking-minimal/layouts/partials/single-header.html"
 			],
 			[
-				"country",
-				"onderzoek/se_education_course_analysis/db_website/src/Countrytable.vue"
+				"capita",
+				"content/teaching/ses/tdd-capita.md"
 			],
 			[
-				"master",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Master.vue"
+				"bootstra",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
 			],
 			[
-				"colo",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Colorlegend.vue"
+				"itic",
+				"content/post/2020/06/iticse-2020.md"
 			],
 			[
-				"aalto_crea",
-				"content/src/onderzoek/se_education_course_analysis/db/aalto_datacs_creativecoding.md"
+				"list.ht",
+				"themes/brainbaking-minimal/layouts/_default/list.html"
 			],
 			[
-				"barce",
-				"content/src/onderzoek/se_education_course_analysis/db/barcelona_cs_integratedproj.md"
+				"confere",
+				"content/post/2019/09/de-zin-en-onzin-van-conferenties.md"
 			],
 			[
-				"skillt",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Skilltable.vue"
+				"abou-tpers",
+				"content/post/2020/06/about-perseverence.md"
 			],
 			[
-				"delft",
-				"content/src/onderzoek/se_education_course_analysis/db/tudelft_cs_project.md"
+				"brainba",
+				"themes/brainbaking-minimal/assets/js/brainbaking.js"
 			],
 			[
-				"kul_",
-				"content/src/onderzoek/se_education_course_analysis/db/kul_bachinf_innovationproj.md"
+				"builders-",
+				"content/post/2013/11/builders-dsl.md"
 			],
 			[
-				"berli",
-				"content/src/onderzoek/se_education_course_analysis/db/berlin_cs_semesterprojekt.md"
+				"taxom",
+				"themes/brainbaking-minimal/layouts/_default/taxonomy.html"
 			],
 			[
-				"findings",
-				"content/src/onderzoek/se_education_course_analysis/db_website/src/Findings.vue"
+				"terms.",
+				"themes/brainbaking-minimal/layouts/_default/terms.html"
 			],
 			[
-				"kharkiv_cs_itbusiness.md",
-				"content/src/onderzoek/se_education_course_analysis/db/kharkiv_cs_itbusiness.md"
+				"_icons",
+				"themes/brainbaking-minimal/assets/sass/_icons.sass"
 			],
 			[
-				"itmo",
-				"onderzoek/se_education_course_analysis/db/itmo_ce_fieldpractice.md"
+				"single-h",
+				"themes/brainbaking-minimal/layouts/partials/single-header.html"
 			],
 			[
-				"aberdeen",
-				"onderzoek/se_education_course_analysis/db/aberdeen_cs_profskills.md"
+				"list-ul",
+				"themes/brainbaking-minimal/layouts/partials/list-ul.html"
 			],
 			[
-				"kul_sc",
-				"onderzoek/se_education_course_analysis/db/kul_bachinf_wetenschapscommunicatie.md"
+				"list",
+				"themes/brainbaking-minimal/layouts/_default/list.html"
 			],
 			[
-				"innovat",
-				"onderzoek/se_education_course_analysis/db/kul_bachinf_innovationproj.md"
+				"term",
+				"themes/brainbaking-minimal/layouts/_default/terms.html"
 			],
 			[
-				"kul_reli",
-				"onderzoek/se_education_course_analysis/db/kul_bachinf_religion.md"
+				"head",
+				"themes/brainbaking-minimal/layouts/partials/header.html"
 			],
 			[
-				"queenm",
-				"content/src/onderzoek/se_education_course_analysis/db/queen_cs_profskills.md"
+				"single-hea",
+				"themes/brainbaking-minimal/layouts/partials/single-header.html"
 			],
 			[
-				"culture",
-				"onderzoek/se_education_course_analysis/db/ufr_informatique_culture.md"
+				"archi",
+				"layouts/shortcodes/archive.html"
 			],
 			[
-				"montpel",
-				"onderzoek/se_education_course_analysis/db/montpellier_informatique_culture.md"
+				"can-i",
+				"content/post/2013/08/can-i-haz-happy-thoughts.md"
 			],
 			[
-				"warick_",
-				"onderzoek/se_education_course_analysis/db/warwick_cs_socialinformatics.md"
+				"journalin",
+				"content/post/2017/07/journaling-in-practice.md"
 			],
 			[
-				"itmo_",
-				"onderzoek/se_education_course_analysis/db/itmo_ce_philosophy.md"
+				"boekend",
+				"content/post/2018/08/boeken-die-mij-gevormd-hebben.md"
+			],
+			[
+				"development",
+				"content/post/2017/06/development-principles-in-cooking.md"
+			],
+			[
+				"list.h",
+				"themes/brainbaking-minimal/layouts/_default/list.html"
+			],
+			[
+				"thinking-",
+				"content/post/2018/04/thinking-in-terms-of-objects.md"
+			],
+			[
+				"list.",
+				"themes/brainbaking-minimal/layouts/_default/list.html"
+			],
+			[
+				"conf",
+				"config.toml"
+			],
+			[
+				"_brain",
+				"themes/brainbaking-minimal/assets/sass/_brainbaking.sass"
+			],
+			[
+				"brainbak",
+				"themes/brainbaking-minimal/assets/js/brainbaking.js"
+			],
+			[
+				"js.",
+				"themes/brainbaking-minimal/layouts/partials/js.html"
+			],
+			[
+				"list-u",
+				"themes/brainbaking-minimal/layouts/partials/list-ul.html"
+			],
+			[
+				"archiv",
+				"layouts/shortcodes/archive.html"
+			],
+			[
+				"designing",
+				"content/post/2020/06/designing-with-accessibility-in-mind.md"
+			],
+			[
+				"archive",
+				"layouts/shortcodes/archive.html"
+			],
+			[
+				"_for",
+				"themes/brainbaking-minimal/assets/sass/_forms.sass"
+			],
+			[
+				"_form",
+				"themes/brainbaking-minimal/assets/sass/_forms.sass"
+			],
+			[
+				"single-head",
+				"themes/brainbaking-minimal/layouts/partials/single-header.html"
+			],
+			[
+				"singl",
+				"themes/brainbaking-minimal/layouts/_default/single.html"
+			],
+			[
+				"c",
+				"config.toml"
+			],
+			[
+				"taxonom",
+				"themes/brainbaking-minimal/layouts/_default/taxonomy.html"
+			],
+			[
+				"design",
+				"content/teaching/ses/designpattern_template.md"
+			],
+			[
+				"_bra",
+				"themes/brainbaking-minimal/assets/sass/_brainbaking.sass"
+			],
+			[
+				"over-onm",
+				"content/essays/over-onmiddellijke-voldoening.md"
+			],
+			[
+				"head-me",
+				"themes/brainbaking-minimal/layouts/partials/head-meta.html"
+			],
+			[
+				"hea",
+				"themes/brainbaking-minimal/layouts/partials/header.html"
+			],
+			[
+				"react-in",
+				"content/post/2016/01/react-in-extjs.md"
+			],
+			[
+				"_commen",
+				"themes/brainbaking-minimal/assets/sass/_commento.sass"
+			],
+			[
+				"integra",
+				"content/post/2013/11/integration-testing-sqlite.md"
+			],
+			[
+				"_brai",
+				"themes/brainbaking-minimal/assets/sass/_brainbaking.sass"
+			],
+			[
+				"header",
+				"themes/brainbaking-minimal/layouts/partials/header.html"
+			],
+			[
+				"_fon",
+				"themes/brainbaking-minimal/assets/sass/_fonts.sass"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"icon",
+				"themes/brainbaking-minimal/layouts/partials/icons.html"
+			],
+			[
+				"_bootstra",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
+			],
+			[
+				"main",
+				"themes/brainbaking-minimal/assets/sass/main.sass"
+			],
+			[
+				"css.h",
+				"themes/brainbaking-minimal/layouts/partials/css.html"
+			],
+			[
+				"gradle",
+				"content/teaching/ses/gradle.md"
+			],
+			[
+				"relate",
+				"themes/brainbaking-minimal/layouts/partials/single-related.html"
+			],
+			[
+				"fonts",
+				"themes/brainbaking-minimal/assets/sass/_fonts.sass"
+			],
+			[
+				"css.",
+				"themes/brainbaking-minimal/layouts/partials/css.html"
+			],
+			[
+				"css",
+				"themes/brainbaking-minimal/layouts/partials/css.html"
+			],
+			[
+				"config",
+				"config.toml"
+			],
+			[
+				"privacy",
+				"content/post/2020/06/tracking-and-privacy-on-websites.md"
+			],
+			[
+				"single-comm",
+				"themes/brainbaking-minimal/layouts/partials/single-comments.html"
+			],
+			[
+				"single-real",
+				"themes/brainbaking-minimal/layouts/partials/single-related.html"
+			],
+			[
+				"simple-ligh",
+				"themes/brainbaking-minimal/static/js/simple-lightbox.min.js"
+			],
+			[
+				"comments",
+				"themes/brainbaking-minimal/layouts/partials/single-comments.html"
+			],
+			[
+				"commen",
+				"node_modules/@babel/traverse/lib/path/comments.js"
+			],
+			[
+				"js.h",
+				"themes/brainbaking-minimal/layouts/partials/js.html"
+			],
+			[
+				"_fonts",
+				"themes/brainbaking-minimal/assets/sass/_fonts.sass"
+			],
+			[
+				"_listing",
+				"themes/brainbaking-minimal/assets/sass/_listing.sass"
+			],
+			[
+				"boostrap",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
+			],
+			[
+				"foot",
+				"themes/brainbaking-minimal/layouts/partials/footer.html"
+			],
+			[
+				"list-ite",
+				"themes/brainbaking-minimal/layouts/partials/list-item.html"
+			],
+			[
+				"_bootst",
+				"themes/brainbaking-minimal/assets/sass/_bootstrap-minimal.sass"
+			],
+			[
+				"bigi",
+				"themes/brainbaking-minimal/layouts/partials/bigimg.html"
+			],
+			[
+				"de-z",
+				"content/essays/de-zin-en-onzin-van-conferenties.md"
+			],
+			[
+				"briz",
+				"content/post/2020/05/page-building-with-brizy-in-wordpress.md"
+			],
+			[
+				"brizy",
+				"content/post/2020/05/page-building-with-brizy-in-wordpress.md"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"over-ana",
+				"content/essays/over-analoog-en-digitaal.md"
+			],
+			[
+				".giti",
+				".gitignore"
+			],
+			[
+				"privac",
+				"content/post/2020/06/tracking-and-privacy-on-websites.md"
+			],
+			[
+				"no-tra",
+				"content/no-copyright-no-tracking.md"
+			],
+			[
+				"no-",
+				"content/no-copyright-no-tracking.md"
+			],
+			[
+				"no-c",
+				"content/no-copyright-no-tracking.md"
+			],
+			[
+				"list-",
+				"themes/brainbaking-minimal/layouts/partials/list-item.html"
+			],
+			[
+				"abou",
+				"content/about.md"
 			]
 		],
 		"width": 0.0
@@ -1365,23 +1617,59 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
+		"last_filter": "phd",
 		"selected_items":
 		[
 			[
-				"",
+				"phd",
+				"~/development/phd/phd.sublime-project"
+			],
+			[
+				"db-",
 				"~/development/kul/db-course/db-course.sublime-project"
 			],
 			[
-				"brainba",
+				"redzuu",
+				"~/development/redzuurdesem/redzuurdesem.sublime-project"
+			],
+			[
+				"jefkl",
+				"~/development/jefklakscodex/jefklakscodex.sublime-project"
+			],
+			[
+				"osc-c",
+				"~/development/kul/ses/ses-course/ses-course.sublime-project"
+			],
+			[
+				"brai",
 				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
-				"cpp-",
-				"~/development/kul/cpp/cpp-course/cpp-course.sublime-project"
+				"brain",
+				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
-				"redzuu",
+				"ses-",
+				"~/development/kul/ses/ses-course/ses-course.sublime-project"
+			],
+			[
+				"ses",
+				"~/development/kul/ses/ses-course/ses-course.sublime-project"
+			],
+			[
+				"ph",
+				"~/development/phd/phd.sublime-project"
+			],
+			[
+				"",
+				"~/development/redzuurdesem/redzuurdesem.sublime-project"
+			],
+			[
+				"p",
+				"~/development/phd/phd.sublime-project"
+			],
+			[
+				"red",
 				"~/development/redzuurdesem/redzuurdesem.sublime-project"
 			],
 			[
@@ -1389,59 +1677,27 @@
 				"~/development/redzuurdesem/redzuurdesem.sublime-project"
 			],
 			[
-				"brai",
-				"~/development/brainbaking/brainbaking.sublime-project"
-			],
-			[
-				"cpp-co",
-				"~/development/kul/cpp/cpp-course/cpp-course.sublime-project"
-			],
-			[
-				"jefkl",
-				"~/development/jefklakscodex/jefklakscodex.sublime-project"
+				"redzu",
+				"~/development/redzuurdesem/redzuurdesem.sublime-project"
 			],
 			[
 				"jefkla",
 				"~/development/jefklakscodex/jefklakscodex.sublime-project"
 			],
 			[
-				"cpp",
-				"~/development/kul/cpp/cpp-course/cpp-course.sublime-project"
-			],
-			[
-				"brain",
-				"~/development/brainbaking/brainbaking.sublime-project"
-			],
-			[
-				"osc-",
-				"~/development/kul/osc/osc-labs/osc-labs.sublime-project"
-			],
-			[
-				"red",
+				"rez",
 				"~/development/redzuurdesem/redzuurdesem.sublime-project"
 			],
 			[
-				"phd",
-				"~/development/phd/phd.sublime-project"
-			],
-			[
-				"ph",
-				"~/development/phd/phd.sublime-project"
-			],
-			[
-				"bra",
-				"~/development/brainbaking/brainbaking.sublime-project"
+				"jef",
+				"~/development/jefklakscodex/jefklakscodex.sublime-project"
 			],
 			[
 				"osc",
 				"~/development/kul/osc/osc-course/osc-course.sublime-project"
 			],
 			[
-				"redzu",
-				"~/development/redzuurdesem/redzuurdesem.sublime-project"
-			],
-			[
-				"osc-la",
+				"osc-labs",
 				"~/development/kul/osc/osc-labs/osc-labs.sublime-project"
 			],
 			[
@@ -1449,40 +1705,20 @@
 				"~/development/kul/osc/osc-course/osc-course.sublime-project"
 			],
 			[
-				"jefklaks",
-				"~/development/jefklakscodex/jefklakscodex.sublime-project"
-			],
-			[
-				"jefklak",
-				"~/development/jefklakscodex/jefklakscodex.sublime-project"
-			],
-			[
-				"redzuur",
-				"~/development/redzuurdesem/redzuurdesem.sublime-project"
-			],
-			[
-				"redw",
-				"~/Downloads/redzuurdesem/redzuurdesem/redzuurdesem.sublime-workspace"
-			],
-			[
-				"brainb",
-				"~/development/brainbaking/brainbaking.sublime-project"
+				"osc-cour",
+				"~/development/kul/osc/osc-course/osc-course.sublime-project"
 			],
 			[
 				"vpw",
 				"~/development/vpw-contest/vpw.sublime-project"
 			],
 			[
-				"ovi",
-				"~/development/KUL/cpp/ovi-website.sublime-project"
+				"osc-",
+				"~/development/osc-course/osc-course.sublime-workspace"
 			],
 			[
-				"contes",
-				"~/development/vpw-contest/vpw.sublime-project"
-			],
-			[
-				"jef",
-				"~/development/jefklakscodex/jefklakscodex.sublime-project"
+				"vp",
+				"~/development/vpw2020.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1494,7 +1730,7 @@
 		"selected_items":
 		[
 		],
-		"width": 836.0
+		"width": 392.0
 	},
 	"selected_group": 0,
 	"settings":
