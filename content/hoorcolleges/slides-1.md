@@ -1,5 +1,5 @@
 ---
-title: "1. Introductie in C/C++: context, ecosysteem"
+title: "1. NoSQL Databases: Introductie"
 type: slides
 slideshow: /db-course/slides/db/slide-1.md
 ---

@@ -1,5 +1,5 @@
 ---
-title: "4. Een introductie in GUI ontwerp met Qt, Samenvatting, examen info"
+title: "4. Database APIs"
 type: slides
 slideshow: /db-course/slides/db/slide-4.md
 ---
