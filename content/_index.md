@@ -19,6 +19,9 @@ Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worde
 
 ### Labo noties
 
+- NoSQL:
+    1. [NoSQL Databases: Key/Value stores](/nosql/keyvaluestores)
+    2. [NoSQL Databases: Document stores](/nosql/documentstores)
 
 
 ## Syllabus
