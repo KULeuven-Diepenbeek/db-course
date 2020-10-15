@@ -91,12 +91,196 @@ Wat denk jij? NoSQL of RDMS? of ... ?
 
 ---
 
-### 3. Key/Value stores (Memcached)
+<img src="/db-course/slides/img/nosql-types.jpg" />
 
+Bron: improgrammer.net
 
 ---
 
-### 4. Document stores (Mongo/CouchDB)
+## 3. Key/Value stores (Memcached)
+
+```java
+Map<String, Integer> leeftijden = new HashMap<>();
+leeftijden.put("Jos", 20);
+leeftijden.put("Jaqueline", 28);
+leeftijden.put("Lolbroek", 66);
+```
+
+- Belang van **hash** functie. p.305: bewaard in Hash/Key tabel
+- Hoe **horizontaal** scalen? 
+
+___
+
+### 3.1 Memcache**d** (1)
+
+memory-driven **distributed** hash table. 
+
+- Oplossing voor cachen van traditionele SQL!
+- Later: ook peristente hashtable mogelijk
+
+Dus: mix-and-match
+
+___
+
+### 3.1 Memcache**d** (2)
+
+```java
+var memClient = new MemcachedClient(AddrUtil
+    .getAddresses(["server1:port", "server2:port"]));
+memClient.add("Jos", 0, 20); // expiration ZERO
+memClient.add("Jaqcuieline", 28); 
+```
+
+- `.add()`, `.set()`, `.replace()`, ... p.307
+- Probleem: **client** moet weten naar welke servers te pushen
+
+<div class="mermaid" align="center">
+graph LR;
+    A[memClient] --> B[server1]
+    A --> C[server2]
+</div>
+
+___
+
+### Key/value request-coords
+
+- Oplossing: **request coordination** & **membership protocol**
+- Servers kennen elkaar (uiteindelijk)
+
+<div class="mermaid" align="center">
+graph LR;
+    A[memClient] --> B[server1]
+    B --> C[server2]
+    C --> B
+</div>
+
+- Ringvormig netwerk: **consistent hashing** 
+
+---
+
+## 3.2 Consistent hashing
+
+OpenStack Swift: [https://docs.openstack.org/swift/](https://docs.openstack.org/swift/)
+
+> Swift is a highly available, distributed, eventually consistent object/blob store. Organizations can use Swift to store lots of data efficiently, safely, and cheaply.
+
+Swift [Consisteny Analsysis](https://julien.danjou.info/openstack-swift-consistency-analysis/) (p.310)
+
+https://julien.danjou.info/openstack-swift-consistency-analysis/
+
+___
+
+### Ring-partitioning
+
+<img src="/db-course/slides/img/swift.png" style="width: 50%" />
+
+Pre-req: _consistent hashing_.
+
+- Zo weinig mogelijk **data moving** bij adding/removal node
+- Data **replication**: nodes kennen elkaar
+- Probleem: distributed system kan _nooit_ én consistent, én available, én partition tolerant zijn. 
+
+___
+
+### Oplossing: BASE
+
+- **Basically Available**; elk request ontvangt een respons, `200`/`4`/`50x`
+- **Soft state**; state kan wijzigen, ook zonder input!
+- **Eventually consistent**; "kan" op bepaald moment zo zijn.
+
+_Write_ Request: onmiddellijk `201`, niet alle nodes updated?
+
+_Read_ Request: soms out-of-date?
+
+=> In de praktijk: vaak eerder ACID-like. 
+
+---
+
+## 4. Document stores (Mongo/CouchDB)
+
+Zelfde als key/value stores: key/**data blob**
+
+```
+jos -> (124356, 'Jos Klakmans', 18)
+var jos = { _id: 124356, name: 'Jos Klakmans', age: 18 }
+```
+
+1. **Collecties**: Studenten, Vacatures, Boeken, ... => _optioneel!_
+2. **Documents**: (meestal JSON)-structured vector data
+
+___
+
+### 4.1 Eigenschappen van doc. stores (1)
+
+**dynamisch**: (_geen_ schema)
+
+`{ name: 'Jos' }` -> `{ name: 'Jos', well-behaved: true }`
+
+Hoezo, `INSERT INTO STUDENT(name) VALUES ("Jos")`?
+
+___
+
+### 4.1 Eigenschappen van doc. stores (2)
+
+**hashing**: nog steeds. "primary key"
+
+`{ name: 'Jos' }` -> `{ name: 'Jos', _id: 23235435 }`
+
+- Default behaviour in Mongo ea. Instelbaar. 
+- Data retrieval **Snelheid** in miljarden records blijft belangrijk
+    + indexes!
+
+---
+
+### 4.2 Query's? (1)
+
+Géén SQL. Client-based API (Java/JS/...) p.317
+
+<img src="/db-course/slides/img/mongodb.png" style="position: absolute; z-index: 99; right: 1; width: 30%" />
+
+```java
+var client = new MongoClient();
+var db = client.getDatabase("db");
+// ...
+var results = db.getCollection("students").find(
+    and(
+        eq("name", "jaakmans"),
+        eq("well-behaved", true)
+    ));
+for(Document doc in results) {
+    System.out.println(doc.get("_id") + " name: " + doc.get("name"));
+}
+```
+
+Java, CouchDB API
+
+___
+
+### 4.2 Query's? (2)
+
+<img src="/db-course/slides/img/couchdb.png" style="position: absolute; z-index: 99; right: 1; width: 30%" />
+
+```javascript
+db.find({
+  selector: {name: 'jaakmans'},
+  fields: ['_id', 'name', 'well-behaved'],
+  // sort: ['name']  - aha
+}).then((result) => {
+  result.docs.forEach(doc => {
+    console.log(doc._id + " name: " + doc.name);
+  })
+}).catch((err) => {
+  console.log(err);
+});
+```
+
+JavaScript, PouchDB API
+
+---
+
+### 4.3 Complex querying (MapReduce)
+
+Volgend hoorcollege!
 
 ---
 

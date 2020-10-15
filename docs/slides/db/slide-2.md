@@ -14,7 +14,12 @@ Databases: <br/>NoSQL Deel II
 
 ---
 
-## 2. Graph-based DBs (Neo4j)
+## 2. NoSQL querying: MapReduce
+
+
+---
+
+## 3. Graph-based DBs (Neo4j)
 
 TODO
 
