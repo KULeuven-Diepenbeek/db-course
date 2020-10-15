@@ -66,7 +66,7 @@ curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true > dump.d
 
 En daarna wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg). 
 
-### 2.3 Oefeningen
+### 2.3 Oefeningen met Fauxton/Curl
 
 1. Schrijf een Mango query die cursussen ophaalt waarbij het aantal `ECTS` punten groter is dan 5. 
 2. Hoe voer je de query uit oefening 1 uit, _zonder_ de Admin console, maar met `curl`? 
@@ -77,3 +77,33 @@ En daarna wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root a
 
 Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [http://127.0.0.1:5984/_utils/docs/intro/api.html#documents](http://127.0.0.1:5984/_utils/docs/intro/api.html#documents). Lees eerst na hoe dit in elkaar zit! 
 
+### 2.4 Java Client API
+
+Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query's uit te voeren), dan heb je de Java API nodig. 
+
+In principe kan je met eender welke `HTTP` client REST calls uitvoeren en de responses zelf verwerken. Om het jezelf gemakkelijker te maken, gebruiken we hier ter illustratie [LightCouch](http://www.lightcouch.org).
+
+Lees de [LightCouch Getting Started guide](http://www.lightcouch.org/getstarted.html). Maak een nieuw gradle 6 project met de volgende dependencies:
+
+```
+dependencies {
+    implementation group: 'org.lightcouch', name: 'lightcouch', version: '0.2.0'
+}
+```
+
+In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (Plain Old Java Objects) klassen, waarbij alle members automatisch worden geserialiseerd. 
+
+#### LightCouch oefeningen
+
+1. Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een `Student` klasse met als velden `name` en `age` (respectievelijk `String` en `int` als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:
+
+```javascript
+{
+  "_id": "387a34be062140e4be1390e846242114",
+  "_rev": "1-742f438439fd68bc6c67ca0d615f1469",
+  "name": "Joske",
+  "age": 10
+}
+```
+
+2. Probeer de views en query's even uit. Zoek bijvoorbeeld alle studenten in `List<Student>` en druk de namen af door middel van `System.out.println()`.
