@@ -18,7 +18,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
-      <description></description>
+      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
+De &amp;ldquo;oude&amp;rdquo; manier om dit te doen in java is gebruik te maken van FileOutputStream:
+public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
     </item>
     
     <item>
@@ -30,6 +32,26 @@
       <description>2.1 Eenvoudige CouchDB Queries Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
 Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
 { &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } }  De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
+    </item>
+    
+    <item>
+      <title>3. Advanced map/red. queries</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</guid>
+      <description>Deze oefeningen volgen de theorie van 11.3.3 op pagina 320.
+Deze oefeningen gaan verder op de database die je hebt opgezet in 2. document stores. Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: voorbereidingswerk) in die link. Start voor onderstaande oefeningen de lokale CouchDB Server en de Admin Console (Project Fauxton) opnieuw op.
+Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd nodig:</description>
+    </item>
+    
+    <item>
+      <title>4. Replication</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</guid>
+      <description>Met replication is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd PouchDB. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &amp;ldquo;master&amp;rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</description>
     </item>
     
     <item>

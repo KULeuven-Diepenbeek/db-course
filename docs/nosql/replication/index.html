@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>2. Document stores :: Databases</title>
+    <title>4. Replication :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1603196467" rel="stylesheet">
@@ -61,7 +61,7 @@ window.MathJax = {
 
 <script src=../../js/osc.js></script>
   </head>
-  <body class="" data-url="/nosql/documentstores/">
+  <body class="" data-url="/nosql/replication/">
     <nav id="sidebar" class="">
 
 
@@ -273,7 +273,7 @@ window.MathJax = {
  
   
     
-      <li data-nav-id="/nosql/documentstores/" title="2. Document stores" class="dd-item active">
+      <li data-nav-id="/nosql/documentstores/" title="2. Document stores" class="dd-item ">
         <a href="../../nosql/documentstores/">
         2. Document stores
         
@@ -315,7 +315,7 @@ window.MathJax = {
  
   
     
-      <li data-nav-id="/nosql/replication/" title="4. Replication" class="dd-item ">
+      <li data-nav-id="/nosql/replication/" title="4. Replication" class="dd-item active">
         <a href="../../nosql/replication/">
         4. Replication
         
@@ -446,7 +446,7 @@ window.MathJax = {
             
           
           
-            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../nosql/'>1. NoSQL</a> > 2. Document stores
+            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../nosql/'>1. NoSQL</a> > 4. Replication
           
         
           
@@ -465,18 +465,7 @@ window.MathJax = {
 <ul>
 <li>
 <ul>
-<li><a href="#2-1-eenvoudige-couchdb-queries">2.1 Eenvoudige CouchDB Queries</a>
-<ul>
-<li><a href="#mango">Mango</a></li>
-<li><a href="#de-couchdb-api-interface-alles-via-http-s">De CouchDB API interface: alles via HTTP(S)</a></li>
-</ul></li>
-<li><a href="#2-2-oefeningen-voorbereidingswerk">2.2 Oefeningen: Voorbereidingswerk</a></li>
-<li><a href="#2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</a></li>
-<li><a href="#2-4-java-client-api">2.4 Java Client API</a>
-<ul>
-<li><a href="#lightcouch-oefeningen">LightCouch oefeningen</a></li>
-</ul></li>
-<li><a href="#denkvragen">Denkvragen</a></li>
+<li><a href="#oefeningen">Oefeningen</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -496,7 +485,7 @@ window.MathJax = {
           
             <h1>
               
-              2. Document stores
+              4. Replication
             </h1>
           
 
@@ -505,100 +494,70 @@ window.MathJax = {
 
 
 
-<h3 id="2-1-eenvoudige-couchdb-queries">2.1 Eenvoudige CouchDB Queries</h3>
+<p><img src="../../img/pouchdb.jpg" alt="" /></p>
 
-<p><img src="../../slides/img/couchdb.png" alt="" /></p>
+<p>Met <em>replication</em> is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd <a href="https://pouchdb.com">PouchDB</a>. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &ldquo;master&rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;dbname&#39;</span>);
 
-<p>Lui in die zetel liggen, en vanaf de bank met gemak query&rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.</p>
+<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">put</span>({
+  <span style="color:#a6e22e">_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;dave@gmail.com&#39;</span>,
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;David&#39;</span>,
+  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">69</span>
+});
 
-<h4 id="mango">Mango</h4>
+<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">changes</span>().<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;change&#39;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Ch-Ch-Changes&#39;</span>);
+});
 
-<p>CouchDB heeft een eenvoudige ingebouwde query syntax genaamd <strong>Mango</strong>. Documentatie op <a href="https://github.com/cloudant/mango">https://github.com/cloudant/mango</a> en <a href="http://127.0.0.1:5984/_utils/docs/intro/api.html#documents">http://127.0.0.1:5984/_utils/docs/intro/api.html#documents</a>. Selecteer een database, klik op &ldquo;run a query with Mango&rdquo;:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-   <span style="color:#e6db74">&#34;selector&#34;</span><span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;year&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>
-   }
-}
+<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">replicate</span>.<span style="color:#a6e22e">to</span>(<span style="color:#e6db74">&#39;http://example.com/mydb&#39;</span>);
 </code></pre></div>
-<p>De <code>selector</code> attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &ldquo;kolommen&rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</p>
-
-<p>Mango werkt met een <em>selector syntax</em> (zie documentatie) die impliciet bovenstaande omzet naar <code>{&quot;year&quot;: {&quot;$eq&quot;: 3}}</code>. Er zijn ook andere dollar-based operatoren. Geneste attributes kan je raadplegen met de <code>.</code> separator: <code>{&quot;student.name&quot;: {&quot;eq&quot;: &quot;Joske&quot;}}</code>.</p>
-
-<h4 id="de-couchdb-api-interface-alles-via-http-s">De CouchDB API interface: alles via HTTP(S)</h4>
-
-<p><code>curl</code> is een snelle cmd-line tool waarbij je via <code>-X</code> kan meegeven of het over een HTTPs <code>GET</code>, <code>POST</code>, <code>PUT</code>, &hellip; gaat. De DB locatie en poort met het juiste <strong>endpoint</strong> zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:</p>
-<pre><code>curl -X http://127.0.0.1:5984/[database]/[id]</code></pre>
-<p>Het resultaat is altijd een geldig <code>JSON</code> object (ook al geef je een ongeldige ID mee): <code>curl -X GET &quot;http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1&quot;</code></p>
-<pre><code>{&#34;_id&#34;:&#34;aalto-university;bachelor-data-science;professional-development;1&#34;,&#34;_rev&#34;:&#34;1-f7872c4254bfc2e0e5507502e2fafd6f&#34;,&#34;title&#34;:&#34;Professional Development&#34;,&#34;url&#34;:&#34;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&#34;,&#34;university&#34;:&#34;Aalto University&#34;,&#34;country&#34;:&#34;Finland&#34;,&#34;category&#34;:&#34;professional&#34;,&#34;ECTS&#34;:5,&#34;year&#34;:1,&#34;optional&#34;:true,&#34;skills&#34;:[&#34;motivate self&#34;,&#34;oral communication&#34;,&#34;self-directed learning&#34;,&#34;self-reflection&#34;,&#34;give/receive feedback&#34;,&#34;set/keep timelines&#34;,&#34;show initiative&#34;],&#34;course&#34;:&#34;Bachelor Data Science&#34;,&#34;lo&#34;:&#34;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one&#39;s strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one&#39;s own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &#34;}</code></pre>
-<p>Indien ongeldig: <code>{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</code>.</p>
-
-<h3 id="2-2-oefeningen-voorbereidingswerk">2.2 Oefeningen: Voorbereidingswerk</h3>
+<p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
 
 <ol>
-<li>Download CouchDB via <a href="https://couchdb.apache.org">https://couchdb.apache.org</a>.</li>
-<li>Download de <a href="../../db/dump.db">testdatabase JSON file</a></li>
-<li>Maak een nieuwe databases aan via de Fauxton Web-based admin tool. Open CouchDB, ga naar &ldquo;<strong>Open Admin Console</strong>&rdquo; of surf zelf naar <a href="http://127.0.0.1:5984/_utils/">http://127.0.0.1:5984/_utils/</a>. Maak een database aan genaamd &lsquo;<em>courses</em>&rsquo;.</li>
-
-<li><p>Importeer de test JSON met <code>curl</code> in cmdnline:</p>
-<pre><code>curl -d @dump.db -H &#34;Content-Type: application/json&#34; -X POST http://127.0.0.1:5984/courses/_bulk_docs</code></pre></li>
+<li>Unidirectional replication. Zie <a href="https://pouchdb.com/guides/replication.html">PouchDB Docs</a></li>
+<li>Bidirectional replication.</li>
+<li>Live/Continuous replication.</li>
 </ol>
 
-<p>De ongelukkigen op Windows kunnen <a href="https://curl.haxx.se/windows/">curl for Windows</a> downloaden, of Msys/MinGW/de besturingssystemen ISO gebruiken.</p>
+<p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;my_database&#39;</span>);
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+<p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
 
-<p>Nadien kan je in Fauxton op <code>F5</code> drukken en zou je dit moeten zien:</p>
-
-<p><img src="../../img/fauxton.jpg" alt="" /></p>
-
-<p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
-<pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db</code></pre>
-<p>En daarna wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg).</p>
-
-<h3 id="2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</h3>
+<h3 id="oefeningen">Oefeningen</h3>
 
 <ol>
-<li>Schrijf een Mango query die cursussen ophaalt waarbij het aantal <code>ECTS</code> punten groter is dan 5.</li>
-<li>Hoe voer je de query uit oefening 1 uit, <em>zonder</em> de Admin console, maar met <code>curl</code>?</li>
-<li>Selecteer alle documenten die als <code>skill</code> de waarde <code>self-reflection</code> én <code>show initiative</code> bevatten.</li>
-<li>Probeer zelf een dump te nemen van je eigen database zoals hierboven beschreven, met het <code>_all_docs</code> endpoint. Wat gebeurt er als je die dump opnieuw wilt importeren via het <code>_bulk_docs</code> endpoint?</li>
-<li>Maak een nieuwe database genaamd <code>studenten</code>. <code>POST</code> via <code>curl</code> enkele nieuwe documenten, met als template <code>{ name: $naam, age: $age, favouriteCourses: [$course1, $course2]}</code> naar deze DB. Controleer in Fauxton of de records correct zijn ingegeven. Verzin zelf wat Mango queries om studenten te filteren.</li>
-<li>Maak een index aan op <code>age</code> voor je <code>studenten</code> database. Merk op dat indexes, zichtbaar in <a href="http://127.0.0.1:5984/_utils/#database/studenten/_index">http://127.0.0.1:5984/_utils/#database/studenten/_index</a> ook worden beschouwd als documenten op zich!</li>
-</ol>
+<li>Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met <code>db.put()</code>. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database.</li>
+<li>Maak een nieuw <code>.html</code> bestand aan, en stel een <a href="https://pouchdb.com/guides/databases.html">remote URL</a> in om vanuit JS onmiddellijk op de remote DB te kunnen queryen.
 
-<p>Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd <strong>Mango</strong>. Documentatie op <a href="https://github.com/cloudant/mango">https://github.com/cloudant/mango</a> en <a href="http://127.0.0.1:5984/_utils/docs/intro/api.html#documents">http://127.0.0.1:5984/_utils/docs/intro/api.html#documents</a>. Lees eerst na hoe dit in elkaar zit!</p>
+<ul>
+<li>Gebruik de <a href="https://pouchdb.com/guides/mango-queries.html">Mango query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/documentstores">2. document stores</a> te implementeren.</li>
+<li>Gebruik de <a href="https://pouchdb.com/guides/queries.html">Mapreduce query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/mapreduce">3. advanced map/red. queries</a> te implementeren. Merk op dat voor map <strong>en</strong> reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: <code>{ map: function(doc) { emit(...); }, reduce: '_count}</code>. Zie docs in link.</li>
+</ul></li>
 
-<h3 id="2-4-java-client-api">2.4 Java Client API</h3>
-
-<p>Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query&rsquo;s uit te voeren), dan heb je de Java API nodig.</p>
-
-<p>In principe kan je met eender welke <code>HTTP</code> client REST calls uitvoeren en de responses zelf verwerken. Om het jezelf gemakkelijker te maken, gebruiken we hier ter illustratie <a href="http://www.lightcouch.org">LightCouch</a>.</p>
-
-<p>Lees de <a href="http://www.lightcouch.org/getstarted.html">LightCouch Getting Started guide</a>. Maak een nieuw gradle 6 project met de volgende dependencies:</p>
-<pre><code>dependencies {
-    implementation group: &#39;org.lightcouch&#39;, name: &#39;lightcouch&#39;, version: &#39;0.2.0&#39;
-}</code></pre>
-<p>In je <code>java/main/resources</code> map dien je een <code>couchdb.properties</code> file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen, waarbij alle members automatisch worden geserialiseerd.</p>
-
-<h4 id="lightcouch-oefeningen">LightCouch oefeningen</h4>
-
-<ol>
-<li><p>Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een <code>Student</code> klasse met als velden <code>name</code> en <code>age</code> (respectievelijk <code>String</code> en <code>int</code> als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-<span style="color:#e6db74">&#34;_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;387a34be062140e4be1390e846242114&#34;</span>,
-<span style="color:#e6db74">&#34;_rev&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1-742f438439fd68bc6c67ca0d615f1469&#34;</span>,
-<span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Joske&#34;</span>,
-<span style="color:#e6db74">&#34;age&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
+<li><p>Maak een nieuw <code>.html</code> bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via <code>console.log()</code>. Wordt het nieuwe document getoond? Gebruik deze boilerplate:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span>&gt;Print docs&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">pre</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pre&#34;</span>&gt;
+...
+&lt;/<span style="color:#f92672">pre</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">doc</span>) {
+document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#pre&#39;</span>).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">doc</span>);
 }
-</code></pre></div></li>
 
-<li><p>Probeer de views en query&rsquo;s even uit. Zoek bijvoorbeeld alle studenten in <code>List&lt;Student&gt;</code> en druk de namen af door middel van <code>System.out.println()</code>.</p></li>
-</ol>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;my_database&#39;</span>);
+<span style="color:#75715e">// do your setup here
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">queryDocs</span>() {
+ <span style="color:#75715e">// do your thing here
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;goed bezig&#39;</span>);
+}
 
-<h3 id="denkvragen">Denkvragen</h3>
-
-<ol>
-<li>Wat is het verschil tussen een key/value store en een document store?</li>
-<li>Kan je een verklaring geven waarom NoSQL databases zonder DB SCHEME werken, als je weet dat bijvoorbeeld CouchDB plain JSON objecten kan bewaren?</li>
-<li>Wat is het verschil tussen het bewaren van een JSON object via Curl en het bewaren van een POJO via LightCouc (De Client API verschillen zelf niet in rekening gebracht)?</li>
+document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#btn&#34;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">queryDocs</span>);
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div></li>
 </ol>
 
 
@@ -753,26 +712,6 @@ window.MathJax = {
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -800,6 +739,23 @@ window.MathJax = {
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -807,6 +763,9 @@ window.MathJax = {
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -844,10 +803,10 @@ window.MathJax = {
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../nosql/keyvaluestores/" title="1. Key/value stores"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../nosql/mapreduce/" title="3. Advanced map/red. queries"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/mapreduce/" title="3. Advanced map/red. queries" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../transacties/" title="2. Transacties" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
