@@ -1,0 +1,20 @@
+<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<button id="btn">Print docs</button>
+<pre id="pre">
+...
+</pre>
+<script>
+function print(doc) {
+	document.querySelector('#pre').innerHTML = JSON.stringify(doc);
+}
+
+  var db = new PouchDB('my_database');
+  // do your setup here
+
+  function queryDocs() {
+  	 // do your thing here
+  	 print('goed bezig');
+  }
+
+document.querySelector("#btn").addEventListener("click", queryDocs);
+</script>

@@ -23,3 +23,50 @@ db.changes().on('change', function() {
 db.replicate.to('http://example.com/mydb');
 ```
 
+Wat is **het doel**? Replication op te zetten tussen de cursussen database van [2. document stores](/nosql/documentstores) en de PouchDB JS web-based client. Dat kan op verschillende manieren:
+
+1. Unidirectional replication. Zie [PouchDB Docs](https://pouchdb.com/guides/replication.html)
+2. Bidirectional replication.
+3. Live/Continuous replication. 
+
+Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg `.html` bestand aan en kopieer de Quick Start code over:
+
+```html
+<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<script>
+  var db = new PouchDB('my_database');
+</script>
+```
+
+Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort `5984`.
+
+### Oefeningen
+
+1. Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met `db.put()`. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database. 
+2. Maak een nieuw `.html` bestand aan, en stel een [remote URL](https://pouchdb.com/guides/databases.html) in om vanuit JS onmiddellijk op de remote DB te kunnen queryen. 
+    - Gebruik de [Mango query API](https://pouchdb.com/guides/mango-queries.html) van Pouch om in CouchDB de oefeningen van [2. document stores](/nosql/documentstores) te implementeren. 
+    - Gebruik de [Mapreduce query API](https://pouchdb.com/guides/queries.html) van Pouch om in CouchDB de oefeningen van [3. advanced map/red. queries](/nosql/mapreduce) te implementeren. Merk op dat voor map **en** reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: `{ map: function(doc) { emit(...); }, reduce: '_count}`. Zie docs in link. 
+3. Maak een nieuw `.html` bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via `console.log()`. Wordt het nieuwe document getoond? Gebruik deze boilerplate:
+
+```html
+<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<button id="btn">Print docs</button>
+<pre id="pre">
+...
+</pre>
+<script>
+function print(doc) {
+    document.querySelector('#pre').innerHTML = JSON.stringify(doc);
+}
+
+  var db = new PouchDB('my_database');
+  // do your setup here
+
+  function queryDocs() {
+     // do your thing here
+     print('goed bezig');
+  }
+
+document.querySelector("#btn").addEventListener("click", queryDocs);
+</script>
+```
