@@ -2,7 +2,11 @@
 title: 'Software ontwerp in C/C++'
 ---
 
+# <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
+
 Laatste aanpassingen voor academiejaar _2020 - 2021_.
+
+---
 
 ## _Cursus notities_
 

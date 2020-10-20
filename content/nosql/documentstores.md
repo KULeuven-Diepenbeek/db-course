@@ -91,7 +91,7 @@ dependencies {
 }
 ```
 
-In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (Plain Old Java Objects) klassen, waarbij alle members automatisch worden geserialiseerd. 
+In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen, waarbij alle members automatisch worden geserialiseerd. 
 
 #### LightCouch oefeningen
 
@@ -107,3 +107,9 @@ In je `java/main/resources` map dien je een `couchdb.properties` file aan te mak
 ```
 
 2. Probeer de views en query's even uit. Zoek bijvoorbeeld alle studenten in `List<Student>` en druk de namen af door middel van `System.out.println()`.
+
+### Denkvragen
+
+1. Wat is het verschil tussen een key/value store en een document store?
+2. Kan je een verklaring geven waarom NoSQL databases zonder DB SCHEME werken, als je weet dat bijvoorbeeld CouchDB plain JSON objecten kan bewaren? 
+3. Wat is het verschil tussen het bewaren van een JSON object via Curl en het bewaren van een POJO via LightCouc (De Client API verschillen zelf niet in rekening gebracht)? 
