@@ -163,6 +163,8 @@ ___
 
 => Pouch is de (_easy-to-setup_) Couch van het web.
 
+Kleiner: [Who's using PouchDB?](https://pouchdb.com/users.html)
+
 ___
 
 ### 3.3 Pouch Replication types
@@ -213,12 +215,51 @@ title: book bla:1, another title:2 wow-book: 3
 price: 10:1,3    20:2
 ```
 
+___
+
+### 4.1. Column based - waarom?
+
+[https://cassandra.apache.org](https://cassandra.apache.org)
+
+> Manage massive amounts of data, fast, without losing sleep
+
+- Super-linked; waarbij col data > row data (vertical slices: "**business intelligence**" of BI)
+- In-memory buffers
+- Tracking & monitoring
+
+In **Cassandra**: Cluster << Data Center << Rack << Server << Node
 
 ---
 
-## 5. Graph-based DBs (Neo4j)
+## 5 Case Studies
 
-TODO
+### 5.1 eBay (2012)
+
+![](/db-course/slides/img/ebay.png)
+
+https://www.benl.ebay.be
+
+https://www.slideshare.net/jaykumarpatel/cassandra-at-ebay-13920376
+
+___
+
+### 5.2 Spotify (2015)
+
+![](/db-course/slides/img/spotify.png)
+
+https://spotify.com
+
+https://engineering.atspotify.com/2015/01/09/personalization-at-spotify-using-cassandra/
+
+___
+
+### 5.3 Uber (2016)
+
+![](/db-course/slides/img/uber.png)
+
+https://uber.com
+
+http://highscalability.com/blog/2016/9/28/how-uber-manages-a-million-writes-per-second-using-mesos-and.html
 
 ---
 

@@ -77,7 +77,15 @@ Niet altijd de "**beste**" oplossing.
 
 ___
 
-### 2.1 NoSQL/RDMS?
+### 2.1 DB-Engines "ranking"
+
+https://db-engines.com/en/ranking_trend
+
+[![](/db-course/slides/img/ranking.jpg)](https://db-engines.com/en/ranking_trend)
+
+___
+
+### 2.2 NoSQL/RDMS?
 
 Wat denk jij? NoSQL of RDMS? of ... ?
 
@@ -88,6 +96,8 @@ Wat denk jij? NoSQL of RDMS? of ... ?
 [https://twitter.com](https://twitter.com) ([hint](https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/))
 
 [https://people.cs.kuleuven.be/~wouter.groeneveld/courses/](https://people.cs.kuleuven.be/~wouter.groeneveld/courses/)
+
+[https://uber.com](https://uber.com) ([hint](http://highscalability.com/blog/2016/9/28/how-uber-manages-a-million-writes-per-second-using-mesos-and.html))
 
 ---
 

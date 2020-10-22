@@ -10,9 +10,11 @@ chapter: true
 
 #### 1. [NoSQL Databases: Introductie](/hoorcolleges/slides-1/)
 
-#### 2. [NoSQL Databases: Advanced concepts](/hoorcolleges/slides-2/)
+#### 2. [NoSQL Databases: Map/Reduce, Case Studies (1)](/hoorcolleges/slides-2/)
 
-#### 3. [Transactie Management](/hoorcolleges/slides-3/)
+#### 2. [NoSQL Databases: Graph-based, Case Studies (2) ](/hoorcolleges/slides-3/)
 
-#### 4. [Database APIs](/hoorcolleges/slides-4)
+#### 3. [Transactie Management](/hoorcolleges/slides-4/)
+
+#### 4. [Database APIs](/hoorcolleges/slides-5)
 

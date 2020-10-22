@@ -8,6 +8,22 @@ Laatste aanpassingen voor academiejaar _2020 - 2021_.
 
 ---
 
+## _Planning_
+
+| nr | datum      | onderwerp                 |
+|----|------------|---------------------------|
+| 1  | ma 26-10-2020 | NoSQL 1: intro HC      |
+| 2  | do 29-10-2020 | NoSQL 2: key/value stores, document stores  |
+| 3  | ma 09-11-2020 | NoSQL 3: advanced concepts, case studies (1) HC   |
+| 4  | do 12-11-2020 | NoSQL 4: map/reduce, replication |
+| 5  | ma 16-11-2020 | NoSQL 5: Graph stores, case studies (2) HC |
+| 6  | do 19-11-2020 | Transactie management HC |
+| 7  | do 23-11-2020 | Transactie management labo |
+| 8  | do 26-11-2020 | Database APIs 1: ORM mapping, Hibernate |
+| 9  | do 30-11-2020 | Database APIs 2: H2, Sessy Lib |
+| 10 | do 03-12-2020 | Database APIs 3: Transacties in Java |
+| 11 | do 07-12-2020 | Database APIs 4: Sessy Lib naar CouchDB |
+
 ## _Cursus notities_
 
 ### [Hoorcolleges](/hoorcolleges)
