@@ -42,12 +42,20 @@ ___
 ### 1.3 Oplossing: NoSQL
 
 - **Géén** relationele data. 
-- **Géén** (onmiddellijke) consistentie: _eventual consistency_.
+- **Géén** (onmiddellijke) consistentie;<br/>Dus **géén** coördinatie overhead; _eventual consistency_.
 - Zeer goed **scalable**.
 
 ___
 
-### 1.4 RDMS VS NoSQL p303
+<!-- .slide: data-background-image="/db-course/slides/img/datacenter.png" -->
+
+### 1.4 Distributed Computing
+
+**Cluster** << **Data Center** << **Rack** << **Server** << **Node**
+
+___
+
+### 1.5 RDMS VS NoSQL p303
 
 | Eigenschap     | Relationeel | NoSQL |
 |----------------|-------------|-------|
@@ -77,6 +85,13 @@ Niet altijd de "**beste**" oplossing.
 
 ___
 
+<img src="/db-course/slides/img/nosql-types.jpg" />
+
+Bron: improgrammer.net
+
+___
+
+
 ### 2.1 DB-Engines "ranking"
 
 https://db-engines.com/en/ranking_trend
@@ -97,13 +112,11 @@ Wat denk jij? NoSQL of RDMS? of ... ?
 
 [https://people.cs.kuleuven.be/~wouter.groeneveld/courses/](https://people.cs.kuleuven.be/~wouter.groeneveld/courses/)
 
+De gemiddelde blog zoals [vb1](https://debbythijs.com/blog-3/), [vb2](https://brainbaking.com/post/)
+
+[Wikipedia](https://en.wikipedia.org/wiki/PCI_Express#PCI_Express_4.0) ([hint](https://www.mediawiki.org/wiki/MediaWiki))
+
 [https://uber.com](https://uber.com) ([hint](http://highscalability.com/blog/2016/9/28/how-uber-manages-a-million-writes-per-second-using-mesos-and.html))
-
----
-
-<img src="/db-course/slides/img/nosql-types.jpg" />
-
-Bron: improgrammer.net
 
 ---
 
