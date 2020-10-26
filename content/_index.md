@@ -42,6 +42,8 @@ Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worde
 - NoSQL:
     1. [NoSQL Databases: Key/Value stores](/nosql/keyvaluestores)
     2. [NoSQL Databases: Document stores](/nosql/documentstores)
+    3. [NoSQL Databases: Advanced map/reduce queries](/nosql/mapreduce)
+    4. [NoSQL Databases: Replication](/nosql/replication)
 
 
 ## Syllabus
