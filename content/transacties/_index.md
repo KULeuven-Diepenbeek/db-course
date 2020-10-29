@@ -6,6 +6,8 @@ chapter: true
 
 # Transaction management
 
+### HF14, p430
+
 - vanaf 16/11.
 - 2 lessen
 

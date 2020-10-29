@@ -69,7 +69,7 @@ Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:
 curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true > dump.db
 ```
 
-Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg) om tot bovenstaande [dump.db](/db/dump.db) filte te komen. 
+Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg) om tot bovenstaande [dump.db](/db/dump.db) filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren. 
 
 ### 2.3 Oefeningen met Fauxton/Curl
 
@@ -96,7 +96,19 @@ dependencies {
 }
 ```
 
-In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen, waarbij alle members automatisch worden geserialiseerd. 
+In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started):
+
+```
+couchdb.name=testdb
+couchdb.createdb.if-not-exist=true
+couchdb.protocol=http
+couchdb.host=127.0.0.1
+couchdb.port=5984
+couchdb.username=
+couchdb.password=
+```
+
+Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen, waarbij alle members automatisch worden geserialiseerd. 
 
 #### LightCouch oefeningen
 

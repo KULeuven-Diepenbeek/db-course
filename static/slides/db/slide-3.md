@@ -74,6 +74,13 @@ graph LR;
     B --> D[Argenta ClientApp]
 </div>
 
+---
+
+## 3. Replication oefeningen
+
+Nu is het aan jullie
+
+1.4 https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/
 
 ---
 
