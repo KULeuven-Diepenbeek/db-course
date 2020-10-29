@@ -54,6 +54,11 @@ curl -d @dump.db -H "Content-Type: application/json" -X POST http://127.0.0.1:59
 
 De ongelukkigen op Windows kunnen [curl for Windows](https://curl.haxx.se/windows/) downloaden, of Msys/MinGW/de besturingssystemen ISO gebruiken. 
 
+**LET OP**: 
+
+1. Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor _non-partitioned_.
+2. Het kan zijn dar CURL een security fout geeft. Bij het installeren van CouchDB moet je een admin username/password meegeven. Voeg aan het einde van je curl commando dit toe: `-u username:wachtwoord`.
+
 Nadien kan je in Fauxton op `F5` drukken en zou je dit moeten zien:
 
 ![](/img/fauxton.jpg)
