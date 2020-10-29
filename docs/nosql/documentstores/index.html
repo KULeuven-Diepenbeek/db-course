@@ -12,21 +12,21 @@
     <title>2. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1603720160" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1603720160" rel="stylesheet">
-    <link href="../../css/hybrid.css?1603720160" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1603720160" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1603720160" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1603720160" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1603720160" rel="stylesheet">
-    <link href="../../css/theme.css?1603720160" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1603720160" rel="stylesheet">
+    <link href="../../css/nucleus.css?1603971928" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1603971928" rel="stylesheet">
+    <link href="../../css/hybrid.css?1603971928" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1603971928" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1603971928" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1603971928" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1603971928" rel="stylesheet">
+    <link href="../../css/theme.css?1603971928" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1603971928" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1603720160" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1603971928" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1603720160"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1603971928"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1603720160"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1603720160"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1603971928"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1603971928"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1603720160"></script>
+<script type="text/javascript" src="../../js/search.js?1603971928"></script>
 
     
   </div>
@@ -548,7 +548,7 @@ window.MathJax = {
 <h4 id="de-couchdb-api-interface-alles-via-http-s">De CouchDB API interface: alles via HTTP(S)</h4>
 
 <p><code>curl</code> is een snelle cmd-line tool waarbij je via <code>-X</code> kan meegeven of het over een HTTPs <code>GET</code>, <code>POST</code>, <code>PUT</code>, &hellip; gaat. De DB locatie en poort met het juiste <strong>endpoint</strong> zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:</p>
-<pre><code>curl -X http://127.0.0.1:5984/[database]/[id]</code></pre>
+<pre><code>curl -X GET http://127.0.0.1:5984/[database]/[id]</code></pre>
 <p>Het resultaat is altijd een geldig <code>JSON</code> object (ook al geef je een ongeldige ID mee): <code>curl -X GET &quot;http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1&quot;</code></p>
 <pre><code>{&#34;_id&#34;:&#34;aalto-university;bachelor-data-science;professional-development;1&#34;,&#34;_rev&#34;:&#34;1-f7872c4254bfc2e0e5507502e2fafd6f&#34;,&#34;title&#34;:&#34;Professional Development&#34;,&#34;url&#34;:&#34;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&#34;,&#34;university&#34;:&#34;Aalto University&#34;,&#34;country&#34;:&#34;Finland&#34;,&#34;category&#34;:&#34;professional&#34;,&#34;ECTS&#34;:5,&#34;year&#34;:1,&#34;optional&#34;:true,&#34;skills&#34;:[&#34;motivate self&#34;,&#34;oral communication&#34;,&#34;self-directed learning&#34;,&#34;self-reflection&#34;,&#34;give/receive feedback&#34;,&#34;set/keep timelines&#34;,&#34;show initiative&#34;],&#34;course&#34;:&#34;Bachelor Data Science&#34;,&#34;lo&#34;:&#34;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one&#39;s strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one&#39;s own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &#34;}</code></pre>
 <p>Indien ongeldig: <code>{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</code>.</p>
@@ -572,7 +572,7 @@ window.MathJax = {
 
 <p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
 <pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db</code></pre>
-<p>En daarna wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg).</p>
+<p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen.</p>
 
 <h3 id="2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</h3>
 
@@ -894,19 +894,19 @@ window.MathJax = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1603720160"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1603720160"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1603720160"></script>
-    <script src="../../js/jquery.sticky.js?1603720160"></script>
-    <script src="../../js/featherlight.min.js?1603720160"></script>
-    <script src="../../js/highlight.pack.js?1603720160"></script>
+    <script src="../../js/clipboard.min.js?1603971928"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1603971928"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1603971928"></script>
+    <script src="../../js/jquery.sticky.js?1603971928"></script>
+    <script src="../../js/featherlight.min.js?1603971928"></script>
+    <script src="../../js/highlight.pack.js?1603971928"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1603720160"></script>
-    <script src="../../js/learn.js?1603720160"></script>
-    <script src="../../js/hugo-learn.js?1603720160"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1603971928"></script>
+    <script src="../../js/learn.js?1603971928"></script>
+    <script src="../../js/hugo-learn.js?1603971928"></script>
 
-    <link href="../../mermaid/mermaid.css?1603720160" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1603720160"></script>
+    <link href="../../mermaid/mermaid.css?1603971928" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1603971928"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

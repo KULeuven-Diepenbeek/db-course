@@ -30,7 +30,7 @@ Mango werkt met een _selector syntax_ (zie documentatie) die impliciet bovenstaa
 `curl` is een snelle cmd-line tool waarbij je via `-X` kan meegeven of het over een HTTPs `GET`, `POST`, `PUT`, ... gaat. De DB locatie en poort met het juiste **endpoint** zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:
 
 ```
-curl -X http://127.0.0.1:5984/[database]/[id]
+curl -X GET http://127.0.0.1:5984/[database]/[id]
 ```
 
 Het resultaat is altijd een geldig `JSON` object (ook al geef je een ongeldige ID mee): `curl -X GET "http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1"`
@@ -64,7 +64,7 @@ Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:
 curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true > dump.db
 ```
 
-En daarna wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg). 
+Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg) om tot bovenstaande [dump.db](/db/dump.db) filte te komen. 
 
 ### 2.3 Oefeningen met Fauxton/Curl
 

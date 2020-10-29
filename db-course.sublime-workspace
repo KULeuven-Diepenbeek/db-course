@@ -520,19 +520,27 @@
 	"buffers":
 	[
 		{
-			"file": "static/slides/db/slide-2.md",
+			"file": "content/_index.md",
 			"settings":
 			{
-				"buffer_size": 4786,
+				"buffer_size": 4352,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "static/slides/db/slide-3.md",
+			"file": "content/hoorcolleges/slides-1.md",
 			"settings":
 			{
-				"buffer_size": 1472,
+				"buffer_size": 105,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/slides/db/slide-1.md",
+			"settings":
+			{
+				"buffer_size": 7357,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -634,6 +642,7 @@
 		"/Users/jefklak/development/kul/db-course/content",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges",
 		"/Users/jefklak/development/kul/db-course/content/nosql",
+		"/Users/jefklak/development/kul/db-course/content/transacties",
 		"/Users/jefklak/development/kul/db-course/static",
 		"/Users/jefklak/development/kul/db-course/static/db",
 		"/Users/jefklak/development/kul/db-course/static/img",
@@ -643,9 +652,10 @@
 	],
 	"file_history":
 	[
-		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-1.md",
+		"/Users/jefklak/Documents/win98.md",
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-2.md",
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-3.md",
+		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-1.md",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/_index.md",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/slides-5.md",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/slides-4.md",
@@ -769,8 +779,7 @@
 		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/filters/postprocessor.py",
 		"/Users/jefklak/development/brainbaking/.gitignore",
 		"/Users/jefklak/development/brainbaking/content/post/2020/07/3d-software-rendering-on-gba.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/contacts.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/todo.md"
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/contacts.md"
 	],
 	"find":
 	{
@@ -789,6 +798,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cluster",
 			"mermaid",
 			".jpg",
 			"futo"
@@ -809,24 +819,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "static/slides/db/slide-2.md",
+					"file": "content/_index.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4786,
+						"buffer_size": 4352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4225,
-								4190
+								1017,
+								1017
 							]
 						],
 						"settings":
@@ -845,25 +855,40 @@
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										2698,
+										2699
+									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -874,36 +899,26 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"git_gutter_is_enabled": true,
 							"origPos":
@@ -920,37 +935,28 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "static/slides/db/slide-3.md",
-					"semi_transient": false,
+					"file": "content/hoorcolleges/slides-1.md",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1472,
+						"buffer_size": 105,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								988,
-								988
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"WordCount":
-							{
-								"changes": 2,
-								"count": 110,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.locations":
 							{
@@ -969,11 +975,179 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "static/slides/db/slide-1.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2583,
+								2583
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 514,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2610,
+										2611
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/square_bracket.png",
+										"region.bluish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2552,
+										2553
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -988,54 +1162,21 @@
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_round_content"
 							],
 							"git_gutter_is_enabled": true,
 							"origPos":
 							[
 								0.0,
-								949.0
+								2024.0
 							],
 							"syncScroll": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 949.0,
+						"translation.y": 2024.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1105,16 +1246,20 @@
 		"selected_items":
 		[
 			[
+				"slide-2",
+				"static/slides/db/slide-2.md"
+			],
+			[
+				"slide-1.",
+				"static/slides/db/slide-1.md"
+			],
+			[
 				"slide-1",
 				"static/slides/db/slide-1.md"
 			],
 			[
 				"slide-3",
 				"static/slides/db/slide-3.md"
-			],
-			[
-				"slide-2",
-				"static/slides/db/slide-2.md"
 			],
 			[
 				"hoorcoll",
@@ -1127,10 +1272,6 @@
 			[
 				"slide-2.m",
 				"static/slides/db/slide-2.md"
-			],
-			[
-				"slide-1.",
-				"static/slides/db/slide-1.md"
 			],
 			[
 				"slides-1",
@@ -1622,16 +1763,16 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "brainba",
+		"last_filter": "phd",
 		"selected_items":
 		[
 			[
-				"brainba",
-				"~/development/brainbaking/brainbaking.sublime-project"
-			],
-			[
 				"phd",
 				"~/development/phd/phd.sublime-project"
+			],
+			[
+				"brainba",
+				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"brain",
