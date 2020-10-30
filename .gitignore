@@ -9,6 +9,7 @@
 # User-specific stuff
 **/.idea/
 
+**/.DS_Store
 
 
 ### Gradle ###

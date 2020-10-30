@@ -1,0 +1,134 @@
+---
+title: 1. Failures/Rollbacks
+---
+
+Voorbereidende `CREATE` statements (Dit is SQLite syntax!) Zie [SQLite manual](https://sqlite.org/autoinc.html):
+
+```SQL
+DROP TABLE IF EXISTS student;
+CREATE TABLE student(
+    studnr INT NOT NULL PRIMARY KEY,
+    naam VARCHAR(200) NOT NULL,
+    voornaam VARCHAR(200),
+    goedbezig BOOL
+);
+DROP TABLE IF EXISTS log;
+CREATE TABLE log(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    foreign_id INT NOT NULL,
+    msg TEXT
+);
+INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, 'Trekhaak', 'Jaak', 0);
+INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, 'Peeters', 'Jos', 0);
+INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 'Ding', 1);
+```
+
+
+## 1. System failure simulatie
+
+Gegeven een aantal SQL statements, waarvan niet alle statements kloppen, maar die wel allemaal bij elkaar horen als één **atomaire transactie**. Dat betekent dat als er één van die statements misloopt, de rest teruggedraait zou moeten worden. Het spreekt voor zich dat zonder speciale handelingen, zoals het beheren van transacties, dit niet gebeurt. Een eenvoudig voorbeeld demonstreert dit. 
+
+```SQL
+UPDATE student SET voornaam = 'Jaqueline' WHERE studnr = 123;
+INSERT INTO oeitiskapot;
+INSERT INTO log(foreign_id, msg) VALUES (123, 'Voornaam vergissing');
+INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (445, 'Klakmans', 'Jef', 1);
+INSERT INTO log(foreign_id, msg) VALUES (445, 'Nieuwe student registratie');
+```
+
+Plak dit in de "Execute SQL" tab van de SQLite DB Browser. Het resultaat is een foutboodschap:
+
+```
+near ";": syntax error: 
+INSERT INTO oeitiskapot;
+```
+
+**Maar**: het eerste `UPDATE` statement, voor de foute regel, is wel uitgevoerd:
+
+![](/img/sqlite-fout.jpg)
+
+Ditzelfde fenomeen stellen we ook vast als we niet rechtstreeks in de DB explorer onze queries uitvoeren, maar via Java, met behulp van de [sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) drivers. [JDBC](https://www.tutorialspoint.com/jdbc/index.htm),  of "Java DataBase Connection", is een tussenlaag die het mogelijk maakt om SQL uit te voeren op eender welke SQL server. `sqlite-jdbc` zorgt voor de SQLite-specifieke vertaling. De interface die wij gebruiken om te programmeren zit in de JDK zelf onder de packages `java.sql`.
+
+Enkele belangrijke statements:
+
+1. Een connectie naar een database vastleggen: `var connection = DriverManager.getConnection("jdbc:sqlite:mydb.db");`
+2. Een `SELECT` query uitvoeren: `var s = connection.createStatement(); var result = s.executeQuery("..."); var cell = result.getString("column");`
+3. Een `INSERT`/`UPDATE`/... query uitvoeren (die de structuur of inhoud van de database **wijzigt**): `var s = connection.createStatement(); s.executeUpdate("...");`
+
+Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:
+
+```java
+private Connection connection;
+public void createDb() throws SQLException {
+    connection = DriverManager.getConnection("jdbc:sqlite:mydb.db");
+    connection.setAutoCommit(false);
+    var s = connection.createStatement();
+    s.executeUpdate("CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")
+    s.close();
+}
+public void verifyDbContents() throws SQLException {
+    var s = connection.createStatement();
+    var result = s.executeQuery("SELECT COUNT(*) FROM mijntabel;");
+    var count = result.getInt(0);
+    s.close();
+
+    assert count == 1;
+}
+```
+
+**Gradle** dependency: `compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'`.
+
+Merk op dat `SQLException` een **checked exception** is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een `try { } catch { } finally { }` block is dat in de finally je ook geen `close()` kan uitvoeren zonder opnieuw een `try` block te openen... Inception!
+
+Het `connection.close()` statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een **connection pool** van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!
+
+### 1.1 Oefeningen
+
+#### In SQLite Browser:
+
+1. Probeer bovenstaande voorbeeld zelf uit in de SQLite DB Browser. Als je jezelf ervan verzekerd hebt dat inderdaad het eerste `UPDATE` statement wordt uitgevoerd, terwijl wij dat in één ACID blok willen, ga dan over naar de volgende oefening.
+2. In SQLite is het starten van een transactie erg eenvoudig: zie [SQLite transaction tutorials](https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm) van tutorialspoint.com. `BEGIN;` en `COMMIT;` of alternatief `BEGIN TRANSACTION;` en `END TRANSACTION;` zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een "clean slate" te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf `ROLLBACK;` aanroepen. 
+3. Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de `NOT NULL` constraint. Wrap beide statements in een transactie. 
+
+**Let Op**: Het zou kunnen dat SQLite de volgende fout geeft: `cannot start a transaction within a transaction: BEGIN;`. Queries die geplakt worden in het "execute SQL" scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door `COMMIT;` uit te voeren met de knop "execute single SQL line". 
+
+#### In Java:
+
+1. Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring `"jdbc:sqlite:sample.db"`, automatisch een lege `.db` file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van `executeUpdate()` en `executeQuery()` bovenstaande system failure te veroorzaken. Je kan de "foute SQL" (met "oeitiskapot") gewoon in een string in java copy/pasten. `executeUpdate()` kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een `SELECT()` nadat je de fout hebt opgevangen in een `try { }` block.
+2. Het probleem is op te lossen met één welgeplaatste regel: `connection.rollback()`. De vraag is echter: waar plaatsen we die? En ja, `rollback()` throwt ook de checked `SQLException`... Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: "Jaak".
+
+De `DROP TABLE IF EXISTS` statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:
+
+```java
+    private void initTables() throws Exception {
+        var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").getPath())));
+        System.out.println(sql);
+
+        var s = connection.createStatement();
+        s.executeUpdate(sql);
+        s.close();
+    }
+```
+
+De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:
+
+```
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ";": syntax error)
+    at org.sqlite.core.DB.newSQLException(DB.java:1010)
+    at org.sqlite.core.DB.newSQLException(DB.java:1022)
+    at org.sqlite.core.DB.throwex(DB.java:987)
+    at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+    at org.sqlite.core.NativeDB._exec(NativeDB.java:94)
+    at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+    at SQLiteTransactionTest.doStuff(SQLiteTransactionTest.java:54)
+    at SQLiteMain.main(SQLiteMain.java:7)
+```
+
+## 2. Media failure simulatie
+
+### 2.1 Oefeningen
+
+## Denkvragen
+
+- De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
