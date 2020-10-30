@@ -27,6 +27,8 @@ INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 
 
 ## 1. System failure simulatie
 
+### 1.1 In SQLite met DB Browser
+
 Gegeven een aantal SQL statements, waarvan niet alle statements kloppen, maar die wel allemaal bij elkaar horen als één **atomaire transactie**. Dat betekent dat als er één van die statements misloopt, de rest teruggedraait zou moeten worden. Het spreekt voor zich dat zonder speciale handelingen, zoals het beheren van transacties, dit niet gebeurt. Een eenvoudig voorbeeld demonstreert dit. 
 
 ```SQL
@@ -48,7 +50,17 @@ INSERT INTO oeitiskapot;
 
 ![](/img/sqlite-fout.jpg)
 
-Ditzelfde fenomeen stellen we ook vast als we niet rechtstreeks in de DB explorer onze queries uitvoeren, maar via Java, met behulp van de [sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) drivers. [JDBC](https://www.tutorialspoint.com/jdbc/index.htm),  of "Java DataBase Connection", is een tussenlaag die het mogelijk maakt om SQL uit te voeren op eender welke SQL server. `sqlite-jdbc` zorgt voor de SQLite-specifieke vertaling. De interface die wij gebruiken om te programmeren zit in de JDK zelf onder de packages `java.sql`.
+#### Oefeningen
+
+1. Probeer bovenstaande voorbeeld zelf uit in de SQLite DB Browser. Als je jezelf ervan verzekerd hebt dat inderdaad het eerste `UPDATE` statement wordt uitgevoerd, terwijl wij dat in één ACID blok willen, ga dan over naar de volgende oefening.
+2. In SQLite is het starten van een transactie erg eenvoudig: zie [SQLite transaction tutorials](https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm) van tutorialspoint.com. `BEGIN;` en `COMMIT;` of alternatief `BEGIN TRANSACTION;` en `END TRANSACTION;` zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een "clean slate" te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf `ROLLBACK;` aanroepen. 
+3. Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de `NOT NULL` constraint. Wrap beide statements in een transactie. 
+
+**Let Op**: Het zou kunnen dat SQLite de volgende fout geeft: `cannot start a transaction within a transaction: BEGIN;`. Queries die geplakt worden in het "execute SQL" scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door `COMMIT;` uit te voeren met de knop "execute single SQL line". 
+
+### 1.2 In SQLite met Java/JDBC
+
+Bovenstaande failure fenomeen stellen we ook vast als we niet rechtstreeks in de DB explorer onze queries uitvoeren, maar via Java, met behulp van de [sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) drivers. [JDBC](https://www.tutorialspoint.com/jdbc/index.htm),  of "Java DataBase Connection", is een tussenlaag die het mogelijk maakt om SQL uit te voeren op eender welke SQL server. `sqlite-jdbc` zorgt voor de SQLite-specifieke vertaling. De interface die wij gebruiken om te programmeren zit in de JDK zelf onder de packages `java.sql`.
 
 Enkele belangrijke statements:
 
@@ -83,17 +95,17 @@ Merk op dat `SQLException` een **checked exception** is die je constant moet mee
 
 Het `connection.close()` statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een **connection pool** van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!
 
-### 1.1 Oefeningen
+De `setAutoCommit(false)` regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:
 
-#### In SQLite Browser:
+> When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)
 
-1. Probeer bovenstaande voorbeeld zelf uit in de SQLite DB Browser. Als je jezelf ervan verzekerd hebt dat inderdaad het eerste `UPDATE` statement wordt uitgevoerd, terwijl wij dat in één ACID blok willen, ga dan over naar de volgende oefening.
-2. In SQLite is het starten van een transactie erg eenvoudig: zie [SQLite transaction tutorials](https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm) van tutorialspoint.com. `BEGIN;` en `COMMIT;` of alternatief `BEGIN TRANSACTION;` en `END TRANSACTION;` zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een "clean slate" te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf `ROLLBACK;` aanroepen. 
-3. Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de `NOT NULL` constraint. Wrap beide statements in een transactie. 
+Zie JDBC Basics in Oracle docs: https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
-**Let Op**: Het zou kunnen dat SQLite de volgende fout geeft: `cannot start a transaction within a transaction: BEGIN;`. Queries die geplakt worden in het "execute SQL" scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door `COMMIT;` uit te voeren met de knop "execute single SQL line". 
+Begeleidende video:
 
-#### In Java:
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/f026890c206843548339d1fb4a9f2cbe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+#### Oefeningen
 
 1. Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring `"jdbc:sqlite:sample.db"`, automatisch een lege `.db` file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van `executeUpdate()` en `executeQuery()` bovenstaande system failure te veroorzaken. Je kan de "foute SQL" (met "oeitiskapot") gewoon in een string in java copy/pasten. `executeUpdate()` kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een `SELECT()` nadat je de fout hebt opgevangen in een `try { }` block.
 2. Het probleem is op te lossen met één welgeplaatste regel: `connection.rollback()`. De vraag is echter: waar plaatsen we die? En ja, `rollback()` throwt ook de checked `SQLException`... Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: "Jaak".
@@ -125,10 +137,8 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     at SQLiteMain.main(SQLiteMain.java:7)
 ```
 
-## 2. Media failure simulatie
-
-### 2.1 Oefeningen
 
 ## Denkvragen
 
 - De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
+- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen? 

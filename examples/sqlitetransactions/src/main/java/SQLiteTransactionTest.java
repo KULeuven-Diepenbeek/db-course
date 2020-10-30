@@ -28,8 +28,8 @@ public class SQLiteTransactionTest {
 
     private void verifyTableContents() throws SQLException {
         var s = connection.createStatement();
-        var result = s.executeQuery("SELECT COUNT(*) FROM student");
-        assert result.getInt(0) == 3;
+        var result = s.executeQuery("SELECT COUNT(*) as cnt FROM student");
+        assert result.getInt("cnt") == 3;
     }
 
     private void initTables() throws Exception {
