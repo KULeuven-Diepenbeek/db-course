@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.lightcouch/lightcouch
+    implementation group: 'org.lightcouch', name: 'lightcouch', version: '0.2.0'
+    // https://mvnrepository.com/artifact/net.spy/spymemcached
+    implementation group: 'net.spy', name: 'spymemcached', version: '2.12.3'
+
+
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}

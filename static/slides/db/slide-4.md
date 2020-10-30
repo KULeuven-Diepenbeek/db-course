@@ -25,6 +25,15 @@ ___
 - Ofwel _alle_ ops (succeed), ofwel _niets_ (fail).
 - +1 transactie/moment: **concurrency**!
 
+___
+
+### 1.1 Waarvoor dienen transacties?
+
+Afdwingen **ACID** regels:
+
+1. In geval van failures
+2. In geval van concurrency
+
 ---
 
 ## 2. Transactie lifecycle
@@ -59,6 +68,31 @@ ___
 ### 2.1 "Aflijnen" van transacties
 
 In Java Code:
+
+```java
+public void doStuffInTransaction() {
+    sessionManager.beginTransaction();
+    try {
+        // -- DO WORK
+        repository.updateStudentName("Jos", "Joske");
+        repository.updateStudentScore(124, 10); // BOEM
+        logger.insertLogRecord(124, "naam gewijzigd");
+        // -- DONE, commit stuff
+        sessionManager.commit();
+    } catch(Exception ex) {
+        sessionManager.rollback();
+        throw ex;
+    } finally {
+        sessionManager.close();
+    }
+}
+```
+
+Omslachtig?
+
+___
+
+Altijd dezelfde `try { ... }` code => **@Transactional** wrapper
 
 ```java
 @Transactional
@@ -111,3 +145,9 @@ Het belang van de **Logfile** voor een transactie:
 - Metadata, ids, ...
 - **before**/**after** images van alle records involved!!
 - Huidige transactie state
+
+---
+
+## 3. Transacties & Concurrency
+
+
