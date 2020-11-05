@@ -45,8 +45,14 @@ public class BeheerTipsController {
 
             var process = new ProcessBuilder();
 
-            var cmd = isWindows() ? "start" : (isMac() ? "open" : "oei-ik-ken-uw-os-niet");
-            process.command(cmd, path.toRealPath().toString());
+            if(isWindows()) {
+                process.command("cmd.exe", "/c", "start " + path.toRealPath().toString());
+            } else if(isMac()) {
+                process.command("open", path.toRealPath().toString());
+            } else {
+                throw new RuntimeException("Ik ken uw OS niet jong");
+            }
+
             process.start();
         } catch (Exception e) {
             throw new RuntimeException("resource " + resource + " kan niet ingelezen worden", e);
