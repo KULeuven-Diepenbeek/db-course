@@ -54,6 +54,8 @@ Onderwijsassistent: Wouter Groeneveld - <a href="mailto:wouter.groeneveld@kuleuv
 - **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO, D.0.35. 
 - **Verplicht handboek**: [Principles of Database Management](https://www.goodreads.com/book/show/36982903-principles-of-database-management?ac=1&from_search=true&qid=z7bP98PTvN&rank=1), Wilfried Lemahieu
 
+![](https://www.dataminingapps.com/wp-content/uploads/2017/12/cover-230x300.png)
+
 #### Cursusbeschrijving
 
 Dit opleidingsonderdeel focust enerzijds op drie soorten databases:

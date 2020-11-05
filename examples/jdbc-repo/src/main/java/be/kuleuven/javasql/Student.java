@@ -1,3 +1,5 @@
+package be.kuleuven.javasql;
+
 public class Student {
     private String maam;
     private String voornaam;
