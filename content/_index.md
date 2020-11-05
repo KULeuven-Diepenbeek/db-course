@@ -1,5 +1,5 @@
 ---
-title: 'Software ontwerp in C/C++'
+title: 'Index'
 ---
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
