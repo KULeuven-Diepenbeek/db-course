@@ -27,6 +27,14 @@ public class BeheerTipsController {
         });
     }
 
+    private boolean isWindows() {
+        return System.getProperty("os.name").toLowerCase().indexOf("win") >= 0;
+    }
+
+    private boolean isMac() {
+        return System.getProperty("os.name").toLowerCase().indexOf("mac") >= 0;
+    }
+
     private void runResource(String resource) {
         try {
             // TODO dit moet niet van de resource list komen maar van een DB.
@@ -36,7 +44,9 @@ public class BeheerTipsController {
             Thread.sleep(1000);
 
             var process = new ProcessBuilder();
-            process.command("open", path.toRealPath().toString());
+
+            var cmd = isWindows() ? "start" : (isMac() ? "open" : "oei-ik-ken-uw-os-niet");
+            process.command(cmd, path.toRealPath().toString());
             process.start();
         } catch (Exception e) {
             throw new RuntimeException("resource " + resource + " kan niet ingelezen worden", e);
