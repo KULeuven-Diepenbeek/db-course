@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>2. JPA en Hibernate :: Databases</title>
+
+    
+    <link href="../../css/nucleus.css?1604670197" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/hybrid.css?1604670197" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1604670197" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1604670197" rel="stylesheet">
+    <link href="../../css/theme.css?1604670197" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1604670197" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1604670197" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1604670197"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="/apis/jpa/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1604670197"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1604670197"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1604670197"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <h3><a href="../../">Inhoudsopgave</a></h3>
+    <ul class="topics">
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../hoorcolleges/">
+          Hoorcolleges
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-1/" title="1. NoSQL Databases: Introductie" class="dd-item ">
+        <a href="../../hoorcolleges/slides-1/">
+        1. NoSQL Databases: Introductie
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-2/" title="2. NoSQL Databases: Advanced concepts" class="dd-item ">
+        <a href="../../hoorcolleges/slides-2/">
+        2. NoSQL Databases: Advanced concepts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-3/" title="3. NoSQL Graphs, Case Studies" class="dd-item ">
+        <a href="../../hoorcolleges/slides-3/">
+        3. NoSQL Graphs, Case Studies
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Transactie Management" class="dd-item ">
+        <a href="../../hoorcolleges/slides-4/">
+        4. Transactie Management
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/hoorcolleges/slides-5/" title="5. Database APIs" class="dd-item ">
+        <a href="../../hoorcolleges/slides-5/">
+        5. Database APIs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../nosql/">
+          1. NoSQL
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/keyvaluestores/" title="1. Key/value stores" class="dd-item ">
+        <a href="../../nosql/keyvaluestores/">
+        1. Key/value stores
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/documentstores/" title="2. Document stores" class="dd-item ">
+        <a href="../../nosql/documentstores/">
+        2. Document stores
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/mapreduce/" title="3. Advanced map/red. queries" class="dd-item ">
+        <a href="../../nosql/mapreduce/">
+        3. Advanced map/red. queries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/replication/" title="4. Replication" class="dd-item ">
+        <a href="../../nosql/replication/">
+        4. Replication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../transacties/">
+          2. Transacties
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/failures-rollbacks/" title="1. Failures/Rollbacks" class="dd-item ">
+        <a href="../../transacties/failures-rollbacks/">
+        1. Failures/Rollbacks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/concurrency/" title="2. Concurrency" class="dd-item ">
+        <a href="../../transacties/concurrency/">
+        2. Concurrency
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../apis/">
+          3. Database APIs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jdbc-jdbi/" title="1. JDBC en JDBI" class="dd-item ">
+        <a href="../../apis/jdbc-jdbi/">
+        1. JDBC en JDBI
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jpa/" title="2. JPA en Hibernate" class="dd-item active">
+        <a href="../../apis/jpa/">
+        2. JPA en Hibernate
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Index</a> > <a href='../../apis/'>3. Database APIs</a> > 2. JPA en Hibernate
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#2-1-wat-is-jpa">2.1 Wat is JPA?</a>
+<ul>
+<li><a href="#2-1-1-maar-wat-is-de-jpa-api-nu-precies">2.1.1 Maar wat is de JPA API nu precies?</a></li>
+</ul></li>
+<li><a href="#2-2-wat-is-hibernate-orm">2.2 Wat is Hibernate ORM?</a>
+<ul>
+<li><a href="#2-2-1-hibernate-jpa-bootstrapping">2.2.1 Hibernate/JPA Bootstrapping</a></li>
+<li><a href="#2-2-2-hibernate-jpa-peristence-querying">2.2.2 Hibernate/JPA Peristence/querying</a>
+<ul>
+<li><a href="#inserts-updates">Inserts/updates</a></li>
+<li><a href="#queries">Queries</a></li>
+</ul></li>
+<li><a href="#2-2-3-oefeningen">2.2.3 Oefeningen</a></li>
+<li><a href="#2-2-4-jdbc-vs-jdbi3-vs-jpa">2.2.4 JDBC VS Jdbi3 VS JPA</a></li>
+</ul></li>
+<li><a href="#2-3-many-to-one-relaties-in-hibernate-jpa">2.3 Many-to-one relaties in Hibernate/JPA</a>
+<ul>
+<li><a href="#2-3-1-oefeningen">2.3.1 Oefeningen</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              2. JPA en Hibernate
+            </h1>
+          
+
+        
+
+
+
+
+<h2 id="2-1-wat-is-jpa">2.1 Wat is JPA?</h2>
+
+<p>JPA of de <strong>Java Persistence API</strong> is een deel van Java EE (Java <em>Enterprise Platform</em>), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &ldquo;enterprise&rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &ldquo;B2B&rdquo;, Business 2 Business, of Enterprise Software Development).</p>
+
+<p>Ondertussen is J2EE omgevormd tot <a href="https://jakarta.ee">Jakarta EE</a>. In principe staat JPA nu voor Jakarta Persistence API&hellip; What&rsquo;s in a name.</p>
+
+<h3 id="2-1-1-maar-wat-is-de-jpa-api-nu-precies">2.1.1 Maar wat is de JPA API nu precies?</h3>
+
+<p>De API, levend in de package <code>javax.persistence</code>, is een manier om relationele data voor te stellen in enterprise Java applicaties, door middel van Objecten. Het is dus een mapping tool die object/relationale (meta)data bewerkt en verwerkt. JPA heeft ook zijn eigen query language, JPQL, die het eenvoudiger moet maken om queries te schrijven <em>in Java code zelf</em> in plaats van in SQL, die vertaald worden naar SQL. Dit vereenvoudigt refactoring en vermindert mogelijke fouten in de SQL string die te laat naar boven komen (nu compiletime ipv runtime, aangezien Java statisch getypeerd is).</p>
+
+<p>JPA is niet meer dan een specificatie die de <strong>interfaces</strong> en <strong>annotaties</strong> voorziet. De implementatie, en de <strong>klasses</strong>, worden overgelaten aan <em>vendors</em>, waarvan voor JPA 2.2 <a href="https://en.wikipedia.org/wiki/Jakarta_Persistence">de volgende vendors</a> beschikbaar zijn:</p>
+
+<ul>
+<li>DataNucleus</li>
+<li>EclipseLink</li>
+<li>Hibernate</li>
+<li>OpenJPA</li>
+</ul>
+
+<p>JPA 2.2 Gradle dependency: <code>compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'</code></p>
+
+<h2 id="2-2-wat-is-hibernate-orm">2.2 Wat is Hibernate ORM?</h2>
+
+<p>Volgens de <a href="http://hibernate.org/orm/">hibernate.org</a> website:</p>
+
+<blockquote>
+<p>Your relational data. Objectively.</p>
+</blockquote>
+
+<p>Hibernate is dé populairste object-relational mapper in Java die de JPA standaard implementeert. Hibernate heeft zowel een eigen API als een JPA specificatie, en kan dus overal waar JPA nodig is ingeschakeld worden. Het wordt vaak in omgevingen gebruikt waar performantie belangrijk is, en waar enorm veel data en gebruikers data transferreren.</p>
+
+<p><strong>Belangrijk startpunt:</strong> <a href="https://docs.jboss.org/hibernate/orm/5.4/quickstart/html_single/">Hibernate getting started guide</a> Ook Hibernate werkt met modules, zoals Jdbi3. We gebruiken <code>hibernate-core</code>; via Gradle: <code>compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.23.Final'</code></p>
+
+<p>Het gebruik van Hibernate geeft meestal een aantal mogelijkheden:</p>
+
+<ol>
+<li>Gebruik de Native Hibernate API en <code>hbm.xml</code> mapping (Zie &ldquo;2. Tutorial Using Native Hibernate APIs and hbm.xml Mapping&rdquo;)</li>
+<li>Gebruik de Native Hibernate API en annotaties (Zie &ldquo;3. Tutorial Using Native Hibernate APIs and Annotation Mappings&rdquo;)</li>
+<li>Gebruik de JPA interface (Zie &ldquo;4. Tutorial Using the Java Persistence API (JPA)&rdquo;)</li>
+</ol>
+
+<p>Waarvan wij #3 gaan hanteren.</p>
+
+<h3 id="2-2-1-hibernate-jpa-bootstrapping">2.2.1 Hibernate/JPA Bootstrapping</h3>
+
+<p>JPA bootstrappen kan - net zoals JDBC en Jdbi - vrij eenvoudig met een statische klasse <code>Persistence</code> die een <code>sessionFactory</code> object aanmaakt. Elke <strong>session factory</strong> stelt een verbinding voor tussen de Java code en de Database zelf. Om te kunnen werken met objecten moet je vanuit de session factory de <strong>entity manager</strong> creëren. Vanaf dan kan er worden gewerkt met de database via de entity manager instantie.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">var sessionFactory <span style="color:#f92672">=</span> Persistence<span style="color:#f92672">.</span><span style="color:#a6e22e">createEntityManagerFactory</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;be.kuleuven.mijnmooiepackage&#34;</span><span style="color:#f92672">);</span>
+var entityManager <span style="color:#f92672">=</span> sessionFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">createEntityManager</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">// do stuff with it!
+</span><span style="color:#75715e"></span><span style="color:#f92672">//</span> entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">createQuery</span><span style="color:#f92672">(...)</span></code></pre></div>
+<p><code>javax.persistence.Persistence</code> gaat op zoek naar een <code>persistence.xml</code> bestand in de map <code>src/main/resources/META-INF</code>. Die bevat alle connectiegegevens en instellingen. De <strong>persistence XML file</strong> is de <em>belangrijkste</em> file van je hele applicatie, waar caching strategie, driver management, table autocreation, &hellip; allemaal in wordt bepaald!</p>
+
+<p>Een voorbeeld XML file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;persistence</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;2.1&#34;</span>
+             <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/persistence&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+             <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;persistence-unit</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;be.kuleuven.studenthibernate.domain&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;description&gt;</span>Studenten JPA Test<span style="color:#f92672">&lt;/description&gt;</span>
+        <span style="color:#f92672">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span style="color:#f92672">&lt;/provider&gt;</span>
+        <span style="color:#f92672">&lt;properties&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.persistence.jdbc.driver&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.sqlite.JDBC&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.persistence.jdbc.url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:sqlite:studenten.db&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.persistence.jdbc.user&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.persistence.jdbc.password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;javax.persistence.schema-generation.database.action&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;drop-and-create&#34;</span><span style="color:#f92672">/&gt;</span>
+
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.dialect&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.hibernate.dialect.SQLiteDialect&#34;</span> <span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.connection.autocommit&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.show_sql&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.flushMode&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;ALWAYS&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.cache.use_second_level_cache&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;hibernate.cache.provider_class&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;org.hibernate.cache.NoCacheProvider&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;/properties&gt;</span>
+    <span style="color:#f92672">&lt;/persistence-unit&gt;</span>
+<span style="color:#f92672">&lt;/persistence&gt;</span></code></pre></div>
+<p>Bevat onder andere de volgende belangrijke properties:</p>
+
+<ul>
+<li><code>javax.persistence</code> JDBC driver/url. Merk op dat achterliggend dus nog steeds JDBC wordt gebruikt! Dat betekent ook dat we de sqlite dependency <code>sqlite-jdbc</code> van de groep <code>org.xerial</code> nog steeds nodig hebben.</li>
+<li><code>schema-generation</code> properties: <code>drop-and-create</code> betekent dat tabellen die niet bestaan automatisch worden aangemaakt. Geen <code>CREATE TABLE</code> statements meer nodig, dus.</li>
+<li><code>hibernate.dialect</code>: voor vendor-specifieke queries te genereren moet Hibernate weten welke database wij hanteren. Dit staat los van de jdbc driver! Hiervoor gebruiken we het dialect van dependency <code>compile group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'</code>.</li>
+<li>Flush modes, auto-commit instellingen, caching, e.a. Dit gaat ver buiten de scope van deze cursus.</li>
+<li><code>show_sql</code> print de gegenereerde queries af in de console, handig om te zien hoe Hibernate intern werkt, en om te debuggen.<br /></li>
+</ul>
+
+<p>Er ontbreekt hierboven nog een belangrijk gegeven: elke entity (domein object dat een tabel voorstelt in de code) moet met fully qualified name in een <code>&lt;class/&gt;</code> tag onder <code>&lt;persistence-unit/&gt;</code> worden toegevoegd. Anders herkent JPA het object niet, en heeft hij geen idee welke kolommen te mappen op welke properties. Die metadata zit namelijk in de entity klasse zelf.</p>
+
+<p>Meer informatie: zie <a href="http://hibernate.org/orm/">hibernate.org documentatie</a> en <a href="https://thorben-janssen.com/jpa-persistence-xml/">A beginners guide to JPA persistence xml</a>.</p>
+
+<h3 id="2-2-2-hibernate-jpa-peristence-querying">2.2.2 Hibernate/JPA Peristence/querying</h3>
+
+<p>Nu de verbinding tussen de DB en Hibernate/JPA tot stand werd gebracht, is het tijd om gebruik te maken van de kracht van de library.</p>
+
+<p>Om kolommen te kunnen mappen op properties voorziet JPA een aantal <strong>annotaties</strong> als meta-data op het domeinobject zelf. Dat betekent dat DB beschrijving netjes bij het object waar het hoort wordt geplaatst. Bijvoorbeeld:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Huis</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Column</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;beschr&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> String beschrijving<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Column</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> prijs<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Het datatype kan ook worden ingesteld met <code>@Column</code> (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat <code>@Id</code> nodig is op een <code>@Entity</code> - zonder primary key kan JPA geen object persisteren. <code>@GeneratedValue</code> is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de <code>AUTOINCREMENT</code>. Bij elke <code>persist()</code> gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">Hibernate: <span style="color:#66d9ef">select</span> next_val <span style="color:#66d9ef">as</span> id_val <span style="color:#66d9ef">from</span> hibernate_sequence
+Hibernate: <span style="color:#66d9ef">update</span> hibernate_sequence <span style="color:#66d9ef">set</span> next_val<span style="color:#f92672">=</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">where</span> next_val<span style="color:#f92672">=?</span>
+Hibernate: <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Student (goedBezig, naam, voornaam, studnr) <span style="color:#66d9ef">values</span> (<span style="color:#f92672">?</span>, <span style="color:#f92672">?</span>, <span style="color:#f92672">?</span>, <span style="color:#f92672">?</span>)</code></pre></div>
+<p>De tabelnaam kan je wijzigen met de <code>@Table</code> annotatie op klasse niveau.</p>
+
+<h4 id="inserts-updates">Inserts/updates</h4>
+
+<p>Hoe bewaar ik een entity? <code>entityManager.persist(object)</code>. That&rsquo;s it!</p>
+
+<p>Hoe update ik een entity, als properties zijn gewijzigd? <code>.merge(object)</code></p>
+
+<p>Merk op dat in de Sysout output <em>geen query</em> wordt gegenereerd. Hibernate houdt alles in zijn interne cache bij, en zal pas flushen naar de database wanneer hij acht dat dat nodig is. Dat kan je zelf triggeren door <code>entityManager.flush()</code> te gebruiken (kan alleen in een transactie) - of het commando te wrappen met een transactie:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">().</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">();</span>
+entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">persist</span><span style="color:#f92672">(</span>dingdong<span style="color:#f92672">);</span>
+entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">().</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">();</span></code></pre></div>
+<p>Zonder dit, en met herbruik van dezelfde entity manager in SQLite, is er een kans dat je <code>SELECT</code> query niets teruggeeft, omdat de <code>INSERT</code> nog niet werd geflushed. De interne werking van combinatie JDBC+SQLite+JPA+Hibernate is zeer complex en zou een cursus van 20 studiepunten vereisen&hellip;</p>
+
+<h4 id="queries">Queries</h4>
+
+<p>Hoe query ik in JPA? Dit kan op verschillende manieren. We beperken ons hier tot de <strong>JPA Criteria API</strong>. Een voorbeeld. Gegeven een huizenlijst, waarvan we huizen willen teruggeven die onder de 200.000 kosten. In SQL zou dit <code>SELECT * FROM huizen WHERE prijs &lt; 200000</code> zijn. In Criteria API:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">var criteriaBuilder <span style="color:#f92672">=</span> entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getCriteriaBuilder</span><span style="color:#f92672">();</span>
+var query <span style="color:#f92672">=</span> criteriaBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">createQuery</span><span style="color:#f92672">(</span>Huis<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+var root <span style="color:#f92672">=</span> query<span style="color:#f92672">.</span><span style="color:#a6e22e">from</span><span style="color:#f92672">(</span>Huis<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+
+query<span style="color:#f92672">.</span><span style="color:#a6e22e">where</span><span style="color:#f92672">(</span>criteriaBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">equal</span><span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;prijs&#34;</span><span style="color:#f92672">),</span> 200000<span style="color:#f92672">));</span>
+<span style="color:#66d9ef">return</span> entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">createQuery</span><span style="color:#f92672">(</span>query<span style="color:#f92672">).</span><span style="color:#a6e22e">getResultList</span><span style="color:#f92672">();</span></code></pre></div>
+<p>Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer krachtig en kan automatisch complexe queries genereren zonder dat wij ons moe moeten maken. Merk op dat wij <em>geen enkele letter SQL</em> zelf schrijven. Alles is <strong>java code</strong>, wat het eenvoudig maakt om te refactoren, redesignen, statische code analyse op te doen, unit testen, &hellip; Lees meer over criteria API:</p>
+
+<ul>
+<li>Voorbeeld 2 <a href="https://www.initgrep.com/posts/java/jpa/create-programmatic-queries-using-criteria-api">Programmatic Criteria Queries</a></li>
+<li>Voorbeeld 3 <a href="https://www.tutorialspoint.com/jpa/jpa_criteria_api.htm">TutorialsPoint Criteria API</a></li>
+<li>Voorbeeld 4 <a href="https://www.baeldung.com/jpa-criteria-api-in-expressions">Using &ldquo;In&rdquo; in Criteria API</a></li>
+</ul>
+
+<p>Controleer in de sysout output welke query Hibernate uiteindelijk genereert. Dat ziet er zo uit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> student0_.studnr <span style="color:#66d9ef">as</span> studnr1_0_, student0_.goedBezig <span style="color:#66d9ef">as</span> goedbezi2_0_, student0_.naam <span style="color:#66d9ef">as</span> naam3_0_, student0_.voornaam <span style="color:#66d9ef">as</span> voornaam4_0_ <span style="color:#66d9ef">from</span> Student student0_ <span style="color:#66d9ef">where</span> student0_.naam<span style="color:#f92672">=?</span></code></pre></div>
+<h3 id="2-2-3-oefeningen">2.2.3 Oefeningen</h3>
+
+<ol>
+<li>Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van <a href="../../apis/jdbc-jdbi/">1. jdbc en jdbi</a>. We voorzien een <strong>derde implementatie</strong> van de <code>StudentRepository</code> interface, naast de JDBC en Jdbi3 versies: <code>StudentRepositoryJpaImpl</code>. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
+
+<ul>
+<li>Een configuratiebestand in <code>resources/META-INF</code>.</li>
+<li>Entities, zoals onze <code>Student</code> klasse.</li>
+<li>Bootstrappen van de <code>EntityManager</code>.</li>
+<li>Een repository implementatie die de <code>EntityManager</code> gebruikt (tip: <em>constructor injectie!</em>)</li>
+</ul></li>
+
+<li><p>Modelleer ook de log tabel uit <a href="../../transacties/failures-rollbacks">1. Failures/rollbacks</a>. Bewaar een log record bij elke wijziging van student (aanmaken, wijzigen). Vergeet geen <code>&lt;class/&gt;</code> entry toe te voegen in je <code>persistence.xml</code>! Anders krijg je de volgende fout:</p>
+<pre><code>Exception in thread &#34;main&#34; java.lang.IllegalArgumentException: Not an entity: class be.kuleuven.studenthibernate.domain.Student
+at org.hibernate.metamodel.internal.MetamodelImpl.entity(MetamodelImpl.java:566)
+at org.hibernate.query.criteria.internal.QueryStructure.from(QueryStructure.java:127)
+at org.hibernate.query.criteria.internal.CriteriaQueryImpl.from(CriteriaQueryImpl.java:158)</code></pre></li>
+</ol>
+
+<h3 id="2-2-4-jdbc-vs-jdbi3-vs-jpa">2.2.4 JDBC VS Jdbi3 VS JPA</h3>
+
+<ul>
+<li>JDBC: Low-level relationele mapping tussen Java en DB. Wordt door alle high-level API&rsquo;s gebruikt. Omslachtig (checked Exceptions, beperkte interface), erg kort bij SQL. Functionaliteit: minimaal.</li>
+<li>Jdbi3: High-level relationele mapping no-nonsense API bovenop JDBC die in feite alle negatieve kenmerken van JDBC wegwerkt. Nog steeds kort bij SQL, maar meer object-friendly door Fluent/Declarative API. Functionaliteit: nog steeds basic, maar wel met gebruiksgemak.</li>
+<li>JPA en vendors: High-level object-relational mapper bovenop JDBC waarbij entities centraal staan en compatibiliteit met Java EE is ingebouwd. Genereert SQL  (zelf raw queries schrijven kan nog steeds, maar wordt afgeraden). Functionaliteit: enorm uitgebreid.</li>
+</ul>
+
+<p>Kies altijd <strong>bewust</strong> voor één bepaald framework in plaats van &ldquo;random&rdquo; of &ldquo;uit ervaring&rdquo;: JPA/Hibernate is vaak overkill voor simpele applicaties, JDBC is vaak té low-level en bevat veel boilerplating, terwijl Jdbi3 daartussen ligt.</p>
+
+<p>Zijn er nog alternatieven? Uiteraard, en meer dan één&hellip; Maar dat reikt buiten de scope van deze cursus.</p>
+
+<h2 id="2-3-many-to-one-relaties-in-hibernate-jpa">2.3 Many-to-one relaties in Hibernate/JPA</h2>
+
+<p>De grootste kracht van JPA hebben we nog steeds niet gezien: in plaats van één of meerdere entiteiten <em>onafhankelijk</em> te mappen, kunnen we ook <strong>relaties mappen</strong> en Hibernate alles op SQL-niveau laten afhandelen. Nooit meer <code>JOIN</code> statements schrijven, hoera!&hellip; Niet altijd. Soms wil je de queries anders aanpakken dan Hibernate ze genereert omwille van <strong>performantie</strong> redenen. In dat geval zal je nog steeds moeten teruggrijpen naar <em>native SQL</em> - of veel tijd investeren in de correcte configuratie van de Hibernate/JPA/JDBC installatie.</p>
+
+<p>Een concreet voorbeeld. Een <code>Docent</code> entiteit geeft les aan verschillende studenten:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Docent</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> docentennummer<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Column</span>
+    <span style="color:#66d9ef">private</span> String naam<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@OneToMany</span><span style="color:#f92672">(</span>mappedBy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;docent&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">&gt;</span> studenten<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>De <code>@OneToMany</code> annotatie zorgt voor de link tussen de studenten- en docententabel: het is wel nog nodig om een omgekeerde mapping property genaamd <code>docent</code> toe te voegen op de <code>Student</code> klasse:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@ManyToOne</span><span style="color:#f92672">(</span>fetch <span style="color:#f92672">=</span> FetchType<span style="color:#f92672">.</span><span style="color:#a6e22e">LAZY</span><span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;docent_nr&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Docent docent<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Op die manier kan je van docenten onmiddellijk zien aan wie ze lesgeven (one to many), en van een student van wie hij of zij les krijgt (many to one). De data wordt in de studententabel bewaard, in kolom <code>docent_nr</code>. Andere configuraties zoals tussentabellen zijn uiteraard ook mogelijk.</p>
+
+<p>Persisteren we nu een nieuwe docent waar een reeds bewaarde student in de lijst werd toegevoegd:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">docentenTest</span><span style="color:#f92672">(</span>EntityManager entityManager<span style="color:#f92672">,</span> Student student<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    var wouter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Docent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Wouter&#34;</span><span style="color:#f92672">);</span>
+    wouter<span style="color:#f92672">.</span><span style="color:#a6e22e">geefLesAan</span><span style="color:#f92672">(</span>student<span style="color:#f92672">);</span>
+
+    entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">().</span><span style="color:#a6e22e">begin</span><span style="color:#f92672">();</span>
+    entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">persist</span><span style="color:#f92672">(</span>wouter<span style="color:#f92672">);</span>
+    entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">().</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Geeft in Hibernate:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">Hibernate: <span style="color:#66d9ef">select</span> next_val <span style="color:#66d9ef">as</span> id_val <span style="color:#66d9ef">from</span> hibernate_sequence
+Hibernate: <span style="color:#66d9ef">update</span> hibernate_sequence <span style="color:#66d9ef">set</span> next_val<span style="color:#f92672">=</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">where</span> next_val<span style="color:#f92672">=?</span>
+Hibernate: <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Docent (naam, docentnummer) <span style="color:#66d9ef">values</span> (<span style="color:#f92672">?</span>, <span style="color:#f92672">?</span>)</code></pre></div>
+<p>SQLite browser:</p>
+
+<p><img src="../../img/student-nodocent.jpg" alt="" /></p>
+
+<p>Waar is onze <code>docent_nr</code> data? De methode <code>geefLesAan</code> voegt enkel toe aan de studentenlijst, maar de relatie moet <strong>voor beide entities</strong> kloppen:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">geefLesAan</span><span style="color:#f92672">(</span>Student student<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    studenten<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>student<span style="color:#f92672">);</span>
+    student<span style="color:#f92672">.</span><span style="color:#a6e22e">setDocent</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Zonder de tweede regel wordt de kolom niet ingevuld. Geeft nu:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">Hibernate: <span style="color:#66d9ef">select</span> next_val <span style="color:#66d9ef">as</span> id_val <span style="color:#66d9ef">from</span> hibernate_sequence
+Hibernate: <span style="color:#66d9ef">update</span> hibernate_sequence <span style="color:#66d9ef">set</span> next_val<span style="color:#f92672">=</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">where</span> next_val<span style="color:#f92672">=?</span>
+Hibernate: <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Docent (naam, docentnummer) <span style="color:#66d9ef">values</span> (<span style="color:#f92672">?</span>, <span style="color:#f92672">?</span>)
+Hibernate: <span style="color:#66d9ef">update</span> Student <span style="color:#66d9ef">set</span> docent_nr<span style="color:#f92672">=?</span>, goedBezig<span style="color:#f92672">=?</span>, naam<span style="color:#f92672">=?</span>, voornaam<span style="color:#f92672">=?</span> <span style="color:#66d9ef">where</span> studnr<span style="color:#f92672">=?</span></code></pre></div>
+<p>Bingo, een <code>UPDATE</code> statement in de studententabel. SQLite Browser:</p>
+
+<p><img src="../../img/student-docent.jpg" alt="" /></p>
+
+<h3 id="2-3-1-oefeningen">2.3.1 Oefeningen</h3>
+
+<ol>
+<li>Implementeer de <code>Docent</code> klasse zoals hierboven.
+
+<ul>
+<li>Wat gebeurt er als je studenten opvraagt?</li>
+<li>Wat gebeurt er als je een docent van een student opvraagt? De <code>FetchType.LAZY</code> schiet in gang. Verander dit naar <code>EAGER</code>. Kijk in de Hibernate output wat er verandert op SQL niveau en verifiëer dat er nu een <code>LEFT OUTER JOIN</code> in de <code>SELECT</code> van de student staat.</li>
+</ul></li>
+</ol>
+
+<p>Pas op het moment dat de data van de docent effectief nodig is, zoals bij het afdrukken, wordt een <code>SELECT</code> query gelanceerd bij lazy-loading. Bijvoorbeeld:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    var student <span style="color:#f92672">=</span> entityManager<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>Student<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> jos<span style="color:#f92672">.</span><span style="color:#a6e22e">getStudentenNummer</span><span style="color:#f92672">());</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;student &#34;</span> <span style="color:#f92672">+</span> student<span style="color:#f92672">.</span><span style="color:#a6e22e">getNaam</span><span style="color:#f92672">());</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; -- heeft als docent &#34;</span> <span style="color:#f92672">+</span> student<span style="color:#f92672">.</span><span style="color:#a6e22e">getDocent</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getNaam</span><span style="color:#f92672">());</span></code></pre></div>
+<p>Geeft als sysout output:</p>
+<pre><code>Hibernate: select student0_.studnr as studnr1_1_0_, student0_.docent_nr as docent_n5_1_0_, student0_.goedBezig as goedbezi2_1_0_, student0_.naam as naam3_1_0_, student0_.voornaam as voornaam4_1_0_ from Student student0_ where student0_.studnr=?
+student Lowiemans
+Hibernate: select docent0_.docentnummer as docentnu1_0_0_, docent0_.naam as naam2_0_0_ from Docent docent0_ where docent0_.docentnummer=?
+ -- heeft als docent Wouter</code></pre>
+<p>Merk op dat de eerste <code>System.out.println</code> vóór de docenten <code>SELECT</code> query komt. Een eager-loaded docent geeft andere output:</p>
+<pre><code>Hibernate: select student0_.studnr as studnr1_1_0_, student0_.docent_nr as docent_n5_1_0_, student0_.goedBezig as goedbezi2_1_0_, student0_.naam as naam3_1_0_, student0_.voornaam as voornaam4_1_0_, docent1_.docentnummer as docentnu1_0_1_, docent1_.naam as naam2_0_1_ from Student student0_ left outer join Docent docent1_ on student0_.docent_nr=docent1_.docentnummer where student0_.studnr=?
+student Lowiemans
+ -- heeft als docent Wouter</code></pre>
+<p><strong>Tip</strong>: <code>entityManager.clear()</code> of <code>close()</code> een nieuwe aanmaken kan helpen om de persistence context te flushen ter test.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../apis/jdbc-jdbi/" title="1. JDBC en JDBI"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../apis/jdbc-jdbi/" title="1. JDBC en JDBI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1604670197"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1604670197"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1604670197"></script>
+    <script src="../../js/jquery.sticky.js?1604670197"></script>
+    <script src="../../js/featherlight.min.js?1604670197"></script>
+    <script src="../../js/highlight.pack.js?1604670197"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1604670197"></script>
+    <script src="../../js/learn.js?1604670197"></script>
+    <script src="../../js/hugo-learn.js?1604670197"></script>
+
+    <link href="../../mermaid/mermaid.css?1604670197" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1604670197"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

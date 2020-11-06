@@ -12,5 +12,26 @@
 	<atom:link href="https://kuleuven-diepenbeek.github.io/db-course/apis/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>1. JDBC en JDBI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
+      <description>1.1 Queries/Objecten in JDBC Zie Transacties failures/rollbacks voor de initiële setup van een eenvoudige Java JDBC applicatie.
+Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: van de TABLE STUDENT naar de class Student. In geval van JDBC is dat veel handwerk:
+ Maak een verbinding met de database. Voer de SELECT statements uit. Loop door de ResultSet en maak een nieuwe Student instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, null?</description>
+    </item>
+    
+    <item>
+      <title>2. JPA en Hibernate</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
+      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
+Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+    </item>
+    
   </channel>
 </rss>

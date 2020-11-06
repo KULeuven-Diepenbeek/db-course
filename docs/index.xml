@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Software ontwerp in C/C&#43;&#43; on Databases</title>
+    <title>Index on Databases</title>
     <link>https://kuleuven-diepenbeek.github.io/db-course/</link>
-    <description>Recent content in Software ontwerp in C/C&#43;&#43; on Databases</description>
+    <description>Recent content in Index on Databases</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
@@ -55,12 +55,52 @@ Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd n
     </item>
     
     <item>
+      <title>1. Failures/Rollbacks</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
+      <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
+DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+    </item>
+    
+    <item>
+      <title>1. JDBC en JDBI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
+      <description>1.1 Queries/Objecten in JDBC Zie Transacties failures/rollbacks voor de initiële setup van een eenvoudige Java JDBC applicatie.
+Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: van de TABLE STUDENT naar de class Student. In geval van JDBC is dat veel handwerk:
+ Maak een verbinding met de database. Voer de SELECT statements uit. Loop door de ResultSet en maak een nieuwe Student instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, null?</description>
+    </item>
+    
+    <item>
       <title>1. NoSQL Databases: Introductie</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-1/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>2. Concurrency</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</guid>
+      <description>TODO</description>
+    </item>
+    
+    <item>
+      <title>2. JPA en Hibernate</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
+      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
+Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
     
     <item>

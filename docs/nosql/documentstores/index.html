@@ -12,21 +12,21 @@
     <title>2. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1603977172" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1603977172" rel="stylesheet">
-    <link href="../../css/hybrid.css?1603977172" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1603977172" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1603977172" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1603977172" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1603977172" rel="stylesheet">
-    <link href="../../css/theme.css?1603977172" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1603977172" rel="stylesheet">
+    <link href="../../css/nucleus.css?1604670197" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/hybrid.css?1604670197" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1604670197" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1604670197" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1604670197" rel="stylesheet">
+    <link href="../../css/theme.css?1604670197" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1604670197" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1603977172" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1604670197" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1603977172"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1604670197"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1603977172"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1603977172"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1604670197"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1604670197"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1603977172"></script>
+<script type="text/javascript" src="../../js/search.js?1604670197"></script>
 
     
   </div>
@@ -374,6 +374,58 @@ window.MathJax = {
           
       </a>
       
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/failures-rollbacks/" title="1. Failures/Rollbacks" class="dd-item ">
+        <a href="../../transacties/failures-rollbacks/">
+        1. Failures/Rollbacks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/concurrency/" title="2. Concurrency" class="dd-item ">
+        <a href="../../transacties/concurrency/">
+        2. Concurrency
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -398,6 +450,58 @@ window.MathJax = {
           
       </a>
       
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jdbc-jdbi/" title="1. JDBC en JDBI" class="dd-item ">
+        <a href="../../apis/jdbc-jdbi/">
+        1. JDBC en JDBI
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jpa/" title="2. JPA en Hibernate" class="dd-item ">
+        <a href="../../apis/jpa/">
+        2. JPA en Hibernate
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -467,7 +571,7 @@ window.MathJax = {
             
           
           
-            <a href='../../'>Software ontwerp in C/C++</a> > <a href='../../nosql/'>1. NoSQL</a> > 2. Document stores
+            <a href='../../'>Index</a> > <a href='../../nosql/'>1. NoSQL</a> > 2. Document stores
           
         
           
@@ -579,7 +683,7 @@ window.MathJax = {
 
 <p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
 <pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db</code></pre>
-<p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen.</p>
+<p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren.</p>
 
 <h3 id="2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</h3>
 
@@ -604,7 +708,15 @@ window.MathJax = {
 <pre><code>dependencies {
     implementation group: &#39;org.lightcouch&#39;, name: &#39;lightcouch&#39;, version: &#39;0.2.0&#39;
 }</code></pre>
-<p>In je <code>java/main/resources</code> map dien je een <code>couchdb.properties</code> file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started). Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen, waarbij alle members automatisch worden geserialiseerd.</p>
+<p>In je <code>java/main/resources</code> map dien je een <code>couchdb.properties</code> file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started):</p>
+<pre><code>couchdb.name=testdb
+couchdb.createdb.if-not-exist=true
+couchdb.protocol=http
+couchdb.host=127.0.0.1
+couchdb.port=5984
+couchdb.username=
+couchdb.password=</code></pre>
+<p>Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen, waarbij alle members automatisch worden geserialiseerd.</p>
 
 <h4 id="lightcouch-oefeningen">LightCouch oefeningen</h4>
 
@@ -860,6 +972,19 @@ window.MathJax = {
                     
 
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -875,6 +1000,57 @@ window.MathJax = {
                     
                     
 
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -901,19 +1077,19 @@ window.MathJax = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1603977172"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1603977172"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1603977172"></script>
-    <script src="../../js/jquery.sticky.js?1603977172"></script>
-    <script src="../../js/featherlight.min.js?1603977172"></script>
-    <script src="../../js/highlight.pack.js?1603977172"></script>
+    <script src="../../js/clipboard.min.js?1604670197"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1604670197"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1604670197"></script>
+    <script src="../../js/jquery.sticky.js?1604670197"></script>
+    <script src="../../js/featherlight.min.js?1604670197"></script>
+    <script src="../../js/highlight.pack.js?1604670197"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1603977172"></script>
-    <script src="../../js/learn.js?1603977172"></script>
-    <script src="../../js/hugo-learn.js?1603977172"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1604670197"></script>
+    <script src="../../js/learn.js?1604670197"></script>
+    <script src="../../js/hugo-learn.js?1604670197"></script>
 
-    <link href="../../mermaid/mermaid.css?1603977172" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1603977172"></script>
+    <link href="../../mermaid/mermaid.css?1604670197" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1604670197"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
