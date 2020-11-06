@@ -2,7 +2,7 @@
 title: "1. JDBC en JDBI"
 ---
 
-## 1. Queries/Objecten in JDBC
+## 1.1 Queries/Objecten in JDBC
 
 Zie **[Transacties failures/rollbacks](/transacties/failures-rollbacks/)** voor de initiële setup van een eenvoudige Java JDBC applicatie. 
 
@@ -26,7 +26,7 @@ Zie ook [ResultSet Oracle Javadoc](https://docs.oracle.com/javase/7/docs/api/jav
 
 Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onmiddellijk over naar de oefeningen:
 
-### Oefeningen
+### 1.1.1 Oefeningen
 
 1. Maak (én test!) een klasse `StudentRepository` die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC `Connection` instance elders wordt aangemaakt, bijvoorbeeld in een **aparte** `ConnectionManager` klasse. 
 
@@ -44,7 +44,7 @@ public class StudentRepository {
 
 - `executeUpdate()` van een `Statement` is erg omslachtig als je een string moet stamenstellen die een `INSERT` query voorstelt (haakjes, enkele quotes, ...). Wat meer is, als de input van een UI komt, kan dit gehacked worden, door zelf de quote te sluiten in de string. Dit noemt men **SQL Injection**, en om dat te vermijden gebruik je in JDBC de `prepareStatement()` methode. Zie [JDBC Basics: Prepared Statements](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html). De String die je meegeeft bevat in de plaats van parameters een vraagteken: `INSERT INTO STUDENT(bla, bla) VALUES(?, ?)`. Die parameters vul je daarna aan met `preparedStatement.setString()` of `setInt()`. Op die manier is de code zowel _netjes_ als _injectie-vrij_!
 
-## 2. Queries/Objecten in Jdbi 3
+## 1.2 Queries/Objecten in Jdbi 3
 
 [Jdbi](https://jdbi.org) (Java DataBase Interface v3) is een lightweight library geschreven bovenop JDBC. Het gebruikt dus de interne Java API om te communiceren tussen de database en de Java applicatie. Echter, het maakt het leven voor ons als ontwikkelaar op heel wat vlakken véél _aangenamer_: waar JDBC eerder database-driven en dialect-afhankelijk is, is Jdbi eerder user-driven en met behulp van plugins dialect-onafhenkelijk. 
 
@@ -70,7 +70,18 @@ public interface StudentRepository {
 
 Nu kan `StudentRepositoryJdbcImpl` (hernoem bovenstaande) en onze nieuwe `StudentRepositoryJdbi3Impl` de interface `implements`-en. Denk aan de **Strategy design pattern** van SES: afhankelijk van een instelling kunnen we switchen van SQL leverancier, zolang de code overal de interface gebruikt. 
 
-### JDBC vs Jdbi3
+{{<mermaid align="left">}}
+graph LR;
+    Main[Controlller]
+    Interface{StudentRepository}
+    Jdbc[StudentRepositoryJdbcImpl]
+    Jdbi[StudentRepositoryJdbi3Impl]
+    Main --> Interface
+    Interface --> Jdbc
+    Interface --> Jdbi
+{{< /mermaid >}}
+
+### 1.2.1 JDBC vs Jdbi3
 
 #### **1. Connection openen**
 
@@ -111,9 +122,9 @@ Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch 
 
 Zelfstudie. Zie [jdbi.org](https://jdbi.org) documentatie.
 
-### Oefeningen
+### 1.2.2 Oefeningen
 
-1. Herimplementeer alle methodes van de `StudentRepository` interface hierboven, maar dan in Jdbi3. Hernoem eerst je bestaande repository klasse naar `StudentRepositoryJdbc` en maak dan een nieuwe genaamd `StudentRepositoryJdbi3`. Om te testen of het werkt kan je je testcode van JDBC herbruiken door de code de **interface** te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:
+1. Herimplementeer alle methodes van de `StudentRepository` interface hierboven, maar dan in Jdbi3 met de Fluent API (`jdbi.withHandle()`). Hernoem eerst je bestaande repository klasse naar `StudentRepositoryJdbc` en maak dan een nieuwe genaamd `StudentRepositoryJdbi3`. Om te testen of het werkt kan je je testcode van JDBC herbruiken door de code de **interface** te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:
 
 ```java
 public class OefeningMain {
@@ -128,17 +139,19 @@ public class OefeningMain {
 }
 ```
 
+2. _Extra Oefening_: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de [Jdbi3 developer guide](http://jdbi.org/#_declarative_api) na hoe je de Declarative API gebruikt en verwerk dit. Tip: `jdbi.withExtension(StudentDao.class, ...)`. 
+
 **Tip**:
 
 - Neem de tijd om de JDBI documentatie uitvoerig te bekijken!
 
-## 3. Jdbi Backend + JavaFX Frontend
+## 1.3 Jdbi Backend + JavaFX Frontend
 
 Met Java database access enigszins onder de knie kijken we verder dan alleen maar de "repository". Op welke manier kunnen we onze `STUDENT` tabel visueel weergeven, en er studenten aan toevoegen of uit verwijderen? 
 
 Dat kan op verschillende manieren, van HTML (SESsy Library) en JavaScript API calls naar iets eenvoudiger vanuit het eerstejaarsvak INF1: **JavaFX**. Je kan in JavaFX eenvoudig `TableView` stukken positioneren op een `AnchorPane` en die vullen met de juiste kolommen en rijen. De data blijft uiteraard uit de SQLite DB komen via JDBC/Jdbi. De `StudentRepository` is dus slechts één deel van het verhaal: waar wordt deze gebruikt? In JavaFX controllers. 
 
-### Een Gradle JavaFX Project
+### 1.3.1 Een Gradle JavaFX Project
 
 Er zijn een aantal aanpassingen nodig aan je `build.gradle` file om van een gewone Java applicatie over te schakelen naar een JavaFX-enabled applicatie. We hebben de **application** en **javafxplugin** plugins nodig onder `plugins {}`, verder ook een `javafx {}` property groep die bepaalt welke modules van JavaFX worden ingeladen:
 
@@ -201,7 +214,7 @@ Merk op dat `TableView` een generisch type heeft, en we zo dus heel eenvoudig on
 
 ![](/img/fxmltable.jpg)
 
-### Oefeningen
+### 1.3.2 Oefeningen
 
 1. Werk bovenstaande voorbeeld verder uit voor alle kolommen. Voeg eerst testdata toe (`getItems().add(new student...`).
 2. Probeer nu de controller te linken met de repository. De tabel items moeten overeenkomen met de repository items. Proficiat, je kijkt naar "live data"!
