@@ -1,4 +1,6 @@
 ---
 title: 2. Concurrency
 ---
-TODO
+
+## Meerdere threads met toegang tot de DB
+
