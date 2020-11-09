@@ -14,8 +14,6 @@ public class ConcurrencyMain {
         ConnectionManager connectionManager = new ConnectionManager();
         var jdbcRepo = new StudentRepositoryJdbcImpl(connectionManager.getConnection());
 
-        //connectionManager.getConnection().setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-
         for(var i = 0; i < 10; i++) {
             Thread thread = new Thread(new StudentAdder(jdbcRepo, i), "adder " + i);
             thread.setDaemon(true);

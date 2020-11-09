@@ -27,7 +27,7 @@ public class ConnectionManager {
         try {
             // auto-creates if not exists
             connection = DriverManager.getConnection(ConnectionString);
-            connection.setAutoCommit(true);
+            connection.setAutoCommit(false);
 
             initTables();
             verifyTableContents();
