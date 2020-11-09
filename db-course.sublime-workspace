@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"jdbc",
+				"jdbc"
+			],
+			[
 				"Student",
 				"StudentRepository"
 			],
@@ -510,15 +514,38 @@
 			[
 				"klein",
 				"kleinDier1"
-			],
-			[
-				"ont",
-				"ontvangDier"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "content/apis/jdbc-jdbi.md",
+			"settings":
+			{
+				"buffer_size": 12207,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content/_index.md",
+			"settings":
+			{
+				"buffer_size": 4536,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "content/apis/ex.md",
+			"settings":
+			{
+				"buffer_size": 290,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -615,23 +642,28 @@
 		"/Users/jefklak/development/kul/db-course",
 		"/Users/jefklak/development/kul/db-course/content",
 		"/Users/jefklak/development/kul/db-course/content/apis",
+		"/Users/jefklak/development/kul/db-course/content/hoorcolleges",
 		"/Users/jefklak/development/kul/db-course/content/nosql",
 		"/Users/jefklak/development/kul/db-course/content/transacties",
-		"/Users/jefklak/development/kul/db-course/examples",
-		"/Users/jefklak/development/kul/db-course/examples/sqlitetransactions",
-		"/Users/jefklak/development/kul/db-course/examples/sqlitetransactions/src",
-		"/Users/jefklak/development/kul/db-course/examples/sqlitetransactions/src/main",
-		"/Users/jefklak/development/kul/db-course/examples/sqlitetransactions/src/main/java",
-		"/Users/jefklak/development/kul/db-course/examples/sqlitetransactions/src/main/resources",
 		"/Users/jefklak/development/kul/db-course/layouts"
 	],
 	"file_history":
 	[
+		"/Users/jefklak/development/kul/db-course/content/apis/jpa.md",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/build.gradle",
+		"/Users/jefklak/development/kul/db-course/themes/hugo-theme-learn/exampleSite/content/shortcodes/mermaid.en.md",
+		"/Users/jefklak/Documents/vps.md",
+		"/Users/jefklak/Downloads/arrow_right_alt-black-18dp.svg",
+		"/Users/jefklak/development/kul/db-course/content/_index.md",
+		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/ProjectMain.java",
+		"/Users/jefklak/development/kul/db-course/examples/project-template/build.gradle",
+		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/controller/ProjectMainController.java",
+		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/controller/BeheerBoerderijenController.java",
+		"/Users/jefklak/development/kul/db-course/content/apis/jdbc-jdbi.md",
+		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/_index.md",
 		"/Users/jefklak/development/kul/db-course/config.toml",
 		"/Users/jefklak/development/kul/db-course/content/transacties/failures-rollbacks.md",
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-4.md",
-		"/Users/jefklak/development/kul/db-course/content/_index.md",
-		"/Users/jefklak/development/kul/db-course/content/apis/jdbc-jdbi.md",
 		"/Users/jefklak/development/java/gradlefxmlsample/build.gradle",
 		"/Users/jefklak/development/java/gradlefxmlsample/src/main/java/be/kuleuven/JavaFXMain.java",
 		"/Users/jefklak/development/java/gradlefxmlsample/src/main/java/be/kuleuven/SomeController.java",
@@ -649,7 +681,6 @@
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-3.md",
 		"/Users/jefklak/Downloads/dump.db",
 		"/Users/jefklak/Documents/win98.md",
-		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/_index.md",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/slides-5.md",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/slides-3.md",
 		"/Users/jefklak/development/kul/bes/202021/week5_oplossing/oplossingen.py",
@@ -745,16 +776,7 @@
 		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/boek.tex",
 		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-handheld-gba.md",
 		"/Users/jefklak/development/brainbaking/books/retro-algorithms/todo.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/idea.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/references-todo.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/res/charts/timeline.html",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/Makefile",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/ch-handheld.md",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/res/charts/sales.html",
-		"/Users/jefklak/development/brainbaking/books/retro-algorithms/src/chapters/intro.md",
-		"/Users/jefklak/Downloads/tonc/sinlutgenerate.c",
-		"/Users/jefklak/Downloads/tonc/tonclib/src/tonc_math.c",
-		"/Users/jefklak/Downloads/tonc/tonclib/include/tonc_math.h"
+		"/Users/jefklak/development/brainbaking/books/retro-algorithms/idea.md"
 	],
 	"find":
 	{
@@ -773,6 +795,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mermai",
+			"mermaid",
+			"certb",
 			"C/C++",
 			"autocomm",
 			"cluster",
@@ -796,8 +821,373 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "content/apis/jdbc-jdbi.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12207,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10820,
+								10820
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 0,
+								"count": 1339,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "content/_index.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1890,
+								1890
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 276,
+								"count": 421,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										2882,
+										2883
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								549.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 549.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "content/apis/ex.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 268,
+								"count": 24,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"git_gutter_is_enabled": true,
+							"open_with_edit": true,
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -861,6 +1251,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"jdbc-",
+				"content/apis/jdbc-jdbi.md"
+			],
+			[
+				"jdb",
+				"content/apis/jdbc-jdbi.md"
+			],
 			[
 				"confi",
 				"config.toml"
@@ -1364,14 +1762,6 @@
 			[
 				".giti",
 				".gitignore"
-			],
-			[
-				"privac",
-				"content/post/2020/06/tracking-and-privacy-on-websites.md"
-			],
-			[
-				"no-tra",
-				"content/no-copyright-no-tracking.md"
 			]
 		],
 		"width": 0.0
@@ -1379,9 +1769,17 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "jefkla",
+		"last_filter": "ses",
 		"selected_items":
 		[
+			[
+				"ses",
+				"~/development/kul/ses/ses-course/ses-course.sublime-project"
+			],
+			[
+				"brainba",
+				"~/development/brainbaking/brainbaking.sublime-project"
+			],
 			[
 				"jefkla",
 				"~/development/jefklakscodex/jefklakscodex.sublime-project"
@@ -1389,10 +1787,6 @@
 			[
 				"phd",
 				"~/development/phd/phd.sublime-project"
-			],
-			[
-				"brainba",
-				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"brain",
@@ -1420,10 +1814,6 @@
 			],
 			[
 				"ses-",
-				"~/development/kul/ses/ses-course/ses-course.sublime-project"
-			],
-			[
-				"ses",
 				"~/development/kul/ses/ses-course/ses-course.sublime-project"
 			],
 			[
@@ -1505,7 +1895,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 254.0,
 	"status_bar_visible": true,
 	"template_settings":

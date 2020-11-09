@@ -40,11 +40,17 @@ Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worde
 ### Labo noties
 
 - NoSQL:
-    1. [NoSQL Databases: Key/Value stores](/nosql/keyvaluestores)
-    2. [NoSQL Databases: Document stores](/nosql/documentstores)
-    3. [NoSQL Databases: Advanced map/reduce queries](/nosql/mapreduce)
-    4. [NoSQL Databases: Replication](/nosql/replication)
-
+    1. [Key/Value stores](/nosql/keyvaluestores)
+    2. [Document stores](/nosql/documentstores)
+    3. [Advanced map/reduce queries](/nosql/mapreduce)
+    4. [Replication](/nosql/replication)
+- Transacties:
+    1. [Failures/Rollbacks](/transacties/failures-rollbacks)
+    2. [Concurrency](/transacties/concurrency)
+- Database APIs:
+    1. [JDBC en JDBI](/apis/jdbc-jdbi)
+    2. [JPA en Hibernate](/apis/jpa)
+    3. [Extra oefeningen](/apis/ex)
 
 ## Syllabus
 
@@ -54,7 +60,7 @@ Onderwijsassistent: Wouter Groeneveld - <a href="mailto:wouter.groeneveld@kuleuv
 - **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO, D.0.35. 
 - **Verplicht handboek**: [Principles of Database Management](https://www.goodreads.com/book/show/36982903-principles-of-database-management?ac=1&from_search=true&qid=z7bP98PTvN&rank=1), Wilfried Lemahieu
 
-![](https://www.dataminingapps.com/wp-content/uploads/2017/12/cover-230x300.png)
+![](/img/cover.png)
 
 #### Cursusbeschrijving
 
