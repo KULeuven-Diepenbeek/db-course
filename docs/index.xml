@@ -90,7 +90,8 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</guid>
-      <description>TODO</description>
+      <description>Meerdere threads met toegang tot de DB Download het concurrency startproject. Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random Runnable thread workers die INSERT, UPDATE en DELETE statements issuen naar de database. De volgorde is een deel van de chaos&amp;hellip;
+Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit.</description>
     </item>
     
     <item>
@@ -113,6 +114,17 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
     
     <item>
+      <title>3. Extra Oefeningen</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</guid>
+      <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
+Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
+ Als database endpoint wordt com.h2database.h2 gebruikt.</description>
+    </item>
+    
+    <item>
       <title>3. NoSQL Graphs, Case Studies</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -127,15 +139,6 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>5. Database APIs</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-5/</guid>
       <description></description>
     </item>
     

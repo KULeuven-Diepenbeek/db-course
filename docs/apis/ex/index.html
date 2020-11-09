@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>2. Document stores :: Databases</title>
+    <title>3. Extra Oefeningen :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1604918803" rel="stylesheet">
@@ -61,7 +61,7 @@ window.MathJax = {
 
 <script src=../../js/osc.js></script>
   </head>
-  <body class="" data-url="/nosql/documentstores/">
+  <body class="" data-url="/apis/ex/">
     <nav id="sidebar" class="">
 
 
@@ -226,7 +226,7 @@ window.MathJax = {
   
     
     <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item 
-        parent
+        
         
         
         ">
@@ -273,7 +273,7 @@ window.MathJax = {
  
   
     
-      <li data-nav-id="/nosql/documentstores/" title="2. Document stores" class="dd-item active">
+      <li data-nav-id="/nosql/documentstores/" title="2. Document stores" class="dd-item ">
         <a href="../../nosql/documentstores/">
         2. Document stores
         
@@ -420,7 +420,7 @@ window.MathJax = {
   
     
     <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item 
-        
+        parent
         
         
         ">
@@ -488,7 +488,7 @@ window.MathJax = {
  
   
     
-      <li data-nav-id="/apis/ex/" title="3. Extra Oefeningen" class="dd-item ">
+      <li data-nav-id="/apis/ex/" title="3. Extra Oefeningen" class="dd-item active">
         <a href="../../apis/ex/">
         3. Extra Oefeningen
         
@@ -571,7 +571,7 @@ window.MathJax = {
             
           
           
-            <a href='../../'>Index</a> > <a href='../../nosql/'>1. NoSQL</a> > 2. Document stores
+            <a href='../../'>Index</a> > <a href='../../apis/'>3. Database APIs</a> > 3. Extra Oefeningen
           
         
           
@@ -588,20 +588,9 @@ window.MathJax = {
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#sessy-library-revisited">SESsy Library - Revisited</a>
 <ul>
-<li><a href="#2-1-eenvoudige-couchdb-queries">2.1 Eenvoudige CouchDB Queries</a>
-<ul>
-<li><a href="#mango">Mango</a></li>
-<li><a href="#de-couchdb-api-interface-alles-via-http-s">De CouchDB API interface: alles via HTTP(S)</a></li>
-</ul></li>
-<li><a href="#2-2-oefeningen-voorbereidingswerk">2.2 Oefeningen: Voorbereidingswerk</a></li>
-<li><a href="#2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</a></li>
-<li><a href="#2-4-java-client-api">2.4 Java Client API</a>
-<ul>
-<li><a href="#lightcouch-oefeningen">LightCouch oefeningen</a></li>
-</ul></li>
-<li><a href="#denkvragen">Denkvragen</a></li>
+<li><a href="#oefeningen">Oefeningen</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -621,7 +610,7 @@ window.MathJax = {
           
             <h1>
               
-              2. Document stores
+              3. Extra Oefeningen
             </h1>
           
 
@@ -630,115 +619,44 @@ window.MathJax = {
 
 
 
-<h3 id="2-1-eenvoudige-couchdb-queries">2.1 Eenvoudige CouchDB Queries</h3>
+<h2 id="sessy-library-revisited">SESsy Library - Revisited</h2>
 
-<p><img src="../../slides/img/couchdb.png" alt="" /></p>
+<p><strong>Voorbereiding</strong>: Maak uzelf opnieuw vertrouwd met <a href="https://kuleuven-diepenbeek.github.io/ses-course/extra/sessy/">de SESsy Library applicatie</a>, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.</p>
 
-<p>Lui in die zetel liggen, en vanaf de bank met gemak query&rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.</p>
+<p><img src="https://kuleuven-diepenbeek.github.io/ses-course/img/teaching/ses/sessy.png" alt="" /></p>
 
-<h4 id="mango">Mango</h4>
-
-<p>CouchDB heeft een eenvoudige ingebouwde query syntax genaamd <strong>Mango</strong>. Documentatie op <a href="https://github.com/cloudant/mango">https://github.com/cloudant/mango</a> en <a href="http://127.0.0.1:5984/_utils/docs/intro/api.html#documents">http://127.0.0.1:5984/_utils/docs/intro/api.html#documents</a>. Selecteer een database, klik op &ldquo;run a query with Mango&rdquo;:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-   <span style="color:#e6db74">&#34;selector&#34;</span><span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;year&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>
-   }
-}
-</code></pre></div>
-<p>De <code>selector</code> attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &ldquo;kolommen&rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</p>
-
-<p>Mango werkt met een <em>selector syntax</em> (zie documentatie) die impliciet bovenstaande omzet naar <code>{&quot;year&quot;: {&quot;$eq&quot;: 3}}</code>. Er zijn ook andere dollar-based operatoren. Geneste attributes kan je raadplegen met de <code>.</code> separator: <code>{&quot;student.name&quot;: {&quot;eq&quot;: &quot;Joske&quot;}}</code>.</p>
-
-<h4 id="de-couchdb-api-interface-alles-via-http-s">De CouchDB API interface: alles via HTTP(S)</h4>
-
-<p><code>curl</code> is een snelle cmd-line tool waarbij je via <code>-X</code> kan meegeven of het over een HTTPs <code>GET</code>, <code>POST</code>, <code>PUT</code>, &hellip; gaat. De DB locatie en poort met het juiste <strong>endpoint</strong> zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:</p>
-<pre><code>curl -X GET http://127.0.0.1:5984/[database]/[id]</code></pre>
-<p>Het resultaat is altijd een geldig <code>JSON</code> object (ook al geef je een ongeldige ID mee): <code>curl -X GET &quot;http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1&quot;</code></p>
-<pre><code>{&#34;_id&#34;:&#34;aalto-university;bachelor-data-science;professional-development;1&#34;,&#34;_rev&#34;:&#34;1-f7872c4254bfc2e0e5507502e2fafd6f&#34;,&#34;title&#34;:&#34;Professional Development&#34;,&#34;url&#34;:&#34;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&#34;,&#34;university&#34;:&#34;Aalto University&#34;,&#34;country&#34;:&#34;Finland&#34;,&#34;category&#34;:&#34;professional&#34;,&#34;ECTS&#34;:5,&#34;year&#34;:1,&#34;optional&#34;:true,&#34;skills&#34;:[&#34;motivate self&#34;,&#34;oral communication&#34;,&#34;self-directed learning&#34;,&#34;self-reflection&#34;,&#34;give/receive feedback&#34;,&#34;set/keep timelines&#34;,&#34;show initiative&#34;],&#34;course&#34;:&#34;Bachelor Data Science&#34;,&#34;lo&#34;:&#34;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one&#39;s strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one&#39;s own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &#34;}</code></pre>
-<p>Indien ongeldig: <code>{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</code>.</p>
-
-<h3 id="2-2-oefeningen-voorbereidingswerk">2.2 Oefeningen: Voorbereidingswerk</h3>
+<p>Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met <code>gradlew dependencies</code>. In context van het vak <em>Databasess</em> zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:</p>
 
 <ol>
-<li>Download CouchDB via <a href="https://couchdb.apache.org">https://couchdb.apache.org</a>.</li>
-<li>Download de <a href="../../db/dump.db">testdatabase JSON file</a></li>
-<li>Maak een nieuwe databases aan via de Fauxton Web-based admin tool. Open CouchDB, ga naar &ldquo;<strong>Open Admin Console</strong>&rdquo; of surf zelf naar <a href="http://127.0.0.1:5984/_utils/">http://127.0.0.1:5984/_utils/</a>. Maak een database aan genaamd &lsquo;<em>courses</em>&rsquo;.</li>
-
-<li><p>Importeer de test JSON met <code>curl</code> in cmdnline:</p>
-<pre><code>curl -d @dump.db -H &#34;Content-Type: application/json&#34; -X POST http://127.0.0.1:5984/courses/_bulk_docs</code></pre></li>
+<li>Als database endpoint wordt <code>com.h2database.h2</code> gebruikt.</li>
+<li>De Dropwizard <code>jdbi3</code> dependency verwijst op zijn beurt naar een variant van <code>jdbc</code></li>
+<li>De <code>sqlobject</code> plugin van Jdbi3 wordt gebruikt.</li>
 </ol>
 
-<p>De ongelukkigen op Windows kunnen <a href="https://curl.haxx.se/windows/">curl for Windows</a> downloaden, of Msys/MinGW/de besturingssystemen ISO gebruiken.</p>
-
-<p><strong>LET OP</strong>:</p>
-
-<ol>
-<li>Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor <em>non-partitioned</em>.</li>
-<li>Het kan zijn dar CURL een security fout geeft. Bij het installeren van CouchDB moet je een admin username/password meegeven. Voeg aan het einde van je curl commando dit toe: <code>-u username:wachtwoord</code>.</li>
-</ol>
-
-<p>Nadien kan je in Fauxton op <code>F5</code> drukken en zou je dit moeten zien:</p>
-
-<p><img src="../../img/fauxton.jpg" alt="" /></p>
-
-<p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
-<pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db</code></pre>
-<p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren.</p>
-
-<h3 id="2-3-oefeningen-met-fauxton-curl">2.3 Oefeningen met Fauxton/Curl</h3>
+<p>Zoals een snippet van de dependency tree aangeeft:</p>
+<pre><code>...
++--- io.dropwizard:dropwizard-jdbi3:2.0.0-rc12
+|    +--- io.dropwizard:dropwizard-db:2.0.0-rc12
+|    |    +--- io.dropwizard:dropwizard-core:2.0.0-rc12 (*)
+|    |    \--- org.apache.tomcat:tomcat-jdbc:9.0.27
+|    |         \--- org.apache.tomcat:tomcat-juli:9.0.27
+...</code></pre>
+<h3 id="oefeningen">Oefeningen</h3>
 
 <ol>
-<li>Schrijf een Mango query die cursussen ophaalt waarbij het aantal <code>ECTS</code> punten groter is dan 5.</li>
-<li>Hoe voer je de query uit oefening 1 uit, <em>zonder</em> de Admin console, maar met <code>curl</code>?</li>
-<li>Selecteer alle documenten die als <code>skill</code> de waarde <code>self-reflection</code> én <code>show initiative</code> bevatten.</li>
-<li>Probeer zelf een dump te nemen van je eigen database zoals hierboven beschreven, met het <code>_all_docs</code> endpoint. Wat gebeurt er als je die dump opnieuw wilt importeren via het <code>_bulk_docs</code> endpoint?</li>
-<li>Maak een nieuwe database genaamd <code>studenten</code>. <code>POST</code> via <code>curl</code> enkele nieuwe documenten, met als template <code>{ name: $naam, age: $age, favouriteCourses: [$course1, $course2]}</code> naar deze DB. Controleer in Fauxton of de records correct zijn ingegeven. Verzin zelf wat Mango queries om studenten te filteren.</li>
-<li>Maak een index aan op <code>age</code> voor je <code>studenten</code> database. Merk op dat indexes, zichtbaar in <a href="http://127.0.0.1:5984/_utils/#database/studenten/_index">http://127.0.0.1:5984/_utils/#database/studenten/_index</a> ook worden beschouwd als documenten op zich!</li>
-</ol>
+<li>Inspecteer de <a href="http://h2database.com/html/main.html">H2 Database Engine</a> documentatie. Wat is het verschil tussen H2 en MySQL? En wat zijn de <em>gelijkenissen</em> tussen H2 en SQLite dat elders in deze cursus wordt gebruikt?</li>
+<li>Zoek in de SEssy code waar de Jdbi3 sqlobject annotaties worden gebruikt. Dit is dus de Jdbi <em>Declarative API</em> (zie <a href="https://jdbi.org">docs</a>). Wat zou je moeten doen om dit te refactoren naar de <em>Fluent API</em>? Voer de veranderingen door voor de methode <code>findBooksByTitle()</code>.</li>
+<li>Worden ergens <em>transacties</em> gebruikt? Wordt er ergens in de code bewaakt tegen concurrency? Indien niet, bouw dit in voor het uitlenen van boeken in de methode <code>borrow()</code>. Moet transactie beheer op niveau van <em>Resource</em> klasses staan, of behoort het volgens jou toe aan de <em>Repository</em> klasses? Welke code heb je specifiek nodig om in Jdbi3 transacties te hanteren?</li>
+<li>Stel dat ik in een nieuwe repository klasse een low-level SQL statement zelf wil schrijven en uitvoeren, rechtstreeks naar de database, in plaats van via Jdbi3. Hoe kan ik dat doen? Probeer dit zelf in de code door iets met de <code>books</code> tabel te doen (bijvoorbeeld een <code>COUNT</code>).</li>
+<li>Is er een manier om de queries die Jdbi3 uitvoert in H2 ook af te drukken, zoals Hibernate&rsquo;s <code>show_sql</code> config flag?</li>
+<li>We zijn niet meer tevreden over de performantie en het gebruiksgemak van H2. We wensen in de plaats daarvan JPA + Hibernate te gebruiken. Voer de nodige veranderingen door. <strong>Test de applicatie</strong> ook uitvoerig door de webserver op te starten! De integratie testen die falen mag je negeren, dat valt buiten deze cursus om die ook te converteren. Denk eerst goed na over welke wijzigingen allemaal moeten gebeuren:
 
-<p>Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd <strong>Mango</strong>. Documentatie op <a href="https://github.com/cloudant/mango">https://github.com/cloudant/mango</a> en <a href="http://127.0.0.1:5984/_utils/docs/intro/api.html#documents">http://127.0.0.1:5984/_utils/docs/intro/api.html#documents</a>. Lees eerst na hoe dit in elkaar zit!</p>
-
-<h3 id="2-4-java-client-api">2.4 Java Client API</h3>
-
-<p>Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query&rsquo;s uit te voeren), dan heb je de Java API nodig.</p>
-
-<p>In principe kan je met eender welke <code>HTTP</code> client REST calls uitvoeren en de responses zelf verwerken. Om het jezelf gemakkelijker te maken, gebruiken we hier ter illustratie <a href="http://www.lightcouch.org">LightCouch</a>.</p>
-
-<p>Lees de <a href="http://www.lightcouch.org/getstarted.html">LightCouch Getting Started guide</a>. Maak een nieuw gradle 6 project met de volgende dependencies:</p>
-<pre><code>dependencies {
-    implementation group: &#39;org.lightcouch&#39;, name: &#39;lightcouch&#39;, version: &#39;0.2.0&#39;
-}</code></pre>
-<p>In je <code>java/main/resources</code> map dien je een <code>couchdb.properties</code> file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started):</p>
-<pre><code>couchdb.name=testdb
-couchdb.createdb.if-not-exist=true
-couchdb.protocol=http
-couchdb.host=127.0.0.1
-couchdb.port=5984
-couchdb.username=
-couchdb.password=</code></pre>
-<p>Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen, waarbij alle members automatisch worden geserialiseerd.</p>
-
-<h4 id="lightcouch-oefeningen">LightCouch oefeningen</h4>
-
-<ol>
-<li><p>Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een <code>Student</code> klasse met als velden <code>name</code> en <code>age</code> (respectievelijk <code>String</code> en <code>int</code> als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-<span style="color:#e6db74">&#34;_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;387a34be062140e4be1390e846242114&#34;</span>,
-<span style="color:#e6db74">&#34;_rev&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1-742f438439fd68bc6c67ca0d615f1469&#34;</span>,
-<span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Joske&#34;</span>,
-<span style="color:#e6db74">&#34;age&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
-}
-</code></pre></div></li>
-
-<li><p>Probeer de views en query&rsquo;s even uit. Zoek bijvoorbeeld alle studenten in <code>List&lt;Student&gt;</code> en druk de namen af door middel van <code>System.out.println()</code>.</p></li>
-</ol>
-
-<h3 id="denkvragen">Denkvragen</h3>
-
-<ol>
-<li>Wat is het verschil tussen een key/value store en een document store?</li>
-<li>Kan je een verklaring geven waarom NoSQL databases zonder DB SCHEME werken, als je weet dat bijvoorbeeld CouchDB plain JSON objecten kan bewaren?</li>
-<li>Wat is het verschil tussen het bewaren van een JSON object via Curl en het bewaren van een POJO via LightCouc (De Client API verschillen zelf niet in rekening gebracht)?</li>
+<ul>
+<li>Welke config file wordt nu gebruikt om de database file/connectionstring op te geven? Hoe kan je dat vervangen door <code>persistence.xml</code>?</li>
+<li>Kan je interfaces, strategies, of facades gebruiken om <em>eerst</em> de H2 implementatie te verbergen, en dan te refactoren, of is dat niet meer nodig?</li>
+<li>Is er een manier <a href="https://www.dropwizard.io/en/latest/manual/hibernate.html?highlight=hibernate">in Dropwizard</a> om eenvoudiger Hibernate session factories aan te maken? (ja dus!)</li>
+<li>&hellip;</li>
+</ul></li>
 </ol>
 
 
@@ -860,7 +778,6 @@ couchdb.password=</code></pre>
             
                 
                     
-                    
                 
                 
 
@@ -873,26 +790,6 @@ couchdb.password=</code></pre>
             
             
                 
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -910,8 +807,21 @@ couchdb.password=</code></pre>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -996,6 +906,7 @@ couchdb.password=</code></pre>
             
                 
                     
+                    
                 
                 
 
@@ -1008,6 +919,9 @@ couchdb.password=</code></pre>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1040,6 +954,7 @@ couchdb.password=</code></pre>
             
             
                 
+                    
                     
                 
                 
@@ -1064,10 +979,10 @@ couchdb.password=</code></pre>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../nosql/keyvaluestores/" title="1. Key/value stores"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../apis/jpa/" title="2. JPA en Hibernate"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/mapreduce/" title="3. Advanced map/red. queries" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../apis/jdbc-jdbi/" title="1. JDBC en JDBI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1077,19 +992,19 @@ couchdb.password=</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1604918804"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1604918804"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1604918804"></script>
-    <script src="../../js/jquery.sticky.js?1604918804"></script>
-    <script src="../../js/featherlight.min.js?1604918804"></script>
-    <script src="../../js/highlight.pack.js?1604918804"></script>
+    <script src="../../js/clipboard.min.js?1604918803"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1604918803"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1604918803"></script>
+    <script src="../../js/jquery.sticky.js?1604918803"></script>
+    <script src="../../js/featherlight.min.js?1604918803"></script>
+    <script src="../../js/highlight.pack.js?1604918803"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1604918804"></script>
-    <script src="../../js/learn.js?1604918804"></script>
-    <script src="../../js/hugo-learn.js?1604918804"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1604918803"></script>
+    <script src="../../js/learn.js?1604918803"></script>
+    <script src="../../js/hugo-learn.js?1604918803"></script>
 
-    <link href="../../mermaid/mermaid.css?1604918804" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1604918804"></script>
+    <link href="../../mermaid/mermaid.css?1604918803" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1604918803"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
