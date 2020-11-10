@@ -150,4 +150,80 @@ Het belang van de **Logfile** voor een transactie:
 
 ## 3. Transacties & Concurrency
 
+<img src="/db-course/img/concurrency.png" style="width: 35%"/>
 
+___
+
+### 3.1 Typische Concurrency-related problemen
+
+14.4.1
+
+- **Lost Updates**: `UPDATE` (T1) terug overschreven (T2)
+- **Dirty Reads**: rollbacked `UPDATE` (T1) te snel gezien door T2
+- **Phantom Reads**: related, `INSERT`/`DELETE` (T1) on +1 rows
+- ... 
+
+Oplossing? Hint: BESC, process CPU scheduling
+
+ => **Scheduling** van transacties!
+
+___
+
+### 3.2 Serial scheduling?
+
+1. Eerst alles van `T1`
+2. Dan alles van `T2`
+3. ...
+
+<img src="/db-course/img/serialtrans.png" style="width: 50%" />
+
+([bron](https://www.quora.com/What-is-serializability-What-are-its-types))
+
+**Te traag**! Hoe non-serial schedulers toch concurrent-safe maken?
+
+___
+
+### 3.3 Locking
+
+Oplossing: **Locking**; optimistisch/pessimistisch.
+
+- **Pessimistic** locking = "Alles gaat mislopen, schroef maar dicht". Serial scheduling dus. 
+- **Optimistic** locking = "Het zijn uitzonderingen". Sneller, maar met kans op fouten.
+
+___
+
+### 3.4 Locking Granularity
+
+- **exclusive** (`WRITE`) lock VS **shared** (`READ`) lock op DB "object"
+- +1 lock kan `READ` lock op zelfde data item houden
+- Locks op welk DB "object" niveau? 
+    - **row** locks, op record (tuple-level).
+    - **page** locks: _delen_ van tabel, as-stored in files.
+    - **table** locks: _complete_ tabel lock.
+    - **database** locks (bvb file lock SQLite)
+
+Verantwoordelijke: DB _Lock Manager_, data in speciale lock table. 
+
+=> Maximizing concurrency: row locks > DB locks!
+
+___
+
+<img src="/db-course/img/dblock.png" style="width: 70%" />
+
+Oeps? Bron: [A beginners guide to DB deadlocks](https://vladmihalcea.com/database-deadlock/)
+
+=> Oplossing? timeouts/priority.
+
+
+___
+
+### 3.5 In de praktijk: DBMS Isolation Levels
+
+Van _laag_ (short-term) naar _hoog_ (long-term):
+
+1. **Read uncommitted**. Zwakste level. Read-only transactions.
+2. **Read committed**. longterm write/shortterm read. <br/>Fixes lost update/dirty reads.
+3. **Repeatable read**. longterm write/read. 
+4. **Serializable**. Sterkste level. <br/> Fixes phantom reads.
+
+Zie 14.4.5.5 en tabel.
