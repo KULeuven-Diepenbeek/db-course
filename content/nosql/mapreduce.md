@@ -83,7 +83,7 @@ Door `ECTS` in `emit()` mee te geven (als VALUE!) kunnen we in de `reduce` funct
 ```javascript
 function (keys, values, rereduce) { 
   return sum(values);
-}}
+}
 ```
 
 Klik op "Run Query". De resultaten zijn de resultaten van de MAP - de Reduce value moet je expliciet enablen door vanboven rechts op "Options" te klikken, en dan "Reduce" aan te vinken:
