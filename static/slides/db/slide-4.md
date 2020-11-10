@@ -227,3 +227,36 @@ Van _laag_ (short-term) naar _hoog_ (long-term):
 4. **Serializable**. Sterkste level. <br/> Fixes phantom reads.
 
 Zie 14.4.5.5 en tabel.
+
+---
+
+## 4. NoSQL en Transacties? 
+
+Véél minder strict: **ACID** vs **BASE**
+
+Couch/Pouch: HTTP API calls:
+
+- Gegarandeerde retval, maar niet altijd verwachtte
+- Locks op client niveau, zelf aan "connection pooling" doen
+- Retry mechanismes inbouwen
+- ...
+
+___
+
+### 4.1 Transacties over +1 DB?
+
+Mogelijk! - **distributed transactions**.
+
+- Over 1+ klassieke DBMS systemen
+- Over 1 SQL en 1 NoSQL database (complex)
+- Over SQL en messaging systemen
+- ... 
+
+Implementatie vb: **XA**. (Valt buiten cursus)
+
+---
+
+<!-- .slide: data-background="#008eb3" -->
+## Knowledge.commit()
+
+Transmission complete!
