@@ -80,7 +80,7 @@ Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de roo
 5. Maak een nieuwe database genaamd `studenten`. `POST` via `curl` enkele nieuwe documenten, met als template `{ name: $naam, age: $age, favouriteCourses: [$course1, $course2]}` naar deze DB. Controleer in Fauxton of de records correct zijn ingegeven. Verzin zelf wat Mango queries om studenten te filteren. 
 6. Maak een index aan op `age` voor je `studenten` database. Merk op dat indexes, zichtbaar in http://127.0.0.1:5984/_utils/#database/studenten/_index ook worden beschouwd als documenten op zich!
 
-Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [http://127.0.0.1:5984/_utils/docs/intro/api.html#documents](http://127.0.0.1:5984/_utils/docs/intro/api.html#documents). Lees eerst na hoe dit in elkaar zit! 
+Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [https://docs.couchdb.org/en/stable/api/database/find.html](https://docs.couchdb.org/en/stable/api/database/find.html). Lees eerst na hoe dit in elkaar zit! 
 
 ### 2.4 Java Client API
 
