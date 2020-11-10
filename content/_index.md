@@ -15,7 +15,7 @@ Laatste aanpassingen voor academiejaar _2020 - 2021_.
 | 1  | ma 26-10-2020 | NoSQL 1: intro HC      |
 | 2  | do 29-10-2020 | NoSQL 2: key/value stores, document stores  |
 | 3  | ma 09-11-2020 | NoSQL 3: advanced concepts, case studies (1) HC   |
-| 4  | do 12-11-2020 | NoSQL 4: map/reduce, replication |
+| 4  | di 10-11-2020 | NoSQL 4: map/reduce, replication |
 | 5  | ma 16-11-2020 | NoSQL 5: Graph stores, case studies (2) HC |
 | 6  | do 19-11-2020 | Transactie management HC |
 | 7  | do 23-11-2020 | Transactie management labo |
