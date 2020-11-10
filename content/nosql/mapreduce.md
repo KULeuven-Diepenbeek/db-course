@@ -110,3 +110,4 @@ Merk op dat reduce functies _verschillende keren kunnen worden opgeroepen_ - en 
 
 1. Waarom is het niet mogelijk in NoSQL databases om een simpele query uit te voeren die bijvoorbeeld auteurs opvraagt ouder dan een bepaalde leeftijd, en dan alle titels per auteur teruggeeft? (Hint: p. 321)
 2. Wat is het verschil tussen `emit(doc._id, 1)` en `emit(doc._id, doc.year)`?
+3. Wat is het verschil tussen `map()`, `reduce()` en `filter()` in Javascript? Hint: Zie Mozilla [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter). 

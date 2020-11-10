@@ -70,3 +70,8 @@ function print(doc) {
 document.querySelector("#btn").addEventListener("click", queryDocs);
 </script>
 ```
+
+### Denkvragen
+
+- Heb je een verschil gemerkt tussen bidirectionele en live replication in PouchDB? Probeer beide instellingen uit en kijk in de Chrome/Opera/Mozilla Dev Tools van je browser naar de uitgaande HTTP requests. Op welk moment gebeurt dit? Welke `POST`/`GET` metadata wordt verstuurd?
+- Wat is het verschil tussen in Pouch alle documenten op te vragen en daarna als array MapReduces toe te passen, of dit in de Mango query rechtstreeks te doen?
