@@ -12,21 +12,21 @@
     <title>4. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1605017921" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1605017921" rel="stylesheet">
-    <link href="../../css/hybrid.css?1605017921" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1605017921" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1605017921" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1605017921" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1605017921" rel="stylesheet">
-    <link href="../../css/theme.css?1605017921" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1605017921" rel="stylesheet">
+    <link href="../../css/nucleus.css?1605187604" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1605187604" rel="stylesheet">
+    <link href="../../css/hybrid.css?1605187604" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1605187604" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1605187604" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1605187604" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1605187604" rel="stylesheet">
+    <link href="../../css/theme.css?1605187604" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1605187604" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1605017921" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1605187604" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1605017921"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1605187604"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1605017921"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1605017921"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1605187604"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1605187604"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1605017921"></script>
+<script type="text/javascript" src="../../js/search.js?1605187604"></script>
 
     
   </div>
@@ -669,6 +669,8 @@ window.MathJax = {
 <li>Live/Continuous replication.</li>
 </ol>
 
+<p>Je kan bovenstaande demo code onmiddellijk proberen op <a href="https://pouchdb.com">https://pouchdb.com</a>: Druk op <code>F12</code> of <code>CTRL+SHIFT+J</code> (Mac: <code>OPT+CMD+J</code>) of ga naar menu Developer -&gt; Developer Tools van je favoriete browser. In de tab &ldquo;Console&rdquo; wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando&rsquo;s in uitvoeren: <code>var db = ...</code>. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips.</p>
+
 <p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span>&gt;
@@ -711,6 +713,17 @@ document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6
 document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#btn&#34;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">queryDocs</span>);
 &lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div></li>
 </ol>
+
+<p><strong>Tips</strong>: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met <code>.put()</code>, maar replication <em>nog niet</em> aan staat, kan het handig zijn om met Chrome/Opera/&hellip; Dev Tools te kijken naar de <strong>local storage</strong> databases. Deze zijn terug te vinden in de tab &ldquo;Application&rdquo;, bij &ldquo;IndexedDB&rdquo;:</p>
+
+<p><img src="../../img/localstorage.jpg" alt="" /></p>
+
+<p>De volgende elementen zijn te herknnen in bovenstaande screenshot:</p>
+
+<ul>
+<li>Ik heb een &ldquo;<code>mydb</code>&rdquo; object aangemaakt (DB naam <code>_pouch_mydb</code>)</li>
+<li>Onder element &ldquo;<code>by-sequence</code>&rdquo; kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam &ldquo;David&rdquo; werd toegevoegd.</li>
+</ul>
 
 <h3 id="denkvragen">Denkvragen</h3>
 
@@ -1071,19 +1084,19 @@ document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1605017922"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1605017922"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1605017922"></script>
-    <script src="../../js/jquery.sticky.js?1605017922"></script>
-    <script src="../../js/featherlight.min.js?1605017922"></script>
-    <script src="../../js/highlight.pack.js?1605017922"></script>
+    <script src="../../js/clipboard.min.js?1605187604"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1605187604"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1605187604"></script>
+    <script src="../../js/jquery.sticky.js?1605187604"></script>
+    <script src="../../js/featherlight.min.js?1605187604"></script>
+    <script src="../../js/highlight.pack.js?1605187604"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1605017922"></script>
-    <script src="../../js/learn.js?1605017922"></script>
-    <script src="../../js/hugo-learn.js?1605017922"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1605187604"></script>
+    <script src="../../js/learn.js?1605187604"></script>
+    <script src="../../js/hugo-learn.js?1605187604"></script>
 
-    <link href="../../mermaid/mermaid.css?1605017922" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1605017922"></script>
+    <link href="../../mermaid/mermaid.css?1605187604" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1605187604"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
