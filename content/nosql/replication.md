@@ -29,6 +29,8 @@ Wat is **het doel**? Replication op te zetten tussen de cursussen database van [
 2. Bidirectional replication.
 3. Live/Continuous replication. 
 
+Je kan bovenstaande demo code onmiddellijk proberen op [https://pouchdb.com](https://pouchdb.com): Druk op `F12` of `CTRL+SHIFT+J` (Mac: `OPT+CMD+J`) of ga naar menu Developer -> Developer Tools van je favoriete browser. In de tab "Console" wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando's in uitvoeren: `var db = ...`. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips. 
+
 Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg `.html` bestand aan en kopieer de Quick Start code over:
 
 ```html
@@ -72,6 +74,15 @@ function print(doc) {
 document.querySelector("#btn").addEventListener("click", queryDocs);
 </script>
 ```
+
+**Tips**: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met `.put()`, maar replication _nog niet_ aan staat, kan het handig zijn om met Chrome/Opera/... Dev Tools te kijken naar de **local storage** databases. Deze zijn terug te vinden in de tab "Application", bij "IndexedDB":
+
+![](/img/localstorage.jpg)
+
+De volgende elementen zijn te herknnen in bovenstaande screenshot:
+
+- Ik heb een "`mydb`" object aangemaakt (DB naam `_pouch_mydb`)
+- Onder element "`by-sequence`" kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam "David" werd toegevoegd. 
 
 ### Denkvragen
 
