@@ -96,6 +96,9 @@ De volgende elementen zijn te herknnen in bovenstaande screenshot:
 
 **Ik krijg rare javascript errors?** - Is je `pouch.min.js` en `pouch.find.min.js` versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB [Github Releases pagina](https://github.com/pouchdb/pouchdb/releases/).
 
+**Ik krijg 404 object not found bij put?** - Heb je je remote DB opgezet naar een onbestaande database, zoals `/hallokes`? Die moet je eerst _zelf aanmaken_ in de CouchDB admin pagina! Anders kan je geen `PUT` commando's op die URL opsturen. 
+
+**Uncaught in Promise request PUT not supported?** - In `serviceWorker.js`? Ben je op de pouchdb.com website in de console dingen aan het testen? Sommige scripts, zoals deze, vangen `PUT` commando's op en crashen dan. Je object zal wel correct zijn bewaard, dit mag je negeren. 
 
 ### Denkvragen
 
