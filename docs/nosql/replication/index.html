@@ -12,21 +12,21 @@
     <title>4. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1605187604" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1605187604" rel="stylesheet">
-    <link href="../../css/hybrid.css?1605187604" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1605187604" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1605187604" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1605187604" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1605187604" rel="stylesheet">
-    <link href="../../css/theme.css?1605187604" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1605187604" rel="stylesheet">
+    <link href="../../css/nucleus.css?1605544090" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1605544090" rel="stylesheet">
+    <link href="../../css/hybrid.css?1605544090" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1605544090" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1605544090" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1605544090" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1605544090" rel="stylesheet">
+    <link href="../../css/theme.css?1605544090" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1605544090" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1605187604" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1605544090" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1605187604"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1605544090"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1605187604"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1605187604"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1605544090"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1605544090"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1605187604"></script>
+<script type="text/javascript" src="../../js/search.js?1605544090"></script>
 
     
   </div>
@@ -615,6 +615,7 @@ window.MathJax = {
 <li>
 <ul>
 <li><a href="#oefeningen">Oefeningen</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
 <li><a href="#denkvragen">Denkvragen</a></li>
 </ul></li>
 </ul></li>
@@ -678,8 +679,6 @@ window.MathJax = {
 &lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
 <p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
 
-<p><strong>Opgelet</strong>: het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file servet vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar <code>localhost:8000/oefening.html</code>.</p>
-
 <h3 id="oefeningen">Oefeningen</h3>
 
 <ol>
@@ -687,7 +686,7 @@ window.MathJax = {
 <li>Maak een nieuw <code>.html</code> bestand aan, en stel een <a href="https://pouchdb.com/guides/databases.html">remote URL</a> in om vanuit JS onmiddellijk op de remote DB te kunnen queryen.
 
 <ul>
-<li>Gebruik de <a href="https://pouchdb.com/guides/mango-queries.html">Mango query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/documentstores">2. document stores</a> te implementeren.</li>
+<li>Gebruik de <a href="https://pouchdb.com/guides/mango-queries.html">Mango query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/documentstores">2. document stores</a> te implementeren. Opgelet: hier moet je een extra JS file voor includen, <code>pouchdb.find.js</code>, zoals aangegeven in de link, <a href="https://github.com/pouchdb/pouchdb/releases/">downloadbaar hier</a> en zorg ervoor dat zowel PouchDB als de find versies van dezelfde release komen!</li>
 <li>Gebruik de <a href="https://pouchdb.com/guides/queries.html">Mapreduce query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/mapreduce">3. advanced map/red. queries</a> te implementeren. Merk op dat voor map <strong>en</strong> reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: <code>{ map: function(doc) { emit(...); }, reduce: '_count}</code>. Zie docs in link.</li>
 </ul></li>
 
@@ -724,6 +723,24 @@ document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6
 <li>Ik heb een &ldquo;<code>mydb</code>&rdquo; object aangemaakt (DB naam <code>_pouch_mydb</code>)</li>
 <li>Onder element &ldquo;<code>by-sequence</code>&rdquo; kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam &ldquo;David&rdquo; werd toegevoegd.</li>
 </ul>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<p><strong>Cross site origin fouten?</strong> - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file servet vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar <code>localhost:8000/oefening.html</code>. Indien niet opgelost, ga naar volgende troubleshooting puntje:</p>
+
+<p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; links, en enable je <code>CORS</code> (Cross Origin Requests):</p>
+
+<p><img src="../../img/cors.png" alt="" /></p>
+
+<p><strong>Access denied?</strong> - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: <code>new PouchDb(&quot;http://localhost:5984&quot;, { auth: { username: &quot;jef&quot;, password: &quot;lowie&quot;} })</code>. Zie <a href="https://pouchdb.com/api.html#create_database">options for remote databases</a> in de PouchDb API manual.</p>
+
+<p><strong>Mijn <code>find()</code> doet niks</strong>? - Merk op dat eender welke actie een <code>Promise</code> object teruggeeft. Dat wil zeggen dat de query &ldquo;onderweg&rdquo; is, en als je iets wilt uitvoeren wanneer dit klaar is (een <em>asynchroon</em> proces), moet dit via de <code>Promise</code> API, zoals <code>.then()</code>. Lees hierover in de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Mozilla MDN docs</a>.</p>
+
+<p><strong>Ik krijg rare javascript errors?</strong> - Is je <code>pouch.min.js</code> en <code>pouch.find.min.js</code> versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB <a href="https://github.com/pouchdb/pouchdb/releases/">Github Releases pagina</a>.</p>
+
+<p><strong>Ik krijg 404 object not found bij put?</strong> - Heb je je remote DB opgezet naar een onbestaande database, zoals <code>/hallokes</code>? Die moet je eerst <em>zelf aanmaken</em> in de CouchDB admin pagina! Anders kan je geen <code>PUT</code> commando&rsquo;s op die URL opsturen.</p>
+
+<p><strong>Uncaught in Promise request PUT not supported?</strong> - In <code>serviceWorker.js</code>? Ben je op de pouchdb.com website in de console dingen aan het testen? Sommige scripts, zoals deze, vangen <code>PUT</code> commando&rsquo;s op en crashen dan. Je object zal wel correct zijn bewaard, dit mag je negeren.</p>
 
 <h3 id="denkvragen">Denkvragen</h3>
 
@@ -1084,19 +1101,19 @@ document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1605187604"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1605187604"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1605187604"></script>
-    <script src="../../js/jquery.sticky.js?1605187604"></script>
-    <script src="../../js/featherlight.min.js?1605187604"></script>
-    <script src="../../js/highlight.pack.js?1605187604"></script>
+    <script src="../../js/clipboard.min.js?1605544090"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1605544090"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1605544090"></script>
+    <script src="../../js/jquery.sticky.js?1605544090"></script>
+    <script src="../../js/featherlight.min.js?1605544090"></script>
+    <script src="../../js/highlight.pack.js?1605544090"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1605187604"></script>
-    <script src="../../js/learn.js?1605187604"></script>
-    <script src="../../js/hugo-learn.js?1605187604"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1605544090"></script>
+    <script src="../../js/learn.js?1605544090"></script>
+    <script src="../../js/hugo-learn.js?1605544090"></script>
 
-    <link href="../../mermaid/mermaid.css?1605187604" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1605187604"></script>
+    <link href="../../mermaid/mermaid.css?1605544090" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1605544090"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
