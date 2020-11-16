@@ -1,0 +1,32 @@
+
+<html>
+
+<head>
+<script src="pouchdb.min.js"></script>
+<script src="pouchdb.find.min.js"></script>
+
+<script>
+
+var db = new PouchDB("http://localhost:5984/courses");
+db.createIndex({
+  index: {fields: ['title']}
+}).then(function() {
+	db.find({
+	  selector: {
+	    title: 'Philosophy of Computer Science'
+	  }
+	}).then(function(data) {
+		console.log("found docs: " + data.docs.length)
+		data.docs.forEach(function(doc) {
+			console.log(doc.title + " at " + doc.university)
+		})
+
+		console.dir(data.docs)
+	});
+});
+
+
+</script>
+</head>
+
+</html>

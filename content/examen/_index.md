@@ -45,6 +45,7 @@ Hoodfstuk 11:
 - 11.3: MongoDB voorbeelden en details
 - 11.5.1 en 11.5.2, Cypher queries
 - 11.6
+- Replication details van PouchDB
 
 Hoofdstuk 14:
 
