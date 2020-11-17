@@ -12,21 +12,21 @@
     <title>3. Advanced map/red. queries :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1605544090" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1605544090" rel="stylesheet">
-    <link href="../../css/hybrid.css?1605544090" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1605544090" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1605544090" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1605544090" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1605544090" rel="stylesheet">
-    <link href="../../css/theme.css?1605544090" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1605544090" rel="stylesheet">
+    <link href="../../css/nucleus.css?1605603559" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1605603559" rel="stylesheet">
+    <link href="../../css/hybrid.css?1605603559" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1605603559" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1605603559" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1605603559" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1605603559" rel="stylesheet">
+    <link href="../../css/theme.css?1605603559" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1605603559" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1605544090" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1605603559" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1605544090"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1605603559"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1605544090"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1605544090"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1605603559"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1605603559"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1605544090"></script>
+<script type="text/javascript" src="../../js/search.js?1605603559"></script>
 
     
   </div>
@@ -694,9 +694,9 @@ window.MathJax = {
 <h4 id="aggregeren">Aggregeren</h4>
 
 <p>Stel dat ik de totale <code>ECTS</code> punten wil verzamelen van alle Belgische vakken in de database. Dus: eerst filteren op <code>country</code> property, en daarna de som nemen van alle <code>ECTS</code> properties. Hoe doe je zoiets in SQL? Met <code>SUM()</code> en <code>GROUP BY</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> title, <span style="color:#66d9ef">SUM</span>(ECTS) <span style="color:#66d9ef">FROM</span> courses
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SUM</span>(ECTS) <span style="color:#66d9ef">FROM</span> courses
 <span style="color:#66d9ef">WHERE</span> country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Belgium&#34;</span>
-<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> title</code></pre></div>
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> country</code></pre></div>
 <p>Hoe doe je zoiets in NoSQL/Mongo/CouchDB? Met <a href="http://127.0.0.1:5984/_utils/docs/ddocs/ddocs.html#reduce-and-rereduce-functions">Reduce Functions</a>. Je kan in Fauxton bij het bewerken van je view een <strong>CUSTOM</strong> waarde in de Reduce combobox selecteren:</p>
 
 <p><img src="../../img/couchreduce.jpg" alt="" /></p>
@@ -1104,19 +1104,19 @@ window.MathJax = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1605544090"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1605544090"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1605544090"></script>
-    <script src="../../js/jquery.sticky.js?1605544090"></script>
-    <script src="../../js/featherlight.min.js?1605544090"></script>
-    <script src="../../js/highlight.pack.js?1605544090"></script>
+    <script src="../../js/clipboard.min.js?1605603560"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1605603560"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1605603560"></script>
+    <script src="../../js/jquery.sticky.js?1605603560"></script>
+    <script src="../../js/featherlight.min.js?1605603560"></script>
+    <script src="../../js/highlight.pack.js?1605603560"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1605544090"></script>
-    <script src="../../js/learn.js?1605544090"></script>
-    <script src="../../js/hugo-learn.js?1605544090"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1605603560"></script>
+    <script src="../../js/learn.js?1605603560"></script>
+    <script src="../../js/hugo-learn.js?1605603560"></script>
 
-    <link href="../../mermaid/mermaid.css?1605544090" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1605544090"></script>
+    <link href="../../mermaid/mermaid.css?1605603560" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1605603560"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

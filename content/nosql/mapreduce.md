@@ -55,9 +55,9 @@ function (doc) {
 Stel dat ik de totale `ECTS` punten wil verzamelen van alle Belgische vakken in de database. Dus: eerst filteren op `country` property, en daarna de som nemen van alle `ECTS` properties. Hoe doe je zoiets in SQL? Met `SUM()` en `GROUP BY`:
 
 ```sql
-SELECT title, SUM(ECTS) FROM courses
+SELECT SUM(ECTS) FROM courses
 WHERE country = "Belgium"
-GROUP BY title
+GROUP BY country
 ```
 
 Hoe doe je zoiets in NoSQL/Mongo/CouchDB? Met [Reduce Functions](http://127.0.0.1:5984/_utils/docs/ddocs/ddocs.html#reduce-and-rereduce-functions). Je kan in Fauxton bij het bewerken van je view een **CUSTOM** waarde in de Reduce combobox selecteren:
