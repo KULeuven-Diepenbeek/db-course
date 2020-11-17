@@ -519,6 +519,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "content/nosql/replication.md",
+			"settings":
+			{
+				"buffer_size": 8158,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -627,6 +636,9 @@
 	],
 	"file_history":
 	[
+		"/Users/jefklak/development/kul/db-course/content/transacties/failures-rollbacks.md",
+		"/Users/jefklak/Desktop/pouchdb.find.js",
+		"/Users/jefklak/Desktop/demo.html",
 		"/Users/jefklak/development/kul/db-course/content/nosql/mapreduce.md",
 		"/Users/jefklak/development/kul/db-course/examples/pouch/mango.html",
 		"/Users/jefklak/development/kul/db-course/content/examen/_index.md",
@@ -658,7 +670,6 @@
 		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/controller/ProjectMainController.java",
 		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/controller/BeheerBoerderijenController.java",
 		"/Users/jefklak/development/kul/db-course/config.toml",
-		"/Users/jefklak/development/kul/db-course/content/transacties/failures-rollbacks.md",
 		"/Users/jefklak/development/java/gradlefxmlsample/build.gradle",
 		"/Users/jefklak/development/java/gradlefxmlsample/src/main/java/be/kuleuven/JavaFXMain.java",
 		"/Users/jefklak/development/java/gradlefxmlsample/src/main/java/be/kuleuven/SomeController.java",
@@ -752,9 +763,7 @@
 		"/Users/jefklak/development/kul/ses/ses-course/content/patterns/facade.md",
 		"/Users/jefklak/development/kul/ses/ses-course/content/algoritmes/_index.md",
 		"/Users/jefklak/development/brainbaking/content/teaching/ses/tdd-mockito.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/capita.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/mockito.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/gradle/_index.md"
+		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/capita.md"
 	],
 	"find":
 	{
@@ -773,6 +782,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"loom.com",
 			"chapter",
 			"#034079",
 			"Dus relax",
@@ -808,8 +818,129 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "content/nosql/replication.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4123,
+								4123
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 93,
+								"count": 973,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"origPos":
+							[
+								0.0,
+								1750.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1750.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1391,16 +1522,16 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "phd",
+		"last_filter": "jefkla",
 		"selected_items":
 		[
 			[
-				"phd",
-				"~/development/phd/phd.sublime-project"
-			],
-			[
 				"jefkla",
 				"~/development/jefklakscodex/jefklakscodex.sublime-project"
+			],
+			[
+				"phd",
+				"~/development/phd/phd.sublime-project"
 			],
 			[
 				"redz",

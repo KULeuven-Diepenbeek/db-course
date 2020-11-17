@@ -82,6 +82,11 @@ Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de roo
 
 Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [https://docs.couchdb.org/en/stable/api/database/find.html](https://docs.couchdb.org/en/stable/api/database/find.html). Lees eerst na hoe dit in elkaar zit! 
 
+Een uitgewerkt voorbeeld van oefening 1 en 2 in begeleidende video:
+
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/723d495a34bb4a77aa8e406761a3ba4d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
 ### 2.4 Java Client API
 
 Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query's uit te voeren), dan heb je de Java API nodig. 
