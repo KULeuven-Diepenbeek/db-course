@@ -42,6 +42,11 @@ Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak 
 
 Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort `5984`.
 
+Een uitgewerkt voorbeeld in begeleidende video:
+
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/fa612f2efe424da68d3d9aeb362ed5f1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
 ### Oefeningen
 
 1. Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met `db.put()`. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database. 
