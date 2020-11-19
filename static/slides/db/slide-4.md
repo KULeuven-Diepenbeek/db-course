@@ -1,4 +1,4 @@
-Databases: <br/>Transacties
+Databases: <br/>Transacties (HF14)
 =======================
 
 <img src="/db-course/img/kul.svg" style="height: 80px;" />
@@ -253,6 +253,10 @@ Mogelijk! - **distributed transactions**.
 - ... 
 
 Implementatie vb: **XA**. (Valt buiten cursus)
+
+<img src="/db-course/img/xa.png" style="width: 60%" />
+
+[src](https://docs.wso2.com/display/EI610/Handling+Distributed+Transactions+in+the+Message+Broker)
 
 ---
 
