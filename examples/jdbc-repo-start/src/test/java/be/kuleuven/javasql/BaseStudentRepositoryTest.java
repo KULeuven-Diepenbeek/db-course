@@ -26,7 +26,7 @@ public abstract class BaseStudentRepositoryTest {
         List<Student> result = studentRepository.getStudentsByName("Peeters");
         Assert.assertNotNull("result should not be null", result);
         Assert.assertTrue("resultset should be one record", result.size() == 1);
-        Assert.assertEquals("Name should be Peeters", "Peeters", result.get(0).getMaam());
+        Assert.assertEquals("Name should be Peeters", "Peeters", result.get(0).getNaam());
     }
 
     @Test(expected = RuntimeException.class)
@@ -48,7 +48,7 @@ public abstract class BaseStudentRepositoryTest {
         Assert.assertEquals("Expected changed student name 'PeetersAndereAchternaam' to be found in DB!", 1, students.size());
 
         var updatedFromDb = students.get(0);
-        Assert.assertEquals("PeetersAndereAchternaam", updatedFromDb.getMaam());
+        Assert.assertEquals("PeetersAndereAchternaam", updatedFromDb.getNaam());
         Assert.assertEquals("PeetersAndereVoornaam", updatedFromDb.getVoornaam());
         Assert.assertEquals(456, updatedFromDb.getStudnr());
         Assert.assertEquals(true, updatedFromDb.isGoedBezig());
@@ -59,7 +59,7 @@ public abstract class BaseStudentRepositoryTest {
         studentRepository.saveNewStudent(new Student("Johanna", "Sofie", 23356, true));
 
         List<Student> result = studentRepository.getStudentsByName("Johanna");
-        Assert.assertEquals("Name should be Johanna", "Johanna", result.get(0).getMaam());
+        Assert.assertEquals("Name should be Johanna", "Johanna", result.get(0).getNaam());
     }
 
 }
