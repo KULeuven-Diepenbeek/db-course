@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"find",
+				"findCoursesInBelgium"
+			],
+			[
 				"jdbc",
 				"jdbc"
 			],
@@ -510,38 +514,16 @@
 			[
 				"IN",
 				"INPUT"
-			],
-			[
-				"klein",
-				"kleinDier1"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "content/nosql/replication.md",
+			"file": "examples/jdbc-repo/build.gradle",
 			"settings":
 			{
-				"buffer_size": 8158,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "content/nosql/documentstores.md",
-			"settings":
-			{
-				"buffer_size": 8656,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jefklak/Documents/vps.md",
-			"settings":
-			{
-				"buffer_size": 4029,
+				"buffer_size": 941,
 				"line_ending": "Unix"
 			}
 		}
@@ -644,7 +626,17 @@
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges",
 		"/Users/jefklak/development/kul/db-course/content/nosql",
 		"/Users/jefklak/development/kul/db-course/examples",
-		"/Users/jefklak/development/kul/db-course/examples/pouch",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/gradle",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/gradle/wrapper",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql/jdbc",
+		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql/jdbi",
 		"/Users/jefklak/development/kul/db-course/layouts",
 		"/Users/jefklak/development/kul/db-course/layouts/slides",
 		"/Users/jefklak/development/kul/db-course/static",
@@ -654,20 +646,21 @@
 	"file_history":
 	[
 		"/Users/jefklak/development/kul/db-course/content/transacties/failures-rollbacks.md",
+		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-4.md",
 		"/Users/jefklak/Desktop/pouchdb.find.js",
 		"/Users/jefklak/Desktop/demo.html",
+		"/Users/jefklak/development/kul/db-course/content/nosql/replication.md",
+		"/Users/jefklak/development/kul/db-course/content/nosql/documentstores.md",
+		"/Users/jefklak/Documents/vps.md",
 		"/Users/jefklak/development/kul/db-course/content/nosql/mapreduce.md",
 		"/Users/jefklak/development/kul/db-course/examples/pouch/mango.html",
 		"/Users/jefklak/development/kul/db-course/content/examen/_index.md",
-		"/Users/jefklak/development/kul/db-course/content/nosql/replication.md",
 		"/Users/jefklak/development/kul/db-course/content/apis/ex.md",
 		"/Users/jefklak/development/kul/bes/202021/week6_oplossing/week6_oplossing.py",
 		"/Users/jefklak/Desktop/krish_bes/trekproef_nieuw.py",
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-3.md",
-		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-4.md",
 		"/Users/jefklak/development/kul/db-course/content/nosql/mapreduce_opl.js",
 		"/Users/jefklak/Desktop/krish_bes/trekproef_al.csv",
-		"/Users/jefklak/development/kul/db-course/content/nosql/documentstores.md",
 		"/Users/jefklak/development/kul/db-course/content/_index.md",
 		"/Users/jefklak/development/kul/db-course/content/nosql/documentstores_opl.js",
 		"/Users/jefklak/development/kul/db-course/content/transacties/concurrency.md",
@@ -680,7 +673,6 @@
 		"/Users/jefklak/development/kul/db-course/content/apis/jpa.md",
 		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/build.gradle",
 		"/Users/jefklak/development/kul/db-course/themes/hugo-theme-learn/exampleSite/content/shortcodes/mermaid.en.md",
-		"/Users/jefklak/Documents/vps.md",
 		"/Users/jefklak/Downloads/arrow_right_alt-black-18dp.svg",
 		"/Users/jefklak/development/kul/db-course/examples/project-template/src/main/java/be/kuleuven/csa/ProjectMain.java",
 		"/Users/jefklak/development/kul/db-course/examples/project-template/build.gradle",
@@ -784,7 +776,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -836,266 +828,32 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "content/nosql/replication.md",
-					"semi_transient": false,
+					"file": "examples/jdbc-repo/build.gradle",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 8158,
+						"buffer_size": 941,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2014,
-								2366
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"git_gutter_is_enabled": true,
-							"origPos":
-							[
-								0.0,
-								0.0
-							],
-							"syncScroll": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "content/nosql/documentstores.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8656,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5773,
-								5773
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										5801,
-										5802
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										5743,
-										5744
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
-							"git_gutter_is_enabled": true,
-							"origPos":
-							[
-								0.0,
-								0.0
-							],
-							"syncScroll": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/jefklak/Documents/vps.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4029,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2986,
-								3114
+								120,
+								120
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": -1,
+								"changes": 0,
+								"count": 56,
 								"modified": false,
 								"selection": false,
 								"status": -1,
@@ -1119,46 +877,41 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1169,23 +922,30 @@
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
 							],
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
 							"origPos":
 							[
 								0.0,
-								1768.0
+								0.0
 							],
 							"syncScroll": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax"
+							"syntax": "Packages/Groovy/Groovy.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1768.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1255,6 +1015,14 @@
 		"selected_items":
 		[
 			[
+				"failures-",
+				"content/transacties/failures-rollbacks.md"
+			],
+			[
+				"slide-4",
+				"static/slides/db/slide-4.md"
+			],
+			[
 				"ex",
 				"content/apis/ex.md"
 			],
@@ -1297,10 +1065,6 @@
 			[
 				"slide-1.m",
 				"static/slides/db/slide-1.md"
-			],
-			[
-				"slide-4",
-				"static/slides/db/slide-4.md"
 			],
 			[
 				"slide-3",
@@ -1761,10 +1525,6 @@
 			[
 				"de-z",
 				"content/essays/de-zin-en-onzin-van-conferenties.md"
-			],
-			[
-				"briz",
-				"content/post/2020/05/page-building-with-brizy-in-wordpress.md"
 			]
 		],
 		"width": 0.0
@@ -1772,9 +1532,21 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "jef",
+		"last_filter": "brainba",
 		"selected_items":
 		[
+			[
+				"brainba",
+				"~/development/brainbaking/brainbaking.sublime-project"
+			],
+			[
+				"brai",
+				"~/development/brainbaking/brainbaking.sublime-project"
+			],
+			[
+				"bra",
+				"~/development/brainbaking/brainbaking.sublime-project"
+			],
 			[
 				"jef",
 				"~/development/jefklakscodex/jefklakscodex.sublime-project"
@@ -1790,10 +1562,6 @@
 			[
 				"redz",
 				"~/development/redzuurdesem/redzuurdesem.sublime-project"
-			],
-			[
-				"brainba",
-				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"jefklak",
@@ -1826,10 +1594,6 @@
 			[
 				"osc-c",
 				"~/development/kul/ses/ses-course/ses-course.sublime-project"
-			],
-			[
-				"brai",
-				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"ses-",
