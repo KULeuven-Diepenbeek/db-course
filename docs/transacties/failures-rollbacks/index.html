@@ -12,21 +12,21 @@
     <title>1. Failures/Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1605792541" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1605792541" rel="stylesheet">
-    <link href="../../css/hybrid.css?1605792541" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1605792541" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1605792541" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1605792541" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1605792541" rel="stylesheet">
-    <link href="../../css/theme.css?1605792541" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1605792541" rel="stylesheet">
+    <link href="../../css/nucleus.css?1606741408" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1606741408" rel="stylesheet">
+    <link href="../../css/hybrid.css?1606741408" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1606741408" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1606741408" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1606741408" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1606741408" rel="stylesheet">
+    <link href="../../css/theme.css?1606741408" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1606741408" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1605792541" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1606741408" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1605792541"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1606741408"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1605792541"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1605792541"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1606741408"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1606741408"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1605792541"></script>
+<script type="text/javascript" src="../../js/search.js?1606741408"></script>
 
     
   </div>
@@ -690,7 +690,7 @@ INSERT INTO oeitiskapot;</code></pre>
 
 <ol>
 <li>Probeer bovenstaande voorbeeld zelf uit in de SQLite DB Browser. Als je jezelf ervan verzekerd hebt dat inderdaad het eerste <code>UPDATE</code> statement wordt uitgevoerd, terwijl wij dat in één ACID blok willen, ga dan over naar de volgende oefening.</li>
-<li>In SQLite is het starten van een transactie erg eenvoudig: zie <a href="https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm">SQLite transaction tutorials</a> van tutorialspoint.com. <code>BEGIN;</code> en <code>COMMIT;</code> of alternatief <code>BEGIN TRANSACTION;</code> en <code>END TRANSACTION;</code> zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een &ldquo;clean slate&rdquo; te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf <code>ROLLBACK;</code> aanroepen.</li>
+<li>In SQLite is het starten van een transactie erg eenvoudig: zie <a href="https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm">SQLite transaction tutorials</a> van tutorialspoint.com. <code>BEGIN;</code> en <code>COMMIT;</code> zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een &ldquo;clean slate&rdquo; te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf <code>ROLLBACK;</code> aanroepen.</li>
 <li>Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de <code>NOT NULL</code> constraint. Wrap beide statements in een transactie.</li>
 </ol>
 
@@ -1125,19 +1125,19 @@ INSERT INTO oeitiskapot;</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1605792541"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1605792541"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1605792541"></script>
-    <script src="../../js/jquery.sticky.js?1605792541"></script>
-    <script src="../../js/featherlight.min.js?1605792541"></script>
-    <script src="../../js/highlight.pack.js?1605792541"></script>
+    <script src="../../js/clipboard.min.js?1606741408"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1606741408"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1606741408"></script>
+    <script src="../../js/jquery.sticky.js?1606741408"></script>
+    <script src="../../js/featherlight.min.js?1606741408"></script>
+    <script src="../../js/highlight.pack.js?1606741408"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1605792541"></script>
-    <script src="../../js/learn.js?1605792541"></script>
-    <script src="../../js/hugo-learn.js?1605792541"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1606741408"></script>
+    <script src="../../js/learn.js?1606741408"></script>
+    <script src="../../js/hugo-learn.js?1606741408"></script>
 
-    <link href="../../mermaid/mermaid.css?1605792541" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1605792541"></script>
+    <link href="../../mermaid/mermaid.css?1606741408" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1606741408"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
