@@ -520,10 +520,11 @@
 	"buffers":
 	[
 		{
-			"file": "examples/jdbc-repo/build.gradle",
+			"file": "content/_index.md",
 			"settings":
 			{
-				"buffer_size": 941,
+				"buffer_size": 4536,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -622,29 +623,24 @@
 	[
 		"/Users/jefklak/development/kul/db-course",
 		"/Users/jefklak/development/kul/db-course/content",
+		"/Users/jefklak/development/kul/db-course/content/apis",
 		"/Users/jefklak/development/kul/db-course/content/examen",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges",
 		"/Users/jefklak/development/kul/db-course/content/nosql",
-		"/Users/jefklak/development/kul/db-course/examples",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/gradle",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/gradle/wrapper",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql/jdbc",
-		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/src/main/java/be/kuleuven/javasql/jdbi",
-		"/Users/jefklak/development/kul/db-course/layouts",
-		"/Users/jefklak/development/kul/db-course/layouts/slides",
+		"/Users/jefklak/development/kul/db-course/content/transacties",
 		"/Users/jefklak/development/kul/db-course/static",
 		"/Users/jefklak/development/kul/db-course/static/slides",
 		"/Users/jefklak/development/kul/db-course/themes"
 	],
 	"file_history":
 	[
+		"/Users/jefklak/Downloads/midi-c/PM.C",
+		"/Users/jefklak/development/kul/db-course/content/apis/jdbc-jdbi.md",
+		"/Users/jefklak/Downloads/wave-c/WAVE.C",
+		"/Users/jefklak/Downloads/FMMUSIC.C",
+		"/Users/jefklak/Downloads/midi-c/MIDIPLAY.C",
+		"/Users/jefklak/Downloads/midi-c/FM.DAT",
+		"/Users/jefklak/Desktop/jdbcdemo/build.gradle",
 		"/Users/jefklak/development/kul/db-course/content/transacties/failures-rollbacks.md",
 		"/Users/jefklak/development/kul/db-course/static/slides/db/slide-4.md",
 		"/Users/jefklak/Desktop/pouchdb.find.js",
@@ -669,7 +665,6 @@
 		"/Users/jefklak/development/kul/db-course/static/slides/theme-pdf.css",
 		"/Users/jefklak/development/kul/db-course/content/hoorcolleges/slides-5.md",
 		"/Users/jefklak/development/kul/ses/sessylibrary/out.txt",
-		"/Users/jefklak/development/kul/db-course/content/apis/jdbc-jdbi.md",
 		"/Users/jefklak/development/kul/db-course/content/apis/jpa.md",
 		"/Users/jefklak/development/kul/db-course/examples/jdbc-repo/build.gradle",
 		"/Users/jefklak/development/kul/db-course/themes/hugo-theme-learn/exampleSite/content/shortcodes/mermaid.en.md",
@@ -766,17 +761,11 @@
 		"/Users/jefklak/development/brainbaking/content/teaching/ses/ci.md",
 		"/Users/jefklak/development/brainbaking/content/teaching/ses/facade.md",
 		"/Users/jefklak/development/brainbaking/content/teaching/ses/di.md",
-		"/Users/jefklak/development/brainbaking/content/teaching/ses/decorator.md",
-		"/Users/jefklak/development/brainbaking/content/teaching/ses/factory.md",
-		"/Users/jefklak/development/brainbaking/content/teaching/ses/singleton.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/patterns/facade.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/algoritmes/_index.md",
-		"/Users/jefklak/development/brainbaking/content/teaching/ses/tdd-mockito.md",
-		"/Users/jefklak/development/kul/ses/ses-course/content/tdd/capita.md"
+		"/Users/jefklak/development/brainbaking/content/teaching/ses/decorator.md"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -791,6 +780,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".woocommerce-form__label .input-checkbox",
+			"height: 18px;",
+			"margin-top: 8",
+			"ship-to-different-address",
+			"18px",
+			"M2",
+			"main",
+			"playback",
 			"mail",
 			"loom.com",
 			"chapter",
@@ -833,19 +830,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "examples/jdbc-repo/build.gradle",
-					"semi_transient": true,
+					"file": "content/_index.md",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 941,
+						"buffer_size": 4536,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								120,
-								120
+								521,
+								521
 							]
 						],
 						"settings":
@@ -853,7 +850,7 @@
 							"WordCount":
 							{
 								"changes": 0,
-								"count": 56,
+								"count": 421,
 								"modified": false,
 								"selection": false,
 								"status": -1,
@@ -873,60 +870,65 @@
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										2882,
+										2883
+									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -937,15 +939,15 @@
 							"origPos":
 							[
 								0.0,
-								0.0
+								88.0
 							],
 							"syncScroll": false,
-							"syntax": "Packages/Groovy/Groovy.sublime-syntax",
+							"syntax": "Packages/MarkdownEditing/Markdown.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 88.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1532,9 +1534,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "brainba",
+		"last_filter": "ph",
 		"selected_items":
 		[
+			[
+				"ph",
+				"~/development/phd/phd.sublime-project"
+			],
 			[
 				"brainba",
 				"~/development/brainbaking/brainbaking.sublime-project"
@@ -1598,10 +1604,6 @@
 			[
 				"ses-",
 				"~/development/kul/ses/ses-course/ses-course.sublime-project"
-			],
-			[
-				"ph",
-				"~/development/phd/phd.sublime-project"
 			],
 			[
 				"",
@@ -1671,7 +1673,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 254.0,
+	"side_bar_width": 286.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -167,7 +167,9 @@ select student0_.studnr as studnr1_0_, student0_.goedBezig as goedbezi2_0_, stud
 
 ### 2.2.3 Oefeningen
 
-1. Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van [1. jdbc en jdbi](/apis/jdbc-jdbi/). We voorzien een **derde implementatie** van de `StudentRepository` interface, naast de JDBC en Jdbi3 versies: `StudentRepositoryJpaImpl`. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
+**Quickstart project**: [hibernate-jpa-start.zip](/hibernate-jpa-start.zip)!
+
+1. Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van [1. jdbc en jdbi](/apis/jdbc-jdbi/) (of start met het quickstart project). We voorzien een **derde implementatie** van de `StudentRepository` interface, naast de JDBC en Jdbi3 versies: `StudentRepositoryJpaImpl`. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
     - Een configuratiebestand in `resources/META-INF`.
     - Entities, zoals onze `Student` klasse.
     - Bootstrappen van de `EntityManager`.
