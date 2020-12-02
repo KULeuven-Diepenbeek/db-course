@@ -12,21 +12,21 @@
     <title>2. JPA en Hibernate :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1606810620" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1606810620" rel="stylesheet">
-    <link href="../../css/hybrid.css?1606810620" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1606810620" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1606810620" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1606810620" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1606810620" rel="stylesheet">
-    <link href="../../css/theme.css?1606810620" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1606810620" rel="stylesheet">
+    <link href="../../css/nucleus.css?1606902420" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1606902420" rel="stylesheet">
+    <link href="../../css/hybrid.css?1606902420" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1606902420" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1606902420" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1606902420" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1606902420" rel="stylesheet">
+    <link href="../../css/theme.css?1606902420" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1606902420" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1606810620" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1606902420" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1606810620"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1606902420"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -82,14 +82,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1606810620"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1606810620"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1606902420"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1606902420"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1606810620"></script>
+<script type="text/javascript" src="../../js/search.js?1606902420"></script>
 
     
   </div>
@@ -804,8 +804,10 @@ query<span style="color:#f92672">.</span><span style="color:#a6e22e">where</span
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> student0_.studnr <span style="color:#66d9ef">as</span> studnr1_0_, student0_.goedBezig <span style="color:#66d9ef">as</span> goedbezi2_0_, student0_.naam <span style="color:#66d9ef">as</span> naam3_0_, student0_.voornaam <span style="color:#66d9ef">as</span> voornaam4_0_ <span style="color:#66d9ef">from</span> Student student0_ <span style="color:#66d9ef">where</span> student0_.naam<span style="color:#f92672">=?</span></code></pre></div>
 <h3 id="2-2-3-oefeningen">2.2.3 Oefeningen</h3>
 
+<p><strong>Quickstart project</strong>: <a href="../../hibernate-jpa-start.zip">hibernate-jpa-start.zip</a>!</p>
+
 <ol>
-<li>Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van <a href="../../apis/jdbc-jdbi/">1. jdbc en jdbi</a>. We voorzien een <strong>derde implementatie</strong> van de <code>StudentRepository</code> interface, naast de JDBC en Jdbi3 versies: <code>StudentRepositoryJpaImpl</code>. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
+<li>Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van <a href="../../apis/jdbc-jdbi/">1. jdbc en jdbi</a> (of start met het quickstart project). We voorzien een <strong>derde implementatie</strong> van de <code>StudentRepository</code> interface, naast de JDBC en Jdbi3 versies: <code>StudentRepositoryJpaImpl</code>. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
 
 <ul>
 <li>Een configuratiebestand in <code>resources/META-INF</code>.</li>
@@ -1269,19 +1271,19 @@ student Lowiemans
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1606810620"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1606810620"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1606810620"></script>
-    <script src="../../js/jquery.sticky.js?1606810620"></script>
-    <script src="../../js/featherlight.min.js?1606810620"></script>
-    <script src="../../js/highlight.pack.js?1606810620"></script>
+    <script src="../../js/clipboard.min.js?1606902420"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1606902420"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1606902420"></script>
+    <script src="../../js/jquery.sticky.js?1606902420"></script>
+    <script src="../../js/featherlight.min.js?1606902420"></script>
+    <script src="../../js/highlight.pack.js?1606902420"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1606810620"></script>
-    <script src="../../js/learn.js?1606810620"></script>
-    <script src="../../js/hugo-learn.js?1606810620"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1606902420"></script>
+    <script src="../../js/learn.js?1606902420"></script>
+    <script src="../../js/hugo-learn.js?1606902420"></script>
 
-    <link href="../../mermaid/mermaid.css?1606810620" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1606810620"></script>
+    <link href="../../mermaid/mermaid.css?1606902420" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1606902420"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
