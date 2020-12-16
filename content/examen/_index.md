@@ -8,6 +8,21 @@ chapter: false
 
 ### Wat moet ik **WEL** kennen voor mijn examen?
 
+#### Uit lessen 1 - 10
+
+1. Les 1: Fundamental Concepts of Database Management: Elementaire kennis / ACID (_gesloten boek_)
+2. Les 2: EER en omzetting naar database - Zelf opstellen = taak
+3. Les 3: Reflectie op een gegeven EER = examen. Bespreking en eventueel aanpassing (_open boek_)
+4. Les 4: UML = Reflectie op een gegeven ontwerp (= uitleg geven bij, ook correct benoemen) (_gesloten boek_)
+5. Les 5: relationeel model - Concepten kennen (_gesloten boek_), Omzetten van EER naar DB als verderzetting oef op EER  (_open boek_)
+6. 6: SQL Oefeningen (_open boek_)
+7. Les 7: zie 6
+8. Les 8: zie 6
+9. Les 9: concepten van XML - Kennen voor het examen (_gesloten boek_)
+10. Les 10: XSD en XML opstellen - Oefening op XML (_open boek_)
+
+Les x-2, x-1: Part IV van het boek: Concepten uitleggen, Afkortingen kennen, meer scenario's tekenen (_gesloten boek_)
+
 #### Uit _Principles of Database Management_
 
 Hoofdstuk 11:
