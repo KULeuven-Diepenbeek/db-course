@@ -4,7 +4,6 @@ weight: 4
 chapter: false
 ---
 
-**Opgelet**: Deze informatie geldt alleen maar voor het deel volgens de [inhoudsopgave](/) (NoSQL/transacties/APIs). Andere hoofdstukken die behandeld werden zijn samengevat in slides op Toledo, en horen evenzeer bij de vereiste kennis. 
 
 ### Wat moet ik **WEL** kennen voor mijn examen?
 
