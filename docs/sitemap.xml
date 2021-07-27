@@ -1,104 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/</loc>
-    <lastmod>2020-11-09T11:46:30+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</loc>
-    <lastmod>2020-10-20T11:01:54+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/</loc>
-    <lastmod>2020-10-29T17:22:00+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</loc>
-    <lastmod>2020-11-17T16:18:13+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/</loc>
-    <lastmod>2020-10-29T17:22:00+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</loc>
-    <lastmod>2020-11-17T09:59:28+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/</loc>
-    <lastmod>2020-10-29T17:22:00+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/examen/</loc>
-    <lastmod>2020-12-16T15:25:19+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</loc>
-    <lastmod>2020-11-17T16:18:13+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</loc>
-    <lastmod>2020-11-30T11:15:49+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</loc>
-    <lastmod>2020-11-30T14:03:21+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-1/</loc>
-    <lastmod>2020-10-14T11:13:00+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</loc>
-    <lastmod>2020-11-09T11:46:30+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</loc>
-    <lastmod>2020-12-02T10:46:58+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-2/</loc>
-    <lastmod>2020-10-14T11:13:00+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</loc>
-    <lastmod>2020-11-09T09:34:48+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</loc>
-    <lastmod>2020-10-22T15:25:50+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</loc>
-    <lastmod>2020-10-29T17:22:00+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/</loc>
-    <lastmod>2020-12-01T09:17:07+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-07-27T10:13:16+02:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/tags/</loc>
   </url>
-  
 </urlset>

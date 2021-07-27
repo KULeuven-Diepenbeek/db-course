@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>2. Concurrency :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../transacties/concurrency/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,16 +586,14 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</a>
-<ul>
-<li><a href="#oefeningen">Oefeningen</a></li>
-<li><a href="#connection-pooling">Connection Pooling</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</a>
+      <ul>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#connection-pooling">Connection Pooling</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -642,40 +617,27 @@ window.MathJax = {
         
 
 
-
-
 <h2 id="meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</h2>
-
 <p>Download het <a href="../../concurrency.zip">concurrency startproject</a>. Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random <code>Runnable</code> thread workers die <code>INSERT</code>, <code>UPDATE</code> en <code>DELETE</code> statements issuen naar de database. De volgorde is een deel van de chaos&hellip;</p>
-
 <h3 id="oefeningen">Oefeningen</h3>
-
 <ol>
 <li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Zijn de queries telkens dezelfde, in dezelfde volgorde?</li>
 <li>Transacties op elke query/statement toepassen is een eenvoudige oplossing maar lang niet de beste: de toegevoegde grote performantie hit kan bij miljoenen requests de applicatie volledig tot stilstand doen brengen. Welke repository calls zouden in een transactie moeten worden uitgevoerd, en bij welke calls is dat <em>niet</em> nodig?</li>
 <li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
 <li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Welke vier mogelijke waardes worden ondersteund door SQLite? Wat is volgens de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
-
-<li><p>De <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc driver</a> die we gebruiken heeft nog een aantal verborgen opties, waarvan <code>setTransactionMode</code> en <code>setLockingMode</code> het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een <code>SQLiteConfig</code> object aan te maken en op de volgende manier mee te geven aan de Java <code>DriverManager</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SQLiteConfig config <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SQLiteConfig<span style="color:#f92672">();</span>
-<span style="color:#75715e">//config.set...();
-</span><span style="color:#75715e"></span>connection <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc:sqlite:...&#34;</span><span style="color:#f92672">,</span> config<span style="color:#f92672">.</span><span style="color:#a6e22e">toProperties</span><span style="color:#f92672">());</span></code></pre></div></li>
+<li>De <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc driver</a> die we gebruiken heeft nog een aantal verborgen opties, waarvan <code>setTransactionMode</code> en <code>setLockingMode</code> het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een <code>SQLiteConfig</code> object aan te maken en op de volgende manier mee te geven aan de Java <code>DriverManager</code>:</li>
 </ol>
-
-<p><strong>Extra</strong>:</p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">SQLiteConfig</span> <span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">SQLiteConfig</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//config.set...();
+</span><span style="color:#75715e"></span><span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">toProperties</span><span style="color:#f92672">());</span>
+</code></pre></div><p><strong>Extra</strong>:</p>
 <ul>
 <li>Implementeer zelf de nodige Jdbi3 details in <code>StudentRepositoryJdbi3Impl</code>. In Jdbi stel je de transaction isolation level in met <code>.inTransaction(TransactionIsolationLevel.SERIALIZABLE, ...)</code> (zie <a href="https://jdbi.org">docs</a>).</li>
 </ul>
-
 <p><strong>Tip</strong>: SQLite config, transactie en locking modes zijn uitgelegd in de <a href="https://sqlite.org/pragma.html">SQLite docs, pragma pagina</a>.</p>
-
 <h3 id="connection-pooling">Connection Pooling</h3>
-
 <p>Uit de code blijkt dat alle threads momenteel éénzelfde connection instance delen via de <code>StudentRepository</code> implementatie. In de praktijk wordt er voor client/server applicaties altijd <strong>connection pooling</strong> toegepast: een aantal connections zijn beschikbaar in een <em>pool</em>, waar de clients uit kunnen kiezen. Als er een beschikbaar is, kan deze verder gaan. Als dat niet zo is, moet die bepaalde request wachten, tot een andere klaar is met zijn database acties en de connection terug vrijgeeft, opnieuw in de pool. Op die manier kan je bijvoorbeeld 6 connections verdelen over 10+ client threads, zoals in deze figuur (bron: oracle docs):</p>
-
-<p><img src="../../img/connectionpool.gif" alt="" title="Bron: oracle docs" /></p>
-
+<p><img src="../../img/connectionpool.gif" alt="" title="Bron: oracle docs"></p>
 <p>Voor embedded single-file databases als SQLite is dit niet de gewoonte. Hibernate (zie 3. Database APIs) voorziet verschillende properties om connection pooling in te stellen, zoals aantal connections, aantal threads die kunnen requesten, timeout request, enzovoort. We gaan hier verder niet op in.</p>
 
 
@@ -1030,19 +992,17 @@ window.MathJax = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

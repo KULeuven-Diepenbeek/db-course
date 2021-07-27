@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>4. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../nosql/replication/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,17 +586,15 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#oefeningen">Oefeningen</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#denkvragen">Denkvragen</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#denkvragen">Denkvragen</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -643,111 +618,84 @@ window.MathJax = {
         
 
 
-
-
-<p><img src="../../img/pouchdb.jpg" alt="" /></p>
-
+<p><img src="../../img/pouchdb.jpg" alt=""></p>
 <p>Met <em>replication</em> is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd <a href="https://pouchdb.com">PouchDB</a>. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &ldquo;master&rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;dbname&#39;</span>);
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;dbname&#39;</span><span style="color:#111">);</span>
 
-<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">put</span>({
-  <span style="color:#a6e22e">_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;dave@gmail.com&#39;</span>,
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;David&#39;</span>,
-  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">69</span>
-});
+<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">({</span>
+  <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;dave@gmail.com&#39;</span><span style="color:#111">,</span>
+  <span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;David&#39;</span><span style="color:#111">,</span>
+  <span style="color:#75af00">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">69</span>
+<span style="color:#111">});</span>
 
-<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">changes</span>().<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;change&#39;</span>, <span style="color:#66d9ef">function</span>() {
-  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Ch-Ch-Changes&#39;</span>);
-});
+<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">changes</span><span style="color:#111">().</span><span style="color:#75af00">on</span><span style="color:#111">(</span><span style="color:#d88200">&#39;change&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Ch-Ch-Changes&#39;</span><span style="color:#111">);</span>
+<span style="color:#111">});</span>
 
-<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">replicate</span>.<span style="color:#a6e22e">to</span>(<span style="color:#e6db74">&#39;http://example.com/mydb&#39;</span>);
-</code></pre></div>
-<p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
-
+<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">replicate</span><span style="color:#111">.</span><span style="color:#75af00">to</span><span style="color:#111">(</span><span style="color:#d88200">&#39;http://example.com/mydb&#39;</span><span style="color:#111">);</span>
+</code></pre></div><p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
 <ol>
 <li>Unidirectional replication. Zie <a href="https://pouchdb.com/guides/replication.html">PouchDB Docs</a></li>
 <li>Bidirectional replication.</li>
 <li>Live/Continuous replication.</li>
 </ol>
-
 <p>Je kan bovenstaande demo code onmiddellijk proberen op <a href="https://pouchdb.com">https://pouchdb.com</a>: Druk op <code>F12</code> of <code>CTRL+SHIFT+J</code> (Mac: <code>OPT+CMD+J</code>) of ga naar menu Developer -&gt; Developer Tools van je favoriete browser. In de tab &ldquo;Console&rdquo; wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando&rsquo;s in uitvoeren: <code>var db = ...</code>. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips.</p>
-
 <p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span>&gt;
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;my_database&#39;</span>);
-&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
-<p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+  <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</code></pre></div><p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
 <p>Een uitgewerkt voorbeeld in begeleidende video:</p>
-
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/fa612f2efe424da68d3d9aeb362ed5f1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 <h3 id="oefeningen">Oefeningen</h3>
-
 <ol>
 <li>Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met <code>db.put()</code>. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database.</li>
 <li>Maak een nieuw <code>.html</code> bestand aan, en stel een <a href="https://pouchdb.com/guides/databases.html">remote URL</a> in om vanuit JS onmiddellijk op de remote DB te kunnen queryen.
-
 <ul>
 <li>Gebruik de <a href="https://pouchdb.com/guides/mango-queries.html">Mango query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/documentstores">2. document stores</a> te implementeren. Opgelet: hier moet je een extra JS file voor includen, <code>pouchdb.find.js</code>, zoals aangegeven in de link, <a href="https://github.com/pouchdb/pouchdb/releases/">downloadbaar hier</a> en zorg ervoor dat zowel PouchDB als de find versies van dezelfde release komen!</li>
 <li>Gebruik de <a href="https://pouchdb.com/guides/queries.html">Mapreduce query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/mapreduce">3. advanced map/red. queries</a> te implementeren. Merk op dat voor map <strong>en</strong> reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: <code>{ map: function(doc) { emit(...); }, reduce: '_count}</code>. Zie docs in link.</li>
-</ul></li>
-
-<li><p>Maak een nieuw <code>.html</code> bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via <code>console.log()</code>. Wordt het nieuwe document getoond? Gebruik deze boilerplate:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span>&gt;Print docs&lt;/<span style="color:#f92672">button</span>&gt;
-&lt;<span style="color:#f92672">pre</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pre&#34;</span>&gt;
-...
-&lt;/<span style="color:#f92672">pre</span>&gt;
-&lt;<span style="color:#f92672">script</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">doc</span>) {
-document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#pre&#39;</span>).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">doc</span>);
-}
-
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PouchDB</span>(<span style="color:#e6db74">&#39;my_database&#39;</span>);
-<span style="color:#75715e">// do your setup here
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">queryDocs</span>() {
- <span style="color:#75715e">// do your thing here
-</span><span style="color:#75715e"></span> <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;goed bezig&#39;</span>);
-}
-
-document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#btn&#34;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">queryDocs</span>);
-&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div></li>
+</ul>
+</li>
+<li>Maak een nieuw <code>.html</code> bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via <code>console.log()</code>. Wordt het nieuwe document getoond? Gebruik deze boilerplate:</li>
 </ol>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">button</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;btn&#34;</span><span style="color:#111">&gt;</span>Print docs<span style="color:#111">&lt;/</span><span style="color:#f92672">button</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">pre</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pre&#34;</span><span style="color:#111">&gt;</span>
+...
+<span style="color:#111">&lt;/</span><span style="color:#f92672">pre</span><span style="color:#111">&gt;</span>
+<span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#pre&#39;</span><span style="color:#111">).</span><span style="color:#75af00">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#75af00">JSON</span><span style="color:#111">.</span><span style="color:#75af00">stringify</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
 
-<p><strong>Tips</strong>: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met <code>.put()</code>, maar replication <em>nog niet</em> aan staat, kan het handig zijn om met Chrome/Opera/&hellip; Dev Tools te kijken naar de <strong>local storage</strong> databases. Deze zijn terug te vinden in de tab &ldquo;Application&rdquo;, bij &ldquo;IndexedDB&rdquo;:</p>
+  <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
+  <span style="color:#75715e">// do your setup here
+</span><span style="color:#75715e"></span>
+  <span style="color:#00a8c8">function</span> <span style="color:#75af00">queryDocs</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+     <span style="color:#75715e">// do your thing here
+</span><span style="color:#75715e"></span>     <span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#d88200">&#39;goed bezig&#39;</span><span style="color:#111">);</span>
+  <span style="color:#111">}</span>
 
-<p><img src="../../img/localstorage.jpg" alt="" /></p>
-
+<span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#btn&#34;</span><span style="color:#111">).</span><span style="color:#75af00">addEventListener</span><span style="color:#111">(</span><span style="color:#d88200">&#34;click&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">queryDocs</span><span style="color:#111">);</span>
+<span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</code></pre></div><p><strong>Tips</strong>: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met <code>.put()</code>, maar replication <em>nog niet</em> aan staat, kan het handig zijn om met Chrome/Opera/&hellip; Dev Tools te kijken naar de <strong>local storage</strong> databases. Deze zijn terug te vinden in de tab &ldquo;Application&rdquo;, bij &ldquo;IndexedDB&rdquo;:</p>
+<p><img src="../../img/localstorage.jpg" alt=""></p>
 <p>De volgende elementen zijn te herknnen in bovenstaande screenshot:</p>
-
 <ul>
 <li>Ik heb een &ldquo;<code>mydb</code>&rdquo; object aangemaakt (DB naam <code>_pouch_mydb</code>)</li>
 <li>Onder element &ldquo;<code>by-sequence</code>&rdquo; kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam &ldquo;David&rdquo; werd toegevoegd.</li>
 </ul>
-
 <h3 id="troubleshooting">Troubleshooting</h3>
-
 <p><strong>Cross site origin fouten?</strong> - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file servet vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar <code>localhost:8000/oefening.html</code>. Indien niet opgelost, ga naar volgende troubleshooting puntje:</p>
-
 <p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; links, en enable je <code>CORS</code> (Cross Origin Requests):</p>
-
-<p><img src="../../img/cors.png" alt="" /></p>
-
+<p><img src="../../img/cors.png" alt=""></p>
 <p><strong>Access denied?</strong> - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: <code>new PouchDb(&quot;http://localhost:5984&quot;, { auth: { username: &quot;jef&quot;, password: &quot;lowie&quot;} })</code>. Zie <a href="https://pouchdb.com/api.html#create_database">options for remote databases</a> in de PouchDb API manual.</p>
-
 <p><strong>Mijn <code>find()</code> doet niks</strong>? - Merk op dat eender welke actie een <code>Promise</code> object teruggeeft. Dat wil zeggen dat de query &ldquo;onderweg&rdquo; is, en als je iets wilt uitvoeren wanneer dit klaar is (een <em>asynchroon</em> proces), moet dit via de <code>Promise</code> API, zoals <code>.then()</code>. Lees hierover in de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Mozilla MDN docs</a>.</p>
-
 <p><strong>Ik krijg rare javascript errors?</strong> - Is je <code>pouch.min.js</code> en <code>pouch.find.min.js</code> versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB <a href="https://github.com/pouchdb/pouchdb/releases/">Github Releases pagina</a>.</p>
-
 <p><strong>Ik krijg 404 object not found bij put?</strong> - Heb je je remote DB opgezet naar een onbestaande database, zoals <code>/hallokes</code>? Die moet je eerst <em>zelf aanmaken</em> in de CouchDB admin pagina! Anders kan je geen <code>PUT</code> commando&rsquo;s op die URL opsturen.</p>
-
 <p><strong>Uncaught in Promise request PUT not supported?</strong> - In <code>serviceWorker.js</code>? Ben je op de pouchdb.com website in de console dingen aan het testen? Sommige scripts, zoals deze, vangen <code>PUT</code> commando&rsquo;s op en crashen dan. Je object zal wel correct zijn bewaard, dit mag je negeren.</p>
-
 <h3 id="denkvragen">Denkvragen</h3>
-
 <ul>
 <li>Heb je een verschil gemerkt tussen bidirectionele en live replication in PouchDB? Probeer beide instellingen uit en kijk in de Chrome/Opera/Mozilla Dev Tools van je browser naar de uitgaande HTTP requests. Op welk moment gebeurt dit? Welke <code>POST</code>/<code>GET</code> metadata wordt verstuurd?</li>
 <li>Wat is het verschil tussen in Pouch alle documenten op te vragen en daarna als array MapReduces toe te passen, of dit in de Mango query rechtstreeks te doen?</li>
@@ -1105,19 +1053,17 @@ document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

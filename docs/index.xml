@@ -27,7 +27,7 @@ public static void main(String[] args) throws IOException { var db = new HashMap
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
       <description>2.1 Eenvoudige CouchDB Queries Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
 Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
-{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } }  De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
+{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &amp;ldquo;kolommen&amp;rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</description>
     </item>
     
     <item>
@@ -88,7 +88,7 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</guid>
       <description>Meerdere threads met toegang tot de DB Download het concurrency startproject. Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random Runnable thread workers die INSERT, UPDATE en DELETE statements issuen naar de database. De volgorde is een deel van de chaos&amp;hellip;
-Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit.</description>
+Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout?</description>
     </item>
     
     <item>
@@ -118,7 +118,7 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</guid>
       <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
 Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
- Als database endpoint wordt com.h2database.h2 gebruikt.</description>
+ Als database endpoint wordt com.h2database.h2 gebruikt. De Dropwizard jdbi3 dependency verwijst op zijn beurt naar een variant van jdbc De sqlobject plugin van Jdbi3 wordt gebruikt.</description>
     </item>
     
     <item>

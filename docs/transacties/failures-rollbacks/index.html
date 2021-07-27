@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>1. Failures/Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../transacties/failures-rollbacks/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,23 +586,15 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-system-failure-simulatie">1. System failure simulatie</a>
-<ul>
-<li><a href="#1-1-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</a>
-<ul>
-<li><a href="#oefeningen">Oefeningen</a></li>
-</ul></li>
-<li><a href="#1-2-in-sqlite-met-java-jdbc">1.2 In SQLite met Java/JDBC</a>
-<ul>
-<li><a href="#oefeningen-1">Oefeningen</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#denkvragen">Denkvragen</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#1-system-failure-simulatie">1. System failure simulatie</a>
+      <ul>
+        <li><a href="#11-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</a></li>
+        <li><a href="#12-in-sqlite-met-javajdbc">1.2 In SQLite met Java/JDBC</a></li>
+      </ul>
+    </li>
+    <li><a href="#denkvragen">Denkvragen</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -649,120 +618,96 @@ window.MathJax = {
         
 
 
-
-
 <p>blabla</p>
-
 <p>Voorbereidende <code>CREATE</code> statements (Dit is SQLite syntax!) Zie <a href="https://sqlite.org/autoinc.html">SQLite manual</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> student;
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> student(
-    studnr INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
-    naam VARCHAR(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-    voornaam VARCHAR(<span style="color:#ae81ff">200</span>),
-    goedbezig BOOL
-);
-<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> log;
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> log(
-    id INTEGER <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> AUTOINCREMENT,
-    date DATETIME <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
-    foreign_id INT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-    msg TEXT
-);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> student(studnr, naam, voornaam, goedbezig) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#39;Trekhaak&#39;</span>, <span style="color:#e6db74">&#39;Jaak&#39;</span>, <span style="color:#ae81ff">0</span>);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> student(studnr, naam, voornaam, goedbezig) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">456</span>, <span style="color:#e6db74">&#39;Peeters&#39;</span>, <span style="color:#e6db74">&#39;Jos&#39;</span>, <span style="color:#ae81ff">0</span>);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> student(studnr, naam, voornaam, goedbezig) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">890</span>, <span style="color:#e6db74">&#39;Dongmans&#39;</span>, <span style="color:#e6db74">&#39;Ding&#39;</span>, <span style="color:#ae81ff">1</span>);</code></pre></div>
-<h2 id="1-system-failure-simulatie">1. System failure simulatie</h2>
-
-<h3 id="1-1-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</h3>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">student</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">student</span><span style="color:#111">(</span>
+    <span style="color:#111">studnr</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+    <span style="color:#111">naam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">)</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">voornaam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">),</span>
+    <span style="color:#111">goedbezig</span> <span style="color:#111">BOOL</span>
+<span style="color:#111">);</span>
+<span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">log</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">log</span><span style="color:#111">(</span>
+    <span style="color:#111">id</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span><span style="color:#111">,</span>
+    <span style="color:#111">date</span> <span style="color:#111">DATETIME</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">CURRENT_TIMESTAMP</span><span style="color:#111">,</span>
+    <span style="color:#111">foreign_id</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">msg</span> <span style="color:#111">TEXT</span>
+<span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Trekhaak&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jaak&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">456</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Peeters&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jos&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">890</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Dongmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Ding&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+</code></pre></div><h2 id="1-system-failure-simulatie">1. System failure simulatie</h2>
+<h3 id="11-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</h3>
 <p>Gegeven een aantal SQL statements, waarvan niet alle statements kloppen, maar die wel allemaal bij elkaar horen als één <strong>atomaire transactie</strong>. Dat betekent dat als er één van die statements misloopt, de rest teruggedraait zou moeten worden. Het spreekt voor zich dat zonder speciale handelingen, zoals het beheren van transacties, dit niet gebeurt. Een eenvoudig voorbeeld demonstreert dit.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">UPDATE</span> student <span style="color:#66d9ef">SET</span> voornaam <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jaqueline&#39;</span> <span style="color:#66d9ef">WHERE</span> studnr <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> oeitiskapot;
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> log(foreign_id, msg) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#39;Voornaam vergissing&#39;</span>);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> student(studnr, naam, voornaam, goedbezig) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">445</span>, <span style="color:#e6db74">&#39;Klakmans&#39;</span>, <span style="color:#e6db74">&#39;Jef&#39;</span>, <span style="color:#ae81ff">1</span>);
-<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> log(foreign_id, msg) <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">445</span>, <span style="color:#e6db74">&#39;Nieuwe student registratie&#39;</span>);</code></pre></div>
-<p>Plak dit in de &ldquo;Execute SQL&rdquo; tab van de SQLite DB Browser. Het resultaat is een foutboodschap:</p>
-<pre><code>near &#34;;&#34;: syntax error: 
-INSERT INTO oeitiskapot;</code></pre>
-<p><strong>Maar</strong>: het eerste <code>UPDATE</code> statement, voor de foute regel, is wel uitgevoerd:</p>
-
-<p><img src="../../img/sqlite-fout.jpg" alt="" /></p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#00a8c8">UPDATE</span> <span style="color:#111">student</span> <span style="color:#00a8c8">SET</span> <span style="color:#111">voornaam</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Jaqueline&#39;</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">studnr</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">oeitiskapot</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Voornaam vergissing&#39;</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Klakmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jef&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Nieuwe student registratie&#39;</span><span style="color:#111">);</span>
+</code></pre></div><p>Plak dit in de &ldquo;Execute SQL&rdquo; tab van de SQLite DB Browser. Het resultaat is een foutboodschap:</p>
+<pre><code>near &quot;;&quot;: syntax error: 
+INSERT INTO oeitiskapot;
+</code></pre><p><strong>Maar</strong>: het eerste <code>UPDATE</code> statement, voor de foute regel, is wel uitgevoerd:</p>
+<p><img src="../../img/sqlite-fout.jpg" alt=""></p>
 <h4 id="oefeningen">Oefeningen</h4>
-
 <ol>
 <li>Probeer bovenstaande voorbeeld zelf uit in de SQLite DB Browser. Als je jezelf ervan verzekerd hebt dat inderdaad het eerste <code>UPDATE</code> statement wordt uitgevoerd, terwijl wij dat in één ACID blok willen, ga dan over naar de volgende oefening.</li>
 <li>In SQLite is het starten van een transactie erg eenvoudig: zie <a href="https://www.tutorialspoint.com/sqlite/sqlite_transactions.htm">SQLite transaction tutorials</a> van tutorialspoint.com. <code>BEGIN;</code> en <code>COMMIT;</code> zijn voldoende. Probeer dit uit in bovenstaande voorbeeld om er voor te zorgen dat de voornaam van Jaak niet wordt gewijzigd. Om met een &ldquo;clean slate&rdquo; te herbeginnen kan je gewoon de voorbereidende SQL code copy/pasten en opnieuw uitvoeren. Merk op dat dit nog steeds het ongewenst effect heeft dat de student zijn/haar naam wordt gewijzigd. We moeten expliciet zelf <code>ROLLBACK;</code> aanroepen.</li>
 <li>Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de <code>NOT NULL</code> constraint. Wrap beide statements in een transactie.</li>
 </ol>
-
 <p><strong>Let Op</strong>: Het zou kunnen dat SQLite de volgende fout geeft: <code>cannot start a transaction within a transaction: BEGIN;</code>. Queries die geplakt worden in het &ldquo;execute SQL&rdquo; scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door <code>COMMIT;</code> uit te voeren met de knop &ldquo;execute single SQL line&rdquo;.</p>
-
-<h3 id="1-2-in-sqlite-met-java-jdbc">1.2 In SQLite met Java/JDBC</h3>
-
+<h3 id="12-in-sqlite-met-javajdbc">1.2 In SQLite met Java/JDBC</h3>
 <p>Bovenstaande failure fenomeen stellen we ook vast als we niet rechtstreeks in de DB explorer onze queries uitvoeren, maar via Java, met behulp van de <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc</a> drivers. <a href="https://www.tutorialspoint.com/jdbc/index.htm">JDBC</a>,  of &ldquo;Java DataBase Connection&rdquo;, is een tussenlaag die het mogelijk maakt om SQL uit te voeren op eender welke SQL server. <code>sqlite-jdbc</code> zorgt voor de SQLite-specifieke vertaling. De interface die wij gebruiken om te programmeren zit in de JDK zelf onder de packages <code>java.sql</code>.</p>
-
 <p>Enkele belangrijke statements:</p>
-
 <ol>
 <li>Een connectie naar een database vastleggen: <code>var connection = DriverManager.getConnection(&quot;jdbc:sqlite:mydb.db&quot;);</code></li>
 <li>Een <code>SELECT</code> query uitvoeren: <code>var s = connection.createStatement(); var result = s.executeQuery(&quot;...&quot;); var cell = result.getString(&quot;column&quot;);</code></li>
 <li>Een <code>INSERT</code>/<code>UPDATE</code>/&hellip; query uitvoeren (die de structuur of inhoud van de database <strong>wijzigt</strong>): <code>var s = connection.createStatement(); s.executeUpdate(&quot;...&quot;);</code></li>
 </ol>
-
 <p>Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> Connection connection<span style="color:#f92672">;</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createDb</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
-    connection <span style="color:#f92672">=</span> DriverManager<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc:sqlite:mydb.db&#34;</span><span style="color:#f92672">);</span>
-    connection<span style="color:#f92672">.</span><span style="color:#a6e22e">setAutoCommit</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
-    var s <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">();</span>
-    s<span style="color:#f92672">.</span><span style="color:#a6e22e">executeUpdate</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);&#34;</span><span style="color:#f92672">)</span>
-    s<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">private</span> <span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#f92672">;</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">createDb</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#f92672">{</span>
+    <span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:mydb.db&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">setAutoCommit</span><span style="color:#f92672">(</span><span style="color:#00a8c8">false</span><span style="color:#f92672">);</span>
+    <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
+    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">executeUpdate</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">verifyDbContents</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
-    var s <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">();</span>
-    var result <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT COUNT(*) FROM mijntabel;&#34;</span><span style="color:#f92672">);</span>
-    var count <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
-    s<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">verifyDbContents</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#f92672">{</span>
+    <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
+    <span style="color:#111">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">executeQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT COUNT(*) FROM mijntabel;&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#111">var</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">getInt</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">);</span>
+    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
 
-    <span style="color:#66d9ef">assert</span> count <span style="color:#f92672">==</span> 1<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p><strong>Gradle</strong> dependency: <code>compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'</code>.</p>
-
+    <span style="color:#00a8c8">assert</span> <span style="color:#111">count</span> <span style="color:#f92672">==</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Gradle</strong> dependency: <code>compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'</code>.</p>
 <p>Merk op dat <code>SQLException</code> een <strong>checked exception</strong> is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een <code>try { } catch { } finally { }</code> block is dat in de finally je ook geen <code>close()</code> kan uitvoeren zonder opnieuw een <code>try</code> block te openen&hellip; Inception!</p>
-
 <p>Het <code>connection.close()</code> statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een <strong>connection pool</strong> van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!</p>
-
 <p>De <code>setAutoCommit(false)</code> regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:</p>
-
 <blockquote>
 <p>When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)</p>
 </blockquote>
-
 <p>Zie JDBC Basics in Oracle docs: <a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html">https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html</a></p>
-
 <p>Begeleidende video:</p>
-
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/f026890c206843548339d1fb4a9f2cbe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 <h4 id="oefeningen-1">Oefeningen</h4>
-
 <ol>
 <li>Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring <code>&quot;jdbc:sqlite:sample.db&quot;</code>, automatisch een lege <code>.db</code> file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van <code>executeUpdate()</code> en <code>executeQuery()</code> bovenstaande system failure te veroorzaken. Je kan de &ldquo;foute SQL&rdquo; (met &ldquo;oeitiskapot&rdquo;) gewoon in een string in java copy/pasten. <code>executeUpdate()</code> kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een <code>SELECT()</code> nadat je de fout hebt opgevangen in een <code>try { }</code> block.</li>
 <li>Het probleem is op te lossen met één welgeplaatste regel: <code>connection.rollback()</code>. De vraag is echter: waar plaatsen we die? En ja, <code>rollback()</code> throwt ook de checked <code>SQLException</code>&hellip; Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: &ldquo;Jaak&rdquo;.</li>
 </ol>
-
 <p>De <code>DROP TABLE IF EXISTS</code> statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initTables</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
-        var sql <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>Files<span style="color:#f92672">.</span><span style="color:#a6e22e">readAllBytes</span><span style="color:#f92672">(</span>Paths<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>getClass<span style="color:#f92672">().</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dbcreate.sql&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">())));</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">);</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">initTables</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">var</span> <span style="color:#111">sql</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">Files</span><span style="color:#f92672">.</span><span style="color:#75af00">readAllBytes</span><span style="color:#f92672">(</span><span style="color:#111">Paths</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#111">getClass</span><span style="color:#f92672">().</span><span style="color:#75af00">getResource</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;dbcreate.sql&#34;</span><span style="color:#f92672">).</span><span style="color:#75af00">getPath</span><span style="color:#f92672">())));</span>
+        <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">sql</span><span style="color:#f92672">);</span>
 
-        var s <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">();</span>
-        s<span style="color:#f92672">.</span><span style="color:#a6e22e">executeUpdate</span><span style="color:#f92672">(</span>sql<span style="color:#f92672">);</span>
-        s<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-    <span style="color:#f92672">}</span></code></pre></div>
-<p>De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:</p>
-<pre><code>org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near &#34;;&#34;: syntax error)
+        <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
+        <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">executeUpdate</span><span style="color:#f92672">(</span><span style="color:#111">sql</span><span style="color:#f92672">);</span>
+        <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:</p>
+<pre><code>org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near &quot;;&quot;: syntax error)
     at org.sqlite.core.DB.newSQLException(DB.java:1010)
     at org.sqlite.core.DB.newSQLException(DB.java:1022)
     at org.sqlite.core.DB.throwex(DB.java:987)
@@ -770,9 +715,8 @@ INSERT INTO oeitiskapot;</code></pre>
     at org.sqlite.core.NativeDB._exec(NativeDB.java:94)
     at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
     at SQLiteTransactionTest.doStuff(SQLiteTransactionTest.java:54)
-    at SQLiteMain.main(SQLiteMain.java:7)</code></pre>
-<h2 id="denkvragen">Denkvragen</h2>
-
+    at SQLiteMain.main(SQLiteMain.java:7)
+</code></pre><h2 id="denkvragen">Denkvragen</h2>
 <ul>
 <li>De SQLite website beschrijft in detail hoe ze omgaan met &ldquo;atomic commits&rdquo; om aan de ACID regels te voldoen. Lees dit na op <a href="https://sqlite.org/atomiccommit.html">https://sqlite.org/atomiccommit.html</a> Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?</li>
 <li>JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?</li>
@@ -1127,19 +1071,17 @@ INSERT INTO oeitiskapot;</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

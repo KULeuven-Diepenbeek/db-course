@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>1. Key/value stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../nosql/keyvaluestores/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,19 +586,18 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-1-persistente-hashmaps">1.1 Persistente Hashmaps</a>
-<ul>
-<li><a href="#1-1-1-oefeningen">1.1.1 Oefeningen</a></li>
-</ul></li>
-<li><a href="#1-2-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</a>
-<ul>
-<li><a href="#denkvragen">Denkvragen</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#11-persistente-hashmaps">1.1 Persistente Hashmaps</a>
+      <ul>
+        <li><a href="#111-oefeningen">1.1.1 Oefeningen</a></li>
+      </ul>
+    </li>
+    <li><a href="#12-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</a>
+      <ul>
+        <li><a href="#denkvragen">Denkvragen</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -645,51 +621,40 @@ window.MathJax = {
         
 
 
-
-
-<h2 id="1-1-persistente-hashmaps">1.1 Persistente Hashmaps</h2>
-
+<h2 id="11-persistente-hashmaps">1.1 Persistente Hashmaps</h2>
 <p>De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele <code>HashMap&lt;K,V&gt;</code> die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.</p>
-
 <p>De &ldquo;oude&rdquo; manier om dit te doen in java is gebruik te maken van <code>FileOutputStream</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-    var db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;();</span>
-    db<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;joske&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Student<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Joske&#34;</span><span style="color:#f92672">,</span> 11<span style="color:#f92672">));</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">IOException</span> <span style="color:#f92672">{</span>
+    <span style="color:#111">var</span> <span style="color:#111">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;();</span>
+    <span style="color:#111">db</span><span style="color:#f92672">.</span><span style="color:#75af00">put</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;joske&#34;</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Student</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Joske&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">11</span><span style="color:#f92672">));</span>
 
-    var file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;database.db&#34;</span><span style="color:#f92672">);</span>
-    var f <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
-    var s <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectOutputStream<span style="color:#f92672">(</span>f<span style="color:#f92672">);</span>
-    s<span style="color:#f92672">.</span><span style="color:#a6e22e">writeObject</span><span style="color:#f92672">(</span>db<span style="color:#f92672">);</span>
-    s<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Inlezen werkt op dezelfde manier, met <code>FileInputStream</code> en <code>ObjectInputStream</code>. Hoe je <code>Student</code> klasse wordt geserialiseerd kan je <strong>zelf kiezen</strong> als je de interface <code>Serializable</code> implementeert!</p>
-
+    <span style="color:#111">var</span> <span style="color:#111">file</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">File</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;database.db&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#111">var</span> <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">FileOutputStream</span><span style="color:#f92672">(</span><span style="color:#111">file</span><span style="color:#f92672">);</span>
+    <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ObjectOutputStream</span><span style="color:#f92672">(</span><span style="color:#111">f</span><span style="color:#f92672">);</span>
+    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">writeObject</span><span style="color:#f92672">(</span><span style="color:#111">db</span><span style="color:#f92672">);</span>
+    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Inlezen werkt op dezelfde manier, met <code>FileInputStream</code> en <code>ObjectInputStream</code>. Hoe je <code>Student</code> klasse wordt geserialiseerd kan je <strong>zelf kiezen</strong> als je de interface <code>Serializable</code> implementeert!</p>
 <p>Met bovenstaande interface kan je de student terug uitlezen:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;)</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">readObject</span><span style="color:#f92672">();</span>
-Student joske <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Student<span style="color:#f92672">)</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;joske&#34;</span><span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>joske<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span></code></pre></div>
-<h3 id="1-1-1-oefeningen">1.1.1 Oefeningen</h3>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;</span> <span style="color:#111">map</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;)</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">readObject</span><span style="color:#f92672">();</span>
+<span style="color:#111">Student</span> <span style="color:#111">joske</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">)</span> <span style="color:#111">map</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;joske&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">joske</span><span style="color:#f92672">.</span><span style="color:#75af00">getName</span><span style="color:#f92672">());</span>
+</code></pre></div><h3 id="111-oefeningen">1.1.1 Oefeningen</h3>
 <ol>
-<li><p>Werk bovenstaand voorbeeld uit en persisteer een aantal studenten met de volgende klasse:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String name<span style="color:#f92672">;</span>
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Student</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div></li>
+<li>Werk bovenstaand voorbeeld uit en persisteer een aantal studenten met de volgende klasse:</li>
 </ol>
-
-<h2 id="1-2-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</h2>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Student</span> <span style="color:#f92672">{</span>
+      <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#f92672">;</span>
+      <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#00a8c8">int</span> <span style="color:#111">age</span><span style="color:#f92672">;</span>
+      <span style="color:#00a8c8">public</span> <span style="color:#75af00">Student</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">age</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">name</span> <span style="color:#f92672">=</span> <span style="color:#111">name</span><span style="color:#f92672">;</span>
+            <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">=</span> <span style="color:#111">age</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="12-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</h2>
 <p>Met de Java voorbeeldcode op pagina 307 kunnen we een verbinding maken met een (of meerdere) Memcached servers. De Memcached client van <code>net.spy.spymemcached</code> (zie mvn repo: <a href="https://mvnrepository.com/artifact/net.spy/spymemcached">https://mvnrepository.com/artifact/net.spy/spymemcached</a>).</p>
-
 <p>De client code vereist een werkende memcached server - <a href="https://www.memcached.org">https://www.memcached.org</a>. Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in.</p>
-
 <h3 id="denkvragen">Denkvragen</h3>
-
 <ol>
 <li>Welke beperkingen zijn er verbonden aan het geserialiseerd database bestand doorgeven aan andere medestudenten? Op welke manier kan je zo verschillende &lsquo;clients&rsquo; verbinden aan één database &lsquo;server&rsquo;?</li>
 </ol>
@@ -1043,19 +1008,17 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

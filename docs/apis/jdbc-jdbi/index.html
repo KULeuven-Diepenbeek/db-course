@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>1. JDBC en JDBI :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../apis/jdbc-jdbi/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,30 +586,25 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-1-queries-objecten-in-jdbc">1.1 Queries/Objecten in JDBC</a>
-<ul>
-<li><a href="#1-1-1-oefeningen">1.1.1 Oefeningen</a></li>
-</ul></li>
-<li><a href="#1-2-queries-objecten-in-jdbi-3">1.2 Queries/Objecten in Jdbi 3</a>
-<ul>
-<li><a href="#1-2-1-jdbc-vs-jdbi3">1.2.1 JDBC vs Jdbi3</a>
-<ul>
-<li><a href="#1-connection-openen"><strong>1. Connection openen</strong></a></li>
-<li><a href="#2-query-uitvoeren"><strong>2. Query uitvoeren</strong></a></li>
-<li><a href="#3-transacties-insert-update-queries"><strong>3. Transacties, insert/update queries, &hellip;</strong></a></li>
-</ul></li>
-<li><a href="#1-2-2-oefeningen">1.2.2 Oefeningen</a></li>
-</ul></li>
-<li><a href="#1-3-jdbi-backend-javafx-frontend">1.3 Jdbi Backend + JavaFX Frontend</a>
-<ul>
-<li><a href="#1-3-1-een-gradle-javafx-project">1.3.1 Een Gradle JavaFX Project</a></li>
-<li><a href="#1-3-2-oefeningen">1.3.2 Oefeningen</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#11-queriesobjecten-in-jdbc">1.1 Queries/Objecten in JDBC</a>
+      <ul>
+        <li><a href="#111-oefeningen">1.1.1 Oefeningen</a></li>
+      </ul>
+    </li>
+    <li><a href="#12-queriesobjecten-in-jdbi-3">1.2 Queries/Objecten in Jdbi 3</a>
+      <ul>
+        <li><a href="#121-jdbc-vs-jdbi3">1.2.1 JDBC vs Jdbi3</a></li>
+        <li><a href="#122-oefeningen">1.2.2 Oefeningen</a></li>
+      </ul>
+    </li>
+    <li><a href="#13-jdbi-backend--javafx-frontend">1.3 Jdbi Backend + JavaFX Frontend</a>
+      <ul>
+        <li><a href="#131-een-gradle-javafx-project">1.3.1 Een Gradle JavaFX Project</a></li>
+        <li><a href="#132-oefeningen">1.3.2 Oefeningen</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -656,74 +628,56 @@ window.MathJax = {
         
 
 
-
-
-<h2 id="1-1-queries-objecten-in-jdbc">1.1 Queries/Objecten in JDBC</h2>
-
+<h2 id="11-queriesobjecten-in-jdbc">1.1 Queries/Objecten in JDBC</h2>
 <p>Zie <strong><a href="../../transacties/failures-rollbacks/">Transacties failures/rollbacks</a></strong> voor de initiële setup van een eenvoudige Java JDBC applicatie.</p>
-
 <p>Stel dat we dezelfde studenten willen inladen in een <code>Student</code> klasse instantie: van de <code>TABLE STUDENT</code> naar de <code>class Student</code>. In geval van JDBC is dat veel handwerk:</p>
-
 <ol>
 <li>Maak een verbinding met de database.</li>
 <li>Voer de <code>SELECT</code> statements uit.</li>
 <li>Loop door de <code>ResultSet</code> en maak een nieuwe <code>Student</code> instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, <code>null</code>? Wat met <code>INTEGER</code> kolommen die je wilt mappen op een <code>String</code> property?</li>
 </ol>
-
 <p>Om van de huidige resultatenrij naar de volgende te springen in <code>ResultSet</code> gebruikt men de methode <code>next()</code> in een typisch <code>while()</code> formaat:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">var result <span style="color:#f92672">=</span> statement<span style="color:#f92672">.</span><span style="color:#a6e22e">executeQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT * FROM iets&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-    var eenString <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;kolomnaam&#34;</span><span style="color:#f92672">);</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">statement</span><span style="color:#f92672">.</span><span style="color:#75af00">executeQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT * FROM iets&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    <span style="color:#111">var</span> <span style="color:#111">eenString</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">getString</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;kolomnaam&#34;</span><span style="color:#f92672">);</span>
     <span style="color:#75715e">// doe iets!
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span></code></pre></div>
-<p>Zie ook <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet Oracle Javadoc</a>.</p>
-
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>Zie ook <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet Oracle Javadoc</a>.</p>
 <p>Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onmiddellijk over naar de oefeningen:</p>
-
-<h3 id="1-1-1-oefeningen">1.1.1 Oefeningen</h3>
-
+<h3 id="111-oefeningen">1.1.1 Oefeningen</h3>
 <ol>
-<li><p>Maak (én test!) een klasse <code>StudentRepository</code> die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC <code>Connection</code> instance elders wordt aangemaakt, bijvoorbeeld in een <strong>aparte</strong> <code>ConnectionManager</code> klasse.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentRepository</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">StudentRepository</span><span style="color:#f92672">(</span>Connection connection<span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getStudentsByName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span></code></pre></div></li>
-
-<li><p>Breid dit uit naar <code>public void saveNewStudent(Student student);</code>.</p></li>
-
-<li><p>Breid dit uit naar <code>public void updateStudent(Student student);</code>. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet?</p></li>
+<li>Maak (én test!) een klasse <code>StudentRepository</code> die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC <code>Connection</code> instance elders wordt aangemaakt, bijvoorbeeld in een <strong>aparte</strong> <code>ConnectionManager</code> klasse.</li>
 </ol>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">StudentRepository</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">public</span> <span style="color:#75af00">StudentRepository</span><span style="color:#f92672">(</span><span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#f92672">);</span>
+        <span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">getStudentsByName</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="2">
+<li>Breid dit uit naar <code>public void saveNewStudent(Student student);</code>.</li>
+<li>Breid dit uit naar <code>public void updateStudent(Student student);</code>. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet?</li>
+</ol>
 <p><strong>Tip</strong>:</p>
-
 <ul>
 <li><code>executeUpdate()</code> van een <code>Statement</code> is erg omslachtig als je een string moet stamenstellen die een <code>INSERT</code> query voorstelt (haakjes, enkele quotes, &hellip;). Wat meer is, als de input van een UI komt, kan dit gehacked worden, door zelf de quote te sluiten in de string. Dit noemt men <strong>SQL Injection</strong>, en om dat te vermijden gebruik je in JDBC de <code>prepareStatement()</code> methode. Zie <a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html">JDBC Basics: Prepared Statements</a>. De String die je meegeeft bevat in de plaats van parameters een vraagteken: <code>INSERT INTO STUDENT(bla, bla) VALUES(?, ?)</code>. Die parameters vul je daarna aan met <code>preparedStatement.setString()</code> of <code>setInt()</code>. Op die manier is de code zowel <em>netjes</em> als <em>injectie-vrij</em>!</li>
 </ul>
-
-<h2 id="1-2-queries-objecten-in-jdbi-3">1.2 Queries/Objecten in Jdbi 3</h2>
-
+<h2 id="12-queriesobjecten-in-jdbi-3">1.2 Queries/Objecten in Jdbi 3</h2>
 <p><a href="https://jdbi.org">Jdbi</a> (Java DataBase Interface v3) is een lightweight library geschreven bovenop JDBC. Het gebruikt dus de interne Java API om te communiceren tussen de database en de Java applicatie. Echter, het maakt het leven voor ons als ontwikkelaar op heel wat vlakken véél <em>aangenamer</em>: waar JDBC eerder database-driven en dialect-afhankelijk is, is Jdbi eerder user-driven en met behulp van plugins dialect-onafhenkelijk.</p>
-
 <p>JDBI3 is opgedeeld in modules, waarvan wij de volgende drie gaan gebruiken:</p>
-
 <ul>
 <li><code>jdbi3-core</code> (altijd nodig) - voor JDBC zit dit in de JDK.</li>
 <li><code>jdbi3-sqlite</code> (voor de SQLite verbinding) - of andere DB driver</li>
 <li><code>jdb3-sqlobject</code> - voor de eenvoudige mapping naar Plain Old Java Objects (POJOs)</li>
 </ul>
-
 <p>Er is ook support voor spring, jpa, guava, kotlin, &hellip;</p>
-
 <p>Om bovenstaande JDBC oefening te implementeren in Jdbi3 hebben we eerst een extractie van een interface nodig voor de repository acties:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">StudentRepository</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">interface</span> <span style="color:#75af00">StudentRepository</span> <span style="color:#f92672">{</span>
 
-    List<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getStudentsByName</span><span style="color:#f92672">(</span>String student<span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveNewStudent</span><span style="color:#f92672">(</span>Student student<span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updateStudent</span><span style="color:#f92672">(</span>Student student<span style="color:#f92672">);</span>
+    <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">getStudentsByName</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">student</span><span style="color:#f92672">);</span>
+    <span style="color:#00a8c8">void</span> <span style="color:#75af00">saveNewStudent</span><span style="color:#f92672">(</span><span style="color:#111">Student</span> <span style="color:#111">student</span><span style="color:#f92672">);</span>
+    <span style="color:#00a8c8">void</span> <span style="color:#75af00">updateStudent</span><span style="color:#f92672">(</span><span style="color:#111">Student</span> <span style="color:#111">student</span><span style="color:#f92672">);</span>
     
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Nu kan <code>StudentRepositoryJdbcImpl</code> (hernoem bovenstaande) en onze nieuwe <code>StudentRepositoryJdbi3Impl</code> de interface <code>implements</code>-en. Denk aan de <strong>Strategy design pattern</strong> van SES: afhankelijk van een instelling kunnen we switchen van SQL leverancier, zolang de code overal de interface gebruikt.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Nu kan <code>StudentRepositoryJdbcImpl</code> (hernoem bovenstaande) en onze nieuwe <code>StudentRepositoryJdbi3Impl</code> de interface <code>implements</code>-en. Denk aan de <strong>Strategy design pattern</strong> van SES: afhankelijk van een instelling kunnen we switchen van SQL leverancier, zolang de code overal de interface gebruikt.</p>
 <script defer src="../../mermaid/mermaid.min.js">
 	mermaid.initialize({
 		startOnLoad: true,
@@ -744,80 +698,60 @@ graph LR;
     Interface --> Jdbi
 
 </div>
-
-<h3 id="1-2-1-jdbc-vs-jdbi3">1.2.1 JDBC vs Jdbi3</h3>
-
+<h3 id="121-jdbc-vs-jdbi3">1.2.1 JDBC vs Jdbi3</h3>
 <h4 id="1-connection-openen"><strong>1. Connection openen</strong></h4>
-
 <p>In plaats van JDBC&rsquo;s <code>DriverManager.getConnection()</code> om de <code>Connection</code> instance te bootstrappen, gebruiken wij gewoon <code>Jdbi.create()</code> met ook één paremter, namelijk dezelfde connectionstring.</p>
-
 <h4 id="2-query-uitvoeren"><strong>2. Query uitvoeren</strong></h4>
-
 <p>In plaats van de vervelende checked <code>SQLException</code>s en de <code>createStatement()</code> code, heb je nu de keuze om ofwel de Fluent API te gebruiken:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#66d9ef">return</span> jdbi<span style="color:#f92672">.</span><span style="color:#a6e22e">withHandle</span><span style="color:#f92672">(</span>handle <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
-           <span style="color:#66d9ef">return</span> handle<span style="color:#f92672">.</span><span style="color:#a6e22e">createQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT * FROM student WHERE naam = :naam&#34;</span><span style="color:#f92672">)</span>
-                   <span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;naam&#34;</span><span style="color:#f92672">,</span> student<span style="color:#f92672">)</span>
-                   <span style="color:#f92672">.</span><span style="color:#a6e22e">mapToBean</span><span style="color:#f92672">(</span>Student<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
-                   <span style="color:#f92672">.</span><span style="color:#a6e22e">list</span><span style="color:#f92672">();</span>
-        <span style="color:#f92672">});</span></code></pre></div>
-<p>ofwel de Declarative API, waarbij je met de <code>@SqlQuery</code> kan werken op een interface:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">StudentDao</span> <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@SqlQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SELECT * FROM student&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">@RegisterBeanMapper</span><span style="color:#f92672">(</span>Student<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
-    List<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getStudenten</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span></code></pre></div>
-<p>Dit vereist dat je de plugin <code>SqlObjectPlugin</code> installeert na de <code>Jdbi.create()</code>: <code>jdbi.installPlugin(new SqlObjectPlugin());</code>. Zie <a href="https://jdbi.org">jdbi.org</a> documentatie.</p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#00a8c8">return</span> <span style="color:#111">jdbi</span><span style="color:#f92672">.</span><span style="color:#75af00">withHandle</span><span style="color:#f92672">(</span><span style="color:#111">handle</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+           <span style="color:#00a8c8">return</span> <span style="color:#111">handle</span><span style="color:#f92672">.</span><span style="color:#75af00">createQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT * FROM student WHERE naam = :naam&#34;</span><span style="color:#f92672">)</span>
+                   <span style="color:#f92672">.</span><span style="color:#75af00">bind</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">student</span><span style="color:#f92672">)</span>
+                   <span style="color:#f92672">.</span><span style="color:#75af00">mapToBean</span><span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">)</span>
+                   <span style="color:#f92672">.</span><span style="color:#75af00">list</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">});</span>
+</code></pre></div><p>ofwel de Declarative API, waarbij je met de <code>@SqlQuery</code> kan werken op een interface:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">interface</span> <span style="color:#75af00">StudentDao</span> <span style="color:#f92672">{</span>
+    <span style="color:#75af00">@SqlQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT * FROM student&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#75af00">@RegisterBeanMapper</span><span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">)</span>
+    <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">getStudenten</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Dit vereist dat je de plugin <code>SqlObjectPlugin</code> installeert na de <code>Jdbi.create()</code>: <code>jdbi.installPlugin(new SqlObjectPlugin());</code>. Zie <a href="https://jdbi.org">jdbi.org</a> documentatie.</p>
 <p>Herinner je je nog de <strong>SESsy Library</strong>? Die werkte ook op die manier! Kijk nog eens in <a href="https://github.com/kuleuven-diepenbeek/sessylibrary">https://github.com/kuleuven-diepenbeek/sessylibrary</a> in de map <code>src.main.java.be.kuleuven.sessylibrary.domain</code> in klasse <code>BooksRepository</code>!</p>
-
 <p>Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch worden vertaald naar een <code>Student</code> instantie door middel van <strong>bean mapping</strong>: de <code>mapToBean()</code> methode of de <code>@RegisterBeanMapper</code> annotatie. Die gaat via reflectie alle kolomnamen 1-op-1 mappen op properties van je object dat je wenst te mappen. Er zijn ook nog andere mogelijkheden, zoals mappen op een <code>HashMap</code>, ea:</p>
-
-<p><img src="../../img/jdbi-map.jpg" alt="" /></p>
-
-<h4 id="3-transacties-insert-update-queries"><strong>3. Transacties, insert/update queries, &hellip;</strong></h4>
-
+<p><img src="../../img/jdbi-map.jpg" alt=""></p>
+<h4 id="3-transacties-insertupdate-queries-"><strong>3. Transacties, insert/update queries, &hellip;</strong></h4>
 <p>Zelfstudie. Zie <a href="https://jdbi.org">jdbi.org</a> documentatie.</p>
-
-<h3 id="1-2-2-oefeningen">1.2.2 Oefeningen</h3>
-
+<h3 id="122-oefeningen">1.2.2 Oefeningen</h3>
 <p>Begin vanaf <strong>start project</strong> <a href="../../jdbc-repo-start.zip">jdbc-repo-start.zip</a>! Deze bevat reeds bovenstaande JDBC implementatie en een aantal unit testen, waarvan er nog twee falen.</p>
-
 <ol>
 <li>Fix eerst de falende unit testen!</li>
-
-<li><p>Herimplementeer alle methodes van de <code>StudentRepository</code> interface hierboven, maar dan in Jdbi3 met de Fluent API (<code>jdbi.withHandle()</code>). Maak een tweede klasse genaamd <code>StudentRepositoryJdbi3</code>. Schrijf ook een bijhorende unit test klasse (kijk voor inspiratie naar de JDBC implementatie). Om te testen of het werkt in &ldquo;productie&rdquo; kan je je testcode van JDBC herbruiken door de code de <strong>interface</strong> te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OefeningMain</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        var jdbcRepo <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StudentRepositoryJdbc<span style="color:#f92672">(...);</span>
-        var jdbiRepo <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StudentRepositoryJdbi3<span style="color:#f92672">(...);</span>
-        doStuff<span style="color:#f92672">(</span>jdbcRepo<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doStuff</span><span style="color:#f92672">(</span>StudentRepository repository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// uw repository.getStudentsByName, saveNewStudent, ... tests hier
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span></code></pre></div></li>
-
-<li><p><em>Extra Oefening</em>: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de <a href="http://jdbi.org/#_declarative_api">Jdbi3 developer guide</a> na hoe je de Declarative API gebruikt en verwerk dit. Tip: <code>jdbi.withExtension(StudentDao.class, ...)</code>.</p></li>
+<li>Herimplementeer alle methodes van de <code>StudentRepository</code> interface hierboven, maar dan in Jdbi3 met de Fluent API (<code>jdbi.withHandle()</code>). Maak een tweede klasse genaamd <code>StudentRepositoryJdbi3</code>. Schrijf ook een bijhorende unit test klasse (kijk voor inspiratie naar de JDBC implementatie). Om te testen of het werkt in &ldquo;productie&rdquo; kan je je testcode van JDBC herbruiken door de code de <strong>interface</strong> te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:</li>
 </ol>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OefeningMain</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#f92672">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">var</span> <span style="color:#111">jdbcRepo</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">StudentRepositoryJdbc</span><span style="color:#f92672">(...);</span>
+            <span style="color:#111">var</span> <span style="color:#111">jdbiRepo</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">StudentRepositoryJdbi3</span><span style="color:#f92672">(...);</span>
+            <span style="color:#111">doStuff</span><span style="color:#f92672">(</span><span style="color:#111">jdbcRepo</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">doStuff</span><span style="color:#f92672">(</span><span style="color:#111">StudentRepository</span> <span style="color:#111">repository</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">// uw repository.getStudentsByName, saveNewStudent, ... tests hier
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="3">
+<li><em>Extra Oefening</em>: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de <a href="http://jdbi.org/#_declarative_api">Jdbi3 developer guide</a> na hoe je de Declarative API gebruikt en verwerk dit. Tip: <code>jdbi.withExtension(StudentDao.class, ...)</code>.</li>
+</ol>
 <p><strong>Tip</strong>:</p>
-
 <ul>
 <li>Neem de tijd om de JDBI documentatie uitvoerig te bekijken!</li>
 </ul>
-
-<h2 id="1-3-jdbi-backend-javafx-frontend">1.3 Jdbi Backend + JavaFX Frontend</h2>
-
+<h2 id="13-jdbi-backend--javafx-frontend">1.3 Jdbi Backend + JavaFX Frontend</h2>
 <p>Met Java database access enigszins onder de knie kijken we verder dan alleen maar de &ldquo;repository&rdquo;. Op welke manier kunnen we onze <code>STUDENT</code> tabel visueel weergeven, en er studenten aan toevoegen of uit verwijderen?</p>
-
 <p>Dat kan op verschillende manieren, van HTML (SESsy Library) en JavaScript API calls naar iets eenvoudiger vanuit het eerstejaarsvak INF1: <strong>JavaFX</strong>. Je kan in JavaFX eenvoudig <code>TableView</code> stukken positioneren op een <code>AnchorPane</code> en die vullen met de juiste kolommen en rijen. De data blijft uiteraard uit de SQLite DB komen via JDBC/Jdbi. De <code>StudentRepository</code> is dus slechts één deel van het verhaal: waar wordt deze gebruikt? In JavaFX controllers.</p>
-
-<h3 id="1-3-1-een-gradle-javafx-project">1.3.1 Een Gradle JavaFX Project</h3>
-
+<h3 id="131-een-gradle-javafx-project">1.3.1 Een Gradle JavaFX Project</h3>
 <p>Er zijn een aantal aanpassingen nodig aan je <code>build.gradle</code> file om van een gewone Java applicatie over te schakelen naar een JavaFX-enabled applicatie. We hebben de <strong>application</strong> en <strong>javafxplugin</strong> plugins nodig onder <code>plugins {}</code>, verder ook een <code>javafx {}</code> property groep die bepaalt welke modules van JavaFX worden ingeladen:</p>
 <pre><code>plugins {
-    id &#39;application&#39;
-    id &#39;org.openjfx.javafxplugin&#39; version &#39;0.0.9&#39;
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 repositories {
@@ -825,77 +759,68 @@ repositories {
 }
 
 javafx {
-    version = &#34;13&#34;
-    modules = [ &#39;javafx.controls&#39;, &#39;javafx.fxml&#39; ]
+    version = &quot;13&quot;
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
-    compile group: &#39;org.xerial&#39;, name: &#39;sqlite-jdbc&#39;, version: &#39;3.32.3.2&#39;
-    compile group: &#39;org.jdbi&#39;, name: &#39;jdbi3-core&#39;, version: &#39;3.17.0&#39;
-    compile group: &#39;org.jdbi&#39;, name: &#39;jdbi3-sqlite&#39;, version: &#39;3.17.0&#39;
-    compile group: &#39;org.jdbi&#39;, name: &#39;jdbi3-sqlobject&#39;, version: &#39;3.17.0&#39;
-    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.12&#39;
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
+    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.17.0'
+    compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.17.0'
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-group &#39;be.kuleuven.javasql&#39;
-version &#39;1.0-SNAPSHOT&#39;
+group 'be.kuleuven.javasql'
+version '1.0-SNAPSHOT'
 sourceCompatibility = 1.13
-mainClassName = &#39;be.kuleuven.javasql.SqlFxMain&#39;</code></pre>
-<p>Herinner je het volgende over JavaFX:</p>
-
+mainClassName = 'be.kuleuven.javasql.SqlFxMain'
+</code></pre><p>Herinner je het volgende over JavaFX:</p>
 <ul>
 <li>De main klasse leidt af van <code>Application</code> en laadt de hoofd-<code>.fxml</code> file in.</li>
 <li>Controllers hebben een <code>public void initialize()</code> methode waar action binding in wordt gedefinieerd.</li>
 <li><code>.fxml</code> files beheer je met SceneBuilder. Vergeet hier niet de link naar de fully qualified name van je controller klasse te plaatsen als <code>AnchorPane</code> attribuut: <code>fx:controller=&quot;be.kuleuven.javasql.controller.StudentController&quot;</code>.</li>
 </ul>
-
 <p>Voor onze studententabel visualisatie hebben we een <code>TableView</code> nodig. Daarnaast eventueel <code>Button</code>s om te editeren/toe te voegen/&hellip; Vergeet de <code>fx:id</code> van de tabel niet:</p>
-
-<p><img src="../../img/javafx-id.jpg" alt="" /></p>
-
+<p><img src="../../img/javafx-id.jpg" alt=""></p>
 <p>Kolommen (en de inhoud van de rijen) definiëren we in de controller zelf:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@FXML</span>
-    <span style="color:#66d9ef">private</span> TableView<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">&gt;</span> tblStudent<span style="color:#f92672">;</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#75af00">@FXML</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#111">TableView</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#111">tblStudent</span><span style="color:#f92672">;</span>
 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        tblStudent<span style="color:#f92672">.</span><span style="color:#a6e22e">getColumns</span><span style="color:#f92672">().</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">();</span>
-        TableColumn<span style="color:#f92672">&lt;</span>Student<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> col <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TableColumn<span style="color:#f92672">&lt;&gt;(</span><span style="color:#e6db74">&#34;Naam&#34;</span><span style="color:#f92672">);</span>
-        col<span style="color:#f92672">.</span><span style="color:#a6e22e">setCellValueFactory</span><span style="color:#f92672">(</span>f <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> ReadOnlyObjectWrapper<span style="color:#f92672">&lt;&gt;(</span>f<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getMaam</span><span style="color:#f92672">()));</span>
-        tblStudent<span style="color:#f92672">.</span><span style="color:#a6e22e">getColumns</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>col<span style="color:#f92672">);</span>
+    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">initialize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">tblStudent</span><span style="color:#f92672">.</span><span style="color:#75af00">getColumns</span><span style="color:#f92672">().</span><span style="color:#75af00">clear</span><span style="color:#f92672">();</span>
+        <span style="color:#111">TableColumn</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">,</span> <span style="color:#111">String</span><span style="color:#f92672">&gt;</span> <span style="color:#111">col</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">TableColumn</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#d88200">&#34;Naam&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#111">col</span><span style="color:#f92672">.</span><span style="color:#75af00">setCellValueFactory</span><span style="color:#f92672">(</span><span style="color:#111">f</span> <span style="color:#f92672">-&gt;</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ReadOnlyObjectWrapper</span><span style="color:#f92672">&lt;&gt;(</span><span style="color:#111">f</span><span style="color:#f92672">.</span><span style="color:#75af00">getValue</span><span style="color:#f92672">().</span><span style="color:#75af00">getMaam</span><span style="color:#f92672">()));</span>
+        <span style="color:#111">tblStudent</span><span style="color:#f92672">.</span><span style="color:#75af00">getColumns</span><span style="color:#f92672">().</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#111">col</span><span style="color:#f92672">);</span>
         
-        tblStudent<span style="color:#f92672">.</span><span style="color:#a6e22e">getItems</span><span style="color:#f92672">().</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Student<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Joske&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Josmans&#34;</span><span style="color:#f92672">,</span> 124<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">));</span>
-    <span style="color:#f92672">}</span></code></pre></div>
-<p>Merk op dat <code>TableView</code> een generisch type heeft, en we zo dus heel eenvoudig onze eigen POJO rechtstreeks kunnen mappen op de <code>Student</code> klasse! Als we dit opstarten krijgen we alvast één kolom te zien met de naam (<code>f</code> in de <code>CellValueFactory</code> is een wrapper waarvan de waarde de huidige student in de rij is. <code>getNaam()</code> zorgt ervoor dat de juiste waarde in de juiste cel komt te staan)</p>
-
-<p><img src="../../img/fxmltable.jpg" alt="" /></p>
-
-<h3 id="1-3-2-oefeningen">1.3.2 Oefeningen</h3>
-
+        <span style="color:#111">tblStudent</span><span style="color:#f92672">.</span><span style="color:#75af00">getItems</span><span style="color:#f92672">().</span><span style="color:#75af00">add</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Student</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Joske&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Josmans&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">124</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">true</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>Merk op dat <code>TableView</code> een generisch type heeft, en we zo dus heel eenvoudig onze eigen POJO rechtstreeks kunnen mappen op de <code>Student</code> klasse! Als we dit opstarten krijgen we alvast één kolom te zien met de naam (<code>f</code> in de <code>CellValueFactory</code> is een wrapper waarvan de waarde de huidige student in de rij is. <code>getNaam()</code> zorgt ervoor dat de juiste waarde in de juiste cel komt te staan)</p>
+<p><img src="../../img/fxmltable.jpg" alt=""></p>
+<h3 id="132-oefeningen">1.3.2 Oefeningen</h3>
 <p>Begin vanaf <strong>start project</strong> <a href="../../jdbc-fxml-start.zip">jdbc-fxml-start.zip</a>! Deze bevat reeds bovenstaande JDBC implementatie en een leeg gekoppeld JavaFx project. Om uit te voeren, klik op &ldquo;Gradle&rdquo; en voer target &ldquo;run&rdquo; uit (dus niet op &ldquo;Play&rdquo; in de main klasse!).</p>
-
 <ol>
 <li>Werk bovenstaande voorbeeld verder uit voor alle kolommen. Voeg eerst testdata toe (<code>getItems().add(new student...</code>).</li>
 <li>Probeer nu de controller te linken met de repository. De tabel items moeten overeenkomen met de repository items. Proficiat, je kijkt naar &ldquo;live data&rdquo;!</li>
 <li>Voeg een knop <strong>Voeg Toe</strong> toe op het scherm, dat een ander FXML venster opent, waar je gegevens van de nieuwe student kan ingeven, en kan bewaren. De &ldquo;bewaren&rdquo; knop persisteert naar de database, sluit het venster, én refresht het studentenadmin overzichtsscherm.</li>
 </ol>
-
 <p><strong>Tip</strong>: Vanuit een JavaFX controller een ander scherm openen is een kwestie van een nieuwe <code>Stage</code> en <code>Scene</code> object aan te maken:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">showScherm</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        var resourceName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bla.fxml&#34;</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-            var stage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stage<span style="color:#f92672">();</span>
-            var root <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>AnchorPane<span style="color:#f92672">)</span> FXMLLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>getClass<span style="color:#f92672">().</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span>resourceName<span style="color:#f92672">));</span>
-            var scene <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Scene<span style="color:#f92672">(</span>root<span style="color:#f92672">);</span>
-            stage<span style="color:#f92672">.</span><span style="color:#a6e22e">setScene</span><span style="color:#f92672">(</span>scene<span style="color:#f92672">);</span>
-            stage<span style="color:#f92672">.</span><span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dinges&#34;</span><span style="color:#f92672">);</span>
-            stage<span style="color:#f92672">.</span><span style="color:#a6e22e">initModality</span><span style="color:#f92672">(</span>Modality<span style="color:#f92672">.</span><span style="color:#a6e22e">WINDOW_MODAL</span><span style="color:#f92672">);</span>
-            stage<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">showScherm</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#111">var</span> <span style="color:#111">resourceName</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;bla.fxml&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#111">var</span> <span style="color:#111">stage</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Stage</span><span style="color:#f92672">();</span>
+            <span style="color:#111">var</span> <span style="color:#111">root</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">AnchorPane</span><span style="color:#f92672">)</span> <span style="color:#111">FXMLLoader</span><span style="color:#f92672">.</span><span style="color:#75af00">load</span><span style="color:#f92672">(</span><span style="color:#111">getClass</span><span style="color:#f92672">().</span><span style="color:#75af00">getClassLoader</span><span style="color:#f92672">().</span><span style="color:#75af00">getResource</span><span style="color:#f92672">(</span><span style="color:#111">resourceName</span><span style="color:#f92672">));</span>
+            <span style="color:#111">var</span> <span style="color:#111">scene</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Scene</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">);</span>
+            <span style="color:#111">stage</span><span style="color:#f92672">.</span><span style="color:#75af00">setScene</span><span style="color:#f92672">(</span><span style="color:#111">scene</span><span style="color:#f92672">);</span>
+            <span style="color:#111">stage</span><span style="color:#f92672">.</span><span style="color:#75af00">setTitle</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;dinges&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#111">stage</span><span style="color:#f92672">.</span><span style="color:#75af00">initModality</span><span style="color:#f92672">(</span><span style="color:#111">Modality</span><span style="color:#f92672">.</span><span style="color:#75af00">WINDOW_MODAL</span><span style="color:#f92672">);</span>
+            <span style="color:#111">stage</span><span style="color:#f92672">.</span><span style="color:#75af00">show</span><span style="color:#f92672">();</span>
 
-        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span>e<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#00a8c8">catch</span> <span style="color:#f92672">(</span><span style="color:#111">Exception</span> <span style="color:#111">e</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#00a8c8">throw</span> <span style="color:#00a8c8">new</span> <span style="color:#111">RuntimeException</span><span style="color:#f92672">(</span><span style="color:#111">e</span><span style="color:#f92672">);</span>
         <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span></code></pre></div>
-<p>Zit je vast? Raadpleeg de <strong>TableView JavaDocs</strong>: <a href="https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html">https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html</a></p>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>Zit je vast? Raadpleeg de <strong>TableView JavaDocs</strong>: <a href="https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html">https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html</a></p>
 
 
 <footer class="footline">
@@ -1246,19 +1171,17 @@ mainClassName = &#39;be.kuleuven.javasql.SqlFxMain&#39;</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

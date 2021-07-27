@@ -37,7 +37,7 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</guid>
       <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
 Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
- Als database endpoint wordt com.h2database.h2 gebruikt.</description>
+ Als database endpoint wordt com.h2database.h2 gebruikt. De Dropwizard jdbi3 dependency verwijst op zijn beurt naar een variant van jdbc De sqlobject plugin van Jdbi3 wordt gebruikt.</description>
     </item>
     
   </channel>

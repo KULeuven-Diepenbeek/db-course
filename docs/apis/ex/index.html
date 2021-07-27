@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.1" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,19 @@
     <title>3. Extra Oefeningen :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1612359338" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/hybrid.css?1612359338" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1612359338" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1612359338" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1612359338" rel="stylesheet">
-    <link href="../../css/theme.css?1612359338" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1612359338" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1612359338" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1612359338"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -38,28 +36,7 @@
         }
       
     </style>
-      <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-<script>
-window.MathJax = {
-  chtml: {
-    scale: 2,                      
-    minScale: .5,                  
-    matchFontHeight: true,         
-    mtextInheritFont: false,       
-    merrorInheritFont: true,       
-    mathmlSpacing: false,          
-    skipAttributes: {},            
-    exFactor: .5,                  
-    displayAlign: 'center',        
-    displayIndent: '0'             
-  }
-};
-</script>
-
-<script src=../../js/osc.js></script>
+    
   </head>
   <body class="" data-url="../../apis/ex/">
     <nav id="sidebar" class="">
@@ -82,14 +59,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1612359338"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1612359338"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1612359338"></script>
+<script type="text/javascript" src="../../js/search.js?1627373655"></script>
 
     
   </div>
@@ -609,15 +586,13 @@ window.MathJax = {
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#sessy-library-revisited">SESsy Library - Revisited</a>
-<ul>
-<li><a href="#oefeningen">Oefeningen</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#sessy-library---revisited">SESsy Library - Revisited</a>
+      <ul>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -641,22 +616,15 @@ window.MathJax = {
         
 
 
-
-
-<h2 id="sessy-library-revisited">SESsy Library - Revisited</h2>
-
+<h2 id="sessy-library---revisited">SESsy Library - Revisited</h2>
 <p><strong>Voorbereiding</strong>: Maak uzelf opnieuw vertrouwd met <a href="https://kuleuven-diepenbeek.github.io/ses-course/extra/sessy/">de SESsy Library applicatie</a>, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.</p>
-
-<p><img src="https://kuleuven-diepenbeek.github.io/ses-course/img/teaching/ses/sessy.png" alt="" /></p>
-
+<p><img src="https://kuleuven-diepenbeek.github.io/ses-course/img/teaching/ses/sessy.png" alt=""></p>
 <p>Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met <code>gradlew dependencies</code>. In context van het vak <em>Databasess</em> zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:</p>
-
 <ol>
 <li>Als database endpoint wordt <code>com.h2database.h2</code> gebruikt.</li>
 <li>De Dropwizard <code>jdbi3</code> dependency verwijst op zijn beurt naar een variant van <code>jdbc</code></li>
 <li>De <code>sqlobject</code> plugin van Jdbi3 wordt gebruikt.</li>
 </ol>
-
 <p>Zoals een snippet van de dependency tree aangeeft:</p>
 <pre><code>...
 +--- io.dropwizard:dropwizard-jdbi3:2.0.0-rc12
@@ -664,9 +632,8 @@ window.MathJax = {
 |    |    +--- io.dropwizard:dropwizard-core:2.0.0-rc12 (*)
 |    |    \--- org.apache.tomcat:tomcat-jdbc:9.0.27
 |    |         \--- org.apache.tomcat:tomcat-juli:9.0.27
-...</code></pre>
-<h3 id="oefeningen">Oefeningen</h3>
-
+...
+</code></pre><h3 id="oefeningen">Oefeningen</h3>
 <ol>
 <li>Inspecteer de <a href="http://h2database.com/html/main.html">H2 Database Engine</a> documentatie. Wat is het verschil tussen H2 en MySQL? En wat zijn de <em>gelijkenissen</em> tussen H2 en SQLite dat elders in deze cursus wordt gebruikt?</li>
 <li>Zoek in de SEssy code waar de Jdbi3 sqlobject annotaties worden gebruikt. Dit is dus de Jdbi <em>Declarative API</em> (zie <a href="https://jdbi.org">docs</a>). Wat zou je moeten doen om dit te refactoren naar de <em>Fluent API</em>? Voer de veranderingen door voor de methode <code>findBooksByTitle()</code>.</li>
@@ -674,13 +641,13 @@ window.MathJax = {
 <li>Stel dat ik in een nieuwe repository klasse een low-level SQL statement zelf wil schrijven en uitvoeren, rechtstreeks naar de database, in plaats van via Jdbi3. Hoe kan ik dat doen? Probeer dit zelf in de code door iets met de <code>books</code> tabel te doen (bijvoorbeeld een <code>COUNT</code>).</li>
 <li>Is er een manier om de queries die Jdbi3 uitvoert in H2 ook af te drukken, zoals Hibernate&rsquo;s <code>show_sql</code> config flag?</li>
 <li>We zijn niet meer tevreden over de performantie en het gebruiksgemak van H2. We wensen in de plaats daarvan JPA + Hibernate te gebruiken. Voer de nodige veranderingen door. <strong>Test de applicatie</strong> ook uitvoerig door de webserver op te starten! De integratie testen die falen mag je negeren, dat valt buiten deze cursus om die ook te converteren. Denk eerst goed na over welke wijzigingen allemaal moeten gebeuren:
-
 <ul>
 <li>Welke config file wordt nu gebruikt om de database file/connectionstring op te geven? Hoe kan je dat vervangen door <code>persistence.xml</code>?</li>
 <li>Kan je interfaces, strategies, of facades gebruiken om <em>eerst</em> de H2 implementatie te verbergen, en dan te refactoren, of is dat niet meer nodig?</li>
 <li>Is er een manier <a href="https://www.dropwizard.io/en/latest/manual/hibernate.html?highlight=hibernate">in Dropwizard</a> om eenvoudiger Hibernate session factories aan te maken? (ja dus!)</li>
 <li>&hellip;</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 
 
@@ -1035,19 +1002,17 @@ window.MathJax = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1612359338"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1612359338"></script>
-    <script src="../../js/jquery.sticky.js?1612359338"></script>
-    <script src="../../js/featherlight.min.js?1612359338"></script>
-    <script src="../../js/highlight.pack.js?1612359338"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1612359338"></script>
-    <script src="../../js/learn.js?1612359338"></script>
-    <script src="../../js/hugo-learn.js?1612359338"></script>
+    <script src="../../js/clipboard.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
+    <script src="../../js/jquery.sticky.js?1627373655"></script>
+    <script src="../../js/featherlight.min.js?1627373655"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
+    <script src="../../js/learn.js?1627373655"></script>
+    <script src="../../js/hugo-learn.js?1627373655"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1612359338"></script>
+            <script src="../../mermaid/mermaid.js?1627373655"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
