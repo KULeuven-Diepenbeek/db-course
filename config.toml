@@ -16,9 +16,7 @@ pygmentsCodefences = true
 enableGitInfo = true
 
 [markup]
-  defaultMarkdownHandler = "blackfriday"
-  [markup.blackFriday]
-    skipHTML = false
+  defaultMarkdownHandler = "goldmark"
   
   [markup.goldmark.renderer]
     unsafe= true
@@ -32,6 +30,7 @@ enableGitInfo = true
     lineNumbersInTable = true
     noClasses = true
     tabWidth = 4
+    style = "monokailight"
 
 [privacy]
   [privacy.youtube]

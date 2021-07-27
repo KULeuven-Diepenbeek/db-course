@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
-    
-	<atom:link href="https://kuleuven-diepenbeek.github.io/db-course/nosql/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/nosql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1. Key/value stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>

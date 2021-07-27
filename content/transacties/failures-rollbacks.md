@@ -2,6 +2,8 @@
 title: 1. Failures/Rollbacks
 ---
 
+blabla
+
 Voorbereidende `CREATE` statements (Dit is SQLite syntax!) Zie [SQLite manual](https://sqlite.org/autoinc.html):
 
 ```SQL
