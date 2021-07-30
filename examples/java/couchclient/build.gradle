@@ -17,6 +17,10 @@ dependencies {
     // https://mvnrepository.com/artifact/net.spy/spymemcached
     implementation group: 'net.spy', name: 'spymemcached', version: '2.12.3'
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
 
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+test {
+    useJUnitPlatform()
 }
