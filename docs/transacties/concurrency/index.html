@@ -12,19 +12,19 @@
     <title>2. Concurrency :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1627373655" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1627373655" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1627373655" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1627373655" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1627373655" rel="stylesheet">
-    <link href="../../css/theme.css?1627373655" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1627373655" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627637700" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627637700" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627637700" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627637700" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627637700" rel="stylesheet">
+    <link href="../../css/theme.css?1627637700" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627637700" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1627373655" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627637700" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1627373655"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627637700"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,7 +36,9 @@
         }
       
     </style>
-    
+    <script src=../../js/devselector.js></script>
+<link href="../../css/devselector.css" rel="stylesheet">
+
   </head>
   <body class="" data-url="../../transacties/concurrency/">
     <nav id="sidebar" class="">
@@ -59,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1627373655"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1627373655"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627637700"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627637700"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1627373655"></script>
+<script type="text/javascript" src="../../js/search.js?1627637700"></script>
 
     
   </div>
@@ -625,12 +627,20 @@
 <li>Transacties op elke query/statement toepassen is een eenvoudige oplossing maar lang niet de beste: de toegevoegde grote performantie hit kan bij miljoenen requests de applicatie volledig tot stilstand doen brengen. Welke repository calls zouden in een transactie moeten worden uitgevoerd, en bij welke calls is dat <em>niet</em> nodig?</li>
 <li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
 <li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Welke vier mogelijke waardes worden ondersteund door SQLite? Wat is volgens de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
-<li>De <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc driver</a> die we gebruiken heeft nog een aantal verborgen opties, waarvan <code>setTransactionMode</code> en <code>setLockingMode</code> het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een <code>SQLiteConfig</code> object aan te maken en op de volgende manier mee te geven aan de Java <code>DriverManager</code>:</li>
+<li>De <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc driver</a> die we gebruiken heeft nog een aantal verborgen opties, waarvan <code>setTransactionMode</code> en <code>setLockingMode</code> het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een <code>SQLiteConfig</code> object aan te maken en op de volgende manier mee te geven aan de <code>DriverManager</code>:</li>
 </ol>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">SQLiteConfig</span> <span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">SQLiteConfig</span><span style="color:#f92672">();</span>
-<span style="color:#75715e">//config.set...();
-</span><span style="color:#75715e"></span><span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">toProperties</span><span style="color:#f92672">());</span>
-</code></pre></div><p><strong>Extra</strong>:</p>
+<div class="devselect">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">val</span> <span style="color:#111">config</span> <span style="color:#111">=</span> <span style="color:#111">SQLiteConfig</span><span style="color:#111">().</span><span style="color:#111">apply</span> <span style="color:#111">{</span>
+    <span style="color:#111">setX</span><span style="color:#111">(</span><span style="color:#111">val1</span><span style="color:#111">)</span>
+    <span style="color:#111">setY</span><span style="color:#111">(</span><span style="color:#111">val2</span><span style="color:#111">)</span>
+<span style="color:#111">}</span>
+<span style="color:#111">connection</span> <span style="color:#111">=</span> <span style="color:#111">DriverManager</span><span style="color:#111">.</span><span style="color:#111">getConnection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#111">,</span> <span style="color:#111">config</span><span style="color:#111">.</span><span style="color:#111">toProperties</span><span style="color:#111">())</span>
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">SQLiteConfig</span> <span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">SQLiteConfig</span><span style="color:#f92672">();</span>
+<span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">setX</span><span style="color:#f92672">(</span><span style="color:#111">val1</span><span style="color:#f92672">);</span>
+<span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">setY</span><span style="color:#f92672">(</span><span style="color:#111">val2</span><span style="color:#f92672">);</span>
+<span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">toProperties</span><span style="color:#f92672">());</span>
+</code></pre></div></div>
+<p><strong>Extra</strong>:</p>
 <ul>
 <li>Implementeer zelf de nodige Jdbi3 details in <code>StudentRepositoryJdbi3Impl</code>. In Jdbi stel je de transaction isolation level in met <code>.inTransaction(TransactionIsolationLevel.SERIALIZABLE, ...)</code> (zie <a href="https://jdbi.org">docs</a>).</li>
 </ul>
@@ -992,17 +1002,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1627373655"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1627373655"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1627373655"></script>
-    <script src="../../js/jquery.sticky.js?1627373655"></script>
-    <script src="../../js/featherlight.min.js?1627373655"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1627373655"></script>
-    <script src="../../js/learn.js?1627373655"></script>
-    <script src="../../js/hugo-learn.js?1627373655"></script>
+    <script src="../../js/clipboard.min.js?1627637701"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627637701"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627637701"></script>
+    <script src="../../js/jquery.sticky.js?1627637701"></script>
+    <script src="../../js/featherlight.min.js?1627637701"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627637701"></script>
+    <script src="../../js/learn.js?1627637701"></script>
+    <script src="../../js/hugo-learn.js?1627637701"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1627373655"></script>
+            <script src="../../mermaid/mermaid.js?1627637701"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

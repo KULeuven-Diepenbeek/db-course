@@ -15,8 +15,8 @@
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
       <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
-De &amp;ldquo;oude&amp;rdquo; manier om dit te doen in java is gebruik te maken van FileOutputStream:
-public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
+De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
+fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11)) val file = File(&amp;#34;database.</description>
     </item>
     
     <item>
