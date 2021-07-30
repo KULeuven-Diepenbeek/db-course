@@ -12,19 +12,19 @@
     <title>2. JPA en Hibernate :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1627637700" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1627637700" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1627637700" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1627637700" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1627637700" rel="stylesheet">
-    <link href="../../css/theme.css?1627637700" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1627637700" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627640748" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627640748" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627640748" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627640748" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627640748" rel="stylesheet">
+    <link href="../../css/theme.css?1627640748" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627640748" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1627637700" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627640748" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1627637700"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627640748"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1627637700"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1627637700"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627640748"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627640748"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1627637700"></script>
+<script type="text/javascript" src="../../js/search.js?1627640748"></script>
 
     
   </div>
@@ -703,7 +703,19 @@
 <h3 id="222-hibernatejpa-peristencequerying">2.2.2 Hibernate/JPA Peristence/querying</h3>
 <p>Nu de verbinding tussen de DB en Hibernate/JPA tot stand werd gebracht, is het tijd om gebruik te maken van de kracht van de library.</p>
 <p>Om kolommen te kunnen mappen op properties voorziet JPA een aantal <strong>annotaties</strong> als meta-data op het domeinobject zelf. Dat betekent dat DB beschrijving netjes bij het object waar het hoort wordt geplaatst. Bijvoorbeeld:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Entity</span>
+<div class="devselect">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#75af00">@Entity</span>
+<span style="color:#00a8c8">class</span> <span style="color:#75af00">Huis</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">@Column</span>
+    <span style="color:#75af00">@Id</span>
+    <span style="color:#75af00">@GeneratedValue</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">lateinit</span> <span style="color:#00a8c8">var</span> <span style="color:#111">id</span><span style="color:#111">:</span> <span style="color:#111">Int</span>
+    <span style="color:#75af00">@Column</span><span style="color:#111">(</span><span style="color:#111">name</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;beschr&#34;</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">var</span> <span style="color:#111">beschrijving</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">?</span>
+    <span style="color:#75af00">@Column</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">var</span> <span style="color:#111">prijs</span><span style="color:#111">:</span> <span style="color:#111">Int</span><span style="color:#111">?</span>
+<span style="color:#111">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Entity</span>
 <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Huis</span> <span style="color:#f92672">{</span>
     <span style="color:#75af00">@Column</span>
     <span style="color:#75af00">@Id</span>
@@ -714,7 +726,12 @@
     <span style="color:#75af00">@Column</span>
     <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">int</span> <span style="color:#111">prijs</span><span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>Het datatype kan ook worden ingesteld met <code>@Column</code> (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat <code>@Id</code> nodig is op een <code>@Entity</code> - zonder primary key kan JPA geen object persisteren. <code>@GeneratedValue</code> is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de <code>AUTOINCREMENT</code>. Bij elke <code>persist()</code> gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:</p>
+</code></pre></div></div>
+
+<div class="notices note" ><p>In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit <code>null</code> in komen? Indien ja werk je met Kotlin&rsquo;s optional alternatief: suffixen met een <code>?</code>. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met <code>lateinit</code>. Zie <a href="https://kotlinlang.org/docs/null-safety.html">Null safety Kotlin docs</a>.</p>
+</div>
+
+<p>Het datatype kan ook worden ingesteld met <code>@Column</code> (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat <code>@Id</code> nodig is op een <code>@Entity</code> - zonder primary key kan JPA geen object persisteren. <code>@GeneratedValue</code> is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de <code>AUTOINCREMENT</code>. Bij elke <code>persist()</code> gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#111">Hibernate</span><span style="color:#111">:</span> <span style="color:#00a8c8">select</span> <span style="color:#111">next_val</span> <span style="color:#00a8c8">as</span> <span style="color:#111">id_val</span> <span style="color:#00a8c8">from</span> <span style="color:#111">hibernate_sequence</span>
 <span style="color:#111">Hibernate</span><span style="color:#111">:</span> <span style="color:#00a8c8">update</span> <span style="color:#111">hibernate_sequence</span> <span style="color:#00a8c8">set</span> <span style="color:#111">next_val</span><span style="color:#f92672">=</span> <span style="color:#f92672">?</span> <span style="color:#00a8c8">where</span> <span style="color:#111">next_val</span><span style="color:#f92672">=?</span>
 <span style="color:#111">Hibernate</span><span style="color:#111">:</span> <span style="color:#00a8c8">insert</span> <span style="color:#00a8c8">into</span> <span style="color:#111">Student</span> <span style="color:#111">(</span><span style="color:#111">goedBezig</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">studnr</span><span style="color:#111">)</span> <span style="color:#00a8c8">values</span> <span style="color:#111">(</span><span style="color:#f92672">?</span><span style="color:#111">,</span> <span style="color:#f92672">?</span><span style="color:#111">,</span> <span style="color:#f92672">?</span><span style="color:#111">,</span> <span style="color:#f92672">?</span><span style="color:#111">)</span>
@@ -723,19 +740,34 @@
 <p>Hoe bewaar ik een entity? <code>entityManager.persist(object)</code>. That&rsquo;s it!</p>
 <p>Hoe update ik een entity, als properties zijn gewijzigd? <code>.merge(object)</code></p>
 <p>Merk op dat in de Sysout output <em>geen query</em> wordt gegenereerd. Hibernate houdt alles in zijn interne cache bij, en zal pas flushen naar de database wanneer hij acht dat dat nodig is. Dat kan je zelf triggeren door <code>entityManager.flush()</code> te gebruiken (kan alleen in een transactie) - of het commando te wrappen met een transactie:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getTransaction</span><span style="color:#f92672">().</span><span style="color:#75af00">begin</span><span style="color:#f92672">();</span>
+<div class="devselect">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#111">with</span><span style="color:#111">(</span><span style="color:#111">entityManager</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#111">getTransaction</span><span style="color:#111">().</span><span style="color:#111">begin</span><span style="color:#111">()</span>
+    <span style="color:#111">persist</span><span style="color:#111">(</span><span style="color:#111">dingdong</span><span style="color:#111">)</span>
+    <span style="color:#111">getTransaction</span><span style="color:#111">().</span><span style="color:#111">commit</span><span style="color:#111">()</span>
+<span style="color:#111">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getTransaction</span><span style="color:#f92672">().</span><span style="color:#75af00">begin</span><span style="color:#f92672">();</span>
 <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">persist</span><span style="color:#f92672">(</span><span style="color:#111">dingdong</span><span style="color:#f92672">);</span>
 <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getTransaction</span><span style="color:#f92672">().</span><span style="color:#75af00">commit</span><span style="color:#f92672">();</span>
-</code></pre></div><p>Zonder dit, en met herbruik van dezelfde entity manager in SQLite, is er een kans dat je <code>SELECT</code> query niets teruggeeft, omdat de <code>INSERT</code> nog niet werd geflushed. De interne werking van combinatie JDBC+SQLite+JPA+Hibernate is zeer complex en zou een cursus van 20 studiepunten vereisen&hellip;</p>
+</code></pre></div></div>
+<p>Zonder dit, en met herbruik van dezelfde entity manager in SQLite, is er een kans dat je <code>SELECT</code> query niets teruggeeft, omdat de <code>INSERT</code> nog niet werd geflushed. De interne werking van combinatie JDBC+SQLite+JPA+Hibernate is zeer complex en zou een cursus van 20 studiepunten vereisen&hellip;</p>
 <h4 id="queries">Queries</h4>
 <p>Hoe query ik in JPA? Dit kan op verschillende manieren. We beperken ons hier tot de <strong>JPA Criteria API</strong>. Een voorbeeld. Gegeven een huizenlijst, waarvan we huizen willen teruggeven die onder de 200.000 kosten. In SQL zou dit <code>SELECT * FROM huizen WHERE prijs &lt; 200000</code> zijn. In Criteria API:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">criteriaBuilder</span> <span style="color:#f92672">=</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getCriteriaBuilder</span><span style="color:#f92672">();</span>
+<div class="devselect">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">val</span> <span style="color:#111">criteriaBuilder</span> <span style="color:#111">=</span> <span style="color:#111">entityManager</span><span style="color:#111">.</span><span style="color:#111">getCriteriaBuilder</span><span style="color:#111">()</span>
+<span style="color:#00a8c8">val</span> <span style="color:#111">query</span> <span style="color:#111">=</span> <span style="color:#111">criteriaBuilder</span><span style="color:#111">.</span><span style="color:#111">createQuery</span><span style="color:#111">(</span><span style="color:#111">Huis</span><span style="color:#f92672">::</span><span style="color:#00a8c8">class</span><span style="color:#111">.</span><span style="color:#111">java</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">val</span> <span style="color:#111">root</span> <span style="color:#111">=</span> <span style="color:#111">query</span><span style="color:#111">.</span><span style="color:#111">from</span><span style="color:#111">(</span><span style="color:#111">Huis</span><span style="color:#f92672">::</span><span style="color:#00a8c8">class</span><span style="color:#111">.</span><span style="color:#111">java</span><span style="color:#111">)</span>
+
+<span style="color:#111">query</span><span style="color:#111">.</span><span style="color:#00a8c8">where</span><span style="color:#111">(</span><span style="color:#111">criteriaBuilder</span><span style="color:#111">.</span><span style="color:#111">equal</span><span style="color:#111">(</span><span style="color:#111">root</span><span style="color:#111">.</span><span style="color:#00a8c8">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;prijs&#34;</span><span style="color:#111">),</span> <span style="color:#ae81ff">200000</span><span style="color:#111">))</span>
+<span style="color:#00a8c8">return</span> <span style="color:#111">entityManager</span><span style="color:#111">.</span><span style="color:#111">createQuery</span><span style="color:#111">(</span><span style="color:#111">query</span><span style="color:#111">).</span><span style="color:#111">getResultList</span><span style="color:#111">()</span>
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">criteriaBuilder</span> <span style="color:#f92672">=</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getCriteriaBuilder</span><span style="color:#f92672">();</span>
 <span style="color:#111">var</span> <span style="color:#111">query</span> <span style="color:#f92672">=</span> <span style="color:#111">criteriaBuilder</span><span style="color:#f92672">.</span><span style="color:#75af00">createQuery</span><span style="color:#f92672">(</span><span style="color:#111">Huis</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
 <span style="color:#111">var</span> <span style="color:#111">root</span> <span style="color:#f92672">=</span> <span style="color:#111">query</span><span style="color:#f92672">.</span><span style="color:#75af00">from</span><span style="color:#f92672">(</span><span style="color:#111">Huis</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
 
 <span style="color:#111">query</span><span style="color:#f92672">.</span><span style="color:#75af00">where</span><span style="color:#f92672">(</span><span style="color:#111">criteriaBuilder</span><span style="color:#f92672">.</span><span style="color:#75af00">equal</span><span style="color:#f92672">(</span><span style="color:#111">root</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;prijs&#34;</span><span style="color:#f92672">),</span> <span style="color:#111">200000</span><span style="color:#f92672">));</span>
 <span style="color:#00a8c8">return</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">createQuery</span><span style="color:#f92672">(</span><span style="color:#111">query</span><span style="color:#f92672">).</span><span style="color:#75af00">getResultList</span><span style="color:#f92672">();</span>
-</code></pre></div><p>Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer krachtig en kan automatisch complexe queries genereren zonder dat wij ons moe moeten maken. Merk op dat wij <em>geen enkele letter SQL</em> zelf schrijven. Alles is <strong>java code</strong>, wat het eenvoudig maakt om te refactoren, redesignen, statische code analyse op te doen, unit testen, &hellip; Lees meer over criteria API:</p>
+</code></pre></div></div>
+<p>Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer krachtig en kan automatisch complexe queries genereren zonder dat wij ons moe moeten maken. Merk op dat wij <em>geen enkele letter SQL</em> zelf schrijven. Alles is <strong>java code</strong>, wat het eenvoudig maakt om te refactoren, redesignen, statische code analyse op te doen, unit testen, &hellip; Lees meer over criteria API:</p>
 <ul>
 <li>Voorbeeld 2 <a href="https://www.initgrep.com/posts/java/jpa/create-programmatic-queries-using-criteria-api">Programmatic Criteria Queries</a></li>
 <li>Voorbeeld 3 <a href="https://www.tutorialspoint.com/jpa/jpa_criteria_api.htm">TutorialsPoint Criteria API</a></li>
@@ -829,9 +861,9 @@
 </li>
 </ol>
 <p>Pas op het moment dat de data van de docent effectief nodig is, zoals bij het afdrukken, wordt een <code>SELECT</code> query gelanceerd bij lazy-loading. Bijvoorbeeld:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#111">var</span> <span style="color:#111">student</span> <span style="color:#f92672">=</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">find</span><span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">,</span> <span style="color:#111">jos</span><span style="color:#f92672">.</span><span style="color:#75af00">getStudentenNummer</span><span style="color:#f92672">());</span>
-    <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;student &#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#75af00">getNaam</span><span style="color:#f92672">());</span>
-    <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34; -- heeft als docent &#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#75af00">getDocent</span><span style="color:#f92672">().</span><span style="color:#75af00">getNaam</span><span style="color:#f92672">());</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">student</span> <span style="color:#f92672">=</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">find</span><span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">,</span> <span style="color:#111">jos</span><span style="color:#f92672">.</span><span style="color:#75af00">getStudentenNummer</span><span style="color:#f92672">());</span>
+<span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;student &#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#75af00">getNaam</span><span style="color:#f92672">());</span>
+<span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34; -- heeft als docent &#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#75af00">getDocent</span><span style="color:#f92672">().</span><span style="color:#75af00">getNaam</span><span style="color:#f92672">());</span>
 </code></pre></div><p>Geeft als sysout output:</p>
 <pre><code>Hibernate: select student0_.studnr as studnr1_1_0_, student0_.docent_nr as docent_n5_1_0_, student0_.goedBezig as goedbezi2_1_0_, student0_.naam as naam3_1_0_, student0_.voornaam as voornaam4_1_0_ from Student student0_ where student0_.studnr=?
 student Lowiemans
@@ -1195,17 +1227,17 @@ student Lowiemans
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1627637700"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1627637700"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1627637700"></script>
-    <script src="../../js/jquery.sticky.js?1627637700"></script>
-    <script src="../../js/featherlight.min.js?1627637700"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1627637700"></script>
-    <script src="../../js/learn.js?1627637700"></script>
-    <script src="../../js/hugo-learn.js?1627637700"></script>
+    <script src="../../js/clipboard.min.js?1627640748"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627640748"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627640748"></script>
+    <script src="../../js/jquery.sticky.js?1627640748"></script>
+    <script src="../../js/featherlight.min.js?1627640748"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627640748"></script>
+    <script src="../../js/learn.js?1627640748"></script>
+    <script src="../../js/hugo-learn.js?1627640748"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1627637700"></script>
+            <script src="../../mermaid/mermaid.js?1627640748"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
