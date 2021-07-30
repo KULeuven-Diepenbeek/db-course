@@ -7,7 +7,21 @@ weight: 1
 
 De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele `HashMap<K,V>` die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt. 
 
-De "oude" manier om dit te doen in java is gebruik te maken van `FileOutputStream`:
+De "oude" manier om dit te doen op de JVM is gebruik te maken van `FileOutputStream`:
+
+<div class="devselect">
+
+```kt
+fun main(args: Array<String>) {
+      val db = mapOf("Joske" to Student("Joske", 11))
+
+      val file = File("database.db")
+      // handy function to auto-close streams: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html
+      ObjectOutputStream(FileOutputStream(file)).use { 
+            it.writeObject(db)
+      }
+}
+```
 
 ```java
 public static void main(String[] args) throws IOException {
@@ -21,20 +35,42 @@ public static void main(String[] args) throws IOException {
     s.close();
 }
 ```
+</div>
 
-Inlezen werkt op dezelfde manier, met `FileInputStream` en `ObjectInputStream`. Hoe je `Student` klasse wordt geserialiseerd kan je **zelf kiezen** als je de interface `Serializable` implementeert! 
+Inlezen werkt op dezelfde manier, met `FileInputStream` en `ObjectInputStream`. Hoe je `Student` klasse wordt geserialiseerd kan je **zelf kiezen**, maar een vereiste is dat je de interface `Serializable` implementeert! 
 
 Met bovenstaande interface kan je de student terug uitlezen:
 
+<div class="devselect">
+
+```kt
+var fromFile: Map<String, Student>
+ObjectInputStream(FileInputStream("database.db")).use {
+  fromFile = it.readObject() as Map<String, Student>
+}
+val joske = fromFile.getValue("joske")
+println(joske.name)
+```
+
 ```java
+var s = new ObjectInputStream(new FileInputStream("database.db"))
 Map<String, Object> map = (Map<String, Object>) s.readObject();
+s.close();
 Student joske = (Student) map.get("joske");
 System.out.println(joske.getName());
 ```
 
+</div>
+
 ### 1.1.1 Oefeningen
 
 1. Werk bovenstaand voorbeeld uit en persisteer een aantal studenten met de volgende klasse:
+
+<div class="devselect">
+
+```kt
+data class Student(val name: String, val age: Int)
+```
 
 ```java
 public class Student {
@@ -46,7 +82,7 @@ public class Student {
       }
 }
 ```
-
+</div>
 
 ## 1.2 Distributed Hashmaps: Memcached
 

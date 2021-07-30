@@ -72,6 +72,27 @@ Enkele belangrijke statements:
 
 Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:
 
+<div class="devselect">
+
+```kt
+private lateinit connection: Connection
+fun createDb() {
+    connection = DriverManager.getConnection("jdbc:sqlite:mydb.db").apply {
+        setAutoCommit(false)
+    }
+    // note that this requires "stdlib-jdk7" as kotlin runtime dependency
+    connection.createStatement().use {
+      it.executeUpdate("CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")  
+    }
+}
+fun verifyDbContents() {
+    connection.createStatement().use {
+        val result = it.executeQuery("SELECT COUNT(*) FROM mijntabel;")
+        assert result.getInt(0) == 1
+    }
+}
+```
+
 ```java
 private Connection connection;
 public void createDb() throws SQLException {
@@ -91,9 +112,16 @@ public void verifyDbContents() throws SQLException {
 }
 ```
 
-**Gradle** dependency: `compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'`.
+</div>
+
+**Gradle** dependency: `compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'` (Kotlin DSL stijl: `implementation("org.xerial:sqlite-jdbc:3.36.0.1")`).
 
 Merk op dat `SQLException` een **checked exception** is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een `try { } catch { } finally { }` block is dat in de finally je ook geen `close()` kan uitvoeren zonder opnieuw een `try` block te openen... Inception!
+
+{{% notice note %}}
+Vergelijk de Kotlin implementatie met de standaard Java versie. Als het aan komt op efficiënt gebruik van oudere Java APIs zoals de SQL methodes, is Kotlin véél eenvoudiger, zowel in gebruik als in leesbaarheid. Hier maken we handig gebruik van [de use extension](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) om geen `close()` te moeten oproepen, en `with {}` om de connectionManager in te stellen zonder telkens `connection.` te moeten herhalen. Nog een voordeel: er is geen verschil tussen checked en unchecked exceptions. <br/>Het loont dus om ook voor dit vak te opteren voor Kotlin---maar het is niet verplicht.
+{{% /notice %}}
+
 
 Het `connection.close()` statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een **connection pool** van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!
 
@@ -114,16 +142,31 @@ Begeleidende video:
 
 De `DROP TABLE IF EXISTS` statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:
 
-```java
-    private void initTables() throws Exception {
-        var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").getPath())));
-        System.out.println(sql);
+<div class="devselect">
 
-        var s = connection.createStatement();
-        s.executeUpdate(sql);
-        s.close();
+```kt
+fun initTables() {
+    val sql = SomeClass::class.java.getResource("dbcreate.sql").readText()
+    println(sql)
+
+    connection.createStatement().use {
+      it.executeUpdate(sql)
     }
+}
 ```
+
+```java
+private void initTables() throws Exception {
+    var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").getPath())));
+    System.out.println(sql);
+
+    var s = connection.createStatement();
+    s.executeUpdate(sql);
+    s.close();
+}
+```
+
+</div>
 
 De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:
 
