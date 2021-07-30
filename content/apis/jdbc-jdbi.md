@@ -253,7 +253,7 @@ Kolommen (en de inhoud van de rijen) definiëren we in de controller zelf:
 
 ```kt
 @FXML
-private lateinit tblStudent: TableView<Student>
+private lateinit var tblStudent: TableView<Student>
 
 fun initialize() {
     tblStudent.getColumns().clear()

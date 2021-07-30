@@ -104,15 +104,10 @@ Om kolommen te kunnen mappen op properties voorziet JPA een aantal **annotaties*
 
 ```kt
 @Entity
-class Huis {
-    @Column
-    @Id
-    @GeneratedValue
-    private lateinit var id: Int
-    @Column(name = "beschr")
-    private var beschrijving: String?
-    @Column
-    private var prijs: Int?
+open class Huis(beschrijving: String? = null, prijs: Int? = null) {
+    @Column @Id @GeneratedValue open var id: Int = 0
+    @Column(name = "beschr") open var beschrijving: String? = beschrijving
+    @Column open var prijs: Int? = prijs
 }
 ```
 
@@ -132,7 +127,8 @@ public class Huis {
 </div>
 
 {{% notice note %}}
-In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit `null` in komen? Indien ja werk je met Kotlin's optional alternatief: suffixen met een `?`. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met `lateinit`. Zie [Null safety Kotlin docs](https://kotlinlang.org/docs/null-safety.html).
+In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit `null` in komen? Indien ja werk je met Kotlin's optional alternatief: suffixen met een `?`. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met `lateinit`. Zie [Null safety Kotlin docs](https://kotlinlang.org/docs/null-safety.html).<br/>
+Waarom zijn Kotlin entities en properties `open`? Omdat JPA en Hibernate, origineel geschreven in Java, jammer genoeg niet kunnen omgaan met immutability. Zie het [hibernate-jpa kotlin voorbeeld](https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples) in git.
 {{% /notice %}}
 
 Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
@@ -183,7 +179,7 @@ val criteriaBuilder = entityManager.getCriteriaBuilder()
 val query = criteriaBuilder.createQuery(Huis::class.java)
 val root = query.from(Huis::class.java)
 
-query.where(criteriaBuilder.equal(root.get("prijs"), 200000))
+query.where(criteriaBuilder.equal(root.get<Int>("prijs"), 200000))
 return entityManager.createQuery(query).getResultList()
 ```
 
