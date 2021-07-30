@@ -104,11 +104,10 @@ Om kolommen te kunnen mappen op properties voorziet JPA een aantal **annotaties*
 
 ```kt
 @Entity
-open class Huis(beschrijving: String? = null, prijs: Int? = null) {
-    @Column @Id @GeneratedValue open var id: Int = 0
-    @Column(name = "beschr") open var beschrijving: String? = beschrijving
-    @Column open var prijs: Int? = prijs
-}
+data class Huis(
+    @Column(name = "beschr") var beschrijving: String,
+    @Column var prijs: Int? = null,
+    @Column @Id @GeneratedValue var id: Int = 0)
 ```
 
 ```java
@@ -128,7 +127,7 @@ public class Huis {
 
 {{% notice note %}}
 In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit `null` in komen? Indien ja werk je met Kotlin's optional alternatief: suffixen met een `?`. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met `lateinit`. Zie [Null safety Kotlin docs](https://kotlinlang.org/docs/null-safety.html).<br/>
-Waarom zijn Kotlin entities en properties `open`? Omdat JPA en Hibernate, origineel geschreven in Java, jammer genoeg niet kunnen omgaan met immutability. Zie het [hibernate-jpa kotlin voorbeeld](https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples) in git.
+Om Kotlins `data class` te laten samenwerken met oudere Java APIs zoals JPA/Hibernate, die niet kunnen omgaan met immutability, moeten we nog een **extra plugin** installeren: [de no-arg plugin](https://kotlinlang.org/docs/no-arg-plugin.html): `id("org.jetbrains.kotlin.plugin.jpa") version "1.5.21"` in de gradle `plugins` block. Die plugin genereert de nodige no-arg constructoren die JPA nodig heeft.
 {{% /notice %}}
 
 Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
@@ -240,6 +239,17 @@ De grootste kracht van JPA hebben we nog steeds niet gezien: in plaats van één
 
 Een concreet voorbeeld. Een `Docent` entiteit geeft les aan verschillende studenten:
 
+<div class="devselect">
+
+```kt
+@Entity
+data class Docent(
+    @Id @GeneratedValue var docentennummer: Int,
+    @Column var naam: String,
+    @OneToMany(mappedBy = "docent") var studenten: List<Student>
+)
+```
+
 ```java
 @Entity
 public class Docent {
@@ -254,8 +264,19 @@ public class Docent {
     private List<Student> studenten;
 }
 ```
+</div>
 
 De `@OneToMany` annotatie zorgt voor de link tussen de studenten- en docententabel: het is wel nog nodig om een omgekeerde mapping property genaamd `docent` toe te voegen op de `Student` klasse: 
+
+<div class="devselect">
+
+```kt
+@Entity
+data class Student(
+    // ...
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "docent_nr") var docent: Docent?
+    )
+```
 
 ```java
 @Entity
@@ -266,10 +287,27 @@ public class Student {
     private Docent docent;
 }
 ```
+</div>
 
 Op die manier kan je van docenten onmiddellijk zien aan wie ze lesgeven (one to many), en van een student van wie hij of zij les krijgt (many to one). De data wordt in de studententabel bewaard, in kolom `docent_nr`. Andere configuraties zoals tussentabellen zijn uiteraard ook mogelijk. 
 
 Persisteren we nu een nieuwe docent waar een reeds bewaarde student in de lijst werd toegevoegd:
+
+<div class="devselect">
+
+```kt
+private fun docentenTest(entityManager: EntityManager, student: Student) {
+    val wouter: Docent("Wouter").apply {
+        geefLesAan(student)
+    }
+
+    with(entityManager) {
+        begin()
+        persist(wouter)
+        commit()
+    }
+}
+```
 
 ```java
 private static void docentenTest(EntityManager entityManager, Student student) {
@@ -281,6 +319,7 @@ private static void docentenTest(EntityManager entityManager, Student student) {
     entityManager.getTransaction().commit();
 }
 ```
+</div>
 
 Geeft in Hibernate:
 
@@ -296,12 +335,22 @@ SQLite browser:
 
 Waar is onze `docent_nr` data? De methode `geefLesAan` voegt enkel toe aan de studentenlijst, maar de relatie moet **voor beide entities** kloppen:
 
+<div class="devselect">
+
+```kt
+fun geefLesAan(student: Student) {
+    studenten.add(student)
+    student.docent = this
+}
+```
+
 ```java
 public void geefLesAan(Student student) {
     studenten.add(student);
     student.setDocent(this);
 }
 ```
+</div>
 
 Zonder de tweede regel wordt de kolom niet ingevuld. Geeft nu:
 
@@ -324,11 +373,20 @@ Bingo, een `UPDATE` statement in de studententabel. SQLite Browser:
 
 Pas op het moment dat de data van de docent effectief nodig is, zoals bij het afdrukken, wordt een `SELECT` query gelanceerd bij lazy-loading. Bijvoorbeeld:
 
+<div class="devselect">
+
+```kt
+val student = entityManager.find(Student::class.java, jos.studentennummer)
+println("student ${student.naam}");
+println(" -- heeft als docent ${student.docent.naam}")
+```
+
 ```java
 var student = entityManager.find(Student.class, jos.getStudentenNummer());
 System.out.println("student " + student.getNaam());
 System.out.println(" -- heeft als docent " + student.getDocent().getNaam());
 ```
+</div>
 
 Geeft als sysout output:
 
