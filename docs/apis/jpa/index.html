@@ -12,19 +12,19 @@
     <title>2. JPA en Hibernate :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1627640748" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1627640748" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1627640748" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1627640748" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1627640748" rel="stylesheet">
-    <link href="../../css/theme.css?1627640748" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1627640748" rel="stylesheet">
+    <link href="../../css/nucleus.css?1627648032" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1627648032" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1627648032" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1627648032" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1627648032" rel="stylesheet">
+    <link href="../../css/theme.css?1627648032" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1627648032" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1627640748" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1627648032" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1627640748"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1627648032"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1627640748"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1627640748"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1627648032"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1627648032"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1627640748"></script>
+<script type="text/javascript" src="../../js/search.js?1627648032"></script>
 
     
   </div>
@@ -705,15 +705,10 @@
 <p>Om kolommen te kunnen mappen op properties voorziet JPA een aantal <strong>annotaties</strong> als meta-data op het domeinobject zelf. Dat betekent dat DB beschrijving netjes bij het object waar het hoort wordt geplaatst. Bijvoorbeeld:</p>
 <div class="devselect">
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#75af00">@Entity</span>
-<span style="color:#00a8c8">class</span> <span style="color:#75af00">Huis</span> <span style="color:#111">{</span>
-    <span style="color:#75af00">@Column</span>
-    <span style="color:#75af00">@Id</span>
-    <span style="color:#75af00">@GeneratedValue</span>
-    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">lateinit</span> <span style="color:#00a8c8">var</span> <span style="color:#111">id</span><span style="color:#111">:</span> <span style="color:#111">Int</span>
-    <span style="color:#75af00">@Column</span><span style="color:#111">(</span><span style="color:#111">name</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;beschr&#34;</span><span style="color:#111">)</span>
-    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">var</span> <span style="color:#111">beschrijving</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">?</span>
-    <span style="color:#75af00">@Column</span>
-    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">var</span> <span style="color:#111">prijs</span><span style="color:#111">:</span> <span style="color:#111">Int</span><span style="color:#111">?</span>
+<span style="color:#00a8c8">open</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Huis</span><span style="color:#111">(</span><span style="color:#111">beschrijving</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">?</span> <span style="color:#111">=</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> <span style="color:#111">prijs</span><span style="color:#111">:</span> <span style="color:#111">Int</span><span style="color:#111">?</span> <span style="color:#111">=</span> <span style="color:#00a8c8">null</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#75af00">@Column</span> <span style="color:#75af00">@Id</span> <span style="color:#75af00">@GeneratedValue</span> <span style="color:#00a8c8">open</span> <span style="color:#00a8c8">var</span> <span style="color:#111">id</span><span style="color:#111">:</span> <span style="color:#111">Int</span> <span style="color:#111">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#75af00">@Column</span><span style="color:#111">(</span><span style="color:#111">name</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;beschr&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">open</span> <span style="color:#00a8c8">var</span> <span style="color:#111">beschrijving</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">?</span> <span style="color:#111">=</span> <span style="color:#111">beschrijving</span>
+    <span style="color:#75af00">@Column</span> <span style="color:#00a8c8">open</span> <span style="color:#00a8c8">var</span> <span style="color:#111">prijs</span><span style="color:#111">:</span> <span style="color:#111">Int</span><span style="color:#111">?</span> <span style="color:#111">=</span> <span style="color:#111">prijs</span>
 <span style="color:#111">}</span>
 </code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75af00">@Entity</span>
 <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Huis</span> <span style="color:#f92672">{</span>
@@ -728,7 +723,8 @@
 <span style="color:#f92672">}</span>
 </code></pre></div></div>
 
-<div class="notices note" ><p>In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit <code>null</code> in komen? Indien ja werk je met Kotlin&rsquo;s optional alternatief: suffixen met een <code>?</code>. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met <code>lateinit</code>. Zie <a href="https://kotlinlang.org/docs/null-safety.html">Null safety Kotlin docs</a>.</p>
+<div class="notices note" ><p>In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit <code>null</code> in komen? Indien ja werk je met Kotlin&rsquo;s optional alternatief: suffixen met een <code>?</code>. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met <code>lateinit</code>. Zie <a href="https://kotlinlang.org/docs/null-safety.html">Null safety Kotlin docs</a>.<br/>
+Waarom zijn Kotlin entities en properties <code>open</code>? Omdat JPA en Hibernate, origineel geschreven in Java, jammer genoeg niet kunnen omgaan met immutability. Zie het <a href="https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples">hibernate-jpa kotlin voorbeeld</a> in git.</p>
 </div>
 
 <p>Het datatype kan ook worden ingesteld met <code>@Column</code> (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat <code>@Id</code> nodig is op een <code>@Entity</code> - zonder primary key kan JPA geen object persisteren. <code>@GeneratedValue</code> is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de <code>AUTOINCREMENT</code>. Bij elke <code>persist()</code> gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:</p>
@@ -758,7 +754,7 @@
 <span style="color:#00a8c8">val</span> <span style="color:#111">query</span> <span style="color:#111">=</span> <span style="color:#111">criteriaBuilder</span><span style="color:#111">.</span><span style="color:#111">createQuery</span><span style="color:#111">(</span><span style="color:#111">Huis</span><span style="color:#f92672">::</span><span style="color:#00a8c8">class</span><span style="color:#111">.</span><span style="color:#111">java</span><span style="color:#111">)</span>
 <span style="color:#00a8c8">val</span> <span style="color:#111">root</span> <span style="color:#111">=</span> <span style="color:#111">query</span><span style="color:#111">.</span><span style="color:#111">from</span><span style="color:#111">(</span><span style="color:#111">Huis</span><span style="color:#f92672">::</span><span style="color:#00a8c8">class</span><span style="color:#111">.</span><span style="color:#111">java</span><span style="color:#111">)</span>
 
-<span style="color:#111">query</span><span style="color:#111">.</span><span style="color:#00a8c8">where</span><span style="color:#111">(</span><span style="color:#111">criteriaBuilder</span><span style="color:#111">.</span><span style="color:#111">equal</span><span style="color:#111">(</span><span style="color:#111">root</span><span style="color:#111">.</span><span style="color:#00a8c8">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;prijs&#34;</span><span style="color:#111">),</span> <span style="color:#ae81ff">200000</span><span style="color:#111">))</span>
+<span style="color:#111">query</span><span style="color:#111">.</span><span style="color:#00a8c8">where</span><span style="color:#111">(</span><span style="color:#111">criteriaBuilder</span><span style="color:#111">.</span><span style="color:#111">equal</span><span style="color:#111">(</span><span style="color:#111">root</span><span style="color:#111">.</span><span style="color:#00a8c8">get</span><span style="color:#111">&lt;</span><span style="color:#111">Int</span><span style="color:#111">&gt;(</span><span style="color:#d88200">&#34;prijs&#34;</span><span style="color:#111">),</span> <span style="color:#ae81ff">200000</span><span style="color:#111">))</span>
 <span style="color:#00a8c8">return</span> <span style="color:#111">entityManager</span><span style="color:#111">.</span><span style="color:#111">createQuery</span><span style="color:#111">(</span><span style="color:#111">query</span><span style="color:#111">).</span><span style="color:#111">getResultList</span><span style="color:#111">()</span>
 </code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">criteriaBuilder</span> <span style="color:#f92672">=</span> <span style="color:#111">entityManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getCriteriaBuilder</span><span style="color:#f92672">();</span>
 <span style="color:#111">var</span> <span style="color:#111">query</span> <span style="color:#f92672">=</span> <span style="color:#111">criteriaBuilder</span><span style="color:#f92672">.</span><span style="color:#75af00">createQuery</span><span style="color:#f92672">(</span><span style="color:#111">Huis</span><span style="color:#f92672">.</span><span style="color:#75af00">class</span><span style="color:#f92672">);</span>
@@ -1227,17 +1223,17 @@ student Lowiemans
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1627640748"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1627640748"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1627640748"></script>
-    <script src="../../js/jquery.sticky.js?1627640748"></script>
-    <script src="../../js/featherlight.min.js?1627640748"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1627640748"></script>
-    <script src="../../js/learn.js?1627640748"></script>
-    <script src="../../js/hugo-learn.js?1627640748"></script>
+    <script src="../../js/clipboard.min.js?1627648033"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1627648033"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1627648033"></script>
+    <script src="../../js/jquery.sticky.js?1627648033"></script>
+    <script src="../../js/featherlight.min.js?1627648033"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1627648033"></script>
+    <script src="../../js/learn.js?1627648033"></script>
+    <script src="../../js/hugo-learn.js?1627648033"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1627640748"></script>
+            <script src="../../mermaid/mermaid.js?1627648033"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
