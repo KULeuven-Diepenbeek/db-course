@@ -14,6 +14,16 @@ Stel dat we dezelfde studenten willen inladen in een `Student` klasse instantie:
 
 Om van de huidige resultatenrij naar de volgende te springen in `ResultSet` gebruikt men de methode `next()` in een typisch `while()` formaat:
 
+<div class="devselect">
+
+```kt
+val result = statement.executeQuery("SELECT * FROM iets")
+while(result.next()) {
+    val eenString = result.getString("kolomnaam")
+    // doe iets!
+}
+```
+
 ```java
 var result = statement.executeQuery("SELECT * FROM iets");
 while(result.next()) {
@@ -21,6 +31,7 @@ while(result.next()) {
     // doe iets!
 }
 ```
+</div>
 
 Zie ook [ResultSet Oracle Javadoc](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html). 
 
@@ -30,15 +41,24 @@ Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onm
 
 1. Maak (én test!) een klasse `StudentRepository` die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC `Connection` instance elders wordt aangemaakt, bijvoorbeeld in een **aparte** `ConnectionManager` klasse. 
 
+<div class="devselect">
+
+```kt
+class StudentRepository(val connection: Connection) {
+    fun getStudentsByName(name: String): List<Student>
+}
+```
+
 ```java
 public class StudentRepository {
         public StudentRepository(Connection connection);
         public List<Student> getStudentsByName(String name);
 }
 ```
+</div>
 
-2. Breid dit uit naar `public void saveNewStudent(Student student);`.
-3. Breid dit uit naar `public void updateStudent(Student student);`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
+2. Breid dit uit met `saveNewStudent(Student)`.
+3. Breid dit uit met `updateStudent(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
 
 **Tip**: 
 
@@ -58,15 +78,24 @@ Er is ook support voor spring, jpa, guava, kotlin, ...
 
 Om bovenstaande JDBC oefening te implementeren in Jdbi3 hebben we eerst een extractie van een interface nodig voor de repository acties:
 
+<div class="devselect">
+
+```kt
+interface StudentRepository {
+    fun getStudentsByName(student String): List<Student>
+    fun saveNewStudent(student: Student)
+    fun updateStudent(student: Student)
+}
+```
+
 ```java
 public interface StudentRepository {
-
     List<Student> getStudentsByName(String student);
     void saveNewStudent(Student student);
     void updateStudent(Student student);
-    
 }
 ```
+</div>
 
 Nu kan `StudentRepositoryJdbcImpl` (hernoem bovenstaande) en onze nieuwe `StudentRepositoryJdbi3Impl` de interface `implements`-en. Denk aan de **Strategy design pattern** van SES: afhankelijk van een instelling kunnen we switchen van SQL leverancier, zolang de code overal de interface gebruikt. 
 
@@ -92,12 +121,12 @@ In plaats van JDBC's `DriverManager.getConnection()` om de `Connection` instance
 In plaats van de vervelende checked `SQLException`s en de `createStatement()` code, heb je nu de keuze om ofwel de Fluent API te gebruiken:
 
 ```java
-        return jdbi.withHandle(handle -> {
-           return handle.createQuery("SELECT * FROM student WHERE naam = :naam")
-                   .bind("naam", student)
-                   .mapToBean(Student.class)
-                   .list();
-        });
+return jdbi.withHandle(handle -> {
+   return handle.createQuery("SELECT * FROM student WHERE naam = :naam")
+           .bind("naam", student)
+           .mapToBean(Student.class)
+           .list();
+});
 ```
 
 ofwel de Declarative API, waarbij je met de `@SqlQuery` kan werken op een interface:
@@ -111,6 +140,11 @@ public interface StudentDao {
 ```
 
 Dit vereist dat je de plugin `SqlObjectPlugin` installeert na de `Jdbi.create()`: `jdbi.installPlugin(new SqlObjectPlugin());`. Zie [jdbi.org](https://jdbi.org) documentatie.
+
+{{% notice note %}}
+Jdbi ondersteunt Kotlin met twee modules: `jdbi3-kotlin` en `jdbi3-kotlin-sqlobject` om data classes direct te binden aan een bepaalde tabel. Bovenstaande Java code (met `.bind()` werken) is analoog. Om verwarring te voorkomen zijn de Jdbi voorbeelden uitgewerkt in Java. Lees meer op http://jdbi.org/#_kotlin
+{{% /notice %}}
+
 
 Herinner je je nog de **SESsy Library**? Die werkte ook op die manier! Kijk nog eens in https://github.com/kuleuven-diepenbeek/sessylibrary in de map `src.main.java.be.kuleuven.sessylibrary.domain` in klasse `BooksRepository`!
 
@@ -129,6 +163,20 @@ Begin vanaf **start project** [jdbc-repo-start.zip](/jdbc-repo-start.zip)! Deze 
 1. Fix eerst de falende unit testen!
 2. Herimplementeer alle methodes van de `StudentRepository` interface hierboven, maar dan in Jdbi3 met de Fluent API (`jdbi.withHandle()`). Maak een tweede klasse genaamd `StudentRepositoryJdbi3`. Schrijf ook een bijhorende unit test klasse (kijk voor inspiratie naar de JDBC implementatie). Om te testen of het werkt in "productie" kan je je testcode van JDBC herbruiken door de code de **interface** te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:
 
+<div class="devselect">
+
+```kt
+fun main(args: Array<String>) {
+    val jdbcRepo = StudentRepositoryJdbc(...)
+    val jdbiRepo = StudentRepositoryJdbi3(...)
+    doStuff(jdbcRepo)
+}
+fun doStuff(repository: StudentRepository) {
+    // argunent = interface!
+    // uw repository.getStudentsByName, saveNewStudent, ... tests hier
+}
+```
+
 ```java
 public class OefeningMain {
         public static void main(String[] args) {
@@ -136,11 +184,13 @@ public class OefeningMain {
             var jdbiRepo = new StudentRepositoryJdbi3(...);
             doStuff(jdbcRepo);
         }
-        public void doStuff(StudentRepository repository) {
+        public static void doStuff(StudentRepository repository) {
+            // argunent = interface!
             // uw repository.getStudentsByName, saveNewStudent, ... tests hier
         }
 }
 ```
+</div>
 
 3. _Extra Oefening_: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de [Jdbi3 developer guide](http://jdbi.org/#_declarative_api) na hoe je de Declarative API gebruikt en verwerk dit. Tip: `jdbi.withExtension(StudentDao.class, ...)`. 
 
@@ -199,19 +249,38 @@ Voor onze studententabel visualisatie hebben we een `TableView` nodig. Daarnaast
 
 Kolommen (en de inhoud van de rijen) definiëren we in de controller zelf:
 
-```java
-    @FXML
-    private TableView<Student> tblStudent;
+<div class="devselect">
 
-    public void initialize() {
-        tblStudent.getColumns().clear();
-        TableColumn<Student, String> col = new TableColumn<>("Naam");
-        col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().getMaam()));
-        tblStudent.getColumns().add(col);
-        
-        tblStudent.getItems().add(new Student("Joske", "Josmans", 124, true));
+```kt
+@FXML
+private lateinit tblStudent: TableView<Student>
+
+fun initialize() {
+    tblStudent.getColumns().clear()
+    val col: TableColumn<Student, String> = TableColumn<>("Naam").apply {
+        setCellValueFactory(f -> ReadOnlyObjectWrapper<>(f.getValue().getMaam()))
     }
+    with(tblStudent) {
+        getColumns().add(col)
+        getItems().add(Student("Joske", "Josmans", 124, true))
+    }
+}
 ```
+
+```java
+@FXML
+private TableView<Student> tblStudent;
+
+public void initialize() {
+    tblStudent.getColumns().clear();
+    TableColumn<Student, String> col = new TableColumn<>("Naam");
+    col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().getMaam()));
+    tblStudent.getColumns().add(col);
+    
+    tblStudent.getItems().add(new Student("Joske", "Josmans", 124, true));
+}
+```
+</div>
 
 Merk op dat `TableView` een generisch type heeft, en we zo dus heel eenvoudig onze eigen POJO rechtstreeks kunnen mappen op de `Student` klasse! Als we dit opstarten krijgen we alvast één kolom te zien met de naam (`f` in de `CellValueFactory` is een wrapper waarvan de waarde de huidige student in de rij is. `getNaam()` zorgt ervoor dat de juiste waarde in de juiste cel komt te staan)
 
@@ -227,22 +296,39 @@ Begin vanaf **start project** [jdbc-fxml-start.zip](/jdbc-fxml-start.zip)! Deze 
 
 **Tip**: Vanuit een JavaFX controller een ander scherm openen is een kwestie van een nieuwe `Stage` en `Scene` object aan te maken:
 
-```java
-    private void showScherm() {
-        var resourceName = "bla.fxml";
-        try {
-            var stage = new Stage();
-            var root = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource(resourceName));
-            var scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("dinges");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.show();
+<div class="devselect">
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+```kt
+private fun showScherm() {
+    val resourceName = "bla.fxml"
+    val root = FXMLLoader.load(this::class.java..getResource(resourceName)) as AnchorPane;
+    val stage = Stage().apply {
+        setScene(Scene(root))
+        setTitle("dinges")
+        initModality(Modality.WINDOW_MODAL)
+        show()
     }
+}
 ```
 
+```java
+private void showScherm() {
+    var resourceName = "bla.fxml";
+    try {
+        var stage = new Stage();
+        var root = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource(resourceName));
+        stage.setScene(new Scene(root));
+        stage.setTitle("dinges");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
+
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+```
+</div>
+
 Zit je vast? Raadpleeg de **TableView JavaDocs**: https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html
+
+Bekijk een voorbeeld **Kotlin/JavaFX project** in de [github appdev-course repository](https://github.com/KULeuven-Diepenbeek/appdev-course/tree/main/examples/kotlin/walkerfx/src/main/kotlin/be/kuleuven/walkerfx).

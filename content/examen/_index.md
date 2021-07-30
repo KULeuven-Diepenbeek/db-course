@@ -53,6 +53,8 @@ Hint: mooie examenvragen kunnen de denkvragen zijn op het einde van elke labo no
 
 ### Wat moet ik **NIET** kennen? 
 
+Specifieke Kotlin syntax. Eeuwige herkenning als een _pro_ is voldoende.
+
 Hoodfstuk 11:
 
 - MemcacheD implementatie details (zoals de code op p.307)

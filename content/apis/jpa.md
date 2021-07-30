@@ -100,6 +100,22 @@ Nu de verbinding tussen de DB en Hibernate/JPA tot stand werd gebracht, is het t
 
 Om kolommen te kunnen mappen op properties voorziet JPA een aantal **annotaties** als meta-data op het domeinobject zelf. Dat betekent dat DB beschrijving netjes bij het object waar het hoort wordt geplaatst. Bijvoorbeeld:
 
+<div class="devselect">
+
+```kt
+@Entity
+class Huis {
+    @Column
+    @Id
+    @GeneratedValue
+    private lateinit var id: Int
+    @Column(name = "beschr")
+    private var beschrijving: String?
+    @Column
+    private var prijs: Int?
+}
+```
+
 ```java
 @Entity
 public class Huis {
@@ -113,6 +129,11 @@ public class Huis {
     private int prijs;
 }
 ```
+</div>
+
+{{% notice note %}}
+In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit `null` in komen? Indien ja werk je met Kotlin's optional alternatief: suffixen met een `?`. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met `lateinit`. Zie [Null safety Kotlin docs](https://kotlinlang.org/docs/null-safety.html).
+{{% /notice %}}
 
 Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
 
@@ -132,17 +153,39 @@ Hoe update ik een entity, als properties zijn gewijzigd? `.merge(object)`
 
 Merk op dat in de Sysout output _geen query_ wordt gegenereerd. Hibernate houdt alles in zijn interne cache bij, en zal pas flushen naar de database wanneer hij acht dat dat nodig is. Dat kan je zelf triggeren door `entityManager.flush()` te gebruiken (kan alleen in een transactie) - of het commando te wrappen met een transactie:
 
+<div class="devselect">
+
+```kt
+with(entityManager) {
+    getTransaction().begin()
+    persist(dingdong)
+    getTransaction().commit()
+}
+```
+
 ```java
 entityManager.getTransaction().begin();
 entityManager.persist(dingdong);
 entityManager.getTransaction().commit();
 ```
+</div>
 
 Zonder dit, en met herbruik van dezelfde entity manager in SQLite, is er een kans dat je `SELECT` query niets teruggeeft, omdat de `INSERT` nog niet werd geflushed. De interne werking van combinatie JDBC+SQLite+JPA+Hibernate is zeer complex en zou een cursus van 20 studiepunten vereisen... 
 
 #### Queries
 
 Hoe query ik in JPA? Dit kan op verschillende manieren. We beperken ons hier tot de **JPA Criteria API**. Een voorbeeld. Gegeven een huizenlijst, waarvan we huizen willen teruggeven die onder de 200.000 kosten. In SQL zou dit `SELECT * FROM huizen WHERE prijs < 200000` zijn. In Criteria API:
+
+<div class="devselect">
+
+```kt
+val criteriaBuilder = entityManager.getCriteriaBuilder()
+val query = criteriaBuilder.createQuery(Huis::class.java)
+val root = query.from(Huis::class.java)
+
+query.where(criteriaBuilder.equal(root.get("prijs"), 200000))
+return entityManager.createQuery(query).getResultList()
+```
 
 ```java
 var criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -152,6 +195,7 @@ var root = query.from(Huis.class);
 query.where(criteriaBuilder.equal(root.get("prijs"), 200000));
 return entityManager.createQuery(query).getResultList();
 ```
+</div>
 
 Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer krachtig en kan automatisch complexe queries genereren zonder dat wij ons moe moeten maken. Merk op dat wij _geen enkele letter SQL_ zelf schrijven. Alles is **java code**, wat het eenvoudig maakt om te refactoren, redesignen, statische code analyse op te doen, unit testen, ... Lees meer over criteria API:
 
@@ -285,9 +329,9 @@ Bingo, een `UPDATE` statement in de studententabel. SQLite Browser:
 Pas op het moment dat de data van de docent effectief nodig is, zoals bij het afdrukken, wordt een `SELECT` query gelanceerd bij lazy-loading. Bijvoorbeeld:
 
 ```java
-    var student = entityManager.find(Student.class, jos.getStudentenNummer());
-    System.out.println("student " + student.getNaam());
-    System.out.println(" -- heeft als docent " + student.getDocent().getNaam());
+var student = entityManager.find(Student.class, jos.getStudentenNummer());
+System.out.println("student " + student.getNaam());
+System.out.println(" -- heeft als docent " + student.getDocent().getNaam());
 ```
 
 Geeft als sysout output:
