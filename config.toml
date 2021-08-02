@@ -65,3 +65,10 @@ name = "<i class='fa fa-university'></i> ECTS Sheet"
 identifier = "stud"
 url = "https://www.uhasselt.be/studiegids"
 weight = 1
+
+[[menu.shortcuts]] 
+name = "<i class='fab fa-github'></i> Course Git Repository"
+identifier = "cgit"
+url = "https://github.com/kuleuven-diepenbeek/db-course/"
+weight = 20
+
