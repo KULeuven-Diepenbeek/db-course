@@ -29,14 +29,14 @@ class StudentRepositoryJpaImplTest {
     }
 
     @Test
-    fun saveNewStudent_newStudentSavedInDb() {
+    fun  `given student when saveNewStudent then studentennummer assigned as ID`() {
         val jos = Student("Lowiemans", "Jos", true)
         studentRepository.saveNewStudent(jos)
         assertTrue(jos.studentenNummer > 0, "student heeft ID gekregen")
     }
 
     @Test
-    fun updateStudent_studentNaamEnVoornaamGewijzigd() {
+    fun  `given student when updating properties and upDateStudent then properties changed in DB`() {
         val jos = Student("Lowiemans", "Jos", true)
         studentRepository.saveNewStudent(jos)
         entityManager.clear()

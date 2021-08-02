@@ -24,7 +24,7 @@ class StudentPersistenceTest {
     }
 
     @Test
-    fun studentCanBePersisted() {
+    fun `given a student when persisting then no errors`() {
         val jos = Student("Lowiemans", "Jos", true)
         entityManager.persist(jos)
     }
