@@ -12,19 +12,19 @@
     <title>2. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1627907533" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1627907533" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1627907533" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1627907533" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1627907533" rel="stylesheet">
-    <link href="../../css/theme.css?1627907533" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1627907533" rel="stylesheet">
+    <link href="../../css/nucleus.css?1635358717" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1635358717" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1635358717" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1635358717" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1635358717" rel="stylesheet">
+    <link href="../../css/theme.css?1635358717" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1635358717" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1627907533" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1635358717" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1627907533"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1635358717"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1627907533"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1627907533"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1635358717"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1635358717"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1627907533"></script>
+<script type="text/javascript" src="../../js/search.js?1635358717"></script>
 
     
   </div>
@@ -487,30 +487,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/examen/" title="4. Examen info" class="dd-item 
-        
-        
-        
-        ">
-      <a href="../../examen/">
-          4. Examen info
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
          
     </ul>
 
@@ -644,6 +620,7 @@
 </code></pre><p>Het resultaat is altijd een geldig <code>JSON</code> object (ook al geef je een ongeldige ID mee): <code>curl -X GET &quot;http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1&quot;</code></p>
 <pre><code>{&quot;_id&quot;:&quot;aalto-university;bachelor-data-science;professional-development;1&quot;,&quot;_rev&quot;:&quot;1-f7872c4254bfc2e0e5507502e2fafd6f&quot;,&quot;title&quot;:&quot;Professional Development&quot;,&quot;url&quot;:&quot;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&quot;,&quot;university&quot;:&quot;Aalto University&quot;,&quot;country&quot;:&quot;Finland&quot;,&quot;category&quot;:&quot;professional&quot;,&quot;ECTS&quot;:5,&quot;year&quot;:1,&quot;optional&quot;:true,&quot;skills&quot;:[&quot;motivate self&quot;,&quot;oral communication&quot;,&quot;self-directed learning&quot;,&quot;self-reflection&quot;,&quot;give/receive feedback&quot;,&quot;set/keep timelines&quot;,&quot;show initiative&quot;],&quot;course&quot;:&quot;Bachelor Data Science&quot;,&quot;lo&quot;:&quot;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one's strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one's own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &quot;}
 </code></pre><p>Indien ongeldig: <code>{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</code>.</p>
+<p>Indien geen toegang: <code>{&quot;error&quot;:&quot;unauthorized&quot;,&quot;reason&quot;:&quot;You are not authorized to access this db.&quot;}</code>. Zie &ldquo;LET OP&rdquo; hieronder&mdash;gebruik het <code>-u</code> argument.</p>
 <h3 id="22-oefeningen-voorbereidingswerk">2.2 Oefeningen: Voorbereidingswerk</h3>
 <ol>
 <li>Download CouchDB via <a href="https://couchdb.apache.org">https://couchdb.apache.org</a>.</li>
@@ -690,7 +667,7 @@ couchdb.host=127.0.0.1
 couchdb.port=5984
 couchdb.username=
 couchdb.password=
-</code></pre><p>Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen, waarbij alle members automatisch worden geserialiseerd.</p>
+</code></pre><p>Vanaf dan is het heel eenvoudig: Maak een <code>CouchDbClient</code> instantie aan. Nu kan je <code>.save()</code>, <code>.shutdown()</code> en <code>.find()</code> uitvoeren. Wat kan je bewaren? POJO (<strong>Plain Old Java Objects</strong>) klassen&mdash;of in geval van Kotlin, data objects&mdash;waarbij alle members automatisch worden geserialiseerd.</p>
 <h4 id="lightcouch-oefeningen">LightCouch oefeningen</h4>
 <ol>
 <li>Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een <code>Student</code> klasse met als velden <code>name</code> en <code>age</code> (respectievelijk <code>String</code> en <code>int</code> als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:</li>
@@ -702,7 +679,7 @@ couchdb.password=
   <span style="color:#d88200">&#34;age&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
 <span style="color:#111">}</span>
 </code></pre></div><ol start="2">
-<li>Probeer de views en query&rsquo;s even uit. Zoek bijvoorbeeld alle studenten in <code>List&lt;Student&gt;</code> en druk de namen af door middel van <code>System.out.println()</code>.</li>
+<li>Probeer de views en query&rsquo;s even uit. Zoek bijvoorbeeld alle studenten in <code>List&lt;Student&gt;</code> en druk de namen af door middel van <code>println()</code>.</li>
 </ol>
 <h3 id="denkvragen">Denkvragen</h3>
 <ol>
@@ -1025,22 +1002,6 @@ couchdb.password=
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
 
@@ -1063,17 +1024,17 @@ couchdb.password=
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1627907533"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1627907533"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1627907533"></script>
-    <script src="../../js/jquery.sticky.js?1627907533"></script>
-    <script src="../../js/featherlight.min.js?1627907533"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1627907533"></script>
-    <script src="../../js/learn.js?1627907533"></script>
-    <script src="../../js/hugo-learn.js?1627907533"></script>
+    <script src="../../js/clipboard.min.js?1635358717"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1635358717"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1635358717"></script>
+    <script src="../../js/jquery.sticky.js?1635358717"></script>
+    <script src="../../js/featherlight.min.js?1635358717"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1635358717"></script>
+    <script src="../../js/learn.js?1635358717"></script>
+    <script src="../../js/hugo-learn.js?1635358717"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1627907533"></script>
+            <script src="../../mermaid/mermaid.js?1635358717"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

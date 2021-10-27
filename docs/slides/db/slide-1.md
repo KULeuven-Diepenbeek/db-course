@@ -39,6 +39,16 @@ ___
 
 ___
 
+
+### [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem) problem
+
+Impossible to provide 2+ of (1) Consistency, (2) Availability, (3) Partition Tolerance
+
+<img src="/db-course/slides/img/cap.jpg" style="width: 50%" />
+
+([src](https://www.freecodecamp.org/news/nosql-databases-5f6639ed9574/))
+___
+
 ### 1.3 Oplossing: NoSQL
 
 - **Géén** relationele data. 
@@ -59,8 +69,8 @@ ___
 
 | Eigenschap     | Relationeel | NoSQL |
 |----------------|-------------|-------|
-| **Data paradigma** | relationeel | key/value, doc-based, ... |
-| **Distributie** |  Single-node | Distributed |
+| **Data paradigma** | relationeel | 4 types: key/val, docs, ... (s3.2) |
+| **Distributie** |  Single-node  | Distributed |
 | **Scalability** | Vertical | Horizontal, replication |
 | **Structuur** | Schema-based | Flexible |
 | **Querty taal** | SQL | Specialized (JavaScript) |
@@ -87,7 +97,7 @@ ___
 
 <img src="/db-course/slides/img/nosql-types.jpg" />
 
-Bron: improgrammer.net
+([src](https://improgrammer.net))
 
 ___
 
