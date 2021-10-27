@@ -6,7 +6,8 @@ public class PlaygroundMain {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         System.out.println("starting query test...");
-        //new db.CouchDbClient().query();
+
+        new db.CouchDbClient().query();
 
         System.out.println("saving joske...");
         HashMapSerializer.saveHashMap();

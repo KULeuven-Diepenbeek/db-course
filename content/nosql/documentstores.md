@@ -41,6 +41,8 @@ Het resultaat is altijd een geldig `JSON` object (ook al geef je een ongeldige I
 
 Indien ongeldig: `{"error":"not_found","reason":"missing"}`.
 
+Indien geen toegang: `{"error":"unauthorized","reason":"You are not authorized to access this db."}`. Zie "LET OP" hieronder---gebruik het `-u` argument. 
+
 ### 2.2 Oefeningen: Voorbereidingswerk
 
 1. Download CouchDB via [https://couchdb.apache.org](https://couchdb.apache.org).
@@ -113,7 +115,7 @@ couchdb.username=
 couchdb.password=
 ```
 
-Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen, waarbij alle members automatisch worden geserialiseerd. 
+Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen---of in geval van Kotlin, data objects---waarbij alle members automatisch worden geserialiseerd. 
 
 #### LightCouch oefeningen
 
@@ -128,7 +130,7 @@ Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan 
 }
 ```
 
-2. Probeer de views en query's even uit. Zoek bijvoorbeeld alle studenten in `List<Student>` en druk de namen af door middel van `System.out.println()`.
+2. Probeer de views en query's even uit. Zoek bijvoorbeeld alle studenten in `List<Student>` en druk de namen af door middel van `println()`.
 
 ### Denkvragen
 

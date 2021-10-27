@@ -4,7 +4,7 @@ title: 'Index'
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
 
-Laatste aanpassingen voor academiejaar _2020 - 2021_.
+Laatste aanpassingen voor academiejaar _2021 - 2022_.
 
 ---
 
@@ -12,17 +12,13 @@ Laatste aanpassingen voor academiejaar _2020 - 2021_.
 
 | nr | datum      | onderwerp                 |
 |----|------------|---------------------------|
-| 1  | ma 26-10-2020 | NoSQL 1: intro HC      |
-| 2  | do 29-10-2020 | NoSQL 2: key/value stores, document stores  |
-| 3  | ma 09-11-2020 | NoSQL 3: advanced concepts, case studies (1) HC   |
-| 4  | di 10-11-2020 | NoSQL 4: map/reduce, replication |
-| 5  | ma 16-11-2020 | NoSQL 5: Graph stores, case studies (2) HC |
-| 6  | do 19-11-2020 | Transactie management HC |
-| 7  | ma 23-11-2020 | Transactie management labo |
-| 8  | do 26-11-2020 | Database APIs 1: ORM mapping, Hibernate |
-| 9  | ma 30-11-2020 | Database APIs 2: H2, Sessy Lib |
-| 10 | wo 02-12-2020 | Database APIs 3: Transacties in Java |
-| 11 | ma 07-12-2020 | Database APIs 4: Sessy Lib naar CouchDB |
+| 1  | do 28-10-2021 | NoSQL 1: intro HC, key/value en document stores
+| 2  | do 18-11-2021 | NoSQL 2: advanced concepts, case studies (1)
+| 3  | do 25-11-2021 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
+| 4  | do 02-12-2021 | Transactie management HC/oefeningen 
+| 5  | do 09-12-2021 | Database APIs 1: ORM mapping, Hibernate
+| 6  | do 16-12-2021 | Database APIs 2: H2, Sessy Library
+| 7  | do 23-12-2021 | Database APIs 3: Transacties, Sessy Library naar CouchDB
 
 ## _Cursus notities_
 
