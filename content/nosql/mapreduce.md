@@ -64,9 +64,11 @@ Hoe doe je zoiets in NoSQL/Mongo/CouchDB? Met [Reduce Functions](http://127.0.0.
 
 ![](/img/couchreduce.jpg)
 
-De `rereduce` parameter mag je negeren, dat betekent zoals de CouchDB docs verklaart:
+Wat is die derde `rereduce` parameter? Volgens de docs:
 
 > Reduce functions take two required arguments of keys and values lists - the result of the related map function - and an optional third value which indicates if rereduce mode is active or not. Rereduce is used for additional reduce values list, so when it is true there is no information about related keys (first argument is null).
+
+Rereducen wordt typisch uitgevoerd bij een cluster met verschillende CouchDB Nodes die de data verdeelt. CouchDB ontvangt _groepen van inputs_ in plaats van alles in één vanwege performantie optimalisatie. Dit systeem is [visueel uitgelegd in deze primer](https://blog.pablobm.com/2019/07/18/map-reduce-with-couchdb-a-visual-primer.html), maar is voor ons niet van toepassing.
 
 Dus, map functie om te filteren op België:
 
@@ -85,6 +87,14 @@ function (keys, values, rereduce) {
   return sum(values);
 }
 ```
+
+`sum()` is een ingebouwde CouchDB functie. Dit kan ook manueel op de functionele JS `reduce()` manier:
+
+```javascript
+function (keys, values, rereduce) { 
+  return values.reduce((a, b) => a + b);
+}
+````
 
 Klik op "Run Query". De resultaten zijn de resultaten van de MAP - de Reduce value moet je expliciet enablen door vanboven rechts op "Options" te klikken, en dan "Reduce" aan te vinken:
 
