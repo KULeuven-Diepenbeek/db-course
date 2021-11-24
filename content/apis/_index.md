@@ -8,6 +8,4 @@ chapter: true
 
 ### HF15, p458
 
-- vanaf 23/11.
-- 4 lessen
-
+Zie menu links.

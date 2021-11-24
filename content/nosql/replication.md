@@ -82,14 +82,14 @@ document.querySelector("#btn").addEventListener("click", queryDocs);
 
 ![](/img/localstorage.jpg)
 
-De volgende elementen zijn te herknnen in bovenstaande screenshot:
+De volgende elementen zijn te herkennen in bovenstaande screenshot:
 
 - Ik heb een "`mydb`" object aangemaakt (DB naam `_pouch_mydb`)
 - Onder element "`by-sequence`" kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam "David" werd toegevoegd. 
 
 ### Troubleshooting
 
-**Cross site origin fouten?** - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar `127.0.0.1` gaat, en je browser de `.html` file servet vanuit `file:///` wat technisch gezien niet dezelfde hostname is. Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS [in de browser](https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn) (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ `python -m http.server` in de directory van je html bestand. Ga dan naar `localhost:8000/oefening.html`. Indien niet opgelost, ga naar volgende troubleshooting puntje:
+**Cross site origin fouten?** - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar `127.0.0.1` gaat, en je browser de `.html` file aanlevert vanuit `file:///` wat technisch gezien niet dezelfde hostname is. Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS [in de browser](https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn) (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ `python -m http.server` in de directory van je html bestand. Ga dan naar http://localhost:8000/oefening.html (Poort `8000`). Indien niet opgelost, ga naar volgende troubleshooting puntje:
 
 **Connecton errors?** - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het "tandwieltje" links, en enable je `CORS` (Cross Origin Requests):
 
