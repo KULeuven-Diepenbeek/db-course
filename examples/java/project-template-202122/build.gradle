@@ -1,0 +1,35 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "15"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+group 'be.kuleuven.csa'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.13
+mainClassName = 'be.kuleuven.pccustomizer.ProjectMain'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.getProperty('name'),
+                'Implementation-Version': project.getProperty('version'),
+                'Main-Class': project.getProperty('mainClassName')
+    }
+}
