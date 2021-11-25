@@ -13,17 +13,16 @@ public class StudentRepositoryJdbi3Impl implements StudentRepository {
 
     @Override
     public List<Student> getStudentsByName(String student) {
-        // TODO
-        return null;
+        throw new UnsupportedOperationException("TODO Implement me!");
     }
 
     @Override
     public void saveNewStudent(Student student) {
-        // TODO
+        throw new UnsupportedOperationException("TODO Implement me!");
     }
 
     @Override
     public void updateStudent(Student student) {
-        // TODO
+        throw new UnsupportedOperationException("TODO Implement me!");
     }
 }

@@ -114,7 +114,12 @@ public void verifyDbContents() throws SQLException {
 
 </div>
 
-**Gradle** dependency: `compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'` (Kotlin DSL stijl: `implementation("org.xerial:sqlite-jdbc:3.36.0.1")`).
+**Gradle** dependency: laatste versie van [sqlite-jdbc in mvnrepository.com](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc).
+
+{{% notice warning %}}
+Problemen met je JDK versie en Gradle versies? Raadpleeg de [Gradle Compatibiility Matrix](https://docs.gradle.org/current/userguide/compatibility.html). Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
+Je Gradle versie verhogen kan door de URL in `gradle/gradlew.properties` te wijzigen.
+{{% /notice %}}
 
 Merk op dat `SQLException` een **checked exception** is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een `try { } catch { } finally { }` block is dat in de finally je ook geen `close()` kan uitvoeren zonder opnieuw een `try` block te openen... Inception!
 

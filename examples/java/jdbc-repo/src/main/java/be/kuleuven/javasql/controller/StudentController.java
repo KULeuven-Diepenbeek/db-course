@@ -14,7 +14,7 @@ public class StudentController {
     public void initialize() {
         tblStudent.getColumns().clear();
         TableColumn<Student, String> col = new TableColumn<>("Naam");
-        col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().getMaam()));
+        col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().getNaam()));
         tblStudent.getColumns().add(col);
 
         tblStudent.getItems().add(new Student("Joske", "Josmans", 124, true));

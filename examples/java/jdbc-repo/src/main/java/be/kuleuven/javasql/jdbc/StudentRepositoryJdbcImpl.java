@@ -21,7 +21,7 @@ public class StudentRepositoryJdbcImpl implements StudentRepository {
     public void saveNewStudent_withPreparedStatement(Student student) {
         try {
             var prepared = connection.prepareStatement("INSERT INTO student(naam, voornaam, studnr, goedbezig) VALUES (?, ?, ?, ?)");
-            prepared.setString(1, student.getMaam());
+            prepared.setString(1, student.getNaam());
             prepared.setString(2, student.getVoornaam());
             prepared.setInt(3, student.getStudnr());
             prepared.setBoolean(4, student.isGoedBezig());
@@ -36,7 +36,7 @@ public class StudentRepositoryJdbcImpl implements StudentRepository {
     public void saveNewStudent_withoutPreparedStatement(Student student) {
         try {
             var s = connection.createStatement();
-            s.executeUpdate("INSERT INTO student(naam, voornaam, studnr, goedbezig) VALUES ('" + student.getMaam() + "', '" + student.getVoornaam() + "', " + student.getStudnr() + ", " +
+            s.executeUpdate("INSERT INTO student(naam, voornaam, studnr, goedbezig) VALUES ('" + student.getNaam() + "', '" + student.getVoornaam() + "', " + student.getStudnr() + ", " +
                     student.isGoedBezig() + ")");
             s.close();
         } catch(SQLException ex) {

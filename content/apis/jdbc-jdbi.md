@@ -211,7 +211,7 @@ Er zijn een aantal aanpassingen nodig aan je `build.gradle` file om van een gewo
 ```
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
 }
 
 repositories {
@@ -219,16 +219,16 @@ repositories {
 }
 
 javafx {
-    version = "13"
+    version = "15"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
-    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
-    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.17.0'
-    compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.17.0'
-    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.24.1'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.24.1'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.24.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 group 'be.kuleuven.javasql'
@@ -242,6 +242,12 @@ Herinner je het volgende over JavaFX:
 - De main klasse leidt af van `Application` en laadt de hoofd-`.fxml` file in.
 - Controllers hebben een `public void initialize()` methode waar action binding in wordt gedefinieerd. 
 - `.fxml` files beheer je met SceneBuilder. Vergeet hier niet de link naar de fully qualified name van je controller klasse te plaatsen als `AnchorPane` attribuut: `fx:controller="be.kuleuven.javasql.controller.StudentController"`.
+
+{{% notice warning %}}
+Problemen met je JDK versie en Gradle versies? Raadpleeg de [Gradle Compatibiility Matrix](https://docs.gradle.org/current/userguide/compatibility.html). Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
+Je Gradle versie verhogen kan door de URL in `gradle/gradlew.properties` te wijzigen.<br/>
+De laatste versie van JavaFX is 17---backwards compatible met JDK15 en hoger.
+{{% /notice %}}
 
 Voor onze studententabel visualisatie hebben we een `TableView` nodig. Daarnaast eventueel `Button`s om te editeren/toe te voegen/... Vergeet de `fx:id` van de tabel niet:
 

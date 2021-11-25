@@ -1,7 +1,7 @@
 package be.kuleuven.javasql;
 
 public class Student {
-    private String maam;
+    private String naam;
     private String voornaam;
     private int studnr;
     private boolean goedBezig;
@@ -13,7 +13,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "maam='" + maam + '\'' +
+                "maam='" + naam + '\'' +
                 ", voornaam='" + voornaam + '\'' +
                 ", studnr=" + studnr +
                 ", goedBezig=" + goedBezig +
@@ -21,7 +21,7 @@ public class Student {
     }
 
     public Student(String maam, String voornaam, int studnr, boolean goedBezig) {
-        this.maam = maam;
+        this.naam = maam;
         this.voornaam = voornaam;
         this.studnr = studnr;
         this.goedBezig = goedBezig;
@@ -31,8 +31,8 @@ public class Student {
         return studnr;
     }
 
-    public String getMaam() {
-        return maam;
+    public String getNaam() {
+        return naam;
     }
 
     public String getVoornaam() {
@@ -47,8 +47,8 @@ public class Student {
         this.goedBezig = goedBezig;
     }
 
-    public void setMaam(String maam) {
-        this.maam = maam;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
     public void setStudnr(int studnr) {
