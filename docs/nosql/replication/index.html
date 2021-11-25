@@ -12,19 +12,19 @@
     <title>4. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1637851729" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1637851729" rel="stylesheet">
-    <link href="../../css/theme.css?1637851729" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1637851729" rel="stylesheet">
+    <link href="../../css/nucleus.css?1637853524" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1637853524" rel="stylesheet">
+    <link href="../../css/theme.css?1637853524" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1637853524" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1637851729" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1637853524" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1637851729"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1637853524"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1637851729"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1637851729"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1637853524"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1637853524"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1637851729"></script>
+<script type="text/javascript" src="../../js/search.js?1637853524"></script>
 
     
   </div>
@@ -670,7 +670,7 @@
 </ul>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p><strong>Cross site origin fouten?</strong> - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file aanlevert vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Ga naar je CouchDB <a href="http://127.0.0.1:5984/_utils/#_config/couchdb@localhost/cors">admin config</a> (klik op tandwieltje), op <strong>CORS</strong>, en klik <em>&ldquo;enable&rdquo; (all domains)</em>.  Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar http://127.0.0.1:8000/oefening.html (Poort <code>8000</code>). Indien niet opgelost, ga naar volgende troubleshooting puntje:</p>
-<p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; links, en enable je <code>CORS</code> (Cross Origin Requests):</p>
+<p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; linkqs, en enable je <code>CORS</code> (Cross Origin Requests):</p>
 <p><img src="../../img/cors.png" alt=""></p>
 <p><strong>Access denied?</strong> - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: <code>new PouchDb(&quot;http://localhost:5984&quot;, { auth: { username: &quot;jef&quot;, password: &quot;lowie&quot;} })</code>. Zie <a href="https://pouchdb.com/api.html#create_database">options for remote databases</a> in de PouchDb API manual.</p>
 <p><strong>Mijn <code>find()</code> doet niks</strong>? - Merk op dat eender welke actie een <code>Promise</code> object teruggeeft. Dat wil zeggen dat de query &ldquo;onderweg&rdquo; is, en als je iets wilt uitvoeren wanneer dit klaar is (een <em>asynchroon</em> proces), moet dit via de <code>Promise</code> API, zoals <code>.then()</code>. Lees hierover in de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Mozilla MDN docs</a>.</p>
@@ -1019,17 +1019,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1637851729"></script>
-    <script src="../../js/jquery.sticky.js?1637851729"></script>
-    <script src="../../js/featherlight.min.js?1637851729"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1637851729"></script>
-    <script src="../../js/learn.js?1637851729"></script>
-    <script src="../../js/hugo-learn.js?1637851729"></script>
+    <script src="../../js/clipboard.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1637853524"></script>
+    <script src="../../js/jquery.sticky.js?1637853524"></script>
+    <script src="../../js/featherlight.min.js?1637853524"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1637853524"></script>
+    <script src="../../js/learn.js?1637853524"></script>
+    <script src="../../js/hugo-learn.js?1637853524"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1637851729"></script>
+            <script src="../../mermaid/mermaid.js?1637853524"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

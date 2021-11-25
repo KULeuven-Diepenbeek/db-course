@@ -12,19 +12,19 @@
     <title>1. JDBC en JDBI :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1637851729" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1637851729" rel="stylesheet">
-    <link href="../../css/theme.css?1637851729" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1637851729" rel="stylesheet">
+    <link href="../../css/nucleus.css?1637853524" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1637853524" rel="stylesheet">
+    <link href="../../css/theme.css?1637853524" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1637853524" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1637851729" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1637853524" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1637851729"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1637853524"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1637851729"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1637851729"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1637853524"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1637853524"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1637851729"></script>
+<script type="text/javascript" src="../../js/search.js?1637853524"></script>
 
     
   </div>
@@ -766,7 +766,7 @@ graph LR;
 <p>Er zijn een aantal aanpassingen nodig aan je <code>build.gradle</code> file om van een gewone Java applicatie over te schakelen naar een JavaFX-enabled applicatie. We hebben de <strong>application</strong> en <strong>javafxplugin</strong> plugins nodig onder <code>plugins {}</code>, verder ook een <code>javafx {}</code> property groep die bepaalt welke modules van JavaFX worden ingeladen:</p>
 <pre><code>plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
 }
 
 repositories {
@@ -774,16 +774,16 @@ repositories {
 }
 
 javafx {
-    version = &quot;13&quot;
+    version = &quot;15&quot;
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
-    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
-    compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.17.0'
-    compile group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.17.0'
-    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.24.1'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.24.1'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.24.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 group 'be.kuleuven.javasql'
@@ -796,6 +796,12 @@ mainClassName = 'be.kuleuven.javasql.SqlFxMain'
 <li>Controllers hebben een <code>public void initialize()</code> methode waar action binding in wordt gedefinieerd.</li>
 <li><code>.fxml</code> files beheer je met SceneBuilder. Vergeet hier niet de link naar de fully qualified name van je controller klasse te plaatsen als <code>AnchorPane</code> attribuut: <code>fx:controller=&quot;be.kuleuven.javasql.controller.StudentController&quot;</code>.</li>
 </ul>
+
+<div class="notices warning" ><p>Problemen met je JDK versie en Gradle versies? Raadpleeg de <a href="https://docs.gradle.org/current/userguide/compatibility.html">Gradle Compatibiility Matrix</a>. Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
+Je Gradle versie verhogen kan door de URL in <code>gradle/gradlew.properties</code> te wijzigen.<br/>
+De laatste versie van JavaFX is 17&mdash;backwards compatible met JDK15 en hoger.</p>
+</div>
+
 <p>Voor onze studententabel visualisatie hebben we een <code>TableView</code> nodig. Daarnaast eventueel <code>Button</code>s om te editeren/toe te voegen/&hellip; Vergeet de <code>fx:id</code> van de tabel niet:</p>
 <p><img src="../../img/javafx-id.jpg" alt=""></p>
 <p>Kolommen (en de inhoud van de rijen) definiëren we in de controller zelf:</p>
@@ -1197,17 +1203,17 @@ mainClassName = 'be.kuleuven.javasql.SqlFxMain'
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1637851729"></script>
-    <script src="../../js/jquery.sticky.js?1637851729"></script>
-    <script src="../../js/featherlight.min.js?1637851729"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1637851729"></script>
-    <script src="../../js/learn.js?1637851729"></script>
-    <script src="../../js/hugo-learn.js?1637851729"></script>
+    <script src="../../js/clipboard.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1637853524"></script>
+    <script src="../../js/jquery.sticky.js?1637853524"></script>
+    <script src="../../js/featherlight.min.js?1637853524"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1637853524"></script>
+    <script src="../../js/learn.js?1637853524"></script>
+    <script src="../../js/hugo-learn.js?1637853524"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1637851729"></script>
+            <script src="../../mermaid/mermaid.js?1637853524"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -12,19 +12,19 @@
     <title>1. Failures/Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1637851729" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1637851729" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1637851729" rel="stylesheet">
-    <link href="../../css/theme.css?1637851729" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1637851729" rel="stylesheet">
+    <link href="../../css/nucleus.css?1637853524" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1637853524" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1637853524" rel="stylesheet">
+    <link href="../../css/theme.css?1637853524" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1637853524" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1637851729" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1637853524" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1637851729"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1637853524"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1637851729"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1637851729"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1637853524"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1637853524"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1637851729"></script>
+<script type="text/javascript" src="../../js/search.js?1637853524"></script>
 
     
   </div>
@@ -682,7 +682,12 @@ INSERT INTO oeitiskapot;
     <span style="color:#00a8c8">assert</span> <span style="color:#111">count</span> <span style="color:#f92672">==</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
 </code></pre></div></div>
-<p><strong>Gradle</strong> dependency: <code>compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'</code> (Kotlin DSL stijl: <code>implementation(&quot;org.xerial:sqlite-jdbc:3.36.0.1&quot;)</code>).</p>
+<p><strong>Gradle</strong> dependency: laatste versie van <a href="https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc">sqlite-jdbc in mvnrepository.com</a>.</p>
+
+<div class="notices warning" ><p>Problemen met je JDK versie en Gradle versies? Raadpleeg de <a href="https://docs.gradle.org/current/userguide/compatibility.html">Gradle Compatibiility Matrix</a>. Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
+Je Gradle versie verhogen kan door de URL in <code>gradle/gradlew.properties</code> te wijzigen.</p>
+</div>
+
 <p>Merk op dat <code>SQLException</code> een <strong>checked exception</strong> is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een <code>try { } catch { } finally { }</code> block is dat in de finally je ook geen <code>close()</code> kan uitvoeren zonder opnieuw een <code>try</code> block te openen&hellip; Inception!</p>
 
 <div class="notices note" ><p>Vergelijk de Kotlin implementatie met de standaard Java versie. Als het aan komt op efficiënt gebruik van oudere Java APIs zoals de SQL methodes, is Kotlin véél eenvoudiger, zowel in gebruik als in leesbaarheid. Hier maken we handig gebruik van <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html">de use extension</a> om geen <code>close()</code> te moeten oproepen, en <code>with {}</code> om de connectionManager in te stellen zonder telkens <code>connection.</code> te moeten herhalen. Nog een voordeel: er is geen verschil tussen checked en unchecked exceptions. <br/>Het loont dus om ook voor dit vak te opteren voor Kotlin&mdash;maar het is niet verplicht.</p>
@@ -1069,17 +1074,17 @@ INSERT INTO oeitiskapot;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1637851729"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1637851729"></script>
-    <script src="../../js/jquery.sticky.js?1637851729"></script>
-    <script src="../../js/featherlight.min.js?1637851729"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1637851729"></script>
-    <script src="../../js/learn.js?1637851729"></script>
-    <script src="../../js/hugo-learn.js?1637851729"></script>
+    <script src="../../js/clipboard.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1637853524"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1637853524"></script>
+    <script src="../../js/jquery.sticky.js?1637853524"></script>
+    <script src="../../js/featherlight.min.js?1637853524"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1637853524"></script>
+    <script src="../../js/learn.js?1637853524"></script>
+    <script src="../../js/hugo-learn.js?1637853524"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1637851729"></script>
+            <script src="../../mermaid/mermaid.js?1637853524"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
