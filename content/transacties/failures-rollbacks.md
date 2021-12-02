@@ -162,7 +162,7 @@ fun initTables() {
 
 ```java
 private void initTables() throws Exception {
-    var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").getPath())));
+    var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").toURI())));
     System.out.println(sql);
 
     var s = connection.createStatement();
