@@ -82,7 +82,7 @@ fun createDb() {
     }
     // note that this requires "stdlib-jdk7" as kotlin runtime dependency
     connection.createStatement().use {
-      it.executeUpdate("CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")  
+      it.executeUpdate("CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")  
     }
 }
 fun verifyDbContents() {
@@ -99,7 +99,7 @@ public void createDb() throws SQLException {
     connection = DriverManager.getConnection("jdbc:sqlite:mydb.db");
     connection.setAutoCommit(false);
     var s = connection.createStatement();
-    s.executeUpdate("CREATE TALBE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")
+    s.executeUpdate("CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")
     s.close();
 }
 public void verifyDbContents() throws SQLException {
