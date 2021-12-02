@@ -12,19 +12,19 @@
     <title>1. Failures/Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1638436249" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1638436249" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1638436249" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1638436249" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1638436249" rel="stylesheet">
-    <link href="../../css/theme.css?1638436249" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1638436249" rel="stylesheet">
+    <link href="../../css/nucleus.css?1638438964" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1638438964" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1638438964" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1638438964" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1638438964" rel="stylesheet">
+    <link href="../../css/theme.css?1638438964" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1638438964" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1638436249" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1638438964" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1638436249"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1638438964"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1638436249"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1638436249"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1638438964"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1638438964"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1638436249"></script>
+<script type="text/javascript" src="../../js/search.js?1638438964"></script>
 
     
   </div>
@@ -717,7 +717,7 @@ Je Gradle versie verhogen kan door de URL in <code>gradle/gradlew.properties</co
     <span style="color:#111">}</span>
 <span style="color:#111">}</span>
 </code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">initTables</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#f92672">{</span>
-    <span style="color:#111">var</span> <span style="color:#111">sql</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">Files</span><span style="color:#f92672">.</span><span style="color:#75af00">readAllBytes</span><span style="color:#f92672">(</span><span style="color:#111">Paths</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#111">getClass</span><span style="color:#f92672">().</span><span style="color:#75af00">getResource</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;dbcreate.sql&#34;</span><span style="color:#f92672">).</span><span style="color:#75af00">getPath</span><span style="color:#f92672">())));</span>
+    <span style="color:#111">var</span> <span style="color:#111">sql</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#f92672">(</span><span style="color:#111">Files</span><span style="color:#f92672">.</span><span style="color:#75af00">readAllBytes</span><span style="color:#f92672">(</span><span style="color:#111">Paths</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#111">getClass</span><span style="color:#f92672">().</span><span style="color:#75af00">getResource</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;dbcreate.sql&#34;</span><span style="color:#f92672">).</span><span style="color:#75af00">toURI</span><span style="color:#f92672">())));</span>
     <span style="color:#111">System</span><span style="color:#f92672">.</span><span style="color:#75af00">out</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">sql</span><span style="color:#f92672">);</span>
 
     <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
@@ -1074,17 +1074,17 @@ Je Gradle versie verhogen kan door de URL in <code>gradle/gradlew.properties</co
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1638436249"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1638436249"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1638436249"></script>
-    <script src="../../js/jquery.sticky.js?1638436249"></script>
-    <script src="../../js/featherlight.min.js?1638436249"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1638436249"></script>
-    <script src="../../js/learn.js?1638436249"></script>
-    <script src="../../js/hugo-learn.js?1638436249"></script>
+    <script src="../../js/clipboard.min.js?1638438964"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1638438964"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1638438964"></script>
+    <script src="../../js/jquery.sticky.js?1638438964"></script>
+    <script src="../../js/featherlight.min.js?1638438964"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1638438964"></script>
+    <script src="../../js/learn.js?1638438964"></script>
+    <script src="../../js/hugo-learn.js?1638438964"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1638436249"></script>
+            <script src="../../mermaid/mermaid.js?1638438964"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
