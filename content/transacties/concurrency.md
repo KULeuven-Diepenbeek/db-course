@@ -4,7 +4,7 @@ title: 2. Concurrency
 
 ## Meerdere threads met toegang tot de DB
 
-Download het [concurrency startproject](/concurrency.zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random `Runnable` thread workers die `INSERT`, `UPDATE` en `DELETE` statements issuen naar de database. De volgorde is een deel van de chaos... 
+**Quickstart project**: `examples/concurrency` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random `Runnable` thread workers die `INSERT`, `UPDATE` en `DELETE` statements issuen naar de database. De volgorde is een deel van de chaos... 
 
 ### Oefeningen
 

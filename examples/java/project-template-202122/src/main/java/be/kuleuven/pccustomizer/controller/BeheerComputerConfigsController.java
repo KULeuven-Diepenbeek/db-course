@@ -52,7 +52,9 @@ public class BeheerComputerConfigsController {
             colIndex++;
         }
 
+
         for(int i = 0; i < 10; i++) {
+
             tblConfigs.getItems().add(FXCollections.observableArrayList("Budget PCke " + i, "Budget type 1", i*10 + "", i * 33 + ""));
         }
     }

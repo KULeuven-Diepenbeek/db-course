@@ -26,11 +26,17 @@ public class StudentRepositoryJdbi3Impl implements StudentRepository {
 
     @Override
     public void saveNewStudent(Student student) {
+        jdbi.withHandle(handle -> {
+            //handle.execute("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (?, ?, ?, ?)",
+            //        student.getStudnr(), student.getNaam(), student.getVoornaam(), student.isGoedBezig());
 
+            handle.createUpdate("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (:studnr, :naam, :voornaam, :goedBezig)")
+                    .bindBean(student)
+                    .execute();
+        });
     }
 
     @Override
     public void updateStudent(Student student) {
-
     }
 }

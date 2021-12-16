@@ -22,7 +22,7 @@ JPA is niet meer dan een specificatie die de **interfaces** en **annotaties** vo
 JPA 2.2 Gradle dependency: `compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'`
 
 
-## 2.2 Wat is Hibernate ORM? 
+## 2.2 Wat is Hibernate ORM?
 
 Volgens de [hibernate.org](http://hibernate.org/orm/) website:
 
@@ -206,7 +206,7 @@ select student0_.studnr as studnr1_0_, student0_.goedBezig as goedbezi2_0_, stud
 
 ### 2.2.3 Oefeningen
 
-**Quickstart project**: [hibernate-jpa-start.zip](/hibernate-jpa-start.zip)!
+**Quickstart project**: `examples/hibernate-jpa-start` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip))
 
 1. Het is opnieuw tijd voor onze studentendatabase. Open of kopiëer het project van [1. jdbc en jdbi](/apis/jdbc-jdbi/) (of start met het quickstart project). We voorzien een **derde implementatie** van de `StudentRepository` interface, naast de JDBC en Jdbi3 versies: `StudentRepositoryJpaImpl`. Probeer een nieuwe student te bewaren én daarna dezelfde student op te halen en af te drukken in sysout. Wat heb je daar weer voor nodig? (Scroll up!)
     - Een configuratiebestand in `resources/META-INF`.

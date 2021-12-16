@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"stud",
+				"studnr"
+			],
+			[
+				"p",
+				"preparedStatement"
+			],
+			[
 				"get",
 				"getAttribute"
 			],
@@ -75,575 +83,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "content/apis/_index.md",
-			"settings":
-			{
-				"buffer_size": 108,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-				[
-					8,
-					1,
-					"paste",
-					null,
-					"AgAAAFwAAAAAAAAAawAAAAAAAAAAAAAAawAAAAAAAABrAAAAAAAAABoAAAAtIHZhbmFmIDIzLzExLgotIDQgbGVzc2VuCg",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFwAAAAAAAAAdgAAAAAAAAAAAAAAAAAAAA"
-				]
-			]
-		},
-		{
-			"contents": "---\ntitle: \"4. Replication\"\nweight: 4\n---\n\n![](/img/pouchdb.jpg)\n\nMet _replication_ is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd [PouchDB](https://pouchdb.com). PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de \"master\" Couch database, zoals ook zichtbaar op de Pouch website:\n\n```javascript\nvar db = new PouchDB('dbname');\n\ndb.put({\n  _id: 'dave@gmail.com',\n  name: 'David',\n  age: 69\n});\n\ndb.changes().on('change', function() {\n  console.log('Ch-Ch-Changes');\n});\n\ndb.replicate.to('http://example.com/mydb');\n```\n\nWat is **het doel**? Replication op te zetten tussen de cursussen database van [2. document stores](/nosql/documentstores) en de PouchDB JS web-based client. Dat kan op verschillende manieren:\n\n1. Unidirectional replication. Zie [PouchDB Docs](https://pouchdb.com/guides/replication.html)\n2. Bidirectional replication.\n3. Live/Continuous replication. \n\nJe kan bovenstaande demo code onmiddellijk proberen op [https://pouchdb.com](https://pouchdb.com): Druk op `F12` of `CTRL+SHIFT+J` (Mac: `OPT+CMD+J`) of ga naar menu Developer -> Developer Tools van je favoriete browser. In de tab \"Console\" wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando's in uitvoeren: `var db = ...`. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips. \n\nGebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg `.html` bestand aan en kopieer de Quick Start code over:\n\n```html\n<script src=\"//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js\"></script>\n<script>\n  var db = new PouchDB('my_database');\n</script>\n```\n\nVergeet niet dat je lokale CouchDB waarschijnlijk draait op poort `5984`.\n\nEen uitgewerkt voorbeeld in begeleidende video:\n\n<div style=\"position: relative; padding-bottom: 62.5%; height: 0;\"><iframe src=\"https://www.loom.com/embed/fa612f2efe424da68d3d9aeb362ed5f1\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"></iframe></div>\n\n\n### Oefeningen\n\n1. Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met `db.put()`. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database. \n2. Maak een nieuw `.html` bestand aan, en stel een [remote URL](https://pouchdb.com/guides/databases.html) in om vanuit JS onmiddellijk op de remote DB te kunnen queryen. \n    - Gebruik de [Mango query API](https://pouchdb.com/guides/mango-queries.html) van Pouch om in CouchDB de oefeningen van [2. document stores](/nosql/documentstores) te implementeren. Opgelet: hier moet je een extra JS file voor includen, `pouchdb.find.js`, zoals aangegeven in de link, [downloadbaar hier](https://github.com/pouchdb/pouchdb/releases/) en zorg ervoor dat zowel PouchDB als de find versies van dezelfde release komen! \n    - Gebruik de [Mapreduce query API](https://pouchdb.com/guides/queries.html) van Pouch om in CouchDB de oefeningen van [3. advanced map/red. queries](/nosql/mapreduce) te implementeren. Merk op dat voor map **en** reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: `{ map: function(doc) { emit(...); }, reduce: '_count}`. Zie docs in link. \n3. Maak een nieuw `.html` bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via `console.log()`. Wordt het nieuwe document getoond? Gebruik deze boilerplate:\n\n```html\n<script src=\"https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js\"></script>\n<button id=\"btn\">Print docs</button>\n<pre id=\"pre\">\n...\n</pre>\n<script>\nfunction print(doc) {\n    document.querySelector('#pre').innerHTML = JSON.stringify(doc);\n}\n\n  var db = new PouchDB('my_database');\n  // do your setup here\n\n  function queryDocs() {\n     // do your thing here\n     print('goed bezig');\n  }\n\ndocument.querySelector(\"#btn\").addEventListener(\"click\", queryDocs);\n</script>\n```\n\n**Tips**: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met `.put()`, maar replication _nog niet_ aan staat, kan het handig zijn om met Chrome/Opera/... Dev Tools te kijken naar de **local storage** databases. Deze zijn terug te vinden in de tab \"Application\", bij \"IndexedDB\":\n\n![](/img/localstorage.jpg)\n\nDe volgende elementen zijn te herkennen in bovenstaande screenshot:\n\n- Ik heb een \"`mydb`\" object aangemaakt (DB naam `_pouch_mydb`)\n- Onder element \"`by-sequence`\" kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam \"David\" werd toegevoegd. \n\n### Troubleshooting\n\n**Cross site origin fouten?** - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar `127.0.0.1` gaat, en je browser de `.html` file aanlevert vanuit `file:///` wat technisch gezien niet dezelfde hostname is. Ga naar je CouchDB [admin config](http://127.0.0.1:5984/_utils/#_config/couchdb@localhost/cors) (klik op tandwieltje), op **CORS**, en klik _\"enable\" (all domains)_.  Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS [in de browser](https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn) (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ `python -m http.server` in de directory van je html bestand. Ga dan naar http://127.0.0.1:8000/oefening.html (Poort `8000`). Indien niet opgelost, ga naar volgende troubleshooting puntje:\n\n**Connecton errors?** - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het \"tandwieltje\" linkqs, en enable je `CORS` (Cross Origin Requests):\n\n![](/img/cors.png)\n\n**Access denied?** - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: `new PouchDb(\"http://localhost:5984\", { auth: { username: \"jef\", password: \"lowie\"} })`. Zie [options for remote databases](https://pouchdb.com/api.html#create_database) in de PouchDb API manual.\n\n**Mijn `find()` doet niks**? - Merk op dat eender welke actie een `Promise` object teruggeeft. Dat wil zeggen dat de query \"onderweg\" is, en als je iets wilt uitvoeren wanneer dit klaar is (een _asynchroon_ proces), moet dit via de `Promise` API, zoals `.then()`. Lees hierover in de [Mozilla MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).\n\n**Ik krijg rare javascript errors?** - Is je `pouch.min.js` en `pouch.find.min.js` versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB [Github Releases pagina](https://github.com/pouchdb/pouchdb/releases/).\n\n**Ik krijg 404 object not found bij put?** - Heb je je remote DB opgezet naar een onbestaande database, zoals `/hallokes`? Die moet je eerst _zelf aanmaken_ in de CouchDB admin pagina! Anders kan je geen `PUT` commando's op die URL opsturen. \n\n**Uncaught in Promise request PUT not supported?** - In `serviceWorker.js`? Ben je op de pouchdb.com website in de console dingen aan het testen? Sommige scripts, zoals deze, vangen `PUT` commando's op en crashen dan. Je object zal wel correct zijn bewaard, dit mag je negeren. \n\n### Denkvragen\n\n- Heb je een verschil gemerkt tussen bidirectionele en live replication in PouchDB? Probeer beide instellingen uit en kijk in de Chrome/Opera/Mozilla Dev Tools van je browser naar de uitgaande HTTP requests. Op welk moment gebeurt dit? Welke `POST`/`GET` metadata wordt verstuurd?\n- Wat is het verschil tussen in Pouch alle documenten op te vragen en daarna als array MapReduces toe te passen, of dit in de Mango query rechtstreeks te doen?\n",
-			"file": "content/nosql/replication.md",
-			"file_size": 8349,
-			"file_write_time": 132823174145702381,
-			"settings":
-			{
-				"buffer_size": 8350,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-				[
-					18,
-					1,
-					"insert",
-					{
-						"characters": "1"
-					},
-					"AgAAAGYWAAAAAAAAZxYAAAAAAAAAAAAAZxYAAAAAAABnFgAAAAAAAAkAAABsb2NhbGhvc3Q",
-					"AQAAAAAAAAABAAAAZhYAAAAAAABvFgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					20,
-					1,
-					"insert",
-					{
-						"characters": "2"
-					},
-					"AQAAAGcWAAAAAAAAaBYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZxYAAAAAAABnFgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					22,
-					1,
-					"insert",
-					{
-						"characters": "7.0.0.1"
-					},
-					"BwAAAGgWAAAAAAAAaRYAAAAAAAAAAAAAaRYAAAAAAABqFgAAAAAAAAAAAABqFgAAAAAAAGsWAAAAAAAAAAAAAGsWAAAAAAAAbBYAAAAAAAAAAAAAbBYAAAAAAABtFgAAAAAAAAAAAABtFgAAAAAAAG4WAAAAAAAAAAAAAG4WAAAAAAAAbxYAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaBYAAAAAAABoFgAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					39,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAABMVAAAAAAAAFBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAExUAAAAAAAATFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					42,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAABMVAAAAAAAAFBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAExUAAAAAAAATFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					46,
-					1,
-					"insert",
-					{
-						"characters": "G"
-					},
-					"AQAAABMVAAAAAAAAFBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAExUAAAAAAAATFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					48,
-					1,
-					"insert",
-					{
-						"characters": "a"
-					},
-					"AQAAABQVAAAAAAAAFRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAFBUAAAAAAAAUFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					50,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAABUVAAAAAAAAFhUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAFRUAAAAAAAAVFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					52,
-					1,
-					"insert",
-					{
-						"characters": "naar"
-					},
-					"BAAAABYVAAAAAAAAFxUAAAAAAAAAAAAAFxUAAAAAAAAYFQAAAAAAAAAAAAAYFQAAAAAAABkVAAAAAAAAAAAAABkVAAAAAAAAGhUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAFhUAAAAAAAAWFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					53,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAABoVAAAAAAAAGxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGhUAAAAAAAAaFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					57,
-					1,
-					"insert_snippet",
-					{
-						"contents": "*$0*"
-					},
-					"AQAAABsVAAAAAAAAHRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGxUAAAAAAAAbFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					60,
-					2,
-					"left_delete",
-					null,
-					"AgAAABwVAAAAAAAAHBUAAAAAAAABAAAAKhsVAAAAAAAAGxUAAAAAAAABAAAAKg",
-					"AQAAAAAAAAABAAAAHRUAAAAAAAAdFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					61,
-					1,
-					"insert",
-					{
-						"characters": "c"
-					},
-					"AQAAABsVAAAAAAAAHBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGxUAAAAAAAAbFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					62,
-					1,
-					"left_delete",
-					null,
-					"AQAAABsVAAAAAAAAGxUAAAAAAAABAAAAYw",
-					"AQAAAAAAAAABAAAAHBUAAAAAAAAcFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					63,
-					1,
-					"insert",
-					{
-						"characters": "je"
-					},
-					"AgAAABsVAAAAAAAAHBUAAAAAAAAAAAAAHBUAAAAAAAAdFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAGxUAAAAAAAAbFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					64,
-					1,
-					"insert",
-					{
-						"characters": " Couchd"
-					},
-					"BwAAAB0VAAAAAAAAHhUAAAAAAAAAAAAAHhUAAAAAAAAfFQAAAAAAAAAAAAAfFQAAAAAAACAVAAAAAAAAAAAAACAVAAAAAAAAIRUAAAAAAAAAAAAAIRUAAAAAAAAiFQAAAAAAAAAAAAAiFQAAAAAAACMVAAAAAAAAAAAAACMVAAAAAAAAJBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAHRUAAAAAAAAdFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					65,
-					1,
-					"left_delete",
-					null,
-					"AQAAACMVAAAAAAAAIxUAAAAAAAABAAAAZA",
-					"AQAAAAAAAAABAAAAJBUAAAAAAAAkFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					66,
-					1,
-					"insert",
-					{
-						"characters": "DB"
-					},
-					"AgAAACMVAAAAAAAAJBUAAAAAAAAAAAAAJBUAAAAAAAAlFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAIxUAAAAAAAAjFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					67,
-					1,
-					"insert",
-					{
-						"characters": " admin"
-					},
-					"BgAAACUVAAAAAAAAJhUAAAAAAAAAAAAAJhUAAAAAAAAnFQAAAAAAAAAAAAAnFQAAAAAAACgVAAAAAAAAAAAAACgVAAAAAAAAKRUAAAAAAAAAAAAAKRUAAAAAAAAqFQAAAAAAAAAAAAAqFQAAAAAAACsVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJRUAAAAAAAAlFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					68,
-					1,
-					"insert",
-					{
-						"characters": " config"
-					},
-					"BwAAACsVAAAAAAAALBUAAAAAAAAAAAAALBUAAAAAAAAtFQAAAAAAAAAAAAAtFQAAAAAAAC4VAAAAAAAAAAAAAC4VAAAAAAAALxUAAAAAAAAAAAAALxUAAAAAAAAwFQAAAAAAAAAAAAAwFQAAAAAAADEVAAAAAAAAAAAAADEVAAAAAAAAMhUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAKxUAAAAAAAArFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					69,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAADIVAAAAAAAAMxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAMhUAAAAAAAAyFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					70,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAADMVAAAAAAAANRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAMxUAAAAAAAAzFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					71,
-					1,
-					"insert",
-					{
-						"characters": "klik"
-					},
-					"BAAAADQVAAAAAAAANRUAAAAAAAAAAAAANRUAAAAAAAA2FQAAAAAAAAAAAAA2FQAAAAAAADcVAAAAAAAAAAAAADcVAAAAAAAAOBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANBUAAAAAAAA0FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					72,
-					1,
-					"insert",
-					{
-						"characters": " optan"
-					},
-					"BgAAADgVAAAAAAAAORUAAAAAAAAAAAAAORUAAAAAAAA6FQAAAAAAAAAAAAA6FQAAAAAAADsVAAAAAAAAAAAAADsVAAAAAAAAPBUAAAAAAAAAAAAAPBUAAAAAAAA9FQAAAAAAAAAAAAA9FQAAAAAAAD4VAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAOBUAAAAAAAA4FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					73,
-					3,
-					"left_delete",
-					null,
-					"AwAAAD0VAAAAAAAAPRUAAAAAAAABAAAAbjwVAAAAAAAAPBUAAAAAAAABAAAAYTsVAAAAAAAAOxUAAAAAAAABAAAAdA",
-					"AQAAAAAAAAABAAAAPhUAAAAAAAA+FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					74,
-					1,
-					"insert",
-					{
-						"characters": " tandwieltje"
-					},
-					"DAAAADsVAAAAAAAAPBUAAAAAAAAAAAAAPBUAAAAAAAA9FQAAAAAAAAAAAAA9FQAAAAAAAD4VAAAAAAAAAAAAAD4VAAAAAAAAPxUAAAAAAAAAAAAAPxUAAAAAAABAFQAAAAAAAAAAAABAFQAAAAAAAEEVAAAAAAAAAAAAAEEVAAAAAAAAQhUAAAAAAAAAAAAAQhUAAAAAAABDFQAAAAAAAAAAAABDFQAAAAAAAEQVAAAAAAAAAAAAAEQVAAAAAAAARRUAAAAAAAAAAAAARRUAAAAAAABGFQAAAAAAAAAAAABGFQAAAAAAAEcVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAOxUAAAAAAAA7FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					76,
-					1,
-					"insert",
-					{
-						"characters": ","
-					},
-					"AQAAAEgVAAAAAAAASRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASBUAAAAAAABIFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					77,
-					1,
-					"insert",
-					{
-						"characters": " en"
-					},
-					"AwAAAEkVAAAAAAAAShUAAAAAAAAAAAAAShUAAAAAAABLFQAAAAAAAAAAAABLFQAAAAAAAEwVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASRUAAAAAAABJFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					78,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAEwVAAAAAAAATRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATBUAAAAAAABMFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					80,
-					3,
-					"left_delete",
-					null,
-					"AwAAAEwVAAAAAAAATBUAAAAAAAABAAAAIEsVAAAAAAAASxUAAAAAAAABAAAAbkoVAAAAAAAAShUAAAAAAAABAAAAZQ",
-					"AQAAAAAAAAABAAAATRUAAAAAAABNFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					81,
-					1,
-					"insert",
-					{
-						"characters": "op"
-					},
-					"AgAAAEoVAAAAAAAASxUAAAAAAAAAAAAASxUAAAAAAABMFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAShUAAAAAAABKFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					82,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAEwVAAAAAAAATRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATBUAAAAAAABMFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					83,
-					1,
-					"insert_snippet",
-					{
-						"contents": "*$0*"
-					},
-					"AQAAAE0VAAAAAAAATxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATRUAAAAAAABNFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					85,
-					1,
-					"insert",
-					{
-						"characters": "CORSE"
-					},
-					"BQAAAE8VAAAAAAAAUBUAAAAAAAAAAAAAUBUAAAAAAABRFQAAAAAAAAAAAABRFQAAAAAAAFIVAAAAAAAAAAAAAFIVAAAAAAAAUxUAAAAAAAAAAAAAUxUAAAAAAABUFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATxUAAAAAAABPFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					86,
-					1,
-					"left_delete",
-					null,
-					"AQAAAFMVAAAAAAAAUxUAAAAAAAABAAAARQ",
-					"AQAAAAAAAAABAAAAVBUAAAAAAABUFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					87,
-					1,
-					"insert",
-					{
-						"characters": "**,"
-					},
-					"AwAAAFMVAAAAAAAAVBUAAAAAAAAAAAAAVBUAAAAAAABVFQAAAAAAAAAAAABVFQAAAAAAAFYVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAUxUAAAAAAABTFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					88,
-					1,
-					"insert",
-					{
-						"characters": " en"
-					},
-					"AwAAAFYVAAAAAAAAVxUAAAAAAAAAAAAAVxUAAAAAAABYFQAAAAAAAAAAAABYFQAAAAAAAFkVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAVhUAAAAAAABWFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					89,
-					1,
-					"insert",
-					{
-						"characters": " klik"
-					},
-					"BQAAAFkVAAAAAAAAWhUAAAAAAAAAAAAAWhUAAAAAAABbFQAAAAAAAAAAAABbFQAAAAAAAFwVAAAAAAAAAAAAAFwVAAAAAAAAXRUAAAAAAAAAAAAAXRUAAAAAAABeFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAWRUAAAAAAABZFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					90,
-					1,
-					"insert",
-					{
-						"characters": " e"
-					},
-					"AgAAAF4VAAAAAAAAXxUAAAAAAAAAAAAAXxUAAAAAAABgFQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXhUAAAAAAABeFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					91,
-					2,
-					"left_delete",
-					null,
-					"AgAAAF8VAAAAAAAAXxUAAAAAAAABAAAAZV4VAAAAAAAAXhUAAAAAAAABAAAAIA",
-					"AQAAAAAAAAABAAAAYBUAAAAAAABgFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					92,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAF4VAAAAAAAAXxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXhUAAAAAAABeFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					93,
-					1,
-					"insert_snippet",
-					{
-						"contents": "\"$0\""
-					},
-					"AQAAAF8VAAAAAAAAYRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXxUAAAAAAABfFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					94,
-					1,
-					"insert",
-					{
-						"characters": "enable"
-					},
-					"BgAAAGAVAAAAAAAAYRUAAAAAAAAAAAAAYRUAAAAAAABiFQAAAAAAAAAAAABiFQAAAAAAAGMVAAAAAAAAAAAAAGMVAAAAAAAAZBUAAAAAAAAAAAAAZBUAAAAAAABlFQAAAAAAAAAAAABlFQAAAAAAAGYVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAYBUAAAAAAABgFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					97,
-					1,
-					"insert",
-					{
-						"characters": " "
-					},
-					"AQAAAGcVAAAAAAAAaBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAZxUAAAAAAABnFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					98,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAAGgVAAAAAAAAahUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaBUAAAAAAABoFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					99,
-					1,
-					"insert",
-					{
-						"characters": "all"
-					},
-					"AwAAAGkVAAAAAAAAahUAAAAAAAAAAAAAahUAAAAAAABrFQAAAAAAAAAAAABrFQAAAAAAAGwVAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAaRUAAAAAAABpFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					100,
-					1,
-					"insert",
-					{
-						"characters": " domains"
-					},
-					"CAAAAGwVAAAAAAAAbRUAAAAAAAAAAAAAbRUAAAAAAABuFQAAAAAAAAAAAABuFQAAAAAAAG8VAAAAAAAAAAAAAG8VAAAAAAAAcBUAAAAAAAAAAAAAcBUAAAAAAABxFQAAAAAAAAAAAABxFQAAAAAAAHIVAAAAAAAAAAAAAHIVAAAAAAAAcxUAAAAAAAAAAAAAcxUAAAAAAAB0FQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAbBUAAAAAAABsFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					102,
-					1,
-					"insert",
-					{
-						"characters": "."
-					},
-					"AQAAAHUVAAAAAAAAdhUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAdRUAAAAAAAB1FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					110,
-					1,
-					"insert",
-					{
-						"characters": "_"
-					},
-					"AQAAAF8VAAAAAAAAYBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAXxUAAAAAAABfFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					114,
-					1,
-					"insert",
-					{
-						"characters": "_"
-					},
-					"AQAAAHYVAAAAAAAAdxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAdhUAAAAAAAB2FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					125,
-					1,
-					"insert",
-					{
-						"characters": "["
-					},
-					"AQAAACYVAAAAAAAAJxUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAJhUAAAAAAAAmFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					128,
-					1,
-					"insert",
-					{
-						"characters": "]"
-					},
-					"AQAAADMVAAAAAAAANBUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAMxUAAAAAAAAzFQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					130,
-					1,
-					"insert_snippet",
-					{
-						"contents": "($0)"
-					},
-					"AQAAADQVAAAAAAAANhUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANBUAAAAAAAA0FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					134,
-					1,
-					"paste",
-					null,
-					"AQAAADUVAAAAAAAAcRUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAANRUAAAAAAAA1FQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					152,
-					1,
-					"insert",
-					{
-						"characters": "q"
-					},
-					"AQAAAHEYAAAAAAAAchgAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAcRgAAAAAAABxGAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -766,9 +205,13 @@
 	],
 	"file_history":
 	[
+		"/Users/wgroeneveld/development/kul/db-course/content/apis/_index.md",
+		"/Users/wgroeneveld/development/kul/db-course/content/transacties/failures-rollbacks.md",
+		"/Users/wgroeneveld/Desktop/test.java",
+		"/Users/wgroeneveld/development/kul/db-course/content/apis/jdbc-jdbi.md",
+		"/Users/wgroeneveld/development/kul/db-course/content/nosql/replication.md",
 		"/Users/wgroeneveld/development/kul/db-course/content/nosql/_index.md",
 		"/Users/wgroeneveld/development/kul/db-course/content/transacties/_index.md",
-		"/Users/wgroeneveld/development/kul/db-course/content/nosql/replication.md",
 		"/Users/wgroeneveld/development/kul/db-course/static/slides/db/slide-1.md",
 		"/Users/wgroeneveld/development/kul/db-course/docs/slides/cpp/slide-1.md",
 		"/Users/wgroeneveld/development/kul/db-course/examples/java/couchclient/src/main/resources/couchdb.properties",
@@ -889,15 +332,11 @@
 		"/Users/wgroeneveld/development/kul/osc/osc-labs/tasks/c-integrated-start_201920.c",
 		"/Users/wgroeneveld/development/kul/osc/osc-course/content/appendix/management-201920.md",
 		"/Users/wgroeneveld/development/kul/osc/osc-course/content/appendix/management.md",
-		"/Users/wgroeneveld/development/kul/osc/osc-exercises/ch1_c/combinational.c",
-		"/Users/wgroeneveld/development/kul/osc/osc-exercises/.gitignore",
-		"/Users/wgroeneveld/development/kul/osc/osc-course/static/css/theme-kul.css",
-		"/Users/wgroeneveld/development/kul/osc/osc-course/content/ch1-c/ecosystems-labs.md",
-		"/Users/wgroeneveld/Desktop/osc-demo/demo.c"
+		"/Users/wgroeneveld/development/kul/osc/osc-exercises/ch1_c/combinational.c"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
@@ -914,6 +353,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"talbe",
+			"table",
+			"gradle",
 			"localhost",
 			"herknn",
 			"mag je negeren",
@@ -941,95 +383,12 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "content/apis/_index.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 108,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								108,
-								108
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 0,
-								"count": 14,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"git_gutter_is_enabled": true,
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/MarkdownEditing/syntaxes/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "content/nosql/replication.md",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8350,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7892,
-								7892
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 139,
-								"count": 987,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"git_gutter_is_enabled": true,
-							"mde.match_heading_hashes": false,
-							"syntax": "Packages/MarkdownEditing/syntaxes/Markdown.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1308.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 42.0
 	},
 	"input":
 	{
@@ -1082,7 +441,7 @@
 	"project": "cpp-course.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 80.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1091,6 +450,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"failures",
+				"content/transacties/failures-rollbacks.md"
+			],
 			[
 				"replica",
 				"content/nosql/replication.md"
@@ -1321,16 +684,20 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "phd",
+		"last_filter": "brain",
 		"selected_items":
 		[
 			[
-				"phd",
-				"~/development/phd/phd.sublime-project"
+				"brain",
+				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"brai",
 				"~/development/brainbaking/brainbaking.sublime-project"
+			],
+			[
+				"phd",
+				"~/development/phd/phd.sublime-project"
 			],
 			[
 				"bra",
@@ -1351,10 +718,6 @@
 			[
 				"appd-",
 				"~/development/kul/appdev-course/appdev-course.sublime-project"
-			],
-			[
-				"brain",
-				"~/development/brainbaking/brainbaking.sublime-project"
 			],
 			[
 				"osc-c",

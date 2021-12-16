@@ -18,7 +18,9 @@ public class StudentRepositoryJpaImpl implements StudentRepository {
 
     @Override
     public void saveNewStudent(Student student) {
-        throw new UnsupportedOperationException("TODO");
+
+        entityManager.persist(student);
+
     }
 
     @Override
