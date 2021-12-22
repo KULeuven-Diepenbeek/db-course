@@ -10,6 +10,9 @@ public class Student {
     private Docent docent;
 
     @Column
+    private String vak;
+
+    @Column
     private String naam;
     @Column
     private String voornaam;

@@ -1,10 +1,23 @@
 package be.kuleuven.studenthibernate.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
 
+    @Column
     private String naam;
+    @Column
     private String voornaam;
+    @Column
     private boolean goedBezig;
+
+    @Column
+    @Id
+    @GeneratedValue
     private int studentenNummer;
 
     public Student() {

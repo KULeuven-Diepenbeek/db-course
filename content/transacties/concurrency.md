@@ -4,39 +4,27 @@ title: 2. Concurrency
 
 ## Meerdere threads met toegang tot de DB
 
-**Quickstart project**: `examples/concurrency` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random `Runnable` thread workers die `INSERT`, `UPDATE` en `DELETE` statements issuen naar de database. De volgorde is een deel van de chaos... 
+**Quickstart project**: `examples/concurrency` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een `Runnable` thread worker die `INSERT`, `UPDATE` of `DELETE` statements issuen naar de database. Het probleem wat we hier proberen te simuleren is **DIRTY READS**.
+
+Begeleidend filmpje:
+
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
 
 ### Oefeningen
 
-1. Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Zijn de queries telkens dezelfde, in dezelfde volgorde? 
-2. Transacties op elke query/statement toepassen is een eenvoudige oplossing maar lang niet de beste: de toegevoegde grote performantie hit kan bij miljoenen requests de applicatie volledig tot stilstand doen brengen. Welke repository calls zouden in een transactie moeten worden uitgevoerd, en bij welke calls is dat _niet_ nodig?
-3. Speel met de parameter van `setAutoCommit()` in de `ConnectionManager`. Zie je een verschil? 
-4. Speel met de parameter van `setTransactionIsolation()` op de connection. Welke vier mogelijke waardes worden ondersteund door SQLite? Wat is volgens de [Oracle docs](https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html) het verschil tussen bijvoorbeeld `READ_UNCOMMITTED` en `READ_COMMITTED`? Kan je uit de context opmaken wat een "_dirty read_" is?
-5. De [sqlite-jdbc driver](https://github.com/xerial/sqlite-jdbc) die we gebruiken heeft nog een aantal verborgen opties, waarvan `setTransactionMode` en `setLockingMode` het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een `SQLiteConfig` object aan te maken en op de volgende manier mee te geven aan de `DriverManager`:
+1. Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Waarom wordt de student wel of niet in de `SELECT` teruggegeven?
+2. Speel met de parameter van `setAutoCommit()` in de `ConnectionManager`. Zie je een verschil? 
+3. Speel met de parameter van `setTransactionIsolation()` op de connection. Merk op dat SQLite enkel `SERIALIZABLE` en `READ_UNCOMMITED` ondersteund, maar het onmogelijk is om dirty reads te simuleren. Zie ook https://github.com/changemyminds/Transaction-Isolation-Level-Issue en de [Oracle docs](https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html) voor het verschil tussen bijvoorbeeld `READ_UNCOMMITTED` en `READ_COMMITTED`? Kan je uit de context opmaken wat een "_dirty read_" is?
+4. Probeer naast een dirty read ook een **PHANTOM READ** te simuleren met de H2 setup van bovenstaand project. 
+5. Maak in een `for {}` loop tientallen verschillende threads aan en laat ze verschillende acties op de DB uitvoeren (lezen, schrijven, updaten, ...). Loopt er iets mis? Wat kan je **programmatorisch** doen om de chaos tot het minimum te beperken?
 
-<div class="devselect">
+{{% notice note %}}
+Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite's [shared cache mode](https://www.sqlite.org/sharedcache.html). Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/>
+De H2 implementatie wordt ook gebruikt bij de SESsy library---zie [database APIs - extras](/apis/ex/).
+{{% /notice %}}
 
-```kt
-val config = SQLiteConfig().apply {
-    setX(val1)
-    setY(val2)
-}
-connection = DriverManager.getConnection("jdbc:sqlite:...", config.toProperties())
-```
-
-```java
-SQLiteConfig config = new SQLiteConfig();
-config.setX(val1);
-config.setY(val2);
-connection = DriverManager.getConnection("jdbc:sqlite:...", config.toProperties());
-```
-</div>
-
-**Extra**:
-
-- Implementeer zelf de nodige Jdbi3 details in `StudentRepositoryJdbi3Impl`. In Jdbi stel je de transaction isolation level in met `.inTransaction(TransactionIsolationLevel.SERIALIZABLE, ...)` (zie [docs](https://jdbi.org)).
-
-**Tip**: SQLite config, transactie en locking modes zijn uitgelegd in de [SQLite docs, pragma pagina](https://sqlite.org/pragma.html). 
 
 ### Connection Pooling
 

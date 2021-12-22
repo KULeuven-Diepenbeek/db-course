@@ -16,23 +16,20 @@ public class Main {
         var repo = new StudentRepositoryJpaImpl(entityManager);
 
         // TODO pruts hier om in 'productie' te testen - enkel NADAT testen in orde zijn!
-
-        isJosEr(repo);
-
         System.out.println("Persisting Jos Lowiemans, Truus Van Hooibergen...");
         var jos = new Student("Lowiemans", "Jos", true);
         var truus = new Student("Van Hooibergen", "Truus", true);
+
         repo.saveNewStudent(truus);
         repo.saveNewStudent(jos);
-        System.out.println("Truus heeft ID gekregen: " + truus.getStudentenNummer());
-        System.out.println("Jos heeft ID gekregen: " + jos.getStudentenNummer());
 
         isJosEr(repo);
     }
 
     private static void isJosEr(StudentRepositoryJpaImpl repo) {
         System.out.println("Is Jos er?");
-        for(var eenStudent : repo.getStudentsByName("Lowiemans")) {
+        var studenten = repo.getStudentsByName("Lowiemans");
+        for(var eenStudent : studenten) {
             System.out.println(eenStudent);
         }
     }

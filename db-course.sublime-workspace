@@ -83,6 +83,698 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "content/apis/jpa.md",
+			"settings":
+			{
+				"buffer_size": 21148,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"mde_match_heading_hashes",
+					null,
+					"AQAAAKAGAAAAAAAAvQYAAAAAAAAeAAAAIyMgMi4yIFdhdCBpcyBIaWJlcm5hdGUgT1JNPyAK",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					27,
+					1,
+					"left_delete",
+					null,
+					"AQAAAB0xAAAAAAAAHTEAAAAAAAABAAAAWw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAeMQAAAAAAAB4xAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "`"
+					},
+					"AQAAAB0xAAAAAAAAHjEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAdMQAAAAAAAB0xAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					33,
+					1,
+					"insert",
+					{
+						"characters": "`"
+					},
+					"AQAAADExAAAAAAAAMjEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAxMQAAAAAAADExAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAADIxAAAAAAAAMzEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyMQAAAAAAADIxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"left_delete",
+					null,
+					"AQAAADMxAAAAAAAAMzEAAAAAAAAgAAAALnppcF0oL2hpYmVybmF0ZS1qcGEtc3RhcnQuemlwKSE",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzMQAAAAAAAFMxAAAAAAAA////////738"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": "in"
+					},
+					"AgAAADMxAAAAAAAANDEAAAAAAAAAAAAANDEAAAAAAAA1MQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzMQAAAAAAADMxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAADUxAAAAAAAANjEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA1MQAAAAAAADUxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					50,
+					1,
+					"insert",
+					{
+						"characters": "de"
+					},
+					"AgAAADYxAAAAAAAANzEAAAAAAAAAAAAANzEAAAAAAAA4MQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA2MQAAAAAAADYxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAADgxAAAAAAAAOTEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4MQAAAAAAADgxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					52,
+					1,
+					"insert_snippet",
+					{
+						"contents": "[$0]"
+					},
+					"AQAAADkxAAAAAAAAOzEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA5MQAAAAAAADkxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": "cursus"
+					},
+					"BgAAADoxAAAAAAAAOzEAAAAAAAAAAAAAOzEAAAAAAAA8MQAAAAAAAAAAAAA8MQAAAAAAAD0xAAAAAAAAAAAAAD0xAAAAAAAAPjEAAAAAAAAAAAAAPjEAAAAAAAA/MQAAAAAAAAAAAAA/MQAAAAAAAEAxAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA6MQAAAAAAADoxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					54,
+					1,
+					"insert",
+					{
+						"characters": " repository"
+					},
+					"CwAAAEAxAAAAAAAAQTEAAAAAAAAAAAAAQTEAAAAAAABCMQAAAAAAAAAAAABCMQAAAAAAAEMxAAAAAAAAAAAAAEMxAAAAAAAARDEAAAAAAAAAAAAARDEAAAAAAABFMQAAAAAAAAAAAABFMQAAAAAAAEYxAAAAAAAAAAAAAEYxAAAAAAAARzEAAAAAAAAAAAAARzEAAAAAAABIMQAAAAAAAAAAAABIMQAAAAAAAEkxAAAAAAAAAAAAAEkxAAAAAAAASjEAAAAAAAAAAAAASjEAAAAAAABLMQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABAMQAAAAAAAEAxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					56,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAEwxAAAAAAAATjEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMMQAAAAAAAEwxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					67,
+					1,
+					"insert",
+					{
+						"characters": "examples/"
+					},
+					"CQAAAB4xAAAAAAAAHzEAAAAAAAAAAAAAHzEAAAAAAAAgMQAAAAAAAAAAAAAgMQAAAAAAACExAAAAAAAAAAAAACExAAAAAAAAIjEAAAAAAAAAAAAAIjEAAAAAAAAjMQAAAAAAAAAAAAAjMQAAAAAAACQxAAAAAAAAAAAAACQxAAAAAAAAJTEAAAAAAAAAAAAAJTEAAAAAAAAmMQAAAAAAAAAAAAAmMQAAAAAAACcxAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAeMQAAAAAAAB4xAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					70,
+					1,
+					"paste",
+					null,
+					"AQAAAFYxAAAAAAAAhjEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWMQAAAAAAAFYxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					72,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAIcxAAAAAAAAiDEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHMQAAAAAAAIcxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					73,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAIgxAAAAAAAAijEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACIMQAAAAAAAIgxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": "do"
+					},
+					"AgAAAIkxAAAAAAAAijEAAAAAAAAAAAAAijEAAAAAAACLMQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACJMQAAAAAAAIkxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					75,
+					2,
+					"left_delete",
+					null,
+					"AgAAAIoxAAAAAAAAijEAAAAAAAABAAAAb4kxAAAAAAAAiTEAAAAAAAABAAAAZA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACLMQAAAAAAAIsxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					76,
+					1,
+					"insert_snippet",
+					{
+						"contents": "[$0]"
+					},
+					"AQAAAIkxAAAAAAAAizEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACJMQAAAAAAAIkxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					77,
+					1,
+					"insert",
+					{
+						"characters": "download"
+					},
+					"CAAAAIoxAAAAAAAAizEAAAAAAAAAAAAAizEAAAAAAACMMQAAAAAAAAAAAACMMQAAAAAAAI0xAAAAAAAAAAAAAI0xAAAAAAAAjjEAAAAAAAAAAAAAjjEAAAAAAACPMQAAAAAAAAAAAACPMQAAAAAAAJAxAAAAAAAAAAAAAJAxAAAAAAAAkTEAAAAAAAAAAAAAkTEAAAAAAACSMQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACKMQAAAAAAAIoxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					78,
+					1,
+					"insert",
+					{
+						"characters": " zip"
+					},
+					"BAAAAJIxAAAAAAAAkzEAAAAAAAAAAAAAkzEAAAAAAACUMQAAAAAAAAAAAACUMQAAAAAAAJUxAAAAAAAAAAAAAJUxAAAAAAAAljEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACSMQAAAAAAAJIxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					80,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAJcxAAAAAAAAmTEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACXMQAAAAAAAJcxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					84,
+					1,
+					"paste",
+					null,
+					"AQAAAJgxAAAAAAAA5DEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACYMQAAAAAAAJgxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					89,
+					1,
+					"insert",
+					{
+						"characters": "repo"
+					},
+					"BAAAAJMxAAAAAAAAlDEAAAAAAAAAAAAAlDEAAAAAAACVMQAAAAAAAAAAAACVMQAAAAAAAJYxAAAAAAAAAAAAAJYxAAAAAAAAlzEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACTMQAAAAAAAJMxAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					90,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAJcxAAAAAAAAmDEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACXMQAAAAAAAJcxAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "content/apis/jdbc-jdbi.md",
+			"settings":
+			{
+				"buffer_size": 15638,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "Quickstrt"
+					},
+					"CgAAAIcbAAAAAAAAiBsAAAAAAAAAAAAAiBsAAAAAAACIGwAAAAAAAAUAAABCZWdpbogbAAAAAAAAiRsAAAAAAAAAAAAAiRsAAAAAAACKGwAAAAAAAAAAAACKGwAAAAAAAIsbAAAAAAAAAAAAAIsbAAAAAAAAjBsAAAAAAAAAAAAAjBsAAAAAAACNGwAAAAAAAAAAAACNGwAAAAAAAI4bAAAAAAAAAAAAAI4bAAAAAAAAjxsAAAAAAAAAAAAAjxsAAAAAAACQGwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHGwAAAAAAAIwbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					18,
+					1,
+					"insert",
+					{
+						"characters": "Quickstart"
+					},
+					"CwAAAIcbAAAAAAAAiBsAAAAAAAAAAAAAiBsAAAAAAACIGwAAAAAAAAkAAABRdWlja3N0cnSIGwAAAAAAAIkbAAAAAAAAAAAAAIkbAAAAAAAAihsAAAAAAAAAAAAAihsAAAAAAACLGwAAAAAAAAAAAACLGwAAAAAAAIwbAAAAAAAAAAAAAIwbAAAAAAAAjRsAAAAAAAAAAAAAjRsAAAAAAACOGwAAAAAAAAAAAACOGwAAAAAAAI8bAAAAAAAAAAAAAI8bAAAAAAAAkBsAAAAAAAAAAAAAkBsAAAAAAACRGwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACQGwAAAAAAAIcbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					25,
+					1,
+					"left_delete",
+					null,
+					"AQAAAJIbAAAAAAAAkhsAAAAAAAAVAAAAdmFuYWYgKipzdGFydCBwcm9qZWN0",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACnGwAAAAAAAJIbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": "project"
+					},
+					"BwAAAJIbAAAAAAAAkxsAAAAAAAAAAAAAkxsAAAAAAACUGwAAAAAAAAAAAACUGwAAAAAAAJUbAAAAAAAAAAAAAJUbAAAAAAAAlhsAAAAAAAAAAAAAlhsAAAAAAACXGwAAAAAAAAAAAACXGwAAAAAAAJgbAAAAAAAAAAAAAJgbAAAAAAAAmRsAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACSGwAAAAAAAJIbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "**"
+					},
+					"AgAAAIcbAAAAAAAAiBsAAAAAAAAAAAAAiBsAAAAAAACJGwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHGwAAAAAAAIcbAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					35,
+					2,
+					"left_delete",
+					null,
+					"AgAAAJ4bAAAAAAAAnhsAAAAAAAABAAAAW50bAAAAAAAAnRsAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACfGwAAAAAAAJ8bAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": ":"
+					},
+					"AQAAAJ0bAAAAAAAAnhsAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACdGwAAAAAAAJ0bAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": " ``"
+					},
+					"AwAAAJ4bAAAAAAAAnxsAAAAAAAAAAAAAnxsAAAAAAACgGwAAAAAAAAAAAACgGwAAAAAAAKEbAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACeGwAAAAAAAJ4bAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"left_delete",
+					null,
+					"AQAAAKAbAAAAAAAAoBsAAAAAAAABAAAAYA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAChGwAAAAAAAKEbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": "examples/"
+					},
+					"CQAAAKAbAAAAAAAAoRsAAAAAAAAAAAAAoRsAAAAAAACiGwAAAAAAAAAAAACiGwAAAAAAAKMbAAAAAAAAAAAAAKMbAAAAAAAApBsAAAAAAAAAAAAApBsAAAAAAAClGwAAAAAAAAAAAAClGwAAAAAAAKYbAAAAAAAAAAAAAKYbAAAAAAAApxsAAAAAAAAAAAAApxsAAAAAAACoGwAAAAAAAAAAAACoGwAAAAAAAKkbAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACgGwAAAAAAAKAbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "`"
+					},
+					"AQAAALgbAAAAAAAAuRsAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC4GwAAAAAAALgbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": " in"
+					},
+					"AwAAALkbAAAAAAAAuhsAAAAAAAAAAAAAuhsAAAAAAAC7GwAAAAAAAAAAAAC7GwAAAAAAALwbAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC5GwAAAAAAALkbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					46,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAALwbAAAAAAAAvRsAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC8GwAAAAAAALwbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"paste",
+					null,
+					"AgAAAL0bAAAAAAAAbBwAAAAAAAAAAAAAbBwAAAAAAABsHAAAAAAAABsAAAAuemlwXSgvamRiYy1yZXBvLXN0YXJ0LnppcCk",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC9GwAAAAAAANgbAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					52,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGwcAAAAAAAAbBwAAAAAAAABAAAAIQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABtHAAAAAAAAG0cAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					54,
+					1,
+					"insert",
+					{
+						"characters": "."
+					},
+					"AQAAAGwcAAAAAAAAbRwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABsHAAAAAAAAGwcAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					82,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFY0AAAAAAAAVjQAAAAAAAAMAAAAQmVnaW4gdmFuYWYg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWNAAAAAAAAGI0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					86,
+					1,
+					"insert",
+					{
+						"characters": "Quickstart"
+					},
+					"CwAAAFg0AAAAAAAAWTQAAAAAAAAAAAAAWTQAAAAAAABZNAAAAAAAAAUAAABzdGFydFk0AAAAAAAAWjQAAAAAAAAAAAAAWjQAAAAAAABbNAAAAAAAAAAAAABbNAAAAAAAAFw0AAAAAAAAAAAAAFw0AAAAAAAAXTQAAAAAAAAAAAAAXTQAAAAAAABeNAAAAAAAAAAAAABeNAAAAAAAAF80AAAAAAAAAAAAAF80AAAAAAAAYDQAAAAAAAAAAAAAYDQAAAAAAABhNAAAAAAAAAAAAABhNAAAAAAAAGI0AAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABYNAAAAAAAAF00AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					90,
+					1,
+					"insert",
+					{
+						"characters": ":"
+					},
+					"AQAAAGw0AAAAAAAAbTQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABsNAAAAAAAAGw0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					93,
+					1,
+					"left_delete",
+					null,
+					"AQAAAG40AAAAAAAAbjQAAAAAAAABAAAAWw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABvNAAAAAAAAG80AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					94,
+					1,
+					"insert",
+					{
+						"characters": "`emap"
+					},
+					"BQAAAG40AAAAAAAAbzQAAAAAAAAAAAAAbzQAAAAAAABwNAAAAAAAAAAAAABwNAAAAAAAAHE0AAAAAAAAAAAAAHE0AAAAAAAAcjQAAAAAAAAAAAAAcjQAAAAAAABzNAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABuNAAAAAAAAG40AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					95,
+					3,
+					"left_delete",
+					null,
+					"AwAAAHI0AAAAAAAAcjQAAAAAAAABAAAAcHE0AAAAAAAAcTQAAAAAAAABAAAAYXA0AAAAAAAAcDQAAAAAAAABAAAAbQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABzNAAAAAAAAHM0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					96,
+					1,
+					"insert",
+					{
+						"characters": "xamples/"
+					},
+					"CAAAAHA0AAAAAAAAcTQAAAAAAAAAAAAAcTQAAAAAAAByNAAAAAAAAAAAAAByNAAAAAAAAHM0AAAAAAAAAAAAAHM0AAAAAAAAdDQAAAAAAAAAAAAAdDQAAAAAAAB1NAAAAAAAAAAAAAB1NAAAAAAAAHY0AAAAAAAAAAAAAHY0AAAAAAAAdzQAAAAAAAAAAAAAdzQAAAAAAAB4NAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwNAAAAAAAAHA0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					100,
+					1,
+					"insert",
+					{
+						"characters": "`"
+					},
+					"AQAAAIc0AAAAAAAAiDQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHNAAAAAAAAIc0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					102,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAIg0AAAAAAAAiTQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACINAAAAAAAAIg0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					106,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIk0AAAAAAAAiTQAAAAAAAAbAAAALnppcF0oL2pkYmMtZnhtbC1zdGFydC56aXAp",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACJNAAAAAAAAKQ0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					108,
+					1,
+					"paste",
+					null,
+					"AQAAAIk0AAAAAAAAODUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACJNAAAAAAAAIk0AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					111,
+					1,
+					"left_delete",
+					null,
+					"AQAAADg1AAAAAAAAODUAAAAAAAABAAAAIQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA5NQAAAAAAADk1AAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					113,
+					1,
+					"insert",
+					{
+						"characters": "."
+					},
+					"AQAAADg1AAAAAAAAOTUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4NQAAAAAAADg1AAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"contents": "Searching 108 files for \"concurrency.zip\" (regex)\n\n/Users/wgroeneveld/development/kul/db-course/content/transacties/concurrency.md:\n    5  ## Meerdere threads met toegang tot de DB\n    6  \n    7: Download het [concurrency startproject](/concurrency.zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random `Runnable` thread workers die `INSERT`, `UPDATE` en `DELETE` statements issuen naar de database. De volgorde is een deel van de chaos... \n    8  \n    9  ### Oefeningen\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 536,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "content/transacties/concurrency.md",
+			"settings":
+			{
+				"buffer_size": 3703,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					2,
+					"insert_snippet",
+					{
+						"contents": "*${0:$SELECTION}*"
+					},
+					"BAAAAEoAAAAAAAAASgAAAAAAAAAMAAAARG93bmxvYWQgaGV0SgAAAAAAAABYAAAAAAAAAAAAAABLAAAAAAAAAEsAAAAAAAAADAAAAERvd25sb2FkIGhldEsAAAAAAAAAWQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABKAAAAAAAAAFYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "Quickstart"
+					},
+					"CwAAAEwAAAAAAAAATQAAAAAAAAAAAAAATQAAAAAAAABNAAAAAAAAAAwAAABEb3dubG9hZCBoZXRNAAAAAAAAAE4AAAAAAAAAAAAAAE4AAAAAAAAATwAAAAAAAAAAAAAATwAAAAAAAABQAAAAAAAAAAAAAABQAAAAAAAAAFEAAAAAAAAAAAAAAFEAAAAAAAAAUgAAAAAAAAAAAAAAUgAAAAAAAABTAAAAAAAAAAAAAABTAAAAAAAAAFQAAAAAAAAAAAAAAFQAAAAAAAAAVQAAAAAAAAAAAAAAVQAAAAAAAABWAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMAAAAAAAAAFgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": " project"
+					},
+					"CAAAAFYAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAAAAAABYAAAAAAAAAAAAAABYAAAAAAAAAFkAAAAAAAAAAAAAAFkAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAAAAAABbAAAAAAAAAAAAAABbAAAAAAAAAFwAAAAAAAAAAAAAAFwAAAAAAAAAXQAAAAAAAAAAAAAAXQAAAAAAAABeAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWAAAAAAAAAFYAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": ":"
+					},
+					"AQAAAGAAAAAAAAAAYQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABgAAAAAAAAAGAAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"left_delete",
+					null,
+					"AQAAAGIAAAAAAAAAYgAAAAAAAAAsAAAAW2NvbmN1cnJlbmN5IHN0YXJ0cHJvamVjdF0oL2NvbmN1cnJlbmN5LnppcCk",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABiAAAAAAAAAI4AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					1,
+					"insert_snippet",
+					{
+						"contents": "`$0`"
+					},
+					"AQAAAGIAAAAAAAAAZAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABiAAAAAAAAAGIAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": "examples/concurrency"
+					},
+					"FAAAAGMAAAAAAAAAZAAAAAAAAAAAAAAAZAAAAAAAAABlAAAAAAAAAAAAAABlAAAAAAAAAGYAAAAAAAAAAAAAAGYAAAAAAAAAZwAAAAAAAAAAAAAAZwAAAAAAAABoAAAAAAAAAAAAAABoAAAAAAAAAGkAAAAAAAAAAAAAAGkAAAAAAAAAagAAAAAAAAAAAAAAagAAAAAAAABrAAAAAAAAAAAAAABrAAAAAAAAAGwAAAAAAAAAAAAAAGwAAAAAAAAAbQAAAAAAAAAAAAAAbQAAAAAAAABuAAAAAAAAAAAAAABuAAAAAAAAAG8AAAAAAAAAAAAAAG8AAAAAAAAAcAAAAAAAAAAAAAAAcAAAAAAAAABxAAAAAAAAAAAAAABxAAAAAAAAAHIAAAAAAAAAAAAAAHIAAAAAAAAAcwAAAAAAAAAAAAAAcwAAAAAAAAB0AAAAAAAAAAAAAAB0AAAAAAAAAHUAAAAAAAAAAAAAAHUAAAAAAAAAdgAAAAAAAAAAAAAAdgAAAAAAAAB3AAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABjAAAAAAAAAGMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					23,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAHgAAAAAAAAAeQAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB4AAAAAAAAAHgAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					24,
+					1,
+					"paste",
+					null,
+					"AQAAAHkAAAAAAAAAKAEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB5AAAAAAAAAHkAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"contents": "package be.kuleuven.studenthibernate.domain;\n\nimport javax.persistence.EntityManager;\nimport javax.persistence.PrePersist;\nimport java.util.List;\n\npublic class StudentRepositoryJpaImpl implements StudentRepository {\n\n    private final EntityManager entityManager;\n\n    public StudentRepositoryJpaImpl(EntityManager entityManager) {\n        this.entityManager = entityManager;\n    }\n\n    @Override\n    public List<Student> getStudentsByName(String student) {\n        var criteriaBuilder = entityManager.getCriteriaBuilder();\n        var query = criteriaBuilder.createQuery(Student.class);\n        var root = query.from(Student.class);\n~~~~~~~~~~~~~~~~~~~\n        query.where(criteriaBuilder.equal(root.get(\"naam\"), student));\n        return entityManager.createQuery(query).getResultList();\n    }\n\n    @Override\n    public void saveNewStudent(Student student) {\n        entityManager.getTransaction().begin();\n        entityManager.persist(student);\n        entityManager.getTransaction().commit();\n    }\n\n    @Override\n    public void updateStudent(Student student) {\n        entityManager.merge(student);\n    }\n}\n",
+			"file": "examples/java/hibernate-jpa/src/main/java/be/kuleuven/studenthibernate/domain/StudentRepositoryJpaImpl.java",
+			"file_size": 1095,
+			"file_write_time": 132533824514543222,
+			"settings":
+			{
+				"buffer_size": 1114,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					2,
+					1,
+					"insert",
+					{
+						"characters": "~"
+					},
+					"AQAAAHoCAAAAAAAAewIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAegIAAAAAAAB6AgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "~~~~~~~~~~~~~~~~~~"
+					},
+					"EgAAAHsCAAAAAAAAfAIAAAAAAAAAAAAAfAIAAAAAAAB9AgAAAAAAAAAAAAB9AgAAAAAAAH4CAAAAAAAAAAAAAH4CAAAAAAAAfwIAAAAAAAAAAAAAfwIAAAAAAACAAgAAAAAAAAAAAACAAgAAAAAAAIECAAAAAAAAAAAAAIECAAAAAAAAggIAAAAAAAAAAAAAggIAAAAAAACDAgAAAAAAAAAAAACDAgAAAAAAAIQCAAAAAAAAAAAAAIQCAAAAAAAAhQIAAAAAAAAAAAAAhQIAAAAAAACGAgAAAAAAAAAAAACGAgAAAAAAAIcCAAAAAAAAAAAAAIcCAAAAAAAAiAIAAAAAAAAAAAAAiAIAAAAAAACJAgAAAAAAAAAAAACJAgAAAAAAAIoCAAAAAAAAAAAAAIoCAAAAAAAAiwIAAAAAAAAAAAAAiwIAAAAAAACMAgAAAAAAAAAAAACMAgAAAAAAAI0CAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAewIAAAAAAAB7AgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -201,10 +893,26 @@
 		"/Users/wgroeneveld/development/kul/db-course/content/nosql",
 		"/Users/wgroeneveld/development/kul/db-course/content/transacties",
 		"/Users/wgroeneveld/development/kul/db-course/examples",
-		"/Users/wgroeneveld/development/kul/db-course/examples/kotlin"
+		"/Users/wgroeneveld/development/kul/db-course/examples/java",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/concurrency",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/concurrency/gradle",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/concurrency/gradle/wrapper",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/gradle",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/gradle/wrapper",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main/java",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main/java/be",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main/java/be/kuleuven",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main/java/be/kuleuven/studenthibernate",
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/hibernate-jpa/src/main/java/be/kuleuven/studenthibernate/domain",
+		"/Users/wgroeneveld/development/kul/db-course/examples/kotlin",
+		"/Users/wgroeneveld/development/kul/db-course/static"
 	],
 	"file_history":
 	[
+		"/Users/wgroeneveld/development/kul/db-course/examples/java/concurrency/gradle/wrapper/gradle-wrapper.properties",
 		"/Users/wgroeneveld/development/kul/db-course/content/apis/_index.md",
 		"/Users/wgroeneveld/development/kul/db-course/content/transacties/failures-rollbacks.md",
 		"/Users/wgroeneveld/Desktop/test.java",
@@ -331,16 +1039,15 @@
 		"/Users/wgroeneveld/development/kul/osc/osc-labs/tasks/c-integrated-ex_201920.md",
 		"/Users/wgroeneveld/development/kul/osc/osc-labs/tasks/c-integrated-start_201920.c",
 		"/Users/wgroeneveld/development/kul/osc/osc-course/content/appendix/management-201920.md",
-		"/Users/wgroeneveld/development/kul/osc/osc-course/content/appendix/management.md",
-		"/Users/wgroeneveld/development/kul/osc/osc-exercises/ch1_c/combinational.c"
+		"/Users/wgroeneveld/development/kul/osc/osc-course/content/appendix/management.md"
 	],
 	"find":
 	{
-		"height": 54.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
-		"height": 191.0,
+		"height": 203.0,
 		"where_history":
 		[
 			"*.md",
@@ -353,6 +1060,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"concurrency.zip",
 			"talbe",
 			"table",
 			"gradle",
@@ -383,12 +1091,202 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "content/apis/jpa.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12604,
+								12779
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/MarkdownEditing/syntaxes/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "content/apis/jdbc-jdbi.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14247,
+								14247
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/MarkdownEditing/syntaxes/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 536,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										237,
+										252
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/Users/wgroeneveld/development/kul/db-course/content/apis",
+							"detect_indentation": false,
+							"git_gutter_is_enabled": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "content/transacties/concurrency.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								442,
+								442
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"mde.match_heading_hashes": false,
+							"syntax": "Packages/MarkdownEditing/syntaxes/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "examples/java/hibernate-jpa/src/main/java/be/kuleuven/studenthibernate/domain/StudentRepositoryJpaImpl.java",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								653,
+								653
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 19,
+								"count": 35,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 42.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -441,7 +1339,7 @@
 	"project": "cpp-course.sublime-project",
 	"replace":
 	{
-		"height": 80.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -450,6 +1348,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"jdbc-",
+				"content/apis/jdbc-jdbi.md"
+			],
+			[
+				"jpa",
+				"content/apis/jpa.md"
+			],
 			[
 				"failures",
 				"content/transacties/failures-rollbacks.md"
@@ -481,10 +1387,6 @@
 			[
 				"read",
 				"README.md"
-			],
-			[
-				"jpa",
-				"content/apis/jpa.md"
 			],
 			[
 				"cust",
@@ -684,9 +1586,13 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "brain",
+		"last_filter": "phd",
 		"selected_items":
 		[
+			[
+				"phd",
+				"~/development/phd/phd.sublime-project"
+			],
 			[
 				"brain",
 				"~/development/brainbaking/brainbaking.sublime-project"
@@ -694,10 +1600,6 @@
 			[
 				"brai",
 				"~/development/brainbaking/brainbaking.sublime-project"
-			],
-			[
-				"phd",
-				"~/development/phd/phd.sublime-project"
 			],
 			[
 				"bra",

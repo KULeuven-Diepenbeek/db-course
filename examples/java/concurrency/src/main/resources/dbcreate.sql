@@ -7,11 +7,8 @@ CREATE TABLE student(
 );
 DROP TABLE IF EXISTS log;
 CREATE TABLE log(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     foreign_id INT NOT NULL,
     msg TEXT
 );
-INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, 'Trekhaak', 'Jaak', 0);
-INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, 'Peeters', 'Jos', 0);
-INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 'Ding', 1);

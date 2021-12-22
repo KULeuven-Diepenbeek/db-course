@@ -7,6 +7,7 @@ import java.util.List;
 @Entity
 public class Docent {
 
+    @Column
     @Id
     @GeneratedValue
     private int docentnummer;

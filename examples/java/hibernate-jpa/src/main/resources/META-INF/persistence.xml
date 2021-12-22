@@ -5,8 +5,10 @@
     <persistence-unit name="be.kuleuven.studenthibernate.domain">
         <description>Studenten JPA Test</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
         <class>be.kuleuven.studenthibernate.domain.Student</class>
         <class>be.kuleuven.studenthibernate.domain.Docent</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:studenten.db"/>

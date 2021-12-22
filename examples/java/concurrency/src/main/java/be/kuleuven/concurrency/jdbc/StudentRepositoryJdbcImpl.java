@@ -5,6 +5,7 @@ import be.kuleuven.concurrency.StudentRepository;
 import be.kuleuven.concurrency.log.Logger;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
