@@ -12,19 +12,19 @@
     <title>2. Concurrency :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1639641254" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1639641254" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1639641254" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1639641254" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1639641254" rel="stylesheet">
-    <link href="../../css/theme.css?1639641254" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1639641254" rel="stylesheet">
+    <link href="../../css/nucleus.css?1640184846" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1640184846" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1640184846" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1640184846" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1640184846" rel="stylesheet">
+    <link href="../../css/theme.css?1640184846" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1640184846" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1639641254" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1640184846" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1639641254"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1640184846"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1639641254"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1639641254"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1640184846"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1640184846"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1639641254"></script>
+<script type="text/javascript" src="../../js/search.js?1640184846"></script>
 
     
   </div>
@@ -600,31 +600,22 @@
 
 
 <h2 id="meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</h2>
-<p><strong>Quickstart project</strong>: <code>examples/concurrency</code> in de <a href="https://github.com/kuleuven-Diepenbeek/db-course">cursus repository</a> (<a href="https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip">download repo zip</a>). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random <code>Runnable</code> thread workers die <code>INSERT</code>, <code>UPDATE</code> en <code>DELETE</code> statements issuen naar de database. De volgorde is een deel van de chaos&hellip;</p>
+<p><strong>Quickstart project</strong>: <code>examples/concurrency</code> in de <a href="https://github.com/kuleuven-Diepenbeek/db-course">cursus repository</a> (<a href="https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip">download repo zip</a>). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een <code>Runnable</code> thread worker die <code>INSERT</code>, <code>UPDATE</code> of <code>DELETE</code> statements issuen naar de database. Het probleem wat we hier proberen te simuleren is <strong>DIRTY READS</strong>.</p>
+<p>Begeleidend filmpje:</p>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 <h3 id="oefeningen">Oefeningen</h3>
 <ol>
-<li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Zijn de queries telkens dezelfde, in dezelfde volgorde?</li>
-<li>Transacties op elke query/statement toepassen is een eenvoudige oplossing maar lang niet de beste: de toegevoegde grote performantie hit kan bij miljoenen requests de applicatie volledig tot stilstand doen brengen. Welke repository calls zouden in een transactie moeten worden uitgevoerd, en bij welke calls is dat <em>niet</em> nodig?</li>
+<li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Waarom wordt de student wel of niet in de <code>SELECT</code> teruggegeven?</li>
 <li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
-<li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Welke vier mogelijke waardes worden ondersteund door SQLite? Wat is volgens de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
-<li>De <a href="https://github.com/xerial/sqlite-jdbc">sqlite-jdbc driver</a> die we gebruiken heeft nog een aantal verborgen opties, waarvan <code>setTransactionMode</code> en <code>setLockingMode</code> het interessantste zijn om mee te prutsen. Kijk goed naar de Sysout output om het verschil te bepalen. Dat doe je door een <code>SQLiteConfig</code> object aan te maken en op de volgende manier mee te geven aan de <code>DriverManager</code>:</li>
+<li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Merk op dat SQLite enkel <code>SERIALIZABLE</code> en <code>READ_UNCOMMITED</code> ondersteund, maar het onmogelijk is om dirty reads te simuleren. Zie ook <a href="https://github.com/changemyminds/Transaction-Isolation-Level-Issue">https://github.com/changemyminds/Transaction-Isolation-Level-Issue</a> en de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> voor het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
+<li>Probeer naast een dirty read ook een <strong>PHANTOM READ</strong> te simuleren met de H2 setup van bovenstaand project.</li>
+<li>Maak in een <code>for {}</code> loop tientallen verschillende threads aan en laat ze verschillende acties op de DB uitvoeren (lezen, schrijven, updaten, &hellip;). Loopt er iets mis? Wat kan je <strong>programmatorisch</strong> doen om de chaos tot het minimum te beperken?</li>
 </ol>
-<div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">val</span> <span style="color:#111">config</span> <span style="color:#111">=</span> <span style="color:#111">SQLiteConfig</span><span style="color:#111">().</span><span style="color:#111">apply</span> <span style="color:#111">{</span>
-    <span style="color:#111">setX</span><span style="color:#111">(</span><span style="color:#111">val1</span><span style="color:#111">)</span>
-    <span style="color:#111">setY</span><span style="color:#111">(</span><span style="color:#111">val2</span><span style="color:#111">)</span>
-<span style="color:#111">}</span>
-<span style="color:#111">connection</span> <span style="color:#111">=</span> <span style="color:#111">DriverManager</span><span style="color:#111">.</span><span style="color:#111">getConnection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#111">,</span> <span style="color:#111">config</span><span style="color:#111">.</span><span style="color:#111">toProperties</span><span style="color:#111">())</span>
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">SQLiteConfig</span> <span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">SQLiteConfig</span><span style="color:#f92672">();</span>
-<span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">setX</span><span style="color:#f92672">(</span><span style="color:#111">val1</span><span style="color:#f92672">);</span>
-<span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">setY</span><span style="color:#f92672">(</span><span style="color:#111">val2</span><span style="color:#f92672">);</span>
-<span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:...&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">config</span><span style="color:#f92672">.</span><span style="color:#75af00">toProperties</span><span style="color:#f92672">());</span>
-</code></pre></div></div>
-<p><strong>Extra</strong>:</p>
-<ul>
-<li>Implementeer zelf de nodige Jdbi3 details in <code>StudentRepositoryJdbi3Impl</code>. In Jdbi stel je de transaction isolation level in met <code>.inTransaction(TransactionIsolationLevel.SERIALIZABLE, ...)</code> (zie <a href="https://jdbi.org">docs</a>).</li>
-</ul>
-<p><strong>Tip</strong>: SQLite config, transactie en locking modes zijn uitgelegd in de <a href="https://sqlite.org/pragma.html">SQLite docs, pragma pagina</a>.</p>
+
+<div class="notices note" ><p>Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite&rsquo;s <a href="https://www.sqlite.org/sharedcache.html">shared cache mode</a>. Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/>
+De H2 implementatie wordt ook gebruikt bij de SESsy library&mdash;zie <a href="../../apis/ex/">database APIs - extras</a>.</p>
+</div>
+
 <h3 id="connection-pooling">Connection Pooling</h3>
 <p>Uit de code blijkt dat alle threads momenteel éénzelfde connection instance delen via de <code>StudentRepository</code> implementatie. In de praktijk wordt er voor client/server applicaties altijd <strong>connection pooling</strong> toegepast: een aantal connections zijn beschikbaar in een <em>pool</em>, waar de clients uit kunnen kiezen. Als er een beschikbaar is, kan deze verder gaan. Als dat niet zo is, moet die bepaalde request wachten, tot een andere klaar is met zijn database acties en de connection terug vrijgeeft, opnieuw in de pool. Op die manier kan je bijvoorbeeld 6 connections verdelen over 10+ client threads, zoals in deze figuur (bron: oracle docs):</p>
 <p><img src="../../img/connectionpool.gif" alt="" title="Bron: oracle docs"></p>
@@ -966,17 +957,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1639641254"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1639641254"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1639641254"></script>
-    <script src="../../js/jquery.sticky.js?1639641254"></script>
-    <script src="../../js/featherlight.min.js?1639641254"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1639641254"></script>
-    <script src="../../js/learn.js?1639641254"></script>
-    <script src="../../js/hugo-learn.js?1639641254"></script>
+    <script src="../../js/clipboard.min.js?1640184846"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1640184846"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1640184846"></script>
+    <script src="../../js/jquery.sticky.js?1640184846"></script>
+    <script src="../../js/featherlight.min.js?1640184846"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1640184846"></script>
+    <script src="../../js/learn.js?1640184846"></script>
+    <script src="../../js/hugo-learn.js?1640184846"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1639641254"></script>
+            <script src="../../mermaid/mermaid.js?1640184846"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

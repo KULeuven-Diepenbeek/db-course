@@ -87,8 +87,9 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</guid>
-      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een aantal random Runnable thread workers die INSERT, UPDATE en DELETE statements issuen naar de database. De volgorde is een deel van de chaos&amp;hellip;
-Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit.</description>
+      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een Runnable thread worker die INSERT, UPDATE of DELETE statements issuen naar de database. Het probleem wat we hier proberen te simuleren is DIRTY READS.
+Begeleidend filmpje:
+ Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt.</description>
     </item>
     
     <item>
