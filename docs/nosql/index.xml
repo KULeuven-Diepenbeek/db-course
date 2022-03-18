@@ -25,9 +25,9 @@ fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
-      <description>2.1 Eenvoudige CouchDB Queries Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
+      <description>2.1 Eenvoudige CouchDB Queries    Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
 Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
-{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &amp;ldquo;kolommen&amp;rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</description>
+{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
     </item>
     
     <item>

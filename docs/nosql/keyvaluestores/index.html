@@ -12,19 +12,24 @@
     <title>1. Key/value stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1640184846" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1640184846" rel="stylesheet">
-    <link href="../../css/theme.css?1640184846" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1640184846" rel="stylesheet">
-    
-    <link href="../../css/theme-kul.css?1640184846" rel="stylesheet">
-    
+    <link href="../../css/nucleus.css?1647622053" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/hybrid.css?1647622053" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1647622053" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1647622053" rel="stylesheet">
+    <link href="../../css/theme.css?1647622053" rel="stylesheet">
+    <link href="../../css/devselector.css?1647622053" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1647622053" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1647622053" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1640184846"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1647622053"></script>
+    <script src="../../js/devselector.js?1647622053"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,9 +41,7 @@
         }
       
     </style>
-    <script src=../../js/devselector.js></script>
-<link href="../../css/devselector.css" rel="stylesheet">
-
+    
   </head>
   <body class="" data-url="../../nosql/keyvaluestores/">
     <nav id="sidebar" class="">
@@ -48,10 +51,10 @@
   <div id="header-wrapper">
     <div id="header">
       <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
-	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+  <img src="../../images/kul.png" alt="KU Leuven" /><br/>
 </a>
 <a href="https://www.uhasselt.be/" target="_blank">
-	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+  <img src="../../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
 </a>
     </div>
     
@@ -61,21 +64,23 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1640184846"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1640184846"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1647622053"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1647622053"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1640184846"></script>
+<script type="text/javascript" src="../../js/search.js?1647622053"></script>
 
     
   </div>
 
     <div class="highlightable">
-    <h3><a href="../../">Inhoudsopgave</a></h3>
+
+      <h3><a href="../../">Course Contents</a></h3>
     <ul class="topics">
+
         
           
           
@@ -86,7 +91,7 @@
  
   
     
-    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item
         
         
         
@@ -101,7 +106,7 @@
           
           
           
-          
+
         
           
             
@@ -190,7 +195,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -204,7 +209,7 @@
  
   
     
-    <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item 
+    <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item
         parent
         
         
@@ -219,7 +224,7 @@
           
           
           
-          
+
         
           
             
@@ -308,7 +313,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -322,7 +327,7 @@
  
   
     
-    <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item 
+    <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item
         
         
         
@@ -337,7 +342,7 @@
           
           
           
-          
+
         
           
             
@@ -384,7 +389,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -398,7 +403,7 @@
  
   
     
-    <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item 
+    <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item
         
         
         
@@ -413,7 +418,7 @@
           
           
           
-          
+
         
           
             
@@ -481,13 +486,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -496,15 +501,15 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/kuleuven-diepenbeek/db-course/"><i class='fab fa-github'></i> Course Git Repository</a>
               </li>
           
@@ -998,21 +1003,38 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1640184846"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1640184846"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1640184846"></script>
-    <script src="../../js/jquery.sticky.js?1640184846"></script>
-    <script src="../../js/featherlight.min.js?1640184846"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1640184846"></script>
-    <script src="../../js/learn.js?1640184846"></script>
-    <script src="../../js/hugo-learn.js?1640184846"></script>
+    <script src="../../js/clipboard.min.js?1647622053"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1647622053"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1647622053"></script>
+    <script src="../../js/jquery.sticky.js?1647622053"></script>
+    <script src="../../js/featherlight.min.js?1647622053"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1647622053"></script>
+    <script src="../../js/learn.js?1647622053"></script>
+    <script src="../../js/hugo-learn.js?1647622053"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1640184846"></script>
+            <script src="../../mermaid/mermaid.js?1647622053"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
         </script>
+    
+    <script>
+    window.MathJax = {
+      chtml: {
+        scale: 2,                      
+        minScale: .5,                  
+        matchFontHeight: true,         
+        mtextInheritFont: false,       
+        merrorInheritFont: true,       
+        mathmlSpacing: false,          
+        skipAttributes: {},            
+        exFactor: .5,                  
+        displayAlign: 'center',        
+        displayIndent: '0'             
+      }
+    };
+    </script>
     
     
 

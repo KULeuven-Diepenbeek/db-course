@@ -12,19 +12,24 @@
     <title>4. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1640184846" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1640184846" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1640184846" rel="stylesheet">
-    <link href="../../css/theme.css?1640184846" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1640184846" rel="stylesheet">
-    
-    <link href="../../css/theme-kul.css?1640184846" rel="stylesheet">
-    
+    <link href="../../css/nucleus.css?1647622053" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/hybrid.css?1647622053" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1647622053" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1647622053" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1647622053" rel="stylesheet">
+    <link href="../../css/theme.css?1647622053" rel="stylesheet">
+    <link href="../../css/devselector.css?1647622053" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1647622053" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1647622053" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1640184846"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1647622053"></script>
+    <script src="../../js/devselector.js?1647622053"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,9 +41,7 @@
         }
       
     </style>
-    <script src=../../js/devselector.js></script>
-<link href="../../css/devselector.css" rel="stylesheet">
-
+    
   </head>
   <body class="" data-url="../../nosql/replication/">
     <nav id="sidebar" class="">
@@ -48,10 +51,10 @@
   <div id="header-wrapper">
     <div id="header">
       <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
-	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+  <img src="../../images/kul.png" alt="KU Leuven" /><br/>
 </a>
 <a href="https://www.uhasselt.be/" target="_blank">
-	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+  <img src="../../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
 </a>
     </div>
     
@@ -61,21 +64,23 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1640184846"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1640184846"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1647622053"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1647622053"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1640184846"></script>
+<script type="text/javascript" src="../../js/search.js?1647622053"></script>
 
     
   </div>
 
     <div class="highlightable">
-    <h3><a href="../../">Inhoudsopgave</a></h3>
+
+      <h3><a href="../../">Course Contents</a></h3>
     <ul class="topics">
+
         
           
           
@@ -86,7 +91,7 @@
  
   
     
-    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item 
+    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item
         
         
         
@@ -101,7 +106,7 @@
           
           
           
-          
+
         
           
             
@@ -190,7 +195,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -204,7 +209,7 @@
  
   
     
-    <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item 
+    <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item
         parent
         
         
@@ -219,7 +224,7 @@
           
           
           
-          
+
         
           
             
@@ -308,7 +313,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -322,7 +327,7 @@
  
   
     
-    <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item 
+    <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item
         
         
         
@@ -337,7 +342,7 @@
           
           
           
-          
+
         
           
             
@@ -384,7 +389,7 @@
           
         
         </ul>
-              
+      
     </li>
   
  
@@ -398,7 +403,7 @@
  
   
     
-    <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item 
+    <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item
         
         
         
@@ -413,7 +418,7 @@
           
           
           
-          
+
         
           
             
@@ -481,13 +486,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -496,15 +501,15 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/kuleuven-diepenbeek/db-course/"><i class='fab fa-github'></i> Course Git Repository</a>
               </li>
           
@@ -600,7 +605,13 @@
         
 
 
-<p><img src="../../img/pouchdb.jpg" alt=""></p>
+<p><figure>
+	<a href="../../img/pouchdb.jpg" data-featherlight="image">
+		<img src="../../img/pouchdb.jpg"  >
+	</a>
+	
+</figure>
+</p>
 <p>Met <em>replication</em> is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd <a href="https://pouchdb.com">PouchDB</a>. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &ldquo;master&rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;dbname&#39;</span><span style="color:#111">);</span>
 
@@ -662,7 +673,13 @@
 <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#btn&#34;</span><span style="color:#111">).</span><span style="color:#75af00">addEventListener</span><span style="color:#111">(</span><span style="color:#d88200">&#34;click&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">queryDocs</span><span style="color:#111">);</span>
 <span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
 </code></pre></div><p><strong>Tips</strong>: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met <code>.put()</code>, maar replication <em>nog niet</em> aan staat, kan het handig zijn om met Chrome/Opera/&hellip; Dev Tools te kijken naar de <strong>local storage</strong> databases. Deze zijn terug te vinden in de tab &ldquo;Application&rdquo;, bij &ldquo;IndexedDB&rdquo;:</p>
-<p><img src="../../img/localstorage.jpg" alt=""></p>
+<p><figure>
+	<a href="../../img/localstorage.jpg" data-featherlight="image">
+		<img src="../../img/localstorage.jpg"  >
+	</a>
+	
+</figure>
+</p>
 <p>De volgende elementen zijn te herkennen in bovenstaande screenshot:</p>
 <ul>
 <li>Ik heb een &ldquo;<code>mydb</code>&rdquo; object aangemaakt (DB naam <code>_pouch_mydb</code>)</li>
@@ -671,7 +688,13 @@
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p><strong>Cross site origin fouten?</strong> - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file aanlevert vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Ga naar je CouchDB <a href="http://127.0.0.1:5984/_utils/#_config/couchdb@localhost/cors">admin config</a> (klik op tandwieltje), op <strong>CORS</strong>, en klik <em>&ldquo;enable&rdquo; (all domains)</em>.  Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar http://127.0.0.1:8000/oefening.html (Poort <code>8000</code>). Indien niet opgelost, ga naar volgende troubleshooting puntje:</p>
 <p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; linkqs, en enable je <code>CORS</code> (Cross Origin Requests):</p>
-<p><img src="../../img/cors.png" alt=""></p>
+<p><figure>
+	<a href="../../img/cors.png" data-featherlight="image">
+		<img src="../../img/cors.png"  >
+	</a>
+	
+</figure>
+</p>
 <p><strong>Access denied?</strong> - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: <code>new PouchDb(&quot;http://localhost:5984&quot;, { auth: { username: &quot;jef&quot;, password: &quot;lowie&quot;} })</code>. Zie <a href="https://pouchdb.com/api.html#create_database">options for remote databases</a> in de PouchDb API manual.</p>
 <p><strong>Mijn <code>find()</code> doet niks</strong>? - Merk op dat eender welke actie een <code>Promise</code> object teruggeeft. Dat wil zeggen dat de query &ldquo;onderweg&rdquo; is, en als je iets wilt uitvoeren wanneer dit klaar is (een <em>asynchroon</em> proces), moet dit via de <code>Promise</code> API, zoals <code>.then()</code>. Lees hierover in de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Mozilla MDN docs</a>.</p>
 <p><strong>Ik krijg rare javascript errors?</strong> - Is je <code>pouch.min.js</code> en <code>pouch.find.min.js</code> versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB <a href="https://github.com/pouchdb/pouchdb/releases/">Github Releases pagina</a>.</p>
@@ -1019,21 +1042,38 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1640184846"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1640184846"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1640184846"></script>
-    <script src="../../js/jquery.sticky.js?1640184846"></script>
-    <script src="../../js/featherlight.min.js?1640184846"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1640184846"></script>
-    <script src="../../js/learn.js?1640184846"></script>
-    <script src="../../js/hugo-learn.js?1640184846"></script>
+    <script src="../../js/clipboard.min.js?1647622053"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1647622053"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1647622053"></script>
+    <script src="../../js/jquery.sticky.js?1647622053"></script>
+    <script src="../../js/featherlight.min.js?1647622053"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1647622053"></script>
+    <script src="../../js/learn.js?1647622053"></script>
+    <script src="../../js/hugo-learn.js?1647622053"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1640184846"></script>
+            <script src="../../mermaid/mermaid.js?1647622053"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
         </script>
+    
+    <script>
+    window.MathJax = {
+      chtml: {
+        scale: 2,                      
+        minScale: .5,                  
+        matchFontHeight: true,         
+        mtextInheritFont: false,       
+        merrorInheritFont: true,       
+        mathmlSpacing: false,          
+        skipAttributes: {},            
+        exFactor: .5,                  
+        displayAlign: 'center',        
+        displayIndent: '0'             
+      }
+    };
+    </script>
     
     
 
