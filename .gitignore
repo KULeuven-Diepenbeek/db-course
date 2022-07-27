@@ -16,6 +16,8 @@
 **/.gradle
 **/build/
 
+*.sublime-workspace
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

@@ -50,11 +50,10 @@ Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worde
 
 ## Syllabus
 
-- **Lesgevers**:<br/>
-Coördinerend Verantwoordelijke: prof. dr. Kris Aerts - <a href="mailto:kris.aerts@kuleuven.be">kris.aerts@kuleuven.be</a><br/>
-Onderwijsassistent: Wouter Groeneveld - <a href="mailto:wouter.groeneveld@kuleuven.be">wouter.groeneveld@kuleuven.be</a>
+- **Lesgevers**:
+    + Coördinerend Verantwoordelijke: prof. dr. Kris Aerts ([kris.aerts@kuleuven.be](mailto:kris.aerts@kuleuven.be))
+    + Onderwijsassistenten: Wouter Groeneveld ([wouter.groeneveld@kuleuven.be](mailto:wouter.groeneveld@kuleuven.be)) en Luk Weyens ([luk.weyens@kuleuven.be](mailto:luk.weyens@kuleuven.be))
 - **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO, D.0.35. 
-- **Verplicht handboek**: [Principles of Database Management](https://www.goodreads.com/book/show/36982903-principles-of-database-management?ac=1&from_search=true&qid=z7bP98PTvN&rank=1), Wilfried Lemahieu
 
 ![](/img/cover.png)
 
