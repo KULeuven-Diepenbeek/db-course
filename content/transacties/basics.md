@@ -6,7 +6,7 @@ SQL DBMS systemen zijn eerst en vooral **multi-user** systemen. Om zowel verschi
 
 Om Atomicity, Consistency, Isolation, Durability te garanderen is er dus een **transactie manager** nodig die alles in goede banen leidt op het moment dat verschillende gebruikers data gaan raadplegen en/of manipuleren. Dit principe is ruwweg **hetzelfde als task management** van het vak [Besturingssystemen en C](https://kuleuven-diepenbeek.github.io/osc-course/ch6-tasks/)---maar dan op database-applicatie niveau.
 
-## 1. Wat is een Transactie?
+## 1. Wat is een transactie?
 
 Een transactie is een set van database operaties (bij relationele databases dus een aantal SQL operaties), dat door één gebruiker of applicatie als één **unit of work** aanzien wordt. Bijvoorbeeld, Jens wilt geld overschrijven van zijn rekening naar die van Jolien. Dit gaat meestal in verschillende stappen:
 
