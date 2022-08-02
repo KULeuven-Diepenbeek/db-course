@@ -1,5 +1,5 @@
 ---
-title: 2. Concurrency
+title: 4. Concurrency in de Praktijk
 ---
 
 ## Meerdere threads met toegang tot de DB
