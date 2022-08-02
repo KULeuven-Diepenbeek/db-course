@@ -51,17 +51,6 @@ Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd n
     </item>
     
     <item>
-      <title>1. Failures/Rollbacks</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
-      <description>blabla
-Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
-DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
-    </item>
-    
-    <item>
       <title>1. JDBC en JDBI</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -82,14 +71,21 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
     </item>
     
     <item>
-      <title>2. Concurrency</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</link>
+      <title>1. Transaction Mgmt. Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency/</guid>
-      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een Runnable thread worker die INSERT, UPDATE of DELETE statements issuen naar de database. Het probleem wat we hier proberen te simuleren is DIRTY READS.
-Begeleidend filmpje:
- Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt.</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</guid>
+      <description>SQL DBMS systemen zijn eerst en vooral multi-user systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de ACID regels ondersteunen, is er een systeem nodig dat soms gebruikers &amp;ldquo;in wacht&amp;rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&amp;mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &amp;ldquo;de rekening staat op 100 EUR&amp;rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd?</description>
+    </item>
+    
+    <item>
+      <title>2. Concurrency Control</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -123,12 +119,33 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
     
     <item>
+      <title>3. Failures/Rollbacks</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
+      <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
+DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+    </item>
+    
+    <item>
       <title>3. NoSQL Graphs, Case Studies</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>4. Concurrency in de Praktijk</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</guid>
+      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een Runnable thread worker die INSERT, UPDATE of DELETE statements issuen naar de database. Het probleem wat we hier proberen te simuleren is DIRTY READS.
+Begeleidend filmpje:
+ Oefeningen  Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt.</description>
     </item>
     
     <item>

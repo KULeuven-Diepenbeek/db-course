@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>4. Replication :: Databases</title>
+    <title>1. Transaction Mgmt. Basics :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1659434464" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../nosql/replication/">
+  <body class="" data-url="../../transacties/basics/">
     <nav id="sidebar" class="">
 
 
@@ -210,7 +210,7 @@
   
     
     <li data-nav-id="/nosql/" title="1. NoSQL" class="dd-item
-        parent
+        
         
         
         ">
@@ -299,7 +299,7 @@
  
   
     
-      <li data-nav-id="/nosql/replication/" title="4. Replication" class="dd-item active">
+      <li data-nav-id="/nosql/replication/" title="4. Replication" class="dd-item ">
         <a href="../../nosql/replication/">
         4. Replication
         
@@ -328,7 +328,7 @@
   
     
     <li data-nav-id="/transacties/" title="2. Transacties" class="dd-item
-        
+        parent
         
         
         ">
@@ -354,7 +354,7 @@
  
   
     
-      <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item ">
+      <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item active">
         <a href="../../transacties/basics/">
         1. Transaction Mgmt. Basics
         
@@ -656,7 +656,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../nosql/'>1. NoSQL</a> > 4. Replication
+            <a href='../../'>Index</a> > <a href='../../transacties/'>2. Transacties</a> > 1. Transaction Mgmt. Basics
           
         
           
@@ -671,10 +671,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-wat-is-een-transactie">1. Wat is een Transactie?</a></li>
+    <li><a href="#2-het-beheren-van-transacties">2. Het beheren van transacties</a>
       <ul>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-wat-als-er-iet-misgaat">3. Wat als er iet misgaat?</a>
+      <ul>
+        <li></li>
         <li><a href="#denkvragen">Denkvragen</a></li>
       </ul>
     </li>
@@ -695,112 +700,129 @@
           
             <h1>
               
-              4. Replication
+              1. Transaction Mgmt. Basics
             </h1>
           
 
         
 
 
-<p><figure>
-	<a href="../../img/pouchdb.jpg" data-featherlight="image">
-		<img src="../../img/pouchdb.jpg"  >
-	</a>
-	
-</figure>
-</p>
-<p>Met <em>replication</em> is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd <a href="https://pouchdb.com">PouchDB</a>. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &ldquo;master&rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;dbname&#39;</span><span style="color:#111">);</span>
-
-<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">({</span>
-  <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;dave@gmail.com&#39;</span><span style="color:#111">,</span>
-  <span style="color:#75af00">name</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#39;David&#39;</span><span style="color:#111">,</span>
-  <span style="color:#75af00">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">69</span>
-<span style="color:#111">});</span>
-
-<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">changes</span><span style="color:#111">().</span><span style="color:#75af00">on</span><span style="color:#111">(</span><span style="color:#d88200">&#39;change&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">function</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-  <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Ch-Ch-Changes&#39;</span><span style="color:#111">);</span>
-<span style="color:#111">});</span>
-
-<span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">replicate</span><span style="color:#111">.</span><span style="color:#75af00">to</span><span style="color:#111">(</span><span style="color:#d88200">&#39;http://example.com/mydb&#39;</span><span style="color:#111">);</span>
-</code></pre></div><p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
+<p>SQL DBMS systemen zijn eerst en vooral <strong>multi-user</strong> systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de <strong>ACID regels</strong> ondersteunen, is er een systeem nodig dat soms gebruikers &ldquo;in wacht&rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &ldquo;de rekening staat op 100 EUR&rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd? Jens krijgt te horen dat er 100 EUR op de rekening staat, terwijl in werkelijkheid dit 10 EUR minder is.</p>
+<p>Om Atomicity, Consistency, Isolation, Durability te garanderen is er dus een <strong>transactie manager</strong> nodig die alles in goede banen leidt op het moment dat verschillende gebruikers data gaan raadplegen en/of manipuleren. Dit principe is ruwweg <strong>hetzelfde als task management</strong> van het vak <a href="https://kuleuven-diepenbeek.github.io/osc-course/ch6-tasks/">Besturingssystemen en C</a>&mdash;maar dan op database-applicatie niveau.</p>
+<h2 id="1-wat-is-een-transactie">1. Wat is een Transactie?</h2>
+<p>Een transactie is een set van database operaties (bij relationele databases dus een aantal SQL operaties), dat door één gebruiker of applicatie als één <strong>unit of work</strong> aanzien wordt. Bijvoorbeeld, Jens wilt geld overschrijven van zijn rekening naar die van Jolien. Dit gaat meestal in verschillende stappen:</p>
 <ol>
-<li>Unidirectional replication. Zie <a href="https://pouchdb.com/guides/replication.html">PouchDB Docs</a></li>
-<li>Bidirectional replication.</li>
-<li>Live/Continuous replication.</li>
+<li>Haal <code>€10</code> van balans van Jens;</li>
+<li>Stort <code>€10</code> op balans van Jolien.</li>
 </ol>
-<p>Je kan bovenstaande demo code onmiddellijk proberen op <a href="https://pouchdb.com">https://pouchdb.com</a>: Druk op <code>F12</code> of <code>CTRL+SHIFT+J</code> (Mac: <code>OPT+CMD+J</code>) of ga naar menu Developer -&gt; Developer Tools van je favoriete browser. In de tab &ldquo;Console&rdquo; wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando&rsquo;s in uitvoeren: <code>var db = ...</code>. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips.</p>
-<p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-  <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
-<span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-</code></pre></div><p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
-<p>Een uitgewerkt voorbeeld in begeleidende video:</p>
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/fa612f2efe424da68d3d9aeb362ed5f1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-<h3 id="oefeningen">Oefeningen</h3>
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="left" >
+	
+graph LR;
+    JN[Rekening van Jens]
+    JL[Rekening van Jolien]
+    JN -->|10 EUR| JL
+
+</div>
+<p>Dit is één transactie&mdash;het zou nooit mogen gebeuren dat er <code>€10</code> verdwijnt van Jens' account zonder dat Jolien dat geld ontvangt. Met andere woorden, er kan niets tussen stap 1 en stap 2 komen: geen systeem crash, geen andere gebruiker (bijvoorbeeld Marianne die Jens <code>€20</code> voor zijn verjaardag stort op de rekening). Dit is één &ldquo;unit of work&rdquo;: als er iets misloopt zou alles teruggedraaid moeten worden. Dus, een transactie heeft als <strong>resultaat</strong> ofwel <strong>success</strong>, ofwel <strong>failure</strong>, maar niets tussenin. Indien dit succesvol wordt afgerond zou het DBMS systeem moeten garanderen dat het geld effectief op Jolien&rsquo;s rekening staat. Indien het faalde zou het DBMS systeem moeten garanderen dat Jens zijn geld niet kwijt is.</p>
+<p>In de praktijk worden veel verschillende transacties tegelijkertijd uitgevoerd&mdash;eventueel door verschillende gebruikers. Er moet dus iemand zijn die dit beheert, en dat is de transactie manager. Wie beslist of Jens eerst zijn geld mag afhalen, of dat Marianne eerst zijn verjaardagscadeau mag overmaken op de rekening? Wie beslist dat tussen stap 1 en 2 bij de transfer van het geld van Jens naar Jolien niemand mag tussenkomen? Juist: de transactie manager. Hier zijn verschillende strategieën voor, zoals we later zullen zien in <a href="../../transacties/concurrency-control">Concurrency Control</a>.</p>
+<h2 id="2-het-beheren-van-transacties">2. Het beheren van transacties</h2>
+<p>Formeel gezien wordt er een transactie <strong>afgelijnd</strong> door aan te kondigen wanneer een transactie begint en wanneer hij stopt, zodat de manager de juiste acties kan doorvoeren. De gebruiker kan met SQL ook zelf een transactie terugdraaien als er een programmafout voorkomt, bijvoorbeeld met een <code>try { ... } catch(Exception ex) { rollback }</code>. Meer hierover in sectie <a href="../../transacties/failures-rollbacks/">failures/rollbacks</a>.</p>
+<p>De transactie manager, die afgelijnde transacties ontvangt, kan dit dan in een <strong>schedule</strong> zetten, om te beslissen welke (delen van) transacties wanneer moeten worden uitgevoerd, net zoals Round Robin CPU scheduling algoritmes. Uiteindelijk wordt er een status toegekend aan een transactie:</p>
 <ol>
-<li>Start CouchDB opnieuw met de bestaande courses db. Stel PouchDB in op unidirectionele replication. Alle LOKALE wijzigingen worden nu bewaard in de remote DB. Schrijf in Javascript ter test een nieuw fictief document weg met <code>db.put()</code>. Vul alle JSON properties in: kijk naar een bestaand document in je Couch database.</li>
-<li>Maak een nieuw <code>.html</code> bestand aan, en stel een <a href="https://pouchdb.com/guides/databases.html">remote URL</a> in om vanuit JS onmiddellijk op de remote DB te kunnen queryen.
-<ul>
-<li>Gebruik de <a href="https://pouchdb.com/guides/mango-queries.html">Mango query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/documentstores">2. document stores</a> te implementeren. Opgelet: hier moet je een extra JS file voor includen, <code>pouchdb.find.js</code>, zoals aangegeven in de link, <a href="https://github.com/pouchdb/pouchdb/releases/">downloadbaar hier</a> en zorg ervoor dat zowel PouchDB als de find versies van dezelfde release komen!</li>
-<li>Gebruik de <a href="https://pouchdb.com/guides/queries.html">Mapreduce query API</a> van Pouch om in CouchDB de oefeningen van <a href="../../nosql/mapreduce">3. advanced map/red. queries</a> te implementeren. Merk op dat voor map <strong>en</strong> reduce beiden uit te voeren, je een JSON object moet meegeven met beide functies: <code>{ map: function(doc) { emit(...); }, reduce: '_count}</code>. Zie docs in link.</li>
-</ul>
-</li>
-<li>Maak een nieuw <code>.html</code> bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via <code>console.log()</code>. Wordt het nieuwe document getoond? Gebruik deze boilerplate:</li>
+<li>Committed&mdash;het is gelukt en de data is permanent gepersisteerd.</li>
+<li>Aborted&mdash;Een error tijdens het uitvoeren van de transactie.</li>
 </ol>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">button</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;btn&#34;</span><span style="color:#111">&gt;</span>Print docs<span style="color:#111">&lt;/</span><span style="color:#f92672">button</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">pre</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pre&#34;</span><span style="color:#111">&gt;</span>
-...
-<span style="color:#111">&lt;/</span><span style="color:#f92672">pre</span><span style="color:#111">&gt;</span>
-<span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-<span style="color:#00a8c8">function</span> <span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-    <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#39;#pre&#39;</span><span style="color:#111">).</span><span style="color:#75af00">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#75af00">JSON</span><span style="color:#111">.</span><span style="color:#75af00">stringify</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">);</span>
-<span style="color:#111">}</span>
+<p>Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of worden <strong>rollbacked</strong>. Vorige versies van data moet dus ook worden bijgehouden. Jens' rekening kan bijvoorbeeld <code>€90</code> zijn initieel, hij haalt er <code>€10</code> af om over te maken wat dit tot <code>€80</code> maakt, maar er loopt iets mis: de rollback triggert het terugdraaien van het getal <code>80</code> naar de originele <code>90</code>.</p>
+<p>Dit is een pseudocode voorbeeld van bovenstaande afgelijnde transactie:</p>
+<pre><code>&lt;begin_transaction&gt;
+UPDATE account SET waarde = waarde - :over_te_maken_bedrag
+WHERE eigenaar = 'Jens'
 
-  <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
-  <span style="color:#75715e">// do your setup here
-</span><span style="color:#75715e"></span>
-  <span style="color:#00a8c8">function</span> <span style="color:#75af00">queryDocs</span><span style="color:#111">()</span> <span style="color:#111">{</span>
-     <span style="color:#75715e">// do your thing here
-</span><span style="color:#75715e"></span>     <span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#d88200">&#39;goed bezig&#39;</span><span style="color:#111">);</span>
-  <span style="color:#111">}</span>
-
-<span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">querySelector</span><span style="color:#111">(</span><span style="color:#d88200">&#34;#btn&#34;</span><span style="color:#111">).</span><span style="color:#75af00">addEventListener</span><span style="color:#111">(</span><span style="color:#d88200">&#34;click&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">queryDocs</span><span style="color:#111">);</span>
-<span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
-</code></pre></div><p><strong>Tips</strong>: Wanneer je een item hebt toegevoegd aan je lokale JavaScript database met <code>.put()</code>, maar replication <em>nog niet</em> aan staat, kan het handig zijn om met Chrome/Opera/&hellip; Dev Tools te kijken naar de <strong>local storage</strong> databases. Deze zijn terug te vinden in de tab &ldquo;Application&rdquo;, bij &ldquo;IndexedDB&rdquo;:</p>
+UPDATE account SET waarde = waarde + :over_te_maken_bedrag
+WHERE eigenaar = 'Jolien'
+&lt;end_transaction&gt;
+</code></pre><p>Transacties kosten CPU en RAM en zijn configureerbaar maar dus gelimiteerd in aantal. De manager kan worden ingesteld tot bijvoorbeeld ondersteunen van maximum 10 transacties tegelijkertijd.</p>
+<h4 id="dbms-componenten-bij-een-transactie">DBMS Componenten bij een transactie</h4>
+<p>Een voorbeeld van een transactie workflow (de nummers komen overeen met het schema):</p>
 <p><figure>
-	<a href="../../img/localstorage.jpg" data-featherlight="image">
-		<img src="../../img/localstorage.jpg"  >
+	<a href="../../img/dbmscomponents.jpg" data-featherlight="image">
+		<img src="../../img/dbmscomponents.jpg"   title="DBMS componenten aan het werk tijdens een transactie. src: pdbmbook.com">
 	</a>
+	
+		<figcaption>DBMS componenten aan het werk tijdens een transactie. src: pdbmbook.com</figcaption>
 	
 </figure>
 </p>
-<p>De volgende elementen zijn te herkennen in bovenstaande screenshot:</p>
+<ol>
+<li>De manager waarschuwt de <strong>scheduler</strong> dat er een nieuwe transactie moet worden ingepland. Deze optimaliseert dit naar throughput (zie BESC);</li>
+<li>De <strong>recovery</strong> en <strong>stored data</strong> manager worden op de hoogte gebracht. Deze optimaliseert disk access: het zou kunnen dat DB reads/writes via een buffer verlopen omdat fysieke file operaties duur zijn;</li>
+<li>De scheduler is nu klaar om <strong>input</strong> te ontvangen en uit te voeren in de juiste volgorde;</li>
+<li>Dit triggert mogelijks interactie met de <strong>stored data</strong> manager (het effectief wegschrijven van wijzigingen);</li>
+<li>De uitkomst wordt doorgegevan via een <strong>output area</strong>: ofwel is het gelukt (5b), ofwel is het mislukt (5a), waardoor de recovery manager zijn werk moet doen om dingen terug te draaien.</li>
+</ol>
+<h2 id="3-wat-als-er-iet-misgaat">3. Wat als er iet misgaat?</h2>
+<p>Hoe werkt dat blokje &ldquo;recovery manager&rdquo; precies? Een DBMS systeem gebruikt achterliggend een <strong>logfile</strong> als belangrijk element om eventuele recoveries te kunnen doorvoeren. Een logfile bevat in principe redundante data: in het beste geval wordt dit nooit gebruikt. Maar in het geval dat er ook maar iets misloopt is het van groot belang dat de log entries kunnen worden gebruikt om de data terug te zetten.</p>
+<p>Voor elke transactie en operatie wordt relevante informatie geregistreerd in de logfile als een <strong>log record</strong>. Deze bevat de volgende informatie:</p>
 <ul>
-<li>Ik heb een &ldquo;<code>mydb</code>&rdquo; object aangemaakt (DB naam <code>_pouch_mydb</code>)</li>
-<li>Onder element &ldquo;<code>by-sequence</code>&rdquo; kan je de huidige elementen in de DB raadplegen, zoals bovenstaande demo code waarbij object met naam &ldquo;David&rdquo; werd toegevoegd.</li>
+<li>Een unieke Log ID;</li>
+<li>Een unieke Transactie identifier om de records te kunnen koppelen aan de transacties;</li>
+<li>Een markering voor de start van de transactie + tijd + type (read/write/read-write combo) aan te duiden;</li>
+<li>Database record identifiers en operaties (select/insert/&hellip;.) die bij de transactie horen;</li>
+<li><strong>before</strong> images: een snapshot van de data voordat de transactie werd doorgevoerd. Deze worden gebruikt om een <em>undo</em> uit te voeren;</li>
+<li><strong>after</strong> images: een snapshot van de data nadat de transactie werd doorgevoerd. Deze worden gebruikt om een <em>redo</em> uit te voeren, moest bijvoorbeeld een fysieke file write mislukken en hier een retry op worden toegepast.</li>
 </ul>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<p><strong>Cross site origin fouten?</strong> - Het kan zijn dat je browser, zoals een strict ingestelde Firefox, klaagt over Cross-Origin domains wanneer replication aan staat, omdat die naar <code>127.0.0.1</code> gaat, en je browser de <code>.html</code> file aanlevert vanuit <code>file:///</code> wat technisch gezien niet dezelfde hostname is. Ga naar je CouchDB <a href="http://127.0.0.1:5984/_utils/#_config/couchdb@localhost/cors">admin config</a> (klik op tandwieltje), op <strong>CORS</strong>, en klik <em>&ldquo;enable&rdquo; (all domains)</em>.  Oplossing 1: gebruik een andere browser. Oplossing 2: disable CORS <a href="https://dev.to/andypotts/avoiding-cors-errors-on-localhost-in-2020-4mfn">in de browser</a> (zie artiel). Optie 3: gebruik een python3 webserver om je bestand te serven. Open een terminal en typ <code>python -m http.server</code> in de directory van je html bestand. Ga dan naar http://127.0.0.1:8000/oefening.html (Poort <code>8000</code>). Indien niet opgelost, ga naar volgende troubleshooting puntje:</p>
-<p><strong>Connecton errors?</strong> - Als Pouch bij replication connection errors geeft in de JS Console kan het zijn dat je Couch server te streng staat ingesteld, en hij de requests blokkeert. In dat geval ga je naar Fauxton, klik je op het &ldquo;tandwieltje&rdquo; linkqs, en enable je <code>CORS</code> (Cross Origin Requests):</p>
+<p>Er wordt altijd <em>eerst</em> in de logfile geschreven: dit noemen we een <strong>write-ahead log strategy</strong>. Op die manier is de DBMS manager voorbereid op een mogelijke rollback. Alle updates worden dus eerst naar de logfile geschreven voordat er iets fysiek veranderd op de harde schijf. Merk op dat de &ldquo;logFILE&rdquo; ook (gedeeltelijk) in-memory kan zijn.</p>
+<p>Wat kan er zoal misgaan? Failures worden in drie groepen opgedeeld:</p>
+<ol>
+<li><strong>Transaction failures</strong>: fouten in de logica van de transactie, zoals verkeerde input, incorrecte variabelen, statements die niet kloppen, etc. Sommige applicaties vangen dit al op voordat het naar de DBMS gaat.</li>
+<li><strong>System failures</strong>: DB of OS crashes op de server, bijvoorbeeld door stroomonderbrekingen of bugs in de database zelf. Het zou kunnen dat de DBMS buffer inhoud hierdoor leeg raakt en delen van data niet teruggezet kunnen worden.</li>
+<li><strong>Media failures</strong>: Storage access fouten door bijvoorbeeld disk crashes, een storing in het netwerk, etc. Het zou kunnen dat de logfile niet toegankelijk is.</li>
+</ol>
+<p>Het is de moeite waard om even te kijken naar de laatste 2 groepen en hoe daar recovery processen precies werken.</p>
+<h4 id="system-recovery">System Recovery</h4>
+<p>Veronderstel dat er 5 transacties door de DBMS worden verwerkt. <code>Tc</code> duidt een checkpoint aan van de data in de buffer. Er treedt een systeemfout op rechts bij <code>Tf</code>:</p>
 <p><figure>
-	<a href="../../img/cors.png" data-featherlight="image">
-		<img src="../../img/cors.png"  >
+	<a href="../../img/undoredo.jpg" data-featherlight="image">
+		<img src="../../img/undoredo.jpg"   title="UNDO/REDO operaties voor 5 &#39;kapotte&#39; transacties. src: pdbmbook.com">
 	</a>
+	
+		<figcaption>UNDO/REDO operaties voor 5 &#39;kapotte&#39; transacties. src: pdbmbook.com</figcaption>
 	
 </figure>
 </p>
-<p><strong>Access denied?</strong> - Als je een admin username/password hebt ingesteld dien je dit ook mee te geven met de parameters: <code>new PouchDb(&quot;http://localhost:5984&quot;, { auth: { username: &quot;jef&quot;, password: &quot;lowie&quot;} })</code>. Zie <a href="https://pouchdb.com/api.html#create_database">options for remote databases</a> in de PouchDb API manual.</p>
-<p><strong>Mijn <code>find()</code> doet niks</strong>? - Merk op dat eender welke actie een <code>Promise</code> object teruggeeft. Dat wil zeggen dat de query &ldquo;onderweg&rdquo; is, en als je iets wilt uitvoeren wanneer dit klaar is (een <em>asynchroon</em> proces), moet dit via de <code>Promise</code> API, zoals <code>.then()</code>. Lees hierover in de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Mozilla MDN docs</a>.</p>
-<p><strong>Ik krijg rare javascript errors?</strong> - Is je <code>pouch.min.js</code> en <code>pouch.find.min.js</code> versie dezelfde? D.w.z. zijn de major/minor/revision nummers hetzelfde? Dit staat aangeduid in de eerste regel van de source file. Indien niet, download de correcte versie via de PouchDB <a href="https://github.com/pouchdb/pouchdb/releases/">Github Releases pagina</a>.</p>
-<p><strong>Ik krijg 404 object not found bij put?</strong> - Heb je je remote DB opgezet naar een onbestaande database, zoals <code>/hallokes</code>? Die moet je eerst <em>zelf aanmaken</em> in de CouchDB admin pagina! Anders kan je geen <code>PUT</code> commando&rsquo;s op die URL opsturen.</p>
-<p><strong>Uncaught in Promise request PUT not supported?</strong> - In <code>serviceWorker.js</code>? Ben je op de pouchdb.com website in de console dingen aan het testen? Sommige scripts, zoals deze, vangen <code>PUT</code> commando&rsquo;s op en crashen dan. Je object zal wel correct zijn bewaard, dit mag je negeren.</p>
+<p>We bekijken de 5 transacties afzonderlijk:</p>
+<ol>
+<li><code>T1</code>&mdash;Aangezien deze succesvol werd gecommit voor de systeemfout én voor de snapshot <code>Tc</code>, hoeft hier niets voor te gebeuren na een crash.</li>
+<li><code>T2</code>&mdash;Deze transactie is ook compleet voor <code>Tf</code>, maar er zit nog data in de buffer van de snapshot <code>Tc</code> die niet naar disk geschreven werd. Hier is dus een <code>REDO</code> nodig.</li>
+<li><code>T3</code>&mdash;Deze transactie was nog bezig bij de crash van <code>Tf</code>. We hebben niet alle data in de buffer: er is dus transactie data verloren gegaan: een <code>UNDO</code> dus.</li>
+<li><code>T4</code>&mdash;Deze transactie is gelukt maar alle data is nog steeds pending to disk (bij <code>T2</code> was dit een deel): <code>REDO</code>.</li>
+<li><code>T5</code>&mdash;De DBMS scheduler had deze net ingepland toen het systeem crashte. Het is niet nodig om hier is van terug te draaien omdat er niks pending was (na de <code>Tc</code> checkpoint).</li>
+</ol>
+<h4 id="media-recovery">Media Recovery</h4>
+<p>Wat doe jij als er een harde schijf gerashed is van je computer? Bidden voor een werkende backup? Indien fysieke files niet meer toegankelijk zijn is een &ldquo;media recovery&rdquo; afhenkelijk van <strong>data redundancy</strong> principes. Hopelijk heb je een backup strategie voorzien. Voor database systemen wordt dit streng toegepast en moeten we een recovery doorvoeren via een mirror op een andere HDD in RAID, op een cloud backup, een offline backup, &hellip;</p>
+<p>Om de <strong>failover time</strong> te minimaliseren wordt dit vaak automatisch opgezet. Een harde schijf kan in een server in <code>RAID-1</code> modus geplaatst worden: die functioneert als 100% clone van de andere. Indien er één van beide HDDs faalt, neemt onmiddellijk de andere het werk over, zodat gebruikers zo goed als geen last hebben van de media failure. Systemen als backup copies door iets te &ldquo;archiveren&rdquo; (een <code>.tar.gz</code> of <code>.zip</code> op bepaalde tijdstippen aan de kant zetten) vereist meestal meer werk om terug te zetten. Backups nemen betekent ook beslissen of het een <strong>full</strong> of <strong>incremental</strong> backup zal zijn, waarbij je (1) alle files apart zet, of (2) enkel de wijzigingen ten opzichte van vorige snapshots.</p>
+<p>Een goede backup strategie&mdash;dit geldt zowel voor databases als voor je eigen data!!&mdash;volgt <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">het 1-2-3 backup principe</a>:</p>
+<ul>
+<li>Zorg voor minstens <strong>drie backups</strong> van je data, waarvan</li>
+<li><strong>twee lokaal</strong> maar op <strong>verschillende media</strong> (bvb, verschillende servers, op HDD en op USB, &hellip;), en</li>
+<li><strong>één off-site kopie</strong>, zoals cloud-based backup systemen als Dropbox, Google Drive, <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze&rsquo;s Cloud Storage</a>.</li>
+</ul>
+<p>Dan hebben we het nog niet over security gehad&hellip;</p>
 <h3 id="denkvragen">Denkvragen</h3>
 <ul>
-<li>Heb je een verschil gemerkt tussen bidirectionele en live replication in PouchDB? Probeer beide instellingen uit en kijk in de Chrome/Opera/Mozilla Dev Tools van je browser naar de uitgaande HTTP requests. Op welk moment gebeurt dit? Welke <code>POST</code>/<code>GET</code> metadata wordt verstuurd?</li>
-<li>Wat is het verschil tussen in Pouch alle documenten op te vragen en daarna als array MapReduces toe te passen, of dit in de Mango query rechtstreeks te doen?</li>
+<li>Waarom kan je niet gewoon media recovery strategieën toepassen bij systeemcrashes? Waarom wel, maar is dat misschien geen goed idee?</li>
+<li>Als er verschillende transacties tegelijkertijd aan één record iets wijzigen, welke problemen zie jij dan zoal? Hoe zou je dat door de transaction manager laten oplossen? Kan je zo twee verschillende oplossingen bedenken?</li>
+<li>Wat is alweer het verschil tussen <code>UNDO</code> en <code>REDO</code> recovery technieken?</li>
+<li>Als ier iets misgaat op applicatieniveau, bijvoorbeeld een crash in je Java applicatie, moet de DBMS dan iets doen, of moet de programmeur dan iets doen, om ACID te blijven garanderen?</li>
+<li>Wat zou er volgens jou moeten gebeuren als twee personen tegelijkertijd op <code>bol.com</code> een item bestellen waarvan maar één hoeveelheid in stock is? Wie trekt hier aan het korte eind? Hoe vangen grote webwinkels dit probleem op?</li>
 </ul>
 
 
@@ -922,7 +944,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -936,8 +957,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -982,6 +1016,23 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -999,9 +1050,6 @@
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1009,35 +1057,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1190,10 +1209,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../nosql/mapreduce/" title="3. Advanced map/red. queries"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../transacties/" title="2. Transacties"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../transacties/" title="2. Transacties" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../transacties/concurrency-control/" title="2. Concurrency Control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
