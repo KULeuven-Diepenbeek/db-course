@@ -1,5 +1,5 @@
 ---
-title: "1. JDBC en JDBI"
+title: 2. JDBC en JDBI
 ---
 
 ## 1.1 Queries/Objecten in JDBC

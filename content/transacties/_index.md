@@ -1,11 +1,8 @@
 ---
-title: "2. Transacties"
-weight: 2
+title: "2. RDBMS Transacties"
 chapter: true
 ---
 
 # Transaction management
-
-### HF14, p430
 
 Zie menu links.

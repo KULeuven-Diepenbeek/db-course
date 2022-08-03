@@ -1,6 +1,5 @@
 ---
-title: "1. Key/value stores"
-weight: 1
+title: 2. Key/value stores
 ---
 
 ## 1.1 Persistente Hashmaps

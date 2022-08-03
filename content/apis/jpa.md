@@ -1,5 +1,5 @@
 ---
-title: "2. JPA en Hibernate"
+title: 3. JPA en Hibernate
 ---
 
 ## 2.1 Wat is JPA?

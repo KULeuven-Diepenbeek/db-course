@@ -1,8 +1,9 @@
 ---
-title: "4. NoSQL"
+title: "1. RDBMS & SQL"
 chapter: true
 ---
 
-# NoSQL Databases
+# RDBMS & SQL
 
 Zie menu links.
+

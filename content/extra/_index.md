@@ -1,8 +1,7 @@
 ---
-title: 'Extra informatie'
-weight: 7
+title: 'X. Extras'
 ---
 
-### Extra informatie
+# Extra informatie
 
-1. [Gebruikte Software: een overzicht](/extra/software)
+Zie menu links.

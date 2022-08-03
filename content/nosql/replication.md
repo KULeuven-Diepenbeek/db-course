@@ -1,6 +1,5 @@
 ---
-title: "4. Replication"
-weight: 4
+title: 5. Replication
 ---
 
 ![](/img/pouchdb.jpg)

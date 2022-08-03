@@ -1,6 +1,5 @@
 ---
-title: "2. Document stores"
-weight: 2
+title: 3. Document stores
 ---
 
 ### 2.1 Eenvoudige CouchDB Queries
