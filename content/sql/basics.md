@@ -2,6 +2,8 @@
 title: SQL Basics
 ---
 
+**Herexamen 08/2022**: zie slides op Toledo.
+
 TODO
 
 - beetje achtergrond (R)DBMS systemen
