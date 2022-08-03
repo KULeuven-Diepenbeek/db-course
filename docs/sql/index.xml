@@ -14,7 +14,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/basics/</guid>
-      <description>TODO
+      <description>Herexamen 08/2022: zie slides op Toledo.
+TODO
   beetje achtergrond (R)DBMS systemen
   basic SQL ed
   ACID hier eerst vermelden, wordt verschillende keren &amp;ldquo;herbruikt&amp;rdquo;

@@ -4,7 +4,7 @@
 	"title": "1. API Basics",
 	"tags": [],
 	"description": "",
-	"content": "TODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460\n"
+	"content": "Herexamen 08/2022: zie slides op Toledo.\nTODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460\n"
 },
 {
 	"uri": "https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/",
@@ -144,7 +144,7 @@
 	"title": "SQL Basics",
 	"tags": [],
 	"description": "",
-	"content": "TODO\n  beetje achtergrond (R)DBMS systemen\n  basic SQL ed\n  ACID hier eerst vermelden, wordt verschillende keren \u0026ldquo;herbruikt\u0026rdquo;\nAtomicity; operaties = 1 blok Consistency; data = altijd valid! Isolation; concurrency moet kunnen Durability; commit is commit, ook bij crashes\n  "
+	"content": "Herexamen 08/2022: zie slides op Toledo.\nTODO\n  beetje achtergrond (R)DBMS systemen\n  basic SQL ed\n  ACID hier eerst vermelden, wordt verschillende keren \u0026ldquo;herbruikt\u0026rdquo;\nAtomicity; operaties = 1 blok Consistency; data = altijd valid! Isolation; concurrency moet kunnen Durability; commit is commit, ook bij crashes\n  "
 },
 {
 	"uri": "https://kuleuven-diepenbeek.github.io/db-course/tags/",
