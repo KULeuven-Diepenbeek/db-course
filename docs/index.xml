@@ -9,56 +9,21 @@
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
     <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1. Key/value stores</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>
+      <title>1. API Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
-      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
-De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
-fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11)) val file = File(&amp;#34;database.</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</guid>
+      <description>TODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460</description>
     </item>
     
     <item>
-      <title>2. Document stores</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
+      <title>1. NoSQL Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
-      <description>2.1 Eenvoudige CouchDB Queries    Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
-Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
-{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
-    </item>
-    
-    <item>
-      <title>3. Advanced map/red. queries</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</guid>
-      <description>Deze oefeningen volgen de theorie van 11.3.3 op pagina 320.
-Deze oefeningen gaan verder op de database die je hebt opgezet in 2. document stores. Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: voorbereidingswerk) in die link. Start voor onderstaande oefeningen de lokale CouchDB Server en de Admin Console (Project Fauxton) opnieuw op.
-Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd nodig:</description>
-    </item>
-    
-    <item>
-      <title>4. Replication</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</guid>
-      <description>Met replication is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd PouchDB. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &amp;ldquo;master&amp;rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</description>
-    </item>
-    
-    <item>
-      <title>1. JDBC en JDBI</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
-      <description>1.1 Queries/Objecten in JDBC Zie Transacties failures/rollbacks voor de initiële setup van een eenvoudige Java JDBC applicatie.
-Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: van de TABLE STUDENT naar de class Student. In geval van JDBC is dat veel handwerk:
- Maak een verbinding met de database. Voer de SELECT statements uit. Loop door de ResultSet en maak een nieuwe Student instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, null?</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</guid>
+      <description>Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?</description>
     </item>
     
     <item>
@@ -91,13 +56,25 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
     </item>
     
     <item>
-      <title>2. JPA en Hibernate</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
+      <title>2. JDBC en JDBI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
-      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
-Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
+      <description>1.1 Queries/Objecten in JDBC Zie Transacties failures/rollbacks voor de initiële setup van een eenvoudige Java JDBC applicatie.
+Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: van de TABLE STUDENT naar de class Student. In geval van JDBC is dat veel handwerk:
+ Maak een verbinding met de database. Voer de SELECT statements uit. Loop door de ResultSet en maak een nieuwe Student instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, null?</description>
+    </item>
+    
+    <item>
+      <title>2. Key/value stores</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
+      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
+De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
+fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11)) val file = File(&amp;#34;database.</description>
     </item>
     
     <item>
@@ -110,14 +87,14 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
     
     <item>
-      <title>3. Extra Oefeningen</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</link>
+      <title>3. Document stores</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/ex/</guid>
-      <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
-   Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
- Als database endpoint wordt com.</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
+      <description>2.1 Eenvoudige CouchDB Queries    Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
+Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
+{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
     </item>
     
     <item>
@@ -131,12 +108,33 @@ DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY 
     </item>
     
     <item>
+      <title>3. JPA en Hibernate</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
+      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
+Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+    </item>
+    
+    <item>
       <title>3. NoSQL Graphs, Case Studies</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>4. Advanced map/red. queries</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</guid>
+      <description>Deze oefeningen volgen de theorie van 11.3.3 op pagina 320.
+Deze oefeningen gaan verder op de database die je hebt opgezet in 2. document stores. Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: voorbereidingswerk) in die link. Start voor onderstaande oefeningen de lokale CouchDB Server en de Admin Console (Project Fauxton) opnieuw op.
+Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd nodig:</description>
     </item>
     
     <item>
@@ -151,12 +149,32 @@ Begeleidend filmpje:
     </item>
     
     <item>
+      <title>4. Extra Oefeningen</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/extra-oefeningen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/extra-oefeningen/</guid>
+      <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
+   Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
+ Als database endpoint wordt com.</description>
+    </item>
+    
+    <item>
       <title>4. Transactie Management</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>5. Replication</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</guid>
+      <description>Met replication is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd PouchDB. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &amp;ldquo;master&amp;rdquo; Couch database, zoals ook zichtbaar op de Pouch website:</description>
     </item>
     
     <item>
@@ -167,6 +185,20 @@ Begeleidend filmpje:
       <guid>https://kuleuven-diepenbeek.github.io/db-course/extra/software/</guid>
       <description>Java/Kotlin/Gradle Zie het 2dejaarsvak Software Engineering Skills, SES/Gebruikte software. Voor SQL API software development oefeningen gebruiken we dezelfde tools: dezelfde Java JDK, optioneel een Kotlin SDK, ook de IntelliJ IDE, en ook Gradle als build tool. Weet je niet meer hoe deze te gebruiken, volg dan de links om je geheugen te verfrissen.
 Tijdens labo&amp;rsquo;s gebruiken we vaak Gradle dependencies om te experimenteren met nieuwe soorten databases zoals Memcached, SQLite, JDBI en Hibernate.</description>
+    </item>
+    
+    <item>
+      <title>SQL Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/sql/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/basics/</guid>
+      <description>TODO
+  beetje achtergrond (R)DBMS systemen
+  basic SQL ed
+  ACID hier eerst vermelden, wordt verschillende keren &amp;ldquo;herbruikt&amp;rdquo;
+Atomicity; operaties = 1 blok Consistency; data = altijd valid! Isolation; concurrency moet kunnen Durability; commit is commit, ook bij crashes
+  </description>
     </item>
     
   </channel>
