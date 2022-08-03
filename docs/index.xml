@@ -23,16 +23,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</guid>
-      <description>Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?</description>
-    </item>
-    
-    <item>
-      <title>1. NoSQL Databases: Introductie</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-1/</guid>
-      <description></description>
+      <description>Het schaalbaarheid probleem Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?
+Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie transacties basics).
+   Je botst hier echter snel op hardware limitaties&amp;mdash;niet alles is opgelost met een latje RAM.</description>
     </item>
     
     <item>
@@ -78,23 +71,13 @@ fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;
     </item>
     
     <item>
-      <title>2. NoSQL Databases: Advanced concepts</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>3. Document stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
-      <description>2.1 Eenvoudige CouchDB Queries    Lui in die zetel liggen, en vanaf de bank met gemak query&amp;rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.
-Mango CouchDB heeft een eenvoudige ingebouwde query syntax genaamd Mango. Documentatie op https://github.com/cloudant/mango en http://127.0.0.1:5984/_utils/docs/intro/api.html#documents. Selecteer een database, klik op &amp;ldquo;run a query with Mango&amp;rdquo;:
-{ &amp;#34;selector&amp;#34;: { &amp;#34;year&amp;#34;: 3 } } De selector attribute bepaalt op welke keys er wordt gefilterd.</description>
+      <description>0. Data filtering: recap Wat is een &amp;ldquo;mapreduce&amp;rdquo; functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array [1, 2, 3, 4] en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een list(map(lambda...)) statement:
+range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hier gebruikten we een &amp;ldquo;lambda&amp;rdquo; om voor elk element een functie los te laten, die dat element transformeert, ofwel &amp;ldquo;mapt&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -115,15 +98,6 @@ DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY 
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
       <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
 Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
-    </item>
-    
-    <item>
-      <title>3. NoSQL Graphs, Case Studies</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-3/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -157,15 +131,6 @@ Begeleidend filmpje:
       <description>SESsy Library - Revisited Voorbereiding: Maak uzelf opnieuw vertrouwd met de SESsy Library applicatie, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.
    Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met gradlew dependencies. In context van het vak Databasess zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:
  Als database endpoint wordt com.</description>
-    </item>
-    
-    <item>
-      <title>4. Transactie Management</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/hoorcolleges/slides-4/</guid>
-      <description></description>
     </item>
     
     <item>

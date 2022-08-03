@@ -12,21 +12,21 @@
     <title>2. Concurrency Control :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1659515115" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/hybrid.css?1659515115" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1659515115" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/devselector.css?1659515115" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1659515115" rel="stylesheet">
+    <link href="../../css/nucleus.css?1659532204" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/hybrid.css?1659532204" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1659532204" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/devselector.css?1659532204" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1659532204" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1659515115"></script>
-    <script src="../../js/devselector.js?1659515115"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1659532204"></script>
+    <script src="../../js/devselector.js?1659532204"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1659515115"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1659515115"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1659532204"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1659532204"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1659515115"></script>
+<script type="text/javascript" src="../../js/search.js?1659532204"></script>
 
     
   </div>
@@ -82,124 +82,6 @@
     <ul class="topics">
 
         
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item
-        
-        
-        
-        ">
-      <a href="../../hoorcolleges/">
-          Hoorcolleges
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-1/" title="1. NoSQL Databases: Introductie" class="dd-item ">
-        <a href="../../hoorcolleges/slides-1/">
-        1. NoSQL Databases: Introductie
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-2/" title="2. NoSQL Databases: Advanced concepts" class="dd-item ">
-        <a href="../../hoorcolleges/slides-2/">
-        2. NoSQL Databases: Advanced concepts
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-3/" title="3. NoSQL Graphs, Case Studies" class="dd-item ">
-        <a href="../../hoorcolleges/slides-3/">
-        3. NoSQL Graphs, Case Studies
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Transactie Management" class="dd-item ">
-        <a href="../../hoorcolleges/slides-4/">
-        4. Transactie Management
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
           
           
 
@@ -1132,9 +1014,9 @@ graph LR;
 <ol>
 <li>row locks;</li>
 <li>column locks;</li>
-<li>page locks;</li>
+<li>page locks (delen van een tabel zoals stored in files);</li>
 <li>table locks;</li>
-<li>&hellip;</li>
+<li>databas locks (bvb een file lock in SQLite);</li>
 </ol>
 <p>Een lock op één rij in beslag genomen door <code>T1</code> betekent dat voor diezelfde tabel <code>T2</code> nog steeds bedragen kan wijzigen van een andere rekening. Column locks kunnen tot meer wachttijd leiden. Page locks zijn &ldquo;stukken&rdquo; van een tabel (rijen voor <code>x</code> en erna). Een page is een chunk van een tabel die op die manier wordt opgeslaan. Dit verschilt van DB implementatie tot implementatie. Tenslotte kan een hele tabel gelockt worden&mdash;of de hele tablespace&mdash;wat meer pessimistisch dan optimistisch is.</p>
 
@@ -1214,7 +1096,8 @@ graph LR;
 </tbody>
 </table>
 <p>Deze (simpele) <strong>deadlock</strong> kan gelukkig gedetecteerd worden door het DBMS systeem. Die zal één van beide transacties als &ldquo;slachtoffer&rdquo; kiezen en die transactie terugdraaien&mdash;meestal gebaseerd op welke het makkelijkste is om terug te draaien. Het probleem is dat de meeste applicaties niet onmiddellijk voorzien zijn op zo&rsquo;n onverwachte rollback. Dit resulteert meestal in een negatieve gebruikerservaring.</p>
-<p>Deadlocks en algoritmes om dit te detecteren en op te lossen zijn erg complexe materie. Het volstaat om bovenstaand eenvoudig voorbeeld te kennen, en te weten hoe dat aangepakt zou kunnen worden&mdash;bijvoorbeeld met <em>starvation</em> principes zoals ook gezien in het vak Besturingssystemen en C.</p>
+<p>Deadlocks en algoritmes om dit te detecteren en op te lossen zijn erg complexe materie. Het volstaat om bovenstaand eenvoudig voorbeeld te kennen, en te weten hoe dat aangepakt zou kunnen worden&mdash;bijvoorbeeld met <em>starvation</em>, <em>timeouts</em>, en <em>priority shift</em> principes zoals ook gezien in het vak Besturingssystemen en C.</p>
+<p>Zie ook <a href="https://vladmihalcea.com/database-deadlock/">A beginners guide to DB deadlocks</a>.</p>
 <h4 id="isolation-levels">Isolation levels</h4>
 <p>Pessimistic locking kan veel problemen opvangen, maar ten koste van performantie&mdash;wat meestal belangrijker is. Voor veel transacties is het oké om met een minimum aan conflicten de throughput van transacties zo hoog mogelijk te houden. De meeste DBMS systemen zijn hier flexibel in: je kan wat we noemen <strong>isolation levels</strong> instellen, dat meestal bestaat uit de volgende vier opties (van low naar high isolation):</p>
 <ol>
@@ -1275,86 +1158,6 @@ graph LR;
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1717,17 +1520,17 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1659515115"></script>
-    <script src="../../js/jquery.sticky.js?1659515115"></script>
-    <script src="../../js/featherlight.min.js?1659515115"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1659515115"></script>
-    <script src="../../js/learn.js?1659515115"></script>
-    <script src="../../js/hugo-learn.js?1659515115"></script>
+    <script src="../../js/clipboard.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1659532204"></script>
+    <script src="../../js/jquery.sticky.js?1659532204"></script>
+    <script src="../../js/featherlight.min.js?1659532204"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1659532204"></script>
+    <script src="../../js/learn.js?1659532204"></script>
+    <script src="../../js/hugo-learn.js?1659532204"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1659515115"></script>
+            <script src="../../mermaid/mermaid.js?1659532204"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

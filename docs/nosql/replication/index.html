@@ -12,21 +12,21 @@
     <title>5. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1659515115" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/hybrid.css?1659515115" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1659515115" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/devselector.css?1659515115" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1659515115" rel="stylesheet">
+    <link href="../../css/nucleus.css?1659532204" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/hybrid.css?1659532204" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1659532204" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/devselector.css?1659532204" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1659532204" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1659515115"></script>
-    <script src="../../js/devselector.js?1659515115"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1659532204"></script>
+    <script src="../../js/devselector.js?1659532204"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1659515115"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1659515115"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1659532204"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1659532204"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1659515115"></script>
+<script type="text/javascript" src="../../js/search.js?1659532204"></script>
 
     
   </div>
@@ -82,124 +82,6 @@
     <ul class="topics">
 
         
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item
-        
-        
-        
-        ">
-      <a href="../../hoorcolleges/">
-          Hoorcolleges
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-1/" title="1. NoSQL Databases: Introductie" class="dd-item ">
-        <a href="../../hoorcolleges/slides-1/">
-        1. NoSQL Databases: Introductie
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-2/" title="2. NoSQL Databases: Advanced concepts" class="dd-item ">
-        <a href="../../hoorcolleges/slides-2/">
-        2. NoSQL Databases: Advanced concepts
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-3/" title="3. NoSQL Graphs, Case Studies" class="dd-item ">
-        <a href="../../hoorcolleges/slides-3/">
-        3. NoSQL Graphs, Case Studies
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Transactie Management" class="dd-item ">
-        <a href="../../hoorcolleges/slides-4/">
-        4. Transactie Management
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
           
           
 
@@ -794,6 +676,8 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#replication-opzetten">Replication opzetten</a></li>
+        <li><a href="#demo-js-code">Demo JS code</a></li>
         <li><a href="#oefeningen">Oefeningen</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
         <li><a href="#denkvragen">Denkvragen</a></li>
@@ -844,12 +728,35 @@
 <span style="color:#111">});</span>
 
 <span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">replicate</span><span style="color:#111">.</span><span style="color:#75af00">to</span><span style="color:#111">(</span><span style="color:#d88200">&#39;http://example.com/mydb&#39;</span><span style="color:#111">);</span>
-</code></pre></div><p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
+</code></pre></div><h3 id="replication-opzetten">Replication opzetten</h3>
+<p>Wat is <strong>het doel</strong>? Replication op te zetten tussen de cursussen database van <a href="../../nosql/documentstores">2. document stores</a> en de PouchDB JS web-based client. Dat kan op verschillende manieren:</p>
 <ol>
-<li>Unidirectional replication. Zie <a href="https://pouchdb.com/guides/replication.html">PouchDB Docs</a></li>
-<li>Bidirectional replication.</li>
-<li>Live/Continuous replication.</li>
+<li><strong>Unidirectional</strong> replication&mdash;1-way traffic master/slave. Eén database is de &ldquo;master&rdquo; waar men op werkt, en de andere is een mirror/backup.</li>
+<li><strong>Bidirectional</strong> replication&mdash;2-way traffic. Data die in beide databases verandert, wordt gesynchroniseerd naar beiden databases. Uiteraard zul je hier aan conflict management moeten doen.</li>
+<li><strong>Live/Continuous</strong> replication&mdash;2-way &ldquo;live&rdquo; traffic dat onmiddellijk zichtbaar is via JS callbacks.</li>
 </ol>
+<p><figure>
+	<a href="../../slides/img/offline_replication.gif" data-featherlight="image">
+		<img src="../../slides/img/offline_replication.gif"   title="Offline replication schematisch voorgesteld. src: pouchdb.com">
+	</a>
+	
+		<figcaption>Offline replication schematisch voorgesteld. src: pouchdb.com</figcaption>
+	
+</figure>
+</p>
+<p>Zie ook de <a href="https://pouchdb.com/guides/replication.html">PouchDB Docs: replication explained</a>. Merk op dat de drie bovenstaande replication principes ook van toepassing zijn voor CouchDB. Om replication te demonstreren hebben we uiteraard een 2de database nodig, vandaar de introductie van PouchDB.</p>
+<h4 id="interne-werking">Interne werking</h4>
+<p>Hoe werkt replication intern? Elk document heeft een <code>_rev</code> property:</p>
+<p><figure>
+	<a href="../../slides/img/revs.jpg" data-featherlight="image">
+		<img src="../../slides/img/revs.jpg"  >
+	</a>
+	
+</figure>
+</p>
+<p>Elke change aan elk document wordt bijgehouden. In bovenstaande screenshot zie je als eerste document een <code>_rev</code> value van <code>3-82ac8d...</code>. Dit is <strong>revisie 3</strong>. Je kan deze lijst van revisies van één bepaald document ook raadplegen via een REST: zie de documentatie, <a href="https://docs.couchdb.org/en/stable/api/document/common.html#getting-a-list-of-revisions">GET list of revisions</a>.</p>
+<p>Een document ophalen in CouchDB kan via <code>http://127.0.0.1:5984/[db]/[key]</code>. Voeg aan deze url <code>?revs=true</code> of <code>?revs_info=true</code> toe en kijk wat er gebeurt.</p>
+<h3 id="demo-js-code">Demo JS code</h3>
 <p>Je kan bovenstaande demo code onmiddellijk proberen op <a href="https://pouchdb.com">https://pouchdb.com</a>: Druk op <code>F12</code> of <code>CTRL+SHIFT+J</code> (Mac: <code>OPT+CMD+J</code>) of ga naar menu Developer -&gt; Developer Tools van je favoriete browser. In de tab &ldquo;Console&rdquo; wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando&rsquo;s in uitvoeren: <code>var db = ...</code>. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips.</p>
 <p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
@@ -857,6 +764,10 @@
   <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
 <span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
 </code></pre></div><p>Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort <code>5984</code>.</p>
+
+<div class="notices note" ><p>PouchDB, CouchDB, help, wat is het verschil? Pouch is een <strong>JavaScript client</strong> library voor Node en het Web. Beiden gebruiken Mango, MapReduce Replication, &hellip; technieken. Beiden kan je clusteren, hebben conflict management, compacting, &hellip; Bekijk het zo: Pouch is de (easy-to-setup) Couch van het web. Zie ook: <a href="https://pouchdb.com/users.html">Who&rsquo;s using PouchDB?</a></p>
+</div>
+
 <p>Een uitgewerkt voorbeeld in begeleidende video:</p>
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/fa612f2efe424da68d3d9aeb362ed5f1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 <h3 id="oefeningen">Oefeningen</h3>
@@ -962,86 +873,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1404,17 +1235,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1659515115"></script>
-    <script src="../../js/jquery.sticky.js?1659515115"></script>
-    <script src="../../js/featherlight.min.js?1659515115"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1659515115"></script>
-    <script src="../../js/learn.js?1659515115"></script>
-    <script src="../../js/hugo-learn.js?1659515115"></script>
+    <script src="../../js/clipboard.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1659532204"></script>
+    <script src="../../js/jquery.sticky.js?1659532204"></script>
+    <script src="../../js/featherlight.min.js?1659532204"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1659532204"></script>
+    <script src="../../js/learn.js?1659532204"></script>
+    <script src="../../js/hugo-learn.js?1659532204"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1659515115"></script>
+            <script src="../../mermaid/mermaid.js?1659532204"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

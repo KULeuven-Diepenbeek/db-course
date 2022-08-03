@@ -12,21 +12,21 @@
     <title>1. Transaction Mgmt. Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1659515115" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/hybrid.css?1659515115" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1659515115" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1659515115" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/devselector.css?1659515115" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1659515115" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1659515115" rel="stylesheet">
+    <link href="../../css/nucleus.css?1659532204" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/hybrid.css?1659532204" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1659532204" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1659532204" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/devselector.css?1659532204" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1659532204" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1659532204" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1659515115"></script>
-    <script src="../../js/devselector.js?1659515115"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1659532204"></script>
+    <script src="../../js/devselector.js?1659532204"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1659515115"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1659515115"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1659532204"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1659532204"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1659515115"></script>
+<script type="text/javascript" src="../../js/search.js?1659532204"></script>
 
     
   </div>
@@ -82,124 +82,6 @@
     <ul class="topics">
 
         
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/hoorcolleges/" title="Hoorcolleges" class="dd-item
-        
-        
-        
-        ">
-      <a href="../../hoorcolleges/">
-          Hoorcolleges
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-1/" title="1. NoSQL Databases: Introductie" class="dd-item ">
-        <a href="../../hoorcolleges/slides-1/">
-        1. NoSQL Databases: Introductie
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-2/" title="2. NoSQL Databases: Advanced concepts" class="dd-item ">
-        <a href="../../hoorcolleges/slides-2/">
-        2. NoSQL Databases: Advanced concepts
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-3/" title="3. NoSQL Graphs, Case Studies" class="dd-item ">
-        <a href="../../hoorcolleges/slides-3/">
-        3. NoSQL Graphs, Case Studies
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/hoorcolleges/slides-4/" title="4. Transactie Management" class="dd-item ">
-        <a href="../../hoorcolleges/slides-4/">
-        4. Transactie Management
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
           
           
 
@@ -792,6 +674,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#0-waarom-transacties">0. Waarom transacties?</a></li>
     <li><a href="#1-wat-is-een-transactie">1. Wat is een transactie?</a></li>
     <li><a href="#2-het-beheren-van-transacties">2. Het beheren van transacties</a>
       <ul>
@@ -829,6 +712,23 @@
 
 
 <p>SQL DBMS systemen zijn eerst en vooral <strong>multi-user</strong> systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de <strong>ACID regels</strong> ondersteunen, is er een systeem nodig dat soms gebruikers &ldquo;in wacht&rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &ldquo;de rekening staat op 100 EUR&rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd? Jens krijgt te horen dat er 100 EUR op de rekening staat, terwijl in werkelijkheid dit 10 EUR minder is.</p>
+<h2 id="0-waarom-transacties">0. Waarom transacties?</h2>
+<p>Heel simpel. Dit is het verkeer zonder transacties:</p>
+<p><figure>
+	<a href="../../slides/img/chaos.jpg" data-featherlight="image">
+		<img src="../../slides/img/chaos.jpg"  >
+	</a>
+	
+</figure>
+</p>
+<p>Dit met:</p>
+<p><figure>
+	<a href="../../slides/img/order.jpg" data-featherlight="image">
+		<img src="../../slides/img/order.jpg"  >
+	</a>
+	
+</figure>
+</p>
 <p>Om Atomicity, Consistency, Isolation, Durability te garanderen is er dus een <strong>transactie manager</strong> nodig die alles in goede banen leidt op het moment dat verschillende gebruikers data gaan raadplegen en/of manipuleren. Dit principe is ruwweg <strong>hetzelfde als task management</strong> van het vak <a href="https://kuleuven-diepenbeek.github.io/osc-course/ch6-tasks/">Besturingssystemen en C</a>&mdash;maar dan op database-applicatie niveau.</p>
 <h2 id="1-wat-is-een-transactie">1. Wat is een transactie?</h2>
 <p>Een transactie is een set van database operaties (bij relationele databases dus een aantal SQL operaties), dat door één gebruiker of applicatie als één <strong>unit of work</strong> aanzien wordt. Bijvoorbeeld, Jens wilt geld overschrijven van zijn rekening naar die van Jolien. Dit gaat meestal in verschillende stappen:</p>
@@ -863,13 +763,13 @@ graph LR;
 </ol>
 <p>Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of worden <strong>rollbacked</strong>. Vorige versies van data moet dus ook worden bijgehouden. Jens' rekening kan bijvoorbeeld <code>€90</code> zijn initieel, hij haalt er <code>€10</code> af om over te maken wat dit tot <code>€80</code> maakt, maar er loopt iets mis: de rollback triggert het terugdraaien van het getal <code>80</code> naar de originele <code>90</code>.</p>
 <p>Dit is een pseudocode voorbeeld van bovenstaande afgelijnde transactie:</p>
-<pre><code>&lt;begin_transaction&gt;
+<pre><code>BEGIN TRANSACTION;
 UPDATE account SET waarde = waarde - :over_te_maken_bedrag
 WHERE eigenaar = 'Jens'
 
 UPDATE account SET waarde = waarde + :over_te_maken_bedrag
 WHERE eigenaar = 'Jolien'
-&lt;end_transaction&gt;
+COMMIT;
 </code></pre><p>Transacties kosten CPU en RAM en zijn configureerbaar maar dus gelimiteerd in aantal. De manager kan worden ingesteld tot bijvoorbeeld ondersteunen van maximum 10 transacties tegelijkertijd.</p>
 <h4 id="dbms-componenten-bij-een-transactie">DBMS Componenten bij een transactie</h4>
 <p>Een voorbeeld van een transactie workflow (de nummers komen overeen met het schema):</p>
@@ -984,86 +884,6 @@ WHERE eigenaar = 'Jolien'
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1423,17 +1243,17 @@ WHERE eigenaar = 'Jolien'
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1659515115"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1659515115"></script>
-    <script src="../../js/jquery.sticky.js?1659515115"></script>
-    <script src="../../js/featherlight.min.js?1659515115"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1659515115"></script>
-    <script src="../../js/learn.js?1659515115"></script>
-    <script src="../../js/hugo-learn.js?1659515115"></script>
+    <script src="../../js/clipboard.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1659532204"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1659532204"></script>
+    <script src="../../js/jquery.sticky.js?1659532204"></script>
+    <script src="../../js/featherlight.min.js?1659532204"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1659532204"></script>
+    <script src="../../js/learn.js?1659532204"></script>
+    <script src="../../js/hugo-learn.js?1659532204"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1659515115"></script>
+            <script src="../../mermaid/mermaid.js?1659532204"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
