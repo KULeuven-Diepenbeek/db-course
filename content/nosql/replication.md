@@ -22,11 +22,29 @@ db.changes().on('change', function() {
 db.replicate.to('http://example.com/mydb');
 ```
 
+### Replication opzetten
+
 Wat is **het doel**? Replication op te zetten tussen de cursussen database van [2. document stores](/nosql/documentstores) en de PouchDB JS web-based client. Dat kan op verschillende manieren:
 
-1. Unidirectional replication. Zie [PouchDB Docs](https://pouchdb.com/guides/replication.html)
-2. Bidirectional replication.
-3. Live/Continuous replication. 
+1. **Unidirectional** replication---1-way traffic master/slave. Eén database is de "master" waar men op werkt, en de andere is een mirror/backup.
+2. **Bidirectional** replication---2-way traffic. Data die in beide databases verandert, wordt gesynchroniseerd naar beiden databases. Uiteraard zul je hier aan conflict management moeten doen.
+3. **Live/Continuous** replication---2-way "live" traffic dat onmiddellijk zichtbaar is via JS callbacks. 
+
+![](/slides/img/offline_replication.gif "Offline replication schematisch voorgesteld. src: pouchdb.com")
+
+Zie ook de [PouchDB Docs: replication explained](https://pouchdb.com/guides/replication.html). Merk op dat de drie bovenstaande replication principes ook van toepassing zijn voor CouchDB. Om replication te demonstreren hebben we uiteraard een 2de database nodig, vandaar de introductie van PouchDB. 
+
+#### Interne werking
+
+Hoe werkt replication intern? Elk document heeft een `_rev` property:
+
+![](/slides/img/revs.jpg)
+
+Elke change aan elk document wordt bijgehouden. In bovenstaande screenshot zie je als eerste document een `_rev` value van `3-82ac8d...`. Dit is **revisie 3**. Je kan deze lijst van revisies van één bepaald document ook raadplegen via een REST: zie de documentatie, [GET list of revisions](https://docs.couchdb.org/en/stable/api/document/common.html#getting-a-list-of-revisions).
+
+Een document ophalen in CouchDB kan via `http://127.0.0.1:5984/[db]/[key]`. Voeg aan deze url `?revs=true` of `?revs_info=true` toe en kijk wat er gebeurt. 
+
+### Demo JS code
 
 Je kan bovenstaande demo code onmiddellijk proberen op [https://pouchdb.com](https://pouchdb.com): Druk op `F12` of `CTRL+SHIFT+J` (Mac: `OPT+CMD+J`) of ga naar menu Developer -> Developer Tools van je favoriete browser. In de tab "Console" wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando's in uitvoeren: `var db = ...`. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips. 
 
@@ -40,6 +58,11 @@ Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak 
 ```
 
 Vergeet niet dat je lokale CouchDB waarschijnlijk draait op poort `5984`.
+
+{{% notice note %}}
+PouchDB, CouchDB, help, wat is het verschil? Pouch is een **JavaScript client** library voor Node en het Web. Beiden gebruiken Mango, MapReduce Replication, ... technieken. Beiden kan je clusteren, hebben conflict management, compacting, ... Bekijk het zo: Pouch is de (easy-to-setup) Couch van het web. Zie ook: [Who's using PouchDB?](https://pouchdb.com/users.html)
+{{% /notice %}}
+
 
 Een uitgewerkt voorbeeld in begeleidende video:
 

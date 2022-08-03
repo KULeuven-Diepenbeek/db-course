@@ -23,6 +23,7 @@ const skillsOfBigCourses = db.filter(doc => {
 // gebruik dit in een template HTML factory
 ```
 
+
 #### Emit
 
 Een mapreduce query is in PouchDB uitvoerbaar met `db.query()` en in CouchDB deel van de `_view` API. Klik dus op het plusje `+` bij All Documents en dan op "new view":

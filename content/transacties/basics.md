@@ -4,6 +4,17 @@ title: 1. Transaction Mgmt. Basics
 
 SQL DBMS systemen zijn eerst en vooral **multi-user** systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de **ACID regels** ondersteunen, is er een systeem nodig dat soms gebruikers "in wacht" zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten---in dezelfde tabel, hetzelfde record. Jens leest uit "de rekening staat op 100 EUR" en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd? Jens krijgt te horen dat er 100 EUR op de rekening staat, terwijl in werkelijkheid dit 10 EUR minder is. 
 
+## 0. Waarom transacties?
+
+Heel simpel. Dit is het verkeer zonder transacties:
+
+![](/slides/img/chaos.jpg)
+
+Dit met:
+
+![](/slides/img/order.jpg)
+
+
 Om Atomicity, Consistency, Isolation, Durability te garanderen is er dus een **transactie manager** nodig die alles in goede banen leidt op het moment dat verschillende gebruikers data gaan raadplegen en/of manipuleren. Dit principe is ruwweg **hetzelfde als task management** van het vak [Besturingssystemen en C](https://kuleuven-diepenbeek.github.io/osc-course/ch6-tasks/)---maar dan op database-applicatie niveau.
 
 ## 1. Wat is een transactie?
@@ -39,13 +50,13 @@ Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of w
 Dit is een pseudocode voorbeeld van bovenstaande afgelijnde transactie:
 
 ```
-<begin_transaction>
+BEGIN TRANSACTION;
 UPDATE account SET waarde = waarde - :over_te_maken_bedrag
 WHERE eigenaar = 'Jens'
 
 UPDATE account SET waarde = waarde + :over_te_maken_bedrag
 WHERE eigenaar = 'Jolien'
-<end_transaction>
+COMMIT;
 ```
 
 Transacties kosten CPU en RAM en zijn configureerbaar maar dus gelimiteerd in aantal. De manager kan worden ingesteld tot bijvoorbeeld ondersteunen van maximum 10 transacties tegelijkertijd. 

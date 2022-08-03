@@ -136,9 +136,9 @@ De database "objecten" waar een lock op genomen kan worden zijn onder andere (va
 
 1. row locks;
 2. column locks;
-3. page locks;
+3. page locks (delen van een tabel zoals stored in files);
 4. table locks;
-5. ...
+5. databas locks (bvb een file lock in SQLite);
 
 Een lock op één rij in beslag genomen door `T1` betekent dat voor diezelfde tabel `T2` nog steeds bedragen kan wijzigen van een andere rekening. Column locks kunnen tot meer wachttijd leiden. Page locks zijn "stukken" van een tabel (rijen voor `x` en erna). Een page is een chunk van een tabel die op die manier wordt opgeslaan. Dit verschilt van DB implementatie tot implementatie. Tenslotte kan een hele tabel gelockt worden---of de hele tablespace---wat meer pessimistisch dan optimistisch is. 
 
@@ -177,7 +177,9 @@ De kruisende pijlen duiden al op een conflict:
 
 Deze (simpele) **deadlock** kan gelukkig gedetecteerd worden door het DBMS systeem. Die zal één van beide transacties als "slachtoffer" kiezen en die transactie terugdraaien---meestal gebaseerd op welke het makkelijkste is om terug te draaien. Het probleem is dat de meeste applicaties niet onmiddellijk voorzien zijn op zo'n onverwachte rollback. Dit resulteert meestal in een negatieve gebruikerservaring. 
 
-Deadlocks en algoritmes om dit te detecteren en op te lossen zijn erg complexe materie. Het volstaat om bovenstaand eenvoudig voorbeeld te kennen, en te weten hoe dat aangepakt zou kunnen worden---bijvoorbeeld met _starvation_ principes zoals ook gezien in het vak Besturingssystemen en C. 
+Deadlocks en algoritmes om dit te detecteren en op te lossen zijn erg complexe materie. Het volstaat om bovenstaand eenvoudig voorbeeld te kennen, en te weten hoe dat aangepakt zou kunnen worden---bijvoorbeeld met _starvation_, _timeouts_, en _priority shift_ principes zoals ook gezien in het vak Besturingssystemen en C. 
+
+Zie ook [A beginners guide to DB deadlocks](https://vladmihalcea.com/database-deadlock/).
 
 #### Isolation levels
 
