@@ -7,26 +7,26 @@
     <meta name="description" content="">
 
 
-    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>5. XML Data Storage :: Databases</title>
+    <title>2. In de praktijk: Hadoop :: Databases</title>
 
     
-    <link href="../css/nucleus.css?1659710553" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1659710553" rel="stylesheet">
-    <link href="../css/hybrid.css?1659710553" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1659710553" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1659710553" rel="stylesheet">
-    <link href="../css/auto-complete.css?1659710553" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1659710553" rel="stylesheet">
-    <link href="../css/theme.css?1659710553" rel="stylesheet">
-    <link href="../css/devselector.css?1659710553" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1659710553" rel="stylesheet">
-    <link href="../css/theme-kul.css?1659710553" rel="stylesheet">
+    <link href="../../css/nucleus.css?1659710553" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1659710553" rel="stylesheet">
+    <link href="../../css/hybrid.css?1659710553" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1659710553" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1659710553" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1659710553" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1659710553" rel="stylesheet">
+    <link href="../../css/theme.css?1659710553" rel="stylesheet">
+    <link href="../../css/devselector.css?1659710553" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1659710553" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1659710553" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1659710553"></script>
-    <script src="../js/devselector.js?1659710553"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1659710553"></script>
+    <script src="../../js/devselector.js?1659710553"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../xml/">
+  <body class="" data-url="../../bigdata/hadoop/">
     <nav id="sidebar" class="">
 
 
@@ -51,10 +51,10 @@
   <div id="header-wrapper">
     <div id="header">
       <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
-  <img src="../images/kul.png" alt="KU Leuven" /><br/>
+  <img src="../../images/kul.png" alt="KU Leuven" /><br/>
 </a>
 <a href="https://www.uhasselt.be/" target="_blank">
-  <img src="../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+  <img src="../../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
 </a>
     </div>
     
@@ -64,21 +64,21 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1659710553"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1659710553"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1659710553"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1659710553"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1659710553"></script>
+<script type="text/javascript" src="../../js/search.js?1659710553"></script>
 
     
   </div>
 
     <div class="highlightable">
 
-      <h3><a href="../">Course Contents</a></h3>
+      <h3><a href="../../">Course Contents</a></h3>
     <ul class="topics">
 
         
@@ -96,7 +96,7 @@
         
         
         ">
-      <a href="../sql/">
+      <a href="../../sql/">
           1. RDBMS &amp; SQL
           
       </a>
@@ -119,7 +119,7 @@
   
     
       <li data-nav-id="/sql/basics/" title="SQL Basics" class="dd-item ">
-        <a href="../sql/basics/">
+        <a href="../../sql/basics/">
         SQL Basics
         
         </a>
@@ -151,7 +151,7 @@
         
         
         ">
-      <a href="../transacties/">
+      <a href="../../transacties/">
           2. RDBMS Transacties
           
       </a>
@@ -174,7 +174,7 @@
   
     
       <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item ">
-        <a href="../transacties/basics/">
+        <a href="../../transacties/basics/">
         1. Transaction Mgmt. Basics
         
         </a>
@@ -195,7 +195,7 @@
   
     
       <li data-nav-id="/transacties/concurrency-control/" title="2. Concurrency Control" class="dd-item ">
-        <a href="../transacties/concurrency-control/">
+        <a href="../../transacties/concurrency-control/">
         2. Concurrency Control
         
         </a>
@@ -216,7 +216,7 @@
   
     
       <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures/Rollbacks" class="dd-item ">
-        <a href="../transacties/failures-rollbacks/">
+        <a href="../../transacties/failures-rollbacks/">
         3. Failures/Rollbacks
         
         </a>
@@ -237,7 +237,7 @@
   
     
       <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
-        <a href="../transacties/concurrency-in-practice/">
+        <a href="../../transacties/concurrency-in-practice/">
         4. Concurrency in de Praktijk
         
         </a>
@@ -269,7 +269,7 @@
         
         
         ">
-      <a href="../apis/">
+      <a href="../../apis/">
           3. Database APIs
           
       </a>
@@ -292,7 +292,7 @@
   
     
       <li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
-        <a href="../apis/basics/">
+        <a href="../../apis/basics/">
         1. API Basics
         
         </a>
@@ -313,7 +313,7 @@
   
     
       <li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
-        <a href="../apis/jdbc-jdbi/">
+        <a href="../../apis/jdbc-jdbi/">
         2. JDBC en JDBI
         
         </a>
@@ -334,7 +334,7 @@
   
     
       <li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
-        <a href="../apis/jpa/">
+        <a href="../../apis/jpa/">
         3. JPA en Hibernate
         
         </a>
@@ -355,7 +355,7 @@
   
     
       <li data-nav-id="/apis/extra-oefeningen/" title="4. Extra Oefeningen" class="dd-item ">
-        <a href="../apis/extra-oefeningen/">
+        <a href="../../apis/extra-oefeningen/">
         4. Extra Oefeningen
         
         </a>
@@ -387,7 +387,7 @@
         
         
         ">
-      <a href="../nosql/">
+      <a href="../../nosql/">
           4. NoSQL
           
       </a>
@@ -410,7 +410,7 @@
   
     
       <li data-nav-id="/nosql/basics/" title="1. NoSQL Basics" class="dd-item ">
-        <a href="../nosql/basics/">
+        <a href="../../nosql/basics/">
         1. NoSQL Basics
         
         </a>
@@ -431,7 +431,7 @@
   
     
       <li data-nav-id="/nosql/keyvaluestores/" title="2. Key/value stores" class="dd-item ">
-        <a href="../nosql/keyvaluestores/">
+        <a href="../../nosql/keyvaluestores/">
         2. Key/value stores
         
         </a>
@@ -452,7 +452,7 @@
   
     
       <li data-nav-id="/nosql/documentstores/" title="3. Document stores" class="dd-item ">
-        <a href="../nosql/documentstores/">
+        <a href="../../nosql/documentstores/">
         3. Document stores
         
         </a>
@@ -473,7 +473,7 @@
   
     
       <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map/red. queries" class="dd-item ">
-        <a href="../nosql/mapreduce/">
+        <a href="../../nosql/mapreduce/">
         4. Advanced map/red. queries
         
         </a>
@@ -494,7 +494,7 @@
   
     
       <li data-nav-id="/nosql/replication/" title="5. Replication" class="dd-item ">
-        <a href="../nosql/replication/">
+        <a href="../../nosql/replication/">
         5. Replication
         
         </a>
@@ -522,11 +522,11 @@
   
     
     <li data-nav-id="/xml/" title="5. XML Data Storage" class="dd-item
-        parent
-        active
+        
+        
         
         ">
-      <a href="../xml/">
+      <a href="../../xml/">
           5. XML Data Storage
           
       </a>
@@ -546,11 +546,11 @@
   
     
     <li data-nav-id="/bigdata/" title="6. Big Data &amp; Analytics" class="dd-item
-        
+        parent
         
         
         ">
-      <a href="../bigdata/">
+      <a href="../../bigdata/">
           6. Big Data &amp; Analytics
           
       </a>
@@ -573,7 +573,7 @@
   
     
       <li data-nav-id="/bigdata/datawarehousing/" title="1. Data Warehousing &amp; BI" class="dd-item ">
-        <a href="../bigdata/datawarehousing/">
+        <a href="../../bigdata/datawarehousing/">
         1. Data Warehousing &amp; BI
         
         </a>
@@ -593,8 +593,8 @@
  
   
     
-      <li data-nav-id="/bigdata/hadoop/" title="2. In de praktijk: Hadoop" class="dd-item ">
-        <a href="../bigdata/hadoop/">
+      <li data-nav-id="/bigdata/hadoop/" title="2. In de praktijk: Hadoop" class="dd-item active">
+        <a href="../../bigdata/hadoop/">
         2. In de praktijk: Hadoop
         
         </a>
@@ -626,7 +626,7 @@
         
         
         ">
-      <a href="../extra/">
+      <a href="../../extra/">
           X. Extras
           
       </a>
@@ -649,7 +649,7 @@
   
     
       <li data-nav-id="/extra/software/" title="Gebruikte Software" class="dd-item ">
-        <a href="../extra/software/">
+        <a href="../../extra/software/">
         Gebruikte Software
         
         </a>
@@ -719,6 +719,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -729,7 +731,13 @@
             
           
           
-            <a href='../'>Index</a> > 5. XML Data Storage
+            
+            
+          
+          
+            <a href='../../'>Index</a> > <a href='../../bigdata/'>6. Big Data & Analytics</a> > 2. In de praktijk: Hadoop
+          
+        
           
         
           
@@ -738,6 +746,13 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -745,28 +760,25 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              2. In de praktijk: Hadoop
+            </h1>
           
 
         
 
 
-
-	<h1 id="xml-data-storage">XML Data Storage</h1>
-<p>Zie menu links.</p>
-
+<p><strong>Herexamen 08/2022</strong>: zie slides op Toledo.</p>
+<p>TODO</p>
 
 
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div>
         
@@ -1089,6 +1101,38 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1106,37 +1150,6 @@
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1156,6 +1169,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1193,10 +1209,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../nosql/replication/" title="5. Replication"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../bigdata/datawarehousing/" title="1. Data Warehousing &amp; BI"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../bigdata/" title="6. Big Data &amp; Analytics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../extra/" title="X. Extras" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1206,17 +1222,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1659710553"></script>
-    <script src="../js/perfect-scrollbar.min.js?1659710553"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1659710553"></script>
-    <script src="../js/jquery.sticky.js?1659710553"></script>
-    <script src="../js/featherlight.min.js?1659710553"></script>
-    <script src="../js/modernizr.custom-3.6.0.js?1659710553"></script>
-    <script src="../js/learn.js?1659710553"></script>
-    <script src="../js/hugo-learn.js?1659710553"></script>
+    <script src="../../js/clipboard.min.js?1659710553"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1659710553"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1659710553"></script>
+    <script src="../../js/jquery.sticky.js?1659710553"></script>
+    <script src="../../js/featherlight.min.js?1659710553"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1659710553"></script>
+    <script src="../../js/learn.js?1659710553"></script>
+    <script src="../../js/hugo-learn.js?1659710553"></script>
     
         
-            <script src="../mermaid/mermaid.js?1659710553"></script>
+            <script src="../../mermaid/mermaid.js?1659710553"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -1243,3 +1259,4 @@
 
   </body>
 </html>
+

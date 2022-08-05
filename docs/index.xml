@@ -19,6 +19,16 @@ TODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460</description>
     </item>
     
     <item>
+      <title>1. Data Warehousing &amp; BI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</guid>
+      <description>Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk bewaren en ophalen van data&amp;mdash;rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we data benaderen vanuit business perspectief.
+Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op verschillende plekken en in verschillende formaten, beter beslissingen nemen. Strategische business beslissingen worden meestal op verschillende niveau&amp;rsquo;s genomen:</description>
+    </item>
+    
+    <item>
       <title>1. NoSQL Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -47,6 +57,16 @@ Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;r
       <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.
 1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:
  Verminder bedrag van source rekening Verhoog bedrag van destination rekening  Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
+    </item>
+    
+    <item>
+      <title>2. In de praktijk: Hadoop</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</guid>
+      <description>Herexamen 08/2022: zie slides op Toledo.
+TODO</description>
     </item>
     
     <item>
