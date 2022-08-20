@@ -29,6 +29,17 @@ Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op ve
     </item>
     
     <item>
+      <title>1. Database Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
+      <description>Mermaid schema&amp;rsquo;s moeten hier nog deftig gestyled worden. Waarschijnlijk met het default thema te maken.
+ Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
+1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?</description>
+    </item>
+    
+    <item>
       <title>1. NoSQL Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -57,6 +68,16 @@ Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;r
       <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.
 1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:
  Verminder bedrag van source rekening Verhoog bedrag van destination rekening  Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
+    </item>
+    
+    <item>
+      <title>2. Database Componenten</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</guid>
+      <description>Volgende zaken hier kort beschrijven:
+ Three Tier Architecture Catalog Database Users Database Languages  </description>
     </item>
     
     <item>
