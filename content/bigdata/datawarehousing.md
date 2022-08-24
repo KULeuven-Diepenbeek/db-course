@@ -10,7 +10,7 @@ Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op ve
 2. Niveau 2 noemen we het **tactisch niveau**. Middle management probeert hier op middellange termijn (bijvoorbeeld een maand/kwartaa/jaar) een vooruitblik te doen en gebaseerd daarop een partnerschap aan te gaan of af te wijzen.
 3. Niveau 3 noemen we het **strategisch niveau**. Senior management neemt beslissingen op dit niveau om het bedrijf op lange termijn (5 jaar of misschien zelfs langer) op koers te houden. 
 
-Stel dat jij een bedrijf van 100 man hebt. Hoe beslis je waarin te investeren, om binnen 5 jaar niet failliet te zijn, maar misschien uit te groeien tot een bedrijf van 150 man? Hier kan **data helpen met beslissen**. 
+Stel dat jij een bedrijf van 100 man hebt. Hoe beslis je waarin te investeren, om binnen 5 jaar niet failliet te zijn, maar misschien uit te groeien tot een bedrijf van 150 man? Hier kan **data helpen met beslissen**. De term **Business Intelligence** (BI) slaat hier op: de set van activiteiten, technieken, en tools om (1) patronen in data van het verleden te herkennen en (2) voorspellingen te maken naar te toekomst toe.
 
 Een bijkomend probleem is dat je groot bedrijf enorm veel data heeft:
 
@@ -76,6 +76,8 @@ Q: Over hoeveel data gaat het in een data warehouse? A: _Veel_. _Erg_ veel. Er z
 {{% /notice %}}
 
 In sommige gevallen wenst men niet onmiddellijk alle data in de productie warehouse te bewaren, maar eest nog een **staging area** op te zetten. Deze warehouse staat voor de "echte" en en kan bijvoorbeeld worden gebruikt om intensieve machine learning algoritmes op te laten draaien zonde dat de performantie van de effectieve warehouse in het gedrang komt. Zo'n staging warehouse noemen we een **operational data store**. (zie schema bovenaan: links van het Hadoop logo).
+
+Voor BI systemen om effectief te zijn, moet de data ook **kwalitatief** zijn. Gebaseerd op "rommel" een grote toekomstgerichte business planning maken is een recept voor mislukking---en mogelijks faillisement. Dus: _Garbage In, Garbage Out_ (GIGO). ETLs moeten correct zijn, en het is ook een kwestie van de _juiste_ data op te nemen in je warehouse. Niet alles hoeft of kan van belang zijn. 
 
 ## RDBMS vs DW
 

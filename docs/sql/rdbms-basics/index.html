@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>1. Database Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1660993822" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/hybrid.css?1660993822" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1660993822" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/devselector.css?1660993822" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1660993822" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661351116" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661351116" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661351116" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/devselector.css?1661351116" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661351116" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1660993822"></script>
-    <script src="../../js/devselector.js?1660993822"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661351116"></script>
+    <script src="../../js/devselector.js?1661351116"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1660993822"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1660993822"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661351116"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661351116"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1660993822"></script>
+<script type="text/javascript" src="../../js/search.js?1661351116"></script>
 
     
   </div>
@@ -635,9 +635,9 @@
  
   
     
-      <li data-nav-id="/bigdata/hadoop/" title="2. In de praktijk: Hadoop" class="dd-item ">
+      <li data-nav-id="/bigdata/hadoop/" title="2. Big Data &amp; Hadoop" class="dd-item ">
         <a href="../../bigdata/hadoop/">
-        2. In de praktijk: Hadoop
+        2. Big Data &amp; Hadoop
         
         </a>
     </li>
@@ -818,10 +818,6 @@
         
 
 
-
-<div class="notices warning" ><p>Mermaid schema&rsquo;s moeten hier nog deftig gestyled worden. Waarschijnlijk met het default thema te maken.</p>
-</div>
-
 <p>Een <strong>database</strong> is niet meer dan een verzameling van gegevens.
 <strong>DBMS</strong> (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
 <del>Is de term Database System het vermelden waard?</del></p>
@@ -830,46 +826,35 @@
 <p>Databases bieden een aantal key features:</p>
 <ul>
 <li>Performant (index management)</li>
-<li>Integratie met andere applicaties</li>
+<li>Betere integratie met andere applicaties</li>
 <li>DBMS voor bewerken of ophalen van data</li>
 <li>Concurrency ondersteuning</li>
-<li>Security</li>
+<li>Security &amp; Privacy van data</li>
+<li>&hellip;</li>
 </ul>
+<p>In het tweedejaarsvak <a href="https://kuleuven-diepenbeek.github.io/osc-course/">Besturingssystemen en C</a> leerde je dat IO manipulatie <strong>heel dure operaties</strong> zijn. Een erg groot bestand openen of een <code>seek()</code> operatie uitvoeren daarop, duizenden bestanden tegelijkertijd openen voor data access, &hellip;&mdash;allemaal voorbeelden van nadelen waar een database de oplossing kan bieden.</p>
 <h2 id="2-database-model">2. Database Model</h2>
 <p>De data die zich in een database bevindt wordt op een specifieke manier opgeslagen. De structuur waarop deze data bijgehouden wordt, noemen we het <strong>database model</strong>.</p>
-<p>Een <strong>database model</strong> bestaat uit meerdere <strong>data modellen</strong>. Een data model beschrijft één specifiek object.</p>
+<p>Een database model bestaat uit meerdere <strong>data modellen</strong>. Een data model beschrijft één specifiek object.</p>
 <p>We zien hetzeflde eigenlijk terug als we denken aan Java of Kotlin. We definiëren hoe een klasse eruit ziet. Bijvoorbeeld volgende klasse:</p>
 <div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">class</span> <span style="color:#75af00">Book</span> <span style="color:#111">(</span>
-    <span style="color:#00a8c8">val</span> <span style="color:#111">isbn</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">,</span>
-    <span style="color:#00a8c8">val</span> <span style="color:#111">title</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">,</span>
-    <span style="color:#00a8c8">val</span> <span style="color:#111">author</span><span style="color:#111">:</span> <span style="color:#111">String</span><span style="color:#111">,</span>
-    <span style="color:#00a8c8">val</span> <span style="color:#111">price</span><span style="color:#111">:</span> <span style="color:#111">Double</span>
-<span style="color:#111">)</span>
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Book</span> <span style="color:#f92672">{</span>
-    <span style="color:#111">String</span> <span style="color:#111">isbn</span><span style="color:#f92672">;</span>
-    <span style="color:#111">String</span> <span style="color:#111">title</span><span style="color:#f92672">;</span>
-    <span style="color:#111">String</span> <span style="color:#111">author</span><span style="color:#f92672">;</span>
-    <span style="color:#00a8c8">double</span> <span style="color:#111">price</span><span style="color:#f92672">;</span>
-
-    <span style="color:#00a8c8">public</span> <span style="color:#75af00">Book</span><span style="color:#f92672">(</span><span style="color:#111">isbn</span><span style="color:#f92672">,</span> <span style="color:#111">title</span><span style="color:#f92672">,</span> <span style="color:#111">author</span><span style="color:#f92672">,</span> <span style="color:#111">price</span><span style="color:#f92672">)</span> 
-    <span style="color:#f92672">{</span>
-        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">isbn</span> <span style="color:#f92672">=</span> <span style="color:#111">isbn</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">title</span> <span style="color:#f92672">=</span> <span style="color:#111">title</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">author</span> <span style="color:#f92672">=</span> <span style="color:#111">author</span><span style="color:#f92672">;</span>
-        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">price</span> <span style="color:#f92672">=</span> <span style="color:#111">price</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kt" data-lang="kt"><span style="display:flex;"><span><span style="color:#00a8c8">data</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Book</span><span style="color:#111">(</span><span style="color:#00a8c8">val</span> <span style="color:#111">isbn</span><span style="color:#111">:</span> <span style="color:#111">string</span><span style="color:#111">,</span> <span style="color:#00a8c8">val</span> <span style="color:#111">title</span><span style="color:#111">:</span> <span style="color:#111">string</span><span style="color:#111">,</span> <span style="color:#00a8c8">val</span> <span style="color:#111">author</span><span style="color:#111">:</span> <span style="color:#111">string</span><span style="color:#111">,</span> <span style="color:#00a8c8">val</span> <span style="color:#111">price</span><span style="color:#111">:</span> <span style="color:#111">double</span><span style="color:#111">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Book</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">String</span> <span style="color:#111">isbn</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">String</span> <span style="color:#111">title</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">String</span> <span style="color:#111">author</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">double</span> <span style="color:#111">price</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#75af00">Book</span><span style="color:#f92672">(</span><span style="color:#111">isbn</span><span style="color:#f92672">,</span> <span style="color:#111">title</span><span style="color:#f92672">,</span> <span style="color:#111">author</span><span style="color:#f92672">,</span> <span style="color:#111">price</span><span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">isbn</span> <span style="color:#f92672">=</span> <span style="color:#111">isbn</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">title</span> <span style="color:#f92672">=</span> <span style="color:#111">title</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">author</span> <span style="color:#f92672">=</span> <span style="color:#111">author</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">price</span> <span style="color:#f92672">=</span> <span style="color:#111">price</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></div>
 <p>Dit kunnen we ook in een <strong>database</strong> bepalen. Daar zou het <strong>data model</strong> van de tabel Book er bijvoorbeeld als volgt kunnen uitzien:</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
 <div class="mermaid" align="left" >
 	
 classDiagram
@@ -883,9 +868,9 @@ classDiagram
 </div>
 <p>Net als we in code state kunnen hebben wanneer we onze klasses instantiëren:</p>
 <div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">var</span> <span style="color:#111">book</span> <span style="color:#111">=</span> <span style="color:#111">Book</span><span style="color:#111">(</span><span style="color:#d88200">&#34;0765326353&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;The Way of Kings&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Brandon Sanderson&#34;</span><span style="color:#111">,</span> <span style="color:#ae81ff">24.99</span><span style="color:#111">)</span>
-</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">book</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Book</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;0765326353&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;The Way of Kings&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Brandon Sanderson&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">24</span><span style="color:#f92672">.</span><span style="color:#75af00">99</span><span style="color:#f92672">);</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kt" data-lang="kt"><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#111">book</span> <span style="color:#111">=</span> <span style="color:#111">Book</span><span style="color:#111">(</span><span style="color:#d88200">&#34;0765326353&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;The Way of Kings&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Brandon Sanderson&#34;</span><span style="color:#111">,</span> <span style="color:#ae81ff">24.99</span><span style="color:#111">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#111">var</span> <span style="color:#111">book</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Book</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;0765326353&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;The Way of Kings&#34;</span><span style="color:#f92672">,</span> <span style="color:#d88200">&#34;Brandon Sanderson&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">24</span><span style="color:#f92672">.</span><span style="color:#75af00">99</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div></div>
 <p>Zo kunnen we ook state hebben in onze database:</p>
 <table>
 <thead>
@@ -906,14 +891,6 @@ classDiagram
 </tbody>
 </table>
 <p>Een voorbeeld van een simpel <strong>database model</strong> voor de inventaris van een bibliotheek zou er ongeveer als volgt kunnen uitzien:</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
 <div class="mermaid" align="left" >
 	
 classDiagram
@@ -1415,22 +1392,17 @@ classDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1660993822"></script>
-    <script src="../../js/jquery.sticky.js?1660993822"></script>
-    <script src="../../js/featherlight.min.js?1660993822"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1660993822"></script>
-    <script src="../../js/learn.js?1660993822"></script>
-    <script src="../../js/hugo-learn.js?1660993822"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1660993822"></script>
-        
-        <script>
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-    
+    <script src="../../js/clipboard.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351116"></script>
+    <script src="../../js/jquery.sticky.js?1661351116"></script>
+    <script src="../../js/featherlight.min.js?1661351116"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661351116"></script>
+    <script src="../../js/learn.js?1661351116"></script>
+    <script src="../../js/hugo-learn.js?1661351116"></script>
+
+    <script src="../../mermaid/mermaid.min.js?1661351116"></script>
+
     <script>
     window.MathJax = {
       chtml: {

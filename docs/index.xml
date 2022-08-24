@@ -34,9 +34,10 @@ Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op ve
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
-      <description>Mermaid schema&amp;rsquo;s moeten hier nog deftig gestyled worden. Waarschijnlijk met het default thema te maken.
- Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
-1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?</description>
+      <description>Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
+1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?
+Databases bieden een aantal key features:
+ Performant (index management) Betere integratie met andere applicaties DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip;  In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
     </item>
     
     <item>
@@ -57,6 +58,17 @@ Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;r
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</guid>
       <description>SQL DBMS systemen zijn eerst en vooral multi-user systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de ACID regels ondersteunen, is er een systeem nodig dat soms gebruikers &amp;ldquo;in wacht&amp;rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&amp;mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &amp;ldquo;de rekening staat op 100 EUR&amp;rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd?</description>
+    </item>
+    
+    <item>
+      <title>2. Big Data &amp; Hadoop</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</guid>
+      <description>Herexamen 08/2022: zie slides op Toledo.
+ De Big in Big Data mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.
+De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &amp;ldquo;grote datasets&amp;rdquo; categoriseren afhankelijk van wat we noemen de vijf Vs:</description>
     </item>
     
     <item>
@@ -81,16 +93,6 @@ Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;r
     </item>
     
     <item>
-      <title>2. In de praktijk: Hadoop</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</guid>
-      <description>Herexamen 08/2022: zie slides op Toledo.
-TODO</description>
-    </item>
-    
-    <item>
       <title>2. JDBC en JDBI</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -109,7 +111,7 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
       <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
 De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
-fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11)) val file = File(&amp;#34;database.</description>
+fun main(args: Array&amp;lt;String&amp;gt;) {  val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11))   val file = File(&amp;#34;database.</description>
     </item>
     
     <item>
@@ -129,7 +131,7 @@ range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hi
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
       <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
-DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+DROP TABLE IF EXISTS student; CREATE TABLE student(  studnr INT NOT NULL PRIMARY KEY,  naam VARCHAR(200) NOT NULL,  voornaam VARCHAR(200),  goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log(  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,  date DATETIME DEFAULT CURRENT_TIMESTAMP,  foreign_id INT NOT NULL,  msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
     </item>
     
     <item>

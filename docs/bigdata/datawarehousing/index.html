@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>1. Data Warehousing &amp; BI :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1660993822" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/hybrid.css?1660993822" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1660993822" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/devselector.css?1660993822" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1660993822" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661351116" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661351116" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661351116" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/devselector.css?1661351116" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661351116" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1660993822"></script>
-    <script src="../../js/devselector.js?1660993822"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661351116"></script>
+    <script src="../../js/devselector.js?1661351116"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1660993822"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1660993822"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661351116"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661351116"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1660993822"></script>
+<script type="text/javascript" src="../../js/search.js?1661351116"></script>
 
     
   </div>
@@ -635,9 +635,9 @@
  
   
     
-      <li data-nav-id="/bigdata/hadoop/" title="2. In de praktijk: Hadoop" class="dd-item ">
+      <li data-nav-id="/bigdata/hadoop/" title="2. Big Data &amp; Hadoop" class="dd-item ">
         <a href="../../bigdata/hadoop/">
-        2. In de praktijk: Hadoop
+        2. Big Data &amp; Hadoop
         
         </a>
     </li>
@@ -826,7 +826,7 @@
 <li>Niveau 2 noemen we het <strong>tactisch niveau</strong>. Middle management probeert hier op middellange termijn (bijvoorbeeld een maand/kwartaa/jaar) een vooruitblik te doen en gebaseerd daarop een partnerschap aan te gaan of af te wijzen.</li>
 <li>Niveau 3 noemen we het <strong>strategisch niveau</strong>. Senior management neemt beslissingen op dit niveau om het bedrijf op lange termijn (5 jaar of misschien zelfs langer) op koers te houden.</li>
 </ol>
-<p>Stel dat jij een bedrijf van 100 man hebt. Hoe beslis je waarin te investeren, om binnen 5 jaar niet failliet te zijn, maar misschien uit te groeien tot een bedrijf van 150 man? Hier kan <strong>data helpen met beslissen</strong>.</p>
+<p>Stel dat jij een bedrijf van 100 man hebt. Hoe beslis je waarin te investeren, om binnen 5 jaar niet failliet te zijn, maar misschien uit te groeien tot een bedrijf van 150 man? Hier kan <strong>data helpen met beslissen</strong>. De term <strong>Business Intelligence</strong> (BI) slaat hier op: de set van activiteiten, technieken, en tools om (1) patronen in data van het verleden te herkennen en (2) voorspellingen te maken naar te toekomst toe.</p>
 <p>Een bijkomend probleem is dat je groot bedrijf enorm veel data heeft:</p>
 <ul>
 <li>Het genereert dagelijks facturen en sales;</li>
@@ -861,14 +861,6 @@
 <li><strong>Non-volatile</strong>; data is voornamelijk <em>read-only</em> (na initieel inladen): de belangrijkste operaties zijn dus loading &amp; retrieval.</li>
 </ol>
 <p>Bekijk de volgende schematische weergave van een typische data warehouse:</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
 <div class="mermaid" align="left" >
 	
 graph BT;
@@ -899,6 +891,7 @@ graph BT;
 </div>
 
 <p>In sommige gevallen wenst men niet onmiddellijk alle data in de productie warehouse te bewaren, maar eest nog een <strong>staging area</strong> op te zetten. Deze warehouse staat voor de &ldquo;echte&rdquo; en en kan bijvoorbeeld worden gebruikt om intensieve machine learning algoritmes op te laten draaien zonde dat de performantie van de effectieve warehouse in het gedrang komt. Zo&rsquo;n staging warehouse noemen we een <strong>operational data store</strong>. (zie schema bovenaan: links van het Hadoop logo).</p>
+<p>Voor BI systemen om effectief te zijn, moet de data ook <strong>kwalitatief</strong> zijn. Gebaseerd op &ldquo;rommel&rdquo; een grote toekomstgerichte business planning maken is een recept voor mislukking&mdash;en mogelijks faillisement. Dus: <em>Garbage In, Garbage Out</em> (GIGO). ETLs moeten correct zijn, en het is ook een kwestie van de <em>juiste</em> data op te nemen in je warehouse. Niet alles hoeft of kan van belang zijn.</p>
 <h2 id="rdbms-vs-dw">RDBMS vs DW</h2>
 <p>Hoe verhoudt een data warehouse zich ten opzichte van een typisch transactionele database?</p>
 <table>
@@ -949,14 +942,6 @@ graph BT;
 </table>
 <h2 id="mini-dws-data-marts">Mini DWs: Data Marts</h2>
 <p>In de praktijk is één gigantische data warehouse, afhankelijk van de grootte van het bedrijf, niet bruikbaar. Data snapshot storage wordt meestal in functionele stukken opgeslagen, misschien opgedeeld per business unit, zoals het bedrijf ook is ingedeeld:</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
 <div class="mermaid" align="left" >
 	
 graph BT;
@@ -1447,7 +1432,7 @@ graph BT;
 			<a class="nav nav-prev" href="../../bigdata/" title="6. Big Data &amp; Analytics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../bigdata/hadoop/" title="2. In de praktijk: Hadoop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../bigdata/hadoop/" title="2. Big Data &amp; Hadoop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1457,22 +1442,17 @@ graph BT;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1660993822"></script>
-    <script src="../../js/jquery.sticky.js?1660993822"></script>
-    <script src="../../js/featherlight.min.js?1660993822"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1660993822"></script>
-    <script src="../../js/learn.js?1660993822"></script>
-    <script src="../../js/hugo-learn.js?1660993822"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1660993822"></script>
-        
-        <script>
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-    
+    <script src="../../js/clipboard.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351116"></script>
+    <script src="../../js/jquery.sticky.js?1661351116"></script>
+    <script src="../../js/featherlight.min.js?1661351116"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661351116"></script>
+    <script src="../../js/learn.js?1661351116"></script>
+    <script src="../../js/hugo-learn.js?1661351116"></script>
+
+    <script src="../../mermaid/mermaid.min.js?1661351116"></script>
+
     <script>
     window.MathJax = {
       chtml: {

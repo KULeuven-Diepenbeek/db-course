@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.96.0" />
     <meta name="description" content="">
 
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>2. In de praktijk: Hadoop :: Databases</title>
+    <title>2. Big Data &amp; Hadoop :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1660993822" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/hybrid.css?1660993822" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1660993822" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1660993822" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/devselector.css?1660993822" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1660993822" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1660993822" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661351116" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661351116" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661351116" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661351116" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/devselector.css?1661351116" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661351116" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661351116" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1660993822"></script>
-    <script src="../../js/devselector.js?1660993822"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661351116"></script>
+    <script src="../../js/devselector.js?1661351116"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1660993822"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1660993822"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661351116"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661351116"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1660993822"></script>
+<script type="text/javascript" src="../../js/search.js?1661351116"></script>
 
     
   </div>
@@ -635,9 +635,9 @@
  
   
     
-      <li data-nav-id="/bigdata/hadoop/" title="2. In de praktijk: Hadoop" class="dd-item active">
+      <li data-nav-id="/bigdata/hadoop/" title="2. Big Data &amp; Hadoop" class="dd-item active">
         <a href="../../bigdata/hadoop/">
-        2. In de praktijk: Hadoop
+        2. Big Data &amp; Hadoop
         
         </a>
     </li>
@@ -777,7 +777,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../bigdata/'>6. Big Data & Analytics</a> > 2. In de praktijk: Hadoop
+            <a href='../../'>Index</a> > <a href='../../bigdata/'>6. Big Data & Analytics</a> > 2. Big Data & Hadoop
           
         
           
@@ -790,7 +790,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#hadoop">Hadoop</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -806,7 +810,7 @@
           
             <h1>
               
-              2. In de praktijk: Hadoop
+              2. Big Data &amp; Hadoop
             </h1>
           
 
@@ -814,7 +818,29 @@
 
 
 <p><strong>Herexamen 08/2022</strong>: zie slides op Toledo.</p>
-<p>TODO</p>
+<hr>
+<p>De <strong>Big</strong> in <em>Big Data</em> mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.</p>
+<p>De term <em>Big Data</em> is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &ldquo;grote datasets&rdquo; categoriseren afhankelijk van wat we noemen de <strong>vijf Vs</strong>:</p>
+<ol>
+<li><strong>Volume</strong>&mdash;Het gaat (uiteraard) over een alsmaar groeiend &ldquo;groot volume&rdquo; aan data;</li>
+<li><strong>Velocity</strong>&mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt;</li>
+<li><strong>Variety</strong>&mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &hellip;);</li>
+<li><strong>Veracity</strong>&mdash;Hoe waarheidsgetrouw is de data eigenlijk wel? Data vertoont alsmaar vaker inconsistenties/ambiguiteit;</li>
+<li><strong>Value</strong>&mdash;Wat heb je aan al die data zonder er iets waardevol mee te doen (zoals een crutiale business beslissing)?</li>
+</ol>
+<p><figure>
+	<a href="../../img/5vs.jpg" data-featherlight="image">
+		<img src="../../img/5vs.jpg"   title="src: tistory.com">
+	</a>
+	
+		<figcaption>src: tistory.com</figcaption>
+	
+</figure>
+</p>
+<p>Denk aan de biljoenen mensen die dagelijks Facebook gebruiken en gigantische volumes aan foto&rsquo;s en tekst uploaden. Het aantal gebruikers dat gestaag steeg (velocity) en de variëteit van data zoals APIs tussen Facebook en anderen om elders in te loggen met je account, video en fotomateriaal in plaats van enkel tekst, integratie met WhatsApp/Instagram, &hellip; Maar hoeveel fake data zit er wel niet tussen, en hoeveel accounts worden misbruikt? Hoeveel data lekken en gevoelige data bevat het? (veracity). Vooral uw persoonsgegevens is voor Meta, het bedrijf achter Facebook, letterlijk goud waard, en verkoopt het door aan derden (value), vaak zonder jouw toestemming!</p>
+<p>Nog een leuk voorbeeld: de winkel <a href="https://ebay.com/">https://ebay.com/</a> heeft een data warehouse van 45 petabytes&mdash;ofwel 45.000 terabytes!</p>
+<p>Uit de vorige hoofdstukken blijkt dat een traditioneel RDBMS systeem niet goed kan scalen (zie <a href="../../nosql/basics">nosql introductie</a>). Echter, een NoSQL DB is slechts één component in het gehele Big Data ecosysteem. In de praktijk gaat het over veel pools, clusters, servers, heterogene DB systemen, files, APIs, &hellip; allemaal gecombineerd (zie <a href="../../bigdata/datawarehousing">data warehousing lakes</a>). Het beheren van een Big Data systeem gaat niet over één DB systeem, maar over het beheren van verschillende parameters (snelheid, grootte van input, connecties tussen systemen, &hellip;). De analyse van de inhoud ervan is vaak een taak voor gespecialiseerde <strong>data scientists</strong>.</p>
+<h2 id="hadoop">Hadoop</h2>
 
 
 <footer class="footline">
@@ -1296,22 +1322,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1660993822"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1660993822"></script>
-    <script src="../../js/jquery.sticky.js?1660993822"></script>
-    <script src="../../js/featherlight.min.js?1660993822"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1660993822"></script>
-    <script src="../../js/learn.js?1660993822"></script>
-    <script src="../../js/hugo-learn.js?1660993822"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1660993822"></script>
-        
-        <script>
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-    
+    <script src="../../js/clipboard.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661351116"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351116"></script>
+    <script src="../../js/jquery.sticky.js?1661351116"></script>
+    <script src="../../js/featherlight.min.js?1661351116"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661351116"></script>
+    <script src="../../js/learn.js?1661351116"></script>
+    <script src="../../js/hugo-learn.js?1661351116"></script>
+
+    <script src="../../mermaid/mermaid.min.js?1661351116"></script>
+
     <script>
     window.MathJax = {
       chtml: {

@@ -2,10 +2,6 @@
 title: 1. Database Basics
 ---
 
-{{% notice warning %}}
-Mermaid schema's moeten hier nog deftig gestyled worden. Waarschijnlijk met het default thema te maken.
-{{% /notice %}}
-
 Een **database** is niet meer dan een verzameling van gegevens. 
 **DBMS** (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
 ~~Is de term Database System het vermelden waard?~~
@@ -17,28 +13,26 @@ Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan
 Databases bieden een aantal key features:
 
 - Performant (index management)
-- Integratie met andere applicaties
+- Betere integratie met andere applicaties
 - DBMS voor bewerken of ophalen van data
 - Concurrency ondersteuning
-- Security
+- Security & Privacy van data
+- ...
+
+In het tweedejaarsvak [Besturingssystemen en C](https://kuleuven-diepenbeek.github.io/osc-course/) leerde je dat IO manipulatie **heel dure operaties** zijn. Een erg groot bestand openen of een `seek()` operatie uitvoeren daarop, duizenden bestanden tegelijkertijd openen voor data access, ...---allemaal voorbeelden van nadelen waar een database de oplossing kan bieden.
 
 ## 2. Database Model
 
 De data die zich in een database bevindt wordt op een specifieke manier opgeslagen. De structuur waarop deze data bijgehouden wordt, noemen we het **database model**.
 
-Een **database model** bestaat uit meerdere **data modellen**. Een data model beschrijft één specifiek object.
+Een database model bestaat uit meerdere **data modellen**. Een data model beschrijft één specifiek object.
 
 We zien hetzeflde eigenlijk terug als we denken aan Java of Kotlin. We definiëren hoe een klasse eruit ziet. Bijvoorbeeld volgende klasse:
 
 <div class="devselect">
 
 ```kt
-class Book (
-    val isbn: String,
-    val title: String,
-    val author: String,
-    val price: Double
-)
+data class Book(val isbn: string, val title: string, val author: string, val price: double)
 ```
 
 ```java

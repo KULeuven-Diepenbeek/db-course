@@ -14,9 +14,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
-      <description>Mermaid schema&amp;rsquo;s moeten hier nog deftig gestyled worden. Waarschijnlijk met het default thema te maken.
- Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
-1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?</description>
+      <description>Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
+1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?
+Databases bieden een aantal key features:
+ Performant (index management) Betere integratie met andere applicaties DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip;  In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
     </item>
     
     <item>
