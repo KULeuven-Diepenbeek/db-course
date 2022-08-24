@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.96.0" />
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>4. Advanced map/red. queries :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1661351116" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1661351116" rel="stylesheet">
-    <link href="../../css/hybrid.css?1661351116" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1661351116" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1661351116" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1661351116" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1661351116" rel="stylesheet">
-    <link href="../../css/theme.css?1661351116" rel="stylesheet">
-    <link href="../../css/devselector.css?1661351116" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1661351116" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1661351116" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661351189" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661351189" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661351189" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661351189" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661351189" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661351189" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661351189" rel="stylesheet">
+    <link href="../../css/theme.css?1661351189" rel="stylesheet">
+    <link href="../../css/devselector.css?1661351189" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661351189" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661351189" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1661351116"></script>
-    <script src="../../js/devselector.js?1661351116"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661351189"></script>
+    <script src="../../js/devselector.js?1661351189"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1661351116"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1661351116"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661351189"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661351189"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1661351116"></script>
+<script type="text/javascript" src="../../js/search.js?1661351189"></script>
 
     
   </div>
@@ -831,15 +831,15 @@
 <li>Documenten sorteren of simpele queries uitvoeren gaat door middel van de Mango API, zoals reeds gezien. Dit zijn simpele queries, maar die volstaan meestal.</li>
 <li>Indien de DB store &lt; <code>100.000</code> records bevat, zoals de onze, kan je ook simpelweg alles <strong>in-memory</strong> inladen (bijvoorbeeld in de browser), en met javascript zelf verder filteren:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pouchdb</span><span style="color:#111">.</span><span style="color:#75af00">get</span><span style="color:#111">();</span> <span style="color:#75715e">// zoiets
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">const</span> <span style="color:#75af00">skillsOfBigCourses</span> <span style="color:#f92672">=</span> <span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">filter</span><span style="color:#111">(</span><span style="color:#75af00">doc</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">ECTS</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}).</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#75af00">doc</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">skills</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">})</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// gebruik dit in een template HTML factory
-</span></span></span></code></pre></div><h4 id="emit">Emit</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">const</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#75af00">pouchdb</span><span style="color:#111">.</span><span style="color:#75af00">get</span><span style="color:#111">();</span> <span style="color:#75715e">// zoiets
+</span><span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">const</span> <span style="color:#75af00">skillsOfBigCourses</span> <span style="color:#f92672">=</span> <span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">filter</span><span style="color:#111">(</span><span style="color:#75af00">doc</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">ECTS</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6</span>
+<span style="color:#111">}).</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#75af00">doc</span> <span style="color:#111">=&gt;</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">skills</span>
+<span style="color:#111">})</span>
+<span style="color:#75715e">// gebruik dit in een template HTML factory
+</span></code></pre></div><h4 id="emit">Emit</h4>
 <p>Een mapreduce query is in PouchDB uitvoerbaar met <code>db.query()</code> en in CouchDB deel van de <code>_view</code> API. Klik dus op het plusje <code>+</code> bij All Documents en dan op &ldquo;new view&rdquo;:</p>
 <p><figure>
 	<a href="../../img/couchview.jpg" data-featherlight="image">
@@ -849,22 +849,22 @@
 </figure>
 </p>
 <p>Daar kan je een nieuwe &ldquo;map&rdquo; functie aanmaken:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>Merk op dat hier de <strong>JavaScript</strong> syntax geldt. <code>emit()</code> betekent &ldquo;geef als key deze waarde terug voor elk gevonden document&rdquo;. Als je dit verandert naar <code>doc.title</code> wordt er een view aangemaakt die documenten op titel bewaart, om daar zeer snel in te kunnen zoeken. Bovenstaande functie wordt uitgevoerd <strong>voor elk document</strong>, vandaar de &ldquo;map&rdquo; in de naam. Het zou kunnen dat je filtert, vandaar de &ldquo;reduce&rdquo; in de naam.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+  <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Merk op dat hier de <strong>JavaScript</strong> syntax geldt. <code>emit()</code> betekent &ldquo;geef als key deze waarde terug voor elk gevonden document&rdquo;. Als je dit verandert naar <code>doc.title</code> wordt er een view aangemaakt die documenten op titel bewaart, om daar zeer snel in te kunnen zoeken. Bovenstaande functie wordt uitgevoerd <strong>voor elk document</strong>, vandaar de &ldquo;map&rdquo; in de naam. Het zou kunnen dat je filtert, vandaar de &ldquo;reduce&rdquo; in de naam.</p>
 <p>Ik kan dus gewoon <code>if()</code> gebruiken, en zo documenten filteren. Alle cursussen gegeven in het tweede jaar of later:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">year</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">title</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><h4 id="aggregeren">Aggregeren</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">year</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">title</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><h4 id="aggregeren">Aggregeren</h4>
 <p>Stel dat ik de totale <code>ECTS</code> punten wil verzamelen van alle Belgische vakken in de database. Dus: eerst filteren op <code>country</code> property, en daarna de som nemen van alle <code>ECTS</code> properties. Hoe doe je zoiets in SQL? Met <code>SUM()</code> en <code>GROUP BY</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#00a8c8">SUM</span><span style="color:#111">(</span><span style="color:#111">ECTS</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">courses</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#111">country</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;Belgium&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">country</span>
-</span></span></code></pre></div><p>Hoe doe je zoiets in NoSQL/Mongo/CouchDB? Met <a href="http://127.0.0.1:5984/_utils/docs/ddocs/ddocs.html#reduce-and-rereduce-functions">Reduce Functions</a>. Je kan in Fauxton bij het bewerken van je view een <strong>CUSTOM</strong> waarde in de Reduce combobox selecteren:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#00a8c8">SUM</span><span style="color:#111">(</span><span style="color:#111">ECTS</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">courses</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#111">country</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;Belgium&#34;</span>
+<span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">country</span>
+</code></pre></div><p>Hoe doe je zoiets in NoSQL/Mongo/CouchDB? Met <a href="http://127.0.0.1:5984/_utils/docs/ddocs/ddocs.html#reduce-and-rereduce-functions">Reduce Functions</a>. Je kan in Fauxton bij het bewerken van je view een <strong>CUSTOM</strong> waarde in de Reduce combobox selecteren:</p>
 <p><figure>
 	<a href="../../img/couchreduce.jpg" data-featherlight="image">
 		<img src="../../img/couchreduce.jpg"  >
@@ -878,20 +878,20 @@
 </blockquote>
 <p>Rereducen wordt typisch uitgevoerd bij een cluster met verschillende CouchDB Nodes die de data verdeelt. CouchDB ontvangt <em>groepen van inputs</em> in plaats van alles in één vanwege performantie optimalisatie. Dit systeem is <a href="https://blog.pablobm.com/2019/07/18/map-reduce-with-couchdb-a-visual-primer.html">visueel uitgelegd in deze primer</a>, maar is voor ons niet van toepassing.</p>
 <p>Dus, map functie om te filteren op België:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">country</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#34;Belgium&#34;</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">ECTS</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>Door <code>ECTS</code> in <code>emit()</code> mee te geven (als VALUE!) kunnen we in de <code>reduce</code> functie de array <code>values</code> manipuleren. En de reduce functie om de ECTS punten op te tellen:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">sum</span><span style="color:#111">(</span><span style="color:#75af00">values</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p><code>sum()</code> is een ingebouwde CouchDB functie. Dit kan ook manueel op de functionele JS <code>reduce()</code> manier:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">reduce</span><span style="color:#111">((</span><span style="color:#75af00">a</span><span style="color:#111">,</span> <span style="color:#75af00">b</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#75af00">a</span> <span style="color:#f92672">+</span> <span style="color:#75af00">b</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>Klik op &ldquo;Run Query&rdquo;. De resultaten zijn de resultaten van de MAP - de Reduce value moet je expliciet enablen door vanboven rechts op &ldquo;Options&rdquo; te klikken, en dan &ldquo;Reduce&rdquo; aan te vinken:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">country</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#34;Belgium&#34;</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+      <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">ECTS</span><span style="color:#111">);</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Door <code>ECTS</code> in <code>emit()</code> mee te geven (als VALUE!) kunnen we in de <code>reduce</code> functie de array <code>values</code> manipuleren. En de reduce functie om de ECTS punten op te tellen:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">sum</span><span style="color:#111">(</span><span style="color:#75af00">values</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
+</code></pre></div><p><code>sum()</code> is een ingebouwde CouchDB functie. Dit kan ook manueel op de functionele JS <code>reduce()</code> manier:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#00a8c8">function</span> <span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+  <span style="color:#00a8c8">return</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">reduce</span><span style="color:#111">((</span><span style="color:#75af00">a</span><span style="color:#111">,</span> <span style="color:#75af00">b</span><span style="color:#111">)</span> <span style="color:#111">=&gt;</span> <span style="color:#75af00">a</span> <span style="color:#f92672">+</span> <span style="color:#75af00">b</span><span style="color:#111">);</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Klik op &ldquo;Run Query&rdquo;. De resultaten zijn de resultaten van de MAP - de Reduce value moet je expliciet enablen door vanboven rechts op &ldquo;Options&rdquo; te klikken, en dan &ldquo;Reduce&rdquo; aan te vinken:</p>
 <p><figure>
 	<a href="../../img/queryreduce.jpg" data-featherlight="image">
 		<img src="../../img/queryreduce.jpg"  >
@@ -1403,17 +1403,22 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1661351116"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1661351116"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351116"></script>
-    <script src="../../js/jquery.sticky.js?1661351116"></script>
-    <script src="../../js/featherlight.min.js?1661351116"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1661351116"></script>
-    <script src="../../js/learn.js?1661351116"></script>
-    <script src="../../js/hugo-learn.js?1661351116"></script>
-
-    <script src="../../mermaid/mermaid.min.js?1661351116"></script>
-
+    <script src="../../js/clipboard.min.js?1661351189"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661351189"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351189"></script>
+    <script src="../../js/jquery.sticky.js?1661351189"></script>
+    <script src="../../js/featherlight.min.js?1661351189"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661351189"></script>
+    <script src="../../js/learn.js?1661351189"></script>
+    <script src="../../js/hugo-learn.js?1661351189"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1661351189"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     <script>
     window.MathJax = {
       chtml: {

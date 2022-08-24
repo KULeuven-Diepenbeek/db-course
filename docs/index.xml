@@ -111,7 +111,7 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
       <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
 De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
-fun main(args: Array&amp;lt;String&amp;gt;) {  val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11))   val file = File(&amp;#34;database.</description>
+fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;#34; to Student(&amp;#34;Joske&amp;#34;, 11)) val file = File(&amp;#34;database.</description>
     </item>
     
     <item>
@@ -131,7 +131,7 @@ range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hi
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
       <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
-DROP TABLE IF EXISTS student; CREATE TABLE student(  studnr INT NOT NULL PRIMARY KEY,  naam VARCHAR(200) NOT NULL,  voornaam VARCHAR(200),  goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log(  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,  date DATETIME DEFAULT CURRENT_TIMESTAMP,  foreign_id INT NOT NULL,  msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
     </item>
     
     <item>
