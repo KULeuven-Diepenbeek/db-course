@@ -12,21 +12,21 @@
     <title>2. Database Componenten :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1661351189" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1661351189" rel="stylesheet">
-    <link href="../../css/hybrid.css?1661351189" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1661351189" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1661351189" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1661351189" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1661351189" rel="stylesheet">
-    <link href="../../css/theme.css?1661351189" rel="stylesheet">
-    <link href="../../css/devselector.css?1661351189" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1661351189" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1661351189" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661890126" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661890126" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661890126" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661890126" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661890126" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661890126" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661890126" rel="stylesheet">
+    <link href="../../css/theme.css?1661890126" rel="stylesheet">
+    <link href="../../css/devselector.css?1661890126" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661890126" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661890126" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1661351189"></script>
-    <script src="../../js/devselector.js?1661351189"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661890126"></script>
+    <script src="../../js/devselector.js?1661890126"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1661351189"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1661351189"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661890126"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661890126"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1661351189"></script>
+<script type="text/javascript" src="../../js/search.js?1661890126"></script>
 
     
   </div>
@@ -790,7 +790,20 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-three-layer-architecture">1. Three Layer Architecture</a>
+      <ul>
+        <li><a href="#logical-layer">Logical Layer</a></li>
+        <li><a href="#internal-layer">Internal Layer</a></li>
+        <li><a href="#external-layer">External Layer</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-catalog">2. Catalog</a></li>
+    <li><a href="#3-database-users">3. Database Users</a></li>
+    <li><a href="#4-database-languages">4. Database Languages</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -813,13 +826,145 @@
         
 
 
-<p>Volgende zaken hier kort beschrijven:</p>
+<h2 id="1-three-layer-architecture">1. Three Layer Architecture</h2>
+<p><figure>
+	<a href="../../slides/img/threelayerarchitecture.jpg" data-featherlight="image">
+		<img src="../../slides/img/threelayerarchitecture.jpg"  >
+	</a>
+	
+</figure>
+</p>
+<h3 id="logical-layer">Logical Layer</h3>
+<p>De <strong>Logical Layer</strong> is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.</p>
+<p>Enkele voorbeelden hiervan zijn:</p>
 <ul>
-<li>Three Tier Architecture</li>
-<li>Catalog</li>
-<li>Database Users</li>
-<li>Database Languages</li>
+<li>Een BOEK mag door maximum <em>0 of 1</em> PERSONEN ontleend worden.</li>
+<li>Een PERSOON mag <em>meerdere</em> BOEKEN ontlenen.</li>
+<li>Een PERSOON is een <em>subtype</em> van een GEBRUIKER.</li>
 </ul>
+<h4 id="oefening">Oefening</h4>
+<p>Hoe zou een database model van een bibliotheek eruit zien? Teken zelf eens uit hoe dit gemodelleerd zou kunnen worden.</p>
+<h3 id="internal-layer">Internal Layer</h3>
+<p>De <strong>Internal Layer</strong> houdt zich bezig met alle details over hoe de data bewaard wordt. Sommige van de concepten die hier aan bod komen zijn de volgenden:</p>
+<ul>
+<li>Index management</li>
+<li>Constraint definities (uniek, referentieel, &hellip;)</li>
+<li>Gepartitioneerde tabellen</li>
+<li>&hellip;</li>
+</ul>
+<p>Deze technologieën hebben allemaal te maken met performantie of data integriteit. We willen onze data op een zo&rsquo;n performante manier opslaan én nog belangrijker op een zo performante manier terug ophalen.</p>
+<h4 id="indexatie">Indexatie</h4>
+<p>Data wordt ongestructureerd bijgehouden in een tabel. Een tabel is eigenlijk niet meer dan een ongesorteerde lijst van gegevens. Bij elke nieuw element wordt dat aan het eind van de lijst toegevoegd.</p>
+<p>Wat als we nu uit een lijst van miljoenen boeken de verzamelde werken van Tolkien willen ophalen? In plaats van door de hele lijst één voor één te gaan zoeken, kunnen we gelukkig gebruik maken van indexen.</p>
+<p>Een index is een <strong>inhoudstafel</strong> die we bijhouden van een bepaald aantal velden van onze tabel. Stel we hebben een <strong>Book</strong> tabel met miljoenen rijen, waaronder de volgende:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>isbn</th>
+<th>title</th>
+<th>author</th>
+<th style="text-align:right">price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1345</td>
+<td>0765326353</td>
+<td>The Way of Kings</td>
+<td>Brandon Sanderson</td>
+<td style="text-align:right">24.99</td>
+</tr>
+<tr>
+<td>6789</td>
+<td>0395177111</td>
+<td>The Hobbit</td>
+<td>J.R.R. Tolkien</td>
+<td style="text-align:right">24.99</td>
+</tr>
+<tr>
+<td>3240</td>
+<td>0812511816</td>
+<td>The Eye of the World</td>
+<td>Robert Jordan</td>
+<td style="text-align:right">24.99</td>
+</tr>
+<tr>
+<td>8939</td>
+<td>0358439191</td>
+<td>The Lord of the Rings</td>
+<td>J.R.R. Tolkien</td>
+<td style="text-align:right">24.99</td>
+</tr>
+<tr>
+<td>1230</td>
+<td>0143111582</td>
+<td>Dune</td>
+<td>Frank Herbert</td>
+<td style="text-align:right">24.99</td>
+</tr>
+</tbody>
+</table>
+<p>Als we een index zouden leggen op de <em>author</em> kolom dan zou die volgende informatie kunnen bevatten:</p>
+<table>
+<thead>
+<tr>
+<th>author</th>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brandon Sanderson</td>
+<td>1345</td>
+</tr>
+<tr>
+<td>Frank Herbert</td>
+<td>1230</td>
+</tr>
+<tr>
+<td>J.R.R. Tolkien</td>
+<td>6789</td>
+</tr>
+<tr>
+<td>J.R.R. Tolkien</td>
+<td>8939</td>
+</tr>
+<tr>
+<td>Robert Jordan</td>
+<td>3240</td>
+</tr>
+</tbody>
+</table>
+<p>Een index houdt een mini-tabel bij van de velden die aan de index worden toegevoegd in combinatie met het identity<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> veld. Deze tabel is wel gesorteerd op de velden uit de index, wat zoekopdrachten versnelt.</p>
+<h4 id="constraints">Constraints</h4>
+<p>We kunnen onze tabellen behoeden van corrupte data te bevatten door constraints te gebruiken. Het ISBN veld is bijvoorbeeld een uniek veld en mag nooit een waarde bevatten die al gekend is in onze database. Hiervoor kunnen we een <strong>unique constraint</strong> toevoegen. Bij data insertion gaat de database zelf nakijken of deze value al bestaat en zo ja wordt het toevoegen van de record geblokkeerd. Zo behouden we onze data integriteit.</p>
+<p>Andere voorbeelden van constraints kunnen zijn:</p>
+<ul>
+<li>De prijs van een boek moet groter dan 0 zijn</li>
+<li>Een boek kan niet verwijderd worden als het ooit werd uitgeleend</li>
+</ul>
+<h4 id="gepartitioneerde-tabellen">Gepartitioneerde tabellen</h4>
+<p>Sommige tabellen in productie omgevingen bevatten immense hoeveelheden aan data. We spreken over een grootorde van meerdere miljarden rijen. Hoe groter een tabel wordt, hoe trager het wordt om data op te halen. Het maakt niet uit hoeveel indexen we hebben gelegd, of welke SSD schijven we onderliggend op de fysieke storage hebben zitten. Meer data gaat altijd gelijk staan aan tragere data retrieval.</p>
+<p>Om tegen te gaan dat we tabellen krijgen die té groot worden en we daar niet meer zinvol data van kunnen ophalen bestaan hier een paar oplossingen voor. Het partitioneren van tabellen is er eentje van.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Neem als voorbeeld een bank, die elke overschrijving van een rekening moet bewaren. De <strong>overschrijving</strong> tabel zou kunnen gepartitioneerd worden op jaar. Zodat er nog steeds 1 tabel overschrijving is, maar waarbij we die op de fysieke schijf opsplitsen per jaar, en elke op bijvoorbeeld de recentste 3 jaren index management voor bijhouden. De andere jaren kunnen nog steeds opgevraagd worden maar niet met dezelfde performantie als de meest recente data.</p>
+<h3 id="external-layer">External Layer</h3>
+<p>De <strong>External Layer</strong> is wat we van onze database laten zien aan de buitenwereld. Dit zijn <strong>views</strong> van data. Een view is een virtuele representatie van data. We schrijven een query op onze tabellen en bewaren deze query als een view.
+Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data er steeds hetzelfde gaat uitzien en tevens beschermen van informatie die voor het integrerende systeem niet relevant is.</p>
+<h2 id="2-catalog">2. Catalog</h2>
+<h2 id="3-database-users">3. Database Users</h2>
+<h2 id="4-database-languages">4. Database Languages</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Eigenlijk niet het Identity veld, maar het veld dat in de <strong>Clustered Index</strong> zit van de tabel. Als er dan in de query meer informatie nodig is om op te halen kan die via die manier de rest van de data ophalen. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Archivatie is een andere oplossing. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
 
 <footer class="footline">
@@ -1298,17 +1443,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1661351189"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1661351189"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1661351189"></script>
-    <script src="../../js/jquery.sticky.js?1661351189"></script>
-    <script src="../../js/featherlight.min.js?1661351189"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1661351189"></script>
-    <script src="../../js/learn.js?1661351189"></script>
-    <script src="../../js/hugo-learn.js?1661351189"></script>
+    <script src="../../js/clipboard.min.js?1661890126"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661890126"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661890126"></script>
+    <script src="../../js/jquery.sticky.js?1661890126"></script>
+    <script src="../../js/featherlight.min.js?1661890126"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661890126"></script>
+    <script src="../../js/learn.js?1661890126"></script>
+    <script src="../../js/hugo-learn.js?1661890126"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1661351189"></script>
+            <script src="../../mermaid/mermaid.js?1661890126"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
