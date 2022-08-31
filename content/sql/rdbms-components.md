@@ -83,8 +83,47 @@ Neem als voorbeeld een bank, die elke overschrijving van een rekening moet bewar
 De **External Layer** is wat we van onze database laten zien aan de buitenwereld. Dit zijn **views** van data. Een view is een virtuele representatie van data. We schrijven een query op onze tabellen en bewaren deze query als een view.
 Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data er steeds hetzelfde gaat uitzien en tevens beschermen van informatie die voor het integrerende systeem niet relevant is.
 
+In onze bibliotheek kunnen we een aantal views osptellen op basis van de noden van de verschillende applicaties. In het online platform waar je boeken kan uitlenen is het niet nodig de informatie over een auteur als een aparte entiteit weer te geven. We kunnen de tabel van Authors dus verbergen en enkel een view aanbieden op niveau van Books die er als volgt zou uitzien:
+
+{{<mermaid align="left">}}
+classDiagram
+    class LendingAppBooks{
+        isbn: NVARCHAR
+        title: NVARCHAR
+        author: NVARCHAR
+        price: DECIMAL
+        genre: NVARCHAR
+    }
+{{< /mermaid >}}
+
+Voor de inventaris applicatie moeten we wel in staat zijn om nieuwe boeken en auteurs toe te voegen. Daar kunnen de views er dan als volgt uitzien:
+
+{{<mermaid align="left">}}
+classDiagram
+    InventoryBooks "1..*" --> "1" InventoryAuthors
+
+    class InventoryAuthors{
+        id: INT
+        name: NVARCHAR
+        firstName: NVARCHAR
+    }
+
+    class InventoryBooks{
+        isbn: NVARCHAR
+        title: NVARCHAR
+        author: INT
+        price: DECIMAL
+    }
+{{< /mermaid >}}
+
 ## 2. Catalog
 
-## 3. Database Users
+Dit is het hart van de de database. Dit bevat alle metadata die zich in de database bevindt. Onder andere, de tabellen; views; stored procedures; ...
 
-## 4. Database Languages
+De SQL standaard om deze informatie in te bewaren is in **INFORMATION_SCHEMA**. Niet alle SQL Database providers voldoen hier echter aan. SQLite doet dit niet en daar vind je die informatie in de tabel _sqlite_master_.
+
+## 3. Database Languages
+
+SQL is onderverdeeld in twee verschillende talen. Enerzijds heb je **DDL (Data Definition Language)**. Dit gebruik je om de database structuur te wijzigen. Nieuwe tabellen toevoegen, indexen aanmaken, views verwijderen, ...
+
+Anderzijds heb je **DML (Data Manipulation Language)**. Dit gebruik je voor alle CRUD (Create, Read, Update, Delete) acties op data. Hier gaan we in een volgend hoofdstuk verder op in gaan.
