@@ -12,21 +12,21 @@
     <title>2. Database Componenten :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1661890126" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1661890126" rel="stylesheet">
-    <link href="../../css/hybrid.css?1661890126" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1661890126" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1661890126" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1661890126" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1661890126" rel="stylesheet">
-    <link href="../../css/theme.css?1661890126" rel="stylesheet">
-    <link href="../../css/devselector.css?1661890126" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1661890126" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1661890126" rel="stylesheet">
+    <link href="../../css/nucleus.css?1661970626" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1661970626" rel="stylesheet">
+    <link href="../../css/hybrid.css?1661970626" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1661970626" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1661970626" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1661970626" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1661970626" rel="stylesheet">
+    <link href="../../css/theme.css?1661970626" rel="stylesheet">
+    <link href="../../css/devselector.css?1661970626" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1661970626" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1661970626" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1661890126"></script>
-    <script src="../../js/devselector.js?1661890126"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1661970626"></script>
+    <script src="../../js/devselector.js?1661970626"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1661890126"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1661890126"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1661970626"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1661970626"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1661890126"></script>
+<script type="text/javascript" src="../../js/search.js?1661970626"></script>
 
     
   </div>
@@ -142,6 +142,27 @@
       <li data-nav-id="/sql/rdbms-components/" title="2. Database Componenten" class="dd-item active">
         <a href="../../sql/rdbms-components/">
         2. Database Componenten
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/sql/rdbms-acid/" title="3. ACID" class="dd-item ">
+        <a href="../../sql/rdbms-acid/">
+        3. ACID
         
         </a>
     </li>
@@ -800,8 +821,7 @@
       </ul>
     </li>
     <li><a href="#2-catalog">2. Catalog</a></li>
-    <li><a href="#3-database-users">3. Database Users</a></li>
-    <li><a href="#4-database-languages">4. Database Languages</a></li>
+    <li><a href="#3-database-languages">3. Database Languages</a></li>
   </ul>
 </nav>
     </div>
@@ -951,9 +971,61 @@
 <h3 id="external-layer">External Layer</h3>
 <p>De <strong>External Layer</strong> is wat we van onze database laten zien aan de buitenwereld. Dit zijn <strong>views</strong> van data. Een view is een virtuele representatie van data. We schrijven een query op onze tabellen en bewaren deze query als een view.
 Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data er steeds hetzelfde gaat uitzien en tevens beschermen van informatie die voor het integrerende systeem niet relevant is.</p>
+<p>In onze bibliotheek kunnen we een aantal views osptellen op basis van de noden van de verschillende applicaties. In het online platform waar je boeken kan uitlenen is het niet nodig de informatie over een auteur als een aparte entiteit weer te geven. We kunnen de tabel van Authors dus verbergen en enkel een view aanbieden op niveau van Books die er als volgt zou uitzien:</p>
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="left" >
+	
+classDiagram
+    class LendingAppBooks{
+        isbn: NVARCHAR
+        title: NVARCHAR
+        author: NVARCHAR
+        price: DECIMAL
+        genre: NVARCHAR
+    }
+
+</div>
+<p>Voor de inventaris applicatie moeten we wel in staat zijn om nieuwe boeken en auteurs toe te voegen. Daar kunnen de views er dan als volgt uitzien:</p>
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="left" >
+	
+classDiagram
+    InventoryBooks "1..*" --> "1" InventoryAuthors
+
+    class InventoryAuthors{
+        id: INT
+        name: NVARCHAR
+        firstName: NVARCHAR
+    }
+
+    class InventoryBooks{
+        isbn: NVARCHAR
+        title: NVARCHAR
+        author: INT
+        price: DECIMAL
+    }
+
+</div>
 <h2 id="2-catalog">2. Catalog</h2>
-<h2 id="3-database-users">3. Database Users</h2>
-<h2 id="4-database-languages">4. Database Languages</h2>
+<p>Dit is het hart van de de database. Dit bevat alle metadata die zich in de database bevindt. Onder andere, de tabellen; views; stored procedures; &hellip;</p>
+<p>De SQL standaard om deze informatie in te bewaren is in <strong>INFORMATION_SCHEMA</strong>. Niet alle SQL Database providers voldoen hier echter aan. SQLite doet dit niet en daar vind je die informatie in de tabel <em>sqlite_master</em>.</p>
+<h2 id="3-database-languages">3. Database Languages</h2>
+<p>SQL is onderverdeeld in twee verschillende talen. Enerzijds heb je <strong>DDL (Data Definition Language)</strong>. Dit gebruik je om de database structuur te wijzigen. Nieuwe tabellen toevoegen, indexen aanmaken, views verwijderen, &hellip;</p>
+<p>Anderzijds heb je <strong>DML (Data Manipulation Language)</strong>. Dit gebruik je voor alle CRUD (Create, Read, Update, Delete) acties op data. Hier gaan we in een volgend hoofdstuk verder op in gaan.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -1054,6 +1126,22 @@ Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data e
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1433,7 +1521,7 @@ Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data e
 			<a class="nav nav-prev" href="../../sql/rdbms-basics/" title="1. Database Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../sql/basics/" title="SQL Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../sql/rdbms-acid/" title="3. ACID" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1443,17 +1531,17 @@ Op deze manier kunnen we garanderen aan integrerende applicaties dat onze data e
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1661890126"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1661890126"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1661890126"></script>
-    <script src="../../js/jquery.sticky.js?1661890126"></script>
-    <script src="../../js/featherlight.min.js?1661890126"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1661890126"></script>
-    <script src="../../js/learn.js?1661890126"></script>
-    <script src="../../js/hugo-learn.js?1661890126"></script>
+    <script src="../../js/clipboard.min.js?1661970626"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1661970626"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1661970626"></script>
+    <script src="../../js/jquery.sticky.js?1661970626"></script>
+    <script src="../../js/featherlight.min.js?1661970626"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1661970626"></script>
+    <script src="../../js/learn.js?1661970626"></script>
+    <script src="../../js/hugo-learn.js?1661970626"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1661890126"></script>
+            <script src="../../mermaid/mermaid.js?1661970626"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

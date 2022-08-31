@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>4. Extra Oefeningen :: Databases</title>
+    <title>3. ACID :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1661970626" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../apis/extra-oefeningen/">
+  <body class="" data-url="../../sql/rdbms-acid/">
     <nav id="sidebar" class="">
 
 
@@ -92,7 +92,7 @@
   
     
     <li data-nav-id="/sql/" title="1. RDBMS &amp; SQL" class="dd-item
-        
+        parent
         
         
         ">
@@ -160,7 +160,7 @@
  
   
     
-      <li data-nav-id="/sql/rdbms-acid/" title="3. ACID" class="dd-item ">
+      <li data-nav-id="/sql/rdbms-acid/" title="3. ACID" class="dd-item active">
         <a href="../../sql/rdbms-acid/">
         3. ACID
         
@@ -328,7 +328,7 @@
   
     
     <li data-nav-id="/apis/" title="3. Database APIs" class="dd-item
-        parent
+        
         
         
         ">
@@ -417,7 +417,7 @@
  
   
     
-      <li data-nav-id="/apis/extra-oefeningen/" title="4. Extra Oefeningen" class="dd-item active">
+      <li data-nav-id="/apis/extra-oefeningen/" title="4. Extra Oefeningen" class="dd-item ">
         <a href="../../apis/extra-oefeningen/">
         4. Extra Oefeningen
         
@@ -798,7 +798,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../apis/'>3. Database APIs</a> > 4. Extra Oefeningen
+            <a href='../../'>Index</a> > <a href='../../sql/'>1. RDBMS & SQL</a> > 3. ACID
           
         
           
@@ -813,11 +813,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#sessy-library---revisited">SESsy Library - Revisited</a>
-      <ul>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-      </ul>
-    </li>
+    <li><a href="#atomicity">Atomicity</a></li>
+    <li><a href="#consistency">Consistency</a></li>
+    <li><a href="#isolation">Isolation</a></li>
+    <li><a href="#durability">Durability</a></li>
   </ul>
 </nav>
     </div>
@@ -835,52 +834,90 @@
           
             <h1>
               
-              4. Extra Oefeningen
+              3. ACID
             </h1>
           
 
         
 
 
-<h2 id="sessy-library---revisited">SESsy Library - Revisited</h2>
-<p><strong>Voorbereiding</strong>: Maak uzelf opnieuw vertrouwd met <a href="https://kuleuven-diepenbeek.github.io/ses-course/extra/sessy/">de SESsy Library applicatie</a>, de geïntegreerde oefening uit het tweedejaarsvak Software Engineering Skills.</p>
 <p><figure>
-	<a href="https://kuleuven-diepenbeek.github.io/ses-course/img/teaching/ses/sessy.png" data-featherlight="image">
-		<img src="https://kuleuven-diepenbeek.github.io/ses-course/img/teaching/ses/sessy.png"  >
+	<a href="../../slides/img/acid.jpg" data-featherlight="image">
+		<img src="../../slides/img/acid.jpg"  >
 	</a>
 	
 </figure>
 </p>
-<p>Het is interessant om de libraries die de app gebruikt eens in detail te inspecteren. Dat kan met <code>gradlew dependencies</code>. In context van het vak <em>Databasess</em> zien we dat de webapp gebouwd is met de volgende relevante tools en libraries:</p>
-<ol>
-<li>Als database endpoint wordt <code>com.h2database.h2</code> gebruikt.</li>
-<li>De Dropwizard <code>jdbi3</code> dependency verwijst op zijn beurt naar een variant van <code>jdbc</code></li>
-<li>De <code>sqlobject</code> plugin van Jdbi3 wordt gebruikt.</li>
-</ol>
-<p>Zoals een snippet van de dependency tree aangeeft:</p>
-<pre><code>...
-+--- io.dropwizard:dropwizard-jdbi3:2.0.0-rc12
-|    +--- io.dropwizard:dropwizard-db:2.0.0-rc12
-|    |    +--- io.dropwizard:dropwizard-core:2.0.0-rc12 (*)
-|    |    \--- org.apache.tomcat:tomcat-jdbc:9.0.27
-|    |         \--- org.apache.tomcat:tomcat-juli:9.0.27
-...
-</code></pre><h3 id="oefeningen">Oefeningen</h3>
-<ol>
-<li>Inspecteer de <a href="http://h2database.com/html/main.html">H2 Database Engine</a> documentatie. Wat is het verschil tussen H2 en MySQL? En wat zijn de <em>gelijkenissen</em> tussen H2 en SQLite dat elders in deze cursus wordt gebruikt?</li>
-<li>Zoek in de SEssy code waar de Jdbi3 sqlobject annotaties worden gebruikt. Dit is dus de Jdbi <em>Declarative API</em> (zie <a href="https://jdbi.org">docs</a>). Wat zou je moeten doen om dit te refactoren naar de <em>Fluent API</em>? Voer de veranderingen door voor de methode <code>findBooksByTitle()</code>.</li>
-<li>Worden ergens <em>transacties</em> gebruikt? Wordt er ergens in de code bewaakt tegen concurrency? Indien niet, bouw dit in voor het uitlenen van boeken in de methode <code>borrow()</code>. Moet transactie beheer op niveau van <em>Resource</em> klasses staan, of behoort het volgens jou toe aan de <em>Repository</em> klasses? Welke code heb je specifiek nodig om in Jdbi3 transacties te hanteren?</li>
-<li>Stel dat ik in een nieuwe repository klasse een low-level SQL statement zelf wil schrijven en uitvoeren, rechtstreeks naar de database, in plaats van via Jdbi3. Hoe kan ik dat doen? Probeer dit zelf in de code door iets met de <code>books</code> tabel te doen (bijvoorbeeld een <code>COUNT</code>).</li>
-<li>Is er een manier om de queries die Jdbi3 uitvoert in H2 ook af te drukken, zoals Hibernate&rsquo;s <code>show_sql</code> config flag?</li>
-<li>We zijn niet meer tevreden over de performantie en het gebruiksgemak van H2. We wensen in de plaats daarvan JPA + Hibernate te gebruiken. Voer de nodige veranderingen door. <strong>Test de applicatie</strong> ook uitvoerig door de webserver op te starten! De integratie testen die falen mag je negeren, dat valt buiten deze cursus om die ook te converteren. Denk eerst goed na over welke wijzigingen allemaal moeten gebeuren:
+<p>ACID is een term die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van <a href="../../transacties/basics">Transacties</a>. ACID omschrijft vier principes:</p>
 <ul>
-<li>Welke config file wordt nu gebruikt om de database file/connectionstring op te geven? Hoe kan je dat vervangen door <code>persistence.xml</code>?</li>
-<li>Kan je interfaces, strategies, of facades gebruiken om <em>eerst</em> de H2 implementatie te verbergen, en dan te refactoren, of is dat niet meer nodig?</li>
-<li>Is er een manier <a href="https://www.dropwizard.io/en/latest/manual/hibernate.html?highlight=hibernate">in Dropwizard</a> om eenvoudiger Hibernate session factories aan te maken? (ja dus!)</li>
-<li>&hellip;</li>
+<li>Atomicity</li>
+<li>Consistency</li>
+<li>Isolation</li>
+<li>Durability</li>
 </ul>
-</li>
-</ol>
+<h2 id="atomicity">Atomicity</h2>
+<p>Transacties bestaan vaak uit meerdere <strong>statements</strong>. Atomicity verwacht dat al deze statements als <strong>één geheel</strong> worden beschouwd. Ofwel faalt alles, ofwel slaagt alles. Zo wordt er nooit slechts een deel van de changes bewaard.</p>
+<p>Het gevolg hiervan is dat de staat van een transactie niet gezien kan worden door andere gebruikers. Stel we hebben een typische bankoverschrijving die €10 gaat overschrijven van de rekening van Alice naar de rekening van Bob.</p>
+
+<div class="notices warning" ><p>Is het voorbeeld duidelijk genoeg dat de transactie van buitenaf niet geobserveerd kan worden, maar binnen de transactie wel?</p>
+</div>
+
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="left" >
+	
+sequenceDiagram
+    Note over Application,DB: BEGIN TRANSACTION
+    DB-->DB: Rekening van Alice: €100
+    DB-->DB: Rekening van Bob: €150
+    Application->>DB: UPDATE Account SET Amount -= 10 WHERE Owner = 'Alice'
+    DB-->DB: Rekening van Alice: €100
+    DB-->DB: Rekening van Bob: €150
+    Application->>DB: UPDATE Account SET Amount += 10 WHERE Owner = 'Bob'
+    Note over Application,DB: COMMIT TRANSACTION
+    DB-->DB: Rekening van Alice: €90
+    DB-->DB: Rekening van Bob: €160
+
+</div>
+<h2 id="consistency">Consistency</h2>
+<p>Consistency zorgt ervoor dat een database altijd in een consistente staat moet blijven. Met andere woorden, er moet altijd voldaan worden aan de <strong>constraints</strong> die op de database gedfinieerd zijn. Dit kan een referentiële constraint zijn, als er een rij wordt verwijderd die nog gebruikt wordt in een andere tabel waar onderliggend een referentiële constraint op ligt.</p>
+<p>Neem bovenstaand voorbeeld waarbij Alice geld overschrijft naar de rekening van Bob. Maar nu wil ze €150 overschrijven. We hebben op de Account tabel een <strong>CHECK CONSTRAINT</strong> gedefinieerd dat de Amount altijd groter of gelijk aan 0 moet zijn. Wat gebeurt er dan?</p>
+<script defer src="../../mermaid/mermaid.min.js">
+	mermaid.initialize({
+		startOnLoad: true,
+		flowchart: {
+			useMaxWidth: true
+		}
+	});
+</script>
+<div class="mermaid" align="left" >
+	
+sequenceDiagram
+    Note over Application,DB: BEGIN TRANSACTION
+    DB-->DB: Rekening van Alice: €100
+    DB-->DB: Rekening van Bob: €150
+    Application->>DB: UPDATE Account SET Amount -= 150 WHERE Owner = 'Alice'
+    rect rgb(194, 24, 7)
+    DB-->DB: Error: Amount should be >= 0
+    end
+    Note over Application,DB: ROLLBACK TRANSACTION
+    DB-->DB: Rekening van Alice: €100
+    DB-->DB: Rekening van Bob: €150
+
+</div>
+<p>De transactie wordt teruggedraaid. Er werd geen geld afgehaald van de rekening van Alice en Bob heeft ook geen geld gekregen. We zitten opnieuw in een geldige consistente staat.</p>
+<h2 id="isolation">Isolation</h2>
+<p>Als je een query of transactie uitvoert op een database, ga je zelden als enige gebruiker actief zijn. Er zullen wellicht andere transacties uitgevoerd worden terwijl jij de jouwe uitvoert. Om ervoor te zorgen dat deze geen invloed hebben op elkaar worden er <strong>locks</strong> gelegd op een set van data. Daar bovenop worden <strong>isolation levels</strong> gedefinieerd die bepalen wat andere gebruikers mogen zien en lezen van andere transacties.</p>
+<p>Dit komt meer detail aan bod in een <a href="../../transacties/concurrency-control/#locking">volgend hoofdstuk</a>.</p>
+<h2 id="durability">Durability</h2>
+<p>Als we een transactie afronden en hij wordt gecommit dan is die nog steeds committed ook in het geval van een crash of stroomonderbreking. Veel DBMS providers lossen dit op door data weg te schrijven in <a href="https://en.wikipedia.org/wiki/Non-volatile_memory">non-volatile memory</a> en door gebruik te maken van een <strong>transaction log</strong>.</p>
+<p>Dat laatste is een logboek van alle acties die uitgevoerd werden op een database, die opnieuw uitgevoerd kunnen worden als een database gerestored moet worden vanaf een eerdere staat.</p>
 
 
 <footer class="footline">
@@ -918,8 +955,93 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1080,94 +1202,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1365,10 +1399,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../apis/jpa/" title="3. JPA en Hibernate"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../sql/rdbms-components/" title="2. Database Componenten"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/" title="4. NoSQL" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../sql/basics/" title="SQL Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
