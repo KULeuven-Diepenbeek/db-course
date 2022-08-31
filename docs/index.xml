@@ -88,8 +88,9 @@ De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kun
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</guid>
-      <description>Volgende zaken hier kort beschrijven:
- Three Tier Architecture Catalog Database Users Database Languages  </description>
+      <description>1. Three Layer Architecture    Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.
+Enkele voorbeelden hiervan zijn:
+ Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
     </item>
     
     <item>
