@@ -12,21 +12,21 @@
     <title>3. ACID :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1661970626" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1661970626" rel="stylesheet">
-    <link href="../../css/hybrid.css?1661970626" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1661970626" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1661970626" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1661970626" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1661970626" rel="stylesheet">
-    <link href="../../css/theme.css?1661970626" rel="stylesheet">
-    <link href="../../css/devselector.css?1661970626" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1661970626" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1661970626" rel="stylesheet">
+    <link href="../../css/nucleus.css?1663765466" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1663765466" rel="stylesheet">
+    <link href="../../css/hybrid.css?1663765466" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1663765466" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1663765466" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1663765466" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1663765466" rel="stylesheet">
+    <link href="../../css/theme.css?1663765466" rel="stylesheet">
+    <link href="../../css/devselector.css?1663765466" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1663765466" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1663765466" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1661970626"></script>
-    <script src="../../js/devselector.js?1661970626"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1663765466"></script>
+    <script src="../../js/devselector.js?1663765466"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1661970626"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1661970626"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1663765466"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1663765466"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1661970626"></script>
+<script type="text/javascript" src="../../js/search.js?1663765466"></script>
 
     
   </div>
@@ -741,7 +741,7 @@
         <ul>
           
               <li>
-                  <a class="padding" href="https://www.uhasselt.be/studiegids"><i class='fa fa-university'></i> ECTS Sheet</a>
+                  <a class="padding" href="https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&amp;i=4290&amp;n=4&amp;t=01"><i class='fa fa-university'></i> ECTS Sheet</a>
               </li>
           
               <li>
@@ -862,14 +862,7 @@
 <div class="notices warning" ><p>Is het voorbeeld duidelijk genoeg dat de transactie van buitenaf niet geobserveerd kan worden, maar binnen de transactie wel?</p>
 </div>
 
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
+
 <div class="mermaid" align="left" >
 	
 sequenceDiagram
@@ -888,14 +881,7 @@ sequenceDiagram
 <h2 id="consistency">Consistency</h2>
 <p>Consistency zorgt ervoor dat een database altijd in een consistente staat moet blijven. Met andere woorden, er moet altijd voldaan worden aan de <strong>constraints</strong> die op de database gedfinieerd zijn. Dit kan een referentiële constraint zijn, als er een rij wordt verwijderd die nog gebruikt wordt in een andere tabel waar onderliggend een referentiële constraint op ligt.</p>
 <p>Neem bovenstaand voorbeeld waarbij Alice geld overschrijft naar de rekening van Bob. Maar nu wil ze €150 overschrijven. We hebben op de Account tabel een <strong>CHECK CONSTRAINT</strong> gedefinieerd dat de Amount altijd groter of gelijk aan 0 moet zijn. Wat gebeurt er dan?</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
+
 <div class="mermaid" align="left" >
 	
 sequenceDiagram
@@ -1412,22 +1398,15 @@ sequenceDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1661970626"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1661970626"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1661970626"></script>
-    <script src="../../js/jquery.sticky.js?1661970626"></script>
-    <script src="../../js/featherlight.min.js?1661970626"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1661970626"></script>
-    <script src="../../js/learn.js?1661970626"></script>
-    <script src="../../js/hugo-learn.js?1661970626"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1661970626"></script>
-        
-        <script>
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-    
+    <script src="../../js/clipboard.min.js?1663765466"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1663765466"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1663765466"></script>
+    <script src="../../js/jquery.sticky.js?1663765466"></script>
+    <script src="../../js/featherlight.min.js?1663765466"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1663765466"></script>
+    <script src="../../js/learn.js?1663765466"></script>
+    <script src="../../js/hugo-learn.js?1663765466"></script>
+    <script src="../../js/mermaid.min.js?1663765466"></script>
     <script>
     window.MathJax = {
       chtml: {
