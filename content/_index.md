@@ -4,21 +4,27 @@ title: 'Index'
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
 
-Laatste aanpassingen voor academiejaar _2021 - 2022_.
+Laatste aanpassingen voor academiejaar _2022 - 2023_.
 
 ---
 
 ## _Planning_
 
-| nr | datum      | onderwerp                 |
-|----|------------|---------------------------|
-| 1  | do 28-10-2021 | NoSQL 1: intro HC, key/value en document stores
-| 2  | do 18-11-2021 | NoSQL 2: advanced concepts, case studies (1)
-| 3  | do 25-11-2021 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
-| 4  | do 02-12-2021 | Transactie management HC/oefeningen 
-| 5  | do 09-12-2021 | Database APIs 1: ORM mapping, Hibernate
-| 6  | do 16-12-2021 | Database APIs 2: H2, Sessy Library
-| 7  | do 23-12-2021 | Database APIs 3: Transacties, Sessy Library naar CouchDB
+| nr  | datum         | onderwerp                 |
+|-----|---------------|---------------------------|
+| 01  | vr 23-09-2022 | RDBMS & SQL: Basics, DB Componenten
+| 02  | vr 30-09-2022 | ACID & SQL Deel 1
+| 03  | vr 07-10-2022 | SQL deel 2
+| 04  | vr 14-10-2022 | RDBMS transacties: basics, concurrency control
+| 05  | vr 21-10-2022 | Transacties: rollbacks, concurrency in practice
+| 06  | vr 28-10-2022 | DB APIs: basics, JDBC, JDBI
+| 07  | vr 18-11-2022 | DB APIs: JPA & Hibernate
+| 08  | vr 25-11-2022 | NoSQL 1: intro HC, key/value en document stores
+| 09  | vr 02-12-2022 | NoSQL 2: advanced concepts, case studies (1)
+| 10  | vr 09-12-2022 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
+| 11  | vr 16-12-2022 | XML Data Storage
+| 12  | vr 23-12-2022 | Big Data & Analytics
+
 
 ## _Cursus notities_
 
@@ -26,7 +32,7 @@ Laatste aanpassingen voor academiejaar _2021 - 2022_.
 
 [Index pagina](/hoorcolleges) van alle hoorcolleges.
 
-Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worden aangeboden.
+Onderstaande hoorcolleges zijn **complementair** aan degene die via Tolevr worden aangeboden.
 
 1. [NoSQL Databases: Introductie](/hoorcolleges/slides-1/) - HF11 p.300
 2. [NoSQL Databases: Advanced concepts](/hoorcolleges/slides-2/) - HF11 p.334
@@ -52,10 +58,9 @@ Onderstaande hoorcolleges zijn **complementair** aan degene die via Toledo worde
 
 - **Lesgevers**:
     + Coördinerend Verantwoordelijke: prof. dr. Kris Aerts ([kris.aerts@kuleuven.be](mailto:kris.aerts@kuleuven.be))
-    + Onderwijsassistenten: Wouter Groeneveld ([wouter.groeneveld@kuleuven.be](mailto:wouter.groeneveld@kuleuven.be)) en Luk Weyens ([luk.weyens@kuleuven.be](mailto:luk.weyens@kuleuven.be))
+    + Onderwijsassistenten: Wouter Groeneveld ([wouter.groeneveld@kuleuven.be](mailto:wouter.groeneveld@kuleuven.be)) en Luk Weyens ([luk.weyens@gmail.com](mailto:luk.weyens@gmail.com))
 - **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO, D.0.35. 
 
-![](/img/cover.png)
 
 #### Cursusbeschrijving
 
@@ -70,23 +75,6 @@ En anderzijds op twee toepassingen:
 - programmeren van database-gestuurde applicaties via API's
 - een inleiding in Big Data
 
-Dit reflecteert zich in de volgende selectie van hoofdstukken uit het handboek:
-
-- Part I. Databases and Database Design
-    - 1) Fundamental concepts of database management                           
-    - 3) Conceptual data modeling using the (E)ER model and UML class diagram
-- Part II. Types of Database Systems:
-    - 6) Relational databases: the relational model
-    - 7) Relational databases: structured query language (SQL)
-    - 10) XML databases
-    - 11) NoSQL databases (+ 16.7)
-- Part III. Physical Data Storage, Transaction Management, and Database Access
-    - 14) Basics of transaction management
-    - 15) Accessing databases and database APIs
-- Part IV. Data Warehousing, Data Governance and (Big) Data Analytics
-    - 19) Big data
-
-Merk op dat we dus niet het volledige boek behandelen. Dit zou ver voorbij het bereik van 4 studiepunten gaan.Toch blijft de aankoop verantwoord aangezien andere boeken die dezelfde thema's behandelen nog een pak duurder zijn en ook altijd overbodige hoofdstukken voor dit opleidingsonderdeel bevatten. Bovendien zijn de niet-behandelde thema's interessant voor extra-curriculaire zelfstudie.
 
 #### Vereiste voorkennis
 
@@ -95,7 +83,7 @@ Merk op dat we dus niet het volledige boek behandelen. Dit zou ver voorbij het b
 
 #### Doelstellingen
 
-Zie ook [Studiegids UHasselt](https://www.uhasselt.be/studiegids)
+Zie ook [Studiegids UHasselt](hhttps://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&i=4290&n=4&t=01)
     
 De context en het overzicht worden aangereikt in het hoorcollege.
 
@@ -104,4 +92,4 @@ Als practicum wordt een grotere probleemstelling als project uitgewerkt. Alle aa
 
 #### Kalender
 
-Zie [collegeroosters UHasselt](http://collegeroosters.uhasselt.be).
+Zie [Mytimetable UHasselt](https://mytimetable.uhasselt.be/).
