@@ -34,10 +34,20 @@ Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op ve
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
-      <description>Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden. Is de term Database System het vermelden waard?
+      <description>Een database is niet meer dan een verzameling van gegevens. DBMS (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
 1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?
 Databases bieden een aantal key features:
  Performant (index management) Betere integratie met andere applicaties DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip;  In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
+    </item>
+    
+    <item>
+      <title>1. DDL</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</guid>
+      <description>Data Defintion Language is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.
+Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan DB Browser for SQLite gebruiken tijdens onze lessen.</description>
     </item>
     
     <item>
@@ -91,6 +101,15 @@ De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kun
       <description>1. Three Layer Architecture    Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.
 Enkele voorbeelden hiervan zijn:
  Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
+    </item>
+    
+    <item>
+      <title>2. DML</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</guid>
+      <description>Data Modification Language</description>
     </item>
     
     <item>
@@ -205,21 +224,6 @@ Begeleidend filmpje:
       <guid>https://kuleuven-diepenbeek.github.io/db-course/extra/software/</guid>
       <description>Java/Kotlin/Gradle Zie het 2dejaarsvak Software Engineering Skills, SES/Gebruikte software. Voor SQL API software development oefeningen gebruiken we dezelfde tools: dezelfde Java JDK, optioneel een Kotlin SDK, ook de IntelliJ IDE, en ook Gradle als build tool. Weet je niet meer hoe deze te gebruiken, volg dan de links om je geheugen te verfrissen.
 Tijdens labo&amp;rsquo;s gebruiken we vaak Gradle dependencies om te experimenteren met nieuwe soorten databases zoals Memcached, SQLite, JDBI en Hibernate.</description>
-    </item>
-    
-    <item>
-      <title>SQL Basics</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/sql/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/basics/</guid>
-      <description>Herexamen 08/2022: zie slides op Toledo.
-TODO
-  beetje achtergrond (R)DBMS systemen
-  basic SQL ed
-  ACID hier eerst vermelden, wordt verschillende keren &amp;ldquo;herbruikt&amp;rdquo;
-Atomicity; operaties = 1 blok Consistency; data = altijd valid! Isolation; concurrency moet kunnen Durability; commit is commit, ook bij crashes
-  </description>
     </item>
     
   </channel>
