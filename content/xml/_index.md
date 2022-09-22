@@ -1,5 +1,5 @@
 ---
-title: 5. XML Data Storage
+title: 6. XML Data Storage
 chapter: true
 ---
 

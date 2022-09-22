@@ -17,10 +17,6 @@ Transacties bestaan vaak uit meerdere **statements**. Atomicity verwacht dat al 
 
 Het gevolg hiervan is dat de staat van een transactie niet gezien kan worden door andere gebruikers. Stel we hebben een typische bankoverschrijving die €10 gaat overschrijven van de rekening van Alice naar de rekening van Bob. 
 
-{{% notice warning %}}
-Is het voorbeeld duidelijk genoeg dat de transactie van buitenaf niet geobserveerd kan worden, maar binnen de transactie wel?
-{{% /notice %}}
-
 {{<mermaid align="left">}}
 sequenceDiagram
     Note over Application,DB: BEGIN TRANSACTION

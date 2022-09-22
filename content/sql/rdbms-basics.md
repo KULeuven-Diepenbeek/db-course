@@ -4,7 +4,6 @@ title: 1. Database Basics
 
 Een **database** is niet meer dan een verzameling van gegevens. 
 **DBMS** (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
-~~Is de term Database System het vermelden waard?~~
 
 ## 1. Waarom een database gebruiken?
 

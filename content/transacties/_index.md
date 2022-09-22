@@ -1,5 +1,5 @@
 ---
-title: "2. RDBMS Transacties"
+title: "3. RDBMS Transacties"
 chapter: true
 ---
 

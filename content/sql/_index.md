@@ -1,9 +1,9 @@
 ---
-title: "1. RDBMS & SQL"
+title: "1. RDBMS"
 chapter: true
 ---
 
-# RDBMS & SQL
+# RDBMS
 
 Zie menu links.
 
