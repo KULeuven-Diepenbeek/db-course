@@ -18,7 +18,9 @@ Enkele voorbeelden hiervan zijn:
 
 #### Oefening
 
-Hoe zou een database model van een bibliotheek eruit zien? Teken zelf eens uit hoe dit gemodelleerd zou kunnen worden.
+- Hoe zou een database model van een bibliotheek eruit zien? Teken zelf eens uit hoe dit gemodelleerd zou kunnen worden. 
+- Hoe houdt ik bij dat een boek uitgeleend werd?
+- Wat als ik ook andere dingen wil uitlenen uit de bibliotheek, zoals DVD's of eBooks?
 
 ### Internal Layer
 
