@@ -1,5 +1,5 @@
 ---
-title: 3. Failures/Rollbacks
+title: 3. Failures-Rollbacks
 ---
 
 Voorbereidende `CREATE` statements (Dit is SQLite syntax!) Zie [SQLite manual](https://sqlite.org/autoinc.html):

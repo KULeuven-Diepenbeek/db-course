@@ -1,5 +1,5 @@
 ---
-title: 4. Advanced map/red. queries
+title: 4. Advanced map-red. queries
 ---
 
 Deze oefeningen volgen de theorie van **11.3.3** op pagina 320.
