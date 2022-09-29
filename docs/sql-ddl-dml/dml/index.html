@@ -12,21 +12,21 @@
     <title>2. DML :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1664435353" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1664435353" rel="stylesheet">
-    <link href="../../css/hybrid.css?1664435353" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1664435353" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1664435353" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1664435353" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1664435353" rel="stylesheet">
-    <link href="../../css/theme.css?1664435353" rel="stylesheet">
-    <link href="../../css/devselector.css?1664435353" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1664435353" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1664435353" rel="stylesheet">
+    <link href="../../css/nucleus.css?1664457300" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1664457300" rel="stylesheet">
+    <link href="../../css/hybrid.css?1664457300" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1664457300" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1664457300" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1664457300" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1664457300" rel="stylesheet">
+    <link href="../../css/theme.css?1664457300" rel="stylesheet">
+    <link href="../../css/devselector.css?1664457300" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1664457300" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1664457300" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1664435353"></script>
-    <script src="../../js/devselector.js?1664435353"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1664457300"></script>
+    <script src="../../js/devselector.js?1664457300"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1664435353"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1664435353"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1664457300"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1664457300"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1664435353"></script>
+<script type="text/javascript" src="../../js/search.js?1664457300"></script>
 
     
   </div>
@@ -866,7 +866,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#select">SELECT</a>
+      <ul>
+        <li><a href="#like-operator">LIKE operator</a></li>
+        <li><a href="#null">NULL</a></li>
+        <li><a href="#join">JOIN</a></li>
+        <li><a href="#group-by">GROUP BY</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -889,7 +900,153 @@
         
 
 
-<p><strong>Data Modification Language</strong></p>
+<p><strong>Data Modification Language</strong> is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.</p>
+<h2 id="select">SELECT</h2>
+<p><code>SELECT</code> is het commando dat we gebruiken om data op te vragen uit de database.</p>
+<pre><code>    SELECT { DISTINCT } expression
+    FROM table
+    { WHERE condition }
+</code></pre><h3 id="like-operator">LIKE operator</h3>
+<p><code>LIKE</code> wordt gebruikt om wildcard searches uit te voeren. Deze kan enkel gebruikt worden op alfanumerieke velden.</p>
+<p><code>%</code> is een match anything character voor een onbeperkt aantal karakters (0 tot n).
+Zo matcht <code>Gen%</code> met volgende waardes: Gen, Genk, Gent, Genève, Genua, &hellip;</p>
+<p><code>_</code> is een match anything character voor één karakter.
+Zo matcht <code>Gen_</code> met volgende waardes: Genk, Gent, &hellip;
+Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
+<h3 id="null">NULL</h3>
+<p><code>NULL</code> is het ontbreken van een waarde. Het is een onbekende. We kunnen in DML niet zomaar vergelijken met <code>NULL</code>. We kunnen namelijk niet zeggen dat een onbekende gelijk is aan een andere onbekende.</p>
+<p>Hieronder een overzicht van een binary AND table met <code>True</code>, <code>False</code> en <code>NULL</code> waardes.</p>
+<table>
+<thead>
+<tr>
+<th>AND</th>
+<th>True</th>
+<th>False</th>
+<th>NULL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>NULL</td>
+<td>False</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Denkvraag: Waarom is <code>False == NULL</code> gelijk een <code>False</code>?</p>
+<p>Hieronder vinden we de binary OR table met <code>True</code>, <code>False</code> en <code>NULL</code> waardes.</p>
+<table>
+<thead>
+<tr>
+<th>OR</th>
+<th>True</th>
+<th>False</th>
+<th>NULL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>True</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Als we willen vergelijken met <code>NULL</code> in queries, dan gebruiken we volgende code:</p>
+<p><code>&lt;value&gt; IS NULL</code></p>
+<p>en</p>
+<p><code>&lt;value&gt; IS NOT NULL</code></p>
+<h4 id="oefeningen">Oefeningen</h4>
+<ol>
+<li>Schrijf een query die alle Customers (volledige naam, customer ID en land) laat zien die niet wonen in de USA.</li>
+<li>Schrijf een query die enkel de Customers laat zien die in Brazilië wonen.</li>
+<li>Schrijf een query die alle Employees laat zien die werken in de Sales afdeling.</li>
+<li>Schrijf een query die een unieke lijst van landen laat zien uit de Invoices tabel.</li>
+<li>Schrijf een query die alle Tracks laat zien waarvoor er geen componist bekend is.</li>
+<li>Schrijf een query van alle unieke Componisten. Als de componist niet bekend is, dan moet er &lsquo;Onbekend&rsquo; weergegeven worden gesorteerd op naam.</li>
+<li>Schrijf een query die het maximumbedrag van een Invoice laat zien.</li>
+</ol>
+<h3 id="join">JOIN</h3>
+<p>Wanneer we informatie willen ophalen uit meerdere tabellen dan gebruiken we daar een JOIN statement voor.  Die syntax ziet er als volgt uit:</p>
+<pre><code>    SELECT { DISTINCT } expression
+    FROM table
+    INNER JOIN other_table ON join_condition
+    { WHERE condition }
+</code></pre><p>Hiermee matchen we alle data van de ene tabel met de andere tabel op de meegegeven conditie. Er bestaan drie verschillende types JOINs:</p>
+<ul>
+<li><code>INNER JOIN</code> - Geeft alle resultaten die bestaan zowel in de ene als de andere tabel</li>
+<li><code>LEFT JOIN</code> - Geeft alle resultaten die bestaan in de base tabel, ook al bestaan die niet in de tabel waarop we joinen</li>
+<li><code>RIGHT JOIN</code> - Wordt in de praktijk zelden tot nooit gebruikt. Geeft alle resultaten die bestaan in de gejoinde tabel ook al bestaan ze niet in de base tabel.</li>
+</ul>
+<h4 id="oefeningen-1">Oefeningen</h4>
+<ol>
+<li>Schrijf een query die alle Invoices laat zien van alle Customers uit Brazilië. Het resultaat moet de volledige naam van de Customer, Invoice ID, Invoice Datum en Billing Country weergeven.</li>
+<li>Schrijf een query die alle Invoices laat zien voor elke Sales Agent. Het resultaat moet de volledige naam van de Sales Agent weergeven.</li>
+<li>Schrijf een query die het Invoice Totaal, de Customer naam en land en de naam van de Sales Agent weergeeft voor alle Invoices en Customers.</li>
+<li>Schrijf een query die het aantal invoice lijnen weergeeft voor Invoice ID 37.</li>
+<li>Schrijf een query die de track naam weergeeft langs elke invoice lijn.</li>
+<li>Schrijf een query die de track naam en de artiest naam weergeeft langs elke invoice lijn.</li>
+<li>Schrijf een query die alle tracks laat zien, maar geen ID&rsquo;s. Het resultaat moet de album titel, het media type en het genre bevatten.</li>
+<li>Schrijf een query die alle genres weergeeft waarvoor er geen tracks bestaan.</li>
+</ol>
+<h3 id="group-by">GROUP BY</h3>
+<p>Soms willen we data aggregeren. Daarvoor bestaan een aantal verschillende functies. De meest courante zijn hieronder te vinden:</p>
+<ul>
+<li><code>MAX()</code></li>
+<li><code>MIN()</code></li>
+<li><code>COUNT()</code></li>
+<li><code>AVG()</code></li>
+<li><code>SUM()</code></li>
+</ul>
+<p>Elke waarde die je extra selecteert in een query bovenop een aggregate function, moet in een <code>GROUP BY</code> clause komen. Hoe ziet dit er dan bijvoorbeeld uit?</p>
+<pre><code>SELECT BillingCity, SUM(Total)
+FROM Invoices
+GROUP BY BillingCity
+</code></pre><h4 id="oefeningen-2">Oefeningen</h4>
+<ol>
+<li>Schrijf een query die het aantal Invoices laat zien voor 2009 en 2011.</li>
+<li>Schrijf een query die het aantal invoices per land laat zien.</li>
+<li>Schrijf een query die per Invoice ID het aantal invoice lijnen laat zien.</li>
+<li>Schrijf een query die de naam van elke playlist laat zien, alsook het aantal tracks in elke playlist.</li>
+<li>Schrijf een query die alle data uit de Invoices tabel laat zien, aangevuld met het aantal invoice lijnen.</li>
+<li>Schrijf een query die de totale verkoopcijfers per Sales Agent laat zien.</li>
+<li>Schrijf een query die laat zien welke Sales Agent de grootste verkoopcijfers heeft voor 2009.</li>
+<li>Schrijf een query die laat zien welke Sales Agent de grootste verkoopcijfers heeft voor 2010.</li>
+<li>Schrijf een query die laat zien welke Sales Agent de grootste verkoopcijfers heeft over alle jaren heen.</li>
+<li>Schrijf een query die het aantal Customers laat zien per Sales Agent.</li>
+<li>Schrijf een query die de totale verkoopcijfers per land laat zien. In welk land werd er het meest uitgegeven?</li>
+<li>Schrijf een query die laat zien welke track er in 2013 het meest werd verkocht.</li>
+<li>Schrijf een query die laat zien wat de top 5 tracks zijn die ooit werden verkocht.</li>
+<li>Schrijf een query die laat zien wie de top 3 artiesten zijn die het meest verkocht werden.</li>
+<li>Schrijf een query die laat zien welk media type het meest verkocht werd.</li>
+<li>Schrijf een query die het aantal invoices laat zien die bestaan uit verschillende tracks met meerdere genres.</li>
+</ol>
 
 
 <footer class="footline">
@@ -1419,15 +1576,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1664435353"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1664435353"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1664435353"></script>
-    <script src="../../js/jquery.sticky.js?1664435353"></script>
-    <script src="../../js/featherlight.min.js?1664435353"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1664435353"></script>
-    <script src="../../js/learn.js?1664435353"></script>
-    <script src="../../js/hugo-learn.js?1664435353"></script>
-    <script src="../../js/mermaid.min.js?1664435353"></script>
+    <script src="../../js/clipboard.min.js?1664457300"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1664457300"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1664457300"></script>
+    <script src="../../js/jquery.sticky.js?1664457300"></script>
+    <script src="../../js/featherlight.min.js?1664457300"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1664457300"></script>
+    <script src="../../js/learn.js?1664457300"></script>
+    <script src="../../js/hugo-learn.js?1664457300"></script>
+    <script src="../../js/mermaid.min.js?1664457300"></script>
     <script>
     window.MathJax = {
       chtml: {
