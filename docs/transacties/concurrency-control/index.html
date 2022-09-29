@@ -12,21 +12,21 @@
     <title>2. Concurrency Control :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1663873006" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1663873006" rel="stylesheet">
-    <link href="../../css/hybrid.css?1663873006" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1663873006" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1663873006" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1663873006" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1663873006" rel="stylesheet">
-    <link href="../../css/theme.css?1663873006" rel="stylesheet">
-    <link href="../../css/devselector.css?1663873006" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1663873006" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1663873006" rel="stylesheet">
+    <link href="../../css/nucleus.css?1664435353" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1664435353" rel="stylesheet">
+    <link href="../../css/hybrid.css?1664435353" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1664435353" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1664435353" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1664435353" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1664435353" rel="stylesheet">
+    <link href="../../css/theme.css?1664435353" rel="stylesheet">
+    <link href="../../css/devselector.css?1664435353" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1664435353" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1664435353" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1663873006"></script>
-    <script src="../../js/devselector.js?1663873006"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1664435353"></script>
+    <script src="../../js/devselector.js?1664435353"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1663873006"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1663873006"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1664435353"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1664435353"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1663873006"></script>
+<script type="text/javascript" src="../../js/search.js?1664435353"></script>
 
     
   </div>
@@ -333,9 +333,9 @@
  
   
     
-      <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures/Rollbacks" class="dd-item ">
+      <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item ">
         <a href="../../transacties/failures-rollbacks/">
-        3. Failures/Rollbacks
+        3. Failures-Rollbacks
         
         </a>
     </li>
@@ -548,9 +548,9 @@
  
   
     
-      <li data-nav-id="/nosql/keyvaluestores/" title="2. Key/value stores" class="dd-item ">
+      <li data-nav-id="/nosql/keyvaluestores/" title="2. Key-value stores" class="dd-item ">
         <a href="../../nosql/keyvaluestores/">
-        2. Key/value stores
+        2. Key-value stores
         
         </a>
     </li>
@@ -590,9 +590,9 @@
  
   
     
-      <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map/red. queries" class="dd-item ">
+      <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map-red. queries" class="dd-item ">
         <a href="../../nosql/mapreduce/">
-        4. Advanced map/red. queries
+        4. Advanced map-red. queries
         
         </a>
     </li>
@@ -916,14 +916,7 @@
 <li>Verhoog bedrag van destination rekening</li>
 </ol>
 <p>Dan zou het kunnen dat bij het uitlezen van #2, Jolien&rsquo;s rekening op <code>€100</code> staat. Maar als de transactie van Marianne dit ook leest als <code>€100</code>, en niet wacht tot de <code>€110</code> die het zou moeten zijn na de commit van de transactie van Jens, dan gaat in totaal Marianne slechts <code>€10</code> rijker zijn in plaats van twee keer dat bedrag. <em>Oeps!</em></p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
+
 <div class="mermaid" align="left" >
 	
 graph LR;
@@ -1219,14 +1212,7 @@ graph LR;
 
 <h4 id="problemen-bij-oplossen-van-problemen-deadlocks">Problemen bij oplossen van problemen: deadlocks</h4>
 <p>Stel dat Jens cash geld wilt deponeren, en Marianne hem ook geld wenst over te schrijven. Voordat Marianne dat doet koopt ze eerst nog een cinema ticket. Jens wil ook een ticket in dezelfde transactie. Het gevolg is dat <code>T1</code> en <code>T2</code> oneindig op elkaar blijven wachten. Dat ziet er zo uit:</p>
-<script defer src="../../mermaid/mermaid.min.js">
-	mermaid.initialize({
-		startOnLoad: true,
-		flowchart: {
-			useMaxWidth: true
-		}
-	});
-</script>
+
 <div class="mermaid" align="left" >
 	
 graph LR;
@@ -1832,7 +1818,7 @@ graph LR;
 			<a class="nav nav-prev" href="../../transacties/basics/" title="1. Transaction Mgmt. Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../transacties/failures-rollbacks/" title="3. Failures/Rollbacks" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../transacties/failures-rollbacks/" title="3. Failures-Rollbacks" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1842,22 +1828,15 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1663873006"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1663873006"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1663873006"></script>
-    <script src="../../js/jquery.sticky.js?1663873006"></script>
-    <script src="../../js/featherlight.min.js?1663873006"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1663873006"></script>
-    <script src="../../js/learn.js?1663873006"></script>
-    <script src="../../js/hugo-learn.js?1663873006"></script>
-    
-        
-            <script src="../../mermaid/mermaid.js?1663873006"></script>
-        
-        <script>
-            mermaid.initialize({ startOnLoad: true });
-        </script>
-    
+    <script src="../../js/clipboard.min.js?1664435353"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1664435353"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1664435353"></script>
+    <script src="../../js/jquery.sticky.js?1664435353"></script>
+    <script src="../../js/featherlight.min.js?1664435353"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1664435353"></script>
+    <script src="../../js/learn.js?1664435353"></script>
+    <script src="../../js/hugo-learn.js?1664435353"></script>
+    <script src="../../js/mermaid.min.js?1664435353"></script>
     <script>
     window.MathJax = {
       chtml: {

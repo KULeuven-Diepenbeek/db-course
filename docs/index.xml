@@ -124,7 +124,7 @@ Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: v
     </item>
     
     <item>
-      <title>2. Key/value stores</title>
+      <title>2. Key-value stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
@@ -155,7 +155,7 @@ range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hi
     </item>
     
     <item>
-      <title>3. Failures/Rollbacks</title>
+      <title>3. Failures-Rollbacks</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
@@ -175,7 +175,7 @@ Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
     
     <item>
-      <title>4. Advanced map/red. queries</title>
+      <title>4. Advanced map-red. queries</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
