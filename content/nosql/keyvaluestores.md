@@ -1,5 +1,5 @@
 ---
-title: 2. Key/value stores
+title: 2. Key-value stores
 ---
 
 ## 1.1 Persistente Hashmaps
