@@ -64,7 +64,7 @@ en
 4. Schrijf een query die een unieke lijst van landen laat zien uit de Invoices tabel.
 5. Schrijf een query die alle Tracks laat zien waarvoor er geen componist bekend is.
 6. Schrijf een query van alle unieke Componisten. Als de componist niet bekend is, dan moet er 'Onbekend' weergegeven worden gesorteerd op naam.
-7. Schrijf een query die het maximumbedrag van een Invoice laat zien.
+7. Schrijf een query die het maximumbedrag van alle Invoices laat zien.
 
 ### JOIN
 
