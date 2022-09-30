@@ -1,7 +1,5 @@
 ---
-title: "4. Examen info"
-weight: 4
-chapter: false
+title: "Examen info"
 draft: true
 ---
 
