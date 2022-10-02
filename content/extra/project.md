@@ -19,12 +19,11 @@ Het is opnieuw een **groepsproject** waarbij je samenwerkt per 2.
 
 Het functioneel kader van de opdracht is als volgt:
 
-
 Wij, de docenten van het vak databases, zijn ook lid van de sportorganisatie _De Vrolijke Zweters_, die verschillende loopwedstrijden organiseren over Vlaanderen. We zijn op zoek naar bekwame programmeurs die ons kunnen helpen in het realiseren van software om de administratie van onze organisatie te ondersteunen.
 
 We verwachten dat je met de software uiteraard lopers kan inschrijven, die een loopnummer krijgen toegekend dat uniek is per wedstrijd. Om de tijden van deze atleten te raadplegen moet het voor gebruikers mogelijk zijn om een klassement op te vragen: een running klassement per loopwedstrijd, én een algemeen klassement over alle wedstrijden heen. Daarnaast moet het ook mogelijk zijn om medewerkers/vrijwilligers op te kunnen vragen per wedstrijd, die elk een bepaalde functie hebben, zoals eerste hulp, bevoorraadingsdienst, masseur, enzovoort.
 
-Uiteraard zijn er parameters voor een loper (zoals zijn fysieke status en gewicht, leeftijd, ...) en de loopwdstrijd. Elke wedstrijd is ingedeeld in een aantal etappes. Een parcour van bijvoorbeeld 20 kilometer kan zo bestaan uit 4 etappes waarvan eentje van kilometer 1 tot 4 met locatie x, en daarop volgend tot kilometer 6 met locatie y, enzovoort. We denken dat lopers graag hun tijden per etappe raadplegen in plaats van één per wedstrijd en willen dit ook ondersteunen. 
+Uiteraard zijn er parameters voor een loper (zoals zijn fysieke status en gewicht, leeftijd, ...) en de loopwedstrijd. Elke wedstrijd is ingedeeld in een aantal etappes. Een parcours van bijvoorbeeld 20 kilometer kan bestaan uit 4 etappes waarvan eentje van kilometer 0 tot 4 met locatie x, en daarop volgend tot kilometer 6 met locatie y, enzovoort. We denken dat lopers graag hun tijden zowel per etappe raadplegen, als per wedstrijd en willen dit ook ondersteunen. 
 
 Alvast bedankt voor de samenwerking en groetjes van _De Vrolijke Zweters_!
 
@@ -49,7 +48,6 @@ Naast het schema dien je ook een **verslag** in---van ongeveer 1000 woorden---wa
 
 Indienen doe je via Git; voeg alle nodige bestanden (schema én verslag) toe aan je repository. Zie boven.
 
-
 ### Deel 2
 
 Deadline: zie boven
@@ -60,6 +58,7 @@ Minimum vereisten:
 
 - Uitwerking van het hele schema uit deel 1 in tabellen
 - Minstens 2 constraints gebruiken
+- Alle tabellen zijn voorzien van de nodige Primary en Foreign Keys
 - Voeg een beperkte set van (fake) gegevens toe in de databases (bijvoorbeeld een drietal per tabel)
 
 Denk ook goed na over eventuele (foute) ingave van gegevens---welke soort data verwacht je waar? 
