@@ -228,5 +228,15 @@ Begeleidend filmpje:
 Tijdens labo&amp;rsquo;s gebruiken we vaak Gradle dependencies om te experimenteren met nieuwe soorten databases zoals Memcached, SQLite, JDBI en Hibernate.</description>
     </item>
     
+    <item>
+      <title>Project opdracht</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/extra/project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/extra/project/</guid>
+      <description>Het project voor dit vak bestaat uit drie delen met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:
+   deel opdracht deadline     1. domein model 17/10/2022   2. SQLite database 14/11/2022   3. Java uitwerking een week voor het examen (TBD)    Het is opnieuw een groepsproject waarbij je samenwerkt per 2.</description>
+    </item>
+    
   </channel>
 </rss>
