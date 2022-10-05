@@ -12,21 +12,21 @@
     <title>1. DDL :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1664780355" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1664780355" rel="stylesheet">
-    <link href="../../css/hybrid.css?1664780355" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1664780355" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1664780355" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1664780355" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1664780355" rel="stylesheet">
-    <link href="../../css/theme.css?1664780355" rel="stylesheet">
-    <link href="../../css/devselector.css?1664780355" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1664780355" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1664780355" rel="stylesheet">
+    <link href="../../css/nucleus.css?1664997592" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1664997592" rel="stylesheet">
+    <link href="../../css/hybrid.css?1664997592" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1664997592" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1664997592" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1664997592" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1664997592" rel="stylesheet">
+    <link href="../../css/theme.css?1664997592" rel="stylesheet">
+    <link href="../../css/devselector.css?1664997592" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1664997592" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1664997592" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1664780355"></script>
-    <script src="../../js/devselector.js?1664780355"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1664997592"></script>
+    <script src="../../js/devselector.js?1664997592"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1664780355"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1664780355"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1664997592"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1664997592"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1664780355"></script>
+<script type="text/javascript" src="../../js/search.js?1664997592"></script>
 
     
   </div>
@@ -889,7 +889,16 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#oefening">Oefening</a></li>
+    <li>
+      <ul>
+        <li><a href="#oefening">Oefening</a></li>
+      </ul>
+    </li>
+    <li><a href="#views-aanmaken">Views aanmaken</a>
+      <ul>
+        <li><a href="#oefening-1">Oefening</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -916,35 +925,21 @@
 
 <p><strong>Data Defintion Language</strong> is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.</p>
 <p>Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan <a href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a> gebruiken tijdens onze lessen.</p>
-<h2 id="oefening">Oefening</h2>
-<p>Herinner je nog ons bibliotheek datamodel?</p>
-
-<div class="mermaid" align="left" >
-	
-classDiagram
-    Book "0..*" --> "1..*" Genre
-    Book "1..*" --> "1" Author
-
-    class Author{
-        id: INT
-        name: NVARCHAR
-        firstName: NVARCHAR
-    }
-
-    class Genre{
-        id: INT
-        description: NVARCHAR
-    }
-
-    class Book{
-        isbn: NVARCHAR
-        title: NVARCHAR
-        author: INT
-        price: DECIMAL
-        genre: INT
-    }
-
-</div>
+<h3 id="oefening">Oefening</h3>
+<p>Kijk naar de Chinook database en maak een schematische voorstelling van hoe deze database eruit ziet. Je kan hiervoor <a href="https://mermaid.live/">Mermaid</a> gebruiken, of een eigen tool of pen en papier.</p>
+<h2 id="views-aanmaken">Views aanmaken</h2>
+<p>Een view is eigenlijk een specifieke query die we een vaste naam geven.</p>
+<p>Als ik een view wil maken van alle tracks van het Rock genre, dan doe ik dat als volgt:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
+    <span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+    <span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">GenreId</span>
+    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
+</code></pre></div><p>Vanaf dit punt kan ik in een nieuwe query het volgende uitvoeren:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">rock_tracks</span>
+</code></pre></div><h3 id="oefening-1">Oefening</h3>
+<ol>
+<li>Schrijf een view die de naam van elke track geeft, alsook de naam van het album en de artiest. Gesorteerd op artiest, album en dan track.</li>
+</ol>
 
 
 <footer class="footline">
@@ -1487,15 +1482,15 @@ classDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1664780355"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1664780355"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1664780355"></script>
-    <script src="../../js/jquery.sticky.js?1664780355"></script>
-    <script src="../../js/featherlight.min.js?1664780355"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1664780355"></script>
-    <script src="../../js/learn.js?1664780355"></script>
-    <script src="../../js/hugo-learn.js?1664780355"></script>
-    <script src="../../js/mermaid.min.js?1664780355"></script>
+    <script src="../../js/clipboard.min.js?1664997592"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1664997592"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1664997592"></script>
+    <script src="../../js/jquery.sticky.js?1664997592"></script>
+    <script src="../../js/featherlight.min.js?1664997592"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1664997592"></script>
+    <script src="../../js/learn.js?1664997592"></script>
+    <script src="../../js/hugo-learn.js?1664997592"></script>
+    <script src="../../js/mermaid.min.js?1664997592"></script>
     <script>
     window.MathJax = {
       chtml: {
