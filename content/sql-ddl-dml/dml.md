@@ -106,10 +106,30 @@ Soms willen we data aggregeren. Daarvoor bestaan een aantal verschillende functi
 
 Elke waarde die je extra selecteert in een query bovenop een aggregate function, moet in een `GROUP BY` clause komen. Hoe ziet dit er dan bijvoorbeeld uit?
 
-```
+```sql
 SELECT BillingCity, SUM(Total)
 FROM Invoices
 GROUP BY BillingCity
+```
+
+### HAVING
+
+Als we willen filteren op een grouping function, dan gaat dat niet via een `WHERE` clause, dan krijg je namelijk een foutmelding:
+
+```sql
+SELECT BillingCity, count(*) FROM invoices
+WHERE count(*) > 2
+GROUP BY BillingCity
+```
+
+![](/slides/img/where_error.png)
+
+Om te filteren op een grouping function schrijven we dit in een `HAVING` clause. 
+
+```sql
+SELECT BillingCity, count(*) FROM invoices
+GROUP BY BillingCity
+HAVING count(*) > 2
 ```
 
 #### Oefeningen
@@ -129,4 +149,106 @@ GROUP BY BillingCity
 13. Schrijf een query die laat zien wat de top 5 tracks zijn die ooit werden verkocht.
 14. Schrijf een query die laat zien wie de top 3 artiesten zijn die het meest verkocht werden.
 14. Schrijf een query die laat zien welk media type het meest verkocht werd.
-15. Schrijf een query die het aantal invoices laat zien die bestaan uit verschillende tracks met meerdere genres.
+15. Schrijf een query die de tracks laat zien die meer dan 4 keer verkocht zijn.
+
+### Subqueries
+
+Een query die we uitvoeren geeft een set van resultaten terug. Die set kunnen we opnieuw gebruiken als input voor een nieuwe query. We kunnen die set op verschillende plaatsen gebruiken als input voor een nieuwe query. Hieronder een aantal voorbeelden.
+
+#### In een WHERE clause
+
+```sql
+SELECT * FROM invoice_items
+WHERE invoice_items.TrackId IN (
+	SELECT tracks.TrackId FROM tracks
+	WHERE name LIKE '%hell%'
+)
+```
+
+#### In een FROM clause
+
+```sql
+SELECT * FROM (
+	SELECT tracks.TrackId, tracks.Name FROM tracks
+	WHERE name LIKE '%hell%'
+)
+```
+
+#### In een JOIN clause
+
+```sql
+SELECT * FROM tracks
+INNER JOIN (
+	SELECT tracks.TrackId, tracks.Name FROM tracks
+	WHERE name LIKE '%hell%'
+) hell_tracks ON hell_tracks.TrackId = tracks.TrackId
+```
+
+{{% notice warning %}}
+Subqueries in een `WHERE IN` statement worden geëvauleerd voor elke voor elke rij uit de outer query, dus zijn eigenlijk niet zo heel performant. We kunnen dat iets verbeteren door dat te herschrijven naar een `WHERE EXISTS` statement. Zie hieronder.
+{{% /notice %}}
+
+```sql
+SELECT * FROM invoice_items
+WHERE EXISTS (
+	SELECT 1 FROM tracks
+	WHERE name LIKE '%hell%' AND tracks.TrackId = invoice_items.TrackId
+)
+```
+
+De `IN` clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een `EXISTS` clause gaat 
+
+#### Oefeningen
+
+De meeste van deze queries kunnen ook geschreven worden met een `JOIN` statement. Dit is echter niet waar we hier op willen oefenen. Los dus volgende oefeningen op met minstens één subquery. 
+
+1. Schrijf een query die alle invoices laat zien die een track bevatten van Iron Maiden.
+2. Schrijf een query die alle invoices laat zien die verkocht werden door Margaret Park.
+3. Schrijf een query die alle genres laat zien waarvoor er geen track bestaat.
+4. Schrijf een query die alle invoices laat zien waarvan de prijs groter is dan het gemiddelde van alle invoices.
+5. Schrijf een query die alle invoices laat zien waarin een Metallica track verkocht is, waarvan de prijs groter is dan het gemiddelde van alle invoices waarin een Metallica track verkocht is.
+
+### Data manipulatie
+
+#### INSERT
+
+Met een `INSERT` Statement gaan we data toevoegen in de database. We gebruiken een column listing om aan te geven welke kolommen, in welke volgorde, we van een waarde kan voorzien. Kolommen die `NULL` values ondersteunen mogen uit de column listing gelaten worden. 
+
+```sql
+INSERT INTO Genres(Name)
+VALUES('Rock')
+```
+
+#### Oefeningen
+
+1. Voeg je favoriete album (inclusief artiest en tracks) toe aan de database.
+
+#### UPDATE
+
+Met een `UPDATE` statement kunnen we één of meerdere waardes in een set van data aanpassen.
+
+```sql
+UPDATE Tracks 
+SET MediaTypeId = 1
+WHERE AlbumId = 2
+```
+
+#### Oefeningen
+1. Wijzig de UnitPrice en de Composer voor de 3e track van je toegevoegde album
+2. Wijzig de titel van je album
+
+#### DELETE
+
+Hiermee kunnen we een set van data verwijderen. 
+
+LET OP! Een `DELETE` statement zonder `WHERE` clause verwijderd alles uit de tabel!
+
+```sql
+DELETE FROM Genre
+WHERE Name = 'Rock'
+```
+
+#### Oefeningen
+
+1. Verwijder het album (inclusief artiest en tracks) dat je hierboven hebt toegevoegd.
+
