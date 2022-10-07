@@ -12,21 +12,21 @@
     <title>Project opdracht :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1664997592" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1664997592" rel="stylesheet">
-    <link href="../../css/hybrid.css?1664997592" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1664997592" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1664997592" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1664997592" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1664997592" rel="stylesheet">
-    <link href="../../css/theme.css?1664997592" rel="stylesheet">
-    <link href="../../css/devselector.css?1664997592" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1664997592" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1664997592" rel="stylesheet">
+    <link href="../../css/nucleus.css?1665125339" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1665125339" rel="stylesheet">
+    <link href="../../css/hybrid.css?1665125339" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1665125339" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1665125339" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1665125339" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1665125339" rel="stylesheet">
+    <link href="../../css/theme.css?1665125339" rel="stylesheet">
+    <link href="../../css/devselector.css?1665125339" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1665125339" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1665125339" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1664997592"></script>
-    <script src="../../js/devselector.js?1664997592"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1665125339"></script>
+    <script src="../../js/devselector.js?1665125339"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1664997592"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1664997592"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1665125339"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1665125339"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1664997592"></script>
+<script type="text/javascript" src="../../js/search.js?1665125339"></script>
 
     
   </div>
@@ -964,7 +964,20 @@
 </p>
 <h3 id="deel-1">Deel 1</h3>
 <p>Deadline: zie boven</p>
-<p>Voor dit deel verwachten we dat je een <strong>domein model</strong> <a href="../../db-course/sql-ddl-dml/ddl/">DDL schema</a> tekent en indient. Dit mag (ingescand) op papier, met <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> zoals in deze cursus, of met <a href="https://draw.io">draw.io</a> gemaakt worden. Het schema bevat (1) entiteiten/modellen en (2) relaties tussen deze modellen, zoals jij de opdracht interpreteert.</p>
+<p>Voor dit deel verwachten we dat je een <strong>domein model</strong> <a href="../../db-course/sql-ddl-dml/ddl/">DDL schema</a> tekent en indient. Dit mag (ingescand) op papier, met <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> zoals in deze cursus, of met <a href="https://draw.io">draw.io</a> gemaakt worden. Het schema bevat (1) entiteiten/modellen en (2) relaties tussen deze modellen, zoals jij de opdracht interpreteert.
+Het domein model bevat de entiteiten, maar ook de properties en het datatype. Bijvoorbeeld:</p>
+
+<div class="mermaid" align="left" >
+	
+classDiagram
+    class Book{
+        isbn: string
+        title: string
+        author: string
+        price: float
+    }
+
+</div>
 <p>Minimum vereisten:</p>
 <ul>
 <li>Minstens 2 veel-op-veel relaties</li>
@@ -1540,15 +1553,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1664997592"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1664997592"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1664997592"></script>
-    <script src="../../js/jquery.sticky.js?1664997592"></script>
-    <script src="../../js/featherlight.min.js?1664997592"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1664997592"></script>
-    <script src="../../js/learn.js?1664997592"></script>
-    <script src="../../js/hugo-learn.js?1664997592"></script>
-    <script src="../../js/mermaid.min.js?1664997592"></script>
+    <script src="../../js/clipboard.min.js?1665125339"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1665125339"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1665125339"></script>
+    <script src="../../js/jquery.sticky.js?1665125339"></script>
+    <script src="../../js/featherlight.min.js?1665125339"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1665125339"></script>
+    <script src="../../js/learn.js?1665125339"></script>
+    <script src="../../js/hugo-learn.js?1665125339"></script>
+    <script src="../../js/mermaid.min.js?1665125339"></script>
     <script>
     window.MathJax = {
       chtml: {
