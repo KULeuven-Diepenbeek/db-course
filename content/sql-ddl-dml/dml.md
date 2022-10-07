@@ -196,7 +196,7 @@ WHERE EXISTS (
 )
 ```
 
-De `IN` clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een `EXISTS` clause gaat 
+De `IN` clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een `EXISTS` clause gaat een subquery maar zo lang uitvoeren tot er een resultaat gevonden is. Als de tabel uit de subquery 1000 rijen bevat en er wordt een match gevonden op rij 200, dan gaan de andere 800 niet meer geëvauleerd worden.
 
 #### Oefeningen
 
