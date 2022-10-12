@@ -17,8 +17,8 @@ Laatste aanpassingen voor academiejaar _2022 - 2023_.
 | 03  | vr 07-10-2022 | SQL deel 2
 | 04  | vr 14-10-2022 | RDBMS transacties: basics, concurrency control
 | 05  | vr 21-10-2022 | DB APIs: basics, JDBC, JDBI
-| 06  | vr 28-10-2022 | Re Transacties: rollbacks, concurrency in practice
-| 07  | vr 18-11-2022 | DB APIs: JPA & Hibernate
+| 06  | vr 28-10-2022 | DB APIs: JPA & Hibernate
+| 07  | vr 18-11-2022 | Re Transacties: rollbacks, concurrency in practice
 | 08  | vr 25-11-2022 | NoSQL 1: intro HC, key/value en document stores
 | 09  | vr 02-12-2022 | NoSQL 2: advanced concepts, case studies (1)
 | 10  | vr 09-12-2022 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
