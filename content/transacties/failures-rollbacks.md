@@ -60,75 +60,9 @@ INSERT INTO oeitiskapot;
 
 ### 1.2 In SQLite met Java/JDBC
 
-Bovenstaande failure fenomeen stellen we ook vast als we niet rechtstreeks in de DB explorer onze queries uitvoeren, maar via Java, met behulp van de [sqlite-jdbc](https://github.com/xerial/sqlite-jdbc) drivers. [JDBC](https://www.tutorialspoint.com/jdbc/index.htm),  of "Java DataBase Connection", is een tussenlaag die het mogelijk maakt om SQL uit te voeren op eender welke SQL server. `sqlite-jdbc` zorgt voor de SQLite-specifieke vertaling. De interface die wij gebruiken om te programmeren zit in de JDK zelf onder de packages `java.sql`.
+SQLite/JDBC uitleg: zie APIs - JDBC.
 
-Enkele belangrijke statements:
-
-1. Een connectie naar een database vastleggen: `var connection = DriverManager.getConnection("jdbc:sqlite:mydb.db");`
-2. Een `SELECT` query uitvoeren: `var s = connection.createStatement(); var result = s.executeQuery("..."); var cell = result.getString("column");`
-3. Een `INSERT`/`UPDATE`/... query uitvoeren (die de structuur of inhoud van de database **wijzigt**): `var s = connection.createStatement(); s.executeUpdate("...");`
-
-Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:
-
-<div class="devselect">
-
-```kt
-private lateinit connection: Connection
-fun createDb() {
-    connection = DriverManager.getConnection("jdbc:sqlite:mydb.db").apply {
-        setAutoCommit(false)
-    }
-    // note that this requires "stdlib-jdk7" as kotlin runtime dependency
-    connection.createStatement().use {
-      it.executeUpdate("CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")  
-    }
-}
-fun verifyDbContents() {
-    connection.createStatement().use {
-        val result = it.executeQuery("SELECT COUNT(*) FROM mijntabel;")
-        assert result.getInt(0) == 1
-    }
-}
-```
-
-```java
-private Connection connection;
-public void createDb() throws SQLException {
-    connection = DriverManager.getConnection("jdbc:sqlite:mydb.db");
-    connection.setAutoCommit(false);
-    var s = connection.createStatement();
-    s.executeUpdate("CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);")
-    s.close();
-}
-public void verifyDbContents() throws SQLException {
-    var s = connection.createStatement();
-    var result = s.executeQuery("SELECT COUNT(*) FROM mijntabel;");
-    var count = result.getInt(0);
-    s.close();
-
-    assert count == 1;
-}
-```
-
-</div>
-
-**Gradle** dependency: laatste versie van [sqlite-jdbc in mvnrepository.com](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc).
-
-{{% notice warning %}}
-Problemen met je JDK versie en Gradle versies? Raadpleeg de [Gradle Compatibiility Matrix](https://docs.gradle.org/current/userguide/compatibility.html). Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
-Je Gradle versie verhogen kan door de URL in `gradle/gradlew.properties` te wijzigen.
-{{% /notice %}}
-
-Merk op dat `SQLException` een **checked exception** is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een `try { } catch { } finally { }` block is dat in de finally je ook geen `close()` kan uitvoeren zonder opnieuw een `try` block te openen... Inception!
-
-{{% notice note %}}
-Vergelijk de Kotlin implementatie met de standaard Java versie. Als het aan komt op efficiënt gebruik van oudere Java APIs zoals de SQL methodes, is Kotlin véél eenvoudiger, zowel in gebruik als in leesbaarheid. Hier maken we handig gebruik van [de use extension](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) om geen `close()` te moeten oproepen, en `with {}` om de connectionManager in te stellen zonder telkens `connection.` te moeten herhalen. Nog een voordeel: er is geen verschil tussen checked en unchecked exceptions. <br/>Het loont dus om ook voor dit vak te opteren voor Kotlin---maar het is niet verplicht.
-{{% /notice %}}
-
-
-Het `connection.close()` statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een **connection pool** van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!
-
-De `setAutoCommit(false)` regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:
+Gebruik nu  `connection.setAutoCommit(false)`. Deze regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:
 
 > When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)
 
