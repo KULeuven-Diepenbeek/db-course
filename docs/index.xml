@@ -14,8 +14,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</guid>
-      <description>Herexamen 08/2022: zie slides op Toledo.
-TODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460</description>
+      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):
+   In de praktijk variëert deze tier benadering van project tot project.</description>
     </item>
     
     <item>
@@ -120,9 +120,7 @@ SELECT SELECT is het commando dat we gebruiken om data op te vragen uit de datab
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
-      <description>1.1 Queries/Objecten in JDBC Zie Transacties failures/rollbacks voor de initiële setup van een eenvoudige Java JDBC applicatie.
-Stel dat we dezelfde studenten willen inladen in een Student klasse instantie: van de TABLE STUDENT naar de class Student. In geval van JDBC is dat veel handwerk:
- Maak een verbinding met de database. Voer de SELECT statements uit. Loop door de ResultSet en maak een nieuwe Student instantie aan. Vang alle mogelijke fouten zelf op: wat met lege kolommen, null?</description>
+      <description>1.1 Java Database Connectivity (JDBC) 1.1.1 Hoe verbind ik Java met de DB? JDBC is een interface in de JDK die ons in staat stelt om een connectie te openen naar een database. JDBC is een API: een abstracitelaag of een protocol. Dit betekent dat we met JDBC kunnen verbinden naar eender welke server van eender welke flavor: een Oracle SQL, MSSQL, of SQLite database. De database vendor wordt verborgen achter de JDBC laag.</description>
     </item>
     
     <item>

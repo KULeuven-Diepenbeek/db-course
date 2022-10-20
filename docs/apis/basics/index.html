@@ -12,21 +12,21 @@
     <title>1. API Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1665590156" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1665590156" rel="stylesheet">
-    <link href="../../css/hybrid.css?1665590156" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1665590156" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1665590156" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1665590156" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1665590156" rel="stylesheet">
-    <link href="../../css/theme.css?1665590156" rel="stylesheet">
-    <link href="../../css/devselector.css?1665590156" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1665590156" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1665590156" rel="stylesheet">
+    <link href="../../css/nucleus.css?1666267243" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1666267243" rel="stylesheet">
+    <link href="../../css/hybrid.css?1666267243" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1666267243" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1666267243" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1666267243" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1666267243" rel="stylesheet">
+    <link href="../../css/theme.css?1666267243" rel="stylesheet">
+    <link href="../../css/devselector.css?1666267243" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1666267243" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1666267243" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1665590156"></script>
-    <script src="../../js/devselector.js?1665590156"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1666267243"></script>
+    <script src="../../js/devselector.js?1666267243"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1665590156"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1665590156"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1666267243"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1666267243"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1665590156"></script>
+<script type="text/javascript" src="../../js/search.js?1666267243"></script>
 
     
   </div>
@@ -887,7 +887,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#layered-application-tiers">Layered Application Tiers</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -910,8 +914,30 @@
         
 
 
-<p><strong>Herexamen 08/2022</strong>: zie slides op Toledo.</p>
-<p>TODO 2-tier, 3-tier, n-tier, basisuitleg koppeling p460</p>
+<h2 id="layered-application-tiers">Layered Application Tiers</h2>
+<p>In software engineering worden applicaties logisch opgesplitst in verschillende &ldquo;tiers&rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&mdash;de UI, bestaande uit HTML en CSS, de <em>backend</em>&mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een <em>data laag</em> die onze database voorstelt. Onderstaand schema vat dit samen (via <a href="https://www.researchgate.net/figure/A-Typical-3-Tier-Server-Architecture-Tier-1-Web-Server-Tier-2-Application-Server-Tier_fig1_221147997">Trevor N. Mudge</a>):</p>
+<p><figure>
+	<a href="../../img/tier3.png" data-featherlight="image">
+		<img src="../../img/tier3.png"  >
+	</a>
+	
+</figure>
+</p>
+<p>In de praktijk variëert deze tier benadering van project tot project.</p>
+<p>Tot nu toe in dit vak hebben we ons toegelegd op Tier 3: de data laag. Zonder frontend applicatie laag kan een gebruiker echter niet interageren met deze database; er it dus minstens één extra tier nodig. Bovenstaand schema kwam terug in het vak Software Engineering Skills; namelijk de <a href="https://kuleuven-diepenbeek.github.io/ses-course/extra/sessy/">SESsy library webapp</a>, die ook bestaat uit drie conceptuele lagen.</p>
+<p>Om ons in het vak databases te kunnen focusen op de data en de integratie van de data met de software gaan wij ons toeleggen op Tier 2 + 3. Het webgedeelte valt weg en om een UI te maken herbruiken we de opgebouwde JavaFX kennis van het eerstejaarsvak <em>Software Ontwerp in Java</em> (INF1). We gaan dus terug <strong>Java/Kotlin applicaties</strong> maken en die verbinden met onze database schema&rsquo;s. Een simpele 2-tier applicatie is ook wel een client-server applicatie genoemd. In ons geval is de server de database, die in principe op een andere machine kan gedeployed worden. Voor de oefeningen vereenvoudigen we dit systeem door gebruik te maken van een <em>embedded</em> database die in het lokaal geheugen kan draaien.</p>
+<p>We teren dus op de volgende kennis:</p>
+<ul>
+<li>Het opstellen van Gradle projecten in Java of Kotlin (<em>SES en AppDev</em>);</li>
+<li>JavaFX UIs bouwen (<em>INF1</em>);</li>
+<li>Databases ontwerpen en koppelen (<em>Databases</em>).</li>
+</ul>
+
+<div class="notices warning" ><p>Problemen met je JDK versie en Gradle versies? Raadpleeg de <a href="https://docs.gradle.org/current/userguide/compatibility.html">Gradle Compatibiility Matrix</a>. Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
+Je Gradle versie verhogen kan door de URL in <code>gradle/gradlew.properties</code> te wijzigen.</p>
+</div>
+
+<p>Gradle dependency of Git source control problemen? Grijp terug naar <a href="https://kuleuven-diepenbeek.github.io/ses-course/">de cursus van SES</a>.</p>
 
 
 <footer class="footline">
@@ -1454,15 +1480,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1665590156"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1665590156"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1665590156"></script>
-    <script src="../../js/jquery.sticky.js?1665590156"></script>
-    <script src="../../js/featherlight.min.js?1665590156"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1665590156"></script>
-    <script src="../../js/learn.js?1665590156"></script>
-    <script src="../../js/hugo-learn.js?1665590156"></script>
-    <script src="../../js/mermaid.min.js?1665590156"></script>
+    <script src="../../js/clipboard.min.js?1666267243"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1666267243"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1666267243"></script>
+    <script src="../../js/jquery.sticky.js?1666267243"></script>
+    <script src="../../js/featherlight.min.js?1666267243"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1666267243"></script>
+    <script src="../../js/learn.js?1666267243"></script>
+    <script src="../../js/hugo-learn.js?1666267243"></script>
+    <script src="../../js/mermaid.min.js?1666267243"></script>
     <script>
     window.MathJax = {
       chtml: {
