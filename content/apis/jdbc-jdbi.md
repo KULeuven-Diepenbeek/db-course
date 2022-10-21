@@ -242,9 +242,11 @@ graph LR;
 
 ### 1.2.1 JDBC vs Jdbi3
 
+Geen idee waar te beginnen? Hier: http://jdbi.org/ 
+
 #### **1. Connection openen**
 
-In plaats van JDBC's `DriverManager.getConnection()` om de `Connection` instance te bootstrappen, gebruiken wij gewoon `Jdbi.create()` met ook één paremter, namelijk dezelfde connectionstring. 
+In plaats van JDBC's `DriverManager.getConnection()` om de `Connection` instance te bootstrappen, gebruiken wij gewoon `Jdbi.create()` met ook één parameter, namelijk dezelfde ConnectionString. 
 
 #### **2. Query uitvoeren**
 
