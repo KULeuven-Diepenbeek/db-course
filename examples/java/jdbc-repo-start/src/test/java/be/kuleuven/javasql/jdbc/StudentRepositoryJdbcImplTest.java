@@ -1,8 +1,8 @@
 package be.kuleuven.javasql.jdbc;
 
 import be.kuleuven.javasql.BaseStudentRepositoryTest;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,13 +11,13 @@ public class StudentRepositoryJdbcImplTest extends BaseStudentRepositoryTest {
 
     private Connection jdbcConnection;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.jdbcConnection = new ConnectionManager().getConnection();
         this.studentRepository = new StudentRepositoryJdbcImpl(this.jdbcConnection);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         try {
             this.jdbcConnection.close();
