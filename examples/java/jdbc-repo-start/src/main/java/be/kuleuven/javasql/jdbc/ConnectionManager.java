@@ -45,7 +45,7 @@ public class ConnectionManager {
     }
 
     private void initTables() throws Exception {
-        var sql = new String(Files.readAllBytes(Paths.g));
+        var sql = new String(Files.readAllBytes(Paths.get("src/main/resources/dbcreate.sql")));
         System.out.println(sql);
 
         var s = connection.createStatement();
