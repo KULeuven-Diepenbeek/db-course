@@ -1,9 +1,9 @@
 package be.kuleuven.studenthibernate.domain;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +15,7 @@ public class StudentRepositoryJpaImplTest {
     private StudentRepository studentRepository;
     private EntityManager entityManager;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.factory = Persistence.createEntityManagerFactory("be.kuleuven.studenthibernate.domain");
         this.entityManager = factory.createEntityManager();
@@ -23,7 +23,7 @@ public class StudentRepositoryJpaImplTest {
         studentRepository = new StudentRepositoryJpaImpl(entityManager);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         factory.close();
     }
@@ -33,7 +33,7 @@ public class StudentRepositoryJpaImplTest {
         var jos = new Student("Lowiemans", "Jos", true);
         studentRepository.saveNewStudent(jos);
 
-        Assert.assertTrue("student heeft ID gekregen", jos.getStudentenNummer() > 0);
+        Assertions.assertTrue(jos.getStudentenNummer() > 0, "student heeft ID gekregen");
     }
 
     @Test
@@ -48,14 +48,14 @@ public class StudentRepositoryJpaImplTest {
         entityManager.clear();
 
         var studenten = studentRepository.getStudentsByName("Lowiemans2");
-        Assert.assertTrue("student lowiemans2 is in db", studenten.size() == 1);
+        Assertions.assertTrue(studenten.size() == 1, "student lowiemans2 is in db");
         var lowiemans2 = studenten.get(0);
-        Assert.assertEquals("ook voornaam gewijzigd", "Josette", lowiemans2.getVoornaam());
+        Assertions.assertEquals("Josette", lowiemans2.getVoornaam(), "ook voornaam gewijzigd");
     }
 
     @Test
     public void TODO_Schrijf_Meer_Testen() {
-        Assert.fail("Zie methodenaam!");
+        Assertions.fail("Zie methodenaam!");
     }
 
 }

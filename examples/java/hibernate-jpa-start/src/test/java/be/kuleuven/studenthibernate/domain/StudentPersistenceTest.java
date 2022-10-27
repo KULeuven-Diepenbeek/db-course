@@ -1,8 +1,8 @@
 package be.kuleuven.studenthibernate.domain;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,13 +13,13 @@ public class StudentPersistenceTest {
     private EntityManagerFactory factory;
     private EntityManager entityManager;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.factory = Persistence.createEntityManagerFactory("be.kuleuven.studenthibernate.domain");
         this.entityManager = factory.createEntityManager();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         factory.close();
     }

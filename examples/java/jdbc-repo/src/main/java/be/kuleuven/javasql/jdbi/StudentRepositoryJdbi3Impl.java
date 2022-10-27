@@ -30,7 +30,7 @@ public class StudentRepositoryJdbi3Impl implements StudentRepository {
             //handle.execute("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (?, ?, ?, ?)",
             //        student.getStudnr(), student.getNaam(), student.getVoornaam(), student.isGoedBezig());
 
-            handle.createUpdate("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (:studnr, :naam, :voornaam, :goedBezig)")
+            return handle.createUpdate("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (:studnr, :naam, :voornaam, :goedBezig)")
                     .bindBean(student)
                     .execute();
         });

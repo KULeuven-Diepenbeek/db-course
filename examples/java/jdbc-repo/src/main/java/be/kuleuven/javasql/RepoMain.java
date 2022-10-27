@@ -10,7 +10,8 @@ public class RepoMain {
         ConnectionManager connectionManager = new ConnectionManager();
         var jdbcRepo = new StudentRepositoryJdbcImpl(connectionManager.getConnection());
         var jdbiRepo = new StudentRepositoryJdbi3Impl(ConnectionManager.ConnectionString);
-        doStuff(jdbcRepo, "JDBC");
+        // uncomment indien met JDBC -- beiden uit comments halen = PRIMARY KEY CONSTRAINT FAILED error
+        // doStuff(jdbcRepo, "JDBC");
 
         connectionManager.flushConnection();
         doStuff(jdbiRepo, "JDBI 3");
