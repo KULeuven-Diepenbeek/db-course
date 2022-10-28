@@ -11,8 +11,6 @@ import javafx.stage.Stage;
  * Zie https://kuleuven-diepenbeek.github.io/db-course/extra/project/ voor opgave details
  *
  * Deze code is slechts een quick-start om je op weg te helpen met de integratie van JavaFX tabellen en data!
- * Het is NIET voldoende om dit slechts over te nemen! JavaFX is GEEN vereiste, maar integratie met SQL in Java/Kotlin wel.
- *
  * Zie README.md voor meer informatie.
  */
 public class ProjectMain extends Application {

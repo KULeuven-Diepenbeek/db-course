@@ -83,10 +83,14 @@ Voor dit deel verwachten we dat je het ontwerp van de database integreert in een
 
 Minimum vereisten:
 
-- Start vanaf het JavaFX-enabled startproject in Kotlin of Java (dit volgt nog!).
+- Gebruik JavaFX als UI.
 - Gebruik als toegang naar de SQLite-embedded database JDBC, JDBI, of JPA/Hibernate.
 - Dit project wordt _mondeling verdedigd_ in de week van het examen. We verwachten dat je de keuze van JDBC/JDBI/JPA goed kan motiveren!
+
+Starten kan vanaf het JavaFX-enabled startproject: https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples/java/project-template-202223
 
 Merk op dat het over het vak "databases" gaat, en we dus NIET de nadruk leggen op de UI, maar eerder op de backend. Denk echter wel opnieuw goed na over de invoer van gegevens. 
 
 Indienen doe je via Git; voeg alle nodige bestanden toe aan je repository. Zie boven.
+
+
