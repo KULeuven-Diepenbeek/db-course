@@ -26,7 +26,7 @@ public abstract class BaseStudentRepositoryTest {
         List<Student> result = studentRepository.getStudentsByName("Peeters");
         Assertions.assertNotNull(result, "result should not be null");
         Assertions.assertTrue(result.size() == 1, "resultset should be one record");
-        Assertions.assertEquals(result.get(0).getNaam(), "Name should be Peeters", "Peeters");
+        Assertions.assertEquals(result.get(0).getNaam(), "Peeters", "Name should be Peeters");
     }
 
     @Test
