@@ -10,6 +10,8 @@ import java.sql.SQLException;
 public class ConcurrencyMain {
 
     public static void main(String[] args) throws Exception {
+        // For testing purposes, you can revert to SQLite to see why this (doesn't) work
+        // Just use ConnectionManager.ConnectionStringSQLite instead.
         var connection = DriverManager.getConnection(ConnectionManager.ConnectionStringH2);
         connection.setAutoCommit(false);
         ConnectionManager.initTables(connection);
@@ -25,6 +27,7 @@ public class ConcurrencyMain {
                 otherConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
                 otherConnection.setAutoCommit(true);
 
+                System.out.println(" ## Trying to DIRTY read students: ");
                 printStudents(new StudentRepositoryJdbcImpl(otherConnection));
                 otherConnection.close();
             } catch (SQLException throwables) {
@@ -35,6 +38,8 @@ public class ConcurrencyMain {
         Thread.sleep(2000);
         connection.rollback();
 
+        System.out.println(" ## Re-reading students AFTER rollback: ");
+        printStudents(new StudentRepositoryJdbcImpl(connection));
 
 
         System.out.println(" -- DONE");

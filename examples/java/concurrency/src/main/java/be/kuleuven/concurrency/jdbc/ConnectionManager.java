@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 
 public class ConnectionManager {
-    public static final String ConnectionString = "jdbc:sqlite:mydb.db";
+    public static final String ConnectionStringSQLite = "jdbc:sqlite:mydb.db";
     public static final String ConnectionStringH2 = "jdbc:h2:./mydb.h2db";
 
     public static void initTables(Connection connection) throws Exception {
