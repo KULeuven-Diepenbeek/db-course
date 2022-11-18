@@ -10,8 +10,8 @@ public class ConnectionManager {
     public static final String ConnectionStringH2 = "jdbc:h2:./mydb.h2db";
 
     public static void initTables(Connection connection) throws Exception {
-        var path = new File(ConnectionManager.class.getResource("/dbcreate.sql").getFile()).toPath();
-        var sql = new String(Files.readAllBytes(path));
+        var uri = ConnectionManager.class.getResource("/dbcreate.sql").toURI();
+        var sql = new String(Files.readAllBytes(Paths.get(uri)));
         System.out.println(sql);
 
         var s = connection.createStatement();
