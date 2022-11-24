@@ -46,9 +46,9 @@ range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</guid>
-      <description>Deze oefeningen volgen de theorie van 11.3.3 op pagina 320.
-Deze oefeningen gaan verder op de database die je hebt opgezet in 2. document stores. Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: voorbereidingswerk) in die link. Start voor onderstaande oefeningen de lokale CouchDB Server en de Admin Console (Project Fauxton) opnieuw op.
-Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd nodig:</description>
+      <description>Deze oefeningen gaan verder op de database die je hebt opgezet in 2. document stores. Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: voorbereidingswerk) in die link. Start voor onderstaande oefeningen de lokale CouchDB Server en de Admin Console (Project Fauxton) opnieuw op.
+Zoals ook op de PouchDB docs vermeld staat; zijn mapreduce queries niet altijd nodig:
+ Documenten op _id raadplegen gaat door middel van de Curl REST API Documenten sorteren of simpele queries uitvoeren gaat door middel van de Mango API, zoals reeds gezien.</description>
     </item>
     
     <item>

@@ -12,21 +12,21 @@
     <title>1. NoSQL Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1668766514" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/hybrid.css?1668766514" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1668766514" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1668766514" rel="stylesheet">
-    <link href="../../css/theme.css?1668766514" rel="stylesheet">
-    <link href="../../css/devselector.css?1668766514" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1668766514" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1668766514" rel="stylesheet">
+    <link href="../../css/nucleus.css?1669318375" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/hybrid.css?1669318375" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1669318375" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1669318375" rel="stylesheet">
+    <link href="../../css/theme.css?1669318375" rel="stylesheet">
+    <link href="../../css/devselector.css?1669318375" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1669318375" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1669318375" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1668766514"></script>
-    <script src="../../js/devselector.js?1668766514"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1669318375"></script>
+    <script src="../../js/devselector.js?1669318375"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1668766514"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1668766514"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1669318375"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1669318375"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1668766514"></script>
+<script type="text/javascript" src="../../js/search.js?1669318375"></script>
 
     
   </div>
@@ -949,7 +949,7 @@
 </p>
 <p>Deze oplossing introduceert echter een ander probleem: <em>data consistency</em> is niet altijd gegarandeerd. Als ik iets in één server van een cluster bewaar, wordt dit dan onmiddellijk in de andere ook bewaard? Wat als er eentje uitvalt, en dat net mijn access point was? Op welke manier wordt die data verdeeld binnen de cluster? Enzovoort. <strong>Distributed computing</strong> is een erg complex domein binnen de informatica. We raken in dit vak enkel de top van de ijsberg aan.</p>
 
-<div class="notices note" ><p>Wat is een &ldquo;cluster&rdquo; precies? Denk aan een verzameling van grote data centers: twee of meer fysieke centra waar enorm veel servers geplaatst worden. Eén server kan je eigen laptop zijn. Je kan ook verschillende virtuele servers op je laptop draaien: dat is een <em>node</em>. <br/><strong>Cluster &laquo; Data Center &laquo; Rack &laquo; Server &laquo; Node</strong></p>
+<div class="notices note" ><p><em>Wat is een &ldquo;cluster&rdquo; precies?</em><br/><br/> Denk aan een verzameling van grote data centers: twee of meer fysieke centra waar enorm veel servers geplaatst worden. Eén server kan je eigen laptop zijn. Je kan ook verschillende virtuele servers op je laptop draaien: dat is een <em>node</em>. (We hanteren hier de hierarchie van elementen <a href="https://docs.datastax.com/en/home/docs/index.html">volgens Cassandara</a>) <br/><br/><strong>Cluster &laquo; Data Center &laquo; Rack &laquo; Server &laquo; Node</strong></p>
 </div>
 
 <p>Een typische relationele database, met zijn ACID eigenschappen, maakt horizontaal schalen dus moeilijk. Consistentie en availability maakt <em>partitioning</em> tot een uitdaging. Dit is ook zichtbaar in het <strong>CAP probleem</strong>; of &ldquo;Consistency, Availability, Partitioning Tolerance&rdquo; probleem. Wil je inzetten op partitioning, dan is de kans groot dat je zal moeten inboeten op consistency en availability. De volgende figuur illustreert dit probleem:</p>
@@ -1044,9 +1044,9 @@
 <ul>
 <li><a href="https://www.vdab.be/vindeenjob/vacatures">https://www.vdab.be/vindeenjob/vacatures</a></li>
 <li><a href="https://www.immoweb.be">https://www.immoweb.be</a></li>
-<li><a href="https://twitter.com">https://twitter.com</a> (<a href="https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/">hint</a>)</li>
+<li><a href="https://twitter.com">https://twitter.com</a> (<a href="https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/">hint 1</a>) (<a href="https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale">hint 2</a>)</li>
 <li><a href="https://people.cs.kuleuven.be/~wouter.groeneveld/courses/">https://people.cs.kuleuven.be/~wouter.groeneveld/courses/</a></li>
-<li>Blog websites zoals <a href="https://brainbaking.com/post/">deze</a> of <a href="https://diggingthedigital.com/">deze</a> (hint: een van beiden is een valstrik)</li>
+<li>Blog websites zoals <a href="https://brainbaking.com/">Brain Baking</a> of <a href="https://diggingthedigital.com/">Digging The Digital</a> (hint: een van beiden is een valstrik)</li>
 </ul>
 <h3 id="nosql-types">NoSQL Types</h3>
 <p><figure>
@@ -1161,7 +1161,8 @@ graph LR;
     db -->|refresh| cache
 
 </div>
-<p>Het feit dat <em>Netflix</em> Memcached sponsort zegt genoeg. Memcached gebruiken is erg eenvoudig en gewoon een kwestie van de API in Java/Kotlin aan te spreken om data te feeden/op te halen. Dit valt buiten de scope van deze cursus.</p>
+<p>Het feit dat <em>Netflix</em> Memcached sponsort zegt genoeg. Memcached gebruiken is erg eenvoudig en gewoon een kwestie van de API in Java/Kotlin aan te spreken om data te feeden/op te halen.</p>
+<p>Een simpel Memcached voorbeeld is terug te vinden onder <a href="../../db-course/nosql/keyvaluestores/#12-distributed-hashmaps-memcached">key-value stores: memcached</a>.</p>
 <h4 id="4-wide-column-databases">4. <strong>Wide-column</strong> databases.</h4>
 <p>Wide-column, of <strong>column-based</strong> databases, zijn eigenlijk relationele databases op zijn kop&mdash;letterlijk.</p>
 <p>Wat is het grootste nadeel van het queryen van relationele databases? Deze zijn <strong>row-based</strong>: als je alle genres uit een <code>BOEK</code> tabel wilt halen, zal je alle rijen moeten afgaan en daar een <code>DISTINCT</code> op doen&mdash;alles behalve performant. Bijvoorbeeld:</p>
@@ -1778,15 +1779,15 @@ price: 10:1,3    20:2
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1668766514"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1668766514"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1668766514"></script>
-    <script src="../../js/jquery.sticky.js?1668766514"></script>
-    <script src="../../js/featherlight.min.js?1668766514"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1668766514"></script>
-    <script src="../../js/learn.js?1668766514"></script>
-    <script src="../../js/hugo-learn.js?1668766514"></script>
-    <script src="../../js/mermaid.min.js?1668766514"></script>
+    <script src="../../js/clipboard.min.js?1669318375"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1669318375"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1669318375"></script>
+    <script src="../../js/jquery.sticky.js?1669318375"></script>
+    <script src="../../js/featherlight.min.js?1669318375"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1669318375"></script>
+    <script src="../../js/learn.js?1669318375"></script>
+    <script src="../../js/hugo-learn.js?1669318375"></script>
+    <script src="../../js/mermaid.min.js?1669318375"></script>
     <script>
     window.MathJax = {
       chtml: {

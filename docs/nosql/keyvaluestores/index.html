@@ -12,21 +12,21 @@
     <title>2. Key-value stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1668766514" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/hybrid.css?1668766514" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1668766514" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1668766514" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1668766514" rel="stylesheet">
-    <link href="../../css/theme.css?1668766514" rel="stylesheet">
-    <link href="../../css/devselector.css?1668766514" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1668766514" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1668766514" rel="stylesheet">
+    <link href="../../css/nucleus.css?1669318375" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/hybrid.css?1669318375" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1669318375" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1669318375" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1669318375" rel="stylesheet">
+    <link href="../../css/theme.css?1669318375" rel="stylesheet">
+    <link href="../../css/devselector.css?1669318375" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1669318375" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1669318375" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1668766514"></script>
-    <script src="../../js/devselector.js?1668766514"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1669318375"></script>
+    <script src="../../js/devselector.js?1669318375"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1668766514"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1668766514"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1669318375"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1669318375"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1668766514"></script>
+<script type="text/javascript" src="../../js/search.js?1669318375"></script>
 
     
   </div>
@@ -978,8 +978,13 @@
 <span style="color:#f92672">}</span>
 </code></pre></div></div>
 <h2 id="12-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</h2>
-<p>Met de Java voorbeeldcode op pagina 307 kunnen we een verbinding maken met een (of meerdere) Memcached servers. De Memcached client van <code>net.spy.spymemcached</code> (zie mvn repo: <a href="https://mvnrepository.com/artifact/net.spy/spymemcached">https://mvnrepository.com/artifact/net.spy/spymemcached</a>).</p>
-<p>De client code vereist een werkende memcached server - <a href="https://www.memcached.org">https://www.memcached.org</a>. Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in.</p>
+<p>We kunnen eenvoudig een verbinding maken met een (of meerdere) Memcached server via de Memcached Java client van <code>net.spy.spymemcached</code> (zie mvn repo: <a href="https://mvnrepository.com/artifact/net.spy/spymemcached">https://mvnrepository.com/artifact/net.spy/spymemcached</a>). Dit hoeft maar één regel code te zijn: (zie <a href="http://dustin.github.io/java-memcached-client/apidocs/net/spy/memcached/MemcachedClient.html">memcached javadocs</a>)</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">client</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">MemcachedClient</span><span style="color:#f92672">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">InetSocketAddress</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;127.0.0.1&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">11211</span><span style="color:#f92672">));</span>
+<span style="color:#75715e">// bewaar een student onder key &#34;joskey&#34; voor één uur (3600s)
+</span><span style="color:#75715e"></span><span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#75af00">set</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;joskey&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">3600</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Student</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Jos&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">20</span><span style="color:#f92672">));</span>
+<span style="color:#75715e">// retrieve object
+</span><span style="color:#75715e"></span><span style="color:#111">var</span> <span style="color:#111">restoredStudent</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#111">Student</span><span style="color:#f92672">)</span> <span style="color:#111">client</span><span style="color:#f92672">.</span><span style="color:#75af00">get</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Jos&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>De client code vereist een werkende memcached server zoals <a href="https://www.memcached.org">https://www.memcached.org</a>, in bovenstaand voorbeeld draaiend op poort <code>11211</code>. Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in.</p>
 <h3 id="denkvragen">Denkvragen</h3>
 <ol>
 <li>Welke beperkingen zijn er verbonden aan het geserialiseerd database bestand doorgeven aan andere medestudenten? Op welke manier kan je zo verschillende &lsquo;clients&rsquo; verbinden aan één database &lsquo;server&rsquo;?</li>
@@ -1529,15 +1534,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1668766514"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1668766514"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1668766514"></script>
-    <script src="../../js/jquery.sticky.js?1668766514"></script>
-    <script src="../../js/featherlight.min.js?1668766514"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1668766514"></script>
-    <script src="../../js/learn.js?1668766514"></script>
-    <script src="../../js/hugo-learn.js?1668766514"></script>
-    <script src="../../js/mermaid.min.js?1668766514"></script>
+    <script src="../../js/clipboard.min.js?1669318375"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1669318375"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1669318375"></script>
+    <script src="../../js/jquery.sticky.js?1669318375"></script>
+    <script src="../../js/featherlight.min.js?1669318375"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1669318375"></script>
+    <script src="../../js/learn.js?1669318375"></script>
+    <script src="../../js/hugo-learn.js?1669318375"></script>
+    <script src="../../js/mermaid.min.js?1669318375"></script>
     <script>
     window.MathJax = {
       chtml: {
