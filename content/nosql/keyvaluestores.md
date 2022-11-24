@@ -85,9 +85,17 @@ public class Student {
 
 ## 1.2 Distributed Hashmaps: Memcached
 
-Met de Java voorbeeldcode op pagina 307 kunnen we een verbinding maken met een (of meerdere) Memcached servers. De Memcached client van `net.spy.spymemcached` (zie mvn repo: [https://mvnrepository.com/artifact/net.spy/spymemcached](https://mvnrepository.com/artifact/net.spy/spymemcached)). 
+We kunnen eenvoudig een verbinding maken met een (of meerdere) Memcached server via de Memcached Java client van `net.spy.spymemcached` (zie mvn repo: [https://mvnrepository.com/artifact/net.spy/spymemcached](https://mvnrepository.com/artifact/net.spy/spymemcached)). Dit hoeft maar één regel code te zijn: (zie [memcached javadocs](http://dustin.github.io/java-memcached-client/apidocs/net/spy/memcached/MemcachedClient.html))
 
-De client code vereist een werkende memcached server - [https://www.memcached.org](https://www.memcached.org). Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in. 
+```java
+var client = new MemcachedClient(new InetSocketAddress("127.0.0.1", 11211));
+// bewaar een student onder key "joskey" voor één uur (3600s)
+client.set("joskey", 3600, new Student("Jos", 20));
+// retrieve object
+var restoredStudent = (Student) client.get("Jos");
+```
+
+De client code vereist een werkende memcached server zoals [https://www.memcached.org](https://www.memcached.org), in bovenstaand voorbeeld draaiend op poort `11211`. Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in. 
 
 ### Denkvragen
 

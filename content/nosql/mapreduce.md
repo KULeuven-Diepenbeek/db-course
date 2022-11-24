@@ -2,8 +2,6 @@
 title: 4. Advanced map-red. queries
 ---
 
-Deze oefeningen volgen de theorie van **11.3.3** op pagina 320.
-
 Deze oefeningen gaan verder op de database die je hebt opgezet in [2. document stores](/db-course/nosql/documentstores). Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: **voorbereidingswerk**) in die link. Start voor onderstaande oefeningen de lokale _CouchDB Server_ en de _Admin Console_ (Project Fauxton) opnieuw op. 
 
 Zoals ook op de [PouchDB docs](https://pouchdb.com/guides/queries.html) vermeld staat; zijn **mapreduce** queries niet altijd nodig:

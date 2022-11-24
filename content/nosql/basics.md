@@ -24,7 +24,7 @@ In plaats van "omhoog" te gaan en meer hardware in hetzelfde systeem te steken, 
 Deze oplossing introduceert echter een ander probleem: _data consistency_ is niet altijd gegarandeerd. Als ik iets in één server van een cluster bewaar, wordt dit dan onmiddellijk in de andere ook bewaard? Wat als er eentje uitvalt, en dat net mijn access point was? Op welke manier wordt die data verdeeld binnen de cluster? Enzovoort. **Distributed computing** is een erg complex domein binnen de informatica. We raken in dit vak enkel de top van de ijsberg aan. 
 
 {{% notice note %}}
-Wat is een "cluster" precies? Denk aan een verzameling van grote data centers: twee of meer fysieke centra waar enorm veel servers geplaatst worden. Eén server kan je eigen laptop zijn. Je kan ook verschillende virtuele servers op je laptop draaien: dat is een _node_. <br/><strong>Cluster << Data Center << Rack << Server << Node</strong>
+<em>Wat is een "cluster" precies?</em><br/><br/> Denk aan een verzameling van grote data centers: twee of meer fysieke centra waar enorm veel servers geplaatst worden. Eén server kan je eigen laptop zijn. Je kan ook verschillende virtuele servers op je laptop draaien: dat is een _node_. (We hanteren hier de hierarchie van elementen [volgens Cassandara](https://docs.datastax.com/en/home/docs/index.html)) <br/><br/><strong>Cluster << Data Center << Rack << Server << Node</strong>
 {{% /notice %}}
 
 
@@ -74,9 +74,9 @@ Doe eens een gokje: welk database systeem denk je dar onderstaande websites gebr
 
 - https://www.vdab.be/vindeenjob/vacatures
 - https://www.immoweb.be
-- https://twitter.com ([hint](https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/))
+- https://twitter.com ([hint 1](https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/)) ([hint 2](https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale))
 - https://people.cs.kuleuven.be/~wouter.groeneveld/courses/
-- Blog websites zoals [deze](https://brainbaking.com/post/) of [deze](https://diggingthedigital.com/) (hint: een van beiden is een valstrik)
+- Blog websites zoals [Brain Baking](https://brainbaking.com/) of [Digging The Digital](https://diggingthedigital.com/) (hint: een van beiden is een valstrik)
 
 ### NoSQL Types
 
@@ -202,7 +202,9 @@ graph LR;
     db -->|refresh| cache
 {{< /mermaid >}}
 
-Het feit dat _Netflix_ Memcached sponsort zegt genoeg. Memcached gebruiken is erg eenvoudig en gewoon een kwestie van de API in Java/Kotlin aan te spreken om data te feeden/op te halen. Dit valt buiten de scope van deze cursus. 
+Het feit dat _Netflix_ Memcached sponsort zegt genoeg. Memcached gebruiken is erg eenvoudig en gewoon een kwestie van de API in Java/Kotlin aan te spreken om data te feeden/op te halen. 
+
+Een simpel Memcached voorbeeld is terug te vinden onder [key-value stores: memcached](/db-course/nosql/keyvaluestores/#12-distributed-hashmaps-memcached).
 
 #### 4. **Wide-column** databases.
 
