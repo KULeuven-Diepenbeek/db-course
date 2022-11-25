@@ -167,8 +167,6 @@ Indien geen toegang: `{"error":"unauthorized","reason":"You are not authorized t
 curl -d @dump.db -H "Content-Type: application/json" -X POST http://127.0.0.1:5984/courses/_bulk_docs
 ```
 
-De ongelukkigen op Windows kunnen [curl for Windows](https://curl.haxx.se/windows/) downloaden, of Msys/MinGW/de besturingssystemen ISO gebruiken. 
-
 **LET OP**: 
 
 1. Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor _non-partitioned_.
