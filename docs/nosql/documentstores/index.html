@@ -12,21 +12,21 @@
     <title>3. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1669372535" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1669372535" rel="stylesheet">
-    <link href="../../css/hybrid.css?1669372535" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1669372535" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1669372535" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1669372535" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1669372535" rel="stylesheet">
-    <link href="../../css/theme.css?1669372535" rel="stylesheet">
-    <link href="../../css/devselector.css?1669372535" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1669372535" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1669372535" rel="stylesheet">
+    <link href="../../css/nucleus.css?1669910356" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1669910356" rel="stylesheet">
+    <link href="../../css/hybrid.css?1669910356" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1669910356" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1669910356" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1669910356" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1669910356" rel="stylesheet">
+    <link href="../../css/theme.css?1669910356" rel="stylesheet">
+    <link href="../../css/devselector.css?1669910356" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1669910356" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1669910356" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1669372535"></script>
-    <script src="../../js/devselector.js?1669372535"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1669910356"></script>
+    <script src="../../js/devselector.js?1669910356"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1669372535"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1669372535"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1669910356"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1669910356"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1669372535"></script>
+<script type="text/javascript" src="../../js/search.js?1669910356"></script>
 
     
   </div>
@@ -1004,7 +1004,8 @@
 <div class="notices note" ><p>Wat is het verschil tussen <code>function(a, b) {}</code> en <code>(a, b =&gt; </code>? (Bijna) geen (die jullie moeten kennen). De arrow notatie (<code>=&gt;</code>) is de nieuwe syntax voor anonieme functies aan te maken in JavaScript, en in CouchDB/Mango werken we nog met de oude notatie omdat (1) dit door Couch wordt gegenereerd en (2) de meeste voorbeelden in de documentatie nog zo werken. Dus, <code>function hallokes() { console.log('sup') }</code> is exact hetzelfde als <code>let hallokes = () =&gt; { console.log('sup') }</code>. <br/>Zie <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions?retiredLocale=vi">MDN docs: Arrow function expressions</a> voor meer informatie.</p>
 </div>
 
-<p>Let op: <code>reduce()</code> schiet (misschien) in actie als <code>map()</code> nog bezig is. We gaan hier later nog verder op in in <a href="../../nosql/mapreduce">NoSQL - Advanced queries</a>.</p>
+<p><strong>LET OP</strong>:</p>
+<p><code>reduce()</code> schiet (misschien) in actie als <code>map()</code> nog bezig is. We gaan hier later nog verder op in in <a href="../../nosql/mapreduce">NoSQL - Advanced queries</a>.</p>
 <h4 id="de-couchdb-api-interface-alles-via-https">De CouchDB API interface: alles via HTTP(S)</h4>
 <p><code>curl</code> is een snelle cmd-line tool waarbij je via <code>-X</code> kan meegeven of het over een HTTPs <code>GET</code>, <code>POST</code>, <code>PUT</code>, &hellip; gaat. De DB locatie en poort met het juiste <strong>endpoint</strong> zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:</p>
 <pre><code>curl -X GET http://127.0.0.1:5984/[database]/[id]
@@ -1628,15 +1629,15 @@ couchdb.password=
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1669372535"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1669372535"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1669372535"></script>
-    <script src="../../js/jquery.sticky.js?1669372535"></script>
-    <script src="../../js/featherlight.min.js?1669372535"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1669372535"></script>
-    <script src="../../js/learn.js?1669372535"></script>
-    <script src="../../js/hugo-learn.js?1669372535"></script>
-    <script src="../../js/mermaid.min.js?1669372535"></script>
+    <script src="../../js/clipboard.min.js?1669910356"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1669910356"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1669910356"></script>
+    <script src="../../js/jquery.sticky.js?1669910356"></script>
+    <script src="../../js/featherlight.min.js?1669910356"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1669910356"></script>
+    <script src="../../js/learn.js?1669910356"></script>
+    <script src="../../js/hugo-learn.js?1669910356"></script>
+    <script src="../../js/mermaid.min.js?1669910356"></script>
     <script>
     window.MathJax = {
       chtml: {
