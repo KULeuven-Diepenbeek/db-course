@@ -32,7 +32,7 @@ Alvast bedankt voor de samenwerking en groetjes van _De Vrolijke Zweters_!
 
 Deadline: zie boven
 
-Voor dit deel verwachten we dat je een **domein model** [DDL schema](/db-course/sql-ddl-dml/ddl/) tekent en indient. Dit mag (ingescand) op papier, met [Mermaid](https://mermaid-js.github.io/mermaid/#/) zoals in deze cursus, of met [draw.io](https://draw.io) gemaakt worden. Het schema bevat (1) entiteiten/modellen en (2) relaties tussen deze modellen, zoals jij de opdracht interpreteert. 
+Voor dit deel verwachten we dat je een **domein model** [DDL schema](//sql-ddl-dml/ddl/) tekent en indient. Dit mag (ingescand) op papier, met [Mermaid](https://mermaid-js.github.io/mermaid/#/) zoals in deze cursus, of met [draw.io](https://draw.io) gemaakt worden. Het schema bevat (1) entiteiten/modellen en (2) relaties tussen deze modellen, zoals jij de opdracht interpreteert. 
 Het domein model bevat de entiteiten, maar ook de properties en het datatype. Bijvoorbeeld:
 
 {{<mermaid align="left">}}

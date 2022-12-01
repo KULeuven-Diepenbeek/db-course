@@ -135,7 +135,9 @@ Wat is het verschil tussen `function(a, b) {}` en `(a, b => `? (Bijna) geen (die
 
 
 
-Let op: `reduce()` schiet (misschien) in actie als `map()` nog bezig is. We gaan hier later nog verder op in in [NoSQL - Advanced queries](/nosql/mapreduce).
+**LET OP**:
+
+`reduce()` schiet (misschien) in actie als `map()` nog bezig is. We gaan hier later nog verder op in in [NoSQL - Advanced queries](/nosql/mapreduce).
 
 
 #### De CouchDB API interface: alles via HTTP(S)

@@ -2,7 +2,7 @@
 title: 4. Advanced map-red. queries
 ---
 
-Deze oefeningen gaan verder op de database die je hebt opgezet in [2. document stores](/db-course/nosql/documentstores). Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: **voorbereidingswerk**) in die link. Start voor onderstaande oefeningen de lokale _CouchDB Server_ en de _Admin Console_ (Project Fauxton) opnieuw op. 
+Deze oefeningen gaan verder op de database die je hebt opgezet in het stuk over [document stores](/nosql/documentstores). Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: **voorbereidingswerk**) in die link. Start voor onderstaande oefeningen de lokale _CouchDB Server_ en de _Admin Console_ (Project Fauxton) opnieuw op. 
 
 Zoals ook op de [PouchDB docs](https://pouchdb.com/guides/queries.html) vermeld staat; zijn **mapreduce** queries niet altijd nodig:
 
@@ -111,7 +111,7 @@ Merk op dat reduce functies _verschillende keren kunnen worden opgeroepen_ - en 
     - Met een custom reduce en `sum()` zoals hierboven in het voorbeeld
     - Met een custom reduce die `values.reduce()` gebruikt: zie docs [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
     - Wat is volgens jou het fundamentele verschil tussen deze 3 opties? Op welk gebied? 
-4. Kopieer je LightCouch oefening van [2. Document stores](/db-course/nosql/documentstores) als een nieuw Java project. Programmeer nu in Java om de view die je hebt gemaakt in oefening 2 op te roepen met `dbClient.view()`. Zie [LightCouch docs](http://www.lightcouch.org/getstarted.html).
+4. Kopieer je LightCouch oefening van [Document stores](/nosql/documentstores) als een nieuw Java project. Programmeer nu in Java om de view die je hebt gemaakt in oefening 2 op te roepen met `dbClient.view()`. Zie [LightCouch docs](http://www.lightcouch.org/getstarted.html).
 5. Schrijf een view die het aantal optionele cursussen weergeeft waarvan "motivate others" een skill is. 
 
 ### Denkvragen

@@ -204,7 +204,7 @@ graph LR;
 
 Het feit dat _Netflix_ Memcached sponsort zegt genoeg. Memcached gebruiken is erg eenvoudig en gewoon een kwestie van de API in Java/Kotlin aan te spreken om data te feeden/op te halen. 
 
-Een simpel Memcached voorbeeld is terug te vinden onder [key-value stores: memcached](/db-course/nosql/keyvaluestores/#12-distributed-hashmaps-memcached).
+Een simpel Memcached voorbeeld is terug te vinden onder [key-value stores: memcached](/nosql/keyvaluestores/#12-distributed-hashmaps-memcached).
 
 #### 4. **Wide-column** databases.
 
