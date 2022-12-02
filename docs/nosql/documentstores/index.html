@@ -12,21 +12,21 @@
     <title>3. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1669910356" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1669910356" rel="stylesheet">
-    <link href="../../css/hybrid.css?1669910356" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1669910356" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1669910356" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1669910356" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1669910356" rel="stylesheet">
-    <link href="../../css/theme.css?1669910356" rel="stylesheet">
-    <link href="../../css/devselector.css?1669910356" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1669910356" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1669910356" rel="stylesheet">
+    <link href="../../css/nucleus.css?1669983633" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1669983633" rel="stylesheet">
+    <link href="../../css/hybrid.css?1669983633" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1669983633" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1669983633" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1669983633" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1669983633" rel="stylesheet">
+    <link href="../../css/theme.css?1669983633" rel="stylesheet">
+    <link href="../../css/devselector.css?1669983633" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1669983633" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1669983633" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1669910356"></script>
-    <script src="../../js/devselector.js?1669910356"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1669983633"></script>
+    <script src="../../js/devselector.js?1669983633"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1669910356"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1669910356"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1669983633"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1669983633"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1669910356"></script>
+<script type="text/javascript" src="../../js/search.js?1669983633"></script>
 
     
   </div>
@@ -1036,7 +1036,8 @@
 </p>
 <p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
 <pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db
-</code></pre><p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren.</p>
+</code></pre><p>(Voor mensen op Windows-curl: verander <code>\</code> naar <code>/</code>. Ook; bij meegeven van JSON data: enkele quotes '' vervangen door dubbele  &quot;&quot; en dubbele in de enkele escapen met backlash &quot;).</p>
+<p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren.</p>
 <h3 id="3-oefeningen-met-fauxtoncurl">3. Oefeningen met Fauxton/Curl</h3>
 <ol>
 <li>Schrijf een Mango query die cursussen ophaalt waarbij het aantal <code>ECTS</code> punten groter is dan 5.</li>
@@ -1629,15 +1630,15 @@ couchdb.password=
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1669910356"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1669910356"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1669910356"></script>
-    <script src="../../js/jquery.sticky.js?1669910356"></script>
-    <script src="../../js/featherlight.min.js?1669910356"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1669910356"></script>
-    <script src="../../js/learn.js?1669910356"></script>
-    <script src="../../js/hugo-learn.js?1669910356"></script>
-    <script src="../../js/mermaid.min.js?1669910356"></script>
+    <script src="../../js/clipboard.min.js?1669983633"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1669983633"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1669983633"></script>
+    <script src="../../js/jquery.sticky.js?1669983633"></script>
+    <script src="../../js/featherlight.min.js?1669983633"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1669983633"></script>
+    <script src="../../js/learn.js?1669983633"></script>
+    <script src="../../js/hugo-learn.js?1669983633"></script>
+    <script src="../../js/mermaid.min.js?1669983633"></script>
     <script>
     window.MathJax = {
       chtml: {
