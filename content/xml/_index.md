@@ -3,7 +3,6 @@ title: 6. XML Data Storage
 chapter: true
 ---
 
-# XML Data Storage
+# XML
 
 Zie menu links.
-
