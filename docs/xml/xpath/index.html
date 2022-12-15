@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Project opdracht :: Databases</title>
+    <title>3. XPath :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1671109536" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../extra/project/">
+  <body class="" data-url="../../xml/xpath/">
     <nav id="sidebar" class="">
 
 
@@ -640,7 +640,7 @@
   
     
     <li data-nav-id="/xml/" title="6. XML Data Storage" class="dd-item
-        
+        parent
         
         
         ">
@@ -708,7 +708,7 @@
  
   
     
-      <li data-nav-id="/xml/xpath/" title="3. XPath" class="dd-item ">
+      <li data-nav-id="/xml/xpath/" title="3. XPath" class="dd-item active">
         <a href="../../xml/xpath/">
         3. XPath
         
@@ -813,7 +813,7 @@
   
     
     <li data-nav-id="/extra/" title="X. Extras" class="dd-item
-        parent
+        
         
         
         ">
@@ -860,7 +860,7 @@
  
   
     
-      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item active">
+      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
         <a href="../../extra/project/">
         Project opdracht
         
@@ -947,7 +947,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../extra/'>X. Extras</a> > Project opdracht
+            <a href='../../'>Index</a> > <a href='../../xml/'>6. XML Data Storage</a> > 3. XPath
           
         
           
@@ -962,13 +962,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#de-opdracht">De opdracht</a>
-      <ul>
-        <li><a href="#deel-1">Deel 1</a></li>
-        <li><a href="#deel-2">Deel 2</a></li>
-        <li><a href="#deel-3">Deel 3</a></li>
-      </ul>
-    </li>
+    <li><a href="#xpath-voorbeelden">XPath voorbeelden</a></li>
+    <li><a href="#oefeningen">Oefeningen</a></li>
   </ul>
 </nav>
     </div>
@@ -986,105 +981,210 @@
           
             <h1>
               
-              Project opdracht
+              3. XPath
             </h1>
           
 
         
 
 
-<p>Het project voor dit vak bestaat uit <strong>drie delen</strong> met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:</p>
-<table>
-<thead>
-<tr>
-<th>deel</th>
-<th>opdracht</th>
-<th>deadline</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.</td>
-<td>domein model</td>
-<td>17/10/2022</td>
-</tr>
-<tr>
-<td>2.</td>
-<td>SQLite database</td>
-<td>14/11/2022</td>
-</tr>
-<tr>
-<td>3.</td>
-<td>Java uitwerking</td>
-<td>een week voor het examen (TBD)</td>
-</tr>
-</tbody>
-</table>
-<p>Het is opnieuw een <strong>groepsproject</strong> waarbij je samenwerkt per 2.</p>
-<p><strong>Indienen</strong> doe je gewoon door je Git project te pushen naar jullie repository en een mail te sturen naar het docententeam met link. Uploaden naar Toledo is dus <em>niet</em> nodig. De opdrachten die daar officiëel geplaatst worden zijn dezelfde delen als hieronder.</p>
-<h2 id="de-opdracht">De opdracht</h2>
-<p>Het functioneel kader van de opdracht is als volgt:</p>
-<p>Wij, de docenten van het vak databases, zijn ook lid van de sportorganisatie <em>De Vrolijke Zweters</em>, die verschillende loopwedstrijden organiseren over Vlaanderen. We zijn op zoek naar bekwame programmeurs die ons kunnen helpen in het realiseren van software om de administratie van onze organisatie te ondersteunen.</p>
-<p>We verwachten dat je met de software uiteraard lopers kan inschrijven, die een loopnummer krijgen toegekend dat uniek is per wedstrijd. Om de tijden van deze atleten te raadplegen moet het voor gebruikers mogelijk zijn om een klassement op te vragen: een running klassement per loopwedstrijd, én een algemeen klassement over alle wedstrijden heen. Daarnaast moet het ook mogelijk zijn om medewerkers/vrijwilligers op te kunnen vragen per wedstrijd, die elk een bepaalde functie hebben, zoals eerste hulp, bevoorraadingsdienst, masseur, enzovoort.</p>
-<p>Uiteraard zijn er parameters voor een loper (zoals zijn fysieke status en gewicht, leeftijd, &hellip;) en de loopwedstrijd. Elke wedstrijd is ingedeeld in een aantal etappes. Een parcours van bijvoorbeeld 20 kilometer kan bestaan uit 4 etappes waarvan eentje van kilometer 0 tot 4 met locatie x, en daarop volgend tot kilometer 6 met locatie y, enzovoort. We denken dat lopers graag hun tijden zowel per etappe raadplegen, als per wedstrijd en willen dit ook ondersteunen.</p>
-<p>Alvast bedankt voor de samenwerking en groetjes van <em>De Vrolijke Zweters</em>!</p>
-<p><figure>
-	<a href="../../img/zweters.jpg" data-featherlight="image">
-		<img src="../../img/zweters.jpg"  >
-	</a>
-	
-</figure>
-</p>
-<h3 id="deel-1">Deel 1</h3>
-<p>Deadline: zie boven</p>
-<p>Voor dit deel verwachten we dat je een <strong>domein model</strong> <a href="//sql-ddl-dml/ddl/">DDL schema</a> tekent en indient. Dit mag (ingescand) op papier, met <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> zoals in deze cursus, of met <a href="https://draw.io">draw.io</a> gemaakt worden. Het schema bevat (1) entiteiten/modellen en (2) relaties tussen deze modellen, zoals jij de opdracht interpreteert.
-Het domein model bevat de entiteiten, maar ook de properties en het datatype. Bijvoorbeeld:</p>
-
-<div class="mermaid" align="left" >
-	
-classDiagram
-    class Book{
-        isbn: string
-        title: string
-        author: string
-        price: float
-    }
-
-</div>
-<p>Minimum vereisten:</p>
-<ul>
-<li>Minstens 2 veel-op-veel relaties</li>
-<li>Minstens 2 1-op-veel of 0-op-veel relaties</li>
-<li>Minstens 4 blokken van entiteiten/modellen</li>
-<li>Ook properties van elk model uitwerken: wat zou interessant zijn voor elk model, en hoe kan je dit best mappen in de database? (Denk hierbij aan datatypes, kolommen of rijen, aparte tabellen of niet, &hellip;)</li>
-</ul>
-<p>Eventuele koppeltabellen moeten niet vermeld worden maar ga je in fase 2 wel nodig hebben. Dit zijn technische details. Het schema zou bespreekbaar moeten zijn met eender welk lid van <em>De Vrolijke Zweters</em>, ook met mensen zonder een technische achtergrond.</p>
-<p>Naast het schema dien je ook een <strong>verslag</strong> in&mdash;van ongeveer 1000 woorden&mdash;waarin je je schema beschrijft én verklaart waarom je denkt dat bepaalde relaties nodig zijn. Het formaat van het verslag is <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">plaintext Markdown</a>: commit dit onder de root van je project in <code>README.md</code>.</p>
-<p>Indienen doe je via Git; voeg alle nodige bestanden (schema én verslag) toe aan je repository. Zie boven.</p>
-<h3 id="deel-2">Deel 2</h3>
-<p>Deadline: zie boven</p>
-<p>Voor dit deel verwachten we dat je een uitgewerkte SQLite database bestand aanlevert waarin het <strong>technisch ontwerp van de database</strong> zichtbaar is&mdash;dus inclusief de eventuele koppeltabellen. Dit is een <code>.sqlite</code> bestand dat kan geopend worden met <a href="https://sqlitebrowser.org/">SQLitebrowser</a>.</p>
-<p>Minimum vereisten:</p>
-<ul>
-<li>Uitwerking van het hele schema uit deel 1 in tabellen</li>
-<li>Minstens 2 constraints gebruiken</li>
-<li>Alle tabellen zijn voorzien van de nodige Primary en Foreign Keys</li>
-<li>Voeg een beperkte set van (fake) gegevens toe in de databases (bijvoorbeeld een drietal per tabel)</li>
-</ul>
-<p>Denk ook goed na over eventuele (foute) ingave van gegevens&mdash;welke soort data verwacht je waar?</p>
-<p>Indienen doe je via Git; voeg alle nodige bestanden toe aan je repository. Zie boven.</p>
-<h3 id="deel-3">Deel 3</h3>
-<p>Deadline: zie boven</p>
-<p>Voor dit deel verwachten we dat je het ontwerp van de database integreert in een <strong>softwareprogramma</strong>, uitgewerkt in Kotlin of Java naar keuze. Er zal een startproject voorzien worden, de UI wordt ontwikkeld in JavaFX (dit staat vast).</p>
-<p>Minimum vereisten:</p>
-<ul>
-<li>Gebruik JavaFX als UI.</li>
-<li>Gebruik als toegang naar de SQLite-embedded database JDBC, JDBI, of JPA/Hibernate.</li>
-<li>Dit project wordt <em>mondeling verdedigd</em> in de week van het examen. We verwachten dat je de keuze van JDBC/JDBI/JPA goed kan motiveren!</li>
-</ul>
-<p>Starten kan vanaf het JavaFX-enabled startproject: <a href="https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples/java/project-template-202223">https://github.com/KULeuven-Diepenbeek/db-course/tree/main/examples/java/project-template-202223</a></p>
-<p>Merk op dat het over het vak &ldquo;databases&rdquo; gaat, en we dus NIET de nadruk leggen op de UI, maar eerder op de backend. Denk echter wel opnieuw goed na over de invoer van gegevens.</p>
-<p>Indienen doe je via Git; voeg alle nodige bestanden toe aan je repository. Zie boven.</p>
+<h1 id="xpath">XPath</h1>
+<p>XPath is een taal die we gebruiken om specifieke elementen of attributen te vinden in een XML bestand. Zoals je in de voorbije oefeningen al hebt gemerkt zijn XML bestanden nogal groot en niet zo makkelijk in een oogopslag om alle informatie uit te halen.</p>
+<p>Laten we ons voorbeeldbestand nemen:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;boeken&gt;</span>
+    <span style="color:#f92672">&lt;boek</span> <span style="color:#75af00">genre=</span><span style="color:#d88200">&#34;Non-Fiction&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;titel&gt;</span>Mythos<span style="color:#f92672">&lt;/titel&gt;</span>
+        <span style="color:#f92672">&lt;auteur&gt;</span>Stephen Fry<span style="color:#f92672">&lt;/auteur&gt;</span>
+        <span style="color:#f92672">&lt;jaar&gt;</span>2017<span style="color:#f92672">&lt;/jaar&gt;</span>
+    <span style="color:#f92672">&lt;/boek&gt;</span>
+    <span style="color:#f92672">&lt;boek</span> <span style="color:#75af00">genre=</span><span style="color:#d88200">&#34;biography&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;titel&gt;</span>Scar Tissue<span style="color:#f92672">&lt;/titel&gt;</span>
+        <span style="color:#f92672">&lt;auteur&gt;</span>Anthony Kiedis<span style="color:#f92672">&lt;/auteur&gt;</span>
+        <span style="color:#f92672">&lt;jaar&gt;</span>2004<span style="color:#f92672">&lt;/jaar&gt;</span>
+    <span style="color:#f92672">&lt;/boek&gt;</span>
+    <span style="color:#f92672">&lt;boek</span> <span style="color:#75af00">genre=</span><span style="color:#d88200">&#34;fantasy&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;titel&gt;</span>The Lost Metal<span style="color:#f92672">&lt;/titel&gt;</span>
+        <span style="color:#f92672">&lt;auteur&gt;</span>Brandon Sanderson<span style="color:#f92672">&lt;/auteur&gt;</span>
+        <span style="color:#f92672">&lt;jaar&gt;</span>2022<span style="color:#f92672">&lt;/jaar&gt;</span>
+    <span style="color:#f92672">&lt;/boek&gt;</span>
+<span style="color:#f92672">&lt;/boeken&gt;</span>
+</code></pre></div><h2 id="xpath-voorbeelden">XPath voorbeelden</h2>
+<p><code>/</code></p>
+<p>Dit selecteert het meest top level object. In de praktijk geeft dit dus het hele document terug.</p>
+<p><code>/boeken</code></p>
+<p>Dit zou het boeken element teruggeven. Wat dus ook het hele bestand is.</p>
+<p><code>/boeken/boek/titel</code></p>
+<p>Geef alle titels die vallen in de hiërarchie boeken -&gt; boek.</p>
+<p><code>//titel</code></p>
+<p>Geef alle titels, eender waar in het document.</p>
+<p><code>//boek/@genre</code></p>
+<p>Geef alle genre attributen die gekoppeld zijn aan een boek element.</p>
+<p><code>//boek[@genre='fantasy']</code></p>
+<p>Geef alle boek elementen terug die in het genre fantasy vallen.</p>
+<p><code>//boek/*</code></p>
+<p>Geef alle subelementen van het boek element.</p>
+<h2 id="oefeningen">Oefeningen</h2>
+<p>Hieronder vind je een xml bestand waarop we de XPath oefeningen gaan uitvoeren. Je kan je XPath valideren op deze <a href="https://www.freeformatter.com/xpath-tester.html">online XPath evaluator</a>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style="color:#f92672">&lt;catalog&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk101&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Gambardella, Matthew<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>XML Developer&#39;s Guide<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Computer<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>XML<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>44.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-10-01<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>An in-depth look at creating applications 
+      with XML.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk102&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Ralls, Kim<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Midnight Rain<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Fantasy<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Low Fantasy<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>5.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-12-16<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>A former architect battles corporate zombies, 
+      an evil sorceress, and her own childhood to become queen 
+      of the world.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk103&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Corets, Eva<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Maeve Ascendant<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Fantasy<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Dystopian Fantasy<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>5.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-11-17<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>After the collapse of a nanotechnology 
+      society in England, the young survivors lay the 
+      foundation for a new society.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk104&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Corets, Eva<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Oberon&#39;s Legacy<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Fantasy<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Dystopian Fantasy<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>5.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2001-03-10<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>In post-apocalypse England, the mysterious 
+      agent known only as Oberon helps to create a new life 
+      for the inhabitants of London. Sequel to Maeve 
+      Ascendant.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk105&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Corets, Eva<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>The Sundered Grail<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Fantasy<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Dystopian Fantasy<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>5.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2001-09-10<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>The two daughters of Maeve, half-sisters, 
+      battle one another for control of England. Sequel to 
+      Oberon&#39;s Legacy.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk106&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Randall, Cynthia<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Lover Birds<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Romance<span style="color:#f92672">&lt;/maingenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>4.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-09-02<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>When Carla meets Paul at an ornithology 
+      conference, tempers fly as feathers get ruffled.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk107&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Thurman, Paula<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Splish Splash<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Romance<span style="color:#f92672">&lt;/maingenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>4.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-11-02<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>A deep sea diver finds true love twenty 
+      thousand leagues beneath the sea.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk108&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Knorr, Stefan<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Creepy Crawlies<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Horror<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Short Stories<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>4.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-12-06<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>An anthology of horror stories about roaches,
+      centipedes, scorpions  and other insects.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk109&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Kress, Peter<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Paradox Lost<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Science Fiction<span style="color:#f92672">&lt;/maingenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>6.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-11-02<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>After an inadvertant trip through a Heisenberg
+      Uncertainty Device, James Salway discovers the problems 
+      of being quantum.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk110&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>O&#39;Brien, Tim<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Microsoft .NET: The Programming Bible<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Computer<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>.NET<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>36.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-12-09<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>Microsoft&#39;s .NET initiative is explored in 
+      detail in this deep programmer&#39;s reference.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk111&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>O&#39;Brien, Tim<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>MSXML3: A Comprehensive Guide<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Computer<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>XML<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>36.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2000-12-01<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>The Microsoft MSXML3 parser is covered in 
+      detail, with attention to XML DOM interfaces, XSLT processing, 
+      SAX and more.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+   <span style="color:#f92672">&lt;book</span> <span style="color:#75af00">id=</span><span style="color:#d88200">&#34;bk112&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;author&gt;</span>Galos, Mike<span style="color:#f92672">&lt;/author&gt;</span>
+      <span style="color:#f92672">&lt;title&gt;</span>Visual Studio 7: A Comprehensive Guide<span style="color:#f92672">&lt;/title&gt;</span>
+      <span style="color:#f92672">&lt;genre</span> <span style="color:#75af00">fiction=</span><span style="color:#d88200">&#34;0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;maingenre&gt;</span>Computer<span style="color:#f92672">&lt;/maingenre&gt;</span>
+        <span style="color:#f92672">&lt;subgenre&gt;</span>Visual Studio<span style="color:#f92672">&lt;/subgenre&gt;</span>
+      <span style="color:#f92672">&lt;/genre&gt;</span>
+      <span style="color:#f92672">&lt;price&gt;</span>49.95<span style="color:#f92672">&lt;/price&gt;</span>
+      <span style="color:#f92672">&lt;publish_date&gt;</span>2001-04-16<span style="color:#f92672">&lt;/publish_date&gt;</span>
+      <span style="color:#f92672">&lt;description&gt;</span>Microsoft Visual Studio 7 is explored in depth,
+      looking at how Visual Basic, Visual C++, C#, and ASP+ are 
+      integrated into a comprehensive development 
+      environment.<span style="color:#f92672">&lt;/description&gt;</span>
+   <span style="color:#f92672">&lt;/book&gt;</span>
+<span style="color:#f92672">&lt;/catalog&gt;</span>
+</code></pre></div><ol>
+<li>Geef alle prijzen weer. Schrijf hiervoor 2 verschillende XPath queries die hetzelfde resultaat geven.</li>
+<li>Geef de titel van het boek met id bk110.</li>
+<li>Geef de description van alle boeken.</li>
+<li>Geef alle non-fictie boeken</li>
+<li>Lijst alle subgenres van de fictie boeken op.</li>
+</ol>
 
 
 <footer class="footline">
@@ -1493,6 +1593,78 @@ classDiagram
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1533,22 +1705,6 @@ classDiagram
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1585,59 +1741,6 @@ classDiagram
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1662,10 +1765,10 @@ classDiagram
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../extra/software/" title="Gebruikte Software"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../xml/xsd/" title="2. XSD"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../extra/software/" title="Gebruikte Software" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../bigdata/" title="7. Big Data &amp; Analytics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
