@@ -2,9 +2,6 @@
 title: '2. Big Data & Hadoop'
 ---
 
-**Herexamen 08/2022**: zie slides op Toledo.
-
----
 
 De **Big** in _Big Data_ mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort. 
 
@@ -26,3 +23,4 @@ Uit de vorige hoofdstukken blijkt dat een traditioneel RDBMS systeem niet goed k
 
 ## Hadoop
 
+Hadoop valt buiten de leerstof van academiejaar 2022--2023.
