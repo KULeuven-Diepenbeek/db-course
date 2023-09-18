@@ -1,5 +1,5 @@
 ---
-title: 1. Data Warehousing & BI
+title: '2. Data Warehousing & BI'
 ---
 
 Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk _bewaren en ophalen van data_---rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we **data benaderen vanuit business perspectief**. 
@@ -25,7 +25,7 @@ Het is duidelijk dat één simpele `SELECT sales FROM income` niet voldoende gaa
 
 ![](/img/dw.png "src: sqlhammer.com")
 
-Probeer op bovenstaand schema, een voorbeeld van hoe moderne data warehouses werken in een groot bedrijf, alle verschillende componenten te identificeren. Links staat de data die binnenkomt, en rechts het resultaat van de analyse. We bespreken hieronder kort elk blok om in de volgende sectie [hadoop onder de loep te nemen](/bigdata/hadoop).
+Probeer op bovenstaand schema, een voorbeeld van hoe moderne data warehouses werken in een groot bedrijf, alle verschillende componenten te identificeren. Links staat de data die binnenkomt, en rechts het resultaat van de analyse. We bespreken hieronder kort elk blok. Experimentatie met de praktische kant, door middel van libraries als [Apache Hadoop](https://hadoop.apache.org/), is een optionele oefening voor de student.
 
 We beginnen met de grote blauwe blok: een "data warehouse".
 

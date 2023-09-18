@@ -1,5 +1,6 @@
 ---
 title: "Project opdracht"
+draft: true
 ---
 
 Het project voor dit vak bestaat uit **drie delen** met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:

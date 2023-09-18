@@ -8,7 +8,7 @@ Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaa
 
 ### Oefening
 
-Kijk naar de Chinook database en maak een schematische voorstelling van hoe deze database eruit ziet. Je kan hiervoor [Mermaid](https://mermaid.live/) gebruiken, of een eigen tool of pen en papier.
+Kijk naar [de Chinook database](/chinook.db) en maak een schematische voorstelling van hoe deze database eruit ziet. Je kan hiervoor [Mermaid](https://mermaid.live/) gebruiken, of een eigen tool of pen en papier.
 
 ## Views aanmaken
 

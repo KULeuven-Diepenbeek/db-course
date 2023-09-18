@@ -1,5 +1,5 @@
 ---
-title: '2. Big Data & Hadoop'
+title: '1. Big Data Basics'
 ---
 
 
@@ -21,6 +21,3 @@ Nog een leuk voorbeeld: de winkel https://ebay.com/ heeft een data warehouse van
 
 Uit de vorige hoofdstukken blijkt dat een traditioneel RDBMS systeem niet goed kan scalen (zie [nosql introductie](/nosql/basics)). Echter, een NoSQL DB is slechts één component in het gehele Big Data ecosysteem. In de praktijk gaat het over veel pools, clusters, servers, heterogene DB systemen, files, APIs, ... allemaal gecombineerd (zie [data warehousing lakes](/bigdata/datawarehousing)). Het beheren van een Big Data systeem gaat niet over één DB systeem, maar over het beheren van verschillende parameters (snelheid, grootte van input, connecties tussen systemen, ...). De analyse van de inhoud ervan is vaak een taak voor gespecialiseerde **data scientists**.
 
-## Hadoop
-
-Hadoop valt buiten de leerstof van academiejaar 2022--2023.

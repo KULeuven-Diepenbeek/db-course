@@ -2,14 +2,14 @@
 title: 3. ACID
 ---
 
-![](/slides/img/acid.jpg)
+ACID is een acronym die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van [Transacties](/transacties/basics). ACID omschrijft vier principes:
 
-ACID is een term die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van [Transacties](/transacties/basics). ACID omschrijft vier principes:
+- **A**tomicity
+- **C**onsistency
+- **I**solation
+- **D**urability
 
-- Atomicity
-- Consistency
-- Isolation
-- Durability
+De ACID principes komen in de praktijk nog verder aan bod in het hoofdstuk over [RDBMS transacties](/transacties/), dus geen paniek als onderstaande theorie nog niet onmiddellijk duidelijk is. 
 
 ## Atomicity
 
