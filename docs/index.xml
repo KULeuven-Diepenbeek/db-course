@@ -19,13 +19,14 @@
     </item>
     
     <item>
-      <title>1. Data Warehousing &amp; BI</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</link>
+      <title>1. Big Data Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</guid>
-      <description>Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk bewaren en ophalen van data&amp;mdash;rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we data benaderen vanuit business perspectief.
-Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op verschillende plekken en in verschillende formaten, beter beslissingen nemen. Strategische business beslissingen worden meestal op verschillende niveau&amp;rsquo;s genomen:</description>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/basics/</guid>
+      <description>De Big in Big Data mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.
+De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &amp;ldquo;grote datasets&amp;rdquo; categoriseren afhankelijk van wat we noemen de vijf Vs:
+ Volume&amp;mdash;Het gaat (uiteraard) over een alsmaar groeiend &amp;ldquo;groot volume&amp;rdquo; aan data; Velocity&amp;mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt; Variety&amp;mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &amp;hellip;); Veracity&amp;mdash;Hoe waarheidsgetrouw is de data eigenlijk wel?</description>
     </item>
     
     <item>
@@ -81,17 +82,6 @@ Waarom XML gebruiken? XML is nog steeds een vaak voorkomende manier om data te s
     </item>
     
     <item>
-      <title>2. Big Data &amp; Hadoop</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/hadoop/</guid>
-      <description>De Big in Big Data mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.
-De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &amp;ldquo;grote datasets&amp;rdquo; categoriseren afhankelijk van wat we noemen de vijf Vs:
- Volume&amp;mdash;Het gaat (uiteraard) over een alsmaar groeiend &amp;ldquo;groot volume&amp;rdquo; aan data; Velocity&amp;mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt; Variety&amp;mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &amp;hellip;); Veracity&amp;mdash;Hoe waarheidsgetrouw is de data eigenlijk wel?</description>
-    </item>
-    
-    <item>
       <title>2. Concurrency Control</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -100,6 +90,16 @@ De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kun
       <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.
 1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:
  Verminder bedrag van source rekening Verhoog bedrag van destination rekening  Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
+    </item>
+    
+    <item>
+      <title>2. Data Warehousing &amp; BI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</guid>
+      <description>Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk bewaren en ophalen van data&amp;mdash;rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we data benaderen vanuit business perspectief.
+Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op verschillende plekken en in verschillende formaten, beter beslissingen nemen. Strategische business beslissingen worden meestal op verschillende niveau&amp;rsquo;s genomen:</description>
     </item>
     
     <item>
@@ -160,8 +160,8 @@ fun main(args: Array&amp;lt;String&amp;gt;) { val db = mapOf(&amp;#34;Joske&amp;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-acid/</guid>
-      <description>ACID is een term die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van Transacties. ACID omschrijft vier principes:
- Atomicity Consistency Isolation Durability  Atomicity Transacties bestaan vaak uit meerdere statements. Atomicity verwacht dat al deze statements als één geheel worden beschouwd. Ofwel faalt alles, ofwel slaagt alles.</description>
+      <description>ACID is een acronym die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van Transacties. ACID omschrijft vier principes:
+ Atomicity Consistency Isolation Durability  De ACID principes komen in de praktijk nog verder aan bod in het hoofdstuk over RDBMS transacties, dus geen paniek als onderstaande theorie nog niet onmiddellijk duidelijk is.</description>
     </item>
     
     <item>
@@ -253,18 +253,9 @@ Begeleidend filmpje:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/extra/software/</guid>
-      <description>Java/Kotlin/Gradle Zie het 2dejaarsvak Software Engineering Skills, SES/Gebruikte software. Voor SQL API software development oefeningen gebruiken we dezelfde tools: dezelfde Java JDK, optioneel een Kotlin SDK, ook de IntelliJ IDE, en ook Gradle als build tool. Weet je niet meer hoe deze te gebruiken, volg dan de links om je geheugen te verfrissen.
-Tijdens labo&amp;rsquo;s gebruiken we vaak Gradle dependencies om te experimenteren met nieuwe soorten databases zoals Memcached, SQLite, JDBI en Hibernate.</description>
-    </item>
-    
-    <item>
-      <title>Project opdracht</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/extra/project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/extra/project/</guid>
-      <description>Het project voor dit vak bestaat uit drie delen met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:
-   deel opdracht deadline     1. domein model 17/10/2022   2. SQLite database 14/11/2022   3. Java uitwerking een week voor het examen (TBD)    Het is opnieuw een groepsproject waarbij je samenwerkt per 2.</description>
+      <description>SQL SQL-gebaseerde oefeningen nemen plaats in de SQLite DB Browser omgeving, een visuele open source tool om eenvoudig database files te maken en bewerken die compatibel zijn met SQLite, een SQL variant.
+Vanuit SQLiteBrowser kan je een nieuwe database aanmaken, een bestaande .SQL file openen en uitvoeren, of een bestaande .db SQLite database openen.
+Voor het hoofdstuk SQL DDL &amp;amp; DML gebruiken we het chinook.db bestand dat je hier kan downloaden: chinook.</description>
     </item>
     
   </channel>

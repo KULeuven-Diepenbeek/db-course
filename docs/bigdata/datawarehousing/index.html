@@ -9,24 +9,24 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>1. Data Warehousing &amp; BI :: Databases</title>
+    <title>2. Data Warehousing &amp; BI :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1671716747" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1671716747" rel="stylesheet">
-    <link href="../../css/hybrid.css?1671716747" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1671716747" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1671716747" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1671716747" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1671716747" rel="stylesheet">
-    <link href="../../css/theme.css?1671716747" rel="stylesheet">
-    <link href="../../css/devselector.css?1671716747" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1671716747" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1671716747" rel="stylesheet">
+    <link href="../../css/nucleus.css?1695042118" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1695042118" rel="stylesheet">
+    <link href="../../css/hybrid.css?1695042118" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1695042118" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1695042118" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1695042118" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1695042118" rel="stylesheet">
+    <link href="../../css/theme.css?1695042118" rel="stylesheet">
+    <link href="../../css/devselector.css?1695042118" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1695042118" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1695042118" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1671716747"></script>
-    <script src="../../js/devselector.js?1671716747"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1695042118"></script>
+    <script src="../../js/devselector.js?1695042118"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1671716747"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1671716747"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1695042118"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1695042118"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1671716747"></script>
+<script type="text/javascript" src="../../js/search.js?1695042118"></script>
 
     
   </div>
@@ -763,9 +763,9 @@
  
   
     
-      <li data-nav-id="/bigdata/datawarehousing/" title="1. Data Warehousing &amp; BI" class="dd-item active">
-        <a href="../../bigdata/datawarehousing/">
-        1. Data Warehousing &amp; BI
+      <li data-nav-id="/bigdata/basics/" title="1. Big Data Basics" class="dd-item ">
+        <a href="../../bigdata/basics/">
+        1. Big Data Basics
         
         </a>
     </li>
@@ -784,9 +784,9 @@
  
   
     
-      <li data-nav-id="/bigdata/hadoop/" title="2. Big Data &amp; Hadoop" class="dd-item ">
-        <a href="../../bigdata/hadoop/">
-        2. Big Data &amp; Hadoop
+      <li data-nav-id="/bigdata/datawarehousing/" title="2. Data Warehousing &amp; BI" class="dd-item active">
+        <a href="../../bigdata/datawarehousing/">
+        2. Data Warehousing &amp; BI
         
         </a>
     </li>
@@ -842,27 +842,6 @@
       <li data-nav-id="/extra/software/" title="Gebruikte Software" class="dd-item ">
         <a href="../../extra/software/">
         Gebruikte Software
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/extra/project/" title="Project opdracht" class="dd-item ">
-        <a href="../../extra/project/">
-        Project opdracht
         
         </a>
     </li>
@@ -947,7 +926,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../bigdata/'>7. Big Data & Analytics</a> > 1. Data Warehousing & BI
+            <a href='../../'>Index</a> > <a href='../../bigdata/'>7. Big Data & Analytics</a> > 2. Data Warehousing & BI
           
         
           
@@ -982,7 +961,7 @@
           
             <h1>
               
-              1. Data Warehousing &amp; BI
+              2. Data Warehousing &amp; BI
             </h1>
           
 
@@ -1016,7 +995,7 @@
 	
 </figure>
 </p>
-<p>Probeer op bovenstaand schema, een voorbeeld van hoe moderne data warehouses werken in een groot bedrijf, alle verschillende componenten te identificeren. Links staat de data die binnenkomt, en rechts het resultaat van de analyse. We bespreken hieronder kort elk blok om in de volgende sectie <a href="../../bigdata/hadoop">hadoop onder de loep te nemen</a>.</p>
+<p>Probeer op bovenstaand schema, een voorbeeld van hoe moderne data warehouses werken in een groot bedrijf, alle verschillende componenten te identificeren. Links staat de data die binnenkomt, en rechts het resultaat van de analyse. We bespreken hieronder kort elk blok. Experimentatie met de praktische kant, door middel van libraries als <a href="https://hadoop.apache.org/">Apache Hadoop</a>, is een optionele oefening voor de student.</p>
 <p>We beginnen met de grote blauwe blok: een &ldquo;data warehouse&rdquo;.</p>
 <h1 id="een-data-warehouse-dw">Een Data Warehouse (DW)</h1>
 <p>Wat is een data warehouse? Volgens de uitvinder, Bill Inmon:</p>
@@ -1622,6 +1601,8 @@ graph BT;
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -1630,6 +1611,26 @@ graph BT;
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -1649,41 +1650,6 @@ graph BT;
                     
                     
 
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1713,10 +1679,10 @@ graph BT;
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../bigdata/" title="7. Big Data &amp; Analytics"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../bigdata/basics/" title="1. Big Data Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../bigdata/hadoop/" title="2. Big Data &amp; Hadoop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../extra/" title="X. Extras" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1726,15 +1692,15 @@ graph BT;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1671716747"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1671716747"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1671716747"></script>
-    <script src="../../js/jquery.sticky.js?1671716747"></script>
-    <script src="../../js/featherlight.min.js?1671716747"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1671716747"></script>
-    <script src="../../js/learn.js?1671716747"></script>
-    <script src="../../js/hugo-learn.js?1671716747"></script>
-    <script src="../../js/mermaid.min.js?1671716747"></script>
+    <script src="../../js/clipboard.min.js?1695042118"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1695042118"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1695042118"></script>
+    <script src="../../js/jquery.sticky.js?1695042118"></script>
+    <script src="../../js/featherlight.min.js?1695042118"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1695042118"></script>
+    <script src="../../js/learn.js?1695042118"></script>
+    <script src="../../js/hugo-learn.js?1695042118"></script>
+    <script src="../../js/mermaid.min.js?1695042118"></script>
     <script>
     window.MathJax = {
       chtml: {
