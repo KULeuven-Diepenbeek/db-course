@@ -4,7 +4,7 @@ title: 2. Database Componenten
 
 ## 1. Three Layer Architecture
 
-![](/slides/img/threelayerarchitecture.jpg)
+<img src="/slides/img/threelayerarchitecture.jpg" style="max-width: 75%" />
 
 ### Logical Layer
 
@@ -70,13 +70,19 @@ Andere voorbeelden van constraints kunnen zijn:
 
 - De prijs van een boek moet groter dan 0 zijn
 - Een boek kan niet verwijderd worden als het ooit werd uitgeleend
+- Het ISBN-13 nummer moet 13 karakters hebben
+- Het ISBN nummer moet `-` een aantal keren bevatten
+- Een naam veld mag niet `NULL` (niet ingevuld) zijn
+- Een email veld moet `@` bevatten
+- ...
+
+Hoe constraints in de praktijk worden toegevoegd aan data modellen wordt behandeld in het hoofdstuk [SQL DDL & DML](/sql-ddl-dml/). Zie ook [SQLite table-constraint syntax](https://www.sqlite.org/syntax/table-constraint.html).
 
 #### Gepartitioneerde tabellen
 
 Sommige tabellen in productie omgevingen bevatten immense hoeveelheden aan data. We spreken over een grootorde van meerdere miljarden rijen. Hoe groter een tabel wordt, hoe trager het wordt om data op te halen. Het maakt niet uit hoeveel indexen we hebben gelegd, of welke SSD schijven we onderliggend op de fysieke storage hebben zitten. Meer data gaat altijd gelijk staan aan tragere data retrieval. 
 
-Om tegen te gaan dat we tabellen krijgen die té groot worden en we daar niet meer zinvol data van kunnen ophalen bestaan hier een paar oplossingen voor. Het partitioneren van tabellen is er eentje van.[^2]
-[^2]: Archivatie is een andere oplossing.
+Om tegen te gaan dat we tabellen krijgen die té groot worden en we daar niet meer zinvol data van kunnen ophalen bestaan hier een paar oplossingen voor. Het partitioneren van tabellen is er eentje van. Archivatie is een andere oplossing.
 
 Neem als voorbeeld een bank, die elke overschrijving van een rekening moet bewaren. De **overschrijving** tabel zou kunnen gepartitioneerd worden op jaar. Zodat er nog steeds 1 tabel overschrijving is, maar waarbij we die op de fysieke schijf opsplitsen per jaar, en elke op bijvoorbeeld de recentste 3 jaren index management voor bijhouden. De andere jaren kunnen nog steeds opgevraagd worden maar niet met dezelfde performantie als de meest recente data.
 
