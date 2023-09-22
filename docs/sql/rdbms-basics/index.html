@@ -12,21 +12,21 @@
     <title>1. Database Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1695042118" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/hybrid.css?1695042118" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1695042118" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1695042118" rel="stylesheet">
-    <link href="../../css/theme.css?1695042118" rel="stylesheet">
-    <link href="../../css/devselector.css?1695042118" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1695042118" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1695042118" rel="stylesheet">
+    <link href="../../css/nucleus.css?1695373837" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/hybrid.css?1695373837" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1695373837" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1695373837" rel="stylesheet">
+    <link href="../../css/theme.css?1695373837" rel="stylesheet">
+    <link href="../../css/devselector.css?1695373837" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1695373837" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1695373837" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1695042118"></script>
-    <script src="../../js/devselector.js?1695042118"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1695373837"></script>
+    <script src="../../js/devselector.js?1695373837"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1695042118"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1695042118"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1695373837"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1695373837"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1695042118"></script>
+<script type="text/javascript" src="../../js/search.js?1695373837"></script>
 
     
   </div>
@@ -967,20 +967,19 @@
         
 
 
-<p>Een <strong>database</strong> is niet meer dan een verzameling van gegevens.
-<strong>DBMS</strong> (Database Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.</p>
+<p>Een <strong>database</strong> is niet meer dan een verzameling van gegevens. Een <strong>DBMS</strong> (<strong>D</strong>ata<strong>B</strong>ase <strong>M</strong>anagement <strong>S</strong>ystem) is de software waarmee databases beheerd of aangemaakt kunnen worden.</p>
 <h2 id="1-waarom-een-database-gebruiken">1. Waarom een database gebruiken?</h2>
 <p>Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?</p>
 <p>Databases bieden een aantal key features:</p>
 <ul>
 <li>Performant (index management)</li>
 <li>Betere integratie met andere applicaties</li>
-<li>DBMS voor bewerken of ophalen van data</li>
+<li>Uniform DBMS voor bewerken of ophalen van data</li>
 <li>Concurrency ondersteuning</li>
 <li>Security &amp; Privacy van data</li>
 <li>&hellip;</li>
 </ul>
-<p>In het tweedejaarsvak <a href="https://kuleuven-diepenbeek.github.io/osc-course/">Besturingssystemen en C</a> leerde je dat IO manipulatie <strong>heel dure operaties</strong> zijn. Een erg groot bestand openen of een <code>seek()</code> operatie uitvoeren daarop, duizenden bestanden tegelijkertijd openen voor data access, &hellip;&mdash;allemaal voorbeelden van nadelen waar een database de oplossing kan bieden.</p>
+<p>In het tweedejaarsvak <a href="https://kuleuven-diepenbeek.github.io/osc-course/">Besturingssystemen en C</a> leerde je dat IO manipulatie <strong>heel dure operaties</strong> zijn. Een erg groot bestand openen of een <code>seek()</code> operatie uitvoeren daarop, duizenden bestanden tegelijkertijd openen voor data access, &hellip;&mdash;allemaal voorbeelden van nadelen waar een database de oplossing kan bieden. Achterliggend werkt het DBMS systeem nog steeds met files, maar dat is supergeoptimaliseerd door bijvoorbeeld gebruik te maken van verschillende niveaus van caching, file chunking, gedistribueerde modellen, &hellip; De theorie en implementatie van een DBMS gaan we niet behandelen in deze cursus: de focus ligt op het gebruik van bestaande systemen.</p>
 <h2 id="2-database-model">2. Database Model</h2>
 <p>De data die zich in een database bevindt wordt op een specifieke manier opgeslagen. De structuur waarop deze data bijgehouden wordt, noemen we het <strong>database model</strong>.</p>
 <p>Een database model bestaat uit meerdere <strong>data modellen</strong>. Een data model beschrijft één specifiek object.</p>
@@ -1039,6 +1038,8 @@ classDiagram
 </tr>
 </tbody>
 </table>
+<p>Elk data model kan een aantal properties bevatten, zoals bovenstaande <code>isbn</code> en <code>title</code>, waarbij een type moet gedefiniëerd worden, zoals bovenstaande <code>NVARCHAR(x)</code>. Dit zijn datatype namen die specifiek zijn voor elk DBMS.</p>
+<p>In de oefeningen gaan wij SQLite gebruiken: zie ook <a href="https://www.sqlite.org/datatype3.html">datatypes in SQLite</a>. SQLite&rsquo;s types zijn <em>loosely typed</em>, wat wil zeggen dat er geen verschil is tussen <code>VARCHAR</code> (MSSQL&rsquo;s ASCII) en <code>NVARCHAR</code> (MSSQL&rsquo;s Unicode, UTF-16). Intern worden beide types gemapped naar <code>TEXT</code>. Raadpleeg dus telkens de manual om te controleren welke DBMS welke types ondersteund, en wat deze precies betekenen! Een Java/Kotlin <code>String</code> mapt dus niet altijd 100% op een RDBMS teksttype.</p>
 <p>Een voorbeeld van een simpel <strong>database model</strong> voor de inventaris van een bibliotheek zou er ongeveer als volgt kunnen uitzien:</p>
 
 <div class="mermaid" align="left" >
@@ -1067,6 +1068,21 @@ classDiagram
     }
 
 </div>
+<p>Merk op dat we hier <em>relaties</em> gebruiken: de DBMS systemen die we eerst behandelen, SQL-varianten, zijn <strong>RDBMS</strong> systemen: <strong>relationele</strong> database management systemen. De <code>author</code> in <code>Book</code> is een nummer dat verwijst naar de <code>id</code> van <code>Author</code> in een ander model of tabel. Op deze manier is het mogelijk om, voor elke rij in <code>Author</code>, meerdere <code>Book</code> rijen aan te maken:</p>
+<div class="devselect">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#00a8c8">data</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Author</span><span style="color:#111">(</span><span style="color:#00a8c8">val</span> <span style="color:#111">id</span><span style="color:#111">:</span> <span style="color:#111">int</span><span style="color:#111">,</span> <span style="color:#00a8c8">val</span> <span style="color:#111">name</span><span style="color:#111">:</span> <span style="color:#111">string</span><span style="color:#111">,</span> <span style="color:#00a8c8">val</span> <span style="color:#111">books</span><span style="color:#111">:</span> <span style="color:#111">List</span><span style="color:#111">&lt;</span><span style="color:#111">Book</span><span style="color:#111">&gt;)</span>
+</code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Author</span> <span style="color:#f92672">{</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#f92672">;</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#f92672">;</span>
+    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Book</span><span style="color:#f92672">&gt;</span> <span style="color:#111">books</span><span style="color:#f92672">;</span>
+
+    <span style="color:#00a8c8">public</span> <span style="color:#75af00">Author</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">name</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">id</span> <span style="color:#f92672">=</span> <span style="color:#111">id</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">name</span> <span style="color:#f92672">=</span> <span style="color:#111">name</span><span style="color:#f92672">;</span>
+        <span style="color:#00a8c8">this</span><span style="color:#f92672">.</span><span style="color:#75af00">books</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ArrayList</span><span style="color:#f92672">&lt;&gt;();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></div>
 
 
 <footer class="footline">
@@ -1638,15 +1654,15 @@ classDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1695042118"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1695042118"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1695042118"></script>
-    <script src="../../js/jquery.sticky.js?1695042118"></script>
-    <script src="../../js/featherlight.min.js?1695042118"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1695042118"></script>
-    <script src="../../js/learn.js?1695042118"></script>
-    <script src="../../js/hugo-learn.js?1695042118"></script>
-    <script src="../../js/mermaid.min.js?1695042118"></script>
+    <script src="../../js/clipboard.min.js?1695373837"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1695373837"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1695373837"></script>
+    <script src="../../js/jquery.sticky.js?1695373837"></script>
+    <script src="../../js/featherlight.min.js?1695373837"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1695373837"></script>
+    <script src="../../js/learn.js?1695373837"></script>
+    <script src="../../js/hugo-learn.js?1695373837"></script>
+    <script src="../../js/mermaid.min.js?1695373837"></script>
     <script>
     window.MathJax = {
       chtml: {

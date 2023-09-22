@@ -12,21 +12,21 @@
     <title>2. Database Componenten :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1695042118" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/hybrid.css?1695042118" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1695042118" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1695042118" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1695042118" rel="stylesheet">
-    <link href="../../css/theme.css?1695042118" rel="stylesheet">
-    <link href="../../css/devselector.css?1695042118" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1695042118" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1695042118" rel="stylesheet">
+    <link href="../../css/nucleus.css?1695373837" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/hybrid.css?1695373837" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1695373837" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1695373837" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1695373837" rel="stylesheet">
+    <link href="../../css/theme.css?1695373837" rel="stylesheet">
+    <link href="../../css/devselector.css?1695373837" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1695373837" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1695373837" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1695042118"></script>
-    <script src="../../js/devselector.js?1695042118"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1695373837"></script>
+    <script src="../../js/devselector.js?1695373837"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1695042118"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1695042118"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1695373837"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1695373837"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1695042118"></script>
+<script type="text/javascript" src="../../js/search.js?1695373837"></script>
 
     
   </div>
@@ -975,13 +975,7 @@
 
 
 <h2 id="1-three-layer-architecture">1. Three Layer Architecture</h2>
-<p><figure>
-	<a href="../../slides/img/threelayerarchitecture.jpg" data-featherlight="image">
-		<img src="../../slides/img/threelayerarchitecture.jpg"  >
-	</a>
-	
-</figure>
-</p>
+<p><img src="../../slides/img/threelayerarchitecture.jpg" style="max-width: 75%" /></p>
 <h3 id="logical-layer">Logical Layer</h3>
 <p>De <strong>Logical Layer</strong> is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.</p>
 <p>Enkele voorbeelden hiervan zijn:</p>
@@ -1095,10 +1089,16 @@
 <ul>
 <li>De prijs van een boek moet groter dan 0 zijn</li>
 <li>Een boek kan niet verwijderd worden als het ooit werd uitgeleend</li>
+<li>Het ISBN-13 nummer moet 13 karakters hebben</li>
+<li>Het ISBN nummer moet <code>-</code> een aantal keren bevatten</li>
+<li>Een naam veld mag niet <code>NULL</code> (niet ingevuld) zijn</li>
+<li>Een email veld moet <code>@</code> bevatten</li>
+<li>&hellip;</li>
 </ul>
+<p>Hoe constraints in de praktijk worden toegevoegd aan data modellen wordt behandeld in het hoofdstuk <a href="../../sql-ddl-dml/">SQL DDL &amp; DML</a>. Zie ook <a href="https://www.sqlite.org/syntax/table-constraint.html">SQLite table-constraint syntax</a>.</p>
 <h4 id="gepartitioneerde-tabellen">Gepartitioneerde tabellen</h4>
 <p>Sommige tabellen in productie omgevingen bevatten immense hoeveelheden aan data. We spreken over een grootorde van meerdere miljarden rijen. Hoe groter een tabel wordt, hoe trager het wordt om data op te halen. Het maakt niet uit hoeveel indexen we hebben gelegd, of welke SSD schijven we onderliggend op de fysieke storage hebben zitten. Meer data gaat altijd gelijk staan aan tragere data retrieval.</p>
-<p>Om tegen te gaan dat we tabellen krijgen die té groot worden en we daar niet meer zinvol data van kunnen ophalen bestaan hier een paar oplossingen voor. Het partitioneren van tabellen is er eentje van.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>Om tegen te gaan dat we tabellen krijgen die té groot worden en we daar niet meer zinvol data van kunnen ophalen bestaan hier een paar oplossingen voor. Het partitioneren van tabellen is er eentje van. Archivatie is een andere oplossing.</p>
 <p>Neem als voorbeeld een bank, die elke overschrijving van een rekening moet bewaren. De <strong>overschrijving</strong> tabel zou kunnen gepartitioneerd worden op jaar. Zodat er nog steeds 1 tabel overschrijving is, maar waarbij we die op de fysieke schijf opsplitsen per jaar, en elke op bijvoorbeeld de recentste 3 jaren index management voor bijhouden. De andere jaren kunnen nog steeds opgevraagd worden maar niet met dezelfde performantie als de meest recente data.</p>
 <h3 id="external-layer">External Layer</h3>
 <p>De <strong>External Layer</strong> is wat we van onze database laten zien aan de buitenwereld. Dit zijn <strong>views</strong> van data. Een view is een virtuele representatie van data. We schrijven een query op onze tabellen en bewaren deze query als een view.
@@ -1149,9 +1149,6 @@ classDiagram
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>Eigenlijk niet het Identity veld, maar het veld dat in de <strong>Clustered Index</strong> zit van de tabel. Als er dan in de query meer informatie nodig is om op te halen kan die via die manier de rest van de data ophalen. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>Archivatie is een andere oplossing. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -1729,15 +1726,15 @@ classDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1695042119"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1695042119"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1695042119"></script>
-    <script src="../../js/jquery.sticky.js?1695042119"></script>
-    <script src="../../js/featherlight.min.js?1695042119"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1695042119"></script>
-    <script src="../../js/learn.js?1695042119"></script>
-    <script src="../../js/hugo-learn.js?1695042119"></script>
-    <script src="../../js/mermaid.min.js?1695042119"></script>
+    <script src="../../js/clipboard.min.js?1695373837"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1695373837"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1695373837"></script>
+    <script src="../../js/jquery.sticky.js?1695373837"></script>
+    <script src="../../js/featherlight.min.js?1695373837"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1695373837"></script>
+    <script src="../../js/learn.js?1695373837"></script>
+    <script src="../../js/hugo-learn.js?1695373837"></script>
+    <script src="../../js/mermaid.min.js?1695373837"></script>
     <script>
     window.MathJax = {
       chtml: {
