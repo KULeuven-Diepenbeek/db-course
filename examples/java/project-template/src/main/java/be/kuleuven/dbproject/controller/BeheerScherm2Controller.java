@@ -1,4 +1,4 @@
-package be.kuleuven.vrolijkezweters.controller;
+package be.kuleuven.dbproject.controller;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class BeheerWedstrijdenController {
+public class BeheerScherm2Controller {
 
     @FXML
     private Button btnDelete;
@@ -44,7 +44,7 @@ public class BeheerWedstrijdenController {
 
         // TODO verwijderen en "echte data" toevoegen!
         int colIndex = 0;
-        for(var colName : new String[]{"Naam", "Categorie", "Prijs", "Kilometers"}) {
+        for(var colName : new String[]{"Naam", "Eigenschap", "Prijs", "NogIets?"}) {
             TableColumn<ObservableList<String>, String> col = new TableColumn<>(colName);
             final int finalColIndex = colIndex;
             col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().get(finalColIndex)));
@@ -54,8 +54,7 @@ public class BeheerWedstrijdenController {
 
 
         for(int i = 0; i < 10; i++) {
-
-            tblConfigs.getItems().add(FXCollections.observableArrayList("Kleine wedstrijd " + i, "categorie 1", i*10 + "", i * 33 + ""));
+            tblConfigs.getItems().add(FXCollections.observableArrayList("ding " + i, "categorie 1", i*10 + "", i * 33 + ""));
         }
     }
 

@@ -1,6 +1,6 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 repositories {
@@ -8,7 +8,7 @@ repositories {
 }
 
 javafx {
-    version = "15"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
@@ -21,10 +21,10 @@ test {
     useJUnitPlatform()
 }
 
-group 'be.kuleuven.csa'
+group 'be.kuleuven.dbproject'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.13
-mainClassName = 'be.kuleuven.vrolijkezweters.ProjectMain'
+mainClassName = 'be.kuleuven.dbproject.ProjectMain'
 
 jar {
     manifest {

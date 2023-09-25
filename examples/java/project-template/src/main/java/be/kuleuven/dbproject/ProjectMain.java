@@ -1,4 +1,4 @@
-package be.kuleuven.vrolijkezweters;
+package be.kuleuven.dbproject;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +28,7 @@ public class ProjectMain extends Application {
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("De Vrolijke Zweters Administratie hoofdscherm");
+        stage.setTitle("DAdministratie hoofdscherm TODO pas mij aan");
         stage.setScene(scene);
         stage.show();
     }

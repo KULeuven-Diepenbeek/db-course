@@ -1,6 +1,6 @@
-package be.kuleuven.vrolijkezweters.controller;
+package be.kuleuven.dbproject.controller;
 
-import be.kuleuven.vrolijkezweters.ProjectMain;
+import be.kuleuven.dbproject.ProjectMain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,15 +12,15 @@ import javafx.stage.Stage;
 public class ProjectMainController {
 
     @FXML
-    private Button btnWedstrijden;
+    private Button btnBeheerScherm1;
     @FXML
-    private Button btnBeheerLopers;
+    private Button btnBeheerScherm2;
     @FXML
     private Button btnConfigAttaches;
 
     public void initialize() {
-        btnBeheerLopers.setOnAction(e -> showBeheerScherm("lopers"));
-        btnWedstrijden.setOnAction(e -> showBeheerScherm("wedstrijden"));
+        btnBeheerScherm1.setOnAction(e -> showBeheerScherm("scherm1"));
+        btnBeheerScherm2.setOnAction(e -> showBeheerScherm("scherm2"));
         btnConfigAttaches.setOnAction(e -> showBeheerScherm("attaches"));
     }
 
