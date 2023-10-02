@@ -37,7 +37,9 @@ Hieronder een overzicht van een binary AND table met `True`, `False` en `NULL` w
 | False   |	False     |	False     |	False     |
 | NULL    |	NULL      |	False	  | NULL      |
 
-Denkvraag: Waarom is `False == NULL` gelijk een `False`?
+{{% task %}}
+Denkvraag: Waarom is `False == NULL` gelijk aan `False`?
+{{% /task %}}
 
 Hieronder vinden we de binary OR table met `True`, `False` en `NULL` waardes.
 
@@ -56,8 +58,7 @@ en
 
 ```<value> IS NOT NULL```
 
-#### Oefeningen
-
+{{% task %}}
 1. Schrijf een query die alle Customers (volledige naam, customer ID en land) laat zien die niet wonen in de USA.
 2. Schrijf een query die enkel de Customers laat zien die in Brazilië wonen.
 3. Schrijf een query die alle Employees laat zien die werken in de Sales afdeling.
@@ -65,6 +66,7 @@ en
 5. Schrijf een query die alle Tracks laat zien waarvoor er geen componist bekend is.
 6. Schrijf een query van alle unieke Componisten. Als de componist niet bekend is, dan moet er 'Onbekend' weergegeven worden gesorteerd op naam.
 7. Schrijf een query die het maximumbedrag van alle Invoices laat zien.
+{{% /task %}}
 
 ### JOIN
 
@@ -83,8 +85,7 @@ Hiermee matchen we alle data van de ene tabel met de andere tabel op de meegegev
 - `LEFT JOIN` - Geeft alle resultaten die bestaan in de base tabel, ook al bestaan die niet in de tabel waarop we joinen
 - `RIGHT JOIN` - Wordt in de praktijk zelden tot nooit gebruikt. Geeft alle resultaten die bestaan in de gejoinde tabel ook al bestaan ze niet in de base tabel.
 
-#### Oefeningen
-
+{{% task %}}
 1. Schrijf een query die alle Invoices laat zien van alle Customers uit Brazilië. Het resultaat moet de volledige naam van de Customer, Invoice ID, Invoice Datum en Billing Country weergeven.
 2. Schrijf een query die alle Invoices laat zien voor elke Sales Agent. Het resultaat moet de volledige naam van de Sales Agent weergeven.
 3. Schrijf een query die het Invoice Totaal, de Customer naam en land en de naam van de Sales Agent weergeeft voor alle Invoices en Customers.
@@ -93,10 +94,13 @@ Hiermee matchen we alle data van de ene tabel met de andere tabel op de meegegev
 6. Schrijf een query die de track naam en de artiest naam weergeeft langs elke invoice lijn.
 7. Schrijf een query die alle tracks laat zien, maar geen ID's. Het resultaat moet de album titel, het media type en het genre bevatten.
 8. Schrijf een query die alle genres weergeeft waarvoor er geen tracks bestaan.
+{{% /task %}}
 
 ### GROUP BY
 
-Soms willen we data aggregeren. Daarvoor bestaan een aantal verschillende functies. De meest courante zijn hieronder te vinden:
+Soms willen we data **aggregeren**. In Basic Engineering Skills in Python werd aggregratie gebruikt om bijvoorbeeld de som van een lijst te nemen, of met `funtools.reduce()` een custom functie los te laten op een lijst. (Dit gaan we ook nog zien in het hoofdstuk rond [NoSQL -- Advanced map-reduce queries](/db-course/nosql/mapreduce/)).
+
+In RDBMS bestaan hiervoor een aantal verschillende functies. De meest courante zijn hieronder te vinden:
 
 - `MAX()`
 - `MIN()`
@@ -112,6 +116,8 @@ FROM Invoices
 GROUP BY BillingCity
 ```
 
+Zonder `GROUP BY` statement krijg je ofwel een fout ofwel maar één record terug, zoals in SQLite. 
+
 ### HAVING
 
 Als we willen filteren op een grouping function, dan gaat dat niet via een `WHERE` clause, dan krijg je namelijk een foutmelding:
@@ -124,7 +130,7 @@ GROUP BY BillingCity
 
 ![](/slides/img/where_error.png)
 
-Om te filteren op een grouping function schrijven we dit in een `HAVING` clause. 
+Om te filteren op een grouping function schrijven we dit in een `HAVING` clause die de query gebruikerlijks afsluit: 
 
 ```sql
 SELECT BillingCity, count(*) FROM invoices
@@ -132,8 +138,7 @@ GROUP BY BillingCity
 HAVING count(*) > 2
 ```
 
-#### Oefeningen
-
+{{% task %}}
 1. Schrijf een query die het aantal Invoices laat zien voor 2009 en 2011.
 2. Schrijf een query die het aantal invoices per land laat zien.
 3. Schrijf een query die per Invoice ID het aantal invoice lijnen laat zien.
@@ -150,6 +155,7 @@ HAVING count(*) > 2
 14. Schrijf een query die laat zien wie de top 3 artiesten zijn die het meest verkocht werden.
 14. Schrijf een query die laat zien welk media type het meest verkocht werd.
 15. Schrijf een query die de tracks laat zien die meer dan 4 keer verkocht zijn.
+{{% /task %}}
 
 ### Subqueries
 
@@ -198,15 +204,15 @@ WHERE EXISTS (
 
 De `IN` clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een `EXISTS` clause gaat een subquery maar zo lang uitvoeren tot er een resultaat gevonden is. Als de tabel uit de subquery 1000 rijen bevat en er wordt een match gevonden op rij 200, dan gaan de andere 800 niet meer geëvauleerd worden.
 
-#### Oefeningen
-
-De meeste van deze queries kunnen ook geschreven worden met een `JOIN` statement. Dit is echter niet waar we hier op willen oefenen. Los dus volgende oefeningen op met minstens één subquery. 
+{{% task %}}
+De meeste van deze queries kunnen ook geschreven worden met een `JOIN` statement. Dit is echter niet waar we hier op willen oefenen. Los dus volgende oefeningen op met minstens één subquery. Als je hier moeite mee hebt kan her handig zijn om eerst een werkende query te bekomen met `JOIN` en die dan om te vormen naar een subquery.
 
 1. Schrijf een query die alle invoices laat zien die een track bevatten van Iron Maiden.
 2. Schrijf een query die alle invoices laat zien die verkocht werden door Margaret Park.
 3. Schrijf een query die alle genres laat zien waarvoor er geen track bestaat.
 4. Schrijf een query die alle invoices laat zien waarvan de prijs groter is dan het gemiddelde van alle invoices.
 5. Schrijf een query die alle invoices laat zien waarin een Metallica track verkocht is, waarvan de prijs groter is dan het gemiddelde van alle invoices waarin een Metallica track verkocht is.
+{{% /task %}}
 
 ### Data manipulatie
 
@@ -219,9 +225,9 @@ INSERT INTO Genres(Name)
 VALUES('Rock')
 ```
 
-#### Oefeningen
-
-1. Voeg je favoriete album (inclusief artiest en tracks) toe aan de database.
+{{% task %}}
+Voeg je favoriete album (inclusief artiest en tracks) toe aan de database.
+{{% /task %}}
 
 #### UPDATE
 
@@ -233,22 +239,25 @@ SET MediaTypeId = 1
 WHERE AlbumId = 2
 ```
 
-#### Oefeningen
-1. Wijzig de UnitPrice en de Composer voor de 3e track van je toegevoegde album
-2. Wijzig de titel van je album
+{{% task %}}
+Wijzig de UnitPrice en de Composer voor de 3e track van je toegevoegde album.<br/>
+ Wijzig de titel van je favoriete album (zie oefening hierboven).
+{{% /task %}}
 
 #### DELETE
 
 Hiermee kunnen we een set van data verwijderen. 
 
-LET OP! Een `DELETE` statement zonder `WHERE` clause verwijderd alles uit de tabel!
+LET OP! Een `DELETE` statement zonder `WHERE` clause verwijdert alles uit de tabel!
 
 ```sql
 DELETE FROM Genre
 WHERE Name = 'Rock'
 ```
 
-#### Oefeningen
 
-1. Verwijder het album (inclusief artiest en tracks) dat je hierboven hebt toegevoegd.
+{{% task %}}
+Verwijder het album (inclusief artiest en tracks) dat je hierboven hebt toegevoegd.
+{{% /task %}}
 
+Wat is volgens jou het verschil tussen `DELETE FROM` zonder `WHERE` en `DROP TABLE`?
