@@ -41,7 +41,7 @@ Dit voorbeeld illustreert dat, alhoewel beide transacties 100% correct zijn, er 
 
 ### B. Dirty Reads
 
-Een "dirty read" probleem is het lezen van "dirty" data---data die eigenlijk voor de andere transactie nog niet zichtbaar mat zijn omdat het hier over uncommitted data gaat. Als Marianne's `read(bedrag)` toch het juiste bedrag zou inlezen (110), **voordat** Jens' transactie compleet is, maar op een of andere manier is die transactie teruggedraaid, dan spreken we over een dirty read, en krijgt Jolien onterecht toch `€20`, terwijl Jens zijn `€10` mag houden. _It prints money!_
+Een "dirty read" probleem is het lezen van _uncommited_ "dirty" data---data die eigenlijk voor de andere transactie nog niet zichtbaar mat zijn omdat het hier over uncommitted data gaat. Als Marianne's `read(bedrag)` toch het juiste bedrag zou inlezen (110), **voordat** Jens' transactie compleet is, maar op een of andere manier is die transactie teruggedraaid, dan spreken we over een dirty read, en krijgt Jolien onterecht toch `€20`, terwijl Jens zijn `€10` mag houden. _It prints money!_
 
 
 | time | `T1` (Marianne) | `T2` (Jens) | bedrag |
@@ -64,7 +64,7 @@ We laten een schematische voorstelling van dit probleem als oefening voor de stu
 
 ### ... En meer
 
-Er zijn nog verschillende andere mogelijkheden waarbij de scheduler de bal kan misslaan. Bijvoorbeeld door **unrepeateable reads**: transactie `T1` leest dezelfde rij verschillende keren in maar verkrijgt telkens andere waardes (wat niet zou mogen) vanwege andere transacties die ook met die rij bezig zijn. 
+Er zijn nog verschillende andere mogelijkheden waarbij de scheduler de bal kan misslaan. Bijvoorbeeld door **non-repeateable reads**: transactie `T1` leest dezelfde rij verschillende keren in maar verkrijgt telkens andere waardes (wat niet zou mogen) vanwege andere transacties die ook met die rij bezig zijn. 
 
 Of wat dacht je van **phantom reads**: transactie `T2` is bezig met rijen effectief te _verwijderen_, terwijl `T1` deze toch nog inleest. Het zou kunnen dat hierdoor verschillende rijen ontstaan (`T2` rollback, `T1` die een nieuwe rij maakt), of dat voorgaande bestaande rijen verdwijnen door `T2`, waardoor de transactie van `T1` mogelijks faalt. 
 
@@ -82,6 +82,9 @@ Teruggrijpende naar ons Jolien voorbeeld, stel dat Jens Jolien `€5` wilt betal
 
 Bijgevolg verkgijt `T1` inconsistente data: de ene keer 2, de andere keer 3---vergeet niet dat het goed zou kunnen dat `T2` nog teruggedraaid wordt. 
 
+{{% notice note %}}
+Wat is het verschil tussen een non-repeatable read, een phantom read, en een dirty read? Dirty reads lezen foutieve **uncommitted** data van een andere transactie---het lezen van 'in progress' data. Non-repeateable reads en phantom reads lezen foutieve **committed** data van een andere transactie. Bij non-repeatable reads gaat het over `UPDATE`s, en bij phantom reads over `INSERT`s en/of `DELETE`s: rijen die plots verschijnen of zijn verdwenen sinds de transactie begon. 
+{{% /notice %}}
 
 ## 2. Scheduler oplossingen
 
