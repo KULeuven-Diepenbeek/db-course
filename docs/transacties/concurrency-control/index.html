@@ -12,21 +12,21 @@
     <title>2. Concurrency Control :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1696250356" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1696250356" rel="stylesheet">
-    <link href="../../css/hybrid.css?1696250356" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1696250356" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1696250356" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1696250356" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1696250356" rel="stylesheet">
-    <link href="../../css/theme.css?1696250356" rel="stylesheet">
-    <link href="../../css/devselector.css?1696250356" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1696250356" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1696250356" rel="stylesheet">
+    <link href="../../css/nucleus.css?1697097250" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1697097250" rel="stylesheet">
+    <link href="../../css/hybrid.css?1697097250" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1697097250" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1697097250" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1697097250" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1697097250" rel="stylesheet">
+    <link href="../../css/theme.css?1697097250" rel="stylesheet">
+    <link href="../../css/devselector.css?1697097250" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1697097250" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1697097250" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1696250356"></script>
-    <script src="../../js/devselector.js?1696250356"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1697097250"></script>
+    <script src="../../js/devselector.js?1697097250"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1696250356"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1696250356"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1697097250"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1697097250"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1696250356"></script>
+<script type="text/javascript" src="../../js/search.js?1697097250"></script>
 
     
   </div>
@@ -1074,7 +1074,7 @@ graph LR;
 </table>
 <p>Dit voorbeeld illustreert dat, alhoewel beide transacties 100% correct zijn, er toch nog problemen kunnen optreden als transacties elkaar gaan storen. Het spreekt voor zich dat als <code>T1</code> data zou lezen en schrijven uit een andere rij of tabel, dit geen probleem zou zijn&mdash;in dit specifieke voorbeeld.</p>
 <h3 id="b-dirty-reads">B. Dirty Reads</h3>
-<p>Een &ldquo;dirty read&rdquo; probleem is het lezen van &ldquo;dirty&rdquo; data&mdash;data die eigenlijk voor de andere transactie nog niet zichtbaar mat zijn omdat het hier over uncommitted data gaat. Als Marianne&rsquo;s <code>read(bedrag)</code> toch het juiste bedrag zou inlezen (110), <strong>voordat</strong> Jens' transactie compleet is, maar op een of andere manier is die transactie teruggedraaid, dan spreken we over een dirty read, en krijgt Jolien onterecht toch <code>€20</code>, terwijl Jens zijn <code>€10</code> mag houden. <em>It prints money!</em></p>
+<p>Een &ldquo;dirty read&rdquo; probleem is het lezen van <em>uncommited</em> &ldquo;dirty&rdquo; data&mdash;data die eigenlijk voor de andere transactie nog niet zichtbaar mat zijn omdat het hier over uncommitted data gaat. Als Marianne&rsquo;s <code>read(bedrag)</code> toch het juiste bedrag zou inlezen (110), <strong>voordat</strong> Jens' transactie compleet is, maar op een of andere manier is die transactie teruggedraaid, dan spreken we over een dirty read, en krijgt Jolien onterecht toch <code>€20</code>, terwijl Jens zijn <code>€10</code> mag houden. <em>It prints money!</em></p>
 <table>
 <thead>
 <tr>
@@ -1139,7 +1139,7 @@ graph LR;
 <p>Bij inconsistente analyse tussen twee transacties gaat het over een sequentie van verschillende dirty reads die de situatie alleen maar verergeren, zelfs zonder de eventuele rollback. Stel dat het over te schrijven bedrag in stukjes van <code>€2</code> wordt overgeschreven, waarbij telkens tussenin een <code>read(bedrag)</code> plaats vindt&mdash;die natuurlijk de data van de andere transactie inleest. Het resultaat is, opnieuw, een veel te grote som, en een mogelijks erg blije Jolien.</p>
 <p>We laten een schematische voorstelling van dit probleem als oefening voor de student.</p>
 <h3 id="-en-meer">&hellip; En meer</h3>
-<p>Er zijn nog verschillende andere mogelijkheden waarbij de scheduler de bal kan misslaan. Bijvoorbeeld door <strong>unrepeateable reads</strong>: transactie <code>T1</code> leest dezelfde rij verschillende keren in maar verkrijgt telkens andere waardes (wat niet zou mogen) vanwege andere transacties die ook met die rij bezig zijn.</p>
+<p>Er zijn nog verschillende andere mogelijkheden waarbij de scheduler de bal kan misslaan. Bijvoorbeeld door <strong>non-repeateable reads</strong>: transactie <code>T1</code> leest dezelfde rij verschillende keren in maar verkrijgt telkens andere waardes (wat niet zou mogen) vanwege andere transacties die ook met die rij bezig zijn.</p>
 <p>Of wat dacht je van <strong>phantom reads</strong>: transactie <code>T2</code> is bezig met rijen effectief te <em>verwijderen</em>, terwijl <code>T1</code> deze toch nog inleest. Het zou kunnen dat hierdoor verschillende rijen ontstaan (<code>T2</code> rollback, <code>T1</code> die een nieuwe rij maakt), of dat voorgaande bestaande rijen verdwijnen door <code>T2</code>, waardoor de transactie van <code>T1</code> mogelijks faalt.</p>
 <p>Teruggrijpende naar ons Jolien voorbeeld, stel dat Jens Jolien <code>€5</code> wilt betalen per klusje dat ze gedaan heeft. Klusjes worden opgeslagen in een aparte tabel, maar ondertussen kan Jolien een nieuw klusje afvinken, waardoor Jens' transactie een <em>phantom read</em> krijgt:</p>
 <table>
@@ -1197,6 +1197,10 @@ graph LR;
 </tbody>
 </table>
 <p>Bijgevolg verkgijt <code>T1</code> inconsistente data: de ene keer 2, de andere keer 3&mdash;vergeet niet dat het goed zou kunnen dat <code>T2</code> nog teruggedraaid wordt.</p>
+
+<div class="notices note" ><p>Wat is het verschil tussen een non-repeatable read, een phantom read, en een dirty read? Dirty reads lezen foutieve <strong>uncommitted</strong> data van een andere transactie&mdash;het lezen van &lsquo;in progress&rsquo; data. Non-repeateable reads en phantom reads lezen foutieve <strong>committed</strong> data van een andere transactie. Bij non-repeatable reads gaat het over <code>UPDATE</code>s, en bij phantom reads over <code>INSERT</code>s en/of <code>DELETE</code>s: rijen die plots verschijnen of zijn verdwenen sinds de transactie begon.</p>
+</div>
+
 <h2 id="2-scheduler-oplossingen">2. Scheduler oplossingen</h2>
 <p>Wat is de simpelste manier om bovenstaande problemen allemaal integraal te vermijden? Juist ja&mdash;sequentieel transacties verwerken.</p>
 <h3 id="a-serial-scheduling">A. Serial scheduling</h3>
@@ -1986,15 +1990,15 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1696250356"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1696250356"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1696250356"></script>
-    <script src="../../js/jquery.sticky.js?1696250356"></script>
-    <script src="../../js/featherlight.min.js?1696250356"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1696250356"></script>
-    <script src="../../js/learn.js?1696250356"></script>
-    <script src="../../js/hugo-learn.js?1696250356"></script>
-    <script src="../../js/mermaid.min.js?1696250356"></script>
+    <script src="../../js/clipboard.min.js?1697097250"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1697097250"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1697097250"></script>
+    <script src="../../js/jquery.sticky.js?1697097250"></script>
+    <script src="../../js/featherlight.min.js?1697097250"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1697097250"></script>
+    <script src="../../js/learn.js?1697097250"></script>
+    <script src="../../js/hugo-learn.js?1697097250"></script>
+    <script src="../../js/mermaid.min.js?1697097250"></script>
     <script>
     window.MathJax = {
       chtml: {
