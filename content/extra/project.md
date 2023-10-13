@@ -7,8 +7,8 @@ Het project voor dit vak bestaat uit **drie delen** met elk hun aparte deadline.
 
 | deel | opdracht			  | deadline    |
 |------|----------------------|-------------|
-| 1.   | domein model 	      | 20/10/2023  |
-| 2.   | SQLite database      | 17/11/2023  |
+| 1.   | domein model 	      | 03/11/2023  |
+| 2.   | SQLite database      | 01/12/2023  |
 | 3.   | Uitwerking in Java/Kotlin      | een week voor het examen (TBD) | 
 
 Het is opnieuw een **groepsproject** waarbij je samenwerkt per 2 of per 3. 
