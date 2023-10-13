@@ -12,21 +12,21 @@
     <title>3. Failures-Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1697183083" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1697183083" rel="stylesheet">
-    <link href="../../css/hybrid.css?1697183083" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1697183083" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1697183083" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1697183083" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1697183083" rel="stylesheet">
-    <link href="../../css/theme.css?1697183083" rel="stylesheet">
-    <link href="../../css/devselector.css?1697183083" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1697183083" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1697183083" rel="stylesheet">
+    <link href="../../css/nucleus.css?1697183767" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1697183767" rel="stylesheet">
+    <link href="../../css/hybrid.css?1697183767" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1697183767" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1697183767" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1697183767" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1697183767" rel="stylesheet">
+    <link href="../../css/theme.css?1697183767" rel="stylesheet">
+    <link href="../../css/devselector.css?1697183767" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1697183767" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1697183767" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1697183083"></script>
-    <script src="../../js/devselector.js?1697183083"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1697183767"></script>
+    <script src="../../js/devselector.js?1697183767"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1697183083"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1697183083"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1697183767"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1697183767"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1697183083"></script>
+<script type="text/javascript" src="../../js/search.js?1697183767"></script>
 
     
   </div>
@@ -1037,6 +1037,7 @@ INSERT INTO oeitiskapot;
 <li>Probeer een nieuwe student toe te voegen: eentje met studentennummer, en eentje zonder. Dat tweede kan in principe niet door de <code>NOT NULL</code> constraint. Wrap beide statements in een transactie.</li>
 </ol>
 <p><strong>Let Op</strong>: Het zou kunnen dat SQLite de volgende fout geeft: <code>cannot start a transaction within a transaction: BEGIN;</code>. Queries die geplakt worden in het &ldquo;execute SQL&rdquo; scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door <code>COMMIT;</code> uit te voeren met de knop &ldquo;execute single SQL line&rdquo;.</p>
+<p><strong>Let Op</strong>: Het zou kunnen dat <code>BEGIN TRANSACTION;</code> de transactie niet goed encapsuleert, maar simpelweg <code>BEGIN;</code> wel. Het <code>TRANSACTION</code> keyword is optioneel <a href="https://www.sqlite.org/lang_transaction.html">volgens de SQLite docs</a> en lijkt, afhankelijk van de geïnstalleerde SQLite versie, ander gedrag te vertonen.</p>
 <h3 id="12-in-sqlite-met-javajdbc">1.2 In SQLite met Java/JDBC</h3>
 <p>SQLite/JDBC uitleg: zie APIs - JDBC.</p>
 <p>Gebruik nu  <code>connection.setAutoCommit(false)</code>. Deze regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:</p>
@@ -1678,15 +1679,15 @@ INSERT INTO oeitiskapot;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1697183083"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1697183083"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1697183083"></script>
-    <script src="../../js/jquery.sticky.js?1697183083"></script>
-    <script src="../../js/featherlight.min.js?1697183083"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1697183083"></script>
-    <script src="../../js/learn.js?1697183083"></script>
-    <script src="../../js/hugo-learn.js?1697183083"></script>
-    <script src="../../js/mermaid.min.js?1697183083"></script>
+    <script src="../../js/clipboard.min.js?1697183767"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1697183767"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1697183767"></script>
+    <script src="../../js/jquery.sticky.js?1697183767"></script>
+    <script src="../../js/featherlight.min.js?1697183767"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1697183767"></script>
+    <script src="../../js/learn.js?1697183767"></script>
+    <script src="../../js/hugo-learn.js?1697183767"></script>
+    <script src="../../js/mermaid.min.js?1697183767"></script>
     <script>
     window.MathJax = {
       chtml: {
