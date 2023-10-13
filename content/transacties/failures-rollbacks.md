@@ -58,6 +58,8 @@ INSERT INTO oeitiskapot;
 
 **Let Op**: Het zou kunnen dat SQLite de volgende fout geeft: `cannot start a transaction within a transaction: BEGIN;`. Queries die geplakt worden in het "execute SQL" scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door `COMMIT;` uit te voeren met de knop "execute single SQL line". 
 
+**Let Op**: Het zou kunnen dat `BEGIN TRANSACTION;` de transactie niet goed encapsuleert, maar simpelweg `BEGIN;` wel. Het `TRANSACTION` keyword is optioneel [volgens de SQLite docs](https://www.sqlite.org/lang_transaction.html) en lijkt, afhankelijk van de geïnstalleerde SQLite versie, ander gedrag te vertonen. 
+
 ### 1.2 In SQLite met Java/JDBC
 
 SQLite/JDBC uitleg: zie APIs - JDBC.
