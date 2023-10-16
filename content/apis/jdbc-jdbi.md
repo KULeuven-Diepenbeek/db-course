@@ -145,6 +145,8 @@ Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onm
 
 ### 1.1.3 Oefeningen
 
+Gebruik voor de oefeningen de `student` tabel statements uit [RDBMS Transacties - Failures & Rollbacks](/transacties/failures-rollbacks/).
+
 1. Maak (én test!) een klasse `StudentRepository` die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC `Connection` instance elders wordt aangemaakt, bijvoorbeeld in een **aparte** `ConnectionManager` klasse. 
 
 <div class="devselect">
@@ -163,12 +165,18 @@ public class StudentRepository {
 ```
 </div>
 
-2. Breid dit uit met `saveNewStudent(Student)`.
-3. Breid dit uit met `updateStudent(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
+2. Hoe zou je bovenstaande `StudentRepository` unit (integratie) testen, zonder de "productie database" op te vullen met testdata? (Hint: kijk naar het constructor argument). Hoe kan je `getStudentsByName()` testen zonder de volgende oefening afgewerkt te hebben, die nieuwe studenten bewaren pas mogelijk maakt?
+3. Breid dit uit met `saveNewStudent(Student)`.
+4. Breid dit uit met `updateStudent(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
+5. Merk op dat elke keer als je je project opstart je geen `CREATE TABLE student` kan uitvoeren als je een file-based SQLite bestand hanteert: eens de tabel is aangemaakt geeft een nieuwe create foutmeldingen. `DROP TABLE IF EXISTS student;` lost dit op, maar daardoor ben je ook altijd je data kwijt. Hoe los je dit probleem op?
+6. Stel dat een `Student` is ingeschreven in een `Cursus` met properties `naam` (vb. "databases") en `ects` (vb. 4). 
+    - Maak een `CursusRepository` om nieuwe cursussen te bewaren.
+    - Hoe link je de `Student` klasse met de `Cursus` klasse? wat verandert er in de query van `getStudentsByName()`?
 
-**Tip**: 
+**Tips**: 
 
 - `executeUpdate()` van een `Statement` is erg omslachtig als je een string moet stamenstellen die een `INSERT` query voorstelt (haakjes, enkele quotes, ...). Wat meer is, als de input van een UI komt, kan dit gehacked worden, door zelf de quote te sluiten in de string. Dit noemt men **SQL Injection**, en om dat te vermijden gebruik je in JDBC de `prepareStatement()` methode. Zie [JDBC Basics: Prepared Statements](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html). De String die je meegeeft bevat in de plaats van parameters een vraagteken: `INSERT INTO STUDENT(bla, bla) VALUES(?, ?)`. Die parameters vul je daarna aan met `preparedStatement.setString()` of `setInt()`. Op die manier is de code zowel _netjes_ als _injectie-vrij_!
+- Als je data wenst op te halen dat is verspreid over verschillende tabellen, is de kans groot dat een `JOIN` SQL statement nodig is. Probeer eerst de query te schrijven in de _SQLite DB Browser_ tool. De Java objecten opvullen is de laatste taak.
 
 ## 1.2 Queries/Objecten in Jdbi 3
 
@@ -324,7 +332,8 @@ public class OefeningMain {
 ```
 </div>
 
-3. _Extra Oefening_: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de [Jdbi3 developer guide](http://jdbi.org/#_declarative_api) na hoe je de Declarative API gebruikt en verwerk dit. Tip: `jdbi.withExtension(StudentDao.class, ...)`. 
+3. Implementeer opnieuw de `Cursus` link met de `Student`. Is het schrijven van `JOIN` queries in Jdbi3 eenvoudiger?
+4. _Extra Oefening_: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de [Jdbi3 developer guide](http://jdbi.org/#_declarative_api) na hoe je de Declarative API gebruikt en verwerk dit. Tip: `jdbi.withExtension(StudentDao.class, ...)`. 
 
 **Tip**:
 
@@ -343,7 +352,7 @@ Er zijn een aantal aanpassingen nodig aan je `build.gradle` file om van een gewo
 ```
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 repositories {
@@ -351,22 +360,32 @@ repositories {
 }
 
 javafx {
-    version = "15"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 dependencies {
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
-    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.24.1'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.24.1'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.24.1'
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.43.2.0'
+    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.41.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.41.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.41.3'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'    
 }
 
 group 'be.kuleuven.javasql'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.13
 mainClassName = 'be.kuleuven.javasql.SqlFxMain'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': project.getProperty('name'),
+                'Implementation-Version': project.getProperty('version'),
+                'Main-Class': project.getProperty('mainClassName')
+    }
+}
 ```
 
 Herinner je het volgende over JavaFX:

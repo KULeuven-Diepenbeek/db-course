@@ -7,10 +7,11 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.39.3.0'
-    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.34.0'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.34.0'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.34.0'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.43.2.0'
+
+    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.41.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.41.3'
+    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.41.3'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -22,4 +23,3 @@ test {
 
 group 'be.kuleuven.javasql'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.13

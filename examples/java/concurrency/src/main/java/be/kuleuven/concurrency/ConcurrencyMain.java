@@ -24,7 +24,7 @@ public class ConcurrencyMain {
             try {
                 // simulate dirty read: get another connection
                 var otherConnection = DriverManager.getConnection(ConnectionManager.ConnectionStringH2);
-                otherConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
+                otherConnection.setTransactionIsolation(Connection.TR);
                 otherConnection.setAutoCommit(true);
 
                 System.out.println(" ## Trying to DIRTY read students: ");

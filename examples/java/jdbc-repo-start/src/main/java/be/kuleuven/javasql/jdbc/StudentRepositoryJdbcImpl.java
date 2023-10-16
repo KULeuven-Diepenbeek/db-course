@@ -81,6 +81,7 @@ public class StudentRepositoryJdbcImpl implements StudentRepository {
     @Override
     public void updateStudent(Student student) {
         // TODO
+        throw  new UnsupportedOperationException();
     }
 
 }
