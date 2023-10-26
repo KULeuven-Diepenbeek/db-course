@@ -12,21 +12,21 @@
     <title>3. JPA en Hibernate :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1697448016" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1697448016" rel="stylesheet">
-    <link href="../../css/hybrid.css?1697448016" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1697448016" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1697448016" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1697448016" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1697448016" rel="stylesheet">
-    <link href="../../css/theme.css?1697448016" rel="stylesheet">
-    <link href="../../css/devselector.css?1697448016" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1697448016" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1697448016" rel="stylesheet">
+    <link href="../../css/nucleus.css?1698326986" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1698326986" rel="stylesheet">
+    <link href="../../css/hybrid.css?1698326986" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1698326986" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1698326986" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1698326986" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1698326986" rel="stylesheet">
+    <link href="../../css/theme.css?1698326986" rel="stylesheet">
+    <link href="../../css/devselector.css?1698326986" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1698326986" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1698326986" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1697448016"></script>
-    <script src="../../js/devselector.js?1697448016"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1698326986"></script>
+    <script src="../../js/devselector.js?1698326986"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1697448016"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1697448016"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1698326986"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1698326986"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1697448016"></script>
+<script type="text/javascript" src="../../js/search.js?1698326986"></script>
 
     
   </div>
@@ -1006,7 +1006,10 @@
 
 <h2 id="21-wat-is-jpa">2.1 Wat is JPA?</h2>
 <p>JPA of de <strong>Java Persistence API</strong> is een deel van Java EE (Java <em>Enterprise Platform</em>), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &ldquo;enterprise&rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &ldquo;B2B&rdquo;, Business 2 Business, of Enterprise Software Development).</p>
-<p>Ondertussen is J2EE omgevormd tot <a href="https://jakarta.ee">Jakarta EE</a>. In principe staat JPA nu voor Jakarta Persistence API&hellip; What&rsquo;s in a name.</p>
+
+<div class="notices note" ><p>Ondertussen is J2EE omgevormd tot <a href="https://jakarta.ee">Jakarta EE</a>. Dat betekent ook dat JPA <a href="https://blogs.oracle.com/javamagazine/post/transition-from-java-ee-to-jakarta-ee">recent officieel werd vervangen</a> door de Jakarta Persistence API. Je zal merken dat de <code>javax.persistence</code> dependency die wij gebruiken niet meer wordt geupdate. Pas dus op met recente Stack Overflow links!</p>
+</div>
+
 <h3 id="211-maar-wat-is-de-jpa-api-nu-precies">2.1.1 Maar wat is de JPA API nu precies?</h3>
 <p>De API, levend in de package <code>javax.persistence</code>, is een manier om relationele data voor te stellen in enterprise Java applicaties, door middel van Objecten. Het is dus een mapping tool die object/relationale (meta)data bewerkt en verwerkt. JPA heeft ook zijn eigen query language, JPQL, die het eenvoudiger moet maken om queries te schrijven <em>in Java code zelf</em> in plaats van in SQL, die vertaald worden naar SQL. Dit vereenvoudigt refactoring en vermindert mogelijke fouten in de SQL string die te laat naar boven komen (nu compiletime ipv runtime, aangezien Java statisch getypeerd is).</p>
 <p>JPA is niet meer dan een specificatie die de <strong>interfaces</strong> en <strong>annotaties</strong> voorziet. De implementatie, en de <strong>klasses</strong>, worden overgelaten aan <em>vendors</em>, waarvan voor JPA 2.2 <a href="https://en.wikipedia.org/wiki/Jakarta_Persistence">de volgende vendors</a> beschikbaar zijn:</p>
@@ -1886,15 +1889,15 @@ student Lowiemans
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1697448017"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1697448017"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1697448017"></script>
-    <script src="../../js/jquery.sticky.js?1697448017"></script>
-    <script src="../../js/featherlight.min.js?1697448017"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1697448017"></script>
-    <script src="../../js/learn.js?1697448017"></script>
-    <script src="../../js/hugo-learn.js?1697448017"></script>
-    <script src="../../js/mermaid.min.js?1697448017"></script>
+    <script src="../../js/clipboard.min.js?1698326987"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1698326987"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1698326987"></script>
+    <script src="../../js/jquery.sticky.js?1698326987"></script>
+    <script src="../../js/featherlight.min.js?1698326987"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1698326987"></script>
+    <script src="../../js/learn.js?1698326987"></script>
+    <script src="../../js/hugo-learn.js?1698326987"></script>
+    <script src="../../js/mermaid.min.js?1698326987"></script>
     <script>
     window.MathJax = {
       chtml: {
