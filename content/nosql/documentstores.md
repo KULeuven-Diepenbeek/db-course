@@ -56,7 +56,7 @@ studenten.map(function(student) {
 }).reduce(function(age1, age2) {
     return age1 + age2
 })
-// kan ook met oneliner: studenten.map(s => s.age).reduce(a, b => a + b)
+// kan ook met oneliner: studenten.map(s => s.age).reduce((a, b) => a + b)
 ```
 
 ```python
