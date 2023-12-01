@@ -48,10 +48,10 @@ Een document ophalen in CouchDB kan via `http://127.0.0.1:5984/[db]/[key]`. Voeg
 
 Je kan bovenstaande demo code onmiddellijk proberen op [https://pouchdb.com](https://pouchdb.com): Druk op `F12` of `CTRL+SHIFT+J` (Mac: `OPT+CMD+J`) of ga naar menu Developer -> Developer Tools van je favoriete browser. In de tab "Console" wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando's in uitvoeren: `var db = ...`. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips. 
 
-Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg `.html` bestand aan en kopieer de Quick Start code over:
+Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken---indien `cdn.jsdelivr.net` niet bereikbaar is download je zelf de laatste versie van de JS file via de [PouchDB download pagina](https://pouchdb.com/download.html). Maak een leeg `.html` bestand aan en kopieer de Quick Start code over:
 
 ```html
-<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
 <script>
   var db = new PouchDB('my_database');
 </script>
@@ -78,7 +78,7 @@ Een uitgewerkt voorbeeld in begeleidende video:
 3. Maak een nieuw `.html` bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via `console.log()`. Wordt het nieuwe document getoond? Gebruik deze boilerplate:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
 <button id="btn">Print docs</button>
 <pre id="pre">
 ...
