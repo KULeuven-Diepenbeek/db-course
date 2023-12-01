@@ -12,21 +12,21 @@
     <title>5. Replication :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1700818061" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1700818061" rel="stylesheet">
-    <link href="../../css/hybrid.css?1700818061" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1700818061" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1700818061" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1700818061" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1700818061" rel="stylesheet">
-    <link href="../../css/theme.css?1700818061" rel="stylesheet">
-    <link href="../../css/devselector.css?1700818061" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1700818061" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1700818061" rel="stylesheet">
+    <link href="../../css/nucleus.css?1701420829" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1701420829" rel="stylesheet">
+    <link href="../../css/hybrid.css?1701420829" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1701420829" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1701420829" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1701420829" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1701420829" rel="stylesheet">
+    <link href="../../css/theme.css?1701420829" rel="stylesheet">
+    <link href="../../css/devselector.css?1701420829" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1701420829" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1701420829" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1700818061"></script>
-    <script src="../../js/devselector.js?1700818061"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1701420829"></script>
+    <script src="../../js/devselector.js?1701420829"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1700818061"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1700818061"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1701420829"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1701420829"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1700818061"></script>
+<script type="text/javascript" src="../../js/search.js?1701420829"></script>
 
     
   </div>
@@ -1046,8 +1046,8 @@
 <p>Een document ophalen in CouchDB kan via <code>http://127.0.0.1:5984/[db]/[key]</code>. Voeg aan deze url <code>?revs=true</code> of <code>?revs_info=true</code> toe en kijk wat er gebeurt.</p>
 <h3 id="demo-js-code">Demo JS code</h3>
 <p>Je kan bovenstaande demo code onmiddellijk proberen op <a href="https://pouchdb.com">https://pouchdb.com</a>: Druk op <code>F12</code> of <code>CTRL+SHIFT+J</code> (Mac: <code>OPT+CMD+J</code>) of ga naar menu Developer -&gt; Developer Tools van je favoriete browser. In de tab &ldquo;Console&rdquo; wordt je begroet door de PouchDB welkomsttekst. Daar kan je je test commando&rsquo;s in uitvoeren: <code>var db = ...</code>. Om te controleren of het record het tot in de database heeft gehaald, zie hieronder, bij tips.</p>
-<p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<p>Gebruik in de oefeningen de CDN versie om het jezelf gemakkelijk te maken&mdash;indien <code>cdn.jsdelivr.net</code> niet bereikbaar is download je zelf de laatste versie van de JS file via de <a href="https://pouchdb.com/download.html">PouchDB download pagina</a>. Maak een leeg <code>.html</code> bestand aan en kopieer de Quick Start code over:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
   <span style="color:#00a8c8">var</span> <span style="color:#75af00">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#75af00">PouchDB</span><span style="color:#111">(</span><span style="color:#d88200">&#39;my_database&#39;</span><span style="color:#111">);</span>
 <span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
@@ -1069,7 +1069,7 @@
 </li>
 <li>Maak een nieuw <code>.html</code> bestand aan, en stel continuous replication in. Voeg dan een nieuw document toe in de CouchDB Admin console. Maak in HTML een knop die gewoon records afdrukt via <code>console.log()</code>. Wordt het nieuwe document getoond? Gebruik deze boilerplate:</li>
 </ol>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js&#34;</span><span style="color:#111">&gt;&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#f92672">button</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;btn&#34;</span><span style="color:#111">&gt;</span>Print docs<span style="color:#111">&lt;/</span><span style="color:#f92672">button</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#f92672">pre</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pre&#34;</span><span style="color:#111">&gt;</span>
 ...
@@ -1715,15 +1715,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1700818061"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1700818061"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1700818061"></script>
-    <script src="../../js/jquery.sticky.js?1700818061"></script>
-    <script src="../../js/featherlight.min.js?1700818061"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1700818061"></script>
-    <script src="../../js/learn.js?1700818061"></script>
-    <script src="../../js/hugo-learn.js?1700818061"></script>
-    <script src="../../js/mermaid.min.js?1700818061"></script>
+    <script src="../../js/clipboard.min.js?1701420829"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1701420829"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1701420829"></script>
+    <script src="../../js/jquery.sticky.js?1701420829"></script>
+    <script src="../../js/featherlight.min.js?1701420829"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1701420829"></script>
+    <script src="../../js/learn.js?1701420829"></script>
+    <script src="../../js/hugo-learn.js?1701420829"></script>
+    <script src="../../js/mermaid.min.js?1701420829"></script>
     <script>
     window.MathJax = {
       chtml: {
