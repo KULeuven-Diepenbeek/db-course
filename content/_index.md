@@ -22,7 +22,7 @@ Laatste aanpassingen voor academiejaar _2023---2024_.
 | 08  | vr 14-11-2023 | NoSQL 1: intro HC, key/value en document stores
 | 09  | vr 24-11-2023 | NoSQL 2: advanced concepts, case studies (1)
 | 10  | vr 01-12-2023 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
-| 11  | vr 13-12-2023 | XML Data Storage, Big Data & Analytics
+| 11  | vr 08-12-2023 | XML Data Storage, Big Data & Analytics
 
 
 ## _Cursus noties_
