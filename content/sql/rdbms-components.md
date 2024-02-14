@@ -1,5 +1,7 @@
 ---
 title: 2. Database Componenten
+weight: 2
+draft: false
 ---
 
 ## 1. Three Layer Architecture

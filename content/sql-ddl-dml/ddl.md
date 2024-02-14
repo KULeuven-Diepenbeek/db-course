@@ -1,5 +1,6 @@
 ---
 title: 1. DDL
+weight: 1
 ---
 
 **Data Defintion Language** is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.

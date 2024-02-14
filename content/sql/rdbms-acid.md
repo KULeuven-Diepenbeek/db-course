@@ -1,5 +1,7 @@
 ---
 title: 3. ACID
+weight: 3
+draft: true
 ---
 
 ACID is een acronym die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van [Transacties](/transacties/basics). ACID omschrijft vier principes:

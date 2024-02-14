@@ -1,5 +1,6 @@
 ---
 title: 'Index'
+original-author: 'Wouter Groenveld'
 ---
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
@@ -12,31 +13,32 @@ Laatste aanpassingen voor academiejaar _2023---2024_.
 
 | nr  | datum         | onderwerp                 |
 |-----|---------------|---------------------------|
-| 01  | vr 22-09-2023 | RDBMS & SQL: Basics, DB Componenten
-| 02  | vr 29-09-2023 | ACID & SQL Deel 1
-| 03  | vr 06-10-2023 | SQL deel 2
-| 04  | vr 13-10-2023 | RDBMS transacties: basics, concurrency control
-| 05  | vr 20-10-2023 | DB APIs: basics, JDBC, JDBI
-| 06  | vr 27-10-2023 | DB APIs: JPA & Hibernate
-| 07  | vr 10-11-2023 | Re Transacties: rollbacks, concurrency in practice
-| 08  | vr 14-11-2023 | NoSQL 1: intro HC, key/value en document stores
-| 09  | vr 24-11-2023 | NoSQL 2: advanced concepts, case studies (1)
-| 10  | vr 01-12-2023 | NoSQL 3: map/reduce, replication, graph stores, case studies (2)
-| 11  | vr 08-12-2023 | XML Data Storage, Big Data & Analytics
-
+| 01  | vr 16-02-2024 | RDBMS & SQL: Basics, DB Componenten
+| 02  | vr 23-02-2024 | ER-schema
+| 03  | di 27-02-2024 | ACID & SQL Deel 1
+| 04  | vr 08-03-2024 | SQL deel 2
+| 05  | vr 15-03-2024 | RDBMS transacties: basics, concurrency control
+| 06  | vr 22-03-2024 | DB APIs: basics, JDBC, JDBI
+| 07  | di 26-03-2024 | DB APIs: JPA & Hibernate
+| 08  | di 16-04-2024 | Re Transacties: rollbacks, concurrency in practice
+| 09  | vr 26-04-2024 | NoSQL 1: intro HC, key/value en document stores
+| 10  | vr 03-05-2024 | NoSQL 2: advanced concepts, case studies
+| 11  | vr 17-05-2024 | XML Data Storage, Big Data & Analytics
+| 12  | do 23-05-2024 | Reserve
 
 ## _Cursus noties_
 
-Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditionele hoorcolleges voorzien. Alle noties zijn via deze website te raadplegen: 
+Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditionele hoorcolleges voorzien. Alle noties zijn via deze website te raadplegen (tenzij anders vermeld): 
 
 ### Inhoudsopgave
 
 - SQL:
     1. [Database Basics](/sql/rdbms-basics/) 
     2. [DB Componenten](/sql/rdbms-components/)
-    3. [Transacties I: ACID](/sql/rdbms-acid/)
-    4. [SQL: DDL](/sql-ddl-dml/ddl/)
-    5. [SQL: DML](/sql-ddl-dml/dml/)
+    3. [ER-schema] (/sql/er-schema)
+    4. [Transacties I: ACID](/sql/rdbms-acid/)
+    5. [SQL: DDL](/sql-ddl-dml/ddl/)
+    6. [SQL: DML](/sql-ddl-dml/dml/)
 - SQL DB APIs:
     1. [API Basics & layered tiers](/apis/basics/)
     2. [JDBC en JDBI](/apis/jdbc-jdbi)
@@ -64,8 +66,8 @@ Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditi
 
 - **Lesgevers**:
     + Coördinerend Verantwoordelijke: prof. dr. Kris Aerts ([kris.aerts@kuleuven.be](mailto:kris.aerts@kuleuven.be))
-    + lesgever: dr. Wouter Groeneveld ([wouter.groeneveld@kuleuven.be](mailto:wouter.groeneveld@kuleuven.be))
-- **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO, D.0.35. 
+    + assistent lesgever: ing. Arne Duyver ([arne.duyver@kuleuven.be](mailto:arne.duyver@kuleuven.be))
+- **Kantoor**: Technologiecentrum Diepenbeek, Groep ACRO. 
 
 
 #### Cursusbeschrijving
@@ -89,7 +91,7 @@ En anderzijds op twee toepassingen:
 
 #### Doelstellingen
 
-Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&i=4290&n=4&t=01)
+Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2024&i=4290)
     
 De context en het overzicht worden aangereikt in de eerste lessen van dit vak.
 

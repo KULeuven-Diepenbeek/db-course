@@ -1,5 +1,7 @@
 ---
 title: 1. Database Basics
+weight: 1
+draft: false
 ---
 
 Een **database** is niet meer dan een verzameling van gegevens. Een **DBMS** (**D**ata**B**ase **M**anagement **S**ystem) is de software waarmee databases beheerd of aangemaakt kunnen worden.
