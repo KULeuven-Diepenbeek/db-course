@@ -1,7 +1,7 @@
 ---
 title: 2. DML
 weight: 2
-draft: true
+draft: false
 ---
 
 **Data Modification Language** is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.

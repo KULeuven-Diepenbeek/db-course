@@ -1,6 +1,5 @@
 ---
 title: 'Index'
-original-author: 'Wouter Groenveld'
 ---
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
@@ -35,7 +34,7 @@ Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditi
 - SQL:
     1. [Database Basics](/sql/rdbms-basics/) 
     2. [DB Componenten](/sql/rdbms-components/)
-    3. [ER-schema] (/sql/er-schema)
+    3. [ER-schema](/sql/er-schema)
     4. [Transacties I: ACID](/sql/rdbms-acid/)
     5. [SQL: DDL](/sql-ddl-dml/ddl/)
     6. [SQL: DML](/sql-ddl-dml/dml/)
