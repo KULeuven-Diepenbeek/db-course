@@ -90,7 +90,7 @@ En anderzijds op twee toepassingen:
 
 #### Doelstellingen
 
-Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2024&i=4290)
+Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&i=4290)
     
 De context en het overzicht worden aangereikt in de eerste lessen van dit vak.
 

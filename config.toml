@@ -62,7 +62,7 @@ weight = 10
 [[menu.shortcuts]] 
 name = "<i class='fa fa-university'></i> ECTS Sheet"
 identifier = "stud"
-url = "https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&i=4290&n=4&t=01"
+url = "https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&i=4290"
 weight = 1
 
 [[menu.shortcuts]] 
