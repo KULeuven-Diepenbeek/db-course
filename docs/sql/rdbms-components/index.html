@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.122.0">
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>2. Database Componenten :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1707903956" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1707903956" rel="stylesheet">
-    <link href="../../css/hybrid.css?1707903956" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1707903956" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1707903956" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1707903956" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1707903956" rel="stylesheet">
-    <link href="../../css/theme.css?1707903956" rel="stylesheet">
-    <link href="../../css/devselector.css?1707903956" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1707903956" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1707903956" rel="stylesheet">
+    <link href="../../css/nucleus.css?1710457123" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1710457123" rel="stylesheet">
+    <link href="../../css/hybrid.css?1710457123" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1710457123" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1710457123" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1710457123" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1710457123" rel="stylesheet">
+    <link href="../../css/theme.css?1710457123" rel="stylesheet">
+    <link href="../../css/devselector.css?1710457123" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1710457123" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1710457123" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1707903956"></script>
-    <script src="../../js/devselector.js?1707903956"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1710457123"></script>
+    <script src="../../js/devselector.js?1710457123"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1707903956"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1707903956"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1710457123"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1710457123"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1707903956"></script>
+<script type="text/javascript" src="../../js/search.js?1710457123"></script>
 
     
   </div>
@@ -235,6 +235,103 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../transacties/">
+          3. RDBMS Transacties
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item ">
+        <a href="../../transacties/basics/">
+        1. Transaction Mgmt. Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/concurrency-control/" title="2. Concurrency Control" class="dd-item ">
+        <a href="../../transacties/concurrency-control/">
+        2. Concurrency Control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item ">
+        <a href="../../transacties/failures-rollbacks/">
+        3. Failures-Rollbacks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
         
     </ul>
 
@@ -351,7 +448,7 @@
 
 
 <h2 id="1-three-layer-architecture">1. Three Layer Architecture</h2>
-<p><img src="../../slides/img/threelayerarchitecture.jpg" style="max-width: 75%" /></p>
+<img src="../../slides/img/threelayerarchitecture.jpg" style="max-width: 75%" />
 <h3 id="logical-layer">Logical Layer</h3>
 <p>De <strong>Logical Layer</strong> is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.</p>
 <p>Enkele voorbeelden hiervan zijn:</p>
@@ -520,14 +617,14 @@ classDiagram
 <h2 id="3-database-languages">3. Database Languages</h2>
 <p>SQL is onderverdeeld in twee verschillende talen. Enerzijds heb je <strong>DDL (Data Definition Language)</strong>. Dit gebruik je om de database structuur te wijzigen. Nieuwe tabellen toevoegen, indexen aanmaken, views verwijderen, &hellip;</p>
 <p>Anderzijds heb je <strong>DML (Data Manipulation Language)</strong>. Dit gebruik je voor alle CRUD (Create, Read, Update, Delete) acties op data. Hier gaan we in een volgend hoofdstuk verder op in gaan.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Eigenlijk niet het Identity veld, maar het veld dat in de <strong>Clustered Index</strong> zit van de tabel. Als er dan in de query meer informatie nodig is om op te halen kan die via die manier de rest van de data ophalen. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p>Eigenlijk niet het Identity veld, maar het veld dat in de <strong>Clustered Index</strong> zit van de tabel. Als er dan in de query meer informatie nodig is om op te halen kan die via die manier de rest van de data ophalen.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
 
 <footer class="footline">
@@ -664,6 +761,70 @@ classDiagram
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
 
@@ -686,15 +847,15 @@ classDiagram
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1707903956"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1707903956"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1707903956"></script>
-    <script src="../../js/jquery.sticky.js?1707903956"></script>
-    <script src="../../js/featherlight.min.js?1707903956"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1707903956"></script>
-    <script src="../../js/learn.js?1707903956"></script>
-    <script src="../../js/hugo-learn.js?1707903956"></script>
-    <script src="../../js/mermaid.min.js?1707903956"></script>
+    <script src="../../js/clipboard.min.js?1710457123"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1710457123"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1710457123"></script>
+    <script src="../../js/jquery.sticky.js?1710457123"></script>
+    <script src="../../js/featherlight.min.js?1710457123"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1710457123"></script>
+    <script src="../../js/learn.js?1710457123"></script>
+    <script src="../../js/hugo-learn.js?1710457123"></script>
+    <script src="../../js/mermaid.min.js?1710457123"></script>
     <script>
     window.MathJax = {
       chtml: {

@@ -1,5 +1,8 @@
 ---
 title: 2. Concurrency Control
+weight: 2
+author: Wouter Groenveld
+draft: false
 ---
 
 De transactie management scheduler (zie [transacties - basics](/transacties/basics)) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden. 

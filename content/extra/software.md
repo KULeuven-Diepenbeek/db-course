@@ -1,5 +1,6 @@
 ---
 title: Gebruikte Software
+draft: true
 ---
 
 ## SQL

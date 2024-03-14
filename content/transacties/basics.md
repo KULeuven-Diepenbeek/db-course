@@ -1,5 +1,8 @@
 ---
 title: 1. Transaction Mgmt. Basics
+weight: 1
+author: Wouter Groenveld
+draft: false
 ---
 
 SQL DBMS systemen zijn eerst en vooral **multi-user** systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de **ACID regels** ondersteunen, is er een systeem nodig dat soms gebruikers "in wacht" zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten---in dezelfde tabel, hetzelfde record. Jens leest uit "de rekening staat op 100 EUR" en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd? Jens krijgt te horen dat er 100 EUR op de rekening staat, terwijl in werkelijkheid dit 10 EUR minder is. 

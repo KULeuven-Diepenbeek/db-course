@@ -1,7 +1,8 @@
 ---
 title: "3. RDBMS Transacties"
 chapter: true
-draft: true
+author: Wouter Groenveld
+draft: false
 ---
 
 # Transaction management
