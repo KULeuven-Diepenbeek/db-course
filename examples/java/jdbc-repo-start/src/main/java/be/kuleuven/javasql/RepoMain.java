@@ -15,7 +15,7 @@ public class RepoMain {
         doStuff(jdbcRepo, "JDBC");
 
         connectionManager.flushConnection();
-        doStuff(jdbiRepo, "JDBI 3");
+//        doStuff(jdbiRepo, "JDBI 3");
     }
 
     private static void doStuff(StudentRepository repo, String impl) {
