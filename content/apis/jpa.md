@@ -1,5 +1,6 @@
 ---
 title: 3. JPA en Hibernate
+draft: true
 ---
 
 ## 2.1 Wat is JPA?
