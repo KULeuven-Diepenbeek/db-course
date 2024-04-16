@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.122.0">
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>2. JDBC en JDBI :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713258859" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713258859" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713258859" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713258859" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713258859" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713258859" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713258859" rel="stylesheet">
-    <link href="../../css/theme.css?1713258859" rel="stylesheet">
-    <link href="../../css/devselector.css?1713258859" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713258859" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713258859" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713263460" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713263460" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713263460" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713263460" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713263460" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713263460" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713263460" rel="stylesheet">
+    <link href="../../css/theme.css?1713263460" rel="stylesheet">
+    <link href="../../css/devselector.css?1713263460" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713263460" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713263460" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713258859"></script>
-    <script src="../../js/devselector.js?1713258859"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713263460"></script>
+    <script src="../../js/devselector.js?1713263460"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713258859"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713258859"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713263460"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713263460"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713258859"></script>
+<script type="text/javascript" src="../../js/search.js?1713263460"></script>
 
     
   </div>
@@ -400,6 +400,27 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
+        <a href="../../apis/jpa/">
+        3. JPA en Hibernate
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -696,30 +717,30 @@ graph LR;
 </ol>
 <p>Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:</p>
 <div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">private</span> <span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#f92672">;</span>
-<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">createDb</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#f92672">{</span>
-    <span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#f92672">.</span><span style="color:#75af00">getConnection</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;jdbc:sqlite:mydb.db&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
-    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">executeUpdate</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">verifyDbContents</span><span style="color:#f92672">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#f92672">{</span>
-    <span style="color:#111">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#f92672">.</span><span style="color:#75af00">createStatement</span><span style="color:#f92672">();</span>
-    <span style="color:#111">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">executeQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT COUNT(*) FROM mijntabel;&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#111">var</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">getInt</span><span style="color:#f92672">(</span><span style="color:#111">0</span><span style="color:#f92672">);</span>
-    <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#75af00">close</span><span style="color:#f92672">();</span>
-
-    <span style="color:#00a8c8">assert</span> <span style="color:#111">count</span> <span style="color:#f92672">==</span> <span style="color:#111">1</span><span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">createDb</span><span style="color:#111">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">connection</span> <span style="color:#f92672">=</span> <span style="color:#111">DriverManager</span><span style="color:#111">.</span><span style="color:#75af00">getConnection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;jdbc:sqlite:mydb.db&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#111">.</span><span style="color:#75af00">createStatement</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">executeUpdate</span><span style="color:#111">(</span><span style="color:#d88200">&#34;CREATE TABLE mijntabel(nr INT); INSERT INTO mijntabel(nr) VALUES(1);&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">close</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">verifyDbContents</span><span style="color:#111">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">SQLException</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#111">.</span><span style="color:#75af00">createStatement</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">executeQuery</span><span style="color:#111">(</span><span style="color:#d88200">&#34;SELECT COUNT(*) FROM mijntabel;&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#111">.</span><span style="color:#75af00">getInt</span><span style="color:#111">(</span><span style="color:#111">0</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">close</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assert</span> <span style="color:#111">count</span> <span style="color:#f92672">==</span> <span style="color:#111">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
 <p><strong>Gradle</strong> dependency: laatste versie van <a href="https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc">sqlite-jdbc in mvnrepository.com</a>.</p>
 <p>Merk op dat <code>SQLException</code> een <strong>checked exception</strong> is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een <code>try { } catch { } finally { }</code> block is dat in de finally je ook geen <code>close()</code> kan uitvoeren zonder opnieuw een <code>try</code> block te openen&hellip; Inception!</p>
 <p>Het <code>connection.close()</code> statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een <strong>connection pool</strong> van x aantel beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de voglende bezoeker van onze website geen enkele kans om zijn zoekquery te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!</p>
 <p>Merk op dat de String <code>jdbc:sqlite:mydb.db</code> een <strong>lokale SQLite database file</strong> aanmaakt op het huidig relatief pad, zodat je met SQLite Explorer data kan inspecteren. Deze file wordt herbruikt: indien je een tabel aanmaakt de eerste keer, gaat dit de tweede keer crashen met <em>table already exists</em>. Houd hier dus rekening mee (e.v.t. met <code>IF NOT EXISTS</code>). Je kan ook een <strong>in-memory database</strong> aanmaken, die volledig in RAM leeft en bij elke opstart opnieuw wordt aangemaakt, met de String <code>jdbc:sqlite:memory</code>.</p>
 <p>Werk je met een andere database maar heb je geen idee hoe die speciale connection string te vormen? Geen probleem, daarvoor dient <a href="https://www.connectionstrings.com/">https://www.connectionstrings.com/</a>. Bijvoorbeeld, een connectie naar de Microsoft Azure cloud kan met de volgende syntax:</p>
-<pre><code>Server=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;
+<pre tabindex="0"><code>Server=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;
 </code></pre><p>Het is de connection string die bepaalt welke dependency binding gebruikt wordt! Dit noemen we <em>late binding</em>: er is <strong>geen expliciete referentie</strong> naar iets van SQLite in de Java code; we werken <em>enkel</em> met JDBC zelf. Als je de vendor driver vergeet toe te voegen als Gradle dependency gebeurt er dit:</p>
-<pre><code>Exception in thread &quot;main&quot; java.sql.SQLException: No suitable driver found for jdbc:sqlite:mydb.db
+<pre tabindex="0"><code>Exception in thread &#34;main&#34; java.sql.SQLException: No suitable driver found for jdbc:sqlite:mydb.db
     at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:702)
     at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:251)
     at Demo.main(Demo.java:8)
@@ -736,12 +757,12 @@ graph LR;
 </ol>
 <p>Om van de huidige resultatenrij naar de volgende te springen in <code>ResultSet</code> gebruikt men de methode <code>next()</code> in een typisch <code>while()</code> formaat:</p>
 <div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">statement</span><span style="color:#f92672">.</span><span style="color:#75af00">executeQuery</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;SELECT * FROM iets&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#00a8c8">while</span><span style="color:#f92672">(</span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">next</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-    <span style="color:#111">var</span> <span style="color:#111">eenString</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#75af00">getString</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;kolomnaam&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#75715e">// doe iets!
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">statement</span><span style="color:#111">.</span><span style="color:#75af00">executeQuery</span><span style="color:#111">(</span><span style="color:#d88200">&#34;SELECT * FROM iets&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">while</span><span style="color:#111">(</span><span style="color:#111">result</span><span style="color:#111">.</span><span style="color:#75af00">next</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">eenString</span> <span style="color:#f92672">=</span> <span style="color:#111">result</span><span style="color:#111">.</span><span style="color:#75af00">getString</span><span style="color:#111">(</span><span style="color:#d88200">&#34;kolomnaam&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// doe iets!</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
 <p>Zie ook <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html">ResultSet Oracle Javadoc</a>.</p>
 <p>Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onmiddellijk over naar de oefeningen:</p>
 <h3 id="113-oefeningen">1.1.3 Oefeningen</h3>
@@ -750,11 +771,11 @@ graph LR;
 <li>Maak (én test!) een klasse <code>StudentRepository</code> die de volgende methode implementeert. Zoals je ziet is het de bedoeling dat de JDBC <code>Connection</code> instance elders wordt aangemaakt, bijvoorbeeld in een <strong>aparte</strong> <code>ConnectionManager</code> klasse.</li>
 </ol>
 <div class="devselect">
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">StudentRepository</span> <span style="color:#f92672">{</span>
-        <span style="color:#00a8c8">public</span> <span style="color:#75af00">StudentRepository</span><span style="color:#f92672">(</span><span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#f92672">);</span>
-        <span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">getStudentsByName</span><span style="color:#f92672">(</span><span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">StudentRepository</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">public</span> <span style="color:#75af00">StudentRepository</span><span style="color:#111">(</span><span style="color:#111">Connection</span> <span style="color:#111">connection</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">public</span> <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">Student</span><span style="color:#f92672">&gt;</span> <span style="color:#75af00">getStudentsByName</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
 <ol start="2">
 <li>Hoe zou je bovenstaande <code>StudentRepository</code> unit (integratie) testen, zonder de &ldquo;productie database&rdquo; op te vullen met testdata? (Hint: kijk naar het constructor argument). Hoe kan je <code>getStudentsByName()</code> testen zonder de volgende oefening afgewerkt te hebben, die nieuwe studenten bewaren pas mogelijk maakt?</li>
 <li>Breid dit uit met <code>saveNewStudent(Student)</code>.</li>
@@ -1017,9 +1038,6 @@ graph LR;
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1027,6 +1045,25 @@ graph LR;
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1115,7 +1152,7 @@ graph LR;
 			<a class="nav nav-prev" href="../../apis/basics/" title="1. API Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/" title="5. NoSQL" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../apis/jpa/" title="3. JPA en Hibernate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1125,15 +1162,15 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713258859"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713258859"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713258859"></script>
-    <script src="../../js/jquery.sticky.js?1713258859"></script>
-    <script src="../../js/featherlight.min.js?1713258859"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713258859"></script>
-    <script src="../../js/learn.js?1713258859"></script>
-    <script src="../../js/hugo-learn.js?1713258859"></script>
-    <script src="../../js/mermaid.min.js?1713258859"></script>
+    <script src="../../js/clipboard.min.js?1713263460"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713263460"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263460"></script>
+    <script src="../../js/jquery.sticky.js?1713263460"></script>
+    <script src="../../js/featherlight.min.js?1713263460"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713263460"></script>
+    <script src="../../js/learn.js?1713263460"></script>
+    <script src="../../js/hugo-learn.js?1713263460"></script>
+    <script src="../../js/mermaid.min.js?1713263460"></script>
     <script>
     window.MathJax = {
       chtml: {

@@ -7,29 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/sql/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1. Database Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
-      <description>Een database is niet meer dan een verzameling van gegevens. Een DBMS (DataBase Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
-1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?
-Databases bieden een aantal key features:
- Performant (index management) Betere integratie met andere applicaties Uniform DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip;  In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
+      <description>Een database is niet meer dan een verzameling van gegevens. Een DBMS (DataBase Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.&#xA;1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?&#xA;Databases bieden een aantal key features:&#xA;Performant (index management) Betere integratie met andere applicaties Uniform DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip; In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
     </item>
-    
     <item>
       <title>2. Database Componenten</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</guid>
-      <description>1. Three Layer Architecture Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.
-Enkele voorbeelden hiervan zijn:
- Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
+      <description>1. Three Layer Architecture Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.&#xA;Enkele voorbeelden hiervan zijn:&#xA;Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
     </item>
-    
   </channel>
 </rss>
