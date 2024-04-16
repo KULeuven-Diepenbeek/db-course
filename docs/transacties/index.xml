@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3. RDBMS Transacties on Databases</title>
+    <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/</link>
+    <description>Recent content in 3. RDBMS Transacties on Databases</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/transacties/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. Transaction Mgmt. Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</guid>
+      <description>SQL DBMS systemen zijn eerst en vooral multi-user systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de ACID regels ondersteunen, is er een systeem nodig dat soms gebruikers &amp;ldquo;in wacht&amp;rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&amp;mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &amp;ldquo;de rekening staat op 100 EUR&amp;rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd?</description>
+    </item>
+    <item>
+      <title>2. Concurrency Control</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</guid>
+      <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.&#xA;1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:&#xA;Verminder bedrag van source rekening Verhoog bedrag van destination rekening Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
+    </item>
+    <item>
+      <title>3. Failures-Rollbacks</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
+      <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:&#xA;DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+    </item>
+  </channel>
+</rss>

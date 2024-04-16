@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>1. Transaction Mgmt. Basics :: Databases</title>
+
+    
+    <link href="../../css/nucleus.css?1713247283" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713247283" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713247283" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713247283" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713247283" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713247283" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713247283" rel="stylesheet">
+    <link href="../../css/theme.css?1713247283" rel="stylesheet">
+    <link href="../../css/devselector.css?1713247283" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713247283" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713247283" rel="stylesheet">
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1713247283"></script>
+    <script src="../../js/devselector.js?1713247283"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="../../transacties/basics/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+  <img src="../../images/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+  <img src="../../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1713247283"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713247283"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1713247283"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+
+      <h3><a href="../../">Course Contents</a></h3>
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/sql/" title="1. RDBMS" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../sql/">
+          1. RDBMS
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/sql/rdbms-basics/" title="1. Database Basics" class="dd-item ">
+        <a href="../../sql/rdbms-basics/">
+        1. Database Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/sql/rdbms-components/" title="2. Database Componenten" class="dd-item ">
+        <a href="../../sql/rdbms-components/">
+        2. Database Componenten
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/sql-ddl-dml/" title="2. SQL DDL &amp; DML" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../sql-ddl-dml/">
+          2. SQL DDL &amp; DML
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/sql-ddl-dml/ddl/" title="1. DDL" class="dd-item ">
+        <a href="../../sql-ddl-dml/ddl/">
+        1. DDL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/sql-ddl-dml/dml/" title="2. DML" class="dd-item ">
+        <a href="../../sql-ddl-dml/dml/">
+        2. DML
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="../../transacties/">
+          3. RDBMS Transacties
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item active">
+        <a href="../../transacties/basics/">
+        1. Transaction Mgmt. Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/concurrency-control/" title="2. Concurrency Control" class="dd-item ">
+        <a href="../../transacties/concurrency-control/">
+        2. Concurrency Control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item ">
+        <a href="../../transacties/failures-rollbacks/">
+        3. Failures-Rollbacks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/apis/" title="4. Database APIs" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../apis/">
+          4. Database APIs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
+        <a href="../../apis/basics/">
+        1. API Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
+        <a href="../../apis/jdbc-jdbi/">
+        2. JDBC en JDBI
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/extra/" title="X. Extras" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../extra/">
+          X. Extras
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&amp;i=4290"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/kuleuven-diepenbeek/db-course/"><i class='fab fa-github'></i> Course Git Repository</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Index</a> > <a href='../../transacties/'>3. RDBMS Transacties</a> > 1. Transaction Mgmt. Basics
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-waarom-transacties">0. Waarom transacties?</a></li>
+    <li><a href="#1-wat-is-een-transactie">1. Wat is een transactie?</a></li>
+    <li><a href="#2-het-beheren-van-transacties">2. Het beheren van transacties</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-wat-als-er-iet-misgaat">3. Wat als er iet misgaat?</a>
+      <ul>
+        <li></li>
+        <li><a href="#denkvragen">Denkvragen</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              1. Transaction Mgmt. Basics
+            </h1>
+          
+
+        
+
+
+<p>SQL DBMS systemen zijn eerst en vooral <strong>multi-user</strong> systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de <strong>ACID regels</strong> ondersteunen, is er een systeem nodig dat soms gebruikers &ldquo;in wacht&rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &ldquo;de rekening staat op 100 EUR&rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd? Jens krijgt te horen dat er 100 EUR op de rekening staat, terwijl in werkelijkheid dit 10 EUR minder is.</p>
+<h2 id="0-waarom-transacties">0. Waarom transacties?</h2>
+<p>Heel simpel. Dit is het verkeer zonder transacties:</p>
+<p><figure>
+	<a href="../../slides/img/chaos.jpg" data-featherlight="image">
+		<img src="../../slides/img/chaos.jpg"  >
+	</a>
+	
+</figure>
+</p>
+<p>Dit met:</p>
+<p><figure>
+	<a href="../../slides/img/order.jpg" data-featherlight="image">
+		<img src="../../slides/img/order.jpg"  >
+	</a>
+	
+</figure>
+</p>
+<p>Om Atomicity, Consistency, Isolation, Durability te garanderen is er dus een <strong>transactie manager</strong> nodig die alles in goede banen leidt op het moment dat verschillende gebruikers data gaan raadplegen en/of manipuleren. Dit principe is ruwweg <strong>hetzelfde als task management</strong> van het vak <a href="https://kuleuven-diepenbeek.github.io/osc-course/ch6-tasks/">Besturingssystemen en C</a>&mdash;maar dan op database-applicatie niveau.</p>
+<h2 id="1-wat-is-een-transactie">1. Wat is een transactie?</h2>
+<p>Een transactie is een set van database operaties (bij relationele databases dus een aantal SQL operaties), dat door één gebruiker of applicatie als één <strong>unit of work</strong> aanzien wordt. Bijvoorbeeld, Jens wilt geld overschrijven van zijn rekening naar die van Jolien. Dit gaat meestal in verschillende stappen:</p>
+<ol>
+<li>Haal <code>€10</code> van balans van Jens;</li>
+<li>Stort <code>€10</code> op balans van Jolien.</li>
+</ol>
+
+<div class="mermaid" align="left" >
+	
+graph LR;
+    JN[Rekening van Jens]
+    JL[Rekening van Jolien]
+    JN -->|10 EUR| JL
+
+</div>
+<p>Dit is één transactie&mdash;het zou nooit mogen gebeuren dat er <code>€10</code> verdwijnt van Jens&rsquo; account zonder dat Jolien dat geld ontvangt. Met andere woorden, er kan niets tussen stap 1 en stap 2 komen: geen systeem crash, geen andere gebruiker (bijvoorbeeld Marianne die Jens <code>€20</code> voor zijn verjaardag stort op de rekening). Dit is één &ldquo;unit of work&rdquo;: als er iets misloopt zou alles teruggedraaid moeten worden. Dus, een transactie heeft als <strong>resultaat</strong> ofwel <strong>success</strong>, ofwel <strong>failure</strong>, maar niets tussenin. Indien dit succesvol wordt afgerond zou het DBMS systeem moeten garanderen dat het geld effectief op Jolien&rsquo;s rekening staat. Indien het faalde zou het DBMS systeem moeten garanderen dat Jens zijn geld niet kwijt is.</p>
+<p>In de praktijk worden veel verschillende transacties tegelijkertijd uitgevoerd&mdash;eventueel door verschillende gebruikers. Er moet dus iemand zijn die dit beheert, en dat is de transactie manager. Wie beslist of Jens eerst zijn geld mag afhalen, of dat Marianne eerst zijn verjaardagscadeau mag overmaken op de rekening? Wie beslist dat tussen stap 1 en 2 bij de transfer van het geld van Jens naar Jolien niemand mag tussenkomen? Juist: de transactie manager. Hier zijn verschillende strategieën voor, zoals we later zullen zien in <a href="../../transacties/concurrency-control">Concurrency Control</a>.</p>
+<h2 id="2-het-beheren-van-transacties">2. Het beheren van transacties</h2>
+<p>Formeel gezien wordt er een transactie <strong>afgelijnd</strong> door aan te kondigen wanneer een transactie begint en wanneer hij stopt, zodat de manager de juiste acties kan doorvoeren. De gebruiker kan met SQL ook zelf een transactie terugdraaien als er een programmafout voorkomt, bijvoorbeeld met een <code>try { ... } catch(Exception ex) { rollback }</code>. Meer hierover in sectie <a href="../../transacties/failures-rollbacks/">failures/rollbacks</a>.</p>
+<p>De transactie manager, die afgelijnde transacties ontvangt, kan dit dan in een <strong>schedule</strong> zetten, om te beslissen welke (delen van) transacties wanneer moeten worden uitgevoerd, net zoals Round Robin CPU scheduling algoritmes. Uiteindelijk wordt er een status toegekend aan een transactie:</p>
+<ol>
+<li>Committed&mdash;het is gelukt en de data is permanent gepersisteerd.</li>
+<li>Aborted&mdash;Een error tijdens het uitvoeren van de transactie.</li>
+</ol>
+<p>Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of worden <strong>rollbacked</strong>. Vorige versies van data moet dus ook worden bijgehouden. Jens&rsquo; rekening kan bijvoorbeeld <code>€90</code> zijn initieel, hij haalt er <code>€10</code> af om over te maken wat dit tot <code>€80</code> maakt, maar er loopt iets mis: de rollback triggert het terugdraaien van het getal <code>80</code> naar de originele <code>90</code>.</p>
+<p>Dit is een pseudocode voorbeeld van bovenstaande afgelijnde transactie:</p>
+<pre tabindex="0"><code>BEGIN TRANSACTION;
+UPDATE account SET waarde = waarde - :over_te_maken_bedrag
+WHERE eigenaar = &#39;Jens&#39;
+
+UPDATE account SET waarde = waarde + :over_te_maken_bedrag
+WHERE eigenaar = &#39;Jolien&#39;
+COMMIT;
+</code></pre><p>Transacties kosten CPU en RAM en zijn configureerbaar maar dus gelimiteerd in aantal. De manager kan worden ingesteld tot bijvoorbeeld ondersteunen van maximum 10 transacties tegelijkertijd.</p>
+<h4 id="dbms-componenten-bij-een-transactie">DBMS Componenten bij een transactie</h4>
+<p>Een voorbeeld van een transactie workflow (de nummers komen overeen met het schema):</p>
+<p><figure>
+	<a href="../../img/dbmscomponents.jpg" data-featherlight="image">
+		<img src="../../img/dbmscomponents.jpg"   title="DBMS componenten aan het werk tijdens een transactie. src: pdbmbook.com">
+	</a>
+	
+		<figcaption>DBMS componenten aan het werk tijdens een transactie. src: pdbmbook.com</figcaption>
+	
+</figure>
+</p>
+<ol>
+<li>De manager waarschuwt de <strong>scheduler</strong> dat er een nieuwe transactie moet worden ingepland. Deze optimaliseert dit naar throughput (zie BESC);</li>
+<li>De <strong>recovery</strong> en <strong>stored data</strong> manager worden op de hoogte gebracht. Deze optimaliseert disk access: het zou kunnen dat DB reads/writes via een buffer verlopen omdat fysieke file operaties duur zijn;</li>
+<li>De scheduler is nu klaar om <strong>input</strong> te ontvangen en uit te voeren in de juiste volgorde;</li>
+<li>Dit triggert mogelijks interactie met de <strong>stored data</strong> manager (het effectief wegschrijven van wijzigingen);</li>
+<li>De uitkomst wordt doorgegevan via een <strong>output area</strong>: ofwel is het gelukt (5b), ofwel is het mislukt (5a), waardoor de recovery manager zijn werk moet doen om dingen terug te draaien.</li>
+</ol>
+<h2 id="3-wat-als-er-iet-misgaat">3. Wat als er iet misgaat?</h2>
+<p>Hoe werkt dat blokje &ldquo;recovery manager&rdquo; precies? Een DBMS systeem gebruikt achterliggend een <strong>logfile</strong> als belangrijk element om eventuele recoveries te kunnen doorvoeren. Een logfile bevat in principe redundante data: in het beste geval wordt dit nooit gebruikt. Maar in het geval dat er ook maar iets misloopt is het van groot belang dat de log entries kunnen worden gebruikt om de data terug te zetten.</p>
+<p>Voor elke transactie en operatie wordt relevante informatie geregistreerd in de logfile als een <strong>log record</strong>. Deze bevat de volgende informatie:</p>
+<ul>
+<li>Een unieke Log ID;</li>
+<li>Een unieke Transactie identifier om de records te kunnen koppelen aan de transacties;</li>
+<li>Een markering voor de start van de transactie + tijd + type (read/write/read-write combo) aan te duiden;</li>
+<li>Database record identifiers en operaties (select/insert/&hellip;.) die bij de transactie horen;</li>
+<li><strong>before</strong> images: een snapshot van de data voordat de transactie werd doorgevoerd. Deze worden gebruikt om een <em>undo</em> uit te voeren;</li>
+<li><strong>after</strong> images: een snapshot van de data nadat de transactie werd doorgevoerd. Deze worden gebruikt om een <em>redo</em> uit te voeren, moest bijvoorbeeld een fysieke file write mislukken en hier een retry op worden toegepast.</li>
+</ul>
+<p>Er wordt altijd <em>eerst</em> in de logfile geschreven: dit noemen we een <strong>write-ahead log strategy</strong>. Op die manier is de DBMS manager voorbereid op een mogelijke rollback. Alle updates worden dus eerst naar de logfile geschreven voordat er iets fysiek veranderd op de harde schijf. Merk op dat de &ldquo;logFILE&rdquo; ook (gedeeltelijk) in-memory kan zijn.</p>
+<p>Wat kan er zoal misgaan? Failures worden in drie groepen opgedeeld:</p>
+<ol>
+<li><strong>Transaction failures</strong>: fouten in de logica van de transactie, zoals verkeerde input, incorrecte variabelen, statements die niet kloppen, etc. Sommige applicaties vangen dit al op voordat het naar de DBMS gaat.</li>
+<li><strong>System failures</strong>: DB of OS crashes op de server, bijvoorbeeld door stroomonderbrekingen of bugs in de database zelf. Het zou kunnen dat de DBMS buffer inhoud hierdoor leeg raakt en delen van data niet teruggezet kunnen worden.</li>
+<li><strong>Media failures</strong>: Storage access fouten door bijvoorbeeld disk crashes, een storing in het netwerk, etc. Het zou kunnen dat de logfile niet toegankelijk is.</li>
+</ol>
+<p>Het is de moeite waard om even te kijken naar de laatste 2 groepen en hoe daar recovery processen precies werken.</p>
+<h4 id="system-recovery">System Recovery</h4>
+<p>Veronderstel dat er 5 transacties door de DBMS worden verwerkt. <code>Tc</code> duidt een checkpoint aan van de data in de buffer. Er treedt een systeemfout op rechts bij <code>Tf</code>:</p>
+<p><figure>
+	<a href="../../img/undoredo.jpg" data-featherlight="image">
+		<img src="../../img/undoredo.jpg"   title="UNDO/REDO operaties voor 5 &#39;kapotte&#39; transacties. src: pdbmbook.com">
+	</a>
+	
+		<figcaption>UNDO/REDO operaties voor 5 &#39;kapotte&#39; transacties. src: pdbmbook.com</figcaption>
+	
+</figure>
+</p>
+<p>We bekijken de 5 transacties afzonderlijk:</p>
+<ol>
+<li><code>T1</code>&mdash;Aangezien deze succesvol werd gecommit voor de systeemfout én voor de snapshot <code>Tc</code>, hoeft hier niets voor te gebeuren na een crash.</li>
+<li><code>T2</code>&mdash;Deze transactie is ook compleet voor <code>Tf</code>, maar er zit nog data in de buffer van de snapshot <code>Tc</code> die niet naar disk geschreven werd. Hier is dus een <code>REDO</code> nodig.</li>
+<li><code>T3</code>&mdash;Deze transactie was nog bezig bij de crash van <code>Tf</code>. We hebben niet alle data in de buffer: er is dus transactie data verloren gegaan: een <code>UNDO</code> dus.</li>
+<li><code>T4</code>&mdash;Deze transactie is gelukt maar alle data is nog steeds pending to disk (bij <code>T2</code> was dit een deel): <code>REDO</code>.</li>
+<li><code>T5</code>&mdash;De DBMS scheduler had deze net ingepland toen het systeem crashte. Het is niet nodig om hier is van terug te draaien omdat er niks pending was (na de <code>Tc</code> checkpoint).</li>
+</ol>
+<h4 id="media-recovery">Media Recovery</h4>
+<p>Wat doe jij als er een harde schijf gerashed is van je computer? Bidden voor een werkende backup? Indien fysieke files niet meer toegankelijk zijn is een &ldquo;media recovery&rdquo; afhenkelijk van <strong>data redundancy</strong> principes. Hopelijk heb je een backup strategie voorzien. Voor database systemen wordt dit streng toegepast en moeten we een recovery doorvoeren via een mirror op een andere HDD in RAID, op een cloud backup, een offline backup, &hellip;</p>
+<p>Om de <strong>failover time</strong> te minimaliseren wordt dit vaak automatisch opgezet. Een harde schijf kan in een server in <code>RAID-1</code> modus geplaatst worden: die functioneert als 100% clone van de andere. Indien er één van beide HDDs faalt, neemt onmiddellijk de andere het werk over, zodat gebruikers zo goed als geen last hebben van de media failure. Systemen als backup copies door iets te &ldquo;archiveren&rdquo; (een <code>.tar.gz</code> of <code>.zip</code> op bepaalde tijdstippen aan de kant zetten) vereist meestal meer werk om terug te zetten. Backups nemen betekent ook beslissen of het een <strong>full</strong> of <strong>incremental</strong> backup zal zijn, waarbij je (1) alle files apart zet, of (2) enkel de wijzigingen ten opzichte van vorige snapshots.</p>
+<p>Een goede backup strategie&mdash;dit geldt zowel voor databases als voor je eigen data!!&mdash;volgt <a href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/">het 1-2-3 backup principe</a>:</p>
+<ul>
+<li>Zorg voor minstens <strong>drie backups</strong> van je data, waarvan</li>
+<li><strong>twee lokaal</strong> maar op <strong>verschillende media</strong> (bvb, verschillende servers, op HDD en op USB, &hellip;), en</li>
+<li><strong>één off-site kopie</strong>, zoals cloud-based backup systemen als Dropbox, Google Drive, <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze&rsquo;s Cloud Storage</a>.</li>
+</ul>
+<p>Dan hebben we het nog niet over security gehad&hellip;</p>
+<h3 id="denkvragen">Denkvragen</h3>
+<ul>
+<li>Waarom kan je niet gewoon media recovery strategieën toepassen bij systeemcrashes? Waarom wel, maar is dat misschien geen goed idee?</li>
+<li>Als er verschillende transacties tegelijkertijd aan één record iets wijzigen, welke problemen zie jij dan zoal? Hoe zou je dat door de transaction manager laten oplossen? Kan je zo twee verschillende oplossingen bedenken?</li>
+<li>Wat is alweer het verschil tussen <code>UNDO</code> en <code>REDO</code> recovery technieken?</li>
+<li>Als ier iets misgaat op applicatieniveau, bijvoorbeeld een crash in je Java applicatie, moet de DBMS dan iets doen, of moet de programmeur dan iets doen, om ACID te blijven garanderen?</li>
+<li>Wat zou er volgens jou moeten gebeuren als twee personen tegelijkertijd op <code>bol.com</code> een item bestellen waarvan maar één hoeveelheid in stock is? Wie trekt hier aan het korte eind? Hoe vangen grote webwinkels dit probleem op?</li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../transacties/" title="3. RDBMS Transacties"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../transacties/concurrency-control/" title="2. Concurrency Control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1713247283"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713247283"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713247283"></script>
+    <script src="../../js/jquery.sticky.js?1713247283"></script>
+    <script src="../../js/featherlight.min.js?1713247283"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713247283"></script>
+    <script src="../../js/learn.js?1713247283"></script>
+    <script src="../../js/hugo-learn.js?1713247283"></script>
+    <script src="../../js/mermaid.min.js?1713247283"></script>
+    <script>
+    window.MathJax = {
+      chtml: {
+        scale: 2,                      
+        minScale: .5,                  
+        matchFontHeight: true,         
+        mtextInheritFont: false,       
+        merrorInheritFont: true,       
+        mathmlSpacing: false,          
+        skipAttributes: {},            
+        exFactor: .5,                  
+        displayAlign: 'center',        
+        displayIndent: '0'             
+      }
+    };
+    </script>
+    
+    
+
+  </body>
+</html>
+
