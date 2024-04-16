@@ -7,91 +7,131 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
-    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1. Database Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-basics/</guid>
-      <description>Een database is niet meer dan een verzameling van gegevens. Een DBMS (DataBase Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.&#xA;1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?&#xA;Databases bieden een aantal key features:&#xA;Performant (index management) Betere integratie met andere applicaties Uniform DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip; In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
+      <description>Een database is niet meer dan een verzameling van gegevens. Een DBMS (DataBase Management System) is de software waarmee databases beheerd of aangemaakt kunnen worden.
+1. Waarom een database gebruiken? Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?
+Databases bieden een aantal key features:
+ Performant (index management) Betere integratie met andere applicaties Uniform DBMS voor bewerken of ophalen van data Concurrency ondersteuning Security &amp;amp; Privacy van data &amp;hellip;  In het tweedejaarsvak Besturingssystemen en C leerde je dat IO manipulatie heel dure operaties zijn.</description>
     </item>
+    
     <item>
       <title>1. DDL</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</guid>
-      <description>Data Defintion Language is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.&#xA;Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan DB Browser for SQLite gebruiken tijdens onze lessen.</description>
+      <description>Data Defintion Language is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.
+Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan DB Browser for SQLite gebruiken tijdens onze lessen.</description>
     </item>
+    
     <item>
       <title>1. Transaction Mgmt. Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/basics/</guid>
       <description>SQL DBMS systemen zijn eerst en vooral multi-user systemen. Om zowel verschillende gebruikers te kunnen behandelen als nog steeds de ACID regels ondersteunen, is er een systeem nodig dat soms gebruikers &amp;ldquo;in wacht&amp;rdquo; zet. Stel je voor dat Jens en Jolien tegelijkertijd data lezen én updaten&amp;mdash;in dezelfde tabel, hetzelfde record. Jens leest uit &amp;ldquo;de rekening staat op 100 EUR&amp;rdquo; en Jolien haalt er 10 EUR vanaf. Wie mag eerst? Kan dit tegelijkertijd?</description>
     </item>
+    
     <item>
       <title>2. Concurrency Control</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-control/</guid>
-      <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.&#xA;1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:&#xA;Verminder bedrag van source rekening Verhoog bedrag van destination rekening Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
+      <description>De transactie management scheduler (zie transacties - basics) is verantwoordelijk om verschillende transacties correct in te plannen zonder dat er data problemen of clashes optreden.
+1. Problemen? Welke problemen? Denk terug aan het bank transfer probleem van de vorige sectie. Veronderstel dat deze keer zowel Jens als Marianne €10 willen overmaken naar Jolien. Als we dat als volgt doen:
+ Verminder bedrag van source rekening Verhoog bedrag van destination rekening  Dan zou het kunnen dat bij het uitlezen van #2, Jolien&amp;rsquo;s rekening op €100 staat.</description>
     </item>
+    
     <item>
       <title>2. Database Componenten</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql/rdbms-components/</guid>
-      <description>1. Three Layer Architecture Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.&#xA;Enkele voorbeelden hiervan zijn:&#xA;Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
+      <description>1. Three Layer Architecture Logical Layer De Logical Layer is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.
+Enkele voorbeelden hiervan zijn:
+ Een BOEK mag door maximum 0 of 1 PERSONEN ontleend worden. Een PERSOON mag meerdere BOEKEN ontlenen. Een PERSOON is een subtype van een GEBRUIKER.</description>
     </item>
+    
     <item>
       <title>2. DML</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</guid>
-      <description>Data Modification Language is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.&#xA;SELECT SELECT is het commando dat we gebruiken om data op te vragen uit de database.&#xA;SELECT { DISTINCT } expression&#xD;FROM table&#xD;{ WHERE condition } LIKE operator LIKE wordt gebruikt om wildcard searches uit te voeren.</description>
+      <description>Data Modification Language is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.
+SELECT SELECT is het commando dat we gebruiken om data op te vragen uit de database.
+ SELECT { DISTINCT } expression FROM table { WHERE condition } LIKE operator LIKE wordt gebruikt om wildcard searches uit te voeren.</description>
     </item>
+    
     <item>
       <title>3. Failures-Rollbacks</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
-      <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:&#xA;DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
+      <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:
+DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
     </item>
+    
     <item>
       <title>1. API Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</guid>
-      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):&#xA;In de praktijk variëert deze tier benadering van project tot project.</description>
+      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):
+   In de praktijk variëert deze tier benadering van project tot project.</description>
     </item>
+    
     <item>
       <title>1. NoSQL Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</guid>
-      <description>Het schaalbaarheid probleem Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&#xA;Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie transacties basics).&#xA;Je botst hier echter snel op hardware limitaties&amp;mdash;niet alles is opgelost met een latje RAM.</description>
+      <description>Het schaalbaarheid probleem Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?
+Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie transacties basics).
+   Je botst hier echter snel op hardware limitaties&amp;mdash;niet alles is opgelost met een latje RAM.</description>
     </item>
+    
     <item>
       <title>2. JDBC en JDBI</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
       <description>1.1 Java Database Connectivity (JDBC) 1.1.1 Hoe verbind ik Java met de DB? JDBC is een interface in de JDK die ons in staat stelt om een connectie te openen naar een database. JDBC is een API: een abstracitelaag of een protocol. Dit betekent dat we met JDBC kunnen verbinden naar eender welke server van eender welke flavor: een Oracle SQL, MSSQL, of SQLite database. De database vendor wordt verborgen achter de JDBC laag.</description>
     </item>
+    
     <item>
       <title>2. Key-value stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
-      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.&#xA;De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:&#xA;public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
+      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.
+De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:
+public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
     </item>
+    
     <item>
       <title>3. Document stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
-      <description>0. Data filtering: recap Wat is een &amp;ldquo;mapreduce&amp;rdquo; functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array [1, 2, 3, 4] en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een list(map(lambda...)) statement:&#xA;range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hier gebruikten we een &amp;ldquo;lambda&amp;rdquo; om voor elk element een functie los te laten, die dat element transformeert, ofwel &amp;ldquo;mapt&amp;rdquo;.</description>
+      <description>0. Data filtering: recap Wat is een &amp;ldquo;mapreduce&amp;rdquo; functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array [1, 2, 3, 4] en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een list(map(lambda...)) statement:
+range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hier gebruikten we een &amp;ldquo;lambda&amp;rdquo; om voor elk element een functie los te laten, die dat element transformeert, ofwel &amp;ldquo;mapt&amp;rdquo;.</description>
     </item>
+    
   </channel>
 </rss>

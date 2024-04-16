@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>1. DDL :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713258822" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713258822" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713258822" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713258822" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713258822" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713258822" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713258822" rel="stylesheet">
-    <link href="../../css/theme.css?1713258822" rel="stylesheet">
-    <link href="../../css/devselector.css?1713258822" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713258822" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713258822" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713258859" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713258859" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713258859" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713258859" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713258859" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713258859" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713258859" rel="stylesheet">
+    <link href="../../css/theme.css?1713258859" rel="stylesheet">
+    <link href="../../css/devselector.css?1713258859" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713258859" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713258859" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713258822"></script>
-    <script src="../../js/devselector.js?1713258822"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713258859"></script>
+    <script src="../../js/devselector.js?1713258859"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713258822"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713258822"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713258859"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713258859"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713258822"></script>
+<script type="text/javascript" src="../../js/search.js?1713258859"></script>
 
     
   </div>
@@ -649,22 +649,22 @@
 <h2 id="tabellen-aanmaken-en-wijzigen">Tabellen aanmaken en wijzigen</h2>
 <p>Met DDL <em>definiëer</em> je structuur in SQL. Met DML <em>wijzig</em> of manipuleer je de inhoud ervan. De Chinook database bevat natuurlijk reeds tabellen, maar alles begint met een <code>CREATE TABLE</code> statement. Je kan in SQLite Browser rechtsklikken op tabellen en <strong>Copy Create Statement</strong> kiezen om te reverse-engineeren hoe de tabellen aangemaakt werden.</p>
 <p>Bijvoorbeeld, voor albums:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#d88200">&#34;albums&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">AlbumId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">Title</span><span style="color:#111">]</span> <span style="color:#111">NVARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">160</span><span style="color:#111">)</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">ArtistId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#d88200">&#34;artists&#34;</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span> <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">UPDATE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>Rekening houdend met de <a href="https://www.sqlite.org/datatype3.html">vereenvoudigde datatypes van SQLite</a>,  zou je het zelf waarschijnlijk ongeveer zo schrijven:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">album</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">AlbumId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">Title</span> <span style="color:#111">TEXT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">ArtistId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">ArtistId</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">artists</span> <span style="color:#111">(</span><span style="color:#111">ArtistId</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>De <code>NO ACTION</code> statements zijn nutteloos. Namen hoeven, afhankelijk van het dialect, al dan niet escaped als <code>[naam]</code> of <code>&quot;naam&quot;</code>. Merk ook op dat bovenstaande SQL zal falen als de tabel <code>artists</code> niet eerst gemaakt wordt, anders kan de DB geen foreign key constraint controle uitvoeren. Meerdere statements worden gebruikelijk gescheiden door puntkomma <code>;</code>.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#d88200">&#34;albums&#34;</span>
+<span style="color:#111">(</span>
+    <span style="color:#111">[</span><span style="color:#111">AlbumId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">[</span><span style="color:#111">Title</span><span style="color:#111">]</span> <span style="color:#111">NVARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">160</span><span style="color:#111">)</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">[</span><span style="color:#111">ArtistId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#d88200">&#34;artists&#34;</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> 
+        <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span> <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">UPDATE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span>
+<span style="color:#111">)</span>
+</code></pre></div><p>Rekening houdend met de <a href="https://www.sqlite.org/datatype3.html">vereenvoudigde datatypes van SQLite</a>,  zou je het zelf waarschijnlijk ongeveer zo schrijven:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">album</span> <span style="color:#111">(</span>
+    <span style="color:#111">AlbumId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">Title</span> <span style="color:#111">TEXT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">ArtistId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">ArtistId</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">artists</span> <span style="color:#111">(</span><span style="color:#111">ArtistId</span><span style="color:#111">)</span>
+<span style="color:#111">)</span>
+</code></pre></div><p>De <code>NO ACTION</code> statements zijn nutteloos. Namen hoeven, afhankelijk van het dialect, al dan niet escaped als <code>[naam]</code> of <code>&quot;naam&quot;</code>. Merk ook op dat bovenstaande SQL zal falen als de tabel <code>artists</code> niet eerst gemaakt wordt, anders kan de DB geen foreign key constraint controle uitvoeren. Meerdere statements worden gebruikelijk gescheiden door puntkomma <code>;</code>.</p>
 
 <div class="notices note" ><p>Merk op dat in SQL DDL we keywords met HOOFDLETTER schrijven en tabel of kolomnamen met kleine letter.</p>
 </div>
@@ -687,19 +687,19 @@
 <h2 id="views-aanmaken">Views aanmaken</h2>
 <p>Een view is eigenlijk een specifieke query die we een vaste naam geven.</p>
 <p>Als ik een view wil maken van alle tracks van het Rock genre, dan doe ik dat als volgt:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Vanaf dit punt kan ik in een nieuwe query het volgende uitvoeren:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">rock_tracks</span>
-</span></span></code></pre></div><p>Merk op dat we vaak geen idee hebben welke ID het genre <code>Rock</code> heeft:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
-</span></span></code></pre></div><p>In plaats van de resultaten te limiteren op <code>GenreId</code>, kunnen we beide tabellen <em>joinen</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">GenreId</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
-</span></span></code></pre></div><p>Dit kan ook met behulp van een subquery. Zie ook: <a href="../../sql-ddl-dml/dml/#join">DDML - JOIN operator</a> en verder, subqueries.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
+    <span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Vanaf dit punt kan ik in een nieuwe query het volgende uitvoeren:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">rock_tracks</span>
+</code></pre></div><p>Merk op dat we vaak geen idee hebben welke ID het genre <code>Rock</code> heeft:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
+</code></pre></div><p>In plaats van de resultaten te limiteren op <code>GenreId</code>, kunnen we beide tabellen <em>joinen</em>:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
+    <span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+    <span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">GenreId</span>
+    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
+</code></pre></div><p>Dit kan ook met behulp van een subquery. Zie ook: <a href="../../sql-ddl-dml/dml/#join">DDML - JOIN operator</a> en verder, subqueries.</p>
 
 <div class="ex">
 	<div class="inner">
@@ -1057,15 +1057,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713258822"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713258822"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713258822"></script>
-    <script src="../../js/jquery.sticky.js?1713258822"></script>
-    <script src="../../js/featherlight.min.js?1713258822"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713258822"></script>
-    <script src="../../js/learn.js?1713258822"></script>
-    <script src="../../js/hugo-learn.js?1713258822"></script>
-    <script src="../../js/mermaid.min.js?1713258822"></script>
+    <script src="../../js/clipboard.min.js?1713258859"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713258859"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713258859"></script>
+    <script src="../../js/jquery.sticky.js?1713258859"></script>
+    <script src="../../js/featherlight.min.js?1713258859"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713258859"></script>
+    <script src="../../js/learn.js?1713258859"></script>
+    <script src="../../js/hugo-learn.js?1713258859"></script>
+    <script src="../../js/mermaid.min.js?1713258859"></script>
     <script>
     window.MathJax = {
       chtml: {
