@@ -22,6 +22,7 @@ public class StudentRepositoryJdbi3Impl implements StudentRepository {
                    .mapToBean(Student.class)
                    .list();
         });
+
     }
 
     @Override

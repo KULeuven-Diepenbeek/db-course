@@ -12,10 +12,11 @@ public class RepoMain {
         ConnectionManager connectionManager = new ConnectionManager();
         var jdbcRepo = new StudentRepositoryJdbcImpl(connectionManager.getConnection());
         var jdbiRepo = new StudentRepositoryJdbi3Impl(ConnectionManager.ConnectionString);
-        doStuff(jdbcRepo, "JDBC");
+//        doStuff(jdbcRepo, "JDBC");
 
+//        connectionManager.flushConnection();
+        doStuff(jdbiRepo, "JDBI 3");
         connectionManager.flushConnection();
-//        doStuff(jdbiRepo, "JDBI 3");
     }
 
     private static void doStuff(StudentRepository repo, String impl) {
