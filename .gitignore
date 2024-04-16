@@ -40,4 +40,4 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/gradle,intellij
 
 # Hugo stuff to display site on Github pages. Is handled on Github itself
-# docs/
+docs/
