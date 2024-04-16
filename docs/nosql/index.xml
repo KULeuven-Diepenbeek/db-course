@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>5. NoSQL on Databases</title>
+    <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/</link>
+    <description>Recent content in 5. NoSQL on Databases</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/nosql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. NoSQL Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</guid>
+      <description>Het schaalbaarheid probleem Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&#xA;Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie transacties basics).&#xA;Je botst hier echter snel op hardware limitaties&amp;mdash;niet alles is opgelost met een latje RAM.</description>
+    </item>
+    <item>
+      <title>2. Key-value stores</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</guid>
+      <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.&#xA;De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:&#xA;public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
+    </item>
+    <item>
+      <title>3. Document stores</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</guid>
+      <description>0. Data filtering: recap Wat is een &amp;ldquo;mapreduce&amp;rdquo; functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array [1, 2, 3, 4] en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een list(map(lambda...)) statement:&#xA;range = [1, 2, 3, 4] result = list(map(lambda x: x * 2, range)) print(result) Hier gebruikten we een &amp;ldquo;lambda&amp;rdquo; om voor elk element een functie los te laten, die dat element transformeert, ofwel &amp;ldquo;mapt&amp;rdquo;.</description>
+    </item>
+  </channel>
+</rss>

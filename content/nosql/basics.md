@@ -1,5 +1,6 @@
 ---
 title: 1. NoSQL Basics
+draft: false
 ---
 
 ## Het schaalbaarheid probleem
@@ -55,6 +56,8 @@ Een vergelijking van eigenschappen tussen een relationele en niet-relationele da
 | **Features** | views/procs/... | basic API |
 | **Data vol.** | "normal" | "huge amounts" |
 
+*BASE staat voor Basically Available, Soft state, Eventual concistency
+
 Merk op dat het niet altijd **de beste oplossing** is om naar een NoSQL DB te grijpen. Wanneer dan wel of niet? De volgende vragen kunnen hierbij helpen:
 
 - Bevat data veel/weinig relaties? 
@@ -70,13 +73,13 @@ Klassieke relationele databases zijn nog steeds een van de meestgebruikte ter we
 
 De drie bovenste lijnen zijn Oracle, MySQL en Microsoft SQL Server, de drie giganten die alledrie relationele DBMS systemen zijn. PostgresQL, de oranje stijgende lijn, is volgende---ook SQL. Maar daarnaast volgen MongoDB, Cassandra, Redis, DynamoDB, ...---allemaal verschillende soorten noSQL alternatieven.  
 
-Doe eens een gokje: welk database systeem denk je dar onderstaande websites gebruiken? relationeel of niet-relationeel?
+<!-- Doe eens een gokje: welk database systeem denk je dar onderstaande websites gebruiken? relationeel of niet-relationeel?
 
 - https://www.vdab.be/vindeenjob/vacatures
 - https://www.immoweb.be
 - https://twitter.com ([hint 1](https://www.8bitmen.com/what-database-does-twitter-use-a-deep-dive/)) ([hint 2](https://blog.twitter.com/engineering/en_us/a/2014/manhattan-our-real-time-multi-tenant-distributed-database-for-twitter-scale))
 - https://people.cs.kuleuven.be/~wouter.groeneveld/courses/
-- Blog websites zoals [Brain Baking](https://brainbaking.com/) of [Digging The Digital](https://diggingthedigital.com/) (hint: een van beiden is een valstrik)
+- Blog websites zoals [Brain Baking](https://brainbaking.com/) of [Digging The Digital](https://diggingthedigital.com/) (hint: een van beiden is een valstrik) -->
 
 ### NoSQL Types
 
@@ -103,7 +106,7 @@ Hier bewaar je een "document" in, dat meestal in JSON-formaat is, zoals:
 }
 ```
 
-Merk op dat hier _geen relaties_ worden gelegd, alhoewel dat wel kan: bijvoorbeeld document 1 kan een property `{ id: 1 }` hebben, en document 2 `{ id: 2, relatedDocumentId: 1 }`. Dit echter veel gebruiken zal een performance hit geven: document stores dienen voornamelijk om gigantisch veel onafhankelijke data te bewaren, op een **ongestructureerde** manier. Er zijn een table definities: een key meer of minder maakt niet uit. 
+Merk op dat hier _geen relaties_ worden gelegd, alhoewel dat wel kan: bijvoorbeeld document 1 kan een property `{ id: 1 }` hebben, en document 2 `{ id: 2, relatedDocumentId: 1 }`. Dit echter veel gebruiken zal een performance hit geven: document stores dienen voornamelijk om gigantisch veel onafhankelijke data te bewaren, op een **ongestructureerde** manier. Er zijn geen table definities: een key meer of minder maakt niet uit. 
 
 NoSQL: `{ name: 'Jos' } -> { name: 'Jos', well-behaved: true }`. Geen `INSERT INTO student(name) VALUES ("Jos")` dus! Ook hier wordt intern **hashing** gebruikt (zie onder): Het document `{ name: 'Jos' }` wordt intern opgeslaan als `{ name: 'Jos', _id: 23235435 }`. Data retrieval snelheid blijft belangrijk, dus extra indexen/views kunnen door de gebruiker zelf worden aangemaakt (zie volgende hoofdstukken).
 
@@ -150,15 +153,6 @@ leeftijden.put("Seppe", new Persoon("Seppe", 30));
 leeftijden.put("Bart", new Persoon("Bart", 40));
 leeftijden.put("Jeanne", new Persoon("Jeanne", 18));
 ```
-
-```kotlin
-var leeftijden = hashMapOf(
-	"Wilfried" to Persoon("Wilfried", 20),
-	"Seppe" to Persoon("Jaqueline", 30),
-	"Bart" to Persoon("Bart", 40),
-	"Jeanne" to Persoon("Jeanne", 18))
-```
-
 </div>
 
 ##### Hash functies
@@ -171,7 +165,7 @@ Vrijwel alle NoSQL databases gebruiken achterliggend hashing technieken om **hor
 
 ![](/img/hashing2.png)
 
-##### Paritioning/sharding
+##### Partioning/sharding
 
 In bovenstaand voorbeeld worden de persoonsgegevens verspreid over 3 verschillende servers door de hashing "index" (mod3 + 1). Data partitioning noemen we ook wel **sharding** waarbij een individuele partitie een **shard** is. Om zo _efficient mogelijk_ te partitioneren schakel je best servers aan elkaar in een soort van "ring", zoals in dit schema:
 
@@ -183,7 +177,7 @@ Wat is dan een oplossing voor NoSQL systemen? **BASE** in plaats van ACID:
 
 - **Basically Available** (BA); elke (gebruikelijk HTTP-based) request ontvangt een respons, hetzij een `200` (OK), hetzij een `4xx`/`5xx` (een externe/interne fout). Ook al zijn niet alle nodes geupdate, toch kan er al een `201` worden teruggegeven---asynchroon dus.
 - **Soft state** (S); sate kan wijzigen, ook zonder input! We weten dus nooit exact wat er in de shards zit. Read requests zijn soms out-of-date omdat een shard update in de ring partitie plaats aan het vinden was, maar dat één bepaalde shard nog niet bereikte... 
-- **Eventually Consistent** (E); NoSQL biedt de "ooit is het zel consistent" mode aan. 
+- **Eventually Consistent** (E); NoSQL biedt de "ooit is het wel consistent" mode aan. 
 
 In de praktijk verschilt het van NoSQL database tot database systeem hoe dicht deze BASE regels tegen de ACID regels aanleunen. De document-based CouchDB, die we later zullen in detail bekijken, ondersteunt ook vormen van transacties en dergelijke, wat het eerder iets ACID-achtig maakt. 
 
@@ -260,7 +254,6 @@ Welke database systemen---of een combinatie ervan---denk je dat de volgende grot
 
 - https://uber.com/
 - Hint: http://highscalability.com/blog/2016/9/28/how-uber-manages-a-million-writes-per-second-using-mesos-and.html (2016)
-
 
 ### Denkvragen
 

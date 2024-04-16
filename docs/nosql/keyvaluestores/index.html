@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>1. DDL :: Databases</title>
+    <title>2. Key-value stores :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1713258822" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../sql-ddl-dml/ddl/">
+  <body class="" data-url="../../nosql/keyvaluestores/">
     <nav id="sidebar" class="">
 
 
@@ -168,7 +168,7 @@
   
     
     <li data-nav-id="/sql-ddl-dml/" title="2. SQL DDL &amp; DML" class="dd-item
-        parent
+        
         
         
         ">
@@ -194,7 +194,7 @@
  
   
     
-      <li data-nav-id="/sql-ddl-dml/ddl/" title="1. DDL" class="dd-item active">
+      <li data-nav-id="/sql-ddl-dml/ddl/" title="1. DDL" class="dd-item ">
         <a href="../../sql-ddl-dml/ddl/">
         1. DDL
         
@@ -417,7 +417,7 @@
   
     
     <li data-nav-id="/nosql/" title="5. NoSQL" class="dd-item
-        
+        parent
         
         
         ">
@@ -464,7 +464,7 @@
  
   
     
-      <li data-nav-id="/nosql/keyvaluestores/" title="2. Key-value stores" class="dd-item ">
+      <li data-nav-id="/nosql/keyvaluestores/" title="2. Key-value stores" class="dd-item active">
         <a href="../../nosql/keyvaluestores/">
         2. Key-value stores
         
@@ -596,7 +596,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../sql-ddl-dml/'>2. SQL DDL & DML</a> > 1. DDL
+            <a href='../../'>Index</a> > <a href='../../nosql/'>5. NoSQL</a> > 2. Key-value stores
           
         
           
@@ -611,8 +611,16 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#tabellen-aanmaken-en-wijzigen">Tabellen aanmaken en wijzigen</a></li>
-    <li><a href="#views-aanmaken">Views aanmaken</a></li>
+    <li><a href="#11-persistente-hashmaps">1.1 Persistente Hashmaps</a>
+      <ul>
+        <li><a href="#111-oefeningen">1.1.1 Oefeningen</a></li>
+      </ul>
+    </li>
+    <li><a href="#12-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</a>
+      <ul>
+        <li><a href="#denkvragen">Denkvragen</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -630,83 +638,63 @@
           
             <h1>
               
-              1. DDL
+              2. Key-value stores
             </h1>
           
 
         
 
 
-<p><strong>Data Defintion Language</strong> is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.</p>
-<p>Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan <a href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a> gebruiken tijdens onze lessen.</p>
-
-<div class="ex">
-	<div class="inner">
-    	<p>Kijk naar <a href="../../chinook.db">de Chinook database</a> en maak een schematische voorstelling van hoe deze database eruit ziet. Je kan hiervoor <a href="https://mermaid.live/">Mermaid</a> gebruiken, of een eigen tool of pen en papier.</p>
-
-	</div>
-</div>
-<h2 id="tabellen-aanmaken-en-wijzigen">Tabellen aanmaken en wijzigen</h2>
-<p>Met DDL <em>definiëer</em> je structuur in SQL. Met DML <em>wijzig</em> of manipuleer je de inhoud ervan. De Chinook database bevat natuurlijk reeds tabellen, maar alles begint met een <code>CREATE TABLE</code> statement. Je kan in SQLite Browser rechtsklikken op tabellen en <strong>Copy Create Statement</strong> kiezen om te reverse-engineeren hoe de tabellen aangemaakt werden.</p>
-<p>Bijvoorbeeld, voor albums:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#d88200">&#34;albums&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">AlbumId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">Title</span><span style="color:#111">]</span> <span style="color:#111">NVARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">160</span><span style="color:#111">)</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">[</span><span style="color:#111">ArtistId</span><span style="color:#111">]</span> <span style="color:#111">INTEGER</span>  <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#d88200">&#34;artists&#34;</span> <span style="color:#111">([</span><span style="color:#111">ArtistId</span><span style="color:#111">])</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span> <span style="color:#00a8c8">ON</span> <span style="color:#00a8c8">UPDATE</span> <span style="color:#00a8c8">NO</span> <span style="color:#111">ACTION</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>Rekening houdend met de <a href="https://www.sqlite.org/datatype3.html">vereenvoudigde datatypes van SQLite</a>,  zou je het zelf waarschijnlijk ongeveer zo schrijven:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">album</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">AlbumId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">Title</span> <span style="color:#111">TEXT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">ArtistId</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">ArtistId</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">artists</span> <span style="color:#111">(</span><span style="color:#111">ArtistId</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>De <code>NO ACTION</code> statements zijn nutteloos. Namen hoeven, afhankelijk van het dialect, al dan niet escaped als <code>[naam]</code> of <code>&quot;naam&quot;</code>. Merk ook op dat bovenstaande SQL zal falen als de tabel <code>artists</code> niet eerst gemaakt wordt, anders kan de DB geen foreign key constraint controle uitvoeren. Meerdere statements worden gebruikelijk gescheiden door puntkomma <code>;</code>.</p>
-
-<div class="notices note" ><p>Merk op dat in SQL DDL we keywords met HOOFDLETTER schrijven en tabel of kolomnamen met kleine letter.</p>
-</div>
-
-<ul>
-<li>Probleem met je structuur? Geen probleem: <code>DROP TABLE album</code>. Als hier data in zit ben je die ook onherroepelijk kwijt!</li>
-<li>Kolom vergeten? Geen probleem: <code>ALTER TABLE album ADD COLUMN blah TEXT</code>.</li>
-<li>Kolom te veel? Geen probleem: <code>ALTER TABLE album DROP COLUMN blah</code>.</li>
-<li>Not null constraint vergeten? Geen probleem: <code>ALTER TABLE album ALTER COLUMN blah NOT NULL</code>. Oei, syntaxfoutje? <a href="https://sqlite.org/lang_altertable.html">SQLite ondersteunt geen alter in alter</a>, andere vendors wel.</li>
-<li>Check constraint vergeten? Geen probleem: <code>ALTER TABLE album ADD CONSTRAINT my_constraint CHECK(len(blah) &gt; 9)</code> Oei, syntaxfoutje? Zelfde probleem&mdash;enkel op te lossen door <code>DROP</code> en re-create.</li>
-</ul>
-<p>De <code>CREATE</code> en <code>DROP</code> statements kunnen ook gebruikt worden&mdash;afhankelijk van de compatibiliteit van je RDBMS&mdash;om indexen, aliases, tablespaces, synoniemen, sequenties, &hellip; aan te maken en te verwijderen.</p>
-
-<div class="ex">
-	<div class="inner">
-    	<p>Maak twee nieuwe tabellen aan: een <strong>licenses</strong> tabel, die per album (en dus ook artiest) licenties en hun kostprijs opslaat, en een <strong>memorabelia</strong> tabel die merchandise voor artiesten bevat om te verkopen. Denk goed na over het gebruik van constraints. Voeg daarna met <code>ALTER TABLE</code> kolommen toe om het (variërend) BTW percentage voor beide tabellen te bewaren.</p>
-
-	</div>
-</div>
-<h2 id="views-aanmaken">Views aanmaken</h2>
-<p>Een view is eigenlijk een specifieke query die we een vaste naam geven.</p>
-<p>Als ik een view wil maken van alle tracks van het Rock genre, dan doe ik dat als volgt:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Vanaf dit punt kan ik in een nieuwe query het volgende uitvoeren:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">rock_tracks</span>
-</span></span></code></pre></div><p>Merk op dat we vaak geen idee hebben welke ID het genre <code>Rock</code> heeft:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
-</span></span></code></pre></div><p>In plaats van de resultaten te limiteren op <code>GenreId</code>, kunnen we beide tabellen <em>joinen</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">VIEW</span> <span style="color:#111">rock_tracks</span> <span style="color:#00a8c8">AS</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">genres</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">GenreId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">GenreId</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">WHERE</span> <span style="color:#111">genres</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
-</span></span></code></pre></div><p>Dit kan ook met behulp van een subquery. Zie ook: <a href="../../sql-ddl-dml/dml/#join">DDML - JOIN operator</a> en verder, subqueries.</p>
-
-<div class="ex">
-	<div class="inner">
-    	<p>Schrijf een view die de naam van elke track geeft, alsook de naam van het album en de artiest, gesorteerd op artiest, album en dan track.</p>
-
-	</div>
-</div>
+<h2 id="11-persistente-hashmaps">1.1 Persistente Hashmaps</h2>
+<p>De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele <code>HashMap&lt;K,V&gt;</code> die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.</p>
+<p>De &ldquo;oude&rdquo; manier om dit te doen op de JVM is gebruik te maken van <code>FileOutputStream</code>:</p>
+<div class="devselect">
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#111">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#111">)</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">IOException</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">db</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HashMap</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#111">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">db</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">(</span><span style="color:#d88200">&#34;joske&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Student</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Joske&#34;</span><span style="color:#111">,</span> <span style="color:#111">11</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">file</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">File</span><span style="color:#111">(</span><span style="color:#d88200">&#34;database.db&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">FileOutputStream</span><span style="color:#111">(</span><span style="color:#111">file</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ObjectOutputStream</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">writeObject</span><span style="color:#111">(</span><span style="color:#111">db</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">close</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
+<p>Inlezen werkt op dezelfde manier, met <code>FileInputStream</code> en <code>ObjectInputStream</code>. Hoe je <code>Student</code> klasse wordt geserialiseerd kan je <strong>zelf kiezen</strong>, maar een vereiste is dat je de interface <code>Serializable</code> implementeert!</p>
+<p>Met bovenstaande interface kan je de student terug uitlezen:</p>
+<div class="devselect">
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ObjectInputStream</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">FileInputStream</span><span style="color:#111">(</span><span style="color:#d88200">&#34;database.db&#34;</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#111">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;</span> <span style="color:#111">map</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#111">,</span> <span style="color:#111">Object</span><span style="color:#f92672">&gt;</span><span style="color:#111">)</span> <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">readObject</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">close</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Student</span> <span style="color:#111">joske</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">Student</span><span style="color:#111">)</span> <span style="color:#111">map</span><span style="color:#111">.</span><span style="color:#75af00">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;joske&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#111">joske</span><span style="color:#111">.</span><span style="color:#75af00">getName</span><span style="color:#111">());</span>
+</span></span></code></pre></div></div>
+<h3 id="111-oefeningen">1.1.1 Oefeningen</h3>
+<ol>
+<li>Werk bovenstaand voorbeeld uit en persisteer een aantal studenten met de volgende klasse:</li>
+</ol>
+<div class="devselect">
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">Student</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">final</span> <span style="color:#00a8c8">int</span> <span style="color:#111">age</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">public</span> <span style="color:#75af00">Student</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">age</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">name</span> <span style="color:#f92672">=</span> <span style="color:#111">name</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">=</span> <span style="color:#111">age</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
+<h2 id="12-distributed-hashmaps-memcached">1.2 Distributed Hashmaps: Memcached</h2>
+<p>We kunnen eenvoudig een verbinding maken met een (of meerdere) Memcached server via de Memcached Java client van <code>net.spy.spymemcached</code> (zie mvn repo: <a href="https://mvnrepository.com/artifact/net.spy/spymemcached">https://mvnrepository.com/artifact/net.spy/spymemcached</a>). Dit hoeft maar één regel code te zijn: (zie <a href="http://dustin.github.io/java-memcached-client/apidocs/net/spy/memcached/MemcachedClient.html">memcached javadocs</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#111">client</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">MemcachedClient</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">InetSocketAddress</span><span style="color:#111">(</span><span style="color:#d88200">&#34;127.0.0.1&#34;</span><span style="color:#111">,</span> <span style="color:#111">11211</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// bewaar een student onder key &#34;joskey&#34; voor één uur (3600s)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">client</span><span style="color:#111">.</span><span style="color:#75af00">set</span><span style="color:#111">(</span><span style="color:#d88200">&#34;joskey&#34;</span><span style="color:#111">,</span> <span style="color:#111">3600</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Student</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Jos&#34;</span><span style="color:#111">,</span> <span style="color:#111">20</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// retrieve object</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">var</span> <span style="color:#111">restoredStudent</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">Student</span><span style="color:#111">)</span> <span style="color:#111">client</span><span style="color:#111">.</span><span style="color:#75af00">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Jos&#34;</span><span style="color:#111">);</span>
+</span></span></code></pre></div><p>De client code vereist een werkende memcached server zoals <a href="https://www.memcached.org">https://www.memcached.org</a>, in bovenstaand voorbeeld draaiend op poort <code>11211</code>. Je kan dit zelf compileren onder UNIX of Msys in Windows. We gaan voor de oefeningen hier niet verder op in.</p>
+<h3 id="denkvragen">Denkvragen</h3>
+<ol>
+<li>Welke beperkingen zijn er verbonden aan het geserialiseerd database bestand doorgeven aan andere medestudenten? Op welke manier kan je zo verschillende &lsquo;clients&rsquo; verbinden aan één database &lsquo;server&rsquo;?</li>
+</ol>
 
 
 <footer class="footline">
@@ -795,7 +783,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -808,7 +795,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -825,9 +811,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -960,6 +943,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -972,6 +956,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -989,6 +976,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1004,6 +992,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1044,10 +1035,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../sql-ddl-dml/" title="2. SQL DDL &amp; DML"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../nosql/basics/" title="1. NoSQL Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../sql-ddl-dml/dml/" title="2. DML" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../nosql/documentstores/" title="3. Document stores" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

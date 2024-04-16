@@ -1,5 +1,6 @@
 ---
 title: 3. Document stores
+draft: false
 ---
 
 ### 0. Data filtering: recap
@@ -172,7 +173,7 @@ curl -d @dump.db -H "Content-Type: application/json" -X POST http://127.0.0.1:59
 **LET OP**: 
 
 1. Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor _non-partitioned_.
-2. Het kan zijn dar CURL een security fout geeft. Bij het installeren van CouchDB moet je een admin username/password meegeven. Voeg aan het einde van je curl commando dit toe: `-u username:wachtwoord`.
+2. Het kan zijn dat CURL een security fout geeft. Bij het installeren van CouchDB moet je een admin username/password meegeven. Voeg aan het einde van je curl commando dit toe: `-u username:wachtwoord`.
 
 Nadien kan je in Fauxton op `F5` drukken en zou je dit moeten zien:
 
@@ -199,9 +200,9 @@ Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de roo
 
 Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [https://docs.couchdb.org/en/stable/api/database/find.html](https://docs.couchdb.org/en/stable/api/database/find.html). Lees eerst na hoe dit in elkaar zit! 
 
-Een uitgewerkt voorbeeld van oefening 1 en 2 in begeleidende video:
+<!-- Een uitgewerkt voorbeeld van oefening 1 en 2 in begeleidende video: -->
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/723d495a34bb4a77aa8e406761a3ba4d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<!-- <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/723d495a34bb4a77aa8e406761a3ba4d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
 
 
 ### 4. Java Client API
