@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>3. Document stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713263460" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713263460" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713263460" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/devselector.css?1713263460" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713263460" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713263492" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713263492" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713263492" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/devselector.css?1713263492" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713263492" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713263460"></script>
-    <script src="../../js/devselector.js?1713263460"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713263492"></script>
+    <script src="../../js/devselector.js?1713263492"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713263460"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713263460"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713263492"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713263492"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713263460"></script>
+<script type="text/javascript" src="../../js/search.js?1713263492"></script>
 
     
   </div>
@@ -668,38 +668,38 @@
 
 <h3 id="0-data-filtering-recap">0. Data filtering: recap</h3>
 <p>Wat is een &ldquo;mapreduce&rdquo; functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array <code>[1, 2, 3, 4]</code> en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een <code>list(map(lambda...))</code> statement:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">range</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">x</span><span style="color:#111">:</span> <span style="color:#111">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#111">range</span><span style="color:#111">))</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">result</span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>Hier gebruikten we een &ldquo;lambda&rdquo; om <strong>voor elk element</strong> een functie los te laten, die dat element <strong>transformeert</strong>, ofwel &ldquo;mapt&rdquo;. Python&rsquo;s <code>map()</code> functioneert exact hetzelfde als JavaScript&rsquo;s <code>map()</code>&mdash;evenals <code>reduce()</code> en <code>filter()</code>. Omdat we met een JS-based document store gaan werken is het belangrijk om te weten hoe je bovenstaande principes in <strong>JavaScript</strong> uitvoert.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">range</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">]</span>
+<span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">x</span><span style="color:#111">:</span> <span style="color:#111">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#111">range</span><span style="color:#111">))</span>
+<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">result</span><span style="color:#111">)</span>
+</code></pre></div><p>Hier gebruikten we een &ldquo;lambda&rdquo; om <strong>voor elk element</strong> een functie los te laten, die dat element <strong>transformeert</strong>, ofwel &ldquo;mapt&rdquo;. Python&rsquo;s <code>map()</code> functioneert exact hetzelfde als JavaScript&rsquo;s <code>map()</code>&mdash;evenals <code>reduce()</code> en <code>filter()</code>. Omdat we met een JS-based document store gaan werken is het belangrijk om te weten hoe je bovenstaande principes in <strong>JavaScript</strong> uitvoert.</p>
 <h4 id="oefening-1">Oefening 1</h4>
 <p>Zoek leerlingen ouder dan 20 en geef hun naam terug. De leerlingen zitten in de volgende JS array: <code>const studenten = [{age: 11, name: 'jos'}, {age: 21, name: 'jef'}]</code>.</p>
 <p>Oplossing:</p>
 <div class="devselect">
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">studenten</span><span style="color:#111">.</span><span style="color:#75af00">filter</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}).</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">name</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">})</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// kan ook met oneliner: studenten.filter(s =&gt; s.age &gt; 20).map(s =&gt; s.name)
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">filtered</span> <span style="color:#f92672">=</span> <span style="color:#111">filter</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">,</span> <span style="color:#111">studenten</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#111">filtered</span><span style="color:#111">))</span>
-</span></span></code></pre></div></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">studenten</span><span style="color:#111">.</span><span style="color:#75af00">filter</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>
+<span style="color:#111">}).</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">name</span>
+<span style="color:#111">})</span>
+<span style="color:#75715e">// kan ook met oneliner: studenten.filter(s =&gt; s.age &gt; 20).map(s =&gt; s.name)
+</span></code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">filtered</span> <span style="color:#f92672">=</span> <span style="color:#111">filter</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">,</span> <span style="color:#111">studenten</span><span style="color:#111">)</span>
+<span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#111">filtered</span><span style="color:#111">))</span>
+</code></pre></div></div>
 <p>Kopieer bovenstaand voorbeeld in je browser developer console en kijk wat er gebeurt. Het resultaat zou een openklapbare <code>Array [ &quot;jef&quot; ]</code> moeten zijn.</p>
 <p>We <strong>chainen</strong> (sequentieel combineren) hier dus <code>filter()</code> en daarna <code>map()</code>. De <code>filter()</code> geeft student Jef terug in een array (<code>[{age: 21, name: 'jef'}]</code>), waarna de <code>map()</code> voor elk element in die array (maar eentje), een transformatie doorvoert: van <code>{age: 21, name: 'jef'}</code> naar <code>'jef'</code> via <code>student.name</code>.</p>
 <h4 id="oefening-2">Oefening 2</h4>
 <p>Wat is de som van de leeftijden van de studenten? 11 + 21 = 32. Hoe kunnen we dit <strong>functioneel schrijven</strong> met behulp van een <code>reduce()</code>?</p>
 <p>Oplossing:</p>
 <div class="devselect">
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">studenten</span><span style="color:#111">.</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">age</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}).</span><span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">age1</span><span style="color:#111">,</span> <span style="color:#75af00">age2</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">age1</span> <span style="color:#f92672">+</span> <span style="color:#75af00">age2</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">})</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// kan ook met oneliner: studenten.map(s =&gt; s.age).reduce((a, b) =&gt; a + b)
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">mapped</span> <span style="color:#f92672">=</span> <span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">age</span><span style="color:#111">,</span> <span style="color:#111">studenten</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">age1</span><span style="color:#111">,</span> <span style="color:#111">age2</span><span style="color:#111">:</span> <span style="color:#111">age1</span> <span style="color:#f92672">+</span> <span style="color:#111">age2</span><span style="color:#111">,</span> <span style="color:#111">mapped</span><span style="color:#111">)</span>
-</span></span></code></pre></div></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75af00">studenten</span><span style="color:#111">.</span><span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">student</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+   <span style="color:#00a8c8">return</span> <span style="color:#75af00">student</span><span style="color:#111">.</span><span style="color:#75af00">age</span>
+<span style="color:#111">}).</span><span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">age1</span><span style="color:#111">,</span> <span style="color:#75af00">age2</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">age1</span> <span style="color:#f92672">+</span> <span style="color:#75af00">age2</span>
+<span style="color:#111">})</span>
+<span style="color:#75715e">// kan ook met oneliner: studenten.map(s =&gt; s.age).reduce((a, b) =&gt; a + b)
+</span></code></pre></div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#111">mapped</span> <span style="color:#f92672">=</span> <span style="color:#111">map</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">student</span><span style="color:#111">:</span> <span style="color:#111">student</span><span style="color:#f92672">.</span><span style="color:#111">age</span><span style="color:#111">,</span> <span style="color:#111">studenten</span><span style="color:#111">)</span>
+<span style="color:#111">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">age1</span><span style="color:#111">,</span> <span style="color:#111">age2</span><span style="color:#111">:</span> <span style="color:#111">age1</span> <span style="color:#f92672">+</span> <span style="color:#111">age2</span><span style="color:#111">,</span> <span style="color:#111">mapped</span><span style="color:#111">)</span>
+</code></pre></div></div>
 <p>Kan jij bedenken waarom we hier een <code>map()</code> nodig hebben voor de <code>reduce()</code>?</p>
 <p>Meer informatie: zie <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Mozilla Developer web docs: map()</a> en reduce/filter. Wanneer je jezelf familiair gemaakt hebt met deze drie functionele (en essentiele!) data manipulatie methodes kan je overgaan tot de hoofdzaak van dit hoofdstuk&mdash;CouchDB en noSQL queries.</p>
 <h3 id="1-eenvoudige-couchdb-queries">1. Eenvoudige CouchDB Queries</h3>
@@ -713,37 +713,37 @@
 <p>Lui in die zetel liggen, en vanaf de bank met gemak query&rsquo;s lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store.</p>
 <h4 id="mango">Mango</h4>
 <p>CouchDB heeft een eenvoudige ingebouwde query syntax genaamd <strong>Mango</strong>. Documentatie op <a href="https://github.com/cloudant/mango">https://github.com/cloudant/mango</a> en <a href="http://127.0.0.1:5984/_utils/docs/intro/api.html#documents">http://127.0.0.1:5984/_utils/docs/intro/api.html#documents</a>. Selecteer een database, klik op &ldquo;run a query with Mango&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#d88200">&#34;selector&#34;</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#d88200">&#34;year&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>De <code>selector</code> attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &ldquo;kolommen&rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#111">{</span>
+   <span style="color:#d88200">&#34;selector&#34;</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+      <span style="color:#d88200">&#34;year&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>
+   <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>De <code>selector</code> attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste &ldquo;kolommen&rdquo; (keys dus) is in geval van miljarden records zeker geen overbodige luxe.</p>
 <p>Mango werkt met een <em>selector syntax</em> (zie documentatie) die impliciet bovenstaande omzet naar <code>{&quot;year&quot;: {&quot;$eq&quot;: 3}}</code>. Er zijn ook andere dollar-based operatoren. Geneste attributes kan je raadplegen met de <code>.</code> separator: <code>{&quot;student.name&quot;: {&quot;eq&quot;: &quot;Joske&quot;}}</code>.</p>
 <p>Een ander voorbeeld: Zoek leerlingen ouder dan 20 en geef hun naam terug:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">name</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>De functie <code>emit(key, value)</code> beslist in welke hoedanigheid een document wordt teruggeven. In dit geval geven we de <code>doc.name</code> terug: de naam van de leerling. We filteren met een simpele <code>if()</code> in de code zelf! Dit kunnen we ook functioneel schrijven in pure JavaScript, los van CouchDB en zijn Mango API, met <code>filter()</code>&mdash;zie de data filtering introductie hierboven.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">name</span><span style="color:#111">);</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>De functie <code>emit(key, value)</code> beslist in welke hoedanigheid een document wordt teruggeven. In dit geval geven we de <code>doc.name</code> terug: de naam van de leerling. We filteren met een simpele <code>if()</code> in de code zelf! Dit kunnen we ook functioneel schrijven in pure JavaScript, los van CouchDB en zijn Mango API, met <code>filter()</code>&mdash;zie de data filtering introductie hierboven.</p>
 <p>Nog een ander voorbeeld: van 10 rijen de som teruggeven. In SQL doe je dit met een <code>GROUP BY</code> en <code>COUNT</code>, maar daar bestaat geen alternatief voor in NoSQL, behalve de kracht van JS <code>reduce()</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">a</span><span style="color:#111">,</span> <span style="color:#75af00">b</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#75af00">a</span> <span style="color:#f92672">+</span> <span style="color:#75af00">b</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">})</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>Opnieuw, hetzelfde kan ook met &ldquo;plain old JavaScript&rdquo;, zoals in de data filtering recap aangegeven (<code>[1, 2, 3, 4].reduce(a, b =&gt; a + b)</code>).</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#00a8c8">function</span><span style="color:#111">(</span><span style="color:#75af00">a</span><span style="color:#111">,</span> <span style="color:#75af00">b</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#00a8c8">return</span> <span style="color:#75af00">a</span> <span style="color:#f92672">+</span> <span style="color:#75af00">b</span>
+    <span style="color:#111">})</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Opnieuw, hetzelfde kan ook met &ldquo;plain old JavaScript&rdquo;, zoals in de data filtering recap aangegeven (<code>[1, 2, 3, 4].reduce(a, b =&gt; a + b)</code>).</p>
 <p>Je kan in Mango de <code>map()</code> en de <code>reduce()</code> uiteraard ook <strong>combineren</strong>, net zoals je in JS kan <em>chainen</em>. Hieronder berekenen we bijvoorbeeld de gemiddelde leeftijd van &ldquo;oudere&rdquo; studenten (ouder dan 20 jaar):</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">function</span> <span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#75af00">sum</span><span style="color:#111">(</span><span style="color:#75af00">values</span><span style="color:#111">)</span> <span style="color:#f92672">/</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">length</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">function</span> <span style="color:#75af00">map</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">emit</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">_id</span><span style="color:#111">,</span> <span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">age</span><span style="color:#111">);</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span>
+<span style="color:#00a8c8">function</span> <span style="color:#75af00">reduce</span><span style="color:#111">(</span><span style="color:#75af00">keys</span><span style="color:#111">,</span> <span style="color:#75af00">values</span><span style="color:#111">,</span> <span style="color:#75af00">rereduce</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">sum</span><span style="color:#111">(</span><span style="color:#75af00">values</span><span style="color:#111">)</span> <span style="color:#f92672">/</span> <span style="color:#75af00">values</span><span style="color:#111">.</span><span style="color:#75af00">length</span><span style="color:#111">;</span>
+<span style="color:#111">}</span>
+</code></pre></div>
 <div class="notices note" ><p>Wat is het verschil tussen <code>function(a, b) {}</code> en <code>(a, b =&gt; </code>? (Bijna) geen (die jullie moeten kennen). De arrow notatie (<code>=&gt;</code>) is de nieuwe syntax voor anonieme functies aan te maken in JavaScript, en in CouchDB/Mango werken we nog met de oude notatie omdat (1) dit door Couch wordt gegenereerd en (2) de meeste voorbeelden in de documentatie nog zo werken. Dus, <code>function hallokes() { console.log('sup') }</code> is exact hetzelfde als <code>let hallokes = () =&gt; { console.log('sup') }</code>. <br/>Zie <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions?retiredLocale=vi">MDN docs: Arrow function expressions</a> voor meer informatie.</p>
 </div>
 
@@ -751,9 +751,9 @@
 <p><code>reduce()</code> schiet (misschien) in actie als <code>map()</code> nog bezig is. We gaan hier later nog verder op in in <a href="../../nosql/mapreduce">NoSQL - Advanced queries</a>.</p>
 <h4 id="de-couchdb-api-interface-alles-via-https">De CouchDB API interface: alles via HTTP(S)</h4>
 <p><code>curl</code> is een snelle cmd-line tool waarbij je via <code>-X</code> kan meegeven of het over een HTTPs <code>GET</code>, <code>POST</code>, <code>PUT</code>, &hellip; gaat. De DB locatie en poort met het juiste <strong>endpoint</strong> zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:</p>
-<pre tabindex="0"><code>curl -X GET http://127.0.0.1:5984/[database]/[id]
+<pre><code>curl -X GET http://127.0.0.1:5984/[database]/[id]
 </code></pre><p>Het resultaat is altijd een geldig <code>JSON</code> object (ook al geef je een ongeldige ID mee): <code>curl -X GET &quot;http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1&quot;</code></p>
-<pre tabindex="0"><code>{&#34;_id&#34;:&#34;aalto-university;bachelor-data-science;professional-development;1&#34;,&#34;_rev&#34;:&#34;1-f7872c4254bfc2e0e5507502e2fafd6f&#34;,&#34;title&#34;:&#34;Professional Development&#34;,&#34;url&#34;:&#34;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&#34;,&#34;university&#34;:&#34;Aalto University&#34;,&#34;country&#34;:&#34;Finland&#34;,&#34;category&#34;:&#34;professional&#34;,&#34;ECTS&#34;:5,&#34;year&#34;:1,&#34;optional&#34;:true,&#34;skills&#34;:[&#34;motivate self&#34;,&#34;oral communication&#34;,&#34;self-directed learning&#34;,&#34;self-reflection&#34;,&#34;give/receive feedback&#34;,&#34;set/keep timelines&#34;,&#34;show initiative&#34;],&#34;course&#34;:&#34;Bachelor Data Science&#34;,&#34;lo&#34;:&#34;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one&#39;s strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one&#39;s own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &#34;}
+<pre><code>{&quot;_id&quot;:&quot;aalto-university;bachelor-data-science;professional-development;1&quot;,&quot;_rev&quot;:&quot;1-f7872c4254bfc2e0e5507502e2fafd6f&quot;,&quot;title&quot;:&quot;Professional Development&quot;,&quot;url&quot;:&quot;https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&amp;haettuOpas=-1&quot;,&quot;university&quot;:&quot;Aalto University&quot;,&quot;country&quot;:&quot;Finland&quot;,&quot;category&quot;:&quot;professional&quot;,&quot;ECTS&quot;:5,&quot;year&quot;:1,&quot;optional&quot;:true,&quot;skills&quot;:[&quot;motivate self&quot;,&quot;oral communication&quot;,&quot;self-directed learning&quot;,&quot;self-reflection&quot;,&quot;give/receive feedback&quot;,&quot;set/keep timelines&quot;,&quot;show initiative&quot;],&quot;course&quot;:&quot;Bachelor Data Science&quot;,&quot;lo&quot;:&quot;&lt;br/&gt;Learning Outcomes   &lt;br/&gt;Being able to effectively communicate one's strenghts and professional capacities&lt;br/&gt;Finding one’s own academic and professional interests and taking initiative in one’s own learning&lt;br/&gt;Planning and prototyping one's own professional development&lt;br/&gt; &lt;br/&gt;Content     &lt;br/&gt;The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.&lt;br/&gt;&lt;br/&gt; &quot;}
 </code></pre><p>Indien ongeldig: <code>{&quot;error&quot;:&quot;not_found&quot;,&quot;reason&quot;:&quot;missing&quot;}</code>.</p>
 <p>Indien geen toegang: <code>{&quot;error&quot;:&quot;unauthorized&quot;,&quot;reason&quot;:&quot;You are not authorized to access this db.&quot;}</code>. Zie &ldquo;LET OP&rdquo; hieronder&mdash;gebruik het <code>-u</code> argument.</p>
 <h3 id="2-oefeningen-voorbereidingswerk">2. Oefeningen: Voorbereidingswerk</h3>
@@ -763,7 +763,7 @@
 <li>Maak een nieuwe databases aan via de Fauxton Web-based admin tool. Open CouchDB, ga naar &ldquo;<strong>Open Admin Console</strong>&rdquo; of surf zelf naar <a href="http://127.0.0.1:5984/_utils/">http://127.0.0.1:5984/_utils/</a>. Maak een database aan genaamd &lsquo;<em>courses</em>&rsquo;.</li>
 <li>Importeer de test JSON met <code>curl</code> in cmdnline:</li>
 </ol>
-<pre tabindex="0"><code>curl -d @dump.db -H &#34;Content-Type: application/json&#34; -X POST http://127.0.0.1:5984/courses/_bulk_docs
+<pre><code>curl -d @dump.db -H &quot;Content-Type: application/json&quot; -X POST http://127.0.0.1:5984/courses/_bulk_docs
 </code></pre><p><strong>LET OP</strong>:</p>
 <ol>
 <li>Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor <em>non-partitioned</em>.</li>
@@ -778,8 +778,8 @@
 </figure>
 </p>
 <p>Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:</p>
-<pre tabindex="0"><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db
-</code></pre><p>(Voor mensen op Windows-curl: verander <code>\</code> naar <code>/</code>. Ook; bij meegeven van JSON data: enkele quotes &rsquo;&rsquo; vervangen door dubbele  &quot;&quot; en dubbele in de enkele escapen met backlash &quot;).</p>
+<pre><code>curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true &gt; dump.db
+</code></pre><p>(Voor mensen op Windows-curl: verander <code>\</code> naar <code>/</code>. Ook; bij meegeven van JSON data: enkele quotes '' vervangen door dubbele  &quot;&quot; en dubbele in de enkele escapen met backlash &quot;).</p>
 <p>Daarna volgt wat post-processing (<code>rows</code> wordt <code>docs</code>, elke <code>doc</code> moet in de root array zitten en <code>_rev</code> moet weg) om tot bovenstaande <a href="../../db/dump.db">dump.db</a> filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren.</p>
 <h3 id="3-oefeningen-met-fauxtoncurl">3. Oefeningen met Fauxton/Curl</h3>
 <ol>
@@ -797,11 +797,11 @@
 <p>Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query&rsquo;s uit te voeren), dan heb je de Java API nodig.</p>
 <p>In principe kan je met eender welke <code>HTTP</code> client REST calls uitvoeren en de responses zelf verwerken. Om het jezelf gemakkelijker te maken, gebruiken we hier ter illustratie <a href="http://www.lightcouch.org">LightCouch</a>.</p>
 <p>Lees de <a href="http://www.lightcouch.org/getstarted.html">LightCouch Getting Started guide</a>. Maak een nieuw gradle 6 project met de volgende dependencies:</p>
-<pre tabindex="0"><code>dependencies {
-    implementation group: &#39;org.lightcouch&#39;, name: &#39;lightcouch&#39;, version: &#39;0.2.0&#39;
+<pre><code>dependencies {
+    implementation group: 'org.lightcouch', name: 'lightcouch', version: '0.2.0'
 }
 </code></pre><p>In je <code>java/main/resources</code> map dien je een <code>couchdb.properties</code> file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started):</p>
-<pre tabindex="0"><code>couchdb.name=testdb
+<pre><code>couchdb.name=testdb
 couchdb.createdb.if-not-exist=true
 couchdb.protocol=http
 couchdb.host=127.0.0.1
@@ -813,13 +813,13 @@ couchdb.password=
 <ol>
 <li>Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een <code>Student</code> klasse met als velden <code>name</code> en <code>age</code> (respectievelijk <code>String</code> en <code>int</code> als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#d88200">&#34;_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;387a34be062140e4be1390e846242114&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#d88200">&#34;_rev&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;1-742f438439fd68bc6c67ca0d615f1469&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#d88200">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Joske&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#d88200">&#34;age&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><ol start="2">
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#111">{</span>
+  <span style="color:#d88200">&#34;_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;387a34be062140e4be1390e846242114&#34;</span><span style="color:#111">,</span>
+  <span style="color:#d88200">&#34;_rev&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;1-742f438439fd68bc6c67ca0d615f1469&#34;</span><span style="color:#111">,</span>
+  <span style="color:#d88200">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Joske&#34;</span><span style="color:#111">,</span>
+  <span style="color:#d88200">&#34;age&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
+<span style="color:#111">}</span>
+</code></pre></div><ol start="2">
 <li>Probeer de views en query&rsquo;s even uit. Zoek bijvoorbeeld alle studenten in <code>List&lt;Student&gt;</code> en druk de namen af door middel van <code>println()</code>.</li>
 </ol>
 <h3 id="denkvragen">Denkvragen</h3>
@@ -1197,15 +1197,15 @@ couchdb.password=
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263460"></script>
-    <script src="../../js/jquery.sticky.js?1713263460"></script>
-    <script src="../../js/featherlight.min.js?1713263460"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713263460"></script>
-    <script src="../../js/learn.js?1713263460"></script>
-    <script src="../../js/hugo-learn.js?1713263460"></script>
-    <script src="../../js/mermaid.min.js?1713263460"></script>
+    <script src="../../js/clipboard.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263492"></script>
+    <script src="../../js/jquery.sticky.js?1713263492"></script>
+    <script src="../../js/featherlight.min.js?1713263492"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713263492"></script>
+    <script src="../../js/learn.js?1713263492"></script>
+    <script src="../../js/hugo-learn.js?1713263492"></script>
+    <script src="../../js/mermaid.min.js?1713263492"></script>
     <script>
     window.MathJax = {
       chtml: {

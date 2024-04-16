@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>2. DML :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713263460" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713263460" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713263460" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/devselector.css?1713263460" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713263460" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713263492" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713263492" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713263492" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/devselector.css?1713263492" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713263492" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713263460"></script>
-    <script src="../../js/devselector.js?1713263460"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713263492"></script>
+    <script src="../../js/devselector.js?1713263492"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713263460"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713263460"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713263492"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713263492"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713263460"></script>
+<script type="text/javascript" src="../../js/search.js?1713263492"></script>
 
     
   </div>
@@ -670,7 +670,7 @@
 <p><strong>Data Modification Language</strong> is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.</p>
 <h2 id="select">SELECT</h2>
 <p><code>SELECT</code> is het commando dat we gebruiken om data op te vragen uit de database.</p>
-<pre tabindex="0"><code>    SELECT { DISTINCT } expression
+<pre><code>    SELECT { DISTINCT } expression
     FROM table
     { WHERE condition }
 </code></pre><h3 id="like-operator">LIKE operator</h3>
@@ -772,7 +772,7 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 </div>
 <h3 id="join">JOIN</h3>
 <p>Wanneer we informatie willen ophalen uit meerdere tabellen dan gebruiken we daar een JOIN statement voor.  Die syntax ziet er als volgt uit:</p>
-<pre tabindex="0"><code>    SELECT { DISTINCT } expression
+<pre><code>    SELECT { DISTINCT } expression
     FROM table
     INNER JOIN other_table ON join_condition
     { WHERE condition }
@@ -809,16 +809,16 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 <li><code>SUM()</code></li>
 </ul>
 <p>Elke waarde die je extra selecteert in een query bovenop een aggregate function, moet in een <code>GROUP BY</code> clause komen. Hoe ziet dit er dan bijvoorbeeld uit?</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">SUM</span><span style="color:#111">(</span><span style="color:#111">Total</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">FROM</span> <span style="color:#111">Invoices</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
-</span></span></code></pre></div><p>Zonder <code>GROUP BY</code> statement krijg je ofwel een fout ofwel maar één record terug, zoals in SQLite.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">SUM</span><span style="color:#111">(</span><span style="color:#111">Total</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">FROM</span> <span style="color:#111">Invoices</span>
+<span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
+</code></pre></div><p>Zonder <code>GROUP BY</code> statement krijg je ofwel een fout ofwel maar één record terug, zoals in SQLite.</p>
 <h3 id="having">HAVING</h3>
 <p>Als we willen filteren op een grouping function, dan gaat dat niet via een <code>WHERE</code> clause, dan krijg je namelijk een foutmelding:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoices</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
-</span></span></code></pre></div><p><figure>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoices</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>
+<span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
+</code></pre></div><p><figure>
 	<a href="../../slides/img/where_error.png" data-featherlight="image">
 		<img src="../../slides/img/where_error.png"  >
 	</a>
@@ -826,10 +826,10 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 </figure>
 </p>
 <p>Om te filteren op een grouping function schrijven we dit in een <code>HAVING</code> clause die de query gebruikerlijks afsluit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoices</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">HAVING</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#111">BillingCity</span><span style="color:#111">,</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoices</span>
+<span style="color:#00a8c8">GROUP</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">BillingCity</span>
+<span style="color:#00a8c8">HAVING</span> <span style="color:#00a8c8">count</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>
+</code></pre></div>
 <div class="ex">
 	<div class="inner">
     	<ol>
@@ -856,32 +856,32 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 <h3 id="subqueries">Subqueries</h3>
 <p>Een query die we uitvoeren geeft een set van resultaten terug. Die set kunnen we opnieuw gebruiken als input voor een nieuwe query. We kunnen die set op verschillende plaatsen gebruiken als input voor een nieuwe query. Hieronder een aantal voorbeelden.</p>
 <h4 id="in-een-where-clause">In een WHERE clause</h4>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoice_items</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#111">invoice_items</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#00a8c8">IN</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><h4 id="in-een-from-clause">In een FROM clause</h4>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span><span style="color:#111">,</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><h4 id="in-een-join-clause">In een JOIN clause</h4>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span><span style="color:#111">,</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span> <span style="color:#111">hell_tracks</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">hell_tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoice_items</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#111">invoice_items</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#00a8c8">IN</span> <span style="color:#111">(</span>
+	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
+<span style="color:#111">)</span>
+</code></pre></div><h4 id="in-een-from-clause">In een FROM clause</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">(</span>
+	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span><span style="color:#111">,</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
+<span style="color:#111">)</span>
+</code></pre></div><h4 id="in-een-join-clause">In een JOIN clause</h4>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+<span style="color:#00a8c8">INNER</span> <span style="color:#00a8c8">JOIN</span> <span style="color:#111">(</span>
+	<span style="color:#00a8c8">SELECT</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span><span style="color:#111">,</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">Name</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span>
+<span style="color:#111">)</span> <span style="color:#111">hell_tracks</span> <span style="color:#00a8c8">ON</span> <span style="color:#111">hell_tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#f92672">=</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span>
+</code></pre></div>
 <div class="notices warning" ><p>Subqueries in een <code>WHERE IN</code> statement worden geëvauleerd voor elke voor elke rij uit de outer query, dus zijn eigenlijk niet zo heel performant. We kunnen dat iets verbeteren door dat te herschrijven naar een <code>WHERE EXISTS</code> statement. Zie hieronder.</p>
 </div>
 
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoice_items</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">SELECT</span> <span style="color:#ae81ff">1</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span> <span style="color:#00a8c8">AND</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#f92672">=</span> <span style="color:#111">invoice_items</span><span style="color:#111">.</span><span style="color:#111">TrackId</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">)</span>
-</span></span></code></pre></div><p>De <code>IN</code> clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een <code>EXISTS</code> clause gaat een subquery maar zo lang uitvoeren tot er een resultaat gevonden is. Als de tabel uit de subquery 1000 rijen bevat en er wordt een match gevonden op rij 200, dan gaan de andere 800 niet meer geëvauleerd worden.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">invoice_items</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">(</span>
+	<span style="color:#00a8c8">SELECT</span> <span style="color:#ae81ff">1</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tracks</span>
+	<span style="color:#00a8c8">WHERE</span> <span style="color:#111">name</span> <span style="color:#00a8c8">LIKE</span> <span style="color:#d88200">&#39;%hell%&#39;</span> <span style="color:#00a8c8">AND</span> <span style="color:#111">tracks</span><span style="color:#111">.</span><span style="color:#111">TrackId</span> <span style="color:#f92672">=</span> <span style="color:#111">invoice_items</span><span style="color:#111">.</span><span style="color:#111">TrackId</span>
+<span style="color:#111">)</span>
+</code></pre></div><p>De <code>IN</code> clause gaat een subquery volledig ophalen om alle rijen te hebben om dan in die lijst van rijen te kunnen zoeken. Een <code>EXISTS</code> clause gaat een subquery maar zo lang uitvoeren tot er een resultaat gevonden is. Als de tabel uit de subquery 1000 rijen bevat en er wordt een match gevonden op rij 200, dan gaan de andere 800 niet meer geëvauleerd worden.</p>
 
 <div class="ex">
 	<div class="inner">
@@ -899,9 +899,9 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 <h3 id="data-manipulatie">Data manipulatie</h3>
 <h4 id="insert">INSERT</h4>
 <p>Met een <code>INSERT</code> Statement gaan we data toevoegen in de database. We gebruiken een column listing om aan te geven welke kolommen, in welke volgorde, we van een waarde kan voorzien. Kolommen die <code>NULL</code> values ondersteunen mogen uit de column listing gelaten worden.</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">Genres</span><span style="color:#111">(</span><span style="color:#111">Name</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Rock&#39;</span><span style="color:#111">)</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">Genres</span><span style="color:#111">(</span><span style="color:#111">Name</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">VALUES</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Rock&#39;</span><span style="color:#111">)</span>
+</code></pre></div>
 <div class="ex">
 	<div class="inner">
     	<p>Voeg je favoriete album (inclusief artiest en tracks) toe aan de database.</p>
@@ -910,10 +910,10 @@ Maar niet met volgende waardes: Gen, Genève, Genua, &hellip;</p>
 </div>
 <h4 id="update">UPDATE</h4>
 <p>Met een <code>UPDATE</code> statement kunnen we één of meerdere waardes in een set van data aanpassen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">UPDATE</span> <span style="color:#111">Tracks</span> 
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">SET</span> <span style="color:#111">MediaTypeId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#111">AlbumId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">UPDATE</span> <span style="color:#111">Tracks</span> 
+<span style="color:#00a8c8">SET</span> <span style="color:#111">MediaTypeId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#111">AlbumId</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</code></pre></div>
 <div class="ex">
 	<div class="inner">
     	<p>Wijzig de UnitPrice en de Composer voor de 3e track van je toegevoegde album.<br/>
@@ -924,9 +924,9 @@ Wijzig de titel van je favoriete album (zie oefening hierboven).</p>
 <h4 id="delete">DELETE</h4>
 <p>Hiermee kunnen we een set van data verwijderen.</p>
 <p>LET OP! Een <code>DELETE</code> statement zonder <code>WHERE</code> clause verwijdert alles uit de tabel!</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">Genre</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">WHERE</span> <span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">Genre</span>
+<span style="color:#00a8c8">WHERE</span> <span style="color:#111">Name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Rock&#39;</span>
+</code></pre></div>
 <div class="ex">
 	<div class="inner">
     	<p>Verwijder het album (inclusief artiest en tracks) dat je hierboven hebt toegevoegd.</p>
@@ -1303,15 +1303,15 @@ Wijzig de titel van je favoriete album (zie oefening hierboven).</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263460"></script>
-    <script src="../../js/jquery.sticky.js?1713263460"></script>
-    <script src="../../js/featherlight.min.js?1713263460"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713263460"></script>
-    <script src="../../js/learn.js?1713263460"></script>
-    <script src="../../js/hugo-learn.js?1713263460"></script>
-    <script src="../../js/mermaid.min.js?1713263460"></script>
+    <script src="../../js/clipboard.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263492"></script>
+    <script src="../../js/jquery.sticky.js?1713263492"></script>
+    <script src="../../js/featherlight.min.js?1713263492"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713263492"></script>
+    <script src="../../js/learn.js?1713263492"></script>
+    <script src="../../js/hugo-learn.js?1713263492"></script>
+    <script src="../../js/mermaid.min.js?1713263492"></script>
     <script>
     window.MathJax = {
       chtml: {

@@ -7,28 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
-    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/apis/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/apis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1. API Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</guid>
-      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):&#xA;In de praktijk variëert deze tier benadering van project tot project.</description>
+      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):
+   In de praktijk variëert deze tier benadering van project tot project.</description>
     </item>
+    
     <item>
       <title>2. JDBC en JDBI</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
       <description>1.1 Java Database Connectivity (JDBC) 1.1.1 Hoe verbind ik Java met de DB? JDBC is een interface in de JDK die ons in staat stelt om een connectie te openen naar een database. JDBC is een API: een abstracitelaag of een protocol. Dit betekent dat we met JDBC kunnen verbinden naar eender welke server van eender welke flavor: een Oracle SQL, MSSQL, of SQLite database. De database vendor wordt verborgen achter de JDBC laag.</description>
     </item>
+    
     <item>
       <title>3. JPA en Hibernate</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
-      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).&#xA;Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).
+Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
     </item>
+    
   </channel>
 </rss>

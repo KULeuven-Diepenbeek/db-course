@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>3. Failures-Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713263460" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713263460" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713263460" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/devselector.css?1713263460" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713263460" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713263492" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713263492" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713263492" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/devselector.css?1713263492" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713263492" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713263460"></script>
-    <script src="../../js/devselector.js?1713263460"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713263492"></script>
+    <script src="../../js/devselector.js?1713263492"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713263460"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713263460"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713263492"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713263492"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713263460"></script>
+<script type="text/javascript" src="../../js/search.js?1713263492"></script>
 
     
   </div>
@@ -662,33 +662,33 @@
 
 
 <p>Voorbereidende <code>CREATE</code> statements (Dit is SQLite syntax!) Zie <a href="https://sqlite.org/autoinc.html">SQLite manual</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">student</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">student</span><span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">studnr</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">naam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">)</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">voornaam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">),</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">goedbezig</span> <span style="color:#111">BOOL</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">log</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">log</span><span style="color:#111">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">date</span> <span style="color:#111">DATETIME</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">CURRENT_TIMESTAMP</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">foreign_id</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#111">msg</span> <span style="color:#111">TEXT</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Trekhaak&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jaak&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">456</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Peeters&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jos&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">890</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Dongmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Ding&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span></code></pre></div><h2 id="1-system-failure-simulatie">1. System failure simulatie</h2>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">student</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">student</span><span style="color:#111">(</span>
+    <span style="color:#111">studnr</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+    <span style="color:#111">naam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">)</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">voornaam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">200</span><span style="color:#111">),</span>
+    <span style="color:#111">goedbezig</span> <span style="color:#111">BOOL</span>
+<span style="color:#111">);</span>
+<span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">log</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">log</span><span style="color:#111">(</span>
+    <span style="color:#111">id</span> <span style="color:#111">INTEGER</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">AUTOINCREMENT</span><span style="color:#111">,</span>
+    <span style="color:#111">date</span> <span style="color:#111">DATETIME</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">CURRENT_TIMESTAMP</span><span style="color:#111">,</span>
+    <span style="color:#111">foreign_id</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+    <span style="color:#111">msg</span> <span style="color:#111">TEXT</span>
+<span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Trekhaak&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jaak&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">456</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Peeters&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jos&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">890</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Dongmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Ding&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+</code></pre></div><h2 id="1-system-failure-simulatie">1. System failure simulatie</h2>
 <h3 id="11-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</h3>
 <p>Gegeven een aantal SQL statements, waarvan niet alle statements kloppen, maar die wel allemaal bij elkaar horen als één <strong>atomaire transactie</strong>. Dat betekent dat als er één van die statements misloopt, de rest teruggedraait zou moeten worden. Het spreekt voor zich dat zonder speciale handelingen, zoals het beheren van transacties, dit niet gebeurt. Een eenvoudig voorbeeld demonstreert dit.</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#00a8c8">UPDATE</span> <span style="color:#111">student</span> <span style="color:#00a8c8">SET</span> <span style="color:#111">voornaam</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Jaqueline&#39;</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">studnr</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">oeitiskapot</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Voornaam vergissing&#39;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Klakmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jef&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Nieuwe student registratie&#39;</span><span style="color:#111">);</span>
-</span></span></code></pre></div><p>Plak dit in de &ldquo;Execute SQL&rdquo; tab van de SQLite DB Browser. Het resultaat is een foutboodschap:</p>
-<pre tabindex="0"><code>near &#34;;&#34;: syntax error: 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#00a8c8">UPDATE</span> <span style="color:#111">student</span> <span style="color:#00a8c8">SET</span> <span style="color:#111">voornaam</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;Jaqueline&#39;</span> <span style="color:#00a8c8">WHERE</span> <span style="color:#111">studnr</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">oeitiskapot</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">123</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Voornaam vergissing&#39;</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">student</span><span style="color:#111">(</span><span style="color:#111">studnr</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">,</span> <span style="color:#111">voornaam</span><span style="color:#111">,</span> <span style="color:#111">goedbezig</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Klakmans&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Jef&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+<span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">log</span><span style="color:#111">(</span><span style="color:#111">foreign_id</span><span style="color:#111">,</span> <span style="color:#111">msg</span><span style="color:#111">)</span> <span style="color:#00a8c8">VALUES</span> <span style="color:#111">(</span><span style="color:#ae81ff">445</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Nieuwe student registratie&#39;</span><span style="color:#111">);</span>
+</code></pre></div><p>Plak dit in de &ldquo;Execute SQL&rdquo; tab van de SQLite DB Browser. Het resultaat is een foutboodschap:</p>
+<pre><code>near &quot;;&quot;: syntax error: 
 INSERT INTO oeitiskapot;
 </code></pre><p><strong>Maar</strong>: het eerste <code>UPDATE</code> statement, voor de foute regel, is wel uitgevoerd:</p>
 <p><figure>
@@ -771,7 +771,9 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
 ## Denkvragen
 
 - De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
-- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?  -->
+- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?  --><blockquote>
+</blockquote>
+
 
 <footer class="footline">
 	
@@ -1140,15 +1142,15 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263460"></script>
-    <script src="../../js/jquery.sticky.js?1713263460"></script>
-    <script src="../../js/featherlight.min.js?1713263460"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713263460"></script>
-    <script src="../../js/learn.js?1713263460"></script>
-    <script src="../../js/hugo-learn.js?1713263460"></script>
-    <script src="../../js/mermaid.min.js?1713263460"></script>
+    <script src="../../js/clipboard.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263492"></script>
+    <script src="../../js/jquery.sticky.js?1713263492"></script>
+    <script src="../../js/featherlight.min.js?1713263492"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713263492"></script>
+    <script src="../../js/learn.js?1713263492"></script>
+    <script src="../../js/hugo-learn.js?1713263492"></script>
+    <script src="../../js/mermaid.min.js?1713263492"></script>
     <script>
     window.MathJax = {
       chtml: {

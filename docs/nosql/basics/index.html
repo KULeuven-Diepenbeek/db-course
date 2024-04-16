@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.81.0" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>1. NoSQL Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713263460" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713263460" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713263460" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713263460" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/devselector.css?1713263460" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713263460" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713263460" rel="stylesheet">
+    <link href="../../css/nucleus.css?1713263492" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/hybrid.css?1713263492" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1713263492" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1713263492" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/devselector.css?1713263492" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1713263492" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1713263492" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713263460"></script>
-    <script src="../../js/devselector.js?1713263460"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1713263492"></script>
+    <script src="../../js/devselector.js?1713263492"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713263460"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713263460"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1713263492"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1713263492"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713263460"></script>
+<script type="text/javascript" src="../../js/search.js?1713263492"></script>
 
     
   </div>
@@ -804,19 +804,19 @@
 <p>Er zijn, zoals bovenstaande figuur aangeeft, 4 grote groepen van NoSQL systemen:</p>
 <h4 id="1-document-stores">1. <strong>Document stores</strong>.</h4>
 <p>Hier bewaar je een &ldquo;document&rdquo; in, dat meestal in JSON-formaat is, zoals:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d88200">&#34;bedrag&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100.3</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d88200">&#34;gebruiker&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Jos Klakmans&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#d88200">&#34;Stad&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Diepenbeek&#34;</span><span style="color:#111">,</span> 
-</span></span><span style="display:flex;"><span>	<span style="color:#d88200">&#34;certificaten&#34;</span><span style="color:#f92672">:</span> <span style="color:#111">[{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#d88200">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#d88200">&#34;naam&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Master in de bliebloe&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">},</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#d88200">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#d88200">&#34;naam&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Bachelor in de blakkiela&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#111">}]</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>Merk op dat hier <em>geen relaties</em> worden gelegd, alhoewel dat wel kan: bijvoorbeeld document 1 kan een property <code>{ id: 1 }</code> hebben, en document 2 <code>{ id: 2, relatedDocumentId: 1 }</code>. Dit echter veel gebruiken zal een performance hit geven: document stores dienen voornamelijk om gigantisch veel onafhankelijke data te bewaren, op een <strong>ongestructureerde</strong> manier. Er zijn geen table definities: een key meer of minder maakt niet uit.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#111">{</span>
+	<span style="color:#d88200">&#34;bedrag&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100.3</span><span style="color:#111">,</span>
+	<span style="color:#d88200">&#34;gebruiker&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Jos Klakmans&#34;</span><span style="color:#111">,</span>
+	<span style="color:#d88200">&#34;Stad&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Diepenbeek&#34;</span><span style="color:#111">,</span> 
+	<span style="color:#d88200">&#34;certificaten&#34;</span><span style="color:#f92672">:</span> <span style="color:#111">[{</span>
+		<span style="color:#d88200">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+		<span style="color:#d88200">&#34;naam&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Master in de bliebloe&#34;</span>
+	<span style="color:#111">},</span> <span style="color:#111">{</span>
+		<span style="color:#d88200">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+		<span style="color:#d88200">&#34;naam&#34;</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Bachelor in de blakkiela&#34;</span>
+	<span style="color:#111">}]</span>
+<span style="color:#111">}</span>
+</code></pre></div><p>Merk op dat hier <em>geen relaties</em> worden gelegd, alhoewel dat wel kan: bijvoorbeeld document 1 kan een property <code>{ id: 1 }</code> hebben, en document 2 <code>{ id: 2, relatedDocumentId: 1 }</code>. Dit echter veel gebruiken zal een performance hit geven: document stores dienen voornamelijk om gigantisch veel onafhankelijke data te bewaren, op een <strong>ongestructureerde</strong> manier. Er zijn geen table definities: een key meer of minder maakt niet uit.</p>
 <p>NoSQL: <code>{ name: 'Jos' } -&gt; { name: 'Jos', well-behaved: true }</code>. Geen <code>INSERT INTO student(name) VALUES (&quot;Jos&quot;)</code> dus! Ook hier wordt intern <strong>hashing</strong> gebruikt (zie onder): Het document <code>{ name: 'Jos' }</code> wordt intern opgeslaan als <code>{ name: 'Jos', _id: 23235435 }</code>. Data retrieval snelheid blijft belangrijk, dus extra indexen/views kunnen door de gebruiker zelf worden aangemaakt (zie volgende hoofdstukken).</p>
 <p>Om documenten te ordenen worden soms wel <strong>collecties</strong> aangemaakt, maar dit is bijna altijd <em>optioneel</em>!</p>
 <p>We zullen ons in deze cursus focussen op document stores. Zie <a href="../../nosql/documentstores">NoSQL - document stores</a> om een idee te hebben hoe dit in de praktijk gebruikt wordt.</p>
@@ -832,24 +832,24 @@
 </figure>
 </p>
 <p>Stel dat je alle boeken wilt ophalen geschreven door een bepaalde auteur (= de relatie). In SQL, waar de data typisch in twee tabellen leeft (<code>book</code> en <code>author</code>), heb je een (impliciete) <code>JOIN</code> nodig:</p>
-<pre tabindex="0"><code>SELECT book, title FROM book, author, books_authors
+<pre><code>SELECT book, title FROM book, author, books_authors
 WHERE author.id = books_authors.author_id
 AND book.id = books_authors.book_id
-AND author.name = &#34;De Jos&#34;
+AND author.name = &quot;De Jos&quot;
 </code></pre><p>Maar in <strong>Cypher</strong>, de querytaal van grafendatabase <a href="https://neo4j.com/">Neo4J</a>, ziet die query er als volgt uit:</p>
-<pre tabindex="0"><code>MATCH (b:Book) &lt;- [ :WRITTEN_BY]-(a:Author)
-WHERE a.name = &#34;De Jos&#34;
+<pre><code>MATCH (b:Book) &lt;- [ :WRITTEN_BY]-(a:Author)
+WHERE a.name = &quot;De Jos&quot;
 RETURN b.title
 </code></pre><p>Data wordt op basis van <code>WRITTEN_BY</code> relatie eigenschap opgehaald. Relationele data&mdash;de letterlijke <em>relaties</em>&mdash;zijn hier altijd <strong>expliciet</strong>, en niet verborgen in foreign key constraints.</p>
 <h4 id="3-key-value-stores">3. <strong>Key-Value stores</strong>.</h4>
 <p>Dit is de eenvoudigste soort, waarbij gewoon blobs van data in een hash table opgeslagen worden, zoals jullie gewoon zijn in Java:</p>
 <div class="devselect">
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#111">,</span> <span style="color:#111">Persoon</span><span style="color:#f92672">&gt;</span> <span style="color:#111">leeftijden</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HashMap</span><span style="color:#f92672">&lt;&gt;</span><span style="color:#111">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">leeftijden</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Wilfried&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Wilfried&#34;</span><span style="color:#111">,</span> <span style="color:#111">20</span><span style="color:#111">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">leeftijden</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Seppe&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Seppe&#34;</span><span style="color:#111">,</span> <span style="color:#111">30</span><span style="color:#111">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">leeftijden</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Bart&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Bart&#34;</span><span style="color:#111">,</span> <span style="color:#111">40</span><span style="color:#111">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#111">leeftijden</span><span style="color:#111">.</span><span style="color:#75af00">put</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Jeanne&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Jeanne&#34;</span><span style="color:#111">,</span> <span style="color:#111">18</span><span style="color:#111">));</span>
-</span></span></code></pre></div></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">Map</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">,</span> <span style="color:#111">Persoon</span><span style="color:#f92672">&gt;</span> <span style="color:#111">leeftijden</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HashMap</span><span style="color:#f92672">&lt;&gt;();</span>
+<span style="color:#111">leeftijden</span><span style="color:#f92672">.</span><span style="color:#75af00">put</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Wilfried&#34;</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Wilfried&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">20</span><span style="color:#f92672">));</span>
+<span style="color:#111">leeftijden</span><span style="color:#f92672">.</span><span style="color:#75af00">put</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Seppe&#34;</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Seppe&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">30</span><span style="color:#f92672">));</span>
+<span style="color:#111">leeftijden</span><span style="color:#f92672">.</span><span style="color:#75af00">put</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Bart&#34;</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Bart&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">40</span><span style="color:#f92672">));</span>
+<span style="color:#111">leeftijden</span><span style="color:#f92672">.</span><span style="color:#75af00">put</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Jeanne&#34;</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Persoon</span><span style="color:#f92672">(</span><span style="color:#d88200">&#34;Jeanne&#34;</span><span style="color:#f92672">,</span> <span style="color:#111">18</span><span style="color:#f92672">));</span>
+</code></pre></div></div>
 <h5 id="hash-functies">Hash functies</h5>
 <p>In dit voorbeeld stopt de <code>HashMap</code> met bestaan zodra die out of scope gaat op je eigen machine, maar er zijn ook <strong>distributed hash tables</strong>. Hier is de <strong>hash functie</strong> het belangrijkste onderdeel, die de onderliggende key genereerd en dus bepaald in welke &ldquo;bucket&rdquo; een waarde wordt opgeslagen&mdash;en dus ook, op welke server in een cluster. Een goede hash functie moet (1) deterministisch zijn: atlijd dezelfde hash waarde voor dezelfe input genereren; (2) uniform zijn: er moet een goede verdeling zijn van de output range; en (3) een vaste grootte hebben zodat het makkelijker is voor de data structuur om de hash waarde te bewaren.</p>
 <p><figure>
@@ -904,13 +904,13 @@ graph LR;
 <h4 id="4-wide-column-databases">4. <strong>Wide-column</strong> databases.</h4>
 <p>Wide-column, of <strong>column-based</strong> databases, zijn eigenlijk relationele databases op zijn kop&mdash;letterlijk.</p>
 <p>Wat is het grootste nadeel van het queryen van relationele databases? Deze zijn <strong>row-based</strong>: als je alle genres uit een <code>BOEK</code> tabel wilt halen, zal je alle rijen moeten afgaan en daar een <code>DISTINCT</code> op doen&mdash;alles behalve performant. Bijvoorbeeld:</p>
-<pre tabindex="0"><code>id genre title price
+<pre><code>id genre title price
 1 Fantasy book bla 10
 2 Fantasy another title 20
 3 horror wow-book 10
 </code></pre><p>Hoe haal ik hier alle genres op? <code>SELECT DISTINCT(genre) FROM boeken</code>.  Wat is de gemiddelde prijs? <code>SELECT AVG(price) FROM boeken</code>&mdash;ook een erg dure operatie indien er miljoenen records aanwezig zijn. Een snelheidswinst valt te boeken door te werken met <strong>indexen</strong>, maar daar lossen we niet alles mee op.</p>
 <p>Wat nu als je de kolommen als rijen beschouwt, op deze manier:</p>
-<pre tabindex="0"><code>genre: fantasy:1,2     horror: 3
+<pre><code>genre: fantasy:1,2     horror: 3
 title: book bla:1, another title:2 wow-book: 3
 price: 10:1,3    20:2
 </code></pre><p>Wat is nu de gemiddelde prijs? Haal 1 &ldquo;rij&rdquo; op en deel door het aantal. Welke genres zijn er zoal? De eerste rij is al onmiddellijk het antwoord! We verzamelen hier dus <strong>vertical slices</strong> van data, wat erg belangrijk kan zijn voor <strong>Business Intelligence</strong> (BI): super-linked data tussen de &ldquo;echte&rdquo; row-based data.</p>
@@ -1341,15 +1341,15 @@ price: 10:1,3    20:2
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713263460"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263460"></script>
-    <script src="../../js/jquery.sticky.js?1713263460"></script>
-    <script src="../../js/featherlight.min.js?1713263460"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713263460"></script>
-    <script src="../../js/learn.js?1713263460"></script>
-    <script src="../../js/hugo-learn.js?1713263460"></script>
-    <script src="../../js/mermaid.min.js?1713263460"></script>
+    <script src="../../js/clipboard.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1713263492"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263492"></script>
+    <script src="../../js/jquery.sticky.js?1713263492"></script>
+    <script src="../../js/featherlight.min.js?1713263492"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1713263492"></script>
+    <script src="../../js/learn.js?1713263492"></script>
+    <script src="../../js/hugo-learn.js?1713263492"></script>
+    <script src="../../js/mermaid.min.js?1713263492"></script>
     <script>
     window.MathJax = {
       chtml: {
