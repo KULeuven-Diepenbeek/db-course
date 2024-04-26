@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.81.0" />
+    <meta name="generator" content="Hugo 0.122.0">
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>1. Transaction Mgmt. Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1713263492" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1713263492" rel="stylesheet">
-    <link href="../../css/hybrid.css?1713263492" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1713263492" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1713263492" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1713263492" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1713263492" rel="stylesheet">
-    <link href="../../css/theme.css?1713263492" rel="stylesheet">
-    <link href="../../css/devselector.css?1713263492" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1713263492" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1713263492" rel="stylesheet">
+    <link href="../../css/nucleus.css?1714114341" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1714114341" rel="stylesheet">
+    <link href="../../css/hybrid.css?1714114341" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1714114341" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1714114341" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1714114341" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1714114341" rel="stylesheet">
+    <link href="../../css/theme.css?1714114341" rel="stylesheet">
+    <link href="../../css/devselector.css?1714114341" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1714114341" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1714114341" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1713263492"></script>
-    <script src="../../js/devselector.js?1713263492"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1714114341"></script>
+    <script src="../../js/devselector.js?1714114341"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1713263492"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1713263492"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1714114341"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1714114341"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1713263492"></script>
+<script type="text/javascript" src="../../js/search.js?1714114341"></script>
 
     
   </div>
@@ -518,6 +518,48 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map-red. queries" class="dd-item ">
+        <a href="../../nosql/mapreduce/">
+        4. Advanced map-red. queries
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/replication/" title="5. Replication" class="dd-item ">
+        <a href="../../nosql/replication/">
+        5. Replication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -703,7 +745,7 @@ graph LR;
     JN -->|10 EUR| JL
 
 </div>
-<p>Dit is één transactie&mdash;het zou nooit mogen gebeuren dat er <code>€10</code> verdwijnt van Jens' account zonder dat Jolien dat geld ontvangt. Met andere woorden, er kan niets tussen stap 1 en stap 2 komen: geen systeem crash, geen andere gebruiker (bijvoorbeeld Marianne die Jens <code>€20</code> voor zijn verjaardag stort op de rekening). Dit is één &ldquo;unit of work&rdquo;: als er iets misloopt zou alles teruggedraaid moeten worden. Dus, een transactie heeft als <strong>resultaat</strong> ofwel <strong>success</strong>, ofwel <strong>failure</strong>, maar niets tussenin. Indien dit succesvol wordt afgerond zou het DBMS systeem moeten garanderen dat het geld effectief op Jolien&rsquo;s rekening staat. Indien het faalde zou het DBMS systeem moeten garanderen dat Jens zijn geld niet kwijt is.</p>
+<p>Dit is één transactie&mdash;het zou nooit mogen gebeuren dat er <code>€10</code> verdwijnt van Jens&rsquo; account zonder dat Jolien dat geld ontvangt. Met andere woorden, er kan niets tussen stap 1 en stap 2 komen: geen systeem crash, geen andere gebruiker (bijvoorbeeld Marianne die Jens <code>€20</code> voor zijn verjaardag stort op de rekening). Dit is één &ldquo;unit of work&rdquo;: als er iets misloopt zou alles teruggedraaid moeten worden. Dus, een transactie heeft als <strong>resultaat</strong> ofwel <strong>success</strong>, ofwel <strong>failure</strong>, maar niets tussenin. Indien dit succesvol wordt afgerond zou het DBMS systeem moeten garanderen dat het geld effectief op Jolien&rsquo;s rekening staat. Indien het faalde zou het DBMS systeem moeten garanderen dat Jens zijn geld niet kwijt is.</p>
 <p>In de praktijk worden veel verschillende transacties tegelijkertijd uitgevoerd&mdash;eventueel door verschillende gebruikers. Er moet dus iemand zijn die dit beheert, en dat is de transactie manager. Wie beslist of Jens eerst zijn geld mag afhalen, of dat Marianne eerst zijn verjaardagscadeau mag overmaken op de rekening? Wie beslist dat tussen stap 1 en 2 bij de transfer van het geld van Jens naar Jolien niemand mag tussenkomen? Juist: de transactie manager. Hier zijn verschillende strategieën voor, zoals we later zullen zien in <a href="../../transacties/concurrency-control">Concurrency Control</a>.</p>
 <h2 id="2-het-beheren-van-transacties">2. Het beheren van transacties</h2>
 <p>Formeel gezien wordt er een transactie <strong>afgelijnd</strong> door aan te kondigen wanneer een transactie begint en wanneer hij stopt, zodat de manager de juiste acties kan doorvoeren. De gebruiker kan met SQL ook zelf een transactie terugdraaien als er een programmafout voorkomt, bijvoorbeeld met een <code>try { ... } catch(Exception ex) { rollback }</code>. Meer hierover in sectie <a href="../../transacties/failures-rollbacks/">failures/rollbacks</a>.</p>
@@ -712,14 +754,14 @@ graph LR;
 <li>Committed&mdash;het is gelukt en de data is permanent gepersisteerd.</li>
 <li>Aborted&mdash;Een error tijdens het uitvoeren van de transactie.</li>
 </ol>
-<p>Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of worden <strong>rollbacked</strong>. Vorige versies van data moet dus ook worden bijgehouden. Jens' rekening kan bijvoorbeeld <code>€90</code> zijn initieel, hij haalt er <code>€10</code> af om over te maken wat dit tot <code>€80</code> maakt, maar er loopt iets mis: de rollback triggert het terugdraaien van het getal <code>80</code> naar de originele <code>90</code>.</p>
+<p>Indien er halverwege de abort data is gewijzigd moet dit worden teruggezet, of worden <strong>rollbacked</strong>. Vorige versies van data moet dus ook worden bijgehouden. Jens&rsquo; rekening kan bijvoorbeeld <code>€90</code> zijn initieel, hij haalt er <code>€10</code> af om over te maken wat dit tot <code>€80</code> maakt, maar er loopt iets mis: de rollback triggert het terugdraaien van het getal <code>80</code> naar de originele <code>90</code>.</p>
 <p>Dit is een pseudocode voorbeeld van bovenstaande afgelijnde transactie:</p>
-<pre><code>BEGIN TRANSACTION;
+<pre tabindex="0"><code>BEGIN TRANSACTION;
 UPDATE account SET waarde = waarde - :over_te_maken_bedrag
-WHERE eigenaar = 'Jens'
+WHERE eigenaar = &#39;Jens&#39;
 
 UPDATE account SET waarde = waarde + :over_te_maken_bedrag
-WHERE eigenaar = 'Jolien'
+WHERE eigenaar = &#39;Jolien&#39;
 COMMIT;
 </code></pre><p>Transacties kosten CPU en RAM en zijn configureerbaar maar dus gelimiteerd in aantal. De manager kan worden ingesteld tot bijvoorbeeld ondersteunen van maximum 10 transacties tegelijkertijd.</p>
 <h4 id="dbms-componenten-bij-een-transactie">DBMS Componenten bij een transactie</h4>
@@ -1121,6 +1163,38 @@ COMMIT;
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1162,15 +1236,15 @@ COMMIT;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1713263492"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1713263492"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1713263492"></script>
-    <script src="../../js/jquery.sticky.js?1713263492"></script>
-    <script src="../../js/featherlight.min.js?1713263492"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1713263492"></script>
-    <script src="../../js/learn.js?1713263492"></script>
-    <script src="../../js/hugo-learn.js?1713263492"></script>
-    <script src="../../js/mermaid.min.js?1713263492"></script>
+    <script src="../../js/clipboard.min.js?1714114341"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1714114341"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1714114341"></script>
+    <script src="../../js/jquery.sticky.js?1714114341"></script>
+    <script src="../../js/featherlight.min.js?1714114341"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1714114341"></script>
+    <script src="../../js/learn.js?1714114341"></script>
+    <script src="../../js/hugo-learn.js?1714114341"></script>
+    <script src="../../js/mermaid.min.js?1714114341"></script>
     <script>
     window.MathJax = {
       chtml: {

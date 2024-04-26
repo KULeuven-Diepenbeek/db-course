@@ -1,6 +1,6 @@
 ---
 title: 4. Advanced map-red. queries
-draft: true
+draft: false
 ---
 
 Deze oefeningen gaan verder op de database die je hebt opgezet in het stuk over [document stores](/nosql/documentstores). Herinstalleer indien nodig en download de benodigde gegevens via de instructies (2.2 Oefeningen: **voorbereidingswerk**) in die link. Start voor onderstaande oefeningen de lokale _CouchDB Server_ en de _Admin Console_ (Project Fauxton) opnieuw op. 

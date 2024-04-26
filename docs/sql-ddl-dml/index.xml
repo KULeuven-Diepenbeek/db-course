@@ -7,27 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1. DDL</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/ddl/</guid>
-      <description>Data Defintion Language is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.
-Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan DB Browser for SQLite gebruiken tijdens onze lessen.</description>
+      <description>Data Defintion Language is de taal die we gebruiken om de structuur van onze database te veranderen. We kunnen hiermee tabellen aanmaken, wijzigen of verwijderen. Maar ook indexen, views, triggers of stored procedures worden hiermee aangemaakt.&#xA;Zowat elke RDBMS heeft tooling om DDL te doen via een handige interface, in plaats van dit zelf uit te schrijven. In de praktijk ga je waarschijnlijk met beiden in contact komen. We gaan DB Browser for SQLite gebruiken tijdens onze lessen.</description>
     </item>
-    
     <item>
       <title>2. DML</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/sql-ddl-dml/dml/</guid>
-      <description>Data Modification Language is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.
-SELECT SELECT is het commando dat we gebruiken om data op te vragen uit de database.
- SELECT { DISTINCT } expression FROM table { WHERE condition } LIKE operator LIKE wordt gebruikt om wildcard searches uit te voeren.</description>
+      <description>Data Modification Language is de taal die we gebruiken om de data van onze database te bekijken of aan te passen. Met DML kunnen we CRUD operaties uitvoeren. Create, Read, Update en Delete.&#xA;SELECT SELECT is het commando dat we gebruiken om data op te vragen uit de database.&#xA;SELECT { DISTINCT } expression&#xD;FROM table&#xD;{ WHERE condition } LIKE operator LIKE wordt gebruikt om wildcard searches uit te voeren.</description>
     </item>
-    
   </channel>
 </rss>
