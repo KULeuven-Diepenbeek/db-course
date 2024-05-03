@@ -19,12 +19,14 @@ public class ConcurrencyMain {
 
         var student = new Student("Groeneveld", "Wouter", 1245, true);
         new StudentRepositoryJdbcImpl(connection).saveNewStudent(student);
+         connection.commit();
 
         new Thread(() -> {
             try {
                 // simulate dirty read: get another connection
                 var otherConnection = DriverManager.getConnection(ConnectionManager.ConnectionStringH2);
-                otherConnection.setTransactionIsolation(Connection.TR);
+                otherConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+                //otherConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
                 otherConnection.setAutoCommit(true);
 
                 System.out.println(" ## Trying to DIRTY read students: ");
@@ -36,7 +38,8 @@ public class ConcurrencyMain {
         }).run();
 
         Thread.sleep(2000);
-        connection.rollback();
+//        connection.rollback();
+//        connection.commit();
 
         System.out.println(" ## Re-reading students AFTER rollback: ");
         printStudents(new StudentRepositoryJdbcImpl(connection));

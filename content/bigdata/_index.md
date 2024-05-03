@@ -1,7 +1,7 @@
 ---
 title: 7. Big Data & Analytics
 chapter: true
-draft: true
+draft: false
 ---
 
 # Big Data & Analytics
