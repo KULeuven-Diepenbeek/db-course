@@ -12,21 +12,21 @@
     <title>3. Failures-Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1714114341" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1714114341" rel="stylesheet">
-    <link href="../../css/hybrid.css?1714114341" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1714114341" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1714114341" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1714114341" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1714114341" rel="stylesheet">
-    <link href="../../css/theme.css?1714114341" rel="stylesheet">
-    <link href="../../css/devselector.css?1714114341" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1714114341" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1714114341" rel="stylesheet">
+    <link href="../../css/nucleus.css?1714714645" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/hybrid.css?1714714645" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1714714645" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1714714645" rel="stylesheet">
+    <link href="../../css/theme.css?1714714645" rel="stylesheet">
+    <link href="../../css/devselector.css?1714714645" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1714714645" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1714714645" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1714114341"></script>
-    <script src="../../js/devselector.js?1714114341"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1714714645"></script>
+    <script src="../../js/devselector.js?1714714645"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1714114341"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1714114341"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1714714645"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1714714645"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1714114341"></script>
+<script type="text/javascript" src="../../js/search.js?1714714645"></script>
 
     
   </div>
@@ -315,6 +315,27 @@
       <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item active">
         <a href="../../transacties/failures-rollbacks/">
         3. Failures-Rollbacks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
+        <a href="../../transacties/concurrency-in-practice/">
+        4. Concurrency in de Praktijk
         
         </a>
     </li>
@@ -576,6 +597,103 @@
  
   
     
+    <li data-nav-id="/xml/" title="6. XML Data Storage" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../xml/">
+          6. XML Data Storage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/xml/basics/" title="1. XML Basics" class="dd-item ">
+        <a href="../../xml/basics/">
+        1. XML Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/xml/xsd/" title="2. XSD" class="dd-item ">
+        <a href="../../xml/xsd/">
+        2. XSD
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/xml/xpath/" title="3. XPath" class="dd-item ">
+        <a href="../../xml/xpath/">
+        3. XPath
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/extra/" title="X. Extras" class="dd-item
         
         
@@ -677,8 +795,10 @@
     <li><a href="#1-system-failure-simulatie">1. System failure simulatie</a>
       <ul>
         <li><a href="#11-in-sqlite-met-db-browser">1.1 In SQLite met DB Browser</a></li>
+        <li><a href="#12-in-sqlite-met-javajdbc">1.2 In SQLite met Java/JDBC</a></li>
       </ul>
     </li>
+    <li><a href="#denkvragen">Denkvragen</a></li>
   </ul>
 </nav>
     </div>
@@ -748,57 +868,31 @@ INSERT INTO oeitiskapot;
 </ol>
 <p><strong>Let Op</strong>: Het zou kunnen dat SQLite de volgende fout geeft: <code>cannot start a transaction within a transaction: BEGIN;</code>. Queries die geplakt worden in het &ldquo;execute SQL&rdquo; scherm worden meestal (onzichtbaar, achter de schermen) gewrapped in transacties. Stop de huidige transactie door <code>COMMIT;</code> uit te voeren met de knop &ldquo;execute single SQL line&rdquo;.</p>
 <p><strong>Let Op</strong>: Het zou kunnen dat <code>BEGIN TRANSACTION;</code> de transactie niet goed encapsuleert, maar simpelweg <code>BEGIN;</code> wel. Het <code>TRANSACTION</code> keyword is optioneel <a href="https://www.sqlite.org/lang_transaction.html">volgens de SQLite docs</a> en lijkt, afhankelijk van de geïnstalleerde SQLite versie, ander gedrag te vertonen.</p>
-<!-- ### 1.2 In SQLite met Java/JDBC
-
-SQLite/JDBC uitleg: zie APIs - JDBC.
-
-Gebruik nu  `connection.setAutoCommit(false)`. Deze regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:
-
-> When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)
-
-Zie JDBC Basics in Oracle docs: https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
-
-Begeleidende video:
-
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/f026890c206843548339d1fb4a9f2cbe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-#### Oefeningen
-
-1. Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring `"jdbc:sqlite:sample.db"`, automatisch een lege `.db` file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van `executeUpdate()` en `executeQuery()` bovenstaande system failure te veroorzaken. Je kan de "foute SQL" (met "oeitiskapot") gewoon in een string in java copy/pasten. `executeUpdate()` kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een `SELECT()` nadat je de fout hebt opgevangen in een `try { }` block.
-2. Het probleem is op te lossen met één welgeplaatste regel: `connection.rollback()`. De vraag is echter: waar plaatsen we die? En ja, `rollback()` throwt ook de checked `SQLException`... Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: "Jaak".
-
-De `DROP TABLE IF EXISTS` statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:
-
+<h3 id="12-in-sqlite-met-javajdbc">1.2 In SQLite met Java/JDBC</h3>
+<p>SQLite/JDBC uitleg: zie APIs - JDBC.</p>
+<p>Gebruik nu  <code>connection.setAutoCommit(false)</code>. Deze regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:</p>
+<blockquote>
+<p>When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)</p>
+</blockquote>
+<p>Zie JDBC Basics in Oracle docs: <a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html">https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html</a></p>
+<h4 id="oefeningen-1">Oefeningen</h4>
+<ol>
+<li>Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring <code>&quot;jdbc:sqlite:sample.db&quot;</code>, automatisch een lege <code>.db</code> file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van <code>executeUpdate()</code> en <code>executeQuery()</code> bovenstaande system failure te veroorzaken. Je kan de &ldquo;foute SQL&rdquo; (met &ldquo;oeitiskapot&rdquo;) gewoon in een string in java copy/pasten. <code>executeUpdate()</code> kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een <code>SELECT()</code> nadat je de fout hebt opgevangen in een <code>try { }</code> block.</li>
+<li>Het probleem is op te lossen met één welgeplaatste regel: <code>connection.rollback()</code>. De vraag is echter: waar plaatsen we die? En ja, <code>rollback()</code> throwt ook de checked <code>SQLException</code>&hellip; Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: &ldquo;Jaak&rdquo;.</li>
+</ol>
+<p>De <code>DROP TABLE IF EXISTS</code> statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:</p>
 <div class="devselect">
-
-```kt
-fun initTables() {
-    val sql = SomeClass::class.java.getResource("dbcreate.sql").readText()
-    println(sql)
-
-    connection.createStatement().use {
-      it.executeUpdate(sql)
-    }
-}
-```
-
-```java
-private void initTables() throws Exception {
-    var sql = new String(Files.readAllBytes(Paths.get(getClass().getResource("dbcreate.sql").toURI())));
-    System.out.println(sql);
-
-    var s = connection.createStatement();
-    s.executeUpdate(sql);
-    s.close();
-}
-```
-
-</div>
-
-De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:
-
-```
-org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near ";": syntax error)
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">initTables</span><span style="color:#111">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">sql</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">String</span><span style="color:#111">(</span><span style="color:#111">Files</span><span style="color:#111">.</span><span style="color:#75af00">readAllBytes</span><span style="color:#111">(</span><span style="color:#111">Paths</span><span style="color:#111">.</span><span style="color:#75af00">get</span><span style="color:#111">(</span><span style="color:#111">getClass</span><span style="color:#111">().</span><span style="color:#75af00">getResource</span><span style="color:#111">(</span><span style="color:#d88200">&#34;dbcreate.sql&#34;</span><span style="color:#111">).</span><span style="color:#75af00">toURI</span><span style="color:#111">())));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#111">sql</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">var</span> <span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">connection</span><span style="color:#111">.</span><span style="color:#75af00">createStatement</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">executeUpdate</span><span style="color:#111">(</span><span style="color:#111">sql</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">s</span><span style="color:#111">.</span><span style="color:#75af00">close</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div></div>
+<p>De verwachte fout (met de ongeldige SQL regel) die SQLite doorgeeft aan Java genereert de volgende stacktrace:</p>
+<pre tabindex="0"><code>org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near &#34;;&#34;: syntax error)
     at org.sqlite.core.DB.newSQLException(DB.java:1010)
     at org.sqlite.core.DB.newSQLException(DB.java:1022)
     at org.sqlite.core.DB.throwex(DB.java:987)
@@ -807,13 +901,12 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
     at SQLiteTransactionTest.doStuff(SQLiteTransactionTest.java:54)
     at SQLiteMain.main(SQLiteMain.java:7)
-```
+</code></pre><h2 id="denkvragen">Denkvragen</h2>
+<ul>
+<li>De SQLite website beschrijft in detail hoe ze omgaan met &ldquo;atomic commits&rdquo; om aan de ACID regels te voldoen. Lees dit na op <a href="https://sqlite.org/atomiccommit.html">https://sqlite.org/atomiccommit.html</a> Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?</li>
+<li>JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?</li>
+</ul>
 
-
-## Denkvragen
-
-- De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
-- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?  -->
 
 <footer class="footline">
 	
@@ -1010,9 +1103,6 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1020,51 +1110,6 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1124,6 +1169,134 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
                         
             
@@ -1204,7 +1377,7 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
 			<a class="nav nav-prev" href="../../transacties/concurrency-control/" title="2. Concurrency Control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../apis/" title="4. Database APIs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1214,15 +1387,15 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1714114341"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1714114341"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1714114341"></script>
-    <script src="../../js/jquery.sticky.js?1714114341"></script>
-    <script src="../../js/featherlight.min.js?1714114341"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1714114341"></script>
-    <script src="../../js/learn.js?1714114341"></script>
-    <script src="../../js/hugo-learn.js?1714114341"></script>
-    <script src="../../js/mermaid.min.js?1714114341"></script>
+    <script src="../../js/clipboard.min.js?1714714645"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1714714645"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1714714645"></script>
+    <script src="../../js/jquery.sticky.js?1714714645"></script>
+    <script src="../../js/featherlight.min.js?1714714645"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1714714645"></script>
+    <script src="../../js/learn.js?1714714645"></script>
+    <script src="../../js/hugo-learn.js?1714714645"></script>
+    <script src="../../js/mermaid.min.js?1714714645"></script>
     <script>
     window.MathJax = {
       chtml: {

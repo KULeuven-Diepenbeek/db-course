@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>6. XML Data Storage on Databases</title>
+    <link>https://kuleuven-diepenbeek.github.io/db-course/xml/</link>
+    <description>Recent content in 6. XML Data Storage on Databases</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
+    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/xml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1. XML Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</guid>
+      <description>XML Data Storage XML staat voor Extensible Markup Language. Het is een taal die we gebruiken om met tags gegevens te structureren. Een tag opent zich op volgende manier: &amp;lt;boek&amp;gt; en sluit op deze manier: &amp;lt;/boek&amp;gt;. Je herkent misschien het gebruik van deze tags van HTML? Dat komt omdat HTML en XML allebei gegroeid zijn uit dezelfde taal (SGML).&#xA;Waarom XML gebruiken? XML is nog steeds een vaak voorkomende manier om data te structureren en definiëren.</description>
+    </item>
+    <item>
+      <title>2. XSD</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/xsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/xsd/</guid>
+      <description>XML Schema Definition Wanneer we met XML communiceren tussen twee verschillende partijen, hebben we natuurlijk ook spelregels nodig. Daarvoor kunnen we een XML schema of XSD gebruiken. Daarin leggen we vast:&#xA;welke tags wel of niet mogen voorkomen, in welke volgorde die moeten staan, hoe vaak een element mag voorkomen, of een element optioneel of verplicht is, het datatype van het element, welke attributen op een tag toegelaten zijn Ons vorige XML representatie van een collectie boeken kan met volgende XSD beschreven worden:</description>
+    </item>
+    <item>
+      <title>3. XPath</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/xpath/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/xpath/</guid>
+      <description>XPath XPath is een taal die we gebruiken om specifieke elementen of attributen te vinden in een XML bestand. Zoals je in de voorbije oefeningen al hebt gemerkt zijn XML bestanden nogal groot en niet zo makkelijk in een oogopslag om alle informatie uit te halen.&#xA;Laten we ons voorbeeldbestand nemen:&#xA;&amp;lt;boeken&amp;gt; &amp;lt;boek genre=&amp;#34;Non-Fiction&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;Mythos&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Stephen Fry&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2017&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;boek genre=&amp;#34;biography&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;Scar Tissue&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Anthony Kiedis&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2004&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;boek genre=&amp;#34;fantasy&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;The Lost Metal&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Brandon Sanderson&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2022&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;/boeken&amp;gt; XPath voorbeelden /</description>
+    </item>
+  </channel>
+</rss>

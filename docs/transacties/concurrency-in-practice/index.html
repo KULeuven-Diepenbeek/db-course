@@ -7,26 +7,26 @@
     <meta name="description" content="">
 
 
-    <link rel="icon" href="./images/favicon.png" type="image/png">
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Index :: Databases</title>
+    <title>4. Concurrency in de Praktijk :: Databases</title>
 
     
-    <link href="./css/nucleus.css?1714714645" rel="stylesheet">
-    <link href="./css/fontawesome-all.min.css?1714714645" rel="stylesheet">
-    <link href="./css/hybrid.css?1714714645" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1714714645" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1714714645" rel="stylesheet">
-    <link href="./css/auto-complete.css?1714714645" rel="stylesheet">
-    <link href="./css/atom-one-dark-reasonable.css?1714714645" rel="stylesheet">
-    <link href="./css/theme.css?1714714645" rel="stylesheet">
-    <link href="./css/devselector.css?1714714645" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1714714645" rel="stylesheet">
-    <link href="./css/theme-kul.css?1714714645" rel="stylesheet">
+    <link href="../../css/nucleus.css?1714714645" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/hybrid.css?1714714645" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1714714645" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1714714645" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1714714645" rel="stylesheet">
+    <link href="../../css/theme.css?1714714645" rel="stylesheet">
+    <link href="../../css/devselector.css?1714714645" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1714714645" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1714714645" rel="stylesheet">
     
 
-    <script src="./js/jquery-3.3.1.min.js?1714714645"></script>
-    <script src="./js/devselector.js?1714714645"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1714714645"></script>
+    <script src="../../js/devselector.js?1714714645"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="./">
+  <body class="" data-url="../../transacties/concurrency-in-practice/">
     <nav id="sidebar" class="">
 
 
@@ -51,10 +51,10 @@
   <div id="header-wrapper">
     <div id="header">
       <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
-  <img src="./images/kul.png" alt="KU Leuven" /><br/>
+  <img src="../../images/kul.png" alt="KU Leuven" /><br/>
 </a>
 <a href="https://www.uhasselt.be/" target="_blank">
-  <img src="./images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+  <img src="../../images/uhasselt.svg" alt="UHasselt" id="uhlogo" />
 </a>
     </div>
     
@@ -64,21 +64,21 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="./js/lunr.min.js?1714714645"></script>
-<script type="text/javascript" src="./js/auto-complete.js?1714714645"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1714714645"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1714714645"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     
 </script>
-<script type="text/javascript" src="./js/search.js?1714714645"></script>
+<script type="text/javascript" src="../../js/search.js?1714714645"></script>
 
     
   </div>
 
     <div class="highlightable">
 
-      <h3><a href="./">Course Contents</a></h3>
+      <h3><a href="../../">Course Contents</a></h3>
     <ul class="topics">
 
         
@@ -96,7 +96,7 @@
         
         
         ">
-      <a href="./sql/">
+      <a href="../../sql/">
           1. RDBMS
           
       </a>
@@ -119,7 +119,7 @@
   
     
       <li data-nav-id="/sql/rdbms-basics/" title="1. Database Basics" class="dd-item ">
-        <a href="./sql/rdbms-basics/">
+        <a href="../../sql/rdbms-basics/">
         1. Database Basics
         
         </a>
@@ -140,7 +140,7 @@
   
     
       <li data-nav-id="/sql/rdbms-components/" title="2. Database Componenten" class="dd-item ">
-        <a href="./sql/rdbms-components/">
+        <a href="../../sql/rdbms-components/">
         2. Database Componenten
         
         </a>
@@ -172,7 +172,7 @@
         
         
         ">
-      <a href="./sql-ddl-dml/">
+      <a href="../../sql-ddl-dml/">
           2. SQL DDL &amp; DML
           
       </a>
@@ -195,7 +195,7 @@
   
     
       <li data-nav-id="/sql-ddl-dml/ddl/" title="1. DDL" class="dd-item ">
-        <a href="./sql-ddl-dml/ddl/">
+        <a href="../../sql-ddl-dml/ddl/">
         1. DDL
         
         </a>
@@ -216,7 +216,7 @@
   
     
       <li data-nav-id="/sql-ddl-dml/dml/" title="2. DML" class="dd-item ">
-        <a href="./sql-ddl-dml/dml/">
+        <a href="../../sql-ddl-dml/dml/">
         2. DML
         
         </a>
@@ -244,11 +244,11 @@
   
     
     <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
-        
+        parent
         
         
         ">
-      <a href="./transacties/">
+      <a href="../../transacties/">
           3. RDBMS Transacties
           
       </a>
@@ -271,7 +271,7 @@
   
     
       <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item ">
-        <a href="./transacties/basics/">
+        <a href="../../transacties/basics/">
         1. Transaction Mgmt. Basics
         
         </a>
@@ -292,7 +292,7 @@
   
     
       <li data-nav-id="/transacties/concurrency-control/" title="2. Concurrency Control" class="dd-item ">
-        <a href="./transacties/concurrency-control/">
+        <a href="../../transacties/concurrency-control/">
         2. Concurrency Control
         
         </a>
@@ -313,7 +313,7 @@
   
     
       <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item ">
-        <a href="./transacties/failures-rollbacks/">
+        <a href="../../transacties/failures-rollbacks/">
         3. Failures-Rollbacks
         
         </a>
@@ -333,8 +333,8 @@
  
   
     
-      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
-        <a href="./transacties/concurrency-in-practice/">
+      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item active">
+        <a href="../../transacties/concurrency-in-practice/">
         4. Concurrency in de Praktijk
         
         </a>
@@ -366,7 +366,7 @@
         
         
         ">
-      <a href="./apis/">
+      <a href="../../apis/">
           4. Database APIs
           
       </a>
@@ -389,7 +389,7 @@
   
     
       <li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
-        <a href="./apis/basics/">
+        <a href="../../apis/basics/">
         1. API Basics
         
         </a>
@@ -410,7 +410,7 @@
   
     
       <li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
-        <a href="./apis/jdbc-jdbi/">
+        <a href="../../apis/jdbc-jdbi/">
         2. JDBC en JDBI
         
         </a>
@@ -431,7 +431,7 @@
   
     
       <li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
-        <a href="./apis/jpa/">
+        <a href="../../apis/jpa/">
         3. JPA en Hibernate
         
         </a>
@@ -463,7 +463,7 @@
         
         
         ">
-      <a href="./nosql/">
+      <a href="../../nosql/">
           5. NoSQL
           
       </a>
@@ -486,7 +486,7 @@
   
     
       <li data-nav-id="/nosql/basics/" title="1. NoSQL Basics" class="dd-item ">
-        <a href="./nosql/basics/">
+        <a href="../../nosql/basics/">
         1. NoSQL Basics
         
         </a>
@@ -507,7 +507,7 @@
   
     
       <li data-nav-id="/nosql/keyvaluestores/" title="2. Key-value stores" class="dd-item ">
-        <a href="./nosql/keyvaluestores/">
+        <a href="../../nosql/keyvaluestores/">
         2. Key-value stores
         
         </a>
@@ -528,7 +528,7 @@
   
     
       <li data-nav-id="/nosql/documentstores/" title="3. Document stores" class="dd-item ">
-        <a href="./nosql/documentstores/">
+        <a href="../../nosql/documentstores/">
         3. Document stores
         
         </a>
@@ -549,7 +549,7 @@
   
     
       <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map-red. queries" class="dd-item ">
-        <a href="./nosql/mapreduce/">
+        <a href="../../nosql/mapreduce/">
         4. Advanced map-red. queries
         
         </a>
@@ -570,7 +570,7 @@
   
     
       <li data-nav-id="/nosql/replication/" title="5. Replication" class="dd-item ">
-        <a href="./nosql/replication/">
+        <a href="../../nosql/replication/">
         5. Replication
         
         </a>
@@ -602,7 +602,7 @@
         
         
         ">
-      <a href="./xml/">
+      <a href="../../xml/">
           6. XML Data Storage
           
       </a>
@@ -625,7 +625,7 @@
   
     
       <li data-nav-id="/xml/basics/" title="1. XML Basics" class="dd-item ">
-        <a href="./xml/basics/">
+        <a href="../../xml/basics/">
         1. XML Basics
         
         </a>
@@ -646,7 +646,7 @@
   
     
       <li data-nav-id="/xml/xsd/" title="2. XSD" class="dd-item ">
-        <a href="./xml/xsd/">
+        <a href="../../xml/xsd/">
         2. XSD
         
         </a>
@@ -667,7 +667,7 @@
   
     
       <li data-nav-id="/xml/xpath/" title="3. XPath" class="dd-item ">
-        <a href="./xml/xpath/">
+        <a href="../../xml/xpath/">
         3. XPath
         
         </a>
@@ -699,7 +699,7 @@
         
         
         ">
-      <a href="./extra/">
+      <a href="../../extra/">
           X. Extras
           
       </a>
@@ -750,179 +750,113 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Index</a> > <a href='../../transacties/'>3. RDBMS Transacties</a> > 4. Concurrency in de Praktijk
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</a>
+      <ul>
+        <li><a href="#oefeningen">Oefeningen</a></li>
+        <li><a href="#connection-pooling">Connection Pooling</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              4. Concurrency in de Praktijk
+            </h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
-<h1 id="i-classfas-fa-databasei-databases-i-classfas-fa-databasei"><i class="fas fa-database"></i> Databases <i class="fas fa-database"></i></h1>
-<p>Laatste aanpassingen voor academiejaar <em>2023&mdash;2024</em>.</p>
-<hr>
-<h2 id="_planning_"><em>Planning</em></h2>
-<table>
-<thead>
-<tr>
-<th>nr</th>
-<th>datum</th>
-<th>onderwerp</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>vr 16-02-2024</td>
-<td>RDBMS &amp; SQL: Basics, DB Componenten</td>
-</tr>
-<tr>
-<td>02</td>
-<td>vr 23-02-2024</td>
-<td>ER-schema</td>
-</tr>
-<tr>
-<td>03</td>
-<td>di 27-02-2024</td>
-<td>ACID &amp; SQL Deel 1</td>
-</tr>
-<tr>
-<td>04</td>
-<td>vr 08-03-2024</td>
-<td>SQL deel 2</td>
-</tr>
-<tr>
-<td>05</td>
-<td>vr 15-03-2024</td>
-<td>RDBMS transacties: basics, concurrency control</td>
-</tr>
-<tr>
-<td>06</td>
-<td>vr 22-03-2024</td>
-<td>DB APIs: basics, JDBC, JDBI</td>
-</tr>
-<tr>
-<td>07</td>
-<td>di 26-03-2024</td>
-<td>DB APIs: JPA &amp; Hibernate</td>
-</tr>
-<tr>
-<td>08</td>
-<td>di 16-04-2024</td>
-<td>Re Transacties: rollbacks, concurrency in practice</td>
-</tr>
-<tr>
-<td>09</td>
-<td>vr 26-04-2024</td>
-<td>NoSQL 1: intro HC, key/value en document stores</td>
-</tr>
-<tr>
-<td>10</td>
-<td>vr 03-05-2024</td>
-<td>NoSQL 2: advanced concepts, case studies</td>
-</tr>
-<tr>
-<td>11</td>
-<td>vr 17-05-2024</td>
-<td>XML Data Storage, Big Data &amp; Analytics</td>
-</tr>
-<tr>
-<td>12</td>
-<td>do 23-05-2024</td>
-<td>Reserve</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_cursus-noties_"><em>Cursus noties</em></h2>
-<p>Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditionele hoorcolleges voorzien. Alle noties zijn via deze website te raadplegen (tenzij anders vermeld):</p>
-<h3 id="inhoudsopgave">Inhoudsopgave</h3>
-<ul>
-<li>SQL:
+<h2 id="meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</h2>
+<p><strong>Quickstart project</strong>: <code>examples/concurrency</code> in de <a href="https://github.com/kuleuven-Diepenbeek/db-course">cursus repository</a> (<a href="https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip">download repo zip</a>). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een <code>Runnable</code> thread worker die <code>INSERT</code>, <code>UPDATE</code> of <code>DELETE</code> statements issuen naar de database. Het probleem wat we hier proberen te simuleren is <strong>DIRTY READS</strong>.</p>
+<!-- Begeleidend filmpje:
+
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
+<h3 id="oefeningen">Oefeningen</h3>
 <ol>
-<li><a href="./sql/rdbms-basics/">Database Basics</a></li>
-<li><a href="./sql/rdbms-components/">DB Componenten</a></li>
-<li><a href="./sql/er-schema">ER-schema</a></li>
-<li><a href="./sql/rdbms-acid/">Transacties I: ACID</a></li>
-<li><a href="./sql-ddl-dml/ddl/">SQL: DDL</a></li>
-<li><a href="./sql-ddl-dml/dml/">SQL: DML</a></li>
+<li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Waarom wordt de student wel of niet in de <code>SELECT</code> teruggegeven?</li>
+<li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
+<li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Merk op dat SQLite enkel <code>SERIALIZABLE</code> en <code>READ_UNCOMMITED</code> ondersteund, maar het onmogelijk is om dirty reads te simuleren. Zie ook <a href="https://github.com/changemyminds/Transaction-Isolation-Level-Issue">https://github.com/changemyminds/Transaction-Isolation-Level-Issue</a> en de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> voor het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
+<li>Probeer naast een dirty read ook een <strong>PHANTOM READ</strong> te simuleren met de H2 setup van bovenstaand project.</li>
+<li>Maak in een <code>for {}</code> loop tientallen verschillende threads aan en laat ze verschillende acties op de DB uitvoeren (lezen, schrijven, updaten, &hellip;). Loopt er iets mis? Wat kan je <strong>programmatorisch</strong> doen om de chaos tot het minimum te beperken?</li>
 </ol>
-</li>
-<li>SQL DB APIs:
-<ol>
-<li><a href="./apis/basics/">API Basics &amp; layered tiers</a></li>
-<li><a href="./apis/jdbc-jdbi">JDBC en JDBI</a></li>
-<li><a href="./apis/jpa">JPA en Hibernate</a></li>
-<li><a href="./apis/ex">Extra oefeningen</a></li>
-</ol>
-</li>
-<li>Transacties:
-<ol>
-<li><a href="./transacties/basics">Transacties II: Management Basics</a></li>
-<li><a href="./transacties/concurrency-control/">Concurrency control</a></li>
-<li><a href="./transacties/failures-rollbacks">Failures/Rollbacks</a></li>
-<li><a href="./transacties/concurrency-in-practice/">Transacties III: in de praktijk</a></li>
-</ol>
-</li>
-<li>NoSQL:
-<ol>
-<li><a href="./nosql/basics/">NoSQL Basics</a></li>
-<li><a href="./nosql/keyvaluestores">Key/Value stores</a></li>
-<li><a href="./nosql/documentstores">Document stores</a></li>
-<li><a href="./nosql/mapreduce">Advanced map/reduce queries</a></li>
-<li><a href="./nosql/replication">Replication</a></li>
-</ol>
-</li>
-<li>XML &amp; Big Data Storage
-<ol>
-<li><a href="./xml/basics/">XML Basics</a></li>
-<li><a href="./xml/xsd/">XSD Schemas</a></li>
-<li><a href="./xml/xpath/">XPath Queries</a></li>
-<li><a href="./bigdata/basics/">Big Data Basics</a></li>
-<li><a href="./bigdata/datawarehousing/">Big Data: Warehousing &amp; BI</a></li>
-</ol>
-</li>
-</ul>
-<h2 id="syllabus">Syllabus</h2>
-<ul>
-<li><strong>Lesgevers</strong>:
-<ul>
-<li>Coördinerend Verantwoordelijke: prof. dr. Kris Aerts (<a href="mailto:kris.aerts@kuleuven.be">kris.aerts@kuleuven.be</a>)</li>
-<li>assistent lesgever: ing. Arne Duyver (<a href="mailto:arne.duyver@kuleuven.be">arne.duyver@kuleuven.be</a>)</li>
-</ul>
-</li>
-<li><strong>Kantoor</strong>: Technologiecentrum Diepenbeek, Groep ACRO.</li>
-</ul>
-<h4 id="cursusbeschrijving">Cursusbeschrijving</h4>
-<p>Dit opleidingsonderdeel focust enerzijds op drie soorten databases:</p>
-<ul>
-<li>relationele databases</li>
-<li>de NoSQL-alternatieven</li>
-<li>XML databases</li>
-</ul>
-<p>En anderzijds op twee toepassingen:</p>
-<ul>
-<li>programmeren van database-gestuurde applicaties via API&rsquo;s</li>
-<li>een inleiding in Big Data</li>
-</ul>
-<h4 id="vereiste-voorkennis">Vereiste voorkennis</h4>
-<ul>
-<li>Basiskennis van een Object-Geörienteerde programmeertaal als Java of C#</li>
-<li>Basiskennis van het UNIX systeem, werken met commandline</li>
-</ul>
-<h4 id="doelstellingen">Doelstellingen</h4>
-<p>Zie ook <a href="https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&amp;i=4290">Studiegids UHasselt</a></p>
-<p>De context en het overzicht worden aangereikt in de eerste lessen van dit vak.</p>
-<p>Als practicum wordt een grotere probleemstelling als project uitgewerkt. Alle aan te leren aspecten van databases komen in dit project aan bod. Studenten kunnen facultatief buiten het practicum extra thematische oefeningen oplossen.</p>
-<h4 id="kalender">Kalender</h4>
-<p>Zie <a href="https://mytimetable.uhasselt.be/">Mytimetable UHasselt</a>.</p>
+
+<div class="notices note" ><p>Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite&rsquo;s <a href="https://www.sqlite.org/sharedcache.html">shared cache mode</a>. Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/></p>
+</div>
+
+<h3 id="connection-pooling">Connection Pooling</h3>
+<p>Uit de code blijkt dat alle threads momenteel éénzelfde connection instance delen via de <code>StudentRepository</code> implementatie. In de praktijk wordt er voor client/server applicaties altijd <strong>connection pooling</strong> toegepast: een aantal connections zijn beschikbaar in een <em>pool</em>, waar de clients uit kunnen kiezen. Als er een beschikbaar is, kan deze verder gaan. Als dat niet zo is, moet die bepaalde request wachten, tot een andere klaar is met zijn database acties en de connection terug vrijgeeft, opnieuw in de pool. Op die manier kan je bijvoorbeeld 6 connections verdelen over 10+ client threads, zoals in deze figuur (bron: oracle docs):</p>
+<p><figure>
+	<a href="../../img/connectionpool.gif" data-featherlight="image">
+		<img src="../../img/connectionpool.gif"   title="Bron: oracle docs">
+	</a>
 	
-  
+		<figcaption>Bron: oracle docs</figcaption>
+	
+</figure>
+</p>
+<p>Voor embedded single-file databases als SQLite is dit niet de gewoonte. Hibernate (zie 3. Database APIs) voorziet verschillende properties om connection pooling in te stellen, zoals aantal connections, aantal threads die kunnen requesten, timeout request, enzovoort. We gaan hier verder niet op in.</p>
+
+
+<footer class="footline">
+	
+</footer>
+
         
         </div>
         
@@ -1053,6 +987,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1065,6 +1000,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1114,6 +1052,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1132,6 +1071,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1377,8 +1319,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="../../transacties/failures-rollbacks/" title="3. Failures-Rollbacks"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="./sql/" title="1. RDBMS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="../../apis/" title="4. Database APIs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1388,15 +1332,15 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1714714645"></script>
-    <script src="./js/perfect-scrollbar.min.js?1714714645"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1714714645"></script>
-    <script src="./js/jquery.sticky.js?1714714645"></script>
-    <script src="./js/featherlight.min.js?1714714645"></script>
-    <script src="./js/modernizr.custom-3.6.0.js?1714714645"></script>
-    <script src="./js/learn.js?1714714645"></script>
-    <script src="./js/hugo-learn.js?1714714645"></script>
-    <script src="./js/mermaid.min.js?1714714645"></script>
+    <script src="../../js/clipboard.min.js?1714714645"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1714714645"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1714714645"></script>
+    <script src="../../js/jquery.sticky.js?1714714645"></script>
+    <script src="../../js/featherlight.min.js?1714714645"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1714714645"></script>
+    <script src="../../js/learn.js?1714714645"></script>
+    <script src="../../js/hugo-learn.js?1714714645"></script>
+    <script src="../../js/mermaid.min.js?1714714645"></script>
     <script>
     window.MathJax = {
       chtml: {

@@ -2,16 +2,16 @@
 title: 4. Concurrency in de Praktijk
 weight: 4
 author: Wouter Groenveld
-draft: true
+draft: false
 ---
 
 ## Meerdere threads met toegang tot de DB
 
 **Quickstart project**: `examples/concurrency` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een `Runnable` thread worker die `INSERT`, `UPDATE` of `DELETE` statements issuen naar de database. Het probleem wat we hier proberen te simuleren is **DIRTY READS**.
 
-Begeleidend filmpje:
+<!-- Begeleidend filmpje:
 
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
 
 
 
@@ -25,7 +25,6 @@ Begeleidend filmpje:
 
 {{% notice note %}}
 Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite's [shared cache mode](https://www.sqlite.org/sharedcache.html). Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/>
-De H2 implementatie wordt ook gebruikt bij de SESsy library---zie [database APIs - extras](/apis/ex/).
 {{% /notice %}}
 
 

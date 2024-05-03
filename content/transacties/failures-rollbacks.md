@@ -63,7 +63,7 @@ INSERT INTO oeitiskapot;
 
 **Let Op**: Het zou kunnen dat `BEGIN TRANSACTION;` de transactie niet goed encapsuleert, maar simpelweg `BEGIN;` wel. Het `TRANSACTION` keyword is optioneel [volgens de SQLite docs](https://www.sqlite.org/lang_transaction.html) en lijkt, afhankelijk van de geïnstalleerde SQLite versie, ander gedrag te vertonen. 
 
-<!-- ### 1.2 In SQLite met Java/JDBC
+### 1.2 In SQLite met Java/JDBC
 
 SQLite/JDBC uitleg: zie APIs - JDBC.
 
@@ -73,10 +73,6 @@ Gebruik nu  `connection.setAutoCommit(false)`. Deze regel is nodig omdat in JDBC
 
 Zie JDBC Basics in Oracle docs: https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
-Begeleidende video:
-
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/f026890c206843548339d1fb4a9f2cbe" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 #### Oefeningen
 
 1. Maak een nieuw Gradle project aan en connecteer naar je SQLite database. Merk op dat, bij connectionstring `"jdbc:sqlite:sample.db"`, automatisch een lege `.db` file wordt aangemaakt indien de database niet bestaat. Probeer met behulp van `executeUpdate()` en `executeQuery()` bovenstaande system failure te veroorzaken. Je kan de "foute SQL" (met "oeitiskapot") gewoon in een string in java copy/pasten. `executeUpdate()` kan verschillende statements tegelijkertijd verwerken. Verifieer dat de naam foutief toch wordt gewijzigd met een `SELECT()` nadat je de fout hebt opgevangen in een `try { }` block.
@@ -85,17 +81,6 @@ Begeleidende video:
 De `DROP TABLE IF EXISTS` statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:
 
 <div class="devselect">
-
-```kt
-fun initTables() {
-    val sql = SomeClass::class.java.getResource("dbcreate.sql").readText()
-    println(sql)
-
-    connection.createStatement().use {
-      it.executeUpdate(sql)
-    }
-}
-```
 
 ```java
 private void initTables() throws Exception {
@@ -128,4 +113,4 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
 ## Denkvragen
 
 - De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
-- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?  -->
+- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?

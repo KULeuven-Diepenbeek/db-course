@@ -29,17 +29,26 @@
     <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</loc>
     <lastmod>2024-03-15T00:00:05+01:00</lastmod>
   </url><url>
+    <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</loc>
+    <lastmod>2024-03-15T00:00:05+01:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</loc>
     <lastmod>2024-03-22T08:04:47+01:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
+    <loc>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</loc>
+    <lastmod>2022-12-15T14:05:09+01:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</loc>
     <lastmod>2024-03-22T08:56:27+01:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/keyvaluestores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
+  </url><url>
+    <loc>https://kuleuven-diepenbeek.github.io/db-course/xml/xsd/</loc>
+    <lastmod>2022-12-15T14:05:09+01:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
@@ -50,8 +59,11 @@
     <loc>https://kuleuven-diepenbeek.github.io/db-course/transacties/</loc>
     <lastmod>2024-03-15T00:00:05+01:00</lastmod>
   </url><url>
+    <loc>https://kuleuven-diepenbeek.github.io/db-course/xml/xpath/</loc>
+    <lastmod>2022-12-15T14:05:09+01:00</lastmod>
+  </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/mapreduce/</loc>
-    <lastmod>2024-04-16T11:14:03+02:00</lastmod>
+    <lastmod>2024-04-26T08:52:35+02:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/apis/</loc>
     <lastmod>2024-03-22T08:04:47+01:00</lastmod>
@@ -60,7 +72,10 @@
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/nosql/replication/</loc>
-    <lastmod>2024-04-16T11:14:03+02:00</lastmod>
+    <lastmod>2024-04-26T08:52:35+02:00</lastmod>
+  </url><url>
+    <loc>https://kuleuven-diepenbeek.github.io/db-course/xml/</loc>
+    <lastmod>2024-02-14T10:28:42+01:00</lastmod>
   </url><url>
     <loc>https://kuleuven-diepenbeek.github.io/db-course/</loc>
     <lastmod>2024-02-14T10:45:18+01:00</lastmod>

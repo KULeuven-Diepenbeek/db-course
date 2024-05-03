@@ -30,5 +30,12 @@
       <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/failures-rollbacks/</guid>
       <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:&#xA;DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
     </item>
+    <item>
+      <title>4. Concurrency in de Praktijk</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</guid>
+      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een Runnable thread worker die INSERT, UPDATE of DELETE statements issuen naar de database. Het probleem wat we hier proberen te simuleren is DIRTY READS.&#xA;Oefeningen Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit.</description>
+    </item>
   </channel>
 </rss>

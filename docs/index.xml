@@ -59,6 +59,13 @@
       <description>Voorbereidende CREATE statements (Dit is SQLite syntax!) Zie SQLite manual:&#xA;DROP TABLE IF EXISTS student; CREATE TABLE student( studnr INT NOT NULL PRIMARY KEY, naam VARCHAR(200) NOT NULL, voornaam VARCHAR(200), goedbezig BOOL ); DROP TABLE IF EXISTS log; CREATE TABLE log( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, date DATETIME DEFAULT CURRENT_TIMESTAMP, foreign_id INT NOT NULL, msg TEXT ); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, &amp;#39;Trekhaak&amp;#39;, &amp;#39;Jaak&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, &amp;#39;Peeters&amp;#39;, &amp;#39;Jos&amp;#39;, 0); INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, &amp;#39;Dongmans&amp;#39;, &amp;#39;Ding&amp;#39;, 1); 1.</description>
     </item>
     <item>
+      <title>4. Concurrency in de Praktijk</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/transacties/concurrency-in-practice/</guid>
+      <description>Meerdere threads met toegang tot de DB Quickstart project: examples/concurrency in de cursus repository (download repo zip). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een Runnable thread worker die INSERT, UPDATE of DELETE statements issuen naar de database. Het probleem wat we hier proberen te simuleren is DIRTY READS.&#xA;Oefeningen Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit.</description>
+    </item>
+    <item>
       <title>1. API Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
@@ -71,6 +78,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</guid>
       <description>Het schaalbaarheid probleem Het probleem met RDMS (relationele database management systems) is vaak schaalbaarheid. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&#xA;Optie 1: Vertical scaling De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie transacties basics).&#xA;Je botst hier echter snel op hardware limitaties&amp;mdash;niet alles is opgelost met een latje RAM.</description>
+    </item>
+    <item>
+      <title>1. XML Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</guid>
+      <description>XML Data Storage XML staat voor Extensible Markup Language. Het is een taal die we gebruiken om met tags gegevens te structureren. Een tag opent zich op volgende manier: &amp;lt;boek&amp;gt; en sluit op deze manier: &amp;lt;/boek&amp;gt;. Je herkent misschien het gebruik van deze tags van HTML? Dat komt omdat HTML en XML allebei gegroeid zijn uit dezelfde taal (SGML).&#xA;Waarom XML gebruiken? XML is nog steeds een vaak voorkomende manier om data te structureren en definiëren.</description>
     </item>
     <item>
       <title>2. JDBC en JDBI</title>
@@ -87,6 +101,13 @@
       <description>1.1 Persistente Hashmaps De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele HashMap&amp;lt;K,V&amp;gt; die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.&#xA;De &amp;ldquo;oude&amp;rdquo; manier om dit te doen op de JVM is gebruik te maken van FileOutputStream:&#xA;public static void main(String[] args) throws IOException { var db = new HashMap&amp;lt;String, Object&amp;gt;(); db.</description>
     </item>
     <item>
+      <title>2. XSD</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/xsd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/xsd/</guid>
+      <description>XML Schema Definition Wanneer we met XML communiceren tussen twee verschillende partijen, hebben we natuurlijk ook spelregels nodig. Daarvoor kunnen we een XML schema of XSD gebruiken. Daarin leggen we vast:&#xA;welke tags wel of niet mogen voorkomen, in welke volgorde die moeten staan, hoe vaak een element mag voorkomen, of een element optioneel of verplicht is, het datatype van het element, welke attributen op een tag toegelaten zijn Ons vorige XML representatie van een collectie boeken kan met volgende XSD beschreven worden:</description>
+    </item>
+    <item>
       <title>3. Document stores</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/documentstores/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
@@ -99,6 +120,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
       <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).&#xA;Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+    </item>
+    <item>
+      <title>3. XPath</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/xml/xpath/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/xpath/</guid>
+      <description>XPath XPath is een taal die we gebruiken om specifieke elementen of attributen te vinden in een XML bestand. Zoals je in de voorbije oefeningen al hebt gemerkt zijn XML bestanden nogal groot en niet zo makkelijk in een oogopslag om alle informatie uit te halen.&#xA;Laten we ons voorbeeldbestand nemen:&#xA;&amp;lt;boeken&amp;gt; &amp;lt;boek genre=&amp;#34;Non-Fiction&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;Mythos&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Stephen Fry&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2017&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;boek genre=&amp;#34;biography&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;Scar Tissue&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Anthony Kiedis&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2004&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;boek genre=&amp;#34;fantasy&amp;#34;&amp;gt; &amp;lt;titel&amp;gt;The Lost Metal&amp;lt;/titel&amp;gt; &amp;lt;auteur&amp;gt;Brandon Sanderson&amp;lt;/auteur&amp;gt; &amp;lt;jaar&amp;gt;2022&amp;lt;/jaar&amp;gt; &amp;lt;/boek&amp;gt; &amp;lt;/boeken&amp;gt; XPath voorbeelden /</description>
     </item>
     <item>
       <title>4. Advanced map-red. queries</title>
