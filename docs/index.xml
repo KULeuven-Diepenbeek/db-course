@@ -73,6 +73,13 @@
       <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):&#xA;In de praktijk variëert deze tier benadering van project tot project.</description>
     </item>
     <item>
+      <title>1. Big Data Basics</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/basics/</guid>
+      <description>De Big in Big Data mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.&#xA;De term Big Data is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &amp;ldquo;grote datasets&amp;rdquo; categoriseren afhankelijk van wat we noemen de vijf Vs:&#xA;Volume&amp;mdash;Het gaat (uiteraard) over een alsmaar groeiend &amp;ldquo;groot volume&amp;rdquo; aan data; Velocity&amp;mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt; Variety&amp;mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &amp;hellip;); Veracity&amp;mdash;Hoe waarheidsgetrouw is de data eigenlijk wel?</description>
+    </item>
+    <item>
       <title>1. NoSQL Basics</title>
       <link>https://kuleuven-diepenbeek.github.io/db-course/nosql/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
@@ -85,6 +92,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
       <guid>https://kuleuven-diepenbeek.github.io/db-course/xml/basics/</guid>
       <description>XML Data Storage XML staat voor Extensible Markup Language. Het is een taal die we gebruiken om met tags gegevens te structureren. Een tag opent zich op volgende manier: &amp;lt;boek&amp;gt; en sluit op deze manier: &amp;lt;/boek&amp;gt;. Je herkent misschien het gebruik van deze tags van HTML? Dat komt omdat HTML en XML allebei gegroeid zijn uit dezelfde taal (SGML).&#xA;Waarom XML gebruiken? XML is nog steeds een vaak voorkomende manier om data te structureren en definiëren.</description>
+    </item>
+    <item>
+      <title>2. Data Warehousing &amp; BI</title>
+      <link>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/db-course/bigdata/datawarehousing/</guid>
+      <description>Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk bewaren en ophalen van data&amp;mdash;rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we data benaderen vanuit business perspectief.&#xA;Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op verschillende plekken en in verschillende formaten, beter beslissingen nemen. Strategische business beslissingen worden meestal op verschillende niveau&amp;rsquo;s genomen:</description>
     </item>
     <item>
       <title>2. JDBC en JDBI</title>

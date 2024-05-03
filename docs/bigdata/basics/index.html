@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>4. Concurrency in de Praktijk :: Databases</title>
+    <title>1. Big Data Basics :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1714723968" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../transacties/concurrency-in-practice/">
+  <body class="" data-url="../../bigdata/basics/">
     <nav id="sidebar" class="">
 
 
@@ -244,7 +244,7 @@
   
     
     <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
-        parent
+        
         
         
         ">
@@ -333,7 +333,7 @@
  
   
     
-      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item active">
+      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
         <a href="../../transacties/concurrency-in-practice/">
         4. Concurrency in de Praktijk
         
@@ -695,7 +695,7 @@
   
     
     <li data-nav-id="/bigdata/" title="7. Big Data &amp; Analytics" class="dd-item
-        
+        parent
         
         
         ">
@@ -721,7 +721,7 @@
  
   
     
-      <li data-nav-id="/bigdata/basics/" title="1. Big Data Basics" class="dd-item ">
+      <li data-nav-id="/bigdata/basics/" title="1. Big Data Basics" class="dd-item active">
         <a href="../../bigdata/basics/">
         1. Big Data Basics
         
@@ -853,7 +853,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../transacties/'>3. RDBMS Transacties</a> > 4. Concurrency in de Praktijk
+            <a href='../../'>Index</a> > <a href='../../bigdata/'>7. Big Data & Analytics</a> > 1. Big Data Basics
           
         
           
@@ -866,16 +866,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</a>
-      <ul>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#connection-pooling">Connection Pooling</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -891,42 +882,34 @@
           
             <h1>
               
-              4. Concurrency in de Praktijk
+              1. Big Data Basics
             </h1>
           
 
         
 
 
-<h2 id="meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</h2>
-<p><strong>Quickstart project</strong>: <code>examples/concurrency</code> in de <a href="https://github.com/kuleuven-Diepenbeek/db-course">cursus repository</a> (<a href="https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip">download repo zip</a>). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een <code>Runnable</code> thread worker die <code>INSERT</code>, <code>UPDATE</code> of <code>DELETE</code> statements issuen naar de database. Het probleem wat we hier proberen te simuleren is <strong>DIRTY READS</strong>.</p>
-<!-- Begeleidend filmpje:
-
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
-<h3 id="oefeningen">Oefeningen</h3>
+<p>De <strong>Big</strong> in <em>Big Data</em> mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.</p>
+<p>De term <em>Big Data</em> is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &ldquo;grote datasets&rdquo; categoriseren afhankelijk van wat we noemen de <strong>vijf Vs</strong>:</p>
 <ol>
-<li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Waarom wordt de student wel of niet in de <code>SELECT</code> teruggegeven?</li>
-<li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
-<li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Merk op dat SQLite enkel <code>SERIALIZABLE</code> en <code>READ_UNCOMMITED</code> ondersteund, maar het onmogelijk is om dirty reads te simuleren. Zie ook <a href="https://github.com/changemyminds/Transaction-Isolation-Level-Issue">https://github.com/changemyminds/Transaction-Isolation-Level-Issue</a> en de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> voor het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
-<li>Probeer naast een dirty read ook een <strong>PHANTOM READ</strong> te simuleren met de H2 setup van bovenstaand project.</li>
-<li>Maak in een <code>for {}</code> loop tientallen verschillende threads aan en laat ze verschillende acties op de DB uitvoeren (lezen, schrijven, updaten, &hellip;). Loopt er iets mis? Wat kan je <strong>programmatorisch</strong> doen om de chaos tot het minimum te beperken?</li>
+<li><strong>Volume</strong>&mdash;Het gaat (uiteraard) over een alsmaar groeiend &ldquo;groot volume&rdquo; aan data;</li>
+<li><strong>Velocity</strong>&mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt;</li>
+<li><strong>Variety</strong>&mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &hellip;);</li>
+<li><strong>Veracity</strong>&mdash;Hoe waarheidsgetrouw is de data eigenlijk wel? Data vertoont alsmaar vaker inconsistenties/ambiguiteit;</li>
+<li><strong>Value</strong>&mdash;Wat heb je aan al die data zonder er iets waardevol mee te doen (zoals een crutiale business beslissing)?</li>
 </ol>
-
-<div class="notices note" ><p>Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite&rsquo;s <a href="https://www.sqlite.org/sharedcache.html">shared cache mode</a>. Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/></p>
-</div>
-
-<h3 id="connection-pooling">Connection Pooling</h3>
-<p>Uit de code blijkt dat alle threads momenteel éénzelfde connection instance delen via de <code>StudentRepository</code> implementatie. In de praktijk wordt er voor client/server applicaties altijd <strong>connection pooling</strong> toegepast: een aantal connections zijn beschikbaar in een <em>pool</em>, waar de clients uit kunnen kiezen. Als er een beschikbaar is, kan deze verder gaan. Als dat niet zo is, moet die bepaalde request wachten, tot een andere klaar is met zijn database acties en de connection terug vrijgeeft, opnieuw in de pool. Op die manier kan je bijvoorbeeld 6 connections verdelen over 10+ client threads, zoals in deze figuur (bron: oracle docs):</p>
 <p><figure>
-	<a href="../../img/connectionpool.gif" data-featherlight="image">
-		<img src="../../img/connectionpool.gif"   title="Bron: oracle docs">
+	<a href="../../img/5vs.jpg" data-featherlight="image">
+		<img src="../../img/5vs.jpg"   title="src: tistory.com">
 	</a>
 	
-		<figcaption>Bron: oracle docs</figcaption>
+		<figcaption>src: tistory.com</figcaption>
 	
 </figure>
 </p>
-<p>Voor embedded single-file databases als SQLite is dit niet de gewoonte. Hibernate (zie 3. Database APIs) voorziet verschillende properties om connection pooling in te stellen, zoals aantal connections, aantal threads die kunnen requesten, timeout request, enzovoort. We gaan hier verder niet op in.</p>
+<p>Denk aan de biljoenen mensen die dagelijks Facebook gebruiken en gigantische volumes aan foto&rsquo;s en tekst uploaden. Het aantal gebruikers dat gestaag steeg (velocity) en de variëteit van data zoals APIs tussen Facebook en anderen om elders in te loggen met je account, video en fotomateriaal in plaats van enkel tekst, integratie met WhatsApp/Instagram, &hellip; Maar hoeveel fake data zit er wel niet tussen, en hoeveel accounts worden misbruikt? Hoeveel data lekken en gevoelige data bevat het? (veracity). Vooral uw persoonsgegevens is voor Meta, het bedrijf achter Facebook, letterlijk goud waard, en verkoopt het door aan derden (value), vaak zonder jouw toestemming!</p>
+<p>Nog een leuk voorbeeld: de winkel <a href="https://ebay.com/">https://ebay.com/</a> heeft een data warehouse van 45 petabytes&mdash;ofwel 45.000 terabytes!</p>
+<p>Uit de vorige hoofdstukken blijkt dat een traditioneel RDBMS systeem niet goed kan scalen (zie <a href="../../nosql/basics">nosql introductie</a>). Echter, een NoSQL DB is slechts één component in het gehele Big Data ecosysteem. In de praktijk gaat het over veel pools, clusters, servers, heterogene DB systemen, files, APIs, &hellip; allemaal gecombineerd (zie <a href="../../bigdata/datawarehousing">data warehousing lakes</a>). Het beheren van een Big Data systeem gaat niet over één DB systeem, maar over het beheren van verschillende parameters (snelheid, grootte van input, connecties tussen systemen, &hellip;). De analyse van de inhoud ervan is vaak een taak voor gespecialiseerde <strong>data scientists</strong>.</p>
 
 
 <footer class="footline">
@@ -1063,7 +1046,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1076,9 +1058,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1128,7 +1107,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1147,9 +1125,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1375,6 +1350,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1387,6 +1363,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1403,6 +1380,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1443,10 +1423,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../transacties/failures-rollbacks/" title="3. Failures-Rollbacks"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../bigdata/" title="7. Big Data &amp; Analytics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../apis/" title="4. Database APIs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../bigdata/datawarehousing/" title="2. Data Warehousing &amp; BI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

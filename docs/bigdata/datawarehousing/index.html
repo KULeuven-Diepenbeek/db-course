@@ -9,7 +9,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>4. Concurrency in de Praktijk :: Databases</title>
+    <title>2. Data Warehousing &amp; BI :: Databases</title>
 
     
     <link href="../../css/nucleus.css?1714723968" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="../../transacties/concurrency-in-practice/">
+  <body class="" data-url="../../bigdata/datawarehousing/">
     <nav id="sidebar" class="">
 
 
@@ -244,7 +244,7 @@
   
     
     <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
-        parent
+        
         
         
         ">
@@ -333,7 +333,7 @@
  
   
     
-      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item active">
+      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
         <a href="../../transacties/concurrency-in-practice/">
         4. Concurrency in de Praktijk
         
@@ -695,7 +695,7 @@
   
     
     <li data-nav-id="/bigdata/" title="7. Big Data &amp; Analytics" class="dd-item
-        
+        parent
         
         
         ">
@@ -742,7 +742,7 @@
  
   
     
-      <li data-nav-id="/bigdata/datawarehousing/" title="2. Data Warehousing &amp; BI" class="dd-item ">
+      <li data-nav-id="/bigdata/datawarehousing/" title="2. Data Warehousing &amp; BI" class="dd-item active">
         <a href="../../bigdata/datawarehousing/">
         2. Data Warehousing &amp; BI
         
@@ -853,7 +853,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href='../../transacties/'>3. RDBMS Transacties</a> > 4. Concurrency in de Praktijk
+            <a href='../../'>Index</a> > <a href='../../bigdata/'>7. Big Data & Analytics</a> > 2. Data Warehousing & BI
           
         
           
@@ -868,12 +868,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</a>
-      <ul>
-        <li><a href="#oefeningen">Oefeningen</a></li>
-        <li><a href="#connection-pooling">Connection Pooling</a></li>
-      </ul>
-    </li>
+    <li><a href="#rdbms-vs-dw">RDBMS vs DW</a></li>
+    <li><a href="#mini-dws-data-marts">Mini DWs: Data Marts</a></li>
+    <li><a href="#data-lakes">Data Lakes</a></li>
   </ul>
 </nav>
     </div>
@@ -891,42 +888,160 @@
           
             <h1>
               
-              4. Concurrency in de Praktijk
+              2. Data Warehousing &amp; BI
             </h1>
           
 
         
 
 
-<h2 id="meerdere-threads-met-toegang-tot-de-db">Meerdere threads met toegang tot de DB</h2>
-<p><strong>Quickstart project</strong>: <code>examples/concurrency</code> in de <a href="https://github.com/kuleuven-Diepenbeek/db-course">cursus repository</a> (<a href="https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip">download repo zip</a>). Het bevat een JDBC implementatie van de gekende studenten opgave, inclusief een <code>Runnable</code> thread worker die <code>INSERT</code>, <code>UPDATE</code> of <code>DELETE</code> statements issuen naar de database. Het probleem wat we hier proberen te simuleren is <strong>DIRTY READS</strong>.</p>
-<!-- Begeleidend filmpje:
-
-<div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/7bec2d4a5aab482bad0443e6e6f8d68d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
-<h3 id="oefeningen">Oefeningen</h3>
+<p>Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk <em>bewaren en ophalen van data</em>&mdash;rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we <strong>data benaderen vanuit business perspectief</strong>.</p>
+<p>Een bedrijf kan gebaseerd op de miljoenen eenheden data dat het verzameld, op verschillende plekken en in verschillende formaten, beter beslissingen nemen. Strategische business beslissingen worden meestal op verschillende niveau&rsquo;s genomen:</p>
 <ol>
-<li>Inspecteer de huidige code van het project en vergewis je ervan dat je alle stappen begrijpt. Voer het een aantal keer uit. Wat zie je in de Stdout? Waarom wordt de student wel of niet in de <code>SELECT</code> teruggegeven?</li>
-<li>Speel met de parameter van <code>setAutoCommit()</code> in de <code>ConnectionManager</code>. Zie je een verschil?</li>
-<li>Speel met de parameter van <code>setTransactionIsolation()</code> op de connection. Merk op dat SQLite enkel <code>SERIALIZABLE</code> en <code>READ_UNCOMMITED</code> ondersteund, maar het onmogelijk is om dirty reads te simuleren. Zie ook <a href="https://github.com/changemyminds/Transaction-Isolation-Level-Issue">https://github.com/changemyminds/Transaction-Isolation-Level-Issue</a> en de <a href="https://docs.oracle.com/cd/E19830-01/819-4721/beamv/index.html">Oracle docs</a> voor het verschil tussen bijvoorbeeld <code>READ_UNCOMMITTED</code> en <code>READ_COMMITTED</code>? Kan je uit de context opmaken wat een &ldquo;<em>dirty read</em>&rdquo; is?</li>
-<li>Probeer naast een dirty read ook een <strong>PHANTOM READ</strong> te simuleren met de H2 setup van bovenstaand project.</li>
-<li>Maak in een <code>for {}</code> loop tientallen verschillende threads aan en laat ze verschillende acties op de DB uitvoeren (lezen, schrijven, updaten, &hellip;). Loopt er iets mis? Wat kan je <strong>programmatorisch</strong> doen om de chaos tot het minimum te beperken?</li>
+<li>Niveau 1 noemen we het <strong>operationeel</strong> niveau. Hier worden dagelijkse beslissingen genomen op korte termijn, vaak zonder al te veel naar de toekomst te kijken. Denk maar aan verschillende verkopen, implementatie beslissingen vanuit business perspectief, enzovoort.</li>
+<li>Niveau 2 noemen we het <strong>tactisch niveau</strong>. Middle management probeert hier op middellange termijn (bijvoorbeeld een maand/kwartaa/jaar) een vooruitblik te doen en gebaseerd daarop een partnerschap aan te gaan of af te wijzen.</li>
+<li>Niveau 3 noemen we het <strong>strategisch niveau</strong>. Senior management neemt beslissingen op dit niveau om het bedrijf op lange termijn (5 jaar of misschien zelfs langer) op koers te houden.</li>
 </ol>
-
-<div class="notices note" ><p>Om concurrency problemen makkelijk te kunnen demonstreren gebruiken we géén SQLite vanwege SQLite&rsquo;s <a href="https://www.sqlite.org/sharedcache.html">shared cache mode</a>. Let dus op je SQL syntax en connection string. Kleine verschillen kunnen SQL Exceptions veroorzaken bij andere database implementaties. <br/></p>
-</div>
-
-<h3 id="connection-pooling">Connection Pooling</h3>
-<p>Uit de code blijkt dat alle threads momenteel éénzelfde connection instance delen via de <code>StudentRepository</code> implementatie. In de praktijk wordt er voor client/server applicaties altijd <strong>connection pooling</strong> toegepast: een aantal connections zijn beschikbaar in een <em>pool</em>, waar de clients uit kunnen kiezen. Als er een beschikbaar is, kan deze verder gaan. Als dat niet zo is, moet die bepaalde request wachten, tot een andere klaar is met zijn database acties en de connection terug vrijgeeft, opnieuw in de pool. Op die manier kan je bijvoorbeeld 6 connections verdelen over 10+ client threads, zoals in deze figuur (bron: oracle docs):</p>
+<p>Stel dat jij een bedrijf van 100 man hebt. Hoe beslis je waarin te investeren, om binnen 5 jaar niet failliet te zijn, maar misschien uit te groeien tot een bedrijf van 150 man? Hier kan <strong>data helpen met beslissen</strong>. De term <strong>Business Intelligence</strong> (BI) slaat hier op: de set van activiteiten, technieken, en tools om (1) patronen in data van het verleden te herkennen en (2) voorspellingen te maken naar te toekomst toe.</p>
+<p>Een bijkomend probleem is dat je groot bedrijf enorm veel data heeft:</p>
+<ul>
+<li>Het genereert dagelijks facturen en sales;</li>
+<li>Werknemers gebruiken de tikklok die weer data voorstelt;</li>
+<li>Je eindgebruikers interageren met jullie software, wat misschien verspreid zit over verschillende systemen;</li>
+<li>De helpdesk beheert tickets;</li>
+<li>HR houdt indexen van lonen bij en iemand beheert de fleet van bedrijfswagens;</li>
+<li>&hellip;</li>
+</ul>
+<p>Het is duidelijk dat één simpele <code>SELECT sales FROM income</code> niet voldoende gaat zijn voor het management om beslissingen te helpen maken. We hebben een <em>data warehouse</em> nodig.</p>
 <p><figure>
-	<a href="../../img/connectionpool.gif" data-featherlight="image">
-		<img src="../../img/connectionpool.gif"   title="Bron: oracle docs">
+	<a href="../../img/dw.png" data-featherlight="image">
+		<img src="../../img/dw.png"   title="src: sqlhammer.com">
 	</a>
 	
-		<figcaption>Bron: oracle docs</figcaption>
+		<figcaption>src: sqlhammer.com</figcaption>
 	
 </figure>
 </p>
-<p>Voor embedded single-file databases als SQLite is dit niet de gewoonte. Hibernate (zie 3. Database APIs) voorziet verschillende properties om connection pooling in te stellen, zoals aantal connections, aantal threads die kunnen requesten, timeout request, enzovoort. We gaan hier verder niet op in.</p>
+<p>Probeer op bovenstaand schema, een voorbeeld van hoe moderne data warehouses werken in een groot bedrijf, alle verschillende componenten te identificeren. Links staat de data die binnenkomt, en rechts het resultaat van de analyse. We bespreken hieronder kort elk blok. Experimentatie met de praktische kant, door middel van libraries als <a href="https://hadoop.apache.org/">Apache Hadoop</a>, is een optionele oefening voor de student.</p>
+<p>We beginnen met de grote blauwe blok: een &ldquo;data warehouse&rdquo;.</p>
+<h1 id="een-data-warehouse-dw">Een Data Warehouse (DW)</h1>
+<p>Wat is een data warehouse? Volgens de uitvinder, Bill Inmon:</p>
+<blockquote>
+<p>A data warehouse is a (1) subject-oriented, (2) integrated, (3) time-variant, and (4) non-volatile collection of data in support of management&rsquo;s decision-making process.</p>
+</blockquote>
+<p>Dat klinkt ingewikkelder dan het is:</p>
+<ol>
+<li><strong>Subject-oriented</strong>; de data is gecentreerd rond <em>subjecten</em> ofwel klanten, producten, sales, etc. De data is <em>niet</em> gecentreerd rond transacties of applicaties. Het moet managers helpen een beslissing maken, niet developers helpen ontwikkelen.</li>
+<li><strong>Integrated</strong>; het is één grote structuur met als input verschillende andere DB sources met elk hun eigen formaat. Hier is dus conversie voor nodig: zie verder.</li>
+<li><strong>Time-variant</strong>; een data warehouse bewaart data als een series van <em>snapshots</em>: bij intervallen van bijvoorbeeld elk kwartaal wordt data vernieuwd.</li>
+<li><strong>Non-volatile</strong>; data is voornamelijk <em>read-only</em> (na initieel inladen): de belangrijkste operaties zijn dus loading &amp; retrieval.</li>
+</ol>
+<p>Bekijk de volgende schematische weergave van een typische data warehouse:</p>
+
+<div class="mermaid" align="left" >
+	
+graph BT;
+    WH[(Data Warehouse)]
+    RDBMS1[[RDBMS 1]]
+    RDBMS2[[RDBMS 2]]
+    XML[/XML\]
+    MAIL[/E-MAIL\]
+    ETL1{{ETL}}
+    ETL2{{ETL}}
+    ETL3{{ETL}}
+    ETL4{{ETL}}
+    ETL1 --> WH
+    ETL2 --> WH
+    ETL3 --> WH
+    ETL4 --> WH
+    RDBMS1 --> ETL1
+    RDBMS2 --> ETL2
+    XML --> ETL3
+    MAIL --> ETL4
+
+</div>
+<p>Aan de onderkant zie je verschillende bronnen van data&mdash;zeer waarschijnlijk op zichzelf relationele of niet-relationele databases, XML, emails, HTML, andere losse CSV bestanden, &hellip; Die moeten vanwege het <strong>integrated</strong> principe allemaal in één grote blok als snapshot worden bewaard zodat het management deze makkelijk kan queryen. Daarom moet er <strong>voor élke data source een ETL</strong> of Extraction, Transformation, and Loading proces worden opgestart: bepaalde attributen in de XML veranderen van structuur, de datum in RDBMS1 is opgeslaan als <code>YYYY-MM-DD</code> maar in RDBMS2 als <code>DD-MM-YYYY</code>, afrondingsverschillen worden weggewerkt, etc etc. Merk op dat niet altijd alle gegevens genormaliseerd worden. Een data warehouse kan dus best ook gedenormaliseerde data bevatten, maar dat komt minder frequent voor.</p>
+<p>Een data warehouse is dus <em>geaggregeerde</em> en opgekuiste data dankzij de ETLs. Er is vooral high-level data te vinden die kan gebruikt worden voor tactische, en vooral strategische beslissingen, maar minder voor operationele. Daarvoor kijk je best gewoon naar de bronnen zelf.</p>
+<p>Het opzetten van de <em>ETL</em> is waarschijnlijk <code>80%</code> van het werk, dit is héél tijdsintensief!</p>
+
+<div class="notices note" ><p>Q: Over hoeveel data gaat het in een data warehouse? A: <em>Veel</em>. <em>Erg</em> veel. Er zijn warehouses (vandaar ook &ldquo;warenhuis&rdquo; en niet zomaar &ldquo;database&rdquo; of &ldquo;servertje&rdquo;) van 12 petabytes, wat 12000 terabytes is. Bedenk hoeveel data wij elke minuut genereren: hoeveel tweets, hoeveel beurstransacties, hoeveel commits, &hellip;</p>
+</div>
+
+<p>In sommige gevallen wenst men niet onmiddellijk alle data in de productie warehouse te bewaren, maar eest nog een <strong>staging area</strong> op te zetten. Deze warehouse staat voor de &ldquo;echte&rdquo; en en kan bijvoorbeeld worden gebruikt om intensieve machine learning algoritmes op te laten draaien zonde dat de performantie van de effectieve warehouse in het gedrang komt. Zo&rsquo;n staging warehouse noemen we een <strong>operational data store</strong>. (zie schema bovenaan: links van het Hadoop logo).</p>
+<p>Voor BI systemen om effectief te zijn, moet de data ook <strong>kwalitatief</strong> zijn. Gebaseerd op &ldquo;rommel&rdquo; een grote toekomstgerichte business planning maken is een recept voor mislukking&mdash;en mogelijks faillisement. Dus: <em>Garbage In, Garbage Out</em> (GIGO). ETLs moeten correct zijn, en het is ook een kwestie van de <em>juiste</em> data op te nemen in je warehouse. Niet alles hoeft of kan van belang zijn.</p>
+<h2 id="rdbms-vs-dw">RDBMS vs DW</h2>
+<p>Hoe verhoudt een data warehouse zich ten opzichte van een typisch transactionele database?</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Transactional system</strong></th>
+<th><strong>Data Warehouse</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usage</strong></td>
+<td>Day to day ops</td>
+<td>Decision support mngt</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>real-time</td>
+<td>periodic snapshots</td>
+</tr>
+<tr>
+<td><strong>Design</strong></td>
+<td>app-oriented</td>
+<td>subject-oriented</td>
+</tr>
+<tr>
+<td><strong>Normalization</strong></td>
+<td>normalized</td>
+<td>(sometimes also) denormalized data</td>
+</tr>
+<tr>
+<td><strong>Manipulation</strong></td>
+<td>insert/update/delete/select</td>
+<td>insert (once)/select</td>
+</tr>
+<tr>
+<td><strong>Transaction mngt</strong></td>
+<td>important</td>
+<td>less of a concern</td>
+</tr>
+<tr>
+<td><strong>Type of queries</strong></td>
+<td>many simple</td>
+<td>few complex, some ad-hoc</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mini-dws-data-marts">Mini DWs: Data Marts</h2>
+<p>In de praktijk is één gigantische data warehouse, afhankelijk van de grootte van het bedrijf, niet bruikbaar. Data snapshot storage wordt meestal in functionele stukken opgeslagen, misschien opgedeeld per business unit, zoals het bedrijf ook is ingedeeld:</p>
+
+<div class="mermaid" align="left" >
+	
+graph BT;
+    WH[(Data Warehouse)]
+    DM1[(Mart 1: Sales)]
+    DM2[(Mart 2: Accounting)]
+    DM3[(Mart 3: Finances)]
+    DM1 --> WH
+    DM2 --> WH
+    DM3 --> WH
+
+</div>
+<p>Elke mart wordt op zijn beurt gevoed via een ETL zoals het eerste schema in dit hoofdstuk.</p>
+<p>Het voordeel van zo&rsquo;n opdeling in data marts is (1) <em>focused content</em> en (2) uiteraard <em>performantiewinst</em>. De managers van sales moeten niet onnodig in de accounting mart queries afvuren en omgekeerd, alhoewel het hoger management natuurlijk nog steeds graag een overzicht van <em>alles</em> heeft in bepaalde verslagen.</p>
+<h2 id="data-lakes">Data Lakes</h2>
+<p>Soms zijn data warehouses en hun marts niet flexibel genoeg om de gigantische (en eindeloze) stroom aan data te kunnen opslaan. Vergeet niet dat ETLs ook veel processorkracht vereisten, en een snapshot maken maar op een vaste periode gebeurt. In dat geval is een <strong>data lake</strong> handig: letterlijk een meer waar alle inkomende data (relatief) ongestructureerd wordt ingedumpt (zie lichtblauwe balk op schema bovenaan).</p>
+<p>Wanneer voedt men een lake en wanneer een warehouse? Een lake wordt vooral gebruikt voor native data&mdash;in zijn ruw formaat. Hier is nog geen ETL aan bod gekomen. Als het over ruwe signaaldata gaat, clickstreams, social media feeds, server logs, etc, dan is een data lake interessanter.</p>
+<p>Net omdat dit allemaal ruwe data is, is het analyseren van die data werk voor specialisten: dit zijn de &ldquo;advanced analytics&rdquo; op het bovenstaande schema. Hier zijn data scientists mee bezig. De gemiddelde bedrijfsmanager heeft hier echter niets aan! Een data lake is dus <strong>niet voldoende</strong> om bedrijfsbeslissingen te kunnen helpen maken&mdash;de voornaamste reden waarom we met warehousing bezig zijn. Vaak wordt data van een lake nog doorgesluisd naar een operational data store, die op zijn beurt data laat doordruppelen naar de productie warehouse. Het wordt ingewikkeld&hellip;</p>
+
+<div class="notices note" ><p>Data warehousing wordt ook aangeboden in de cloud. Data lakes worden vaak in de cloud gehost om kosten te drukken aangezien hier nog grotere hoeveelheden data wordt bewaard. Een voorbeeld hiervan is <em>Amazon Redshift</em>, dat wordt gebruikt door Nasdaq. Ze verwerken er <strong>70 miljoen records per dag</strong>: <a href="https://aws.amazon.com/solutions/case-studies/nasdaq-case-study/">https://aws.amazon.com/solutions/case-studies/nasdaq-case-study/</a>.</p>
+</div>
+
 
 
 <footer class="footline">
@@ -1063,7 +1178,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1076,9 +1190,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1128,7 +1239,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1147,9 +1257,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1375,6 +1482,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1387,6 +1495,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1404,6 +1515,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1422,6 +1534,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1443,10 +1558,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../transacties/failures-rollbacks/" title="3. Failures-Rollbacks"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../bigdata/basics/" title="1. Big Data Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../apis/" title="4. Database APIs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../extra/" title="X. Extras" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
