@@ -40,4 +40,4 @@ Daarbinnen kunnen we dan wel meerdere keren het `<boek>` element definiëren.
 ### Oefening
 
 * Voeg zelf een boek toe aan het bovenstaande voorbeeld
-* Schrijf zelf een XML bestand dat studenten omschrijft. Volgende elementen moeten aanwezig zijn: Naam, leeftijd en studierichting.
+* Schrijf zelf een XML bestand dat studenten omschrijft. Volgende elementen moeten aanwezig zijn: studnr, naam, voornaam en goedbezig (boolean).
