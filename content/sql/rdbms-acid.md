@@ -1,5 +1,5 @@
 ---
-title: 3. ACID
+title: ACID
 weight: 3
 draft: false
 ---

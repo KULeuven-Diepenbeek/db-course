@@ -1,5 +1,5 @@
 ---
-title: 2. Database Componenten
+title: Database Componenten
 weight: 2
 draft: false
 ---

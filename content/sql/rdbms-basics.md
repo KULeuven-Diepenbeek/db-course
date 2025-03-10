@@ -1,5 +1,5 @@
 ---
-title: 1. Database Basics
+title: Database Basics
 weight: 1
 draft: false
 ---

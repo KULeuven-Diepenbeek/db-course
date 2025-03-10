@@ -1,5 +1,5 @@
 ---
-title: 2. DML
+title: DML
 weight: 2
 draft: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: 4. ER-schema
+title: ER-schema
 weight: 4
 draft: true
 ---

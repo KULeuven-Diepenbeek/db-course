@@ -1,5 +1,5 @@
 ---
-title: 1. DDL
+title: DDL
 weight: 1
 draft: false
 ---

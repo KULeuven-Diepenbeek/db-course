@@ -4,11 +4,9 @@ title: 'Index'
 
 # <i class="fas fa-database"></i> Databases <i class="fas fa-database"></i>
 
-Laatste aanpassingen voor academiejaar _2023---2024_.
-
 ---
 
-## _Planning_
+<!-- ## _Planning_
 
 | nr  | datum         | onderwerp                 |
 |-----|---------------|---------------------------|
@@ -59,7 +57,7 @@ Er worden telkens blokken van 3 uur ingepland voor dit vak. Er zijn geen traditi
     2. [XSD Schemas](/xml/xsd/)
     3. [XPath Queries](/xml/xpath/)
     5. [Big Data Basics](/bigdata/basics/)
-    4. [Big Data: Warehousing & BI](/bigdata/datawarehousing/)
+    4. [Big Data: Warehousing & BI](/bigdata/datawarehousing/) -->
 
 ## Syllabus
 
@@ -90,7 +88,7 @@ En anderzijds op twee toepassingen:
 
 #### Doelstellingen
 
-Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&i=4290)
+Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2025&i=4290)
     
 De context en het overzicht worden aangereikt in de eerste lessen van dit vak.
 

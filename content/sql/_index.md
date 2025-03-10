@@ -1,5 +1,5 @@
 ---
-title: "1. RDBMS"
+title: "RDBMS"
 weight: 1
 chapter: true
 draft: false
