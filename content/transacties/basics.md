@@ -1,6 +1,6 @@
 ---
-title: 1. Transaction Mgmt. Basics
-weight: 1
+title: Transaction Mgmt. Basics
+weight: 2
 author: Wouter Groenveld
 draft: false
 ---

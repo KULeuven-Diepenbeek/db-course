@@ -1,7 +1,7 @@
 ---
 title: "5. NoSQL"
 chapter: true
-draft: false
+draft: true
 ---
 
 # NoSQL Databases

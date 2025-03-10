@@ -63,7 +63,7 @@ INSERT INTO oeitiskapot;
 
 **Let Op**: Het zou kunnen dat `BEGIN TRANSACTION;` de transactie niet goed encapsuleert, maar simpelweg `BEGIN;` wel. Het `TRANSACTION` keyword is optioneel [volgens de SQLite docs](https://www.sqlite.org/lang_transaction.html) en lijkt, afhankelijk van de geïnstalleerde SQLite versie, ander gedrag te vertonen. 
 
-### 1.2 In SQLite met Java/JDBC
+<!-- ### 1.2 In SQLite met Java/JDBC
 
 SQLite/JDBC uitleg: zie APIs - JDBC.
 
@@ -107,10 +107,10 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
     at SQLiteTransactionTest.doStuff(SQLiteTransactionTest.java:54)
     at SQLiteMain.main(SQLiteMain.java:7)
-```
+``` -->
 
 
 ## Denkvragen
 
 - De SQLite website beschrijft in detail hoe ze omgaan met "atomic commits" om aan de ACID regels te voldoen. Lees dit na op https://sqlite.org/atomiccommit.html Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?
-- JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen?
+<!-- - JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen? -->

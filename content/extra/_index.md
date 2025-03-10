@@ -1,7 +1,7 @@
 ---
 title: 'X. Extras'
 chapter: true
-draft: false
+draft: true
 ---
 
 # Extra informatie

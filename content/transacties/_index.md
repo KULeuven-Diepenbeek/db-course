@@ -1,5 +1,5 @@
 ---
-title: "3. RDBMS Transacties"
+title: "RDBMS Transacties"
 chapter: true
 author: Wouter Groenveld
 draft: false

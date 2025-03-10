@@ -2,7 +2,7 @@
 title: 4. Concurrency in de Praktijk
 weight: 4
 author: Wouter Groenveld
-draft: false
+draft: true
 ---
 
 ## Meerdere threads met toegang tot de DB
