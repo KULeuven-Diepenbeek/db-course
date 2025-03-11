@@ -1,6 +1,6 @@
 ---
-title: 3. Failures-Rollbacks
-weight: 3
+title: Failures-Rollbacks
+weight: 4
 author: Wouter Groenveld
 draft: false
 ---
@@ -28,9 +28,9 @@ INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 
 ```
 
 
-## 1. System failure simulatie
+## System failure simulatie
 
-### 1.1 In SQLite met DB Browser
+### In SQLite met DB Browser
 
 Gegeven een aantal SQL statements, waarvan niet alle statements kloppen, maar die wel allemaal bij elkaar horen als één **atomaire transactie**. Dat betekent dat als er één van die statements misloopt, de rest teruggedraait zou moeten worden. Het spreekt voor zich dat zonder speciale handelingen, zoals het beheren van transacties, dit niet gebeurt. Een eenvoudig voorbeeld demonstreert dit. 
 

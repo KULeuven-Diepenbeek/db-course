@@ -1,6 +1,6 @@
 ---
-title: 4. Concurrency in de Praktijk
-weight: 4
+title: Concurrency in de Praktijk
+weight: 5
 author: Wouter Groenveld
 draft: true
 ---
