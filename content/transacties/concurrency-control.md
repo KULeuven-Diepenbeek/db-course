@@ -286,13 +286,13 @@ In deze oefening wordt door transactie `TX2` de quantity van product 1 aangepast
 ![Schema](/img/readphenomenaoef1.png)
 
 <!-- EXSOL -->
-<!-- <span style="color: #03C03C;">Solution:</span>
+<span style="color: #03C03C;">Solution:</span>
 
 - read phenomena = Non-repeatable read. De quantity van product 1 wordt door eenzelfde transactie twee keer uitgelezen maar krijgt hier 2 verschillende waarden voor.
 - oplossing: Twee mogelijke oplossingen hiervoor zijn de _Repeatable Read_ en _Serializable_ isolation levels. 
     - Bij Repeatable Read wordt ervoor gezorgd dat als een transactie een rij leest, geen andere transactie die rij kan wijzigen totdat de eerste transactie is voltooid. Dit voorkomt dat de waarde verandert tussen opeenvolgende leesoperaties binnen dezelfde transactie. 
     - Bij Serializable wordt een nog striktere controle toegepast, waarbij transacties volledig geïsoleerd worden uitgevoerd alsof ze sequentieel plaatsvinden, wat niet alleen non-repeatable reads voorkomt, maar ook andere problemen zoals phantom reads. 
-    - Het belangrijkste verschil is dat Serializable een hogere mate van isolatie biedt, wat leidt tot betere gegevensintegriteit, maar mogelijk ook tot lagere prestaties door verhoogde kans op blocking en wachttijden. -->
+    - Het belangrijkste verschil is dat Serializable een hogere mate van isolatie biedt, wat leidt tot betere gegevensintegriteit, maar mogelijk ook tot lagere prestaties door verhoogde kans op blocking en wachttijden.
 
 #### Oefening 2:
 In deze oefening wordt door transactie `TX2` een product toegevoegd aan de `SALES` tabel en transactie `TX1` wil enerzijds de inkomsten berekenen op elk product apart maar ook in het totaal.
@@ -300,13 +300,13 @@ In deze oefening wordt door transactie `TX2` een product toegevoegd aan de `SALE
 ![Schema](/img/readphenomenaoef2.png)
 
 <!-- EXSOL -->
-<!-- <span style="color: #03C03C;">Solution:</span>
+<span style="color: #03C03C;">Solution:</span>
 
 - read phenomena = Phantom read. Het aantal producten waarvan de inkomsten worden berekend apart wordt uitgevoerd en daarna wordt de totaal inkomsten berekend op alle producten maar hiertussen is een extra product toegevoegd waardoor de waarden nu niet meer overeenkomen wat zou moeten aangezien de aparte inkomsten en totale inkomsten in 1 transactie berekend werden. _(Waarom gebruik je nu niet gewoon de eerder berekende inkomsten om de totale inkomsten te berekenen. Als je aparte functies in je applicatie hebt geschreven om de aparte inkomsten en totale inkomsten queries uit te voeren zou dit voor meer werk zorgen als je nog een 3e functie moet schrijven die de totale inkomsten berekend op basis van de aparte queries. Dit is zot en moet het DBMS voor ons oplossen en moeten wij ons zo weinig mogelijk mee bezig houden bij het schrijven van onze applicatie: scheiding van verantwoordelijkheden)_
 - oplossing: Twee mogelijke oplossingen hiervoor zijn het gebruik van het _Serializable isolatieniveau_ en het toepassen van _range locks_:
     - Bij Serializable wordt strikte controle toegepast, waarbij transacties volledig geïsoleerd worden uitgevoerd alsof ze sequentieel plaatsvinden, wat non-repeatable reads voorkomt. 
     - Range locks daarentegen vergrendelen expliciet een specifiek bereik van rijen (bijv. `WHERE id > 100`), waardoor concurrente transacties worden geblokkeerd om binnen dat bereik in te voegen of te wijzigen, maar dit vereist handmatige implementatie en kan deadlocks bevorderen als niet nauwkeurig afgestemd. 
-    - Het verschil ligt in de automatische vs. handmatige scope-beheersing en de balans tussen databasebrede consistentie (Serializable) versus gerichte controle (range locks) met bijbehorende prestatieafwegingen zoals throughput (het minste met Serializable). -->
+    - Het verschil ligt in de automatische vs. handmatige scope-beheersing en de balans tussen databasebrede consistentie (Serializable) versus gerichte controle (range locks) met bijbehorende prestatieafwegingen zoals throughput (het minste met Serializable).
 
 #### Oefening 3:
 In deze oefening wordt door transactie `TX2` de quantity van product 1 aangepast van 10 naar 15 en transactie `TX1` wil enerzijds de inkomsten berekenen op elk product apart maar ook in het totaal.
@@ -314,48 +314,48 @@ In deze oefening wordt door transactie `TX2` de quantity van product 1 aangepast
 ![Schema](/img/readphenomenaoef3.png)
 
 <!-- EXSOL -->
-<!-- <span style="color: #03C03C;">Solution:</span>
+<span style="color: #03C03C;">Solution:</span>
 
 - read phenomena = Dirty read. De quantity van product 1 wordt geupdate tijdens transactie 1 maar is nog niet gecommit. De berekening van de totale inkomsten kan dus fout zijn in het geval dat `TX2` wordt `gererolled`.
 - oplossing: Twee mogelijke oplossingen hiervoor zijn de _Read Committed_ en _Repeatable Read_ isolation levels. 
     - Bij Read Committed worden dirty reads voorkomen door alleen gelezen data toe te staan die al is gecommit, wat automatisch werkt en transacties beperkt tot het lezen van stabiele gegevens, maar geen bescherming biedt tegen non-repeatable reads of phantom reads. 
     - Bij Repeatable Read wordt ervoor gezorgd dat als een transactie een rij leest, geen andere transactie die rij kan wijzigen totdat de eerste transactie is voltooid. Dit voorkomt dat een waarde wordt uitgelezen van een andere transactie die misschien gerollebacked wordt, aangezien die transactie moet wachten tot de eerste klaar is. 
-    - Het belangrijkste verschil is dat Repeatable Read een hogere mate van isolatie biedt, wat leidt tot betere gegevensintegriteit, maar mogelijk ook tot lagere prestaties door verhoogde kans op blocking en wachttijden. -->
+    - Het belangrijkste verschil is dat Repeatable Read een hogere mate van isolatie biedt, wat leidt tot betere gegevensintegriteit, maar mogelijk ook tot lagere prestaties door verhoogde kans op blocking en wachttijden.
 
 ### Denkvragen
 
 - Waarom is het phantom read probleem niet opgelost bij isolation level 3 (repeatable read)?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
-    - Hoewel het voorkomt dat rijen worden gewijzigd of verwijderd, staat het nog steeds toe dat nieuwe rijen worden toegevoegd die voldoen aan de zoekcriteria van een query. Als gevolg hiervan kan een transactie die herhaaldelijk een query uitvoert, verschillende resultaten zien vanwege toegevoegde rijen tussen de verschillende uitvoeringen van de query. Dit is het "phantom read" probleem.-->
+    <span style="color: #03C03C;">Solution:</span>
+    - Hoewel het voorkomt dat rijen worden gewijzigd of verwijderd, staat het nog steeds toe dat nieuwe rijen worden toegevoegd die voldoen aan de zoekcriteria van een query. Als gevolg hiervan kan een transactie die herhaaldelijk een query uitvoert, verschillende resultaten zien vanwege toegevoegde rijen tussen de verschillende uitvoeringen van de query. Dit is het "phantom read" probleem.
 
 - Hoe weet je wanneer je best optimistic vs pessimistic scheduling gebruikt?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
-    - Start optimistisch door te vertrouwen op lage conflicten en minimale locks, maar als je merkt dat er frequent errors (zoals rollbacks of conflicten) optreden die de prestatie of data-integriteit schaden, schakel dan over naar een pessimistische aanpak door vooraf locks te plaatsen om concurrentie te beheersen en betere voorspelbaarheid te garanderen. Deze verschuiving is logisch bij schrijf-zware workloads of kritieke systemen waar preventie van conflicten prioriteit heeft boven flexibiliteit. Is het cruciaal voor je programma echter dat data-integriteit niet geschaad mag worden dan kies je best initieel al voor een pessimistische aanpak. -->
+    <span style="color: #03C03C;">Solution:</span>
+    - Start optimistisch door te vertrouwen op lage conflicten en minimale locks, maar als je merkt dat er frequent errors (zoals rollbacks of conflicten) optreden die de prestatie of data-integriteit schaden, schakel dan over naar een pessimistische aanpak door vooraf locks te plaatsen om concurrentie te beheersen en betere voorspelbaarheid te garanderen. Deze verschuiving is logisch bij schrijf-zware workloads of kritieke systemen waar preventie van conflicten prioriteit heeft boven flexibiliteit. Is het cruciaal voor je programma echter dat data-integriteit niet geschaad mag worden dan kies je best initieel al voor een pessimistische aanpak.
 
 - Kan je nog andere situaties verzinnen waarin een deadlock kan voorkomen? Welk isolation level of scheduling algoritme lost dit op?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - Stel, twee banktransacties gebeuren tegelijk:
         - Transactie A wil €100 van rekening X naar Y overmaken (vergrendelt eerst X, dan Y).
         - Transactie B wil €50 van Y naar X overmaken (vergrendelt eerst Y, dan X). 
         - Als beide transacties hun eerste lock hebben maar wachten op de tweede, ontstaat een deadlock: beide kunnen niet verder.
     - Om deadlocks op te lossen, kunnen verschillende isolation levels en scheduling-algoritmen worden gebruikt zoals "Serializable". Dit kan deadlocks helpen voorkomen door transacties te dwingen in een serialiseerbare volgorde te worden uitgevoerd, waarbij conflicten worden voorkomen en de kans op deadlocks wordt verminderd. Het nadeel is natuurlijk performantie.
-    - _Algemeen: Deadlocks los je op met preventie (voorkom inconsistente lock-volgordes via isolation levels) of detectie (forceer een rollback op basis van time-outs)._ -->
+    - _Algemeen: Deadlocks los je op met preventie (voorkom inconsistente lock-volgordes via isolation levels) of detectie (forceer een rollback op basis van time-outs)._
 
 - Wat is de verantwoordelijkheid van de DBMS's transactie management systeem in verhouding tot de ACID eigenschappen?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - Door het implementeren van transactiemanagementfunctionaliteiten zoals concurrency control, logging en herstelmechanismen, zorgt het systeem ervoor dat transacties consistent, geïsoleerd en duurzaam worden uitgevoerd, waardoor de betrouwbaarheid en integriteit van de database worden gewaarborgd.
         - Atomicity en Durability: Transaction logs, herstelprocedures na crashes.
         - Isolation: Pessimistische locks (bijv. `SELECT FOR UPDATE`), Isolation levels.
-        - (Consistency: Constraints (`UNIQUE`, `FOREIGN KEY`), triggers.) -->
+        - (Consistency: Constraints (`UNIQUE`, `FOREIGN KEY`), triggers.)
 
 - Welke impact heeft lock granulariteit op transactie throughput? 
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     -  Throughput is afhankelijk van het type fouten dat je gaat tegenkomen VS de isolation levels die rollbacks preventen maar ook wel traag kunnen zijn.
-    - Je moet dus steeds proberen **de beste keuze te maken voor jouw specifieke geval**. -->
+    - Je moet dus steeds proberen **de beste keuze te maken voor jouw specifieke geval**.
 
 - Bedenk en teken zelf een situatie waar een `Lost Update` voorkomt.

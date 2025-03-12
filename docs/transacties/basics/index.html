@@ -12,21 +12,21 @@
     <title>Transaction Mgmt. Basics :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1741693289" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1741693289" rel="stylesheet">
-    <link href="../../css/hybrid.css?1741693289" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1741693289" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1741693289" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1741693289" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1741693289" rel="stylesheet">
-    <link href="../../css/theme.css?1741693289" rel="stylesheet">
-    <link href="../../css/devselector.css?1741693289" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1741693289" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1741693289" rel="stylesheet">
+    <link href="../../css/nucleus.css?1741701728" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1741701728" rel="stylesheet">
+    <link href="../../css/hybrid.css?1741701728" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1741701728" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1741701728" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1741701728" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1741701728" rel="stylesheet">
+    <link href="../../css/theme.css?1741701728" rel="stylesheet">
+    <link href="../../css/devselector.css?1741701728" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1741701728" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1741701728" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1741693289"></script>
-    <script src="../../js/devselector.js?1741693289"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1741701728"></script>
+    <script src="../../js/devselector.js?1741701728"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,8 +64,8 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../%20js/lunr.min.js?1741693289"></script>
-<script type="text/javascript" src="../../%20js/auto-complete.js?1741693289"></script>
+<script type="text/javascript" src="../../%20js/lunr.min.js?1741701728"></script>
+<script type="text/javascript" src="../../%20js/auto-complete.js?1741701728"></script>
 <script type="text/javascript">
     { { if hugo.IsMultilingual } }
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
@@ -73,7 +73,7 @@
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
     { { end } }
 </script>
-<script type="text/javascript" src="../../%20js/search.js?1741693289"></script>
+<script type="text/javascript" src="../../%20js/search.js?1741701728"></script>
     
   </div>
 
@@ -640,39 +640,67 @@ COMMIT;
 <p>En dan hebben we het nog niet over security gehad&hellip;</p>
 <h3 id="denkvragen">Denkvragen</h3>
 <ul>
-<li>Waarom kan je niet gewoon media recovery strategieën toepassen bij systeemcrashes? Waarom wel, maar is dat misschien geen goed idee?
+<li>
+<p>Waarom kan je niet gewoon media recovery strategieën toepassen bij systeemcrashes? Waarom wel, maar is dat misschien geen goed idee?</p>
   <!-- EXSOL -->
-  <!-- <span style="color: #03C03C;">Solution:</span>
-  - Media recovery strategieën (zoals herstel vanuit back-ups) zijn primair bedoeld voor fysieke schade aan opslagmedia. Bij een systeemcrash gaat het erom de consistente staat van de database snel te herstellen, wat met media recovery vaak te traag en omslachtig is. Bovendien kan een dergelijk herstel risico’s met zich meebrengen, zoals het herstellen van een oude, mogelijk inconsistente staat.
-  - In principe kan media recovery ingezet worden als laatste redmiddel. Echter, vanwege de langere hersteltijd en de kans op inconsistente data (bijvoorbeeld als sommige transacties al deels uitgevoerd waren) is het in de praktijk verstandiger om gespecialiseerde crash recovery technieken (zoals log-gebaseerde UNDO/REDO mechanismen) te gebruiken. -->
+<p><span style="color: #03C03C;">Solution:</span></p>
+<ul>
+<li>Media recovery strategieën (zoals herstel vanuit back-ups) zijn primair bedoeld voor fysieke schade aan opslagmedia. Bij een systeemcrash gaat het erom de consistente staat van de database snel te herstellen, wat met media recovery vaak te traag en omslachtig is. Bovendien kan een dergelijk herstel risico’s met zich meebrengen, zoals het herstellen van een oude, mogelijk inconsistente staat.</li>
+<li>In principe kan media recovery ingezet worden als laatste redmiddel. Echter, vanwege de langere hersteltijd en de kans op inconsistente data (bijvoorbeeld als sommige transacties al deels uitgevoerd waren) is het in de praktijk verstandiger om gespecialiseerde crash recovery technieken (zoals log-gebaseerde UNDO/REDO mechanismen) te gebruiken.</li>
+</ul>
 </li>
-<li>Als er verschillende transacties tegelijkertijd aan één record iets wijzigen, welke problemen zie jij dan zoal? Hoe zou je dat door de transaction manager laten oplossen? Kan je zo twee verschillende oplossingen bedenken?
+<li>
+<p>Als er verschillende transacties tegelijkertijd aan één record iets wijzigen, welke problemen zie jij dan zoal? Hoe zou je dat door de transaction manager laten oplossen? Kan je zo twee verschillende oplossingen bedenken?</p>
   <!-- EXSOL -->
-  <!-- <span style="color: #03C03C;">Solution:</span>
-  - Eén transactie overschrijft de wijzigingen van een andere, waardoor data verloren gaat.
-  - Een transactie leest onvoltooide (nog niet gecommitte) data van een andere transactie.
-  - Herhaalde leesoperaties geven verschillende resultaten, wat leidt tot inconsistenties.   
-
-  - Een record vergrendelen zodra een transactie eraan werkt. Andere transacties moeten wachten tot de vergrendeling wordt opgeheven, waardoor conflicten worden voorkomen.
-  - Transacties voeren wijzigingen uit zonder directe vergrendeling. Bij het committen controleert het systeem of er tussentijds wijzigingen hebben plaatsgevonden. Als er een conflict wordt gedetecteerd, wordt de transactie teruggedraaid. -->
+<p><span style="color: #03C03C;">Solution:</span></p>
+<ul>
+<li>
+<p>Eén transactie overschrijft de wijzigingen van een andere, waardoor data verloren gaat.</p>
 </li>
-<li>Wat is alweer het verschil tussen <code>UNDO</code> en <code>REDO</code> recovery technieken?
-  <!-- EXSOL -->
-  <!-- <span style="color: #03C03C;">Solution:</span>
-  - UNDO: Wordt gebruikt om de effecten van transacties die niet succesvol zijn afgerond of die foutief zijn uitgevoerd, ongedaan te maken. Dit zorgt ervoor dat de database terugkeert naar een consistente staat.
-  - REDO: Wordt toegepast om de wijzigingen van transacties die **wel gecommit** waren opnieuw toe te passen. Dit is vooral belangrijk na een crash wanneer sommige wijzigingen nog niet permanent op de schijf waren vastgelegd. -->
+<li>
+<p>Een transactie leest onvoltooide (nog niet gecommitte) data van een andere transactie.</p>
 </li>
-<li>Als ier iets misgaat op applicatieniveau, bijvoorbeeld een crash in je Java applicatie, moet de DBMS dan iets doen, of moet de programmeur dan iets doen, om ACID te blijven garanderen?
-  <!-- EXSOL -->
-  <!-- <span style="color: #03C03C;">Solution:</span>
-  - Het DBMS is primair verantwoordelijk voor het waarborgen van ACID-eigenschappen via zijn transactie- en recoverymechanismen.  
-      - Bij een crash op applicatieniveau (bijvoorbeeld in een Java-applicatie) zorgt het DBMS er met behulp van commit/rollback en log-based recovery voor dat de database in een consistente staat blijft.
-      - De programmeur moet wel zorgen voor een correcte afhandeling van transacties in de applicatie, zoals het op de juiste wijze starten, committen en, indien nodig, terugdraaien van transacties. -->
+<li>
+<p>Herhaalde leesoperaties geven verschillende resultaten, wat leidt tot inconsistenties.</p>
 </li>
-<li>Wat zou er volgens jou moeten gebeuren als twee personen tegelijkertijd op <code>bol.com</code> een item bestellen waarvan maar één hoeveelheid in stock is? Wie trekt hier aan het korte eind? Hoe vangen grote webwinkels dit probleem op?
+<li>
+<p>Een record vergrendelen zodra een transactie eraan werkt. Andere transacties moeten wachten tot de vergrendeling wordt opgeheven, waardoor conflicten worden voorkomen.</p>
+</li>
+<li>
+<p>Transacties voeren wijzigingen uit zonder directe vergrendeling. Bij het committen controleert het systeem of er tussentijds wijzigingen hebben plaatsgevonden. Als er een conflict wordt gedetecteerd, wordt de transactie teruggedraaid.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Wat is alweer het verschil tussen <code>UNDO</code> en <code>REDO</code> recovery technieken?</p>
   <!-- EXSOL -->
-  <!-- <span style="color: #03C03C;">Solution:</span>
-  - Het voorraadbeheersysteem (onderdeel van het DBMS of een gekoppeld systeem) moet atomische transacties gebruiken. Dit zorgt ervoor dat slechts één transactie succesvol het laatste item kan reserveren, terwijl de andere transactie een foutmelding krijgt of wordt teruggedraaid. --></li>
+<p><span style="color: #03C03C;">Solution:</span></p>
+<ul>
+<li>UNDO: Wordt gebruikt om de effecten van transacties die niet succesvol zijn afgerond of die foutief zijn uitgevoerd, ongedaan te maken. Dit zorgt ervoor dat de database terugkeert naar een consistente staat.</li>
+<li>REDO: Wordt toegepast om de wijzigingen van transacties die <strong>wel gecommit</strong> waren opnieuw toe te passen. Dit is vooral belangrijk na een crash wanneer sommige wijzigingen nog niet permanent op de schijf waren vastgelegd.</li>
+</ul>
+</li>
+<li>
+<p>Als ier iets misgaat op applicatieniveau, bijvoorbeeld een crash in je Java applicatie, moet de DBMS dan iets doen, of moet de programmeur dan iets doen, om ACID te blijven garanderen?</p>
+  <!-- EXSOL -->
+<p><span style="color: #03C03C;">Solution:</span></p>
+<ul>
+<li>Het DBMS is primair verantwoordelijk voor het waarborgen van ACID-eigenschappen via zijn transactie- en recoverymechanismen.
+<ul>
+<li>Bij een crash op applicatieniveau (bijvoorbeeld in een Java-applicatie) zorgt het DBMS er met behulp van commit/rollback en log-based recovery voor dat de database in een consistente staat blijft.</li>
+<li>De programmeur moet wel zorgen voor een correcte afhandeling van transacties in de applicatie, zoals het op de juiste wijze starten, committen en, indien nodig, terugdraaien van transacties.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Wat zou er volgens jou moeten gebeuren als twee personen tegelijkertijd op <code>bol.com</code> een item bestellen waarvan maar één hoeveelheid in stock is? Wie trekt hier aan het korte eind? Hoe vangen grote webwinkels dit probleem op?</p>
+  <!-- EXSOL -->
+<p><span style="color: #03C03C;">Solution:</span></p>
+<ul>
+<li>Het voorraadbeheersysteem (onderdeel van het DBMS of een gekoppeld systeem) moet atomische transacties gebruiken. Dit zorgt ervoor dat slechts één transactie succesvol het laatste item kan reserveren, terwijl de andere transactie een foutmelding krijgt of wordt teruggedraaid.</li>
+</ul>
+</li>
 </ul>
 
 
@@ -931,15 +959,15 @@ COMMIT;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1741693289"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1741693289"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1741693289"></script>
-    <script src="../../js/jquery.sticky.js?1741693289"></script>
-    <script src="../../js/featherlight.min.js?1741693289"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1741693289"></script>
-    <script src="../../js/learn.js?1741693289"></script>
-    <script src="../../js/hugo-learn.js?1741693289"></script>
-    <script src="../../js/mermaid.min.js?1741693289"></script>
+    <script src="../../js/clipboard.min.js?1741701729"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1741701729"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1741701729"></script>
+    <script src="../../js/jquery.sticky.js?1741701729"></script>
+    <script src="../../js/featherlight.min.js?1741701729"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1741701729"></script>
+    <script src="../../js/learn.js?1741701729"></script>
+    <script src="../../js/hugo-learn.js?1741701729"></script>
+    <script src="../../js/mermaid.min.js?1741701729"></script>
     <script>
     window.MathJax = {
       chtml: {

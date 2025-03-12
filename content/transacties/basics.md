@@ -158,34 +158,34 @@ En dan hebben we het nog niet over security gehad...
 
 - Waarom kan je niet gewoon media recovery strategieën toepassen bij systeemcrashes? Waarom wel, maar is dat misschien geen goed idee?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - Media recovery strategieën (zoals herstel vanuit back-ups) zijn primair bedoeld voor fysieke schade aan opslagmedia. Bij een systeemcrash gaat het erom de consistente staat van de database snel te herstellen, wat met media recovery vaak te traag en omslachtig is. Bovendien kan een dergelijk herstel risico’s met zich meebrengen, zoals het herstellen van een oude, mogelijk inconsistente staat.
-    - In principe kan media recovery ingezet worden als laatste redmiddel. Echter, vanwege de langere hersteltijd en de kans op inconsistente data (bijvoorbeeld als sommige transacties al deels uitgevoerd waren) is het in de praktijk verstandiger om gespecialiseerde crash recovery technieken (zoals log-gebaseerde UNDO/REDO mechanismen) te gebruiken. -->
+    - In principe kan media recovery ingezet worden als laatste redmiddel. Echter, vanwege de langere hersteltijd en de kans op inconsistente data (bijvoorbeeld als sommige transacties al deels uitgevoerd waren) is het in de praktijk verstandiger om gespecialiseerde crash recovery technieken (zoals log-gebaseerde UNDO/REDO mechanismen) te gebruiken.
 
 - Als er verschillende transacties tegelijkertijd aan één record iets wijzigen, welke problemen zie jij dan zoal? Hoe zou je dat door de transaction manager laten oplossen? Kan je zo twee verschillende oplossingen bedenken?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - Eén transactie overschrijft de wijzigingen van een andere, waardoor data verloren gaat.
     - Een transactie leest onvoltooide (nog niet gecommitte) data van een andere transactie.
     - Herhaalde leesoperaties geven verschillende resultaten, wat leidt tot inconsistenties.   
 
     - Een record vergrendelen zodra een transactie eraan werkt. Andere transacties moeten wachten tot de vergrendeling wordt opgeheven, waardoor conflicten worden voorkomen.
-    - Transacties voeren wijzigingen uit zonder directe vergrendeling. Bij het committen controleert het systeem of er tussentijds wijzigingen hebben plaatsgevonden. Als er een conflict wordt gedetecteerd, wordt de transactie teruggedraaid. -->
+    - Transacties voeren wijzigingen uit zonder directe vergrendeling. Bij het committen controleert het systeem of er tussentijds wijzigingen hebben plaatsgevonden. Als er een conflict wordt gedetecteerd, wordt de transactie teruggedraaid.
 
 - Wat is alweer het verschil tussen `UNDO` en `REDO` recovery technieken?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - UNDO: Wordt gebruikt om de effecten van transacties die niet succesvol zijn afgerond of die foutief zijn uitgevoerd, ongedaan te maken. Dit zorgt ervoor dat de database terugkeert naar een consistente staat.
-    - REDO: Wordt toegepast om de wijzigingen van transacties die **wel gecommit** waren opnieuw toe te passen. Dit is vooral belangrijk na een crash wanneer sommige wijzigingen nog niet permanent op de schijf waren vastgelegd. -->
+    - REDO: Wordt toegepast om de wijzigingen van transacties die **wel gecommit** waren opnieuw toe te passen. Dit is vooral belangrijk na een crash wanneer sommige wijzigingen nog niet permanent op de schijf waren vastgelegd.
 
 - Als ier iets misgaat op applicatieniveau, bijvoorbeeld een crash in je Java applicatie, moet de DBMS dan iets doen, of moet de programmeur dan iets doen, om ACID te blijven garanderen? 
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
+    <span style="color: #03C03C;">Solution:</span>
     - Het DBMS is primair verantwoordelijk voor het waarborgen van ACID-eigenschappen via zijn transactie- en recoverymechanismen.  
         - Bij een crash op applicatieniveau (bijvoorbeeld in een Java-applicatie) zorgt het DBMS er met behulp van commit/rollback en log-based recovery voor dat de database in een consistente staat blijft.
-        - De programmeur moet wel zorgen voor een correcte afhandeling van transacties in de applicatie, zoals het op de juiste wijze starten, committen en, indien nodig, terugdraaien van transacties. -->
+        - De programmeur moet wel zorgen voor een correcte afhandeling van transacties in de applicatie, zoals het op de juiste wijze starten, committen en, indien nodig, terugdraaien van transacties.
 
 - Wat zou er volgens jou moeten gebeuren als twee personen tegelijkertijd op `bol.com` een item bestellen waarvan maar één hoeveelheid in stock is? Wie trekt hier aan het korte eind? Hoe vangen grote webwinkels dit probleem op?
     <!-- EXSOL -->
-    <!-- <span style="color: #03C03C;">Solution:</span>
-    - Het voorraadbeheersysteem (onderdeel van het DBMS of een gekoppeld systeem) moet atomische transacties gebruiken. Dit zorgt ervoor dat slechts één transactie succesvol het laatste item kan reserveren, terwijl de andere transactie een foutmelding krijgt of wordt teruggedraaid. -->
+    <span style="color: #03C03C;">Solution:</span>
+    - Het voorraadbeheersysteem (onderdeel van het DBMS of een gekoppeld systeem) moet atomische transacties gebruiken. Dit zorgt ervoor dat slechts één transactie succesvol het laatste item kan reserveren, terwijl de andere transactie een foutmelding krijgt of wordt teruggedraaid.
