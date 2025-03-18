@@ -163,26 +163,31 @@ public static void main(String[] args){
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
 
         // CREATE THE TABLES
-        String sqlString = """
-                            -- Drop tables if they exist
-                            DROP TABLE IF EXISTS student;
-
-                            -- Create student table
-                            CREATE TABLE student (
-                                studnr INT NOT NULL PRIMARY KEY,
-                                naam VARCHAR(200) NOT NULL,
-                                voornaam VARCHAR(200),
-                                goedbezig BOOL
-                            );
-
-                            -- Insert sample data into student
-                            INSERT INTO student (studnr, naam, voornaam, goedbezig) VALUES
-                            (123, 'Trekhaak', 'Jaak', 0),
-                            (456, 'Peeters', 'Jos', 0),
-                            (890, 'Dongmans', 'Ding', 1);
-                            """ ;
         statement = connection.createStatement();
-        statement.executeUpdate(sqlString);
+        statement.executeUpdate("DROP TABLE IF EXISTS `student`;");
+        statement.executeUpdate("""
+                CREATE TABLE student(
+                    studnr INT NOT NULL PRIMARY KEY,
+                    naam TEXT NOT NULL,
+                    voornaam TEXT,
+                    goedbezig BOOLEAN
+                );
+                """);
+        statement.executeUpdate("DROP TABLE IF EXISTS log;");
+        statement.executeUpdate("""
+                CREATE TABLE log(
+                    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                    date DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    foreign_id INT NOT NULL,
+                    msg TEXT
+                );
+                """);
+        statement.executeUpdate(
+                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, 'Trekhaak', 'Jaak', 0);");
+        statement.executeUpdate(
+                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, 'Peeters', 'Jos', 0);");
+        statement.executeUpdate(
+                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 'Ding', 1);");
         statement.close();
 
         //VERIFY DATABASE CONTENT
