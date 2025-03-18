@@ -155,15 +155,12 @@ We maken hier weer gebruik van Gradle, maar aangezien onze database op onze Wind
 Om dingen te doen met de database moeten we dus een aantal stappen doorlopen, die hier beschreven en gecodeerd zijn in een `main`-method:
 ```java
 public static void main(String[] args){
-    Connection connection;
-    Statement statement;
-    ResultSet result;
     try{
         // CONNECT TO MYSQL
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
+        var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
 
         // CREATE THE TABLES
-        statement = connection.createStatement();
+        var statement = connection.createStatement();
         statement.executeUpdate("DROP TABLE IF EXISTS `student`;");
         statement.executeUpdate("""
                 CREATE TABLE student(
@@ -192,57 +189,32 @@ public static void main(String[] args){
 
         //VERIFY DATABASE CONTENT
         statement = connection.createStatement();
-         = statement.executeQuery("SELECT COUNT(*) as cnt FROM student;");
+        var result = statement.executeQuery("SELECT COUNT(*) as cnt FROM student;");
         while (result.next()){
             System.out.println("Assert that number of rows is 3: "+  (result.getInt("cnt") == 3));
             assert result.getInt("cnt") == 3;
         }
-    }catch (Exception e){
-        e.printStackTrace();
-    }
 
-    //READ FROM DB
-    try {
+        //READ FROM DB
         statement = connection.createStatement();
         result = statement.executeQuery("SELECT * FROM student;");
         while (result.next()){
             System.out.println("Studnr: "+result.getInt("studnr"));
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
 
-    //UPDATE DB
-    try {
+        //UPDATE DB
         statement = connection.createStatement();
         statement.executeUpdate("UPDATE student SET voornaam = 'Jaqueline' WHERE studnr = 123;");
-    }catch (SQLException e){
+        
+        // OPTIONAL VERIFY UPDATE WITH A READ
+
+        // Closing all connections correctly
+        result.close();
+        statement.close();
+        connection.close();
+
+    }catch (Exception e){
         e.printStackTrace();
-    }
-
-    // OPTIONAL VERIFY UPDATE WITH A READ
-
-    // Closing all connections correctly
-    if (result != null) {
-        try {
-            result.close();
-        } catch (SQLException e) {
-            System.out.println("Error closing resultset: "+e.toString());
-        }
-    }
-    if (statement != null) {
-        try {
-            statement.close();
-        } catch (SQLException e) {
-            System.out.println("Error closing statement: "+e.toString());
-        }
-    }
-    if (connection != null) {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            System.out.println("Error closing connection: "+e.toString());
-        }
     }
 }
 ```
