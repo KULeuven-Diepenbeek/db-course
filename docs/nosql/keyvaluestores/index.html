@@ -12,21 +12,22 @@
     <title>2. Key-value stores :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1741701728" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1741701728" rel="stylesheet">
-    <link href="../../css/hybrid.css?1741701728" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1741701728" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1741701728" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1741701728" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1741701728" rel="stylesheet">
-    <link href="../../css/theme.css?1741701728" rel="stylesheet">
-    <link href="../../css/devselector.css?1741701728" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1741701728" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1741701728" rel="stylesheet">
+    <link href="../../css/nucleus.css?1742295648" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/hybrid.css?1742295648" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1742295648" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1742295648" rel="stylesheet">
+    <link href="../../css/theme.css?1742295648" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1742295648" rel="stylesheet">
+    <link href="../../css/devselector.css?1742295648" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1742295648" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1742295648" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1741701728"></script>
-    <script src="../../js/devselector.js?1741701728"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1742295648"></script>
+    <script src="../../js/devselector.js?1742295648"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,8 +65,8 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../%20js/lunr.min.js?1741701728"></script>
-<script type="text/javascript" src="../../%20js/auto-complete.js?1741701728"></script>
+<script type="text/javascript" src="../../%20js/lunr.min.js?1742295648"></script>
+<script type="text/javascript" src="../../%20js/auto-complete.js?1742295648"></script>
 <script type="text/javascript">
     { { if hugo.IsMultilingual } }
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
@@ -73,7 +74,7 @@
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
     { { end } }
 </script>
-<script type="text/javascript" src="../../%20js/search.js?1741701728"></script>
+<script type="text/javascript" src="../../%20js/search.js?1742295648"></script>
     
   </div>
 
@@ -240,6 +241,103 @@
 <li data-nav-id="/sql-ddl-dml/dml/" title="DML" class="dd-item ">
   <a href="../../sql-ddl-dml/dml/">
     DML
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
+      
+      
+
+
+
+
+
+
+
+<li data-nav-id="/apis/" title="Database APIs" class="dd-item
+        
+        
+        
+        ">
+  <a href="../../apis/">
+    Database APIs
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
+  <a href="../../apis/basics/">
+    1. API Basics
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
+  <a href="../../apis/jdbc-jdbi/">
+    2. JDBC en JDBI
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
+  <a href="../../apis/jpa/">
+    3. JPA en Hibernate
     
   </a>
 </li>
@@ -453,8 +551,7 @@
                 </div>
                 
                     <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
+  <div class="wrapper toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#11-persistente-hashmaps">1.1 Persistente Hashmaps</a>
       <ul>
@@ -467,8 +564,7 @@
       </ul>
     </li>
   </ul>
-</nav>
-    </div>
+</nav></div>
 </div>
 
                 
@@ -489,7 +585,13 @@
 
         
 
+        
 
+
+
+
+
+<article class='content'>
 <h2 id="11-persistente-hashmaps">1.1 Persistente Hashmaps</h2>
 <p>De eenvoudigst mogelijke noSQL database die gebruik maakt van key/values is een simpele <code>HashMap&lt;K,V&gt;</code> die je zelf serialiseert naar een flat file op de HDD. Een netwerk share kan dit bestand delen, maar locking systemen zullen moeten ingebouwd worden om te voorkomen dat dit bestand corrupt wordt.</p>
 <p>De &ldquo;oude&rdquo; manier om dit te doen op de JVM is gebruik te maken van <code>FileOutputStream</code>:</p>
@@ -541,6 +643,7 @@
 <li>Welke beperkingen zijn er verbonden aan het geserialiseerd database bestand doorgeven aan andere medestudenten? Op welke manier kan je zo verschillende &lsquo;clients&rsquo; verbinden aan één database &lsquo;server&rsquo;?</li>
 </ol>
 
+</article>
 
 <footer class="footline">
 	
@@ -748,6 +851,70 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -787,19 +954,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1741701728"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1741701728"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1741701728"></script>
-    <script src="../../js/jquery.sticky.js?1741701728"></script>
-    <script src="../../js/featherlight.min.js?1741701728"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1741701728"></script>
-    <script src="../../js/learn.js?1741701728"></script>
-    <script src="../../js/hugo-learn.js?1741701728"></script>
-    <script src="../../js/mermaid.min.js?1741701728"></script>
+    <script src="../../js/clipboard.min.js?1742295648"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1742295648"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1742295648"></script>
+    <script src="../../js/jquery.sticky.js?1742295648"></script>
+    <script src="../../js/featherlight.min.js?1742295648"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1742295648"></script>
+    <script src="../../js/learn.js?1742295648"></script>
+    <script src="../../js/hugo-learn.js?1742295648"></script>
+    <script src="../../js/mermaid.min.js?1742295648"></script>
     <script>
     window.MathJax = {
       chtml: {
-        scale: 2,                      
+        scale: 1,                      
         minScale: .5,                  
         matchFontHeight: true,         
         mtextInheritFont: false,       

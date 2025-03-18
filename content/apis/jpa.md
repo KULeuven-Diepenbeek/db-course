@@ -1,6 +1,6 @@
 ---
-title: 3. JPA en Hibernate
-draft: false
+title: JPA en Hibernate (Jakarta)
+draft: true
 ---
 
 ## 2.1 Wat is JPA?

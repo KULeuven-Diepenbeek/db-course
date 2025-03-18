@@ -1,5 +1,5 @@
 ---
-title: 1. API Basics
+title: API Basics
 draft: false
 ---
 
@@ -9,17 +9,17 @@ In software engineering worden applicaties logisch opgesplitst in verschillende 
 
 ![](/img/tier3.png)
 
-In de praktijk variëert deze tier benadering van project tot project.
+In de praktijk varieert deze tier benadering van project tot project.
 
-Tot nu toe in dit vak hebben we ons toegelegd op Tier 3: de data laag. Zonder frontend applicatie laag kan een gebruiker echter niet interageren met deze database; er it dus minstens één extra tier nodig.
+Tot nu toe in dit vak hebben we ons toegelegd op Tier 3: de data laag. Zonder frontend applicatie laag kan een gebruiker echter niet interageren met deze database; er is dus minstens één extra tier nodig.
 
-Om ons in het vak databases te kunnen focusen op de data en de integratie van de data met de software gaan wij ons toeleggen op Tier 2 + 3. Het webgedeelte valt weg en om een UI te maken herbruiken we de opgebouwde JavaFX kennis van het eerstejaarsvak _Software Ontwerp in Java_ (INF1). We gaan dus terug **Java applicaties** maken en die verbinden met onze database schema's. Een simpele 2-tier applicatie is ook wel een client-server applicatie genoemd. In ons geval is de server de database, die in principe op een andere machine kan gedeployed worden. Voor de oefeningen vereenvoudigen we dit systeem door gebruik te maken van een _embedded_ database die in het lokaal geheugen kan draaien. 
+Om ons in het vak databases te kunnen focussen op de data en de integratie van de data met de software gaan wij ons toeleggen op Tier 2 + 3. Het web gedeelte valt weg en proberen zoveel mogelijk gebruik te maken van een commandline interface om te concepten uit te werken. In het vak _Full Stack Web development_ duiken gaan we meer in op een mooie interface GUI programmeren. Een simpele 2-tier applicatie is ook wel een client-server applicatie genoemd. In ons geval is de server de database, die in principe op een andere machine kan gedeployed worden. Voor de oefeningen vereenvoudigen we dit systeem door gebruik te maken van een _embedded_ database die in het lokaal geheugen kan draaien. 
 
 We teren dus op de volgende kennis:
 
 - Het opstellen van Gradle projecten in Java (_SES_);
-- JavaFX UIs bouwen (_INF1_);
-- Databases ontwerpen en koppelen (_Databases_).
+- Databases ontwerpen en koppelen (_Databases_);
+- GUI interfaces ontwikkelen (_FSWEB_).
 
 {{% notice warning %}}
 Problemen met je JDK versie en Gradle versies? Raadpleeg de [Gradle Compatibiility Matrix](https://docs.gradle.org/current/userguide/compatibility.html). Gradle 6.7 of hoger ondersteunt JDK15. Gradle 8.5 of hoger ondersteunt JDK21. Let op met syntax wijzigingen bij Gradle 7+!<br/>

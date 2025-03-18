@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/db-course/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=db-course/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.122.0">
+    <meta name="generator" content="Hugo 0.143.1">
     <meta name="description" content="">
 
 
     <link rel="icon" href="../images/favicon.png" type="image/png">
 
-    <title>4. Database APIs :: Databases</title>
+    <title>Database APIs :: Databases</title>
 
     
-    <link href="../css/nucleus.css?1714723968" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1714723968" rel="stylesheet">
-    <link href="../css/hybrid.css?1714723968" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1714723968" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1714723968" rel="stylesheet">
-    <link href="../css/auto-complete.css?1714723968" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1714723968" rel="stylesheet">
-    <link href="../css/theme.css?1714723968" rel="stylesheet">
-    <link href="../css/devselector.css?1714723968" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1714723968" rel="stylesheet">
-    <link href="../css/theme-kul.css?1714723968" rel="stylesheet">
+    <link href="../css/nucleus.css?1742303804" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1742303804" rel="stylesheet">
+    <link href="../css/hybrid.css?1742303804" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1742303804" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1742303804" rel="stylesheet">
+    <link href="../css/auto-complete.css?1742303804" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1742303804" rel="stylesheet">
+    <link href="../css/theme.css?1742303804" rel="stylesheet">
+    <link href="../css/autonumbering.css?1742303804" rel="stylesheet">
+    <link href="../css/devselector.css?1742303804" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1742303804" rel="stylesheet">
+    <link href="../css/theme-kul.css?1742303804" rel="stylesheet">
     
 
-    <script src="../js/jquery-3.3.1.min.js?1714723968"></script>
-    <script src="../js/devselector.js?1714723968"></script>
+    <script src="../js/jquery-3.3.1.min.js?1742303804"></script>
+    <script src="../js/devselector.js?1742303804"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -46,8 +47,8 @@
   <body class="" data-url="../apis/">
     <nav id="sidebar" class="">
 
-
-
+  
+  
   <div id="header-wrapper">
     <div id="header">
       <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
@@ -58,757 +59,422 @@
 </a>
     </div>
     
-        <div class="searchbox">
+    <div class="searchbox">
     <label for="search-by"><i class="fas fa-search"></i></label>
-    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <input data-search-input id="search-by" type="search" placeholder="">
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1714723968"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1714723968"></script>
+<script type="text/javascript" src="../%20js/lunr.min.js?1742303804"></script>
+<script type="text/javascript" src="../%20js/auto-complete.js?1742303804"></script>
 <script type="text/javascript">
-    
-        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
-    
+    { { if hugo.IsMultilingual } }
+    var baseurl = "http:\/\/localhost:1313\/db-course\/";
+    { { else } }
+    var baseurl = "http:\/\/localhost:1313\/db-course\/";
+    { { end } }
 </script>
-<script type="text/javascript" src="../js/search.js?1714723968"></script>
-
+<script type="text/javascript" src="../%20js/search.js?1742303804"></script>
     
   </div>
 
-    <div class="highlightable">
+  <div class="highlightable">
 
-      <h3><a href="../">Course Contents</a></h3>
+    <h3><a href="../">Course Contents</a></h3>
     <ul class="topics">
 
-        
-          
-          
+      
+      
+      
 
 
 
 
- 
-  
-    
-    <li data-nav-id="/sql/" title="1. RDBMS" class="dd-item
+
+
+
+<li data-nav-id="/sql/" title="RDBMS" class="dd-item
         
         
         
         ">
-      <a href="../sql/">
-          1. RDBMS
-          
-      </a>
+  <a href="../sql/">
+    RDBMS
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/sql/rdbms-basics/" title="Database Basics" class="dd-item ">
+  <a href="../sql/rdbms-basics/">
+    Database Basics
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/sql/rdbms-components/" title="Database Componenten" class="dd-item ">
+  <a href="../sql/rdbms-components/">
+    Database Componenten
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/sql/rdbms-acid/" title="ACID" class="dd-item ">
+  <a href="../sql/rdbms-acid/">
+    ACID
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
       
       
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
 
 
 
 
- 
-  
-    
-      <li data-nav-id="/sql/rdbms-basics/" title="1. Database Basics" class="dd-item ">
-        <a href="../sql/rdbms-basics/">
-        1. Database Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
 
 
 
-
- 
-  
-    
-      <li data-nav-id="/sql/rdbms-components/" title="2. Database Componenten" class="dd-item ">
-        <a href="../sql/rdbms-components/">
-        2. Database Componenten
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/sql-ddl-dml/" title="2. SQL DDL &amp; DML" class="dd-item
+<li data-nav-id="/sql-ddl-dml/" title="SQL DDL &amp; DML" class="dd-item
         
         
         
         ">
-      <a href="../sql-ddl-dml/">
-          2. SQL DDL &amp; DML
-          
-      </a>
+  <a href="../sql-ddl-dml/">
+    SQL DDL &amp; DML
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/sql-ddl-dml/ddl/" title="DDL" class="dd-item ">
+  <a href="../sql-ddl-dml/ddl/">
+    DDL
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/sql-ddl-dml/dml/" title="DML" class="dd-item ">
+  <a href="../sql-ddl-dml/dml/">
+    DML
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
       
       
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
 
 
 
 
- 
-  
-    
-      <li data-nav-id="/sql-ddl-dml/ddl/" title="1. DDL" class="dd-item ">
-        <a href="../sql-ddl-dml/ddl/">
-        1. DDL
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
 
 
 
-
- 
-  
-    
-      <li data-nav-id="/sql-ddl-dml/dml/" title="2. DML" class="dd-item ">
-        <a href="../sql-ddl-dml/dml/">
-        2. DML
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/transacties/" title="3. RDBMS Transacties" class="dd-item
-        
-        
-        
-        ">
-      <a href="../transacties/">
-          3. RDBMS Transacties
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/transacties/basics/" title="1. Transaction Mgmt. Basics" class="dd-item ">
-        <a href="../transacties/basics/">
-        1. Transaction Mgmt. Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/transacties/concurrency-control/" title="2. Concurrency Control" class="dd-item ">
-        <a href="../transacties/concurrency-control/">
-        2. Concurrency Control
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/transacties/failures-rollbacks/" title="3. Failures-Rollbacks" class="dd-item ">
-        <a href="../transacties/failures-rollbacks/">
-        3. Failures-Rollbacks
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk" class="dd-item ">
-        <a href="../transacties/concurrency-in-practice/">
-        4. Concurrency in de Praktijk
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/apis/" title="4. Database APIs" class="dd-item
+<li data-nav-id="/apis/" title="Database APIs" class="dd-item
         
         active
         
         ">
-      <a href="../apis/">
-          4. Database APIs
-          
-      </a>
+  <a href="../apis/">
+    Database APIs
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/basics/" title="API Basics" class="dd-item ">
+  <a href="../apis/basics/">
+    API Basics
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jdbc-jdbi/" title="JDBC en JDBI" class="dd-item ">
+  <a href="../apis/jdbc-jdbi/">
+    JDBC en JDBI
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
       
       
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
 
 
 
 
- 
-  
-    
-      <li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
-        <a href="../apis/basics/">
-        1. API Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
 
 
 
-
- 
-  
-    
-      <li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
-        <a href="../apis/jdbc-jdbi/">
-        2. JDBC en JDBI
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
-        <a href="../apis/jpa/">
-        3. JPA en Hibernate
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/nosql/" title="5. NoSQL" class="dd-item
+<li data-nav-id="/transacties/" title="RDBMS Transacties" class="dd-item
         
         
         
         ">
-      <a href="../nosql/">
-          5. NoSQL
-          
-      </a>
+  <a href="../transacties/">
+    RDBMS Transacties
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/transacties/acid/" title="ACID" class="dd-item ">
+  <a href="../transacties/acid/">
+    ACID
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/transacties/basics/" title="Transaction Mgmt. Basics" class="dd-item ">
+  <a href="../transacties/basics/">
+    Transaction Mgmt. Basics
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/transacties/concurrency-control/" title="Concurrency Control" class="dd-item ">
+  <a href="../transacties/concurrency-control/">
+    Concurrency Control
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/transacties/failures-rollbacks/" title="Failures-Rollbacks" class="dd-item ">
+  <a href="../transacties/failures-rollbacks/">
+    Failures-Rollbacks
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
       
       
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/basics/" title="1. NoSQL Basics" class="dd-item ">
-        <a href="../nosql/basics/">
-        1. NoSQL Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/keyvaluestores/" title="2. Key-value stores" class="dd-item ">
-        <a href="../nosql/keyvaluestores/">
-        2. Key-value stores
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/documentstores/" title="3. Document stores" class="dd-item ">
-        <a href="../nosql/documentstores/">
-        3. Document stores
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/mapreduce/" title="4. Advanced map-red. queries" class="dd-item ">
-        <a href="../nosql/mapreduce/">
-        4. Advanced map-red. queries
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/replication/" title="5. Replication" class="dd-item ">
-        <a href="../nosql/replication/">
-        5. Replication
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/xml/" title="6. XML Data Storage" class="dd-item
-        
-        
-        
-        ">
-      <a href="../xml/">
-          6. XML Data Storage
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/xml/basics/" title="1. XML Basics" class="dd-item ">
-        <a href="../xml/basics/">
-        1. XML Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/xml/xsd/" title="2. XSD" class="dd-item ">
-        <a href="../xml/xsd/">
-        2. XSD
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/xml/xpath/" title="3. XPath" class="dd-item ">
-        <a href="../xml/xpath/">
-        3. XPath
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/bigdata/" title="7. Big Data &amp; Analytics" class="dd-item
-        
-        
-        
-        ">
-      <a href="../bigdata/">
-          7. Big Data &amp; Analytics
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/bigdata/basics/" title="1. Big Data Basics" class="dd-item ">
-        <a href="../bigdata/basics/">
-        1. Big Data Basics
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/bigdata/datawarehousing/" title="2. Data Warehousing &amp; BI" class="dd-item ">
-        <a href="../bigdata/datawarehousing/">
-        2. Data Warehousing &amp; BI
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-      
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/extra/" title="X. Extras" class="dd-item
-        
-        
-        
-        ">
-      <a href="../extra/">
-          X. Extras
-          
-      </a>
-      
-      
-    </li>
-  
- 
-
-          
-        
     </ul>
 
     
     
-      <section id="shortcuts">
-        <h3>More</h3>
-        <ul>
-          
-              <li>
-                  <a class="padding" href="https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2023&amp;i=4290"><i class='fa fa-university'></i> ECTS Sheet</a>
-              </li>
-          
-              <li>
-                  <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
-              </li>
-          
-              <li>
-                  <a class="padding" href="https://github.com/kuleuven-diepenbeek/db-course/"><i class='fab fa-github'></i> Course Git Repository</a>
-              </li>
-          
-        </ul>
-      </section>
+    <section id="shortcuts">
+      <h3>More</h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2025&amp;i=4290"><i class='fa fa-university'></i> ECTS Sheet</a>
+        </li>
+        
+        <li>
+          <a class="padding" href="https://toledo.kuleuven.be/portal/"><i class='fa fa-university'></i> Toledo</a>
+        </li>
+        
+        <li>
+          <a class="padding" href="https://github.com/kuleuven-diepenbeek/db-course/"><i class='fab fa-github'></i> Course Git Repository</a>
+        </li>
+        
+      </ul>
+    </section>
     
 
     
@@ -818,7 +484,6 @@
     </section>
   </div>
 </nav>
-
 
 
 
@@ -837,6 +502,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -847,7 +514,7 @@
             
           
           
-            <a href='../'>Index</a> > 4. Database APIs
+            <a href='../'>Index</a> > Database APIs
           
         
           
@@ -856,6 +523,24 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+  <div class="wrapper toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#casus-tornooisysteem-tennis">Casus: Tornooisysteem Tennis</a>
+      <ul>
+        <li><a href="#eer-schema">EER-schema</a></li>
+        <li><a href="#mysql-database----sqlite---">(My)SQL database <!-- (+sqlite) --></a></li>
+        <li><a href="#de-dummy-data">De dummy data</a></li>
+      </ul>
+    </li>
+    <li><a href="#nadenken-over-de-structuur-van-de-database-en-de-interactie-met-je-applicatie">Nadenken over de structuur van de database en de interactie met je applicatie</a></li>
+    <li><a href="#waarom-is-het-nog-belangrijk-om-na-te-denken-over-eigen-software">Waarom is het nog belangrijk om na te denken over eigen software?</a></li>
+    <li><a href="#tips">Tips</a></li>
+  </ul>
+</nav></div>
+</div>
+
+                
               </div>
             </div>
             
@@ -863,18 +548,329 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Database APIs
+            </h1>
           
 
         
 
+        
 
 
-	<h1 id="database-apis">Database APIs</h1>
-<p>Zie menu links.</p>
 
+
+
+
+<article class='content'>
+	<h2 id="casus-tornooisysteem-tennis">Casus: Tornooisysteem Tennis</h2>
+<p>Tennis Vlaanderen organiseert tennistornooien over heel Vlaanderen. Deze casus werkt een voorbeeld uit van een soort systeembeheer voor die tornooien. Wat dat systeembeheer software pakket juist moet kunnen staat hieronder beschreven. (Dit is natuurlijk maar een beperkte versie van hoe zo een werkelijk systeem er zou uitzien bv. een datum en uur voor de wedstrijden ontbreken &hellip;)</p>
+<p>Met de software moet je tennisspelers kunnen aanmaken. Elke <strong>tennisspeler</strong> heeft een <code>globale ID</code> bij Tennis Vlaanderen die gebruikt wordt als identifier wanneer een persoon zich inschrijft voor een toernooi. Een speler moet op zijn Tennis Vlaanderen-dashboard een globaal overzicht kunnen opvragen van het aantal gespeelde <strong>matchen</strong>, het aantal gewonnen matchen, verloren matchen en de hoogst bereikte plaats in een toernooi (bv. Finalist T.C.Ham reeks enkel Heren t.e.m. 5 punten OF Winnaar G.T.Tessenderlo reeks enkel Dames t.e.m. 10 punten).</p>
+<p>Naast de fysieke parameters van een tennisspeler zoals <code>leeftijd</code>, <code>geslacht</code>, &hellip;, moet de applicatie ook de <code>ranking</code> van elke tennisspeler bijhouden. Deze ranking is een waarde van 1 tot en met 10 waarbij 1 de laagste ranking is en 10 de hoogste.</p>
+<p>Daarnaast kan een tennisspeler ook een rol als <strong>wedstrijdleider</strong> en/of <strong>scheidsrechter</strong> opnemen.</p>
+<ul>
+<li>Een wedstrijdleider regelt de planning van het toernooi, is het aanspreekpunt voor vragen
+en doet op de wedstrijddagen de inschrijvingen van de spelers.
+Aan elk toernooi moet minstens één wedstrijdleider gekoppeld zijn.</li>
+<li>Aan elke finalewedstrijd van een toernooi (= halve finales en grote + kleine finale) moet één
+scheidsrechter toegewezen worden.</li>
+</ul>
+<p><em>Een wedstrijdleider en scheidsrechter moeten ook wel een tennisspeler zijn! Je kan niet wedstrijdleider en scheidsrechter tegelijk zijn</em></p>
+<p>Elk toernooi vindt plaats op een bepaalde <strong>Tennisclub</strong> (met een bepaald <code>adres</code>, <code>telefoonnummer(s)</code>, <code>email adres</code>, &hellip;) en bestaat uit minstens 4 reeksen waarvoor je kan inschrijven (&ldquo;Enkel Heren t.e.m. 5 punten&rdquo;, &ldquo;enkel Heren t.e.m. 10 punten&rdquo;, &ldquo;enkel Dames t.e.m. 5 punten&rdquo;, &ldquo;enkel Dames t.e.m. 10 punten&rdquo;). Een speler kan altijd voor een hogere reeks inschrijven maar niet voor een lagere (bv. speler met 3 punten kan inschrijven in de reeks t.e.m. 10 punten, maar een speler met 6 punten kan niet inschrijven voor de reeks t.e.m. 5 punten).</p>
+<p>Een toernooi wordt georganiseerd volgens het principe van rechtstreekse uitschakeling: de winnaar gaat door naar de volgende ronde <em>(ronde wil zeggen: ronde 4 is 1/4 finale, ronde 16 is 1/16 finale en ronde 1 is finale &hellip;)</em>; voor de verliezer eindigt het toernooi. Dit proces loopt door tot er per <strong>wedstrijdreeks</strong> één winnaar overblijft. Indien het aantal spelers in een wedstrijdreeks geen match van twee is, worden in de eerste ronde zoveel spelers vrijgesteld als nodig. Zij kwalificeren zich rechtstreeks voor de tweede ronde. Dit wordt
+per loting bepaald (random dus).</p>
+<h3 id="eer-schema">EER-schema</h3>
+<p><figure>
+	<a href="../img/dab_tennis_eer.jpg" data-featherlight="image">
+		<img src="../img/dab_tennis_eer.jpg"  alt="dab_tennis_eer" >
+	</a>
+	
+</figure>
+</p>
+<h3 id="mysql-database----sqlite---">(My)SQL database <!-- (+sqlite) --></h3>
+<details open>
+<summary><i><b>Klik hier om de mysql code te zien/verbergen om de schema's aan te maken voor de 'tennisvlaanderen' database </b></i>🔽</summary>
+<p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tennisspeler_speelt_wedstrijd</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tennisspeler_inschrijving_wedstrijdreeks</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">wedstrijd</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tornooi</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tennisspeler</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tennisclub_email</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">tennisclub</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tennisclub</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">clubnummer</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">nummer</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">straatnaam</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">255</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">gemeente</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">255</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tennisclub_email</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">clubnummer</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">email_address</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">255</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">clubnummer</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisclub</span><span style="color:#111">(</span><span style="color:#111">clubnummer</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tennisspeler</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">tennisvlaanderenid</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">geslacht</span> <span style="color:#111">ENUM</span><span style="color:#111">(</span><span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">geboortedatum</span> <span style="color:#111">DATE</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">ranking</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">rol</span> <span style="color:#111">ENUM</span><span style="color:#111">(</span><span style="color:#d88200">&#39;Wedstrijdleider&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Scheidsrechter&#39;</span><span style="color:#111">)</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">diploma</span> <span style="color:#111">TEXT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">naam</span> <span style="color:#111">TEXT</span><span style="color:#111">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">CHECK</span> <span style="color:#111">(</span><span style="color:#111">ranking</span> <span style="color:#00a8c8">BETWEEN</span> <span style="color:#ae81ff">0</span> <span style="color:#00a8c8">AND</span> <span style="color:#ae81ff">10</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tornooi</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">startdatum</span> <span style="color:#111">DATE</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">einddatum</span> <span style="color:#111">DATE</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">wedstrijdleider</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">tennisclub</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">wedstrijdleider</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">tennisclub</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisclub</span><span style="color:#111">(</span><span style="color:#111">clubnummer</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">wedstrijdreeks</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">max_punten</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">geslacht</span> <span style="color:#111">ENUM</span><span style="color:#111">(</span><span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">tornooi_id</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">tornooi_id</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tornooi</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">CHECK</span> <span style="color:#111">(</span><span style="color:#111">max_punten</span> <span style="color:#00a8c8">BETWEEN</span> <span style="color:#ae81ff">0</span> <span style="color:#00a8c8">AND</span> <span style="color:#ae81ff">10</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">wedstrijd</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">partial_id</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">wedstrijdreeks</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">scheidsrechter</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">ronde</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">winnaar</span> <span style="color:#111">INT</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">score</span> <span style="color:#111">TEXT</span> <span style="color:#00a8c8">DEFAULT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">partial_id</span><span style="color:#111">,</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">wedstrijdreeks</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">scheidsrechter</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">winnaar</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tennisspeler_inschrijving_wedstrijdreeks</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">tennisspeler</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">wedstrijdreeks</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">inschrijvingsdatum</span> <span style="color:#111">DATE</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">tennisspeler</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">wedstrijdreeks</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">tennisspeler_speelt_wedstrijd</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">speler1</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">speler2</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">partial_id</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">wedstrijdreeks</span> <span style="color:#111">INT</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">speler1</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">speler2</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">tennisspeler</span><span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">partial_id</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">wedstrijd</span><span style="color:#111">(</span><span style="color:#111">partial_id</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">FOREIGN</span> <span style="color:#00a8c8">KEY</span> <span style="color:#111">(</span><span style="color:#111">wedstrijdreeks</span><span style="color:#111">)</span> <span style="color:#00a8c8">REFERENCES</span> <span style="color:#111">wedstrijd</span><span style="color:#111">(</span><span style="color:#111">wedstrijdreeks</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span></code></pre></div></p>
+</details>
+<details open>
+<summary><i><b>Klik hier om de mysql code te zien/verbergen om de 'tennisvlaanderen' database te in te vullen met wat test/dummy data </b></i>🔽</summary>
+<p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tennisspeler_speelt_wedstrijd</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tennisspeler_inschrijving_wedstrijdreeks</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">wedstrijd</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tornooi</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tennisspeler</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tennisclub_email</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">DELETE</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">tennisclub</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert tennis clubs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tennisclub</span> <span style="color:#111">(</span><span style="color:#111">clubnummer</span><span style="color:#111">,</span> <span style="color:#111">nummer</span><span style="color:#111">,</span> <span style="color:#111">straatnaam</span><span style="color:#111">,</span> <span style="color:#111">gemeente</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Tennis Straat&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Antwerpen&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Racketweg&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Gent&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert club emails
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tennisclub_email</span> <span style="color:#111">(</span><span style="color:#111">clubnummer</span><span style="color:#111">,</span> <span style="color:#111">email_address</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;club1@example.com&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;contact@club1.com&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;info@club2.be&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert tennis players
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tennisspeler</span> <span style="color:#111">(</span><span style="color:#111">tennisvlaanderenid</span><span style="color:#111">,</span> <span style="color:#111">geslacht</span><span style="color:#111">,</span> <span style="color:#111">geboortedatum</span><span style="color:#111">,</span> <span style="color:#111">ranking</span><span style="color:#111">,</span> <span style="color:#111">rol</span><span style="color:#111">,</span> <span style="color:#111">diploma</span><span style="color:#111">,</span> <span style="color:#111">naam</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1990-05-15&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Wedstrijdleider&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Diploma X&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Test Wedstrijdleider&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1995-08-20&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler A&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1985-03-10&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Scheidsrechter&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Diploma Y&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Test Scheidsrechter&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2000-12-05&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler B&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1996-02-18&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler C&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1992-07-14&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler D&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1998-11-23&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler E&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1989-01-30&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler F&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1993-04-18&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler G&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1997-09-05&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler H&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">11</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2001-06-12&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler I&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1994-03-22&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler J&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">13</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1990-12-01&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler K&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1987-05-09&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler L&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">15</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;1999-08-15&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;Testspeler M&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert tournaments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tornooi</span> <span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">,</span> <span style="color:#111">startdatum</span><span style="color:#111">,</span> <span style="color:#111">einddatum</span><span style="color:#111">,</span> <span style="color:#111">wedstrijdleider</span><span style="color:#111">,</span> <span style="color:#111">tennisclub</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-10-01&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-10-07&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-11-01&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-11-15&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2024-03-05&#39;</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2024-03-12&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert competition series
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">wedstrijdreeks</span> <span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">,</span> <span style="color:#111">max_punten</span><span style="color:#111">,</span> <span style="color:#111">geslacht</span><span style="color:#111">,</span> <span style="color:#111">tornooi_id</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;M&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;V&#39;</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert player registrations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tennisspeler_inschrijving_wedstrijdreeks</span> <span style="color:#111">(</span><span style="color:#111">tennisspeler</span><span style="color:#111">,</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">,</span> <span style="color:#111">inschrijvingsdatum</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-21&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-21&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-19&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">11</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">13</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-21&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-21&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-21&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-17&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">15</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">11</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-20&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;2023-09-18&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert matches
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">wedstrijd</span> <span style="color:#111">(</span><span style="color:#111">partial_id</span><span style="color:#111">,</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">,</span> <span style="color:#111">scheidsrechter</span><span style="color:#111">,</span> <span style="color:#111">ronde</span><span style="color:#111">,</span> <span style="color:#111">winnaar</span><span style="color:#111">,</span> <span style="color:#111">score</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-4, 6-2&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-4, 5-7, 6-0&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-1, 6-4&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-0, 6-1&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;7-6(3), 6-4&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-0, 6-0&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-2, 7-5&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-2, 6-2&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;5-7, 6-2, 6-0&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-3, 6-2&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;7-5, 6-4&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-2, 6-3&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-2, 6-4&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;6-4, 2-6, 7-5&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;walkover&#39;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Insert player-match participation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">INSERT</span> <span style="color:#00a8c8">INTO</span> <span style="color:#111">tennisspeler_speelt_wedstrijd</span> <span style="color:#111">(</span><span style="color:#111">speler1</span><span style="color:#111">,</span> <span style="color:#111">speler2</span><span style="color:#111">,</span> <span style="color:#111">partial_id</span><span style="color:#111">,</span> <span style="color:#111">wedstrijdreeks</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">VALUES</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">11</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">13</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">14</span><span style="color:#111">,</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">11</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">15</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">7</span><span style="color:#111">);</span>
+</span></span></code></pre></div></p>
+</details>
+
+<div class="notices info" ><p>Je kan bovenstaande code kopiëren en opslaan onder filenames zoals <code>create_tables.sql</code> en <code>populate_tables_with_testdata.sql</code>. Door deze onder <code>./resources</code>-directory van Gradle projecten bijvoorbeeld op te slaan zal het heel simpel zijn om tijdens de oefeningen steeds snel en repeatable testdatabases aan te maken die we kunnen gebruiken om onze code te testen.</p>
+</div>
+
+<h3 id="de-dummy-data">De dummy data</h3>
+<p>Enkele opmerkingen bij de dummy data die weergeeft welke verschillende scenario&rsquo;s allemaal ingevuld zijn die dan in software getest kunnen worden:</p>
+<ul>
+<li>Tornooi 1, wedstrijdreeks M5 heeft 4 inschrijvingen (dus perfecte halve finales) en is volledig uitgespeeld.</li>
+<li>Tornooi 1, wedstrijdreeks V5 heeft 5 inschrijvingen (dus gedeeltelijk kwartfinale) en is volledig uitgespeeld.</li>
+<li>Tornooi 1, wedstrijdreeks M10 heeft 8 inschrijvingen (dus perfecte kwart finales) en is volledig uitgespeeld.
+<ul>
+<li>Speler met id 5, doet ook al in tornooi 1 reeks 1 mee. (net als een heel deel andere spelers)</li>
+</ul>
+</li>
+<li>Tornooi 1, wedstrijdreeks V10 5 inschrijvingen (dus gedeeltelijk kwartfinale) en is gedeeltelijk al gespeeld maar is nog niet volledig uitgespeeld.
+<ul>
+<li>bevat een &lsquo;walkover&rsquo; als resultaat. (iemand die opgeeft)</li>
+</ul>
+</li>
+<li>Tornooi 2, wedstrijdreeks M5 heeft geen inschrijvingen.</li>
+<li>Tornooi 2, wedstrijdreeks V5 bestaat (nog) niet.</li>
+<li>Tornooi 2, wedstrijdreeks M10 heeft inschrijvingen en wedstrijden gepland, maar er zijn nog geen wedstrijden gespeeld.</li>
+<li>Tornooi 2, wedstrijdreeks V10 heeft inschrijvingen maar er zijn nog geen wedstrijden gepland.</li>
+<li>Tornooi 3, wat ook een tornooi van clubnummer 1 is bevat nog geen inschrijvingen, en heeft nog geen wedstrijdleider.</li>
+</ul>
+<h2 id="nadenken-over-de-structuur-van-de-database-en-de-interactie-met-je-applicatie">Nadenken over de structuur van de database en de interactie met je applicatie</h2>
+<p>Je zal wellicht al gemerkt hebben dat de inhoud van de database niet al te leesbaar is. Zo zie je voor matchen enkel <code>tennisvlaanderenid</code>&rsquo;s wat natuurlijk super onhandig is. Als ik mijn wedstrijd opzoek wil ik de naam van mijn tegenstander zien en niet enkel zijn/haar nummer. Daarvoor dienen dus goede SQL-queries gecombineerd met wat programmeermagic om dit zo weer te geven in de UI.</p>
+<p>Bovendien missen er ook nog wat logische elementen die je niet rechtstreeks uit de database kan uitlezen maar die je er wel kan van afleiden. Zo weet je dat als er een wedstrijd van een speler voor een bepaalde reeks te zien is in de <code>wedstrijd</code>-tabel maar de winnaar nog <code>NULL</code> is, dat die wedstrijd dan wel ingepland is, maar nog niet gespeeld is.</p>
+<h2 id="waarom-is-het-nog-belangrijk-om-na-te-denken-over-eigen-software">Waarom is het nog belangrijk om na te denken over eigen software?</h2>
+<p>Sommige constraints kunnen niet toegevoegd worden in de definitie van de MySQL-database bijvoorbeeld:</p>
+<ul>
+<li>zorgen dat een speler met meer dan 5 punten niet kan inschrijven in een reeks tot en met 5 punten;</li>
+<li>zorgen dat een man niet kan inschrijven in een vrouwenreeks en vice versa;</li>
+<li>zorgen dat een scheidsrechter niet zijn eigen match kan beoordelen;</li>
+<li>&hellip;</li>
+</ul>
+<p>Hoe bouw je dit nu in? Dit kan over het algemeen op 2 manieren: <strong>voorkomen</strong> of <strong>error messaging</strong>:</p>
+<ul>
+<li>Je kan simpelweg voorkomen dat een vrouw in een mannenreeks kan inschrijven door het onmogelijk te maken in de UI dat een vrouw een inschrijvingsknop heeft voor een mannenreeks.</li>
+<li>Je kan een error geven wanneer je bijvoorbeeld voor een te lage reeks wil inschrijven.</li>
+</ul>
+
+<div class="notices important" ><p>Over het algemeen is het dus belangrijk dat je op zoveel mogelijk plaatsen en in zoveel mogelijk lagen restricties controleert zodat er geen fouten kunnen gebeuren. Dat doe je door constraints mee te geven in je database, error handling te doen, je UI zo te voorzien dat fouten maken bijna onmogelijk wordt &hellip; Dit vraagt natuurlijk heel wat denkwerk voor programmeur, maar dit hoort zeker in deze gevallen tot zijn/haar job. Een werkende database en UI voorzien kan 20% van het werk zijn en ervoor zorgen dat je enkel de juiste dingen kan doen in de UI zal wellicht uit 80% van het werk in beslag nemen. (Daarom is het ook belangrijk om goede en voldoende testen te schrijven!)</p>
+</div>
+
+<h2 id="tips">Tips</h2>
+<p>Test queries die je wil gebruiken in je programma eerst uit in een GUI tool zoals PHPMyAdmin of Adminer om te testen of ze werken en al een idee te hebben van hoe de output eruit ziet zodat je de returns correct kan processen.</p>
+
+</article>
 
 
 
@@ -883,8 +879,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div>
         
@@ -959,38 +953,6 @@
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1055,38 +1017,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1111,22 +1041,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1234,150 +1148,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1391,10 +1161,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../transacties/concurrency-in-practice/" title="4. Concurrency in de Praktijk"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../sql-ddl-dml/dml/" title="DML"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../apis/basics/" title="1. API Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../apis/basics/" title="API Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1404,19 +1174,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1714723968"></script>
-    <script src="../js/perfect-scrollbar.min.js?1714723968"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1714723968"></script>
-    <script src="../js/jquery.sticky.js?1714723968"></script>
-    <script src="../js/featherlight.min.js?1714723968"></script>
-    <script src="../js/modernizr.custom-3.6.0.js?1714723968"></script>
-    <script src="../js/learn.js?1714723968"></script>
-    <script src="../js/hugo-learn.js?1714723968"></script>
-    <script src="../js/mermaid.min.js?1714723968"></script>
+    <script src="../js/clipboard.min.js?1742303804"></script>
+    <script src="../js/perfect-scrollbar.min.js?1742303804"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1742303804"></script>
+    <script src="../js/jquery.sticky.js?1742303804"></script>
+    <script src="../js/featherlight.min.js?1742303804"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1742303804"></script>
+    <script src="../js/learn.js?1742303804"></script>
+    <script src="../js/hugo-learn.js?1742303804"></script>
+    <script src="../js/mermaid.min.js?1742303804"></script>
     <script>
     window.MathJax = {
       chtml: {
-        scale: 2,                      
+        scale: 1,                      
         minScale: .5,                  
         matchFontHeight: true,         
         mtextInheritFont: false,       

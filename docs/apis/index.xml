@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>4. Database APIs on Databases</title>
-    <link>https://kuleuven-diepenbeek.github.io/db-course/apis/</link>
-    <description>Recent content in 4. Database APIs on Databases</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Database APIs on Databases</title>
+    <link>http://localhost:1313/db-course/apis/</link>
+    <description>Recent content in Database APIs on Databases</description>
+    <generator>Hugo</generator>
     <language>en-uk</language>
-    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</webMaster>
-    <atom:link href="https://kuleuven-diepenbeek.github.io/db-course/apis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/db-course/apis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1. API Basics</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/basics/</guid>
-      <description>Layered Application Tiers In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de backend&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een data laag die onze database voorstelt. Onderstaand schema vat dit samen (via Trevor N. Mudge):&#xA;In de praktijk variëert deze tier benadering van project tot project.</description>
+      <title>API Basics</title>
+      <link>http://localhost:1313/db-course/apis/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/apis/basics/</guid>
+      <description>&lt;h2 id=&#34;layered-application-tiers&#34;&gt;Layered Application Tiers&lt;/h2&gt;&#xA;&lt;p&gt;In software engineering worden applicaties logisch opgesplitst in verschillende &amp;ldquo;tiers&amp;rdquo;. Een typische 3-Tier webapplicatie bestaat uit 3 lagen: de laag die de gebruiker te zien krijgt&amp;mdash;de UI, bestaande uit HTML en CSS, de &lt;em&gt;backend&lt;/em&gt;&amp;mdash;een server waar de requests naartoe worden gestuurd en die de aanvragen verwerkt, en een &lt;em&gt;data laag&lt;/em&gt; die onze database voorstelt. Onderstaand schema vat dit samen (via &lt;a href=&#34;https://www.researchgate.net/figure/A-Typical-3-Tier-Server-Architecture-Tier-1-Web-Server-Tier-2-Application-Server-Tier_fig1_221147997&#34;&gt;Trevor N. Mudge&lt;/a&gt;):&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../img/tier3.png&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../img/tier3.png&#34;  &gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;In de praktijk varieert deze tier benadering van project tot project.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2. JDBC en JDBI</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jdbc-jdbi/</guid>
-      <description>1.1 Java Database Connectivity (JDBC) 1.1.1 Hoe verbind ik Java met de DB? JDBC is een interface in de JDK die ons in staat stelt om een connectie te openen naar een database. JDBC is een API: een abstracitelaag of een protocol. Dit betekent dat we met JDBC kunnen verbinden naar eender welke server van eender welke flavor: een Oracle SQL, MSSQL, of SQLite database. De database vendor wordt verborgen achter de JDBC laag.</description>
-    </item>
-    <item>
-      <title>3. JPA en Hibernate</title>
-      <link>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Wouter Groeneveld, Kris Aerts)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/db-course/apis/jpa/</guid>
-      <description>2.1 Wat is JPA? JPA of de Java Persistence API is een deel van Java EE (Java Enterprise Platform), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met &amp;ldquo;enterprise&amp;rdquo; features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde &amp;ldquo;B2B&amp;rdquo;, Business 2 Business, of Enterprise Software Development).&#xA;Ondertussen is J2EE omgevormd tot Jakarta EE.</description>
+      <title>JDBC en JDBI</title>
+      <link>http://localhost:1313/db-course/apis/jdbc-jdbi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/apis/jdbc-jdbi/</guid>
+      <description>&lt;h2 id=&#34;java-database-connectivity-jdbc&#34;&gt;Java Database Connectivity (JDBC)&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hoe-verbind-ik-java-met-de-db&#34;&gt;Hoe verbind ik Java met de DB?&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.tutorialspoint.com/jdbc/index.htm&#34;&gt;JDBC&lt;/a&gt; is een interface in de JDK die ons in staat stelt om een connectie te openen naar een database. &lt;strong&gt;JDBC is een API&lt;/strong&gt;: een abstracitelaag of een &lt;em&gt;protocol&lt;/em&gt;. Dit betekent dat we met JDBC kunnen verbinden naar eender welke server van eender welke flavor: een Oracle SQL, MSSQL, of SQLite database. De database &lt;em&gt;vendor&lt;/em&gt; wordt verborgen achter de JDBC laag. Voor deze oefeningen beperken we ons tot MySQL.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -12,21 +12,22 @@
     <title>Failures-Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1741701729" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1741701729" rel="stylesheet">
-    <link href="../../css/hybrid.css?1741701729" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1741701729" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1741701729" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1741701729" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1741701729" rel="stylesheet">
-    <link href="../../css/theme.css?1741701729" rel="stylesheet">
-    <link href="../../css/devselector.css?1741701729" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1741701729" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1741701729" rel="stylesheet">
+    <link href="../../css/nucleus.css?1742295648" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/hybrid.css?1742295648" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1742295648" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1742295648" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1742295648" rel="stylesheet">
+    <link href="../../css/theme.css?1742295648" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1742295648" rel="stylesheet">
+    <link href="../../css/devselector.css?1742295648" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1742295648" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1742295648" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1741701729"></script>
-    <script src="../../js/devselector.js?1741701729"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1742295648"></script>
+    <script src="../../js/devselector.js?1742295648"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -64,8 +65,8 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../%20js/lunr.min.js?1741701729"></script>
-<script type="text/javascript" src="../../%20js/auto-complete.js?1741701729"></script>
+<script type="text/javascript" src="../../%20js/lunr.min.js?1742295648"></script>
+<script type="text/javascript" src="../../%20js/auto-complete.js?1742295648"></script>
 <script type="text/javascript">
     { { if hugo.IsMultilingual } }
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
@@ -73,7 +74,7 @@
     var baseurl = "http:\/\/localhost:1313\/db-course\/";
     { { end } }
 </script>
-<script type="text/javascript" src="../../%20js/search.js?1741701729"></script>
+<script type="text/javascript" src="../../%20js/search.js?1742295648"></script>
     
   </div>
 
@@ -240,6 +241,103 @@
 <li data-nav-id="/sql-ddl-dml/dml/" title="DML" class="dd-item ">
   <a href="../../sql-ddl-dml/dml/">
     DML
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+  </ul>
+  
+</li>
+
+
+
+      
+      
+
+
+
+
+
+
+
+<li data-nav-id="/apis/" title="Database APIs" class="dd-item
+        
+        
+        
+        ">
+  <a href="../../apis/">
+    Database APIs
+    
+  </a>
+  
+  
+  <ul>
+    
+    
+    
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/basics/" title="1. API Basics" class="dd-item ">
+  <a href="../../apis/basics/">
+    1. API Basics
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jdbc-jdbi/" title="2. JDBC en JDBI" class="dd-item ">
+  <a href="../../apis/jdbc-jdbi/">
+    2. JDBC en JDBI
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jpa/" title="3. JPA en Hibernate" class="dd-item ">
+  <a href="../../apis/jpa/">
+    3. JPA en Hibernate
     
   </a>
 </li>
@@ -453,8 +551,7 @@
                 </div>
                 
                     <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
+  <div class="wrapper toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#system-failure-simulatie">System failure simulatie</a>
       <ul>
@@ -463,8 +560,7 @@
     </li>
     <li><a href="#denkvragen">Denkvragen</a></li>
   </ul>
-</nav>
-    </div>
+</nav></div>
 </div>
 
                 
@@ -485,7 +581,13 @@
 
         
 
+        
 
+
+
+
+
+<article class='content'>
 <p>Voorbereidende <code>CREATE</code> statements (Dit is SQLite syntax!) Zie <a href="https://sqlite.org/autoinc.html">SQLite manual</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#00a8c8">DROP</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#00a8c8">IF</span> <span style="color:#00a8c8">EXISTS</span> <span style="color:#111">student</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">student</span><span style="color:#111">(</span>
@@ -581,6 +683,7 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
 <li>De SQLite website beschrijft in detail hoe ze omgaan met &ldquo;atomic commits&rdquo; om aan de ACID regels te voldoen. Lees dit na op <a href="https://sqlite.org/atomiccommit.html">https://sqlite.org/atomiccommit.html</a> Op welke manier gebruiken zij een rollback journal? Hoe is dat gelinkt aan de logfile van 14.2.3 op p.435?</li>
 </ul>
 <!-- - JDBC is vrij rudimentair, en het is vrij omslachtig om simpele statements te committen vanwege boilerplate code. Hoe zou je dit probleem verminderen door middel van enkele refactorings? Anders gezegd: welke patronen herken je (zie SES 2de bach.) en hoe kan je gebruik maken van die patronen om herhalende boilerplate code te verminderen? -->
+</article>
 
 <footer class="footline">
 	
@@ -732,6 +835,70 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -834,19 +1001,19 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1741701729"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1741701729"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1741701729"></script>
-    <script src="../../js/jquery.sticky.js?1741701729"></script>
-    <script src="../../js/featherlight.min.js?1741701729"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1741701729"></script>
-    <script src="../../js/learn.js?1741701729"></script>
-    <script src="../../js/hugo-learn.js?1741701729"></script>
-    <script src="../../js/mermaid.min.js?1741701729"></script>
+    <script src="../../js/clipboard.min.js?1742295648"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1742295648"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1742295648"></script>
+    <script src="../../js/jquery.sticky.js?1742295648"></script>
+    <script src="../../js/featherlight.min.js?1742295648"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1742295648"></script>
+    <script src="../../js/learn.js?1742295648"></script>
+    <script src="../../js/hugo-learn.js?1742295648"></script>
+    <script src="../../js/mermaid.min.js?1742295648"></script>
     <script>
     window.MathJax = {
       chtml: {
-        scale: 2,                      
+        scale: 1,                      
         minScale: .5,                  
         matchFontHeight: true,         
         mtextInheritFont: false,       
