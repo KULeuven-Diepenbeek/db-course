@@ -2,6 +2,7 @@
 title: "Database APIs"
 chapter: false
 draft: false
+weight: 4
 ---
 
 ## Casus: Tornooisysteem Tennis
