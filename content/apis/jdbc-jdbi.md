@@ -39,21 +39,23 @@ Enkele belangrijke statements:
 Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:
 
 ```java
-public void createDb() throws SQLException {
+public static void createDb() throws SQLException {
     var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
     var s = connection.createStatement();
-    s.executeUpdate("CREATE TABLE student(nr INT); INSERT INTO student(nr) VALUES(1);")
+    s.executeUpdate("DROP TABLE IF EXISTS `student`;");
+    s.executeUpdate("CREATE TABLE student(nr INT);");
+    s.executeUpdate("INSERT INTO student(nr) VALUES(1);");
     s.close();
     connection.close();
 }
 
-public void verifyDbContents() throws SQLException {
+public static void verifyDbContents() throws SQLException {
     var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
     var s = connection.createStatement();
     var result = s.executeQuery("SELECT COUNT(*) as cnt FROM student;");
-    while (result.next()){
-        System.out.println("Assert that number of rows is 3: "+  (result.getInt("cnt") == 3));
-        assert result.getInt("cnt") == 3;
+    while (result.next()) {
+        System.out.println("Assert that number of rows is 1: " + (result.getInt("cnt") == 1));
+        assert result.getInt("cnt") == 1;
     }
     s.close();
     connection.close();
