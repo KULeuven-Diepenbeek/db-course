@@ -32,14 +32,17 @@
     <loc>http://localhost:1313/db-course/transacties/concurrency-control/</loc>
     <lastmod>2025-03-12T06:44:12+01:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/db-course/transacties/</loc>
+    <lastmod>2025-03-18T14:22:25+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/db-course/apis/</loc>
+    <lastmod>2025-03-18T14:22:25+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/db-course/transacties/failures-rollbacks/</loc>
     <lastmod>2025-03-11T12:48:10+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/nosql/4oef3/</loc>
     <lastmod>2020-10-20T14:21:06+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/db-course/apis/basics/</loc>
-    <lastmod>2024-03-22T08:04:47+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/bigdata/basics/</loc>
     <lastmod>2023-09-18T15:01:17+02:00</lastmod>
@@ -53,9 +56,6 @@
     <loc>http://localhost:1313/db-course/bigdata/datawarehousing/</loc>
     <lastmod>2023-09-18T15:01:17+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/db-course/apis/jdbc-jdbi/</loc>
-    <lastmod>2024-03-22T08:56:27+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/db-course/nosql/keyvaluestores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
@@ -64,9 +64,6 @@
   </url><url>
     <loc>http://localhost:1313/db-course/nosql/documentstores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/db-course/apis/jpa/</loc>
-    <lastmod>2024-04-16T12:25:34+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/xml/xpath/</loc>
     <lastmod>2022-12-15T14:05:09+01:00</lastmod>
@@ -77,14 +74,14 @@
     <loc>http://localhost:1313/db-course/nosql/replication/</loc>
     <lastmod>2024-04-26T08:52:35+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/db-course/apis/</loc>
-    <lastmod>2025-03-10T15:21:06+01:00</lastmod>
+    <loc>http://localhost:1313/db-course/apis/basics/</loc>
+    <lastmod>2025-03-18T14:17:08+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/db-course/transacties/</loc>
-    <lastmod>2025-03-10T15:21:06+01:00</lastmod>
+    <loc>http://localhost:1313/db-course/apis/jdbc-jdbi/</loc>
+    <lastmod>2025-03-18T17:05:28+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/tags/</loc>
   </url>

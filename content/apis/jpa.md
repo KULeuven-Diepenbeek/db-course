@@ -1,11 +1,11 @@
 ---
-title: JPA en Hibernate (Jakarta)
+title: JPA en Hibernate
 draft: true
 ---
 
 ## 2.1 Wat is JPA?
 
-JPA of de **Java Persistence API** is een deel van Java EE (Java _Enterprise Platform_), een set van specificaties die initiëel de JDK SE 8 versie uitbreidden met "enterprise" features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde "B2B", Business 2 Business, of Enterprise Software Development). 
+JPA of de **Jakarta Persistence API** _(vroeger de Java Persistence API genoemd)_ is een deel van Java EE (Java _Enterprise Platform_), een set van specificaties die initieel de JDK SE 8 versie uitbreidden met "enterprise" features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde "B2B", Business 2 Business, of Enterprise Software Development). 
 
 {{% notice note %}}
 Ondertussen is J2EE omgevormd tot [Jakarta EE](https://jakarta.ee). Dat betekent ook dat JPA [recent officieel werd vervangen](https://blogs.oracle.com/javamagazine/post/transition-from-java-ee-to-jakarta-ee) door de Jakarta Persistence API. Je zal merken dat de `javax.persistence` dependency die wij gebruiken niet meer wordt geupdate. Pas dus op met recente Stack Overflow links!

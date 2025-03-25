@@ -1,5 +1,5 @@
 ---
-title: JDBC en JDBI
+title: JDBC - Java Database Connectivity
 draft: false
 ---
 
@@ -33,6 +33,9 @@ De `mysql-jdbc` package zorgt voor de brug tussen onze Java applicatie en de dat
 Enkele belangrijke statements:
 
 1. Een connectie naar een database vastleggen: `var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/<database_name>", "root", "");`
+{{% notice warning %}}
+Wil je meerdere queries tegelijk uitvoeren dan moet je dit ook nog specifiek vermelden in de driver door `?allowMultiQueries=true` toe te voegen aan de database url bv: `"jdbc:mysql://localhost:3306/<database_name>?allowMultiQueries=true"`
+{{% /notice %}}
 2. Een `SELECT` query uitvoeren: `var s = connection.createStatement(); var result = s.executeQuery("..."); var cell = result.getString("<column_name>");`
 3. Een `INSERT`/`UPDATE`/... query uitvoeren (die de structuur of inhoud van de database **wijzigt**): `var s = connection.createStatement(); s.executeUpdate("...");`
 
@@ -96,9 +99,11 @@ In-memory databases (ConStr. `jdbc:sqlite:memory`), die met een lege database ve
 Bijvoorbeeld voor onze casus:
 ```java
 private void initTables() throws Exception {
-    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tennisvlaanderen", "root", "");
-    var create_tables_sql = new String(Files.readAllBytes(Paths.get("src/main/resources/create_tables.sql")));
-    var populate_tables_sql = new String(Files.readAllBytes(Paths.get("src/main/resources/populate_tables_with_testdata.sql")));
+    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tennisvlaanderen?allowMultiQueries=true", "root", "");
+    URI create_tables_path = Objects.requireNonNull(App.class.getClassLoader().getResource("create_tables.sql")).toURI();
+    var create_tables_sql = new String(Files.readAllBytes(Paths.get(create_tables_path)));
+    URI populate_tables_path = Objects.requireNonNull(App.class.getClassLoader().getResource("populate_tables_with_testdata.sql")).toURI();
+    var populate_tables_sql = new String(Files.readAllBytes(Paths.get(populate_tables_path)));
     System.out.println(create_tables_sql);
     System.out.println(populate_tables_sql);
 
@@ -502,7 +507,7 @@ public class StudentRepository {
 **BELANGRIJK**: 
 
 - `executeUpdate()` van een `Statement` is erg omslachtig als je een string moet samenstellen die een `INSERT` query voorstelt (haakjes, enkele quotes, ...). Wat meer is, als de input van een UI komt, kan dit gehacked worden, door zelf de quote te sluiten in de string. Dit noemt men **SQL Injection**, en om dat te vermijden gebruik je in JDBC de `prepareStatement()` methode. Zie [JDBC Basics: Prepared Statements](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html). De String die je meegeeft bevat in de plaats van parameters een vraagteken: `INSERT INTO STUDENT(bla, bla) VALUES(?, ?)`. Die parameters vul je daarna aan met `preparedStatement.setString()` of `setInt()`. Op die manier is de code zowel _netjes_ als _injectie-vrij_!
-- Als je data wenst op te halen dat is verspreid over verschillende tabellen, is de kans groot dat een `JOIN` SQL statement nodig is. Probeer eerst de query te schrijven in de _SQLite DB Browser_ tool. De Java objecten opvullen is de laatste taak.
+- Als je data wenst op te halen dat is verspreid over verschillende tabellen, is de kans groot dat een `JOIN` SQL statement nodig is. Probeer eerst de query te schrijven in de _PhpMyAdmin_ tool. De Java objecten opvullen is de laatste taak.
 
 Bijvoorbeeld:
 ```java
@@ -522,318 +527,147 @@ try {
 }
 ...
 ```
+### Jdbc met SQLite
+
+Een SQLite database kan handig zijn omdat een lokale `.db`-file al als database kan dienen wat de overhead van moeilijke connecties kan verminderen. Hiervoor moeten we dan een aantal dingen aanpassen: 
+1. De driver dependency wordt nu: `implementation 'org.xerial:sqlite-jdbc:3.42.0.0'`
+2. De Connection met een lokale database file kan je dan maken met: `var connection = (Connection) DriverManager.getConnection("jdbc:sqlite:mydatabase.db");`
+    - Indien de databasefile nog niet bestaat wordt deze aangemaakt.
+    - **Let op!** De import van connection mag nu niet de import zijn van de Mysql dependency maar wordt: `import java.sql.Connection;`
+3. Let op dat je nu ook correcte SQLite syntax gebruikt in je queries, maar voor de rest zal alles gelijkaardig werken.
+
+## EER-schema/database mapping naar Java Objects
+
+Om dit te verduidelijken en in te oefenen gaan we de demo database wat uitbreiden zodat er ook one-to-many en many-to-many relationships in voorkomen. We voegen `opleiding`en toe en elke student volgt één opleiding en een opleiding heeft dus meerdere studenten. We voegen ook `vak`ken toe wat een many-to-many relatie oplevert aangezien een student meerdere vakken kan volgen en een vak meerdere studenten kan hebben.
+
+<details closed>
+<summary><i><b>Klik hier voor de sql code van deze uitgebreidere database</b></i>🔽</summary>
+<p>
+
+```sql
+DROP TABLE IF EXISTS student_volgt_vak;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS vak;
+DROP TABLE IF EXISTS opleiding;
+
+CREATE TABLE opleiding(
+    id INT NOT NULL PRIMARY KEY,
+    opleidingsnaam VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE student(
+    studnr INT NOT NULL PRIMARY KEY,
+    naam VARCHAR(200) NOT NULL,
+    voornaam VARCHAR(200),
+    goedbezig BOOLEAN,
+    opleiding INT DEFAULT NULL,
+    FOREIGN KEY (opleiding) REFERENCES opleiding(id)
+);
+
+CREATE TABLE vak(
+    vaknr INT NOT NULL PRIMARY KEY,
+    vaknaam VARCHAR(200) NOT NULL,
+    opleiding INT DEFAULT NULL,
+    FOREIGN KEY (opleiding) REFERENCES opleiding(id)
+);
 
 
-<!-- ## Queries/Objecten in Jdbi 3
+CREATE TABLE student_volgt_vak(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student INT,
+    vak INT,
+    FOREIGN KEY (student) REFERENCES student(studnr),
+	  FOREIGN KEY (vak) REFERENCES vak(vaknr)
+);
 
-[Jdbi](https://jdbi.org) (Java DataBase Interface v3) is een lightweight library geschreven bovenop JDBC. Het gebruikt dus de interne Java API om te communiceren tussen de database en de Java applicatie. Echter, het maakt het leven voor ons als ontwikkelaar op heel wat vlakken véél _aangenamer_: waar JDBC eerder database-driven en dialect-afhankelijk is, is Jdbi eerder user-driven en met behulp van plugins dialect-onafhankelijk. 
 
-JDBI3 is opgedeeld in modules, waarvan wij de volgende drie gaan gebruiken:
+INSERT INTO opleiding(id, opleidingsnaam) VALUES (1, 'IIW');
 
-- `jdbi3-core` (altijd nodig) - voor JDBC zit dit in de JDK. 
-- `jdbi3-sqlite` (voor de SQLite verbinding) - of andere DB driver
-- `jdb3-sqlobject` - voor de eenvoudige mapping naar Plain Old Java Objects (POJOs)
+INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (123, 'Trekhaak', 'Jaak', 0, 1);
+INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (456, 'Peeters', 'Jos', 0, 1);
+INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (890, 'Dongmans', 'Ding', 1, NULL);
 
-```groovy
-implementation group: 'org.jdbi', name: 'jdbi3-core', version: jdbiv
-implementation group: 'org.jdbi', name: 'jdbi3-mysql', version: jdbiv
-implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: jdbiv
+INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (1, 'DAB', 1);
+INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (2, 'SES', 1);
+INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (3, 'FSWEB', 1);
+
+INSERT INTO student_volgt_vak(student, vak) VALUES (123, 1);
+INSERT INTO student_volgt_vak(student, vak) VALUES (123, 2);
+INSERT INTO student_volgt_vak(student, vak) VALUES (123, 3);
+INSERT INTO student_volgt_vak(student, vak) VALUES (456, 1);
+INSERT INTO student_volgt_vak(student, vak) VALUES (456, 2);
+INSERT INTO student_volgt_vak(student, vak) VALUES (890, 1);
 ```
 
-Met JDBI3 wordt op de volgende manier Java met de DB verbonden: -->
+</p>
+</details>
 
-<div hidden>
-{{<mermaid align="left">}}
-graph LR;
-    Java[Java]
-    Jdbi[Jdbi3-core]
-    JDBC[JDBC]
-    JMYSQL[Jdbi3-MySQL]
-    MYSQL[MySQL-JDBC]
-    DB[(MyuSQL Database)]
-    subgraph Java space
-    Java --> Jdbi
-    Jdbi --> JDBC
-    Jdbi --> JMYSQL
-    JMYSQL -.-> MYSQL
-    JDBC -.-> MYSQL
-    end
-    subgraph DB space
-    MYSQL --> DB
-    end
-{{< /mermaid >}}
-</div>
+Hoe kan je die relaties nu zichtbaar maken in Java. Dit is vrij eenvoudig, een `Student` kan meerdere vakken volgen dus krijgt de student klasse een Lijst met vakken. Een student behoort ook tot een Opleiding, dus die opleiding wordt ook een datamember voor Student. Analoog zullen de klassen `Vak` en `Opleiding` een lijst van studenten hebben en zal een vak ook een opleiding als datamember hebben. 
 
-<!--
-Er komt dus één blokje bij tussen Java en JDBC: we gebruiken niet langer de ingebouwde JDK interfaces maar rechtstreeks de `jdbi-core` dependency die via JDBC de MySQL connectie maakt. De `jdbi3-mysql` package is afhankelijk van `mysql-jdbc`: zie [artifact dependency info](https://mvnrepository.com/artifact/org.jdbi/jdbi3-mysql). Met andere worden, het wordt een _transitieve_ dependency: deze verdwijnt uit onze `build.gradle`, maar wordt nog steeds meegetrokken met de rest.
+Nu zal je zeker zeggen maar zijn we dan niet veel data aan het dupliceren en is dat niet waarom we een SQL database gebruiken. Dan ben je helemaal correct. Het verschil met de Java klassem/objecten is dat we enkel die objecten aanmaken die we op dat moment nodig hebben en die halen we uit ... je raad het al: de database. Dus het is volledig ok om zoveel data in een object op te slaan omdat we nooit alle data van de database in Java Objeten omvormen, we weten op voorhand bijvoorbeeld welke student we willen bekijken en kunnen dus specifiek voor die student een object aanmaken en de rest blijft gewoon in de database staan tot we het nodig hebben!
 
-Er is ook support voor spring, jpa, guava, kotlin, ...
+## Grotere oefening
 
-Om bovenstaande JDBC oefening te implementeren in Jdbi3 hebben we eerst een extractie van een interface nodig voor de repository acties:
-
+Breid de demos van hierboven uit met alle data van de nieuwe databas:
+1. Breid de `Student` klasse uit met een lijst van vakken en een opleiding.
 ```java
-public interface StudentRepository {
-    List<Student> getStudentsByName(String student);
-    void saveNewStudent(Student student);
-    void updateStudent(Student student);
+// Template van de klasse Student
+public class Student {
+        private int studnr;
+        private String voornaam, achternaam;
+        private boolean goedBezig;
+        private Opleiding opleiding;
+        private ArrayList<Vak> vakken;
+        // Constructors
+        // Getters en Setters
+        // To String
+        // Equals
+        // Hash
 }
 ```
-
-Nu kan `StudentRepositoryJdbcImpl` (hernoem bovenstaande) en onze nieuwe `StudentRepositoryJdbi3Impl` de interface `implements`-en. Denk aan de **Strategy design pattern** van SES: afhankelijk van een instelling kunnen we switchen van SQL leverancier, zolang de code overal de interface gebruikt. 
--->
-
-<div hidden>
-{{<mermaid align="left">}}
-graph LR;
-    Main[Controlller]
-    Interface{StudentRepository}
-    Jdbc[StudentRepositoryJdbcImpl]
-    Jdbi[StudentRepositoryJdbi3Impl]
-    Main --> Interface
-    Interface --> Jdbc
-    Interface --> Jdbi
-{{< /mermaid >}}
-</div>
-
-<!--
-### 1.2.1 JDBC vs Jdbi3
-
-Geen idee waar te beginnen? Hier: http://jdbi.org/ 
-
-#### **1. Connection openen**
-
-In plaats van JDBC's `DriverManager.getConnection()` om de `Connection` instance te bootstrappen, gebruiken wij gewoon `Jdbi.create()` met ook één parameter, namelijk dezelfde ConnectionString. 
-
-#### **2. Query uitvoeren**
-
-In plaats van de vervelende checked `SQLException`s en de `createStatement()` code, heb je nu de keuze om ofwel de Fluent API te gebruiken:
-
+2. Maak een klasse voor `Vak` en `Opleiding`.
 ```java
-return jdbi.withHandle(handle -> {
-   return handle.createQuery("SELECT * FROM student WHERE naam = :naam")
-           .bind("naam", student)
-           .mapToBean(Student.class)
-           .list();
-});
-```
+// Template van de klasse Vak
+public class Student {
+        private int vaknr;
+        private String naam;
+        private Opleiding opleiding;
+        private ArrayList<Student> studenten;
+        // Constructors
+        // Getters en Setters
+        // To String
+        // Equals
+        // Hash
+}
 
-ofwel de Declarative API, waarbij je met de `@SqlQuery` kan werken op een interface:
-
-```java
-public interface StudentDao {
-    @SqlQuery("SELECT * FROM student")
-    @RegisterBeanMapper(Student.class)
-    List<Student> getStudenten();
+// Template van de klasse Opleiding
+public class Student {
+        private String naam;
+        private ArrayList<Student> inschrijvingen;
+        // Constructors
+        // Getters en Setters
+        // To String
+        // Equals
+        // Hash
 }
 ```
-
-Dit vereist dat je de plugin `SqlObjectPlugin` installeert na de `Jdbi.create()`: `jdbi.installPlugin(new SqlObjectPlugin());`. Zie [jdbi.org](https://jdbi.org) documentatie.
-
-{{% notice note %}}
-Jdbi ondersteunt Kotlin met twee modules: `jdbi3-kotlin` en `jdbi3-kotlin-sqlobject` om data classes direct te binden aan een bepaalde tabel. Bovenstaande Java code (met `.bind()` werken) is analoog. Om verwarring te voorkomen zijn de Jdbi voorbeelden uitgewerkt in Java. Lees meer op http://jdbi.org/#_kotlin
-{{% /notice %}}
-
-
-Herinner je je nog de **SESsy Library**? Die werkte ook op die manier! Kijk nog eens in https://github.com/kuleuven-diepenbeek/sessylibrary in de map `src.main.java.be.kuleuven.sessylibrary.domain` in klasse `BooksRepository`!
-
-Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch worden vertaald naar een `Student` instantie door middel van **bean mapping**: de `mapToBean()` methode of de `@RegisterBeanMapper` annotatie. Die gaat via reflectie alle kolomnamen 1-op-1 mappen op properties van je object dat je wenst te mappen. Er zijn ook nog andere mogelijkheden, zoals mappen op een `HashMap`, ea:
-
-![](/img/jdbi-map.jpg)
-
-#### **3. Transacties, insert/update queries, ...**
-
-Zelfstudie. Zie [jdbi.org](https://jdbi.org) documentatie.
-
-### 1.2.2 Oefeningen
-
-**Quickstart project**: `examples/jdbc-repo-start` in in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Deze bevat reeds bovenstaande JDBC implementatie en een aantal unit testen, waarvan er nog twee falen.
-
-1. Fix eerst de falende unit testen!
-2. Herimplementeer alle methodes van de `StudentRepository` interface hierboven, maar dan in Jdbi3 met de Fluent API (`jdbi.withHandle()`). Maak een tweede klasse genaamd `StudentRepositoryJdbi3`. Schrijf ook een bijhorende unit test klasse (kijk voor inspiratie naar de JDBC implementatie). Om te testen of het werkt in "productie" kan je je testcode van JDBC herbruiken door de code de **interface** te laten gebruiken in plaats van de implementatie. Bijvoorbeeld:
-
-<div class="devselect">
-
-```kt
-fun main(args: Array<String>) {
-    val jdbcRepo = StudentRepositoryJdbc(...)
-    val jdbiRepo = StudentRepositoryJdbi3(...)
-    doStuff(jdbcRepo)
-}
-fun doStuff(repository: StudentRepository) {
-    // argunent = interface!
-    // uw repository.getStudentsByName, saveNewStudent, ... tests hier
-}
-```
-
-```java
-public class OefeningMain {
-        public static void main(String[] args) {
-            var jdbcRepo = new StudentRepositoryJdbc(...);
-            var jdbiRepo = new StudentRepositoryJdbi3(...);
-            doStuff(jdbcRepo);
-        }
-        public static void doStuff(StudentRepository repository) {
-            // argunent = interface!
-            // uw repository.getStudentsByName, saveNewStudent, ... tests hier
-        }
-}
-```
-</div>
-
-3. Implementeer opnieuw de `Cursus` link met de `Student`. Is het schrijven van `JOIN` queries in Jdbi3 eenvoudiger?
-4. _Extra Oefening_: Maak een nieuwe implementatie van de repository interface die via de Jdbi3 Declaratie API de queries doorgeeft naar de SQLite DB. D.w.z., lees in de [Jdbi3 developer guide](http://jdbi.org/#_declarative_api) na hoe je de Declarative API gebruikt en verwerk dit. Tip: `jdbi.withExtension(StudentDao.class, ...)`. 
-
-**Tip**:
-
-- Neem de tijd om de JDBI documentatie uitvoerig te bekijken!
-
-## 1.3 Jdbi Backend + JavaFX Frontend
-
-Met Java database access enigszins onder de knie kijken we verder dan alleen maar de "repository". Op welke manier kunnen we onze `STUDENT` tabel visueel weergeven, en er studenten aan toevoegen of uit verwijderen? 
-
-Dat kan op verschillende manieren, van HTML (SESsy Library) en JavaScript API calls naar iets eenvoudiger vanuit het eerstejaarsvak INF1: **JavaFX**. Je kan in JavaFX eenvoudig `TableView` stukken positioneren op een `AnchorPane` en die vullen met de juiste kolommen en rijen. De data blijft uiteraard uit de SQLite DB komen via JDBC/Jdbi. De `StudentRepository` is dus slechts één deel van het verhaal: waar wordt deze gebruikt? In JavaFX controllers. 
-
-### 1.3.1 Een Gradle JavaFX Project
-
-Er zijn een aantal aanpassingen nodig aan je `build.gradle` file om van een gewone Java applicatie over te schakelen naar een JavaFX-enabled applicatie. We hebben de **application** en **javafxplugin** plugins nodig onder `plugins {}`, verder ook een `javafx {}` property groep die bepaalt welke modules van JavaFX worden ingeladen:
-
-```
-plugins {
-    id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.13'
-}
-
-repositories {
-    mavenCentral()
-}
-
-javafx {
-    version = "17"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-}
-
-dependencies {
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.43.2.0'
-    implementation group: 'org.jdbi', name: 'jdbi3-core', version: '3.41.3'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlite', version: '3.41.3'
-    implementation group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.41.3'
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'    
-}
-
-group 'be.kuleuven.javasql'
-version '1.0-SNAPSHOT'
-sourceCompatibility = 1.13
-mainClassName = 'be.kuleuven.javasql.SqlFxMain'
-
-jar {
-    manifest {
-        attributes 'Implementation-Title': project.getProperty('name'),
-                'Implementation-Version': project.getProperty('version'),
-                'Main-Class': project.getProperty('mainClassName')
-    }
-}
-```
-
-Herinner je het volgende over JavaFX:
-
-- De main klasse leidt af van `Application` en laadt de hoofd-`.fxml` file in.
-- Controllers hebben een `public void initialize()` methode waar action binding in wordt gedefinieerd. 
-- `.fxml` files beheer je met SceneBuilder. Vergeet hier niet de link naar de fully qualified name van je controller klasse te plaatsen als `AnchorPane` attribuut: `fx:controller="be.kuleuven.javasql.controller.StudentController"`.
-
-{{% notice warning %}}
-Problemen met je JDK versie en Gradle versies? Raadpleeg de [Gradle Compatibiility Matrix](https://docs.gradle.org/current/userguide/compatibility.html). Gradle 6.7 of hoger ondersteunt JDK15. Gradle 7.3 of hoger ondersteunt JDK17. Let op met syntax wijzigingen bij Gradle 7+!<br/>
-Je Gradle versie verhogen kan door de URL in `gradle/gradlew.properties` te wijzigen.<br/>
-De laatste versie van JavaFX is 17---backwards compatible met JDK15 en hoger.
-{{% /notice %}}
-
-Voor onze studententabel visualisatie hebben we een `TableView` nodig. Daarnaast eventueel `Button`s om te editeren/toe te voegen/... Vergeet de `fx:id` van de tabel niet:
-
-![](/img/javafx-id.jpg)
-
-Kolommen (en de inhoud van de rijen) definiëren we in de controller zelf:
-
-<div class="devselect">
-
-```kt
-@FXML
-private lateinit var tblStudent: TableView<Student>
-
-fun initialize() {
-    tblStudent.getColumns().clear()
-    val col: TableColumn<Student, String> = TableColumn<>("Naam").apply {
-        setCellValueFactory(f -> ReadOnlyObjectWrapper<>(f.getValue().getMaam()))
-    }
-    with(tblStudent) {
-        getColumns().add(col)
-        getItems().add(Student("Joske", "Josmans", 124, true))
-    }
-}
-```
-
-```java
-@FXML
-private TableView<Student> tblStudent;
-
-public void initialize() {
-    tblStudent.getColumns().clear();
-    TableColumn<Student, String> col = new TableColumn<>("Naam");
-    col.setCellValueFactory(f -> new ReadOnlyObjectWrapper<>(f.getValue().getMaam()));
-    tblStudent.getColumns().add(col);
-    
-    tblStudent.getItems().add(new Student("Joske", "Josmans", 124, true));
-}
-```
-</div>
-
-Merk op dat `TableView` een generisch type heeft, en we zo dus heel eenvoudig onze eigen POJO rechtstreeks kunnen mappen op de `Student` klasse! Als we dit opstarten krijgen we alvast één kolom te zien met de naam (`f` in de `CellValueFactory` is een wrapper waarvan de waarde de huidige student in de rij is. `getNaam()` zorgt ervoor dat de juiste waarde in de juiste cel komt te staan)
-
-![](/img/fxmltable.jpg)
-
-### 1.3.2 Oefeningen
-
-**Quickstart project**: `examples/jdbc-fxml-start` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip)). Deze bevat reeds bovenstaande JDBC implementatie en een leeg gekoppeld JavaFx project. Om uit te voeren, klik op "Gradle" en voer target "run" uit (dus niet op "Play" in de main klasse!).
-
-1. Werk bovenstaande voorbeeld verder uit voor alle kolommen. Voeg eerst testdata toe (`getItems().add(new student...`).
-2. Probeer nu de controller te linken met de repository. De tabel items moeten overeenkomen met de repository items. Proficiat, je kijkt naar "live data"!
-3. Voeg een knop **Voeg Toe** toe op het scherm, dat een ander FXML venster opent, waar je gegevens van de nieuwe student kan ingeven, en kan bewaren. De "bewaren" knop persisteert naar de database, sluit het venster, én refresht het studentenadmin overzichtsscherm. 
-
-**Tip**: Vanuit een JavaFX controller een ander scherm openen is een kwestie van een nieuwe `Stage` en `Scene` object aan te maken:
-
-<div class="devselect">
-
-```kt
-private fun showScherm() {
-    val resourceName = "bla.fxml"
-    val root = FXMLLoader.load(this::class.java..getResource(resourceName)) as AnchorPane;
-    val stage = Stage().apply {
-        setScene(Scene(root))
-        setTitle("dinges")
-        initModality(Modality.WINDOW_MODAL)
-        show()
-    }
-}
-```
-
-```java
-private void showScherm() {
-    var resourceName = "bla.fxml";
-    try {
-        var stage = new Stage();
-        var root = (AnchorPane) FXMLLoader.load(getClass().getClassLoader().getResource(resourceName));
-        stage.setScene(new Scene(root));
-        stage.setTitle("dinges");
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.show();
-
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
-}
-```
-</div>
-
-Zit je vast? Raadpleeg de **TableView JavaDocs**: https://openjfx.io/javadoc/13/javafx.controls/javafx/scene/control/TableView.html
-
-Bekijk een voorbeeld **Kotlin/JavaFX project** in de [github appdev-course repository](https://github.com/KULeuven-Diepenbeek/appdev-course/tree/main/examples/kotlin/walkerfx/src/main/kotlin/be/kuleuven/walkerfx). -->
+3. Voorzie nu voor de verschillende klassen corresponderende `Repository`-klassen waar alle logica in te staan komt om de data over de verschillende klassen uit de database te halen en om te vormen tot Java objecten. (Je moet dus je `StudentRepository`-klasse aanpassen, een `VakRepository`-klasse en een `OpleidingRepository`-klasse aanmaken)
+    - Om de lijsten op te stellen kan je best van handige SQL-queries gebruik maken. Hier vind je enkele voorbeelden:
+    ```sql
+    -- Krijg alle studenten die behoren tot een opleiding (vervang ? door een opleiding id)
+    SELECT s.* FROM student s WHERE s.opleiding = ?;
+    -- Krijg alle vakken waarvoor een specifieke student is ingeschreven (vervang ? door een studnr)
+    SELECT v.* FROM student_volgt_vak svv JOIN vak v ON svv.vak = v.vaknr WHERE svv.student = ?;
+    -- Krijg alle studenten die behoren tot een vak (vervang ? door een vaknr)
+    SELECT s.* FROM student_volgt_vak svv JOIN student s ON svv.student = s.studnr WHERE svv.vak = ?;
+    ```
+4. Maak van je `App.java` een soort command line administratie systeem waarmee je een aantal dingen kan doen (Zorg er natuurlijk voor dat alle wijzigingen ook doorgevoerd worden in de database):
+    - voor een gegeven student opvragen voor welke vakken hij/zij is ingeschreven.
+    - voor een gegeven student opvragen voor welke opleiding hij/zij is ingeschreven.
+    - voor een gegeven vak opvragen welke studenten ingeschreven zijn.
+    - voor een gegeven opleiding opvragen welke studenten ingeschreven zijn.
+    - studenten uitschrijven voor een vak.
+    - studenten inschrijven voor een vak.
+    - studenten uitschrijven voor een opleiding.
+    - studenten inschrijven voor een opleiding.
+    - studenten, vakken en opleidingen aanmaken.
