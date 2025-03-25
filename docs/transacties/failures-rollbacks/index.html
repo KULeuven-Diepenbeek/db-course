@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head><script src="/db-course/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=db-course/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.143.1">
@@ -12,22 +12,22 @@
     <title>Failures-Rollbacks :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1742902436" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1742902436" rel="stylesheet">
-    <link href="../../css/hybrid.css?1742902436" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1742902436" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1742902436" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1742902436" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1742902436" rel="stylesheet">
-    <link href="../../css/theme.css?1742902436" rel="stylesheet">
-    <link href="../../css/autonumbering.css?1742902436" rel="stylesheet">
-    <link href="../../css/devselector.css?1742902436" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1742902436" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1742902436" rel="stylesheet">
+    <link href="../../css/nucleus.css?1742908738" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1742908738" rel="stylesheet">
+    <link href="../../css/hybrid.css?1742908738" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1742908738" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1742908738" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1742908738" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1742908738" rel="stylesheet">
+    <link href="../../css/theme.css?1742908738" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1742908738" rel="stylesheet">
+    <link href="../../css/devselector.css?1742908738" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1742908738" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1742908738" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1742902436"></script>
-    <script src="../../js/devselector.js?1742902436"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1742908738"></script>
+    <script src="../../js/devselector.js?1742908738"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -65,16 +65,16 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../%20js/lunr.min.js?1742902436"></script>
-<script type="text/javascript" src="../../%20js/auto-complete.js?1742902436"></script>
+<script type="text/javascript" src="../../%20js/lunr.min.js?1742908738"></script>
+<script type="text/javascript" src="../../%20js/auto-complete.js?1742908738"></script>
 <script type="text/javascript">
     { { if hugo.IsMultilingual } }
-    var baseurl = "http:\/\/localhost:1313\/db-course\/";
+    var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     { { else } }
-    var baseurl = "http:\/\/localhost:1313\/db-course\/";
+    var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/db-course\/";
     { { end } }
 </script>
-<script type="text/javascript" src="../../%20js/search.js?1742902436"></script>
+<script type="text/javascript" src="../../%20js/search.js?1742908738"></script>
     
   </div>
 
@@ -445,6 +445,27 @@
     
     
     
+    
+
+
+
+
+
+
+
+<li data-nav-id="/apis/jdbi/" title="JDBI - Java DataBase Interface v3" class="dd-item ">
+  <a href="../../apis/jdbi/">
+    JDBI - Java DataBase Interface v3
+    
+  </a>
+</li>
+
+
+
+
+    
+    
+    
   </ul>
   
 </li>
@@ -618,6 +639,7 @@ INSERT INTO oeitiskapot;
 <p>Gebruik nu  <code>connection.setAutoCommit(false)</code>. Deze regel is nodig omdat in JDBC standaard elke SQL statement aanschouwd wordt als een onafhankelijke transactie, die automatisch wordt gecommit:</p>
 <blockquote>
 <p>When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)</p></blockquote>
+<p>Je kan nu manueel committen met <code>connection.commit();</code>.</p>
 <p>Zie JDBC Basics in Oracle docs: <a href="https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html">https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html</a></p>
 <h4 id="oefeningen-1">Oefeningen</h4>
 <ol>
@@ -632,6 +654,10 @@ INSERT INTO oeitiskapot;
 <p>Het probleem is op te lossen met één welgeplaatste regel: <code>connection.rollback()</code>. De vraag is echter: waar plaatsen we die? En ja, <code>rollback()</code> throwt ook de checked <code>SQLException</code>&hellip; Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: &ldquo;Jaak&rdquo;.</p>
 </li>
 </ol>
+
+<div class="notices note" ><p>Aangezien de API als zeer slim geworden is zal er zelfs een rollback plaatsvinden bij het opkomen van een SQLException zelfs als je zelf die rollback niet specifiek oproept in de <code>catch</code>-clausule. Daarom gaan we deze oefening samen even als demo bekijken.</p>
+</div>
+
 <p>De <code>DROP TABLE IF EXISTS</code> statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">initTables</span><span style="color:#111">()</span> <span style="color:#00a8c8">throws</span> <span style="color:#111">Exception</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">URI</span> <span style="color:#111">path</span> <span style="color:#f92672">=</span> <span style="color:#111">Objects</span><span style="color:#111">.</span><span style="color:#75af00">requireNonNull</span><span style="color:#111">(</span><span style="color:#111">App</span><span style="color:#111">.</span><span style="color:#75af00">class</span><span style="color:#111">.</span><span style="color:#75af00">getClassLoader</span><span style="color:#111">().</span><span style="color:#75af00">getResource</span><span style="color:#111">(</span><span style="color:#d88200">&#34;create_db.sql&#34;</span><span style="color:#111">)).</span><span style="color:#75af00">toURI</span><span style="color:#111">();</span>
@@ -937,6 +963,22 @@ INSERT INTO oeitiskapot;
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -962,15 +1004,15 @@ INSERT INTO oeitiskapot;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1742902436"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1742902436"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1742902436"></script>
-    <script src="../../js/jquery.sticky.js?1742902436"></script>
-    <script src="../../js/featherlight.min.js?1742902436"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1742902436"></script>
-    <script src="../../js/learn.js?1742902436"></script>
-    <script src="../../js/hugo-learn.js?1742902436"></script>
-    <script src="../../js/mermaid.min.js?1742902436"></script>
+    <script src="../../js/clipboard.min.js?1742908738"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1742908738"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1742908738"></script>
+    <script src="../../js/jquery.sticky.js?1742908738"></script>
+    <script src="../../js/featherlight.min.js?1742908738"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1742908738"></script>
+    <script src="../../js/learn.js?1742908738"></script>
+    <script src="../../js/hugo-learn.js?1742908738"></script>
+    <script src="../../js/mermaid.min.js?1742908738"></script>
     <script>
     window.MathJax = {
       chtml: {
