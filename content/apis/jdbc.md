@@ -500,9 +500,9 @@ public class StudentRepository {
 3. Breid dit uit met `saveNewStudent(Student)`.
 4. Breid dit uit met `updateStudent(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
 5. Merk op dat elke keer als je je project opstart je geen `CREATE TABLE student` kan uitvoeren als je een file-based SQLite bestand hanteert: eens de tabel is aangemaakt geeft een nieuwe create foutmeldingen. `DROP TABLE IF EXISTS student;` lost dit op, maar daardoor ben je ook altijd je data kwijt. Hoe los je dit probleem op?
-6. Stel dat een `Student` is ingeschreven in een `Cursus` met properties `naam` (vb. "databases") en `ects` (vb. 4). 
-    - Maak een `CursusRepository` om nieuwe cursussen te bewaren.
-    - Hoe link je de `Student` klasse met de `Cursus` klasse? wat verandert er in de query van `getStudentsByName()`?
+6. Stel dat een `Student` is ingeschreven in een `Vak` met properties `naam` (vb. "databases") en `ects` (vb. 4). 
+    - Maak een `VakRepository` om nieuwe vakken te bewaren.
+    - Hoe link je de `Student` klasse met de `Vak` klasse? wat verandert er in de query van `getStudentsByName()`?
 
 **BELANGRIJK**: 
 

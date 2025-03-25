@@ -71,6 +71,8 @@ Gebruik nu  `connection.setAutoCommit(false)`. Deze regel is nodig omdat in JDBC
 
 > When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for a SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.)
 
+Je kan nu manueel committen met `connection.commit();`.
+
 Zie JDBC Basics in Oracle docs: https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
 #### Oefeningen
@@ -81,6 +83,10 @@ Je moet nu dan ook wel de juiste aanpassingen doen om met een SQLite database te
 {{% /notice %}}
 
 2. Het probleem is op te lossen met één welgeplaatste regel: `connection.rollback()`. De vraag is echter: waar plaatsen we die? En ja, `rollback()` throwt ook de checked `SQLException`... Verifieer of je oplossing werkt door de naam na de rollback terug op te halen en te vergelijken met de juiste waarde: "Jaak".
+
+{{% notice note %}}
+Aangezien de API als zeer slim geworden is zal er zelfs een rollback plaatsvinden bij het opkomen van een SQLException zelfs als je zelf die rollback niet specifiek oproept in de `catch`-clausule. Daarom gaan we deze oefening samen even als demo bekijken.
+{{% /notice %}}
 
 De `DROP TABLE IF EXISTS` statements kan je in je project in een aparte SQL file bewaren en als een String inlezen, om in één keer te laten uitvoeren na het openen van de connectie:
 

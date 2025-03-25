@@ -112,6 +112,7 @@ Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch 
 <!-- ofwel de Declarative API, waarbij je met de `@SqlQuery` kan werken op een interface:
 
 ```java
+//Data Access Object
 public interface StudentDao {
     @SqlQuery("SELECT * FROM student")
     @RegisterBeanMapper(Student.class)
