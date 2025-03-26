@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Databases</title>
-    <link>http://localhost:1313/db-course/tags/</link>
+    <link>http://localhost:53502/db-course/tags/</link>
     <description>Recent content in Tags on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <atom:link href="http://localhost:1313/db-course/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53502/db-course/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

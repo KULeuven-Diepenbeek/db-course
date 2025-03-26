@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RDBMS on Databases</title>
-    <link>http://localhost:1313/db-course/sql/</link>
+    <link>http://localhost:53502/db-course/sql/</link>
     <description>Recent content in RDBMS on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <atom:link href="http://localhost:1313/db-course/sql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:53502/db-course/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Database Basics</title>
-      <link>http://localhost:1313/db-course/sql/rdbms-basics/</link>
+      <link>http://localhost:53502/db-course/sql/rdbms-basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/sql/rdbms-basics/</guid>
+      <guid>http://localhost:53502/db-course/sql/rdbms-basics/</guid>
       <description>&lt;p&gt;Een &lt;strong&gt;database&lt;/strong&gt; is niet meer dan een verzameling van gegevens. Een &lt;strong&gt;DBMS&lt;/strong&gt; (&lt;strong&gt;D&lt;/strong&gt;ata&lt;strong&gt;B&lt;/strong&gt;ase &lt;strong&gt;M&lt;/strong&gt;anagement &lt;strong&gt;S&lt;/strong&gt;ystem) is de software waarmee databases beheerd of aangemaakt kunnen worden.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-waarom-een-database-gebruiken&#34;&gt;1. Waarom een database gebruiken?&lt;/h2&gt;&#xA;&lt;p&gt;Een database wordt ook maar gewoon opgeslagen op een file system. Dus waarom kan ik dan niet zelf files gebruiken om mijn data op te slaan?&lt;/p&gt;&#xA;&lt;p&gt;Databases bieden een aantal key features:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Performant (index management)&lt;/li&gt;&#xA;&lt;li&gt;Betere integratie met andere applicaties&lt;/li&gt;&#xA;&lt;li&gt;Uniform DBMS voor bewerken of ophalen van data&lt;/li&gt;&#xA;&lt;li&gt;Concurrency ondersteuning&lt;/li&gt;&#xA;&lt;li&gt;Security &amp;amp; Privacy van data&lt;/li&gt;&#xA;&lt;li&gt;&amp;hellip;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In het tweedejaarsvak &lt;a href=&#34;https://kuleuven-diepenbeek.github.io/osc-course/&#34;&gt;Besturingssystemen en C&lt;/a&gt; leerde je dat IO manipulatie &lt;strong&gt;heel dure operaties&lt;/strong&gt; zijn. Een erg groot bestand openen of een &lt;code&gt;seek()&lt;/code&gt; operatie uitvoeren daarop, duizenden bestanden tegelijkertijd openen voor data access, &amp;hellip;&amp;mdash;allemaal voorbeelden van nadelen waar een database de oplossing kan bieden. Achterliggend werkt het DBMS systeem nog steeds met files, maar dat is supergeoptimaliseerd door bijvoorbeeld gebruik te maken van verschillende niveaus van caching, file chunking, gedistribueerde modellen, &amp;hellip; De theorie en implementatie van een DBMS gaan we niet behandelen in deze cursus: de focus ligt op het gebruik van bestaande systemen.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Database Componenten</title>
-      <link>http://localhost:1313/db-course/sql/rdbms-components/</link>
+      <link>http://localhost:53502/db-course/sql/rdbms-components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/sql/rdbms-components/</guid>
+      <guid>http://localhost:53502/db-course/sql/rdbms-components/</guid>
       <description>&lt;h2 id=&#34;1-three-layer-architecture&#34;&gt;1. Three Layer Architecture&lt;/h2&gt;&#xA;&lt;img src=&#34;../slides/img/threelayerarchitecture.jpg&#34; style=&#34;max-width: 75%&#34; /&gt;&#xD;&#xA;&lt;h3 id=&#34;logical-layer&#34;&gt;Logical Layer&lt;/h3&gt;&#xA;&lt;p&gt;De &lt;strong&gt;Logical Layer&lt;/strong&gt; is waar we bepalen hoe onze data gestructureerd wordt. Hier bepalen we wat voor data we bijhouden, hoe die data eruitziet en hoe die zich gedraagt ten op zichte van onze andere datamodellen.&lt;/p&gt;&#xA;&lt;p&gt;Enkele voorbeelden hiervan zijn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Een BOEK mag door maximum &lt;em&gt;0 of 1&lt;/em&gt; PERSONEN ontleend worden.&lt;/li&gt;&#xA;&lt;li&gt;Een PERSOON mag &lt;em&gt;meerdere&lt;/em&gt; BOEKEN ontlenen.&lt;/li&gt;&#xA;&lt;li&gt;Een PERSOON is een &lt;em&gt;subtype&lt;/em&gt; van een GEBRUIKER.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;oefening&#34;&gt;Oefening&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Hoe zou een database model van een bibliotheek eruit zien? Teken zelf eens uit hoe dit gemodelleerd zou kunnen worden.&lt;/li&gt;&#xA;&lt;li&gt;Hoe houdt ik bij dat een boek uitgeleend werd?&lt;/li&gt;&#xA;&lt;li&gt;Wat als ik ook andere dingen wil uitlenen uit de bibliotheek, zoals DVD&amp;rsquo;s of eBooks?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;internal-layer&#34;&gt;Internal Layer&lt;/h3&gt;&#xA;&lt;p&gt;De &lt;strong&gt;Internal Layer&lt;/strong&gt; houdt zich bezig met alle details over hoe de data bewaard wordt. Sommige van de concepten die hier aan bod komen zijn de volgenden:&lt;/p&gt;</description>
     </item>
     <item>
       <title>ACID</title>
-      <link>http://localhost:1313/db-course/sql/rdbms-acid/</link>
+      <link>http://localhost:53502/db-course/sql/rdbms-acid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/sql/rdbms-acid/</guid>
+      <guid>http://localhost:53502/db-course/sql/rdbms-acid/</guid>
       <description>&lt;p&gt;ACID is een acronym die we gebruiken binnen databases dat een lijst van voorwaarden omschrijft waar dat database systeem aan moet voldoen. De regels van ACID worden over het algemeen geïmplementeerd door het concept van &lt;a href=&#34;../transacties/basics&#34;&gt;Transacties&lt;/a&gt;. ACID omschrijft vier principes:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;tomicity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt;onsistency&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;solation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;urability&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;De ACID principes komen in de praktijk nog verder aan bod in het hoofdstuk over &lt;a href=&#34;../transacties/&#34;&gt;RDBMS transacties&lt;/a&gt;, dus geen paniek als onderstaande theorie nog niet onmiddellijk duidelijk is.&lt;/p&gt;</description>
     </item>
   </channel>

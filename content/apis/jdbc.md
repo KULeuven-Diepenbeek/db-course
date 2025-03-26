@@ -393,59 +393,58 @@ public class Student {
 ```java
 package be.kuleuven;
 
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.util.Objects;
 
 public class ConnectionManager {
-    private Connection connection;
-    private String connectionString;
+  private Connection connection;
+  private String connectionString;
 
-    public ConnectionManager(String connectionString) {
-        this.connectionString = connectionString;
-        try {
-            connection = DriverManager.getConnection(connectionString);
-            connection.setAutoCommit(false);
-
-            initTables();
-            verifyTableContents();
-        } catch (Exception e) {
-            System.out.println("Db connection handle failure");
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
+  public ConnectionManager(String connectionString, String user, String password) {
+    this.connectionString = connectionString;
+    try {
+      connection = DriverManager.getConnection(connectionString, user, password);
+      // connection.setAutoCommit(false);
+      initTables();
+    } catch (Exception e) {
+      System.out.println("Db connection handle failure");
+      e.printStackTrace();
+      throw new RuntimeException(e);
     }
+  }
 
-    public Connection getConnection() {
-        return connection;
-    }
+  public static void main(String[] args) {
+    ConnectionManager cm = new ConnectionManager("jdbc:mysql://localhost:3306/school2?allowMultiQueries=true", "root","");
+  }
 
-    public String getConnectionString() {
-        return connectionString;
-    }
+  public Connection getConnection() {
+    return connection;
+  }
 
-    public void flushConnection() {
-        try {
-            connection.commit();
-            connection.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+  public String getConnectionString() {
+    return connectionString;
+  }
 
-    public void initTables() throws Exception {
-        String sql = new String(Files.readAllBytes(Paths.get("src/main/resources/dbcreate.sql")));
-        System.out.println(sql);
-        Statement s = connection.createStatement();
-        s.executeUpdate(sql);
-        s.close();
+  public void flushConnection() {
+    try {
+      // connection.commit();
+      connection.close();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
     }
+  }
 
-    public void verifyTableContents() throws SQLException {
-        Statement s = connection.createStatement();
-        ResultSet result = s.executeQuery("SELECT COUNT(*) as cnt FROM student");
-        assert result.getInt("cnt") == 3;
-    }
+  public void initTables() throws Exception {
+    URI path = Objects.requireNonNull(App.class.getClassLoader().getResource("student.sql")).toURI();
+    var sql = new String(Files.readAllBytes(Paths.get(path)));
+    System.out.println(sql);
+    Statement s = connection.createStatement();
+    s.executeUpdate(sql);
+    s.close();
+  }
 }
 ```
 </p>
@@ -469,8 +468,8 @@ public class Main {
     private static ResultSet result = null;
 
     public static void main(String[] args) throws SQLException {
-        ConnectionManager cm = new ConnectionManager("jdbc:mysql://localhost:3306/school", "root", "");
-        cm.flushConnection();
+        ConnectionManager cm = new ConnectionManager("jdbc:mysql://localhost:3306/school2?allowMultiQueries=true", "root","");
+        // cm.flushConnection();
         Connection connection = cm.getConnection();
         StudentRepository studentRepository = new StudentRepository(cm.getConnectionString());
         List<Student> result = studentRepository.getStudentsByName("Jaak");
