@@ -1,9 +1,9 @@
 ---
-title: JDBI - Java DataBase Interface v3
+title: JDBI
 draft: false
 ---
 
-## Queries/Objecten in Jdbi 3
+## Queries/Objecten in Java DataBase Interface v3 (JDBI)
 
 [Jdbi](https://jdbi.org) (Java DataBase Interface v3) is een lightweight library geschreven bovenop JDBC. Het gebruikt dus de interne Java API om te communiceren tussen de database en de Java applicatie. Echter, het maakt het leven voor ons als ontwikkelaar op heel wat vlakken véél _aangenamer_: waar JDBC eerder database-driven en dialect-afhankelijk is, is Jdbi eerder user-driven en met behulp van plugins dialect-onafhankelijk. 
 

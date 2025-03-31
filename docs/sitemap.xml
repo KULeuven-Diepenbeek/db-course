@@ -2,90 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:53502/db-course/transacties/acid/</loc>
+    <loc>http://localhost:1313/db-course/transacties/acid/</loc>
     <lastmod>2025-03-11T12:48:10+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql/rdbms-basics/</loc>
+    <loc>http://localhost:1313/db-course/sql/rdbms-basics/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql-ddl-dml/ddl/</loc>
+    <loc>http://localhost:1313/db-course/sql-ddl-dml/ddl/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql/</loc>
+    <loc>http://localhost:1313/db-course/sql/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql/rdbms-components/</loc>
+    <loc>http://localhost:1313/db-course/sql/rdbms-components/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql-ddl-dml/dml/</loc>
+    <loc>http://localhost:1313/db-course/sql-ddl-dml/dml/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql-ddl-dml/</loc>
+    <loc>http://localhost:1313/db-course/sql-ddl-dml/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/transacties/basics/</loc>
+    <loc>http://localhost:1313/db-course/transacties/basics/</loc>
     <lastmod>2025-03-12T06:44:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/sql/rdbms-acid/</loc>
+    <loc>http://localhost:1313/db-course/sql/rdbms-acid/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/transacties/concurrency-control/</loc>
+    <loc>http://localhost:1313/db-course/transacties/concurrency-control/</loc>
     <lastmod>2025-03-12T06:44:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/transacties/</loc>
+    <loc>http://localhost:1313/db-course/transacties/</loc>
     <lastmod>2025-03-18T14:22:25+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/apis/</loc>
+    <loc>http://localhost:1313/db-course/apis/</loc>
     <lastmod>2025-03-18T14:22:25+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/transacties/failures-rollbacks/</loc>
+    <loc>http://localhost:1313/db-course/transacties/failures-rollbacks/</loc>
     <lastmod>2025-03-25T14:17:41+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/4oef3/</loc>
+    <loc>http://localhost:1313/db-course/nosql/4oef3/</loc>
     <lastmod>2020-10-20T14:21:06+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/bigdata/basics/</loc>
+    <loc>http://localhost:1313/db-course/bigdata/basics/</loc>
     <lastmod>2023-09-18T15:01:17+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/basics/</loc>
+    <loc>http://localhost:1313/db-course/nosql/basics/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/xml/basics/</loc>
+    <loc>http://localhost:1313/db-course/xml/basics/</loc>
     <lastmod>2024-05-23T11:05:04+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/bigdata/datawarehousing/</loc>
+    <loc>http://localhost:1313/db-course/bigdata/datawarehousing/</loc>
     <lastmod>2023-09-18T15:01:17+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/keyvaluestores/</loc>
+    <loc>http://localhost:1313/db-course/nosql/keyvaluestores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/xml/xsd/</loc>
+    <loc>http://localhost:1313/db-course/xml/xsd/</loc>
     <lastmod>2022-12-15T14:05:09+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/documentstores/</loc>
+    <loc>http://localhost:1313/db-course/nosql/documentstores/</loc>
     <lastmod>2024-04-16T11:14:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/xml/xpath/</loc>
+    <loc>http://localhost:1313/db-course/xml/xpath/</loc>
     <lastmod>2022-12-15T14:05:09+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/mapreduce/</loc>
+    <loc>http://localhost:1313/db-course/nosql/mapreduce/</loc>
     <lastmod>2024-04-26T08:52:35+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/nosql/replication/</loc>
+    <loc>http://localhost:1313/db-course/nosql/replication/</loc>
     <lastmod>2024-04-26T08:52:35+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/apis/basics/</loc>
+    <loc>http://localhost:1313/db-course/apis/basics/</loc>
     <lastmod>2025-03-25T12:50:20+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/</loc>
+    <loc>http://localhost:1313/db-course/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/apis/jdbc/</loc>
+    <loc>http://localhost:1313/db-course/apis/jdbc/</loc>
+    <lastmod>2025-03-26T10:21:40+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/db-course/apis/jdbi/</loc>
     <lastmod>2025-03-25T14:17:41+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:53502/db-course/apis/jdbi/</loc>
-    <lastmod>2025-03-25T14:17:41+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:53502/db-course/tags/</loc>
+    <loc>http://localhost:1313/db-course/tags/</loc>
   </url>
 </urlset>

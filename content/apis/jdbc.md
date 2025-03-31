@@ -1,5 +1,5 @@
 ---
-title: JDBC - Java Database Connectivity
+title: JDBC
 draft: false
 ---
 
@@ -30,34 +30,73 @@ graph LR;
 
 De `mysql-jdbc` package zorgt voor de brug tussen onze Java applicatie en de database, maar we spreken die aan via JDBC. 
 
+**Gradle** dependency:
+```groovy
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+implementation 'mysql:mysql-connector-java:5.1.6'
+```
+
 Enkele belangrijke statements:
 
-1. Een connectie naar een database vastleggen: `var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/<database_name>", "root", "");`
+1. Een connectie naar een database vastleggen: 
+```java
+var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/<database_name>", "root", "");
+```
 {{% notice warning %}}
 Wil je meerdere queries tegelijk uitvoeren dan moet je dit ook nog specifiek vermelden in de driver door `?allowMultiQueries=true` toe te voegen aan de database url bv: `"jdbc:mysql://localhost:3306/<database_name>?allowMultiQueries=true"`
 {{% /notice %}}
-2. Een `SELECT` query uitvoeren: `var s = connection.createStatement(); var result = s.executeQuery("..."); var cell = result.getString("<column_name>");`
-3. Een `INSERT`/`UPDATE`/... query uitvoeren (die de structuur of inhoud van de database **wijzigt**): `var s = connection.createStatement(); s.executeUpdate("...");`
+2. Een `SELECT` query uitvoeren: 
+```java
+var s = connection.createStatement(); var result = s.executeQuery("..."); var cell = result.getString("<column_name>");
+```
+3. Een `INSERT`/`UPDATE`/... query uitvoeren (die de structuur of inhoud van de database **wijzigt**): 
+```java
+var s = connection.createStatement(); s.executeUpdate("...");
+```
 
+### Een voorbeeld
 Het volgende voorbeeld opent een verbinding naar een DB, maakt een tabel aan, voegt een record toe, en telt het aantal records:
 
 ```java
+public static void main(String[] args) {
+    try {
+        App.createDb();
+        App.verifyDbContents();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 public static void createDb() throws SQLException {
-    var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
+    var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school?allowMultiQueries=true",
+            "root", "");
     var s = connection.createStatement();
-    s.executeUpdate("DROP TABLE IF EXISTS `student`;");
-    s.executeUpdate("CREATE TABLE student(nr INT);");
-    s.executeUpdate("INSERT INTO student(nr) VALUES(1);");
+    s.executeUpdate("""
+            DROP TABLE IF EXISTS student;
+
+            CREATE TABLE student(
+                studnr INT NOT NULL PRIMARY KEY,
+                naam VARCHAR(200) NOT NULL,
+                voornaam VARCHAR(200),
+                goedbezig BOOLEAN
+            );
+
+            INSERT INTO student (studnr, naam, voornaam, goedbezig) VALUES
+                (123, 'Trekhaak', 'Jaak', 0),
+                (456, 'Peeters', 'Jos', 0),
+                (890, 'Dongmans', 'Ding', 1);
+            """);
     s.close();
     connection.close();
 }
 
 public static void verifyDbContents() throws SQLException {
-    var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
+    var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school?allowMultiQueries=true",
+            "root", "");
     var s = connection.createStatement();
     var result = s.executeQuery("SELECT COUNT(*) as cnt FROM student;");
     while (result.next()) {
-        System.out.println("Assert that number of rows is 1: " + (result.getInt("cnt") == 1));
+        System.out.println("Assert that number of rows is 3: " + (result.getInt("cnt") == 3));
         assert result.getInt("cnt") == 1;
     }
     s.close();
@@ -65,58 +104,22 @@ public static void verifyDbContents() throws SQLException {
 }
 ```
 
-**Gradle** dependency: ``
-```groovy
-// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-implementation 'mysql:mysql-connector-java:5.1.6'
-```
-
 Merk op dat `SQLException` een **checked exception** is die je constant moet meespelen in de method signature of expliciet moet opvangen. Het probleem van een `try { } catch { } finally { }` block is dat in de finally je ook geen `close()` kan uitvoeren zonder opnieuw een `try` block te openen... Inception!
 
 Het `connection.close()` statement moet er voor zorgen dat voor elke request de connection netjes wordt afgesloten. Een database heeft meestal een **connection pool** van x aantal beschikbare connections, bijvoorbeeld 5. Als een connection per request niet wordt gesloten, heeft de volgende bezoeker van onze website geen enkele kans om zijn search query te lanceren, omdat de database dan zegt dat alle connecties zijn opgebruikt!
 
-Merk op dat de String `jdbc:mysql://localhost:3306/school` een **connectie met je MariaDB** aanmaakt en de meegegeven database, zodat je met PHPmyAdmin data kan inspecteren. Indien je een tabel aanmaakt de eerste keer, gaat dit de tweede keer crashen met _table already exists_. Houd hier dus rekening mee (e.v.t. met `IF NOT EXISTS`). Je kan ook een **in-memory database** aanmaken, die volledig in RAM leeft en bij elke opstart opnieuw wordt aangemaakt, met de String `jdbc:sqlite:memory`. (Hiervoor gebruiken we dan de [sqlite JDBC-connector](https://github.com/xerial/sqlite-jdbc), hier gaan we in deze cursus echter niet verder op in.)
-
-Werk je met een andere database maar heb je geen idee hoe die speciale connection string te vormen? Geen probleem, daarvoor dient [https://www.connectionstrings.com/](https://www.connectionstrings.com/). Bijvoorbeeld, een connectie naar de Microsoft Azure cloud kan met de volgende syntax:
-
-```
-Server=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;
-```
-
-Het is de connection string die bepaalt welke dependency binding gebruikt wordt! Dit noemen we _late binding_: er is **geen expliciete referentie** naar iets van MySQL in de Java code; we werken _enkel_ met JDBC zelf. Als je de vendor driver vergeet toe te voegen als Gradle dependency gebeurt er dit:
-
-```
-Exception in thread "main" java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/school
-    at java.sql/java.mysql.DriverManager.getConnection(DriverManager.java:702)
-    at java.sql/java.mysql.DriverManager.getConnection(DriverManager.java:251)
-    at Demo.main(Demo.java:8)
-```
+Merk op dat de String `jdbc:mysql://localhost:3306/school?allowMultiQueries=true` een **connectie met je MariaDB** aanmaakt en de meegegeven database, zodat je met PHPmyAdmin data kan inspecteren. Indien je een tabel aanmaakt de eerste keer, gaat dit de tweede keer crashen met _table already exists_. Houd hier dus rekening mee (e.v.t. met `IF NOT EXISTS`). 
 
 {{% notice note %}}
-In-memory databases (ConStr. `jdbc:sqlite:memory`), die met een lege database vertrekken, en constant `CREATE TABLE()` statements issuen, vervuilen je broncode. Als je veel SQL moet uitvoeren is het beter om dit in een `.sql` bestand te bewaren in `src/main/resources` en eenmalig in te lezen als SQL met `new String(Files.readAllBytes(Paths.g));`, om te kunnen uitvoeren via `statement.executeUpdate()`.
+Constant `CREATE TABLE()` statements issuen (bv. voor testing), vervuilen je broncode. Als je veel SQL moet uitvoeren is het beter om dit in een `.sql` bestand te bewaren in `src/main/resources` en eenmalig als een `String` in te lezen met:
+```java
+URI create_tables_path = Objects.requireNonNull(App.class.getClassLoader().getResource("create_tables.sql")).toURI();
+String create_tables_sql = new String(Files.readAllBytes(Paths.get(create_tables_path)));
+```
+Die String kan je dan als Query executen in een statement!
 {{% /notice %}}
 
-Bijvoorbeeld voor onze casus:
-```java
-private void initTables() throws Exception {
-    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tennisvlaanderen?allowMultiQueries=true", "root", "");
-    URI create_tables_path = Objects.requireNonNull(App.class.getClassLoader().getResource("create_tables.sql")).toURI();
-    var create_tables_sql = new String(Files.readAllBytes(Paths.get(create_tables_path)));
-    URI populate_tables_path = Objects.requireNonNull(App.class.getClassLoader().getResource("populate_tables_with_testdata.sql")).toURI();
-    var populate_tables_sql = new String(Files.readAllBytes(Paths.get(populate_tables_path)));
-    System.out.println(create_tables_sql);
-    System.out.println(populate_tables_sql);
-
-    var s = connection.createStatement();
-    s.executeUpdate(create_tables_sql);
-    s.executeUpdate(populate_tables_sql);
-    s.close();
-    connection.close();
-}
-```
-
 ### Queries/Objecten in JDBC
-
 
 Stel dat we het eerste voorbeeld van een school database willen uitbreiden en studenten die in de database opgeslagen zijn willen inladen in een `Student` klasse instantie: van de `TABLE STUDENT` naar de `class Student`. In geval van JDBC is dat veel handwerk: 
 
@@ -136,31 +139,12 @@ while(result.next()) {
 
 Zie ook [ResultSet Oracle Javadoc](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html). 
 
-Aangezien we reeds hebben kennis gemaakt met de (beperkte) API, schakelen we onmiddellijk over naar de oefeningen:
-
 ### Demos
 
-We gebruiken de `student` tabel statements uit _RDBMS Transacties - Failures & Rollbacks_ maar nu met MySQL syntax:
-```sql
--- Drop tables if they exist
-DROP TABLE IF EXISTS student;
+_We breiden [bovenstaand voorbeeld](#een-voorbeeld) uit:_
 
--- Create student table
-CREATE TABLE student (
-    studnr INT NOT NULL PRIMARY KEY,
-    naam VARCHAR(200) NOT NULL,
-    voornaam VARCHAR(200),
-    goedbezig BOOL
-);
-
--- Insert sample data into student
-INSERT INTO student (studnr, naam, voornaam, goedbezig) VALUES
-(123, 'Trekhaak', 'Jaak', 0),
-(456, 'Peeters', 'Jos', 0),
-(890, 'Dongmans', 'Ding', 1);
-```
-
-We maken hier weer gebruik van Gradle, maar aangezien onze database op onze Windows host draait gaan we geen verbinding kunnen maken via onze WSL. Daarom moeten we eerst nog even Gradle voor windows installeren. De stappen daarvoor vind je [hier](https://docs.gradle.org/current/userguide/installation.html#ex-installing-manually). _(Je kan ook je bestanden aanmaken in je WSL en dan de projectmap kopiëren naar je windows file explorer. Dan kan je de Gradle wrapper voor Windows gebruiken `./gradle.bat`)_
+We maken hier weer gebruik van Gradle, maar aangezien onze database op onze Windows host draait gaan we geen verbinding kunnen maken via onze WSL. **_Daarvoor kan je je bestanden aanmaken in je WSL en dan de projectmap kopiëren naar je windows file explorer. Dan kan je de Gradle wrapper voor Windows gebruiken `./gradlew.bat`._**<br/>
+Of je kan Gradle voor windows installeren. De stappen daarvoor vind je [hier](https://docs.gradle.org/current/userguide/installation.html#ex-installing-manually).
 
 #### Alles in de main
 Om dingen te doen met de database moeten we dus een aantal stappen doorlopen, die hier beschreven en gecodeerd zijn in een `main`-method:
@@ -168,41 +152,32 @@ Om dingen te doen met de database moeten we dus een aantal stappen doorlopen, di
 public static void main(String[] args){
     try{
         // CONNECT TO MYSQL
-        var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "");
+        var connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/school?allowMultiQueries=true", "root", "");
 
         // CREATE THE TABLES
         var statement = connection.createStatement();
-        statement.executeUpdate("DROP TABLE IF EXISTS `student`;");
         statement.executeUpdate("""
+                DROP TABLE IF EXISTS student;
+
                 CREATE TABLE student(
                     studnr INT NOT NULL PRIMARY KEY,
-                    naam TEXT NOT NULL,
-                    voornaam TEXT,
+                    naam VARCHAR(200) NOT NULL,
+                    voornaam VARCHAR(200),
                     goedbezig BOOLEAN
                 );
+
+                INSERT INTO student (studnr, naam, voornaam, goedbezig) VALUES
+                    (123, 'Trekhaak', 'Jaak', 0),
+                    (456, 'Peeters', 'Jos', 0),
+                    (890, 'Dongmans', 'Ding', 1);
                 """);
-        statement.executeUpdate("DROP TABLE IF EXISTS log;");
-        statement.executeUpdate("""
-                CREATE TABLE log(
-                    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                    date DATETIME DEFAULT CURRENT_TIMESTAMP,
-                    foreign_id INT NOT NULL,
-                    msg TEXT
-                );
-                """);
-        statement.executeUpdate(
-                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (123, 'Trekhaak', 'Jaak', 0);");
-        statement.executeUpdate(
-                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (456, 'Peeters', 'Jos', 0);");
-        statement.executeUpdate(
-                "INSERT INTO student(studnr, naam, voornaam, goedbezig) VALUES (890, 'Dongmans', 'Ding', 1);");
         statement.close();
 
         //VERIFY DATABASE CONTENT
         statement = connection.createStatement();
         var result = statement.executeQuery("SELECT COUNT(*) as cnt FROM student;");
-        while (result.next()){
-            System.out.println("Assert that number of rows is 3: "+  (result.getInt("cnt") == 3));
+        while (result.next()) {
+            System.out.println("Assert that number of rows is 3: " + (result.getInt("cnt") == 3));
             assert result.getInt("cnt") == 3;
         }
 
@@ -232,12 +207,14 @@ public static void main(String[] args){
 
 #### Opsplitsen in verschillende methoden
 Je merkt onmiddellijk dat deze code onoverzichtelijk is, je kan dus beter verschillende methoden aanmaken en dan oproepen in de `main`-method. We splitsen op in:
-- `public static void connectToDbMysql(String connectionString, String user, String pwd)`
-- `public static void createDbMysql()`
-- `public static void verifyDbContents()`
-- `public static ResultSet readFromDb(String query)`
-- `public static void updateDb(String updateStr)`
-- `public static void closeAllConnections()`
+```java
+public static void connectToDbMysql(String connectionString, String user, String pwd){...}
+public static void createDbMysql(Connection connection, Statement statement){...}
+public static void verifyDbContents(Connection connection, Statement statement){...}
+public static ResultSet readFromDb(Connection connection, Statement statement, String query){...}
+public static void updateDb(Connection connection, Statement statement, String updateStr){...}
+public static void closeAllConnections(Connection connection, Statement statement){...}
+```
 
 _Dit laten we als een oefening voor de student._
 
@@ -255,249 +232,26 @@ public class StudentRepository {
         public List<Student> getStudentsByName(String name);
 }
 ```
-<details closed>
-<summary><i><b>Klik hier voor de volledige implementatie van de <code>StudentRepository</code> klasse </b></i>🔽</summary>
-<p>
-
-```java
-package be.kuleuven.student;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
-public class StudentRepository {
-    private final Connection connection;
-
-    public StudentRepository(Connection connection) {
-        this.connection = connection;
-    }
-
-    public List<Student> getStudentsByName(String name){
-        ArrayList<Student> resultList = new ArrayList<Student>();
-        try {
-            Statement s = connection.createStatement();
-            String stmt = "SELECT * FROM student WHERE naam = '" + name + "'";
-            ResultSet result = s.executeQuery(stmt);
-
-            while(result.next()) {
-                int studnr = result.getInt("studnr");
-                String naam  = result.getString("naam");
-                String voornaam = result.getString("voornaam");
-                boolean goedbezig = result.getBoolean("goedbezig");
-
-                resultList.add(new Student(studnr, naam, voornaam, goedbezig));
-            }
-            s.close();
-
-        } catch(Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        return resultList;
-    };
-}
-```
-
-</p>
-</details>
-
-<details closed>
-<summary><i><b>Klik hier voor de volledige implementatie van de <code>Student</code> klasse </b></i>🔽</summary>
-<p>
-
-```java
-package be.kuleuven.student;
-
-import java.util.Objects;
-
-public class Student {
-    private int studnr;
-    private String naam,voornaam;
-    private boolean goedBezig;
-
-    public Student(){
-
-    }
-    public Student(int studnr, String naam, String voornaam, boolean goedBezig) {
-        this.studnr = studnr;
-        this.naam = naam;
-        this.voornaam = voornaam;
-        this.goedBezig = goedBezig;
-    }
-
-    public int getStudnr() {
-        return studnr;
-    }
-
-    public void setStudnr(int studnr) {
-        this.studnr = studnr;
-    }
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public String getVoornaam() {
-        return voornaam;
-    }
-
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
-    }
-
-    public boolean isGoedBezig() {
-        return goedBezig;
-    }
-
-    public void setGoedBezig(boolean goedBezig) {
-        this.goedBezig = goedBezig;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studnr=" + studnr +
-                ", naam='" + naam + '\'' +
-                ", voornaam='" + voornaam + '\'' +
-                ", goedBezig=" + goedBezig +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return studnr == student.studnr && Objects.equals(naam, student.naam) && Objects.equals(voornaam, student.voornaam) && Objects.equals(goedBezig, student.goedBezig);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studnr, naam, voornaam, goedBezig);
-    }
-}
-```
-
-</p>
-</details>
-
-<details closed>
-<summary><i><b>Klik hier voor de volledige implementatie van de <code>ConnectionManager</code> klasse </b></i>🔽</summary>
-<p>
-
-```java
-package be.kuleuven;
-
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.*;
-import java.util.Objects;
-
-public class ConnectionManager {
-  private Connection connection;
-  private String connectionString;
-
-  public ConnectionManager(String connectionString, String user, String password) {
-    this.connectionString = connectionString;
-    try {
-      connection = DriverManager.getConnection(connectionString, user, password);
-      // connection.setAutoCommit(false);
-      initTables();
-    } catch (Exception e) {
-      System.out.println("Db connection handle failure");
-      e.printStackTrace();
-      throw new RuntimeException(e);
-    }
-  }
-
-  public static void main(String[] args) {
-    ConnectionManager cm = new ConnectionManager("jdbc:mysql://localhost:3306/school2?allowMultiQueries=true", "root","");
-  }
-
-  public Connection getConnection() {
-    return connection;
-  }
-
-  public String getConnectionString() {
-    return connectionString;
-  }
-
-  public void flushConnection() {
-    try {
-      // connection.commit();
-      connection.close();
-    } catch (SQLException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  public void initTables() throws Exception {
-    URI path = Objects.requireNonNull(App.class.getClassLoader().getResource("student.sql")).toURI();
-    var sql = new String(Files.readAllBytes(Paths.get(path)));
-    System.out.println(sql);
-    Statement s = connection.createStatement();
-    s.executeUpdate(sql);
-    s.close();
-  }
-}
-```
-</p>
-</details>
-
-<details closed>
-<summary><i><b>Klik hier voor een voorbeeld van de <code>Main</code> klasse waar we bovenstaande klassen gebruiken </b></i>🔽</summary>
-<p>
-
-```java
-package be.kuleuven;
-
-import be.kuleuven.student.Student;
-import be.kuleuven.student.StudentRepository;
-
-import java.sql.*;
-import java.util.List;
-
-public class Main {
-    private static Statement statement = null;
-    private static ResultSet result = null;
-
-    public static void main(String[] args) throws SQLException {
-        ConnectionManager cm = new ConnectionManager("jdbc:mysql://localhost:3306/school2?allowMultiQueries=true", "root","");
-        // cm.flushConnection();
-        Connection connection = cm.getConnection();
-        StudentRepository studentRepository = new StudentRepository(cm.getConnectionString());
-        List<Student> result = studentRepository.getStudentsByName("Jaak");
-        for (Student s: result) {
-            System.out.println(s);
-        }
-    }
-}
-```
-
-</p>
-</details>
+{{% notice info %}}
+<!-- EXSOL -->
+**_[Hier](/files/jdbc-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
+{{% /notice %}}
 
 **Enkele vragen/oefeningen:**
 1. Breid de `StudentRepository`-klasse uit met de volgende methoden (CREATE, READ, UPDATE, DELETE = **CRUD**):
 ```java
 public class StudentRepository {
         public StudentRepository(Connection connection);
-        public List<Student> getStudentsByName(String name);
-        public List<Student> getStudentsByStudnr(int nr)
-        public void saveNewStudent(Student student);
-        public void updateStudent(Student student);
-        public void deleteStudentByStudnr(int nr);
+        public List<Student> getAllStudents();
+        public void addStudentToDb(Student student);
+        public Student getStudentsByStudnr(int studnr);
+        public void updateStudentInDb(Student student);
+        public void deleteStudentInDb(int studnr);
 }
 ```
 2. Hoe zou je bovenstaande `StudentRepository` unit (integratie) testen, zonder de "productie database" op te vullen met testdata? (Hint: kijk naar het constructor argument). Hoe kan je `getStudentsByName()` testen zonder de volgende oefening afgewerkt te hebben, die nieuwe studenten bewaren pas mogelijk maakt?
-3. Breid dit uit met `saveNewStudent(Student)`.
-4. Breid dit uit met `updateStudent(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
+3. Breid dit uit met `addStudentToDb(Student)`.
+4. Breid dit uit met `updateStudentInDb(Student)`. Wat moet je doen als deze student nog niet in de database zit? Welke gegevens update je wel en welke niet? 
 5. Merk op dat elke keer als je je project opstart je geen `CREATE TABLE student` kan uitvoeren als je een file-based SQLite bestand hanteert: eens de tabel is aangemaakt geeft een nieuwe create foutmeldingen. `DROP TABLE IF EXISTS student;` lost dit op, maar daardoor ben je ook altijd je data kwijt. Hoe los je dit probleem op?
 6. Stel dat een `Student` is ingeschreven in een `Vak` met properties `naam` (vb. "databases") en `ects` (vb. 4). 
     - Maak een `VakRepository` om nieuwe vakken te bewaren.
@@ -535,6 +289,26 @@ Een SQLite database kan handig zijn omdat een lokale `.db`-file al als database 
     - **Let op!** De import van connection mag nu niet de import zijn van de Mysql dependency maar wordt: `import java.sql.Connection;`
 3. Let op dat je nu ook correcte SQLite syntax gebruikt in je queries, maar voor de rest zal alles gelijkaardig werken.
 
+#### EXTRA: In memory database
+
+Je kan ook een **in-memory database** aanmaken, die volledig in RAM leeft en bij elke opstart opnieuw wordt aangemaakt, met de String `jdbc:sqlite:memory`. (Hiervoor gebruiken we dan de [sqlite JDBC-connector](https://github.com/xerial/sqlite-jdbc), hier gaan we in deze cursus echter niet verder op in.)
+
+
+Werk je met een andere database maar heb je geen idee hoe die speciale connection string te vormen? Geen probleem, daarvoor dient [https://www.connectionstrings.com/](https://www.connectionstrings.com/). Bijvoorbeeld, een connectie naar de Microsoft Azure cloud kan met de volgende syntax:
+
+```
+Server=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;
+```
+
+Het is de connection string die bepaalt welke dependency binding gebruikt wordt! Dit noemen we _late binding_: er is **geen expliciete referentie** naar iets van MySQL in de Java code; we werken _enkel_ met JDBC zelf. Als je de vendor driver vergeet toe te voegen als Gradle dependency gebeurt er dit:
+
+```
+Exception in thread "main" java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/school
+    at java.sql/java.mysql.DriverManager.getConnection(DriverManager.java:702)
+    at java.sql/java.mysql.DriverManager.getConnection(DriverManager.java:251)
+    at Demo.main(Demo.java:8)
+```
+
 ## EER-schema/database mapping naar Java Objects
 
 Om dit te verduidelijken en in te oefenen gaan we de demo database wat uitbreiden zodat er ook one-to-many en many-to-many relationships in voorkomen. We voegen `opleiding`en toe en elke student volgt één opleiding en een opleiding heeft dus meerdere studenten. We voegen ook `vak`ken toe wat een many-to-many relatie oplevert aangezien een student meerdere vakken kan volgen en een vak meerdere studenten kan hebben.
@@ -566,8 +340,6 @@ CREATE TABLE student(
 CREATE TABLE vak(
     vaknr INT NOT NULL PRIMARY KEY,
     vaknaam VARCHAR(200) NOT NULL,
-    opleiding INT DEFAULT NULL,
-    FOREIGN KEY (opleiding) REFERENCES opleiding(id)
 );
 
 
@@ -576,7 +348,7 @@ CREATE TABLE student_volgt_vak(
     student INT,
     vak INT,
     FOREIGN KEY (student) REFERENCES student(studnr),
-	  FOREIGN KEY (vak) REFERENCES vak(vaknr)
+	FOREIGN KEY (vak) REFERENCES vak(vaknr)
 );
 
 
@@ -586,9 +358,9 @@ INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (123, '
 INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (456, 'Peeters', 'Jos', 0, 1);
 INSERT INTO student(studnr, naam, voornaam, goedbezig, opleiding) VALUES (890, 'Dongmans', 'Ding', 1, NULL);
 
-INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (1, 'DAB', 1);
-INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (2, 'SES', 1);
-INSERT INTO vak(vaknr, vaknaam, opleiding) VALUES (3, 'FSWEB', 1);
+INSERT INTO vak(vaknr, vaknaam) VALUES (1, 'DAB');
+INSERT INTO vak(vaknr, vaknaam) VALUES (2, 'SES');
+INSERT INTO vak(vaknr, vaknaam) VALUES (3, 'FSWEB');
 
 INSERT INTO student_volgt_vak(student, vak) VALUES (123, 1);
 INSERT INTO student_volgt_vak(student, vak) VALUES (123, 2);
@@ -607,7 +379,7 @@ Nu zal je zeker zeggen maar zijn we dan niet veel data aan het dupliceren en is 
 
 ## Grotere oefening
 
-Breid de demos van hierboven uit met alle data van de nieuwe databas:
+Breid de oefening van hierboven uit met alle data van de nieuwe database:
 1. Breid de `Student` klasse uit met een lijst van vakken en een opleiding.
 ```java
 // Template van de klasse Student
@@ -630,7 +402,6 @@ public class Student {
 public class Student {
         private int vaknr;
         private String naam;
-        private Opleiding opleiding;
         private ArrayList<Student> studenten;
         // Constructors
         // Getters en Setters
@@ -650,7 +421,7 @@ public class Student {
         // Hash
 }
 ```
-3. Voorzie nu voor de verschillende klassen corresponderende `Repository`-klassen waar alle logica in te staan komt om de data over de verschillende klassen uit de database te halen en om te vormen tot Java objecten. (Je moet dus je `StudentRepository`-klasse aanpassen, een `VakRepository`-klasse en een `OpleidingRepository`-klasse aanmaken)
+3. Voorzie nu voor de verschillende corresponderende `Repository`-klassen waar alle logica in te staan komt om de data over de verschillende klassen uit de database te halen en om te vormen tot Java objecten. (Je moet dus je `StudentRepository`-klasse aanpassen, een `VakRepository`-klasse en een `OpleidingRepository`-klasse aanmaken)
     - Om de lijsten op te stellen kan je best van handige SQL-queries gebruik maken. Hier vind je enkele voorbeelden:
     ```sql
     -- Krijg alle studenten die behoren tot een opleiding (vervang ? door een opleiding id)
