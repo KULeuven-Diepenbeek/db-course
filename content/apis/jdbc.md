@@ -340,7 +340,7 @@ CREATE TABLE student(
 
 CREATE TABLE vak(
     vaknr INT NOT NULL PRIMARY KEY,
-    vaknaam VARCHAR(200) NOT NULL,
+    vaknaam VARCHAR(200) NOT NULL
 );
 
 
