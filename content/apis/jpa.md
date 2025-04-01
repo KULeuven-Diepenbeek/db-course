@@ -3,7 +3,7 @@ title: JPA en Hibernate
 draft: true
 ---
 
-## 2.1 Wat is JPA?
+## Wat is JPA?
 
 JPA of de **Jakarta Persistence API** _(vroeger de Java Persistence API genoemd)_ is een deel van Java EE (Java _Enterprise Platform_), een set van specificaties die initieel de JDK SE 8 versie uitbreidden met "enterprise" features zoals distributed computing en web services. J2EE wordt vooral ingezet als het gaat over grote applicaties die bedrijven ontwikkelen voor andere bedrijven (zogenaamde "B2B", Business 2 Business, of Enterprise Software Development). 
 
@@ -11,7 +11,7 @@ JPA of de **Jakarta Persistence API** _(vroeger de Java Persistence API genoemd)
 Ondertussen is J2EE omgevormd tot [Jakarta EE](https://jakarta.ee). Dat betekent ook dat JPA [recent officieel werd vervangen](https://blogs.oracle.com/javamagazine/post/transition-from-java-ee-to-jakarta-ee) door de Jakarta Persistence API. Je zal merken dat de `javax.persistence` dependency die wij gebruiken niet meer wordt geupdate. Pas dus op met recente Stack Overflow links!
 {{% /notice %}}
 
-### 2.1.1 Maar wat is de JPA API nu precies?
+### Maar wat is de JPA API nu precies?
 
 De API, levend in de package `javax.persistence`, is een manier om relationele data voor te stellen in enterprise Java applicaties, door middel van Objecten. Het is dus een mapping tool die object/relationale (meta)data bewerkt en verwerkt. JPA heeft ook zijn eigen query language, JPQL, die het eenvoudiger moet maken om queries te schrijven _in Java code zelf_ in plaats van in SQL, die vertaald worden naar SQL. Dit vereenvoudigt refactoring en vermindert mogelijke fouten in de SQL string die te laat naar boven komen (nu compiletime ipv runtime, aangezien Java statisch getypeerd is). 
 
@@ -19,19 +19,19 @@ JPA is niet meer dan een specificatie die de **interfaces** en **annotaties** vo
 
 - DataNucleus
 - EclipseLink
-- Hibernate
+- **Hibernate**
 - OpenJPA
 
 JPA 2.2 Gradle dependency: `compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'`
 
 
-## 2.2 Wat is Hibernate ORM?
+## Wat is Hibernate ORM (Object Relational Mapper)?
 
 Volgens de [hibernate.org](http://hibernate.org/orm/) website:
 
 > Your relational data. Objectively. 
 
-Hibernate is dé populairste object-relational mapper in Java die de JPA standaard implementeert. Hibernate heeft zowel een eigen API als een JPA specificatie, en kan dus overal waar JPA nodig is ingeschakeld worden. Het wordt vaak in omgevingen gebruikt waar performantie belangrijk is, en waar enorm veel data en gebruikers data transferreren. 
+Hibernate is dé populairste object-relational mapper in Java die de JPA standaard implementeert. Hibernate heeft zowel een eigen API als een JPA specificatie, en kan dus overal waar JPA nodig is ingeschakeld worden. Het wordt vaak in omgevingen gebruikt waar performantie belangrijk is, en waar enorm veel data en gebruikers data transfereren. 
 
 **Belangrijk startpunt:** [Hibernate getting started guide](https://docs.jboss.org/hibernate/orm/5.4/quickstart/html_single/) Ook Hibernate werkt met modules, zoals Jdbi3. We gebruiken `hibernate-core`; via Gradle: `compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.23.Final'`
 

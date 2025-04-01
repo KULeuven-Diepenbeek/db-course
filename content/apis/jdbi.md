@@ -103,6 +103,83 @@ Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch 
 ![](/img/jdbi-map.jpg)
 
 
+### Enkele methoden met uitleg
+#### Voorbeeld 1: een create
+```java
+jdbi.withHandle(handle -> {
+      return handle.createUpdate("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (:studnr, :naam, :voornaam, :goedBezig)")
+    .bindBean(student) 
+    .execute(); 
+});
+```
+**withHandle**
+```java
+jdbi.withHandle(handle -> { ... })
+```
+De `withHandle` methode zorgt voor het openen van een databaseverbinding (handle). Je geeft een **lambda** (anonieme functie `->`) door waarin je met de handle jouw SQL-statements bouwt en uitvoert.. Na afloop wordt de handle/connectie automatisch gesloten. Dit zorgt voor goed resource management.
+
+
+```java
+handle.createUpdate(...)
+```
+Hiermee maak je een SQL INSERT-statement aan. De SQL bevat benoemde parameters (bijv. `:studnr`, `:naam`, etc.) die later gekoppeld worden aan waarden.
+```java
+.bindBean(student)
+```
+Hiermee koppel je alle eigenschappen van het student object aan de benoemde parameters in je SQL. De velden in student (zoals `studnr`, `naam`, enz.) worden automatisch gekoppeld aan de overeenkomstige parameters.
+```java
+.execute()
+```
+Dit voert de INSERT-operatie daadwerkelijk uit. Het retourneert meestal het aantal rijen dat is ingevoegd in de database.
+
+#### Voorbeeld 2: een meer manuele create
+```java
+public void addStudentToDb(Student student) {
+    jdbi.withHandle(handle -> {
+      return handle.execute("INSERT INTO student (studnr, naam, voornaam, goedBezig) VALUES (?, ?, ?, ?)",
+          student.getStudnr(), student.getNaam(), student.getVoornaam(), student.isGoedBezig());
+    });
+  }
+```
+Vergelijkbaar met een prepared statement
+#### Voorbeeld 3: een read
+```java
+(Student) jdbi.withHandle(handle -> {
+      return handle.createQuery("SELECT * FROM student WHERE studnr = :nummer")
+          .bind("nummer", stud_nr)
+          .mapToBean(Student.class)
+          .first();
+});
+```
+```java
+handle.createQuery(...)
+```
+Hiermee maak je een SELECT-query aan. De query haalt alle kolommen op van de tabel student waar studnr gelijk is aan een bepaalde waarde (hier aangeduid met `:nummer`).
+```java
+.bind("nummer", stud_nr)
+```
+Hiermee koppel je de waarde van de variabele `stud_nr` aan de parameter `:nummer` in de SQL-query.
+```java
+.mapToBean(Student.class)
+```
+Na het uitvoeren van de query zet JDBI de resultaatrij(en) om in een object van de klasse `Student`. Hierbij worden de kolomnamen in de database vergeleken met de velden in de `Student`-klasse.
+```java
+.first()
+```
+Deze functie haalt het eerste resultaat op van de query. Als je er zeker van bent dat de query precies één resultaat oplevert, kun je deze methode gebruiken om direct het `Student` object te verkrijgen.
+
+#### Nog meer methoden
+- `createUpdate`: Hiermee maak je een SQL-statement aan dat de database wijzigt (bijvoorbeeld een INSERT, UPDATE of DELETE).
+
+- `createQuery`: Hiermee maak je een SQL SELECT-query aan. Dit gebruik je wanneer je gegevens uit de database wilt ophalen.
+
+- `execute`: Deze functie voert het eerder samengestelde SQL-statement (zoals een INSERT of UPDATE) daadwerkelijk uit op de database. Vaak retourneert het een integer met het aantal rijen dat is aangetast.
+
+- `bind`: Hiermee koppel je een enkele waarde aan een benoemde parameter in je SQL-statement.
+
+- `bindBean`: Hiermee worden alle eigenschappen van een Java bean (bijvoorbeeld een `Student` object) automatisch gekoppeld aan de benoemde parameters in je SQL-statement.
+
+- `mapToBean`: Nadat je een SELECT-query hebt uitgevoerd, zet deze functie elke rij uit het resultaat om in een Java bean (bijvoorbeeld een Student object). JDBI vergelijkt de kolomnamen uit de query met de velden in de bean.
 <!-- ### EER-schema/database mapping naar Java Objects -->
 
 
