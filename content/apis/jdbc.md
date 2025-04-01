@@ -400,7 +400,7 @@ public class Student {
 2. Maak een klasse voor `Vak` en `Opleiding`.
 ```java
 // Template van de klasse Vak
-public class Student {
+public class Vak {
         private int vaknr;
         private String naam;
         private ArrayList<Student> studenten;
@@ -412,7 +412,7 @@ public class Student {
 }
 
 // Template van de klasse Opleiding
-public class Student {
+public class Opleiding {
         private String naam;
         private ArrayList<Student> inschrijvingen;
         // Constructors
