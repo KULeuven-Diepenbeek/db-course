@@ -103,6 +103,34 @@ Merk op dat Jdbi3 er voor kan zorgen dat de resultaten van je query automatisch 
 ![](/img/jdbi-map.jpg)
 
 
+{{%notice warning%}}
+Om ervoor te zorgen dat de `beans` correct werken is het belangrijk dat je een goed werkende `equals(Object o)` methode hebt voor je Java Klassen die je met `.bindBean` of `.mapToBean` wil gebruiken.
+{{% /notice %}}
+
+
+##### Een query manueel behandelen
+**Voorbeeld**:
+```java
+jdbi.withHandle(handle -> {
+    // Create a Query object with a named parameter for the student
+    Query query = handle.createQuery(
+        "SELECT v.* FROM student_volgt_vak svv JOIN vak v ON svv.vak = v.vaknr WHERE svv.student = :student")
+        .bind("student", studentId);
+
+    // Iterate over each row in the result set manually
+    for (Row row : query) {
+        // Manually extract values from the row
+        int vaknr = row.getInt("vaknr");
+        String vakNaam = row.getString("naam");
+        // Process other columns as needed...
+
+        // You can now handle the output manually (e.g., print, collect, or process data)
+        System.out.println("Vak: " + vaknr + " - " + vakNaam);
+    }
+    return null; // or any other appropriate return value
+});
+```
+
 ### Enkele methoden met uitleg
 #### Voorbeeld 1: een create
 ```java
