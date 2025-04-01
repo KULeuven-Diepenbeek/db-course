@@ -335,7 +335,7 @@ CREATE TABLE student(
     voornaam VARCHAR(200),
     goedbezig BOOLEAN,
     opleiding INT DEFAULT NULL,
-    FOREIGN KEY (opleiding) REFERENCES opleiding(id)
+    FOREIGN KEY (opleiding) REFERENCES opleiding(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE vak(
@@ -348,8 +348,8 @@ CREATE TABLE student_volgt_vak(
     id INT AUTO_INCREMENT PRIMARY KEY,
     student INT,
     vak INT,
-    FOREIGN KEY (student) REFERENCES student(studnr),
-	FOREIGN KEY (vak) REFERENCES vak(vaknr)
+    FOREIGN KEY (student) REFERENCES student(studnr) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (vak) REFERENCES vak(vaknr) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -422,6 +422,11 @@ public class Opleiding {
         // Hash
 }
 ```
+
+{{% notice warning %}}
+Merk op dat wanneer je uit de database een Student ophaalt, dat die een lijst van vakken wil hebben. Dat Vak zou dan ook een lijst van studenten hebben, die weer een lijst van Vakken hebben ... Je weet zelf wel dat dit oneindig blijft doorgaan en dus voor problemen zal zorgen. Neem die relaties dan ook niet op in de contrutor van Student bijvoorbeeld. Initieer bij de constructor van Student de lijst vakken gewoon als een lege lijst en geef voor de Opleiding voorlopig `null`. Voorzie dan methoden waarmee je later die waarden met de correct values kan populeren zoals `addVak(Vak vak)` en `setOpleiding(Opleiding opleiding)`. Idem voor de Vak en Opleiding klassen.
+{{% /notice %}}
+
 3. Voorzie nu voor de verschillende corresponderende `Repository`-klassen waar alle logica in te staan komt om de data over de verschillende klassen uit de database te halen en om te vormen tot Java objecten. (Je moet dus je `StudentRepository`-klasse aanpassen, een `VakRepository`-klasse en een `OpleidingRepository`-klasse aanmaken)
     - Om de lijsten op te stellen kan je best van handige SQL-queries gebruik maken. Hier vind je enkele voorbeelden:
     ```sql
@@ -442,3 +447,4 @@ public class Opleiding {
     - studenten uitschrijven voor een opleiding.
     - studenten inschrijven voor een opleiding.
     - studenten, vakken en opleidingen aanmaken.
+
