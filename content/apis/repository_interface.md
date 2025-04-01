@@ -1,6 +1,6 @@
 ---
 title: Interface
-draft: true
+draft: false
 weight: 5
 ---
 
@@ -35,3 +35,9 @@ public class StudentRepositoryJDBCimpl implements StudentRepository {
 ```
 
 In de main van je programma kan je dus overal waar je een StudentRepository nodig hebt een van de implementatie klassen gebruiken! Bijvoorbeeld: `StudentRepository sr = new StudentRepositoryJDBCimpl(...);`
+
+## Oefening
+{{% notice info %}}
+<!-- EXSOL -->
+**_[Hier](/files/interface-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
+{{% /notice %}}

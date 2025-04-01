@@ -209,6 +209,13 @@ Deze functie haalt het eerste resultaat op van de query. Als je er zeker van ben
 - `bindBean`: Hiermee worden alle eigenschappen van een Java bean (bijvoorbeeld een `Student` object) automatisch gekoppeld aan de benoemde parameters in je SQL-statement.
 
 - `mapToBean`: Nadat je een SELECT-query hebt uitgevoerd, zet deze functie elke rij uit het resultaat om in een Java bean (bijvoorbeeld een Student object). JDBI vergelijkt de kolomnamen uit de query met de velden in de bean.
+
+## Oefening
+{{% notice info %}}
+<!-- EXSOL -->
+**_[Hier](/files/jdbi-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
+{{% /notice %}}
+
 <!-- ### EER-schema/database mapping naar Java Objects -->
 
 
