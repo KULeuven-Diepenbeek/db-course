@@ -1,6 +1,7 @@
 ---
 title: JDBC
 draft: false
+weight: 2
 ---
 
 ## Java Database Connectivity (JDBC)

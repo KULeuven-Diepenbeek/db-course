@@ -1,6 +1,7 @@
 ---
 title: API Basics
 draft: false
+weight: 1
 ---
 
 ## Layered Application Tiers

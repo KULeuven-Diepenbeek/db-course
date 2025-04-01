@@ -1,6 +1,7 @@
 ---
 title: JPA en Hibernate
 draft: true
+weight: 4
 ---
 
 ## Wat is JPA?
@@ -43,7 +44,7 @@ Het gebruik van Hibernate geeft meestal een aantal mogelijkheden:
 
 Waarvan wij #3 gaan hanteren. 
 
-### 2.2.1 Hibernate/JPA Bootstrapping
+### Hibernate/JPA Bootstrapping
 
 JPA bootstrappen kan - net zoals JDBC en Jdbi - vrij eenvoudig met een statische klasse `Persistence` die een `sessionFactory` object aanmaakt. Elke **session factory** stelt een verbinding voor tussen de Java code en de Database zelf. Om te kunnen werken met objecten moet je vanuit de session factory de **entity manager** creëren. Vanaf dan kan er worden gewerkt met de database via de entity manager instantie.
 
@@ -103,35 +104,21 @@ Nu de verbinding tussen de DB en Hibernate/JPA tot stand werd gebracht, is het t
 
 Om kolommen te kunnen mappen op properties voorziet JPA een aantal **annotaties** als meta-data op het domeinobject zelf. Dat betekent dat DB beschrijving netjes bij het object waar het hoort wordt geplaatst. Bijvoorbeeld:
 
-<div class="devselect">
-
-```kt
-@Entity
-data class Huis(
-    @Column(name = "beschr") var beschrijving: String,
-    @Column var prijs: Int? = null,
-    @Column @Id @GeneratedValue var id: Int = 0)
-```
-
 ```java
 @Entity
-public class Huis {
+public class Student {
     @Column
     @Id
     @GeneratedValue
-    private int id;
-    @Column(name = "beschr")
-    private String beschrijving;
+    private int studnr;
+    @Column(naam = "naam")
+    private String naam;
+    @Column(voornaam = "voornaam")
+    private String voornaam;
     @Column
-    private int prijs;
+    private boolean goedBezig;
 }
 ```
-</div>
-
-{{% notice note %}}
-In Kotlin zijn types standaard not-nullable. Denk goed na over de mogelijke waardes van elk type: kan er ooit `null` in komen? Indien ja werk je met Kotlin's optional alternatief: suffixen met een `?`. Not-nullable types die later dan de constructor een waarde krijgen toegewezen worden aangeduid met `lateinit`. Zie [Null safety Kotlin docs](https://kotlinlang.org/docs/null-safety.html).<br/>
-Om Kotlins `data class` te laten samenwerken met oudere Java APIs zoals JPA/Hibernate, die niet kunnen omgaan met immutability, moeten we nog een **extra plugin** installeren: [de no-arg plugin](https://kotlinlang.org/docs/no-arg-plugin.html): `id("org.jetbrains.kotlin.plugin.jpa") version "1.5.21"` in de gradle `plugins` block. Die plugin genereert de nodige no-arg constructoren die JPA nodig heeft.
-{{% /notice %}}
 
 Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
 
@@ -151,49 +138,26 @@ Hoe update ik een entity, als properties zijn gewijzigd? `.merge(object)`
 
 Merk op dat in de Sysout output _geen query_ wordt gegenereerd. Hibernate houdt alles in zijn interne cache bij, en zal pas flushen naar de database wanneer hij acht dat dat nodig is. Dat kan je zelf triggeren door `entityManager.flush()` te gebruiken (kan alleen in een transactie) - of het commando te wrappen met een transactie:
 
-<div class="devselect">
-
-```kt
-with(entityManager) {
-    getTransaction().begin()
-    persist(dingdong)
-    getTransaction().commit()
-}
-```
-
 ```java
 entityManager.getTransaction().begin();
 entityManager.persist(dingdong);
 entityManager.getTransaction().commit();
 ```
-</div>
 
 Zonder dit, en met herbruik van dezelfde entity manager in SQLite, is er een kans dat je `SELECT` query niets teruggeeft, omdat de `INSERT` nog niet werd geflushed. De interne werking van combinatie JDBC+SQLite+JPA+Hibernate is zeer complex en zou een cursus van 20 studiepunten vereisen... 
 
 #### Queries
 
-Hoe query ik in JPA? Dit kan op verschillende manieren. We beperken ons hier tot de **JPA Criteria API**. Een voorbeeld. Gegeven een huizenlijst, waarvan we huizen willen teruggeven die onder de 200.000 kosten. In SQL zou dit `SELECT * FROM huizen WHERE prijs < 200000` zijn. In Criteria API:
-
-<div class="devselect">
-
-```kt
-val criteriaBuilder = entityManager.getCriteriaBuilder()
-val query = criteriaBuilder.createQuery(Huis::class.java)
-val root = query.from(Huis::class.java)
-
-query.where(criteriaBuilder.equal(root.get<Int>("prijs"), 200000))
-return entityManager.createQuery(query).getResultList()
-```
+Hoe query ik in JPA? Dit kan op verschillende manieren. We beperken ons hier tot de **JPA Criteria API**. Een voorbeeld. Gegeven een studentenlijst, waarvan we studenten willen teruggeven die als studnr < 200. In SQL zou dit `SELECT * FROM student WHERE studnr < 200` zijn. In Criteria API:
 
 ```java
 var criteriaBuilder = entityManager.getCriteriaBuilder();
-var query = criteriaBuilder.createQuery(Huis.class);
-var root = query.from(Huis.class);
+var query = criteriaBuilder.createQuery(Student.class);
+var root = query.from(Student.class);
 
-query.where(criteriaBuilder.equal(root.get("prijs"), 200000));
+query.where(criteriaBuilder.equal(root.get("studnr"), 200));
 return entityManager.createQuery(query).getResultList();
 ```
-</div>
 
 Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer krachtig en kan automatisch complexe queries genereren zonder dat wij ons moe moeten maken. Merk op dat wij _geen enkele letter SQL_ zelf schrijven. Alles is **java code**, wat het eenvoudig maakt om te refactoren, redesignen, statische code analyse op te doen, unit testen, ... Lees meer over criteria API:
 
@@ -207,7 +171,7 @@ Controleer in de sysout output welke query Hibernate uiteindelijk genereert. Dat
 select student0_.studnr as studnr1_0_, student0_.goedBezig as goedbezi2_0_, student0_.naam as naam3_0_, student0_.voornaam as voornaam4_0_ from Student student0_ where student0_.naam=?
 ```
 
-### 2.2.3 Oefeningen
+<!-- ### 2.2.3 Oefeningen
 
 **Quickstart project**: `examples/hibernate-jpa-start` in de [cursus repository](https://github.com/kuleuven-Diepenbeek/db-course) ([download repo zip](https://github.com/KULeuven-Diepenbeek/db-course/archive/refs/heads/main.zip))
 
@@ -409,4 +373,4 @@ student Lowiemans
 ```
 
 **Tip**: `entityManager.clear()` of `close()` een nieuwe aanmaken kan helpen om de persistence context te flushen ter test. 
-
+ -->

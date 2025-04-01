@@ -1,6 +1,7 @@
 ---
 title: JDBI
 draft: false
+weight: 3
 ---
 
 ## Queries/Objecten in Java DataBase Interface v3 (JDBI)
