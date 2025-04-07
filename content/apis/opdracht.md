@@ -6,11 +6,11 @@ weight: 6
 
 ## Opdracht JDBC en JDBI met als deadline vrijdag 2 mei 2025 23u59
 
-Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende [Github Classroom](https://classroom.github.com/classrooms/58585791-kuleuven-diepenbeek-databases-2425). En pull je de repository van **Opdracht rond Database API's**. Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
+Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende [Github Classroom](https://classroom.github.com/classrooms/58585791-kuleuven-diepenbeek-databases-2425). En pull je de repository van [**Opdracht rond Database API's**](https://classroom.github.com/a/3hq1u2IC). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
 
 ### Opdracht: tennisspelers, tornooien en wedstrijden
 
-Voor de verplichte opdrachten rond Database API's in Java (met Gradle) gaan jullie een aantal TODO's in dit project moeten oplossen. De probleemstelling is een zeer beperkte versie van de [casus](/apis/_index.md). De beperkte versie werkt als volgt:
+Voor de verplichte opdrachten rond Database API's in Java (met Gradle) gaan jullie een aantal TODO's in dit project moeten oplossen. De probleemstelling is een zeer beperkte versie van de [casus](/apis). De beperkte versie werkt als volgt:
 - Je hebt enkel Spelers, Tornooien en Wedstrijden
 - Een Speler heeft een unieke tennisvlaanderenId, een naam en een aantal punten.
 - Een Tornooi heeft enkel een id en een naam van de tennisclub die dat tornooi organiseert.

@@ -35,5 +35,12 @@
       <guid>http://localhost:1313/db-course/apis/repository_interface/</guid>
       <description>&lt;h2 id=&#34;wat-is-een-interface&#34;&gt;Wat is een interface?&lt;/h2&gt;&#xA;&lt;p&gt;Een Java interface is een referentietype dat een contract definieert voor klassen door een set &lt;strong&gt;methodsignatures&lt;/strong&gt; (en optioneel constante waarden) vast te leggen, zonder daarbij een concrete implementatie te leveren. Klassen die deze interface &lt;strong&gt;implementeren&lt;/strong&gt;, moeten alle gedeclareerde methoden voorzien van een concrete implementatie, waardoor consistent gedrag wordt gegarandeerd en polymorfisme mogelijk wordt. Interfaces maken het ook mogelijk om meerdere gedragingen te combineren, aangezien een klasse meerdere interfaces kan implementeren.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>VERPLICHTE opdracht</title>
+      <link>http://localhost:1313/db-course/apis/opdracht/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/apis/opdracht/</guid>
+      <description>&lt;h2 id=&#34;opdracht-jdbc-en-jdbi-met-als-deadline-vrijdag-2-mei-2025-23u59&#34;&gt;Opdracht JDBC en JDBI met als deadline vrijdag 2 mei 2025 23u59&lt;/h2&gt;&#xA;&lt;p&gt;Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende &lt;a href=&#34;https://classroom.github.com/classrooms/58585791-kuleuven-diepenbeek-databases-2425&#34;&gt;Github Classroom&lt;/a&gt;. En pull je de repository van &lt;strong&gt;Opdracht rond Database API&amp;rsquo;s&lt;/strong&gt;. Deze repository bevat een Java Gradle project met een aantal &lt;code&gt;TODO&lt;/code&gt;&amp;rsquo;s die je moet oplossen. Hieronder staat de opdracht nog beschreven:&lt;/p&gt;&#xA;&lt;h3 id=&#34;opdracht-tennisspelers-tornooien-en-wedstrijden&#34;&gt;Opdracht: tennisspelers, tornooien en wedstrijden&lt;/h3&gt;&#xA;&lt;p&gt;Voor de verplichte opdrachten rond Database API&amp;rsquo;s in Java (met Gradle) gaan jullie een aantal TODO&amp;rsquo;s in dit project moeten oplossen. De probleemstelling is een zeer beperkte versie van de &lt;a href=&#34;../apis/_index.md&#34;&gt;casus&lt;/a&gt;. De beperkte versie werkt als volgt:&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
