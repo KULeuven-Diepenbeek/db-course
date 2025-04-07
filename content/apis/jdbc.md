@@ -292,7 +292,7 @@ Een SQLite database kan handig zijn omdat een lokale `.db`-file al als database 
 
 #### EXTRA: In memory database
 
-Je kan ook een **in-memory database** aanmaken, die volledig in RAM leeft en bij elke opstart opnieuw wordt aangemaakt, met de String `jdbc:sqlite:memory`. (Hiervoor gebruiken we dan de [sqlite JDBC-connector](https://github.com/xerial/sqlite-jdbc), hier gaan we in deze cursus echter niet verder op in.)
+Je kan ook een **in-memory database** aanmaken, die volledig in RAM leeft en bij elke opstart opnieuw wordt aangemaakt, met de String `jdbc:sqlite::memory:`, dus zonder database naam. (Hiervoor gebruiken we dan de [sqlite JDBC-connector](https://github.com/xerial/sqlite-jdbc), hier gaan we in deze cursus echter niet verder op in.)
 
 
 Werk je met een andere database maar heb je geen idee hoe die speciale connection string te vormen? Geen probleem, daarvoor dient [https://www.connectionstrings.com/](https://www.connectionstrings.com/). Bijvoorbeeld, een connectie naar de Microsoft Azure cloud kan met de volgende syntax:
