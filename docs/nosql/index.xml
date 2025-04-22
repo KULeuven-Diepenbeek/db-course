@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>5. NoSQL on Databases</title>
+    <title>NoSQL on Databases</title>
     <link>http://localhost:1313/db-course/nosql/</link>
-    <description>Recent content in 5. NoSQL on Databases</description>
+    <description>Recent content in NoSQL on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <atom:link href="http://localhost:1313/db-course/nosql/index.xml" rel="self" type="application/rss+xml" />
@@ -13,13 +13,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/nosql/4oef3/</guid>
       <description>&lt;script src=&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;button id=&#34;btn&#34;&gt;Print docs&lt;/button&gt;&#xD;&#xA;&lt;pre id=&#34;pre&#34;&gt;&#xD;&#xA;...&#xD;&#xA;&lt;/pre&gt;&#xD;&#xA;&lt;script&gt;&#xD;&#xA;function print(doc) {&#xD;&#xA;&#x9;document.querySelector(&#39;#pre&#39;).innerHTML = JSON.stringify(doc);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  var db = new PouchDB(&#39;my_database&#39;);&#xD;&#xA;  // do your setup here&#xD;&#xA;&#xD;&#xA;  function queryDocs() {&#xD;&#xA;  &#x9; // do your thing here&#xD;&#xA;  &#x9; print(&#39;goed bezig&#39;);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;document.querySelector(&#34;#btn&#34;).addEventListener(&#34;click&#34;, queryDocs);&#xD;&#xA;&lt;/script&gt;</description>
-    </item>
-    <item>
-      <title>1. NoSQL Basics</title>
-      <link>http://localhost:1313/db-course/nosql/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/nosql/basics/</guid>
-      <description>&lt;h2 id=&#34;het-schaalbaarheid-probleem&#34;&gt;Het schaalbaarheid probleem&lt;/h2&gt;&#xA;&lt;p&gt;Het probleem met RDMS (&lt;strong&gt;relationele&lt;/strong&gt; database management systems) is vaak &lt;em&gt;schaalbaarheid&lt;/em&gt;. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&lt;/p&gt;&#xA;&lt;h3 id=&#34;optie-1-vertical-scaling&#34;&gt;Optie 1: Vertical scaling&lt;/h3&gt;&#xA;&lt;p&gt;De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie &lt;a href=&#34;../transacties/basics&#34;&gt;transacties basics&lt;/a&gt;).&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../slides/img/moar.jpg&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../slides/img/moar.jpg&#34;  &gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Je botst hier echter snel op &lt;strong&gt;hardware limitaties&lt;/strong&gt;&amp;mdash;niet alles is opgelost met een latje RAM.&lt;/p&gt;</description>
     </item>
     <item>
       <title>2. Key-value stores</title>
@@ -48,6 +41,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/nosql/replication/</guid>
       <description>&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../img/pouchdb.jpg&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../img/pouchdb.jpg&#34;  &gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Met &lt;em&gt;replication&lt;/em&gt; is het eenvoudig om clusters van clones te maken om de 99.9% uptime te kunnen garanderen, gegeven de juiste loadbalancing instellingen. Als voorbeeld gaan we een open-source JavaScript DB gebruiken genaamd &lt;a href=&#34;https://pouchdb.com&#34;&gt;PouchDB&lt;/a&gt;. PouchDB draait goed client-side in de browser, en interfacet heel gemakkelijk met zijn inspirator, CouchDB. Met Pouch is het een kwestie van een paar regeltjes code om replication aan te zetten tussen Pouch en de &amp;ldquo;master&amp;rdquo; Couch database, zoals ook zichtbaar op de Pouch website:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NoSQL Basics</title>
+      <link>http://localhost:1313/db-course/nosql/basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/nosql/basics/</guid>
+      <description>&lt;h2 id=&#34;het-schaalbaarheid-probleem&#34;&gt;Het schaalbaarheid probleem&lt;/h2&gt;&#xA;&lt;p&gt;Het probleem met RDMS (&lt;strong&gt;relationele&lt;/strong&gt; database management systems) is vaak &lt;em&gt;schaalbaarheid&lt;/em&gt;. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&lt;/p&gt;&#xA;&lt;h3 id=&#34;optie-1-vertical-scaling&#34;&gt;Optie 1: Vertical scaling&lt;/h3&gt;&#xA;&lt;p&gt;De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie &lt;a href=&#34;../transacties/basics&#34;&gt;transacties basics&lt;/a&gt;).&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../slides/img/moar.jpg&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../slides/img/moar.jpg&#34;  &gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Je botst hier echter snel op &lt;strong&gt;hardware limitaties&lt;/strong&gt;&amp;mdash;niet alles is opgelost met een latje RAM.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

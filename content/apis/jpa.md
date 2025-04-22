@@ -263,7 +263,7 @@ Het is het simpelste om die in een applicatie even te bekijken. Het belangrijkst
 
 ## OPDRACHT
 
-Werk verder aan [de verplichte opdracht](/apis/opdracht.md#opdracht-jpa-met-als-deadline-vrijdag-2-mei-2025-23u59) waar je nu ook een JPA repository voor voorziet met een correct werkende `persistance.xml` en met de juiste dependencies.
+Werk verder aan [de verplichte opdracht](/apis/opdracht#opdracht-jpa-met-als-deadline-vrijdag-2-mei-2025-23u59) waar je nu ook een JPA repository voor voorziet met een correct werkende `persistance.xml` en met de juiste dependencies.
 
 <!-- ### 2.2.3 Oefeningen
 
