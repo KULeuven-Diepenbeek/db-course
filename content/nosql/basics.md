@@ -231,6 +231,21 @@ De meest gebruikte column-DB is [Cassandra](https://cassandra.apache.org/_/index
 
 Cassandra komt met in-memory buffers, tracking & monitoring, ... 
 
+### ACID vs BASE
+| **Aspect**               | **ACID (SQL)**                                                                 | **BASE (NoSQL)**                                                          |
+|--------------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| **Consistentiemodel**     | Sterke consistentie (data is altijd correct en up-to-date)                     | Eventuele consistentie (data wordt uiteindelijk consistent)              |
+| **Transactiefocus**       | Garandeert betrouwbaarheid (bv. banktransacties)                               | Prioriteit op beschikbaarheid en snelheid (bv. sociale media-platforms)  |
+| **Gebruiksvoorbeelden**   | Financiële systemen, ERP, CRM                                                  | Big data, real-time analytics, IoT, schaalbare webapps                    |
+| **Schaalbaarheid**        | Verticaal schalen (krachtigere hardware)                                       | Horizontaal schalen (meer servers toevoegen)                              |
+| **Datastructuur**         | Gestructureerd (tabellen met vaste schema's)                                   | On-gestructureerd/flexibel (documenten, key-value, grafieken, etc.)       |
+| **Schema**                | Strict schema vooraf vereist                                                   | Schema-loos (flexibele data-modellering)                                  |
+| **Complexe queries**      | Ondersteund via SQL (JOINs, aggregaties, etc.)                                 | Beperkt, vaak afhankelijk van denormalisatie                              |
+| **Performantie**          | Lagere latentie voor complexe transacties                                      | Hogere doorvoer voor grote datasets                                       |
+| **Voorbeelden**           | MySQL, PostgreSQL, Oracle                                                      | MongoDB (document), Cassandra (wide-column), Redis (key-value)            |
+| **Sterke punten**         | Data-integriteit, transactiegaranties, complexe relaties                       | Schaalbaarheid, flexibiliteit, hoge beschikbaarheid                       |
+| **Zwakke punten**         | Moeilijker horizontaal schalen, rigiditeit bij schemawijzigingen               | Geen transactiegaranties, moeilijker voor relationele use cases           |
+
 ### Case Studies
 
 Welke database systemen---of een combinatie ervan---denk je dat de volgende grote bedrijven hanteren voor hun producten?
