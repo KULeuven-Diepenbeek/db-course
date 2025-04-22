@@ -1,5 +1,5 @@
 ---
-title: 1. NoSQL Basics
+title: NoSQL Basics
 draft: false
 ---
 

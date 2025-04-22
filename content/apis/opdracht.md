@@ -31,3 +31,7 @@ In het project zijn alle klassen die je nodig hebt al aangemaakt op de correcte 
 Veel succes! Je mag me altijd contacteren via [arne.duyver@kuleuven.be](mailto::arne.duyver@kuleuven.be) voor vragen of in de les aanspreken.
 
 Er is ook een video met deze uitleg voorzien die je op [Toledo](https://toledo.kuleuven.be) bij de opdracht kan terugvinden.
+
+
+## Opdracht JPA met als deadline vrijdag 2 mei 2025 23u59
+Vul het bovenstaande project verder aan met een werkende `SpelerRespositoryJPAimpl`-klasse en bijhorende dependencies en `persistence.xml`-file op de correcte manier. De testen bijhorend bij dit deel volgen ASAP.

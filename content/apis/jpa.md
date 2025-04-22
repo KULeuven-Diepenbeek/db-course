@@ -1,6 +1,6 @@
 ---
 title: JPA en Hibernate
-draft: true
+draft: false
 weight: 4
 ---
 
@@ -14,7 +14,7 @@ Ondertussen is J2EE omgevormd tot [Jakarta EE](https://jakarta.ee). Dat betekent
 
 ### Maar wat is de JPA API nu precies?
 
-De API, levend in de package `javax.persistence`, is een manier om relationele data voor te stellen in enterprise Java applicaties, door middel van Objecten. Het is dus een mapping tool die object/relationale (meta)data bewerkt en verwerkt. JPA heeft ook zijn eigen query language, JPQL, die het eenvoudiger moet maken om queries te schrijven _in Java code zelf_ in plaats van in SQL, die vertaald worden naar SQL. Dit vereenvoudigt refactoring en vermindert mogelijke fouten in de SQL string die te laat naar boven komen (nu compiletime ipv runtime, aangezien Java statisch getypeerd is). 
+De API, levend in de package `javax.persistence`, is een manier om relationele data voor te stellen in enterprise Java applicaties, door middel van Objecten. Het is dus een mapping tool die object/relationale (meta)data bewerkt en verwerkt. JPA heeft ook zijn eigen query language, JPQL, die het eenvoudiger moet maken om queries te schrijven _in Java code zelf_ in plaats van in SQL, die vertaald worden naar SQL. **Dit vereenvoudigt refactoring en vermindert mogelijke fouten in de SQL string die te laat naar boven komen (nu compiletime ipv runtime, aangezien Java statisch getypeerd is).** 
 
 JPA is niet meer dan een specificatie die de **interfaces** en **annotaties** voorziet. De implementatie, en de **klasses**, worden overgelaten aan _vendors_, waarvan voor JPA 2.2 [de volgende vendors](https://en.wikipedia.org/wiki/Jakarta_Persistence) beschikbaar zijn:
 
@@ -23,7 +23,7 @@ JPA is niet meer dan een specificatie die de **interfaces** en **annotaties** vo
 - **Hibernate**
 - OpenJPA
 
-JPA 2.2 Gradle dependency: `compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'`
+JPA 2.2 Gradle dependency: `implementation 'javax.persistence:javax.persistence-api:2.2'`
 
 
 ## Wat is Hibernate ORM (Object Relational Mapper)?
@@ -31,6 +31,8 @@ JPA 2.2 Gradle dependency: `compile group: 'javax.persistence', name: 'javax.per
 Volgens de [hibernate.org](http://hibernate.org/orm/) website:
 
 > Your relational data. Objectively. 
+
+Kort door de bocht uitgelegd is het een manier om Java Klassen te annoteren, zodat objecten automatisch in een database kunnen opgeslagen, opgehaald, geupdated of gedeleted kunnen worden zonder zelf nog queries te moeten schrijven. Je blijft dus eigenlijk steeds in Java land werken en moet je na een initiële configuratie niets meer aantrekken van hoe de data in de database zit of opgehaald wordt. Voor degene die het vak Full Stack Web Development opnemen, is dit al een tweede ORM die ze tegenkomen. In PHP/Laravel hebben hebben we met de PHP ORM gewerkt.
 
 Hibernate is dé populairste object-relational mapper in Java die de JPA standaard implementeert. Hibernate heeft zowel een eigen API als een JPA specificatie, en kan dus overal waar JPA nodig is ingeschakeld worden. Het wordt vaak in omgevingen gebruikt waar performantie belangrijk is, en waar enorm veel data en gebruikers data transfereren. 
 
@@ -42,45 +44,61 @@ Het gebruik van Hibernate geeft meestal een aantal mogelijkheden:
 2. Gebruik de Native Hibernate API en annotaties (Zie "3. Tutorial Using Native Hibernate APIs and Annotation Mappings")
 3. Gebruik de JPA interface (Zie "4. Tutorial Using the Java Persistence API (JPA)")
 
-Waarvan wij #3 gaan hanteren. 
+**Waarvan wij #3 gaan hanteren!!!** 
 
 ### Hibernate/JPA Bootstrapping
 
-JPA bootstrappen kan - net zoals JDBC en Jdbi - vrij eenvoudig met een statische klasse `Persistence` die een `sessionFactory` object aanmaakt. Elke **session factory** stelt een verbinding voor tussen de Java code en de Database zelf. Om te kunnen werken met objecten moet je vanuit de session factory de **entity manager** creëren. Vanaf dan kan er worden gewerkt met de database via de entity manager instantie.
+JPA bootstrappen kan - net zoals JDBC en JDBI - vrij eenvoudig met een statische klasse `Persistence` die een `sessionFactory` object aanmaakt. Elke **session factory** stelt een verbinding voor tussen de Java code en de Database zelf. Om te kunnen werken met objecten moet je vanuit de session factory de **entity manager** creëren. Vanaf dan kan er worden gewerkt met de database via de entity manager instantie.
 
 ```java
-var sessionFactory = Persistence.createEntityManagerFactory("be.kuleuven.mijnmooiepackage");
+var sessionFactory = Persistence.createEntityManagerFactory("be.kuleuven.studenthibernate");
 var entityManager = sessionFactory.createEntityManager();
 // do stuff with it!
-// entityManager.createQuery(...)
+// entityManager.createQuery("SELECT s FROM Student s", Student.class);
+// entityManager.getTransaction();
+
+// CREATE
+// entityManager.persist(student);
+// READ
+// entityManager.find(Student.class, studnr);
+// UPDATE
+// entityManager.merge(student);
+// DELETE
+// entityManager.remove(student);
 ```
 
 `javax.persistence.Persistence` gaat op zoek naar een `persistence.xml` bestand in de map `src/main/resources/META-INF`. Die bevat alle connectiegegevens en instellingen. De **persistence XML file** is de _belangrijkste_ file van je hele applicatie, waar caching strategie, driver management, table autocreation, ... allemaal in wordt bepaald! 
 
-Een voorbeeld XML file:
+Een voorbeeld XML file voor onze Studenten demo's:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <persistence version="2.1"
-             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="be.kuleuven.studenthibernate.domain">
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="be.kuleuven.studenthibernate">
         <description>Studenten JPA Test</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:studenten.db"/>
-            <property name="javax.persistence.jdbc.user" value=""/>
+            <!-- MySQL driver -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <!-- Pas de URL, user en password aan naar jouw XAMPP configuratie -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/school"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value=""/>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            
+            <!-- Schema generatie: drop en create bij elke run -->
+            <!-- UNCOMMENT HIERONDER ALS JE MET import.sql WIL WERKEN -->
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect" />
+            <!-- Hibernate specifieke properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
             <property name="hibernate.connection.autocommit" value="true"/>
             <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.flushMode" value="ALWAYS" />
-
-            <property name="hibernate.cache.use_second_level_cache" value="false" />
-            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+            <property name="hibernate.flushMode" value="ALWAYS"/>
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>
@@ -88,17 +106,29 @@ Een voorbeeld XML file:
 
 Bevat onder andere de volgende belangrijke properties:
 
-- `javax.persistence` JDBC driver/url. Merk op dat achterliggend dus nog steeds JDBC wordt gebruikt! Dat betekent ook dat we de sqlite dependency `sqlite-jdbc` van de groep `org.xerial` nog steeds nodig hebben. 
-- `schema-generation` properties: `drop-and-create` betekent dat tabellen die niet bestaan automatisch worden aangemaakt. Geen `CREATE TABLE` statements meer nodig, dus. 
-- `hibernate.dialect`: voor vendor-specifieke queries te genereren moet Hibernate weten welke database wij hanteren. Dit staat los van de jdbc driver! Hiervoor gebruiken we het dialect van dependency `compile group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'`.
+- `javax.persistence` JDBC driver/url. Merk op dat achterliggend dus nog steeds JDBC wordt gebruikt! Dat betekent ook dat we de MYSQL dependency `'mysql:mysql-connector-java:5.1.6'` nog steeds nodig hebben. 
+- `schema-generation` properties: `drop-and-create` betekent dat tabellen die niet bestaan automatisch worden aangemaakt. Geen `CREATE TABLE` statements meer nodig, dus. **Kan je ook weglaten**
+- `hibernate.dialect`: voor vendor-specifieke queries te genereren moet Hibernate weten welke database wij hanteren. Dit staat los van de jdbc driver! Hiervoor gebruiken we het dialect van MYSQL `"org.hibernate.dialect.MariaDBDialect"`.
 - Flush modes, auto-commit instellingen, caching, e.a. Dit gaat ver buiten de scope van deze cursus. 
 - `show_sql` print de gegenereerde queries af in de console, handig om te zien hoe Hibernate intern werkt, en om te debuggen.  
 
-Er ontbreekt hierboven nog een belangrijk gegeven: elke entity (domein object dat een tabel voorstelt in de code) moet met fully qualified name in een `<class/>` tag onder `<persistence-unit/>` worden toegevoegd. Anders herkent JPA het object niet, en heeft hij geen idee welke kolommen te mappen op welke properties. Die metadata zit namelijk in de entity klasse zelf. 
+Er ontbreekt hierboven nog een belangrijk gegeven: elke entity (domein object dat een tabel voorstelt in de code) moet met fully qualified name in een `<class/>` tag onder `<persistence-unit/>` worden toegevoegd. Anders herkent JPA het object niet, en heeft hij geen idee welke kolommen te mappen op welke properties. Die metadata zit namelijk in de entity klasse zelf. Je moet die klassen vlak boven de `<properties>`-tag toevoegen:
+
+```xml
+        ...
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- HIER KLASSEN TOEVOEGEN -->
+        <class>be.kuleuven.Student</class>
+        <class>be.kuleuven.Vak</class>
+        <class>be.kuleuven.Opleiding</class>
+
+        <properties>
+           ...
+```
 
 Meer informatie: zie [hibernate.org documentatie](http://hibernate.org/orm/) en [A beginners guide to JPA persistence xml](https://thorben-janssen.com/jpa-persistence-xml/).
 
-### 2.2.2 Hibernate/JPA Peristence/querying
+### Hibernate/JPA Peristence/querying
 
 Nu de verbinding tussen de DB en Hibernate/JPA tot stand werd gebracht, is het tijd om gebruik te maken van de kracht van de library. 
 
@@ -106,21 +136,23 @@ Om kolommen te kunnen mappen op properties voorziet JPA een aantal **annotaties*
 
 ```java
 @Entity
+@Table(name = "student")
 public class Student {
-    @Column
-    @Id
-    @GeneratedValue
-    private int studnr;
-    @Column(naam = "naam")
-    private String naam;
-    @Column(voornaam = "voornaam")
-    private String voornaam;
-    @Column
-    private boolean goedBezig;
+  @Id
+  private int studnr;
+
+  @Column(name = "voornaam")
+  private String voornaam;
+
+  @Column(name = "naam")
+  private String naam;
+
+  @Column(name = "goedbezig")
+  private boolean goedBezig;
 }
 ```
 
-Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` is er omdat wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
+Het datatype kan ook worden ingesteld met `@Column` (merk op dat de kolomnaam van de tabel in de DB kan en mag wijzigen van de property name in Java), bijvoorbeeld voor temporele waardes waar enkel de tijd of datum wordt bijgehouden op DB niveau. Merk op dat `@Id` nodig is op een `@Entity` - zonder primary key kan JPA geen object persisteren. `@GeneratedValue` bestaat wanneer wij niet telkens de ID willen verhogen, maar dat willen overlaten aan de database vanwege de `AUTOINCREMENT`. Bij elke `persist()` gaat Hibernate de juiste volgende ID ophalen, dat zich vertaalt in de volgende queries in sysout:
 
 ```sql
 Hibernate: select next_val as id_val from hibernate_sequence
@@ -155,7 +187,7 @@ var criteriaBuilder = entityManager.getCriteriaBuilder();
 var query = criteriaBuilder.createQuery(Student.class);
 var root = query.from(Student.class);
 
-query.where(criteriaBuilder.equal(root.get("studnr"), 200));
+query.where(criteriaBuilder.lt(root.get("studnr"), 200));
 return entityManager.createQuery(query).getResultList();
 ```
 
@@ -165,11 +197,73 @@ Voor simpele queries zoals deze is dat inderdaad omslachtig, maar de API is zeer
 - Voorbeeld 3 [TutorialsPoint Criteria API](https://www.tutorialspoint.com/jpa/jpa_criteria_api.htm)
 - Voorbeeld 4 [Using "In" in Criteria API](https://www.baeldung.com/jpa-criteria-api-in-expressions)
 
-Controleer in de sysout output welke query Hibernate uiteindelijk genereert. Dat ziet er zo uit:
+Controleer in de sysout output welke query Hibernate uiteindelijk genereert. Dat ziet er zo uit bijvoorbeeld:
 
 ```sql
 select student0_.studnr as studnr1_0_, student0_.goedBezig as goedbezi2_0_, student0_.naam as naam3_0_, student0_.voornaam as voornaam4_0_ from Student student0_ where student0_.naam=?
 ```
+
+### Jdbc met SQLite: ideaal voor testing
+Willen we JPA met SQLite gebruiken moeten we natuurlijk onze `persistence.xml` aanpassen, maar ook nog een dependency toevoegen voor het juiste `hibernate.dialect`. Om vendor-specifieke queries te genereren moet Hibernate weten welke database wij hanteren. Dit staat los van de jdbc driver! Hiervoor gebruiken we voor SQLite dialect van dependency `implementation "com.github.gwenn:sqlite-dialect:0.1.1"`.
+
+Dit komt dan overeen met volgende `persistence.xml`-file:
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="be.kuleuven.studenthibernate">
+        <description>Studenten JPA Test</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>be.kuleuven.Student</class>
+        <class>be.kuleuven.Vak</class>
+        <class>be.kuleuven.Opleiding</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <!-- SQLite driver -->
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <!-- SQLite database file path -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:mydatabase.db"/>
+            
+            <!-- SQLite doesn't require username/password -->
+            
+            <!-- Schema generatie: drop en create bij elke run -->
+            <!-- UNCOMMENT HIERONDER ALS JE MET import.sql WIL WERKEN -->
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
+
+            <!-- Hibernate specifieke properties -->
+            <!-- <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/> -->
+            <property name="hibernate.dialect" value="org.sqlite.hibernate.dialect.SQLiteDialect"/>
+            <property name="hibernate.connection.autocommit" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.flushMode" value="ALWAYS"/>
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+            
+            <!-- Needed for SQLite foreign key support -->
+            <property name="hibernate.connection.foreign_keys" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+```
+
+Waar de grootste verschillen liggen bij de:
+- `persistence 'driver', 'url' ('user' en 'password')`.
+- `hibernate dialect`
+- en SQLite heeft voor 'foreign key' support nog volgende property extra nodig: `<property name="hibernate.connection.foreign_keys" value="true"/>`
+
+**OPMERKING**: wil je in je `main` een configuratie gebruiken voor JPA en in de `test` een andere, dan moet je ook verschillende `persistence-unit` names voorzien bv: `<persistence-unit name="be.kuleuven.studenthibernateTest">`
+
+### DEMO: JPA met relations
+Het is het simpelste om die in een applicatie even te bekijken. Het belangrijkste zijn de juiste annotaties bij de verschillende klassen. Daarna zou alles automatisch moeten verlopen. Dat is toch wel handig.
+
+<!-- EXSOL -->
+**_[Hier](/files/jpa-relations.zip) vind je een zipfolder met een oplossing voor JPA demo Student met relations to Vak en Opleiding_**
+
+## OPDRACHT
+
+Werk verder aan [de verplichte opdracht](/apis/opdracht.md#opdracht-jpa-met-als-deadline-vrijdag-2-mei-2025-23u59) waar je nu ook een JPA repository voor voorziet met een correct werkende `persistance.xml` en met de juiste dependencies.
 
 <!-- ### 2.2.3 Oefeningen
 
