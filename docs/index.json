@@ -210,6 +210,13 @@
 	"content": " Databases Syllabus Lesgevers: Coördinerend Verantwoordelijke: prof. dr. Kris Aerts (kris.aerts@kuleuven.be) assistent lesgever: ing. Arne Duyver (arne.duyver@kuleuven.be) Kantoor: Technologiecentrum Diepenbeek, Groep ACRO. Cursusbeschrijving Dit opleidingsonderdeel focust enerzijds op drie soorten databases:\nrelationele databases de NoSQL-alternatieven XML databases En anderzijds op twee toepassingen:\nprogrammeren van database-gestuurde applicaties via API\u0026rsquo;s een inleiding in Big Data Vereiste voorkennis Basiskennis van een Object-Geörienteerde programmeertaal als Java of C# Basiskennis van het UNIX systeem, werken met commandline Doelstellingen Zie ook Studiegids UHasselt\nDe context en het overzicht worden aangereikt in de eerste lessen van dit vak.\nAls practicum wordt een grotere probleemstelling als project uitgewerkt. Alle aan te leren aspecten van databases komen in dit project aan bod. Studenten kunnen facultatief buiten het practicum extra thematische oefeningen oplossen.\nKalender Zie Mytimetable UHasselt.\n"
 },
 {
+	"uri": "http://localhost:1313/db-course/nosql/",
+	"title": "NoSQL",
+	"tags": [],
+	"description": "",
+	"content": "NoSQL Databases Zie menu links.\n"
+},
+{
 	"uri": "http://localhost:1313/db-course/nosql/basics/",
 	"title": "NoSQL Basics",
 	"tags": [],

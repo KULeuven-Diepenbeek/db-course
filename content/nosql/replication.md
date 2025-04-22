@@ -1,6 +1,6 @@
 ---
 title: 5. Replication
-draft: false
+draft: true
 ---
 
 ![](/img/pouchdb.jpg)

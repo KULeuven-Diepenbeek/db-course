@@ -51,7 +51,7 @@
     <lastmod>2025-03-25T14:17:41+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/apis/jpa/</loc>
-    <lastmod>2025-04-22T12:33:50+02:00</lastmod>
+    <lastmod>2025-04-22T12:40:10+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/apis/repository_interface/</loc>
     <lastmod>2025-04-01T14:37:54+02:00</lastmod>
@@ -91,6 +91,9 @@
   </url><url>
     <loc>http://localhost:1313/db-course/</loc>
     <lastmod>2025-03-10T15:24:47+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/db-course/nosql/</loc>
+    <lastmod>2025-04-22T12:40:10+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/db-course/nosql/basics/</loc>
     <lastmod>2025-04-22T12:37:36+02:00</lastmod>

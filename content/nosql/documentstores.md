@@ -1,6 +1,6 @@
 ---
 title: 3. Document stores
-draft: false
+draft: true
 ---
 
 ### 0. Data filtering: recap

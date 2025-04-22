@@ -1,6 +1,6 @@
 ---
 title: 2. Key-value stores
-draft: false
+draft: true
 ---
 
 ## 1.1 Persistente Hashmaps
