@@ -35,3 +35,29 @@ Er is ook een video met deze uitleg voorzien die je op [Toledo](https://toledo.k
 
 ## Opdracht JPA met als deadline vrijdag 2 mei 2025 23u59
 Vul het bovenstaande project verder aan met een werkende `SpelerRespositoryJPAimpl`-klasse en bijhorende dependencies en `persistence.xml`-file op de correcte manier. De testen bijhorend bij dit deel volgen ASAP.
+
+**Denk eraan dat je in de `persistence.xml` die bij de testen hoort ook de juiste DATABASE url gebruikt**
+
+# BELANGRIJKE VERBETERINGEN en EXTRA TIPS
+
+Tijdens vorige les kwamen er nog een aantal fouten/moeilijkheden naar boven. Daarom kan je hieronder de verbeterde files terugvinden die je kan/MOET **verwisselen** met je eigen klassen. Per klasse staat er ook bij wat juist aangepast is. 
+
+Aangezien de opdrachtenlast samen met de andere vakken wat druk is (en aangezien de decoratoren iets complexer zijn dan wat we in de les gezien hebben), krijg je voor het deel van JPA al de decorators gegeven voor de volledige `Tornooi` en `Wedstrijd` klassen. Ook in de `Speler` klasse werden de decorators die je nodig hebt voor de relaties al toegevoegd. **Je moet in `Speler` dus enkel nog de basis decoratoren voor JPA toevoegen.**
+
+VERBETERDE KLASSEN (klik op de naam om de file te donwloaden): 
+- [build.gradle](/files/dab-opdracht-api/build.gradle): Hier werden de correcte dependecies voor JPA toegevoegd.
+Voor de main folder:
+- [Speler](/files/dab-opdracht-api/Speler.java): Hier zijn `decorators` toegevoegd voor de relaties in JPA, de `setTennisvlaanderenId`-methode werd toegevoegd. `ArrayLists` werden naar `Lists` omgevormd in de type vermelding van de datamembers om compatibel te zijn met JPA/Hibernate. De spelfout in `getTennisvlaanderenid` is verbeterd naar `getTennisvlaanderenId` (Let op dit kan in je eigen code errors geven die je dan simpel kan oplossen)
+- [Wedstrijd](/files/dab-opdracht-api/Westrijd.java): Hier zijn `decorators` toegevoegd voor JPA, de `setId`-methode werd toegevoegd.
+- [Tornooi](/files/dab-opdracht-api/Tornooi.java): Hier zijn `decorators` toegevoegd voor JPA, en werd een naamconventie correct van snakecase naar camelcase omgevormd. De `setId`-methode werd toegevoegd. `ArrayLists` werden naar `Lists` omgevormd in de type vermelding van de datamembers om compatibel te zijn met JPA/Hibernate.
+- [SpelerRepository](/files/dab-opdracht-api/SpelerRepository.java): Hier werden de parameters van de methoden `addSpelerToTornooi` en `removeSpelerFromTornooi` correct aangepast zodat je ook een `tennisvlaanderenId` meegeeft.
+- **NIEUW:** [SpelerRepositoryJPAimpl](/files/dab-opdracht-api/SpelerRepositoryJPAimpl.java): Template file voor JPA implementatie, met al oplossing voor  `addSpelerToTornooi` en `removeSpelerFromTornooi`. (want anders dan in de les gezien)
+- [initTableWithDummyData.sql](/files/dab-opdracht-api/main/initTableWithDummyData.sql): `NOT NULL` werd weggehaald bij Wedstrijd voor speler1 en speler2 dit overcompliceerde de JPA implementatie **LET OP: deze file heeft dezelfde naam als de SQL file in de test folder maar is niet dezelfde!!!**
+
+Voor de test folder:
+- [SpelerRepositoryTest](/files/dab-opdracht-api/SpelerRepositoryTest.java): De test `whenGetAllSpelers_assertThat8correctSpelersPresent` werd aangepast om compatibel te zijn met JDBI en JPA. De database url werd aangepast van "jdbc:sqlite::memory:" naar "jdbc:sqlite:testdatabase.db" om compatibel te zijn met JDBI en JPA (**Let erbij op dat je dezelfde url gebruikt in je `persistence.xml`-file**). De laatste 2 testen voor `addSpelerToTornooi` en `removeSpelerFromTornooi` zijn nu niet meer leeg.
+- **NIEUW:** [SpelerRepositoryJPAimplTest](/files/dab-opdracht-api/SpelerRepositoryJPAimplTest.java): Testfile voor JPA, toe te voegen in dezelfde folder als de andere testen.
+- [initTableWithDummyData.sql](/files/dab-opdracht-api/test/initTableWithDummyData.sql): `NOT NULL` werd weggehaald bij Wedstrijd voor speler1 en speler2 dit overcompliceerde de JPA implementatie **LET OP: deze file heeft dezelfde naam als de SQL file in de main folder maar is niet dezelfde!!!**
+
+
+**_Vergeet niet dat je zelf nog wel de juiste `persistence.xml`-files moet toevoegen!_**
