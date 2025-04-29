@@ -8,18 +8,32 @@
     <language>en-uk</language>
     <atom:link href="http://localhost:1313/db-course/nosql/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>http://localhost:1313/db-course/nosql/4oef3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/nosql/4oef3/</guid>
-      <description>&lt;script src=&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;button id=&#34;btn&#34;&gt;Print docs&lt;/button&gt;&#xD;&#xA;&lt;pre id=&#34;pre&#34;&gt;&#xD;&#xA;...&#xD;&#xA;&lt;/pre&gt;&#xD;&#xA;&lt;script&gt;&#xD;&#xA;function print(doc) {&#xD;&#xA;&#x9;document.querySelector(&#39;#pre&#39;).innerHTML = JSON.stringify(doc);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  var db = new PouchDB(&#39;my_database&#39;);&#xD;&#xA;  // do your setup here&#xD;&#xA;&#xD;&#xA;  function queryDocs() {&#xD;&#xA;  &#x9; // do your thing here&#xD;&#xA;  &#x9; print(&#39;goed bezig&#39;);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;document.querySelector(&#34;#btn&#34;).addEventListener(&#34;click&#34;, queryDocs);&#xD;&#xA;&lt;/script&gt;</description>
-    </item>
-    <item>
       <title>NoSQL Basics</title>
       <link>http://localhost:1313/db-course/nosql/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/nosql/basics/</guid>
       <description>&lt;h2 id=&#34;het-schaalbaarheid-probleem&#34;&gt;Het schaalbaarheid probleem&lt;/h2&gt;&#xA;&lt;p&gt;Het probleem met RDMS (&lt;strong&gt;relationele&lt;/strong&gt; database management systems) is vaak &lt;em&gt;schaalbaarheid&lt;/em&gt;. Gezien de ACID data validity voorwaarden is altijd de vraag: is dit schaalbaar?&lt;/p&gt;&#xA;&lt;h3 id=&#34;optie-1-vertical-scaling&#34;&gt;Optie 1: Vertical scaling&lt;/h3&gt;&#xA;&lt;p&gt;De makkelijke oplossing is &amp;ldquo;scaling up&amp;rdquo;: meer storage, CPU, RAM, &amp;hellip; voorzien zodat er meer cycles kunnen benut worden en hopelijk ook meer transacties concurrent kunnen worden verwerkt (zie &lt;a href=&#34;../transacties/basics&#34;&gt;transacties basics&lt;/a&gt;).&lt;/p&gt;&#xA;&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../slides/img/moar.jpg&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../slides/img/moar.jpg&#34;  &gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Je botst hier echter snel op &lt;strong&gt;hardware limitaties&lt;/strong&gt;&amp;mdash;niet alles is opgelost met een latje RAM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Document Stores met MongoDB</title>
+      <link>http://localhost:1313/db-course/nosql/documentstores/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/nosql/documentstores/</guid>
+      <description>&lt;h2 id=&#34;mongodb&#34;&gt;MongoDB&lt;/h2&gt;&#xA;&lt;h3 id=&#34;introductie&#34;&gt;Introductie&lt;/h3&gt;&#xA;&lt;p&gt;Wat is MongoDB en hoe verschilt het van andere soorten databases? MongoDB is een NoSQL gedistribueerde database. Omdat gegevens niet binnen de strikte grenzen van een relationeel model hoeven te passen, kan MongoDB functioneren als een algemene gegevensopslag. Dit biedt verschillende voordelen.&lt;/p&gt;&#xA;&lt;p&gt;In MongoDB worden gegevens opgeslagen in een &lt;strong&gt;flexibel schema&lt;/strong&gt;. Als de behoeften van je applicatie veranderen, kun je eenvoudig de structuur van je gegevens aanpassen. Dankzij &lt;strong&gt;schema-validatie&lt;/strong&gt; kun je bepalen hoe strikt of flexibel je schema moet zijn. Dit maakt MongoDB geschikt voor uiteenlopende databehoeften.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>VERPLICHTE opdracht</title>
+      <link>http://localhost:1313/db-course/nosql/opdracht/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/nosql/opdracht/</guid>
+      <description>&lt;h2 id=&#34;opdracht-mongodb-met-als-deadline-vrijdag-9-mei-2025-23u59&#34;&gt;Opdracht MongoDb met als deadline vrijdag 9 mei 2025 23u59&lt;/h2&gt;&#xA;&lt;p&gt;Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende &lt;a href=&#34;&#34;&gt;Github Classroom&lt;/a&gt;&lt;!-- TODO link--&gt;. En pull je de repository van &lt;a href=&#34;&#34;&gt;&lt;strong&gt;Opdracht rond MongoDb&lt;/strong&gt;&lt;/a&gt;&lt;!-- TODO link --&gt;. Deze repository bevat een Java Gradle project met een aantal &lt;code&gt;TODO&lt;/code&gt;&amp;rsquo;s die je moet oplossen. Hieronder staat de opdracht nog beschreven:&lt;/p&gt;&#xA;&lt;h3 id=&#34;opdracht&#34;&gt;Opdracht:&lt;/h3&gt;&#xA;&lt;!-- TODO: Volgend jaar met schema-validatie, letten op ontbrekende eigenschappen in de JSON ... --&gt;&#xD;&#xA;&lt;!-- TODO uitleg--&gt;&#xD;&#xA;&lt;p&gt;&lt;strong&gt;Push voor de deadline van vrijdag 9 mei 2025 23u59 je oplossingen naar je repository&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/db-course/nosql/4oef3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/db-course/nosql/4oef3/</guid>
+      <description>&lt;script src=&#34;//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js&#34;&gt;&lt;/script&gt;&#xD;&#xA;&lt;button id=&#34;btn&#34;&gt;Print docs&lt;/button&gt;&#xD;&#xA;&lt;pre id=&#34;pre&#34;&gt;&#xD;&#xA;...&#xD;&#xA;&lt;/pre&gt;&#xD;&#xA;&lt;script&gt;&#xD;&#xA;function print(doc) {&#xD;&#xA;&#x9;document.querySelector(&#39;#pre&#39;).innerHTML = JSON.stringify(doc);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  var db = new PouchDB(&#39;my_database&#39;);&#xD;&#xA;  // do your setup here&#xD;&#xA;&#xD;&#xA;  function queryDocs() {&#xD;&#xA;  &#x9; // do your thing here&#xD;&#xA;  &#x9; print(&#39;goed bezig&#39;);&#xD;&#xA;  }&#xD;&#xA;&#xD;&#xA;document.querySelector(&#34;#btn&#34;).addEventListener(&#34;click&#34;, queryDocs);&#xD;&#xA;&lt;/script&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,255 +1,581 @@
 ---
-title: 3. Document stores
-draft: true
+title: Document Stores met MongoDB
+draft: false
+weight: 2
 ---
 
-### 0. Data filtering: recap
+## MongoDB
 
-Wat is een "mapreduce" functie nu weer precies? Weet je nog, in het eerstejaarsvak BES, in Python? Stel, we hebben een array `[1, 2, 3, 4]` en willen alle elementen verdubbelen. Dat kan erg eenvoudig met een `list(map(lambda...))` statement:
+### Introductie
 
-```python
-range = [1, 2, 3, 4]
-result = list(map(lambda x: x * 2, range))
-print(result)
+Wat is MongoDB en hoe verschilt het van andere soorten databases? MongoDB is een NoSQL gedistribueerde database. Omdat gegevens niet binnen de strikte grenzen van een relationeel model hoeven te passen, kan MongoDB functioneren als een algemene gegevensopslag. Dit biedt verschillende voordelen.
+
+In MongoDB worden gegevens opgeslagen in een **flexibel schema**. Als de behoeften van je applicatie veranderen, kun je eenvoudig de structuur van je gegevens aanpassen. Dankzij **schema-validatie** kun je bepalen hoe strikt of flexibel je schema moet zijn. Dit maakt MongoDB geschikt voor uiteenlopende databehoeften.
+
+In relationele databases worden **relaties** tussen gegevens in verschillende tabellen gerealiseerd via joins. In hiërarchische databases zijn relaties tussen knooppunten vaak onmogelijk. MongoDB biedt echter de mogelijkheid om documenten te koppelen via operaties zoals `$lookup` of door middel van referenties.
+
+Daarnaast heeft MongoDB **geen single point of failure**, wat betekent dat het systeem robuuster is. Bovendien ondersteunt MongoDB transacties, wat de atomische uitvoering van lees- en schrijfbewerkingen over meerdere documenten garandeert. Dit is vooral handig bij complexe query's over meerdere documenten.
+
+MongoDB is ontworpen voor applicaties in het internet era, waar gebruikers gegevens vanaf verschillende locaties kunnen manipuleren. Met **ingebouwde ondersteuning voor replicatie, load balancing en aggregatie** is MongoDB een veelzijdig onderdeel van moderne softwarearchitectuur.
+
+#### Voordelen van MongoDB Atlas: Cloud omgeving
+
+MongoDB Atlas is een multi-cloud documentdatabaseservice. Het is een volledig beheerde dienst die wordt uitgevoerd door een team van MongoDB-systeembeheerders, zodat jij je kunt richten op je eigen applicatie. MongoDB Atlas is beschikbaar op cloudproviders zoals AWS, Microsoft Azure en Google Cloud Platform, waardoor het flexibel inzetbaar is.
+
+#### Bedrijven die MongoDB gebruiken
+
+Enkele bekende bedrijven die MongoDB gebruiken zijn eBay, Forbes en FEMA.
+
+### Installatie
+
+Om MongoDB te installeren:
+- Download de communityversie via [MongoDB Community Download](https://www.mongodb.com/try/download/community). Deze versie biedt krachtige manieren om gegevens te analyseren en te bevragen, inclusief ondersteuning voor ad-hoc queries, secundaire indexering en real-time aggregaties.
+- Installeer ook de GUI-tool [MongoDB Compass](https://www.mongodb.com/products/compass) om je gegevens visueel te beheren.
+- Volg de installatiehandleiding: [Install MongoDB op Windows](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/#std-label-install-mdb-community-windows). Deze handleiding biedt stapsgewijze instructies voor het installeren van MongoDB Community Edition op Windows.
+- (Bekijk de installatievideo: [MongoDB Installatie op Windows](https://www.youtube.com/watch?v=gB6WLkSrtJk&pp=ygUPbW9uZ29kYiB3aW5kb3dz).)
+
+Voor gebruik in VSCode kun je de extensie "MongoDB for VSCode" installeren. Hiermee kun je gegevens exporteren naar bijvoorbeeld Java code.
+
+### Overzicht van Gebruik
+
+MongoDB is een NoSQL-database zonder vast schema. Gegevens worden opgeslagen in **BSON (Binary JSON)**, een JSON-formaat met uitgebreide datatypes. In MongoDB worden tabellen **"collecties"** genoemd en rijen **"documenten"**. Elk document heeft een unieke `_id`.
+
+### Voorbeeld 
+
+Een voorbeeld van een collectie met 3 documents in MongoDB:
+
+```json
+[
+  {
+    "_id": "00000020f51bb4362eee2a4d", 
+    "studnr": 123,
+    "naam": "Trekhaak",
+    "voornaam": "Jaak",
+    "goedBezig": false,
+    "opleiding": {
+      "naam": "IIW",
+      "keuze": "Informatica"
+    },
+    "vakken": ["DAB", "SES", "FSWEB"]
+  },
+  {
+    "_id": "507f191e810c19729de860ea", 
+    "studnr": 456,
+    "naam": "Peeters",
+    "voornaam": "Jos",
+    "goedBezig": false,
+    "opleiding": {
+      "naam": "IIW",
+      "keuze": "EA-ICT"
+    },
+    "vakken": ["DAB", "SES"]
+  },
+  {
+    "_id": "6592008029c8c3e4dc76256c", 
+    "studnr": 890,
+    "naam": "Dongmans",
+    "voornaam": "Ding",
+    "goedBezig": true,
+    "vakken": ["DAB"]
+  }
+]
 ```
 
- Hier gebruikten we een "lambda" om **voor elk element** een functie los te laten, die dat element **transformeert**, ofwel "mapt". Python's `map()` functioneert exact hetzelfde als JavaScript's `map()`---evenals `reduce()` en `filter()`. Omdat we met een JS-based document store gaan werken is het belangrijk om te weten hoe je bovenstaande principes in **JavaScript** uitvoert.
+**Merk op dat voor de derde student de Opleiding ontbreekt, dit kan dus in NoSql document stores. Het is dan wel belangrijk dat je software hier rekening mee houdt!**
 
-#### Oefening 1
+### Belangrijke Commando's
 
-Zoek leerlingen ouder dan 20 en geef hun naam terug. De leerlingen zitten in de volgende JS array: `const studenten = [{age: 11, name: 'jos'}, {age: 21, name: 'jef'}]`.
+Hieronder een overzicht van veelgebruikte commando's in MongoDB:
 
-Oplossing:
+```bash
+# Versie controleren
+$ mongosh --version
 
-<div class="devselect">
+# Verbinden met een database
+$ mongosh "<connection string>" --username <username>
 
-```javascript
-studenten.filter(function(student) {
-    return student.age > 20
-}).map(function(student) {
-    return student.name
-})
-// kan ook met oneliner: studenten.filter(s => s.age > 20).map(s => s.name)
+# Lokale verbinding
+$ mongosh
+
+# IN MONGOSH
+# Databases weergeven
+show dbs
+# Database selecteren
+use <db name>
+# Database verwijderen
+db.dropDatabase()
+# MongoSH beëindigen
+exit
+
+# Collectie aanmaken
+db.createCollection("<collection name>")
+# Document toevoegen
+db.<collection name>.insertOne(<json>)
+# Meerdere documenten toevoegen
+db.<collection name>.insertMany(<jsonArray>)
+
+# Documenten opvragen
+db.<collection name>.find()
+db.<collection name>.find({<keyname>: "<value>"})
+db.<collection name>.find({<keyname>: {<operation>}})
+
+db.<collection name>.find()[0]._id
+db.<collection name>.find(…).sort({<key>: 1})  or -1 for descending order
+db.<collection name>.find(…).count()
+db.<collection name>.find(…).limit(2)
+db.<collection name>.find(…).skip(<nr>)
+db.<collection name>.findOne({<keyname>: {<operation>}})
+  # Operation example: {$gt: 3}
+  # other operators: $gt, $lt, $gte, $lte, $eq, $in, $exists: true, 
+
+
+# Documenten bijwerken
+db.<collection name>.updateOne({<criteria>}, {$set: {<key>: <value>}})
+  # criteria: search criteria like you use in find
+  # without $set the whole document is replaced with the new JSON and not only the corresponding values change
+db.<collection name>.updateMany()
+
+# Documenten verwijderen
+db.<db name>.deleteOne(<query>)
+db.<db name>.deleteMany(<query>)
+
+db.<db name>.replaceOne(<query>)
+db.<db name>.replaceMany(<query>)
 ```
 
-```python
-filtered = filter(lambda student: student.age > 20, studenten)
-list(map(lambda student: student.name, filtered))
-```
+Meer informatie over query- en updateoperators is te vinden in de [MongoDB-documentatie](https://www.mongodb.com/docs/manual/reference/operator/).
 
-</div>
+#### Aggregaties
 
-Kopieer bovenstaand voorbeeld in je browser developer console en kijk wat er gebeurt. Het resultaat zou een openklapbare `Array [ "jef" ]` moeten zijn.
+MongoDB ondersteunt aggregaties, waarmee je complexe bewerkingen op gegevens kunt uitvoeren. Aggregaties zijn een krachtige manier om gegevens te transformeren en te analyseren. Ze worden vaak gebruikt om samenvattingen, statistieken of andere berekeningen uit te voeren op grote datasets. Aggregaties worden uitgevoerd met behulp van een aggregatie-pijplijn, die bestaat uit een reeks stappen die gegevens verwerken en transformeren.
 
-We **chainen** (sequentieel combineren) hier dus `filter()` en daarna `map()`. De `filter()` geeft student Jef terug in een array (`[{age: 21, name: 'jef'}]`), waarna de `map()` voor elk element in die array (maar eentje), een transformatie doorvoert: van `{age: 21, name: 'jef'}` naar `'jef'` via `student.name`.
+Enkele veelgebruikte aggregatiestappen zijn:
+- `$match`: Filteren van gegevens op basis van criteria.
+- `$sort`: Sorteren van gegevens op een specifieke volgorde.
+- `$project`: Selecteren en transformeren van specifieke velden in documenten.
+- `$group`: Groeperen van gegevens en uitvoeren van berekeningen zoals som, gemiddelde of telling.
+- `$limit`: Beperken van het aantal resultaten.
+- `$skip`: Overslaan van een bepaald aantal resultaten.
 
-#### Oefening 2
+Een voorbeeld van een aggregatie in Java en in de console.
 
-Wat is de som van de leeftijden van de studenten? 11 + 21 = 32. Hoe kunnen we dit **functioneel schrijven** met behulp van een `reduce()`?
+**Aggregatie in Java:**
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import java.util.Arrays;
 
-Oplossing:
+public class AggregationExample {
+    public static void main(String[] args) {
+        String uri = "mongodb://localhost:27017";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("mijnDatabase");
+            MongoCollection<Document> collectie = database.getCollection("mijnCollectie");
 
-<div class="devselect">
-
-```javascript
-studenten.map(function(student) {
-   return student.age
-}).reduce(function(age1, age2) {
-    return age1 + age2
-})
-// kan ook met oneliner: studenten.map(s => s.age).reduce((a, b) => a + b)
-```
-
-```python
-mapped = map(lambda student: student.age, studenten)
-reduce(lambda age1, age2: age1 + age2, mapped)
-```
-
-</div>
-
-Kan jij bedenken waarom we hier een `map()` nodig hebben voor de `reduce()`?
-
-Meer informatie: zie [Mozilla Developer web docs: map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) en reduce/filter. Wanneer je jezelf familiair gemaakt hebt met deze drie functionele (en essentiele!) data manipulatie methodes kan je overgaan tot de hoofdzaak van dit hoofdstuk---CouchDB en noSQL queries. 
-
-### 1. Eenvoudige CouchDB Queries
-
-![](/slides/img/couchdb.png)
-
-Lui in die zetel liggen, en vanaf de bank met gemak query's lanceren? Geen probleem met CouchDB, een open source NoSQL JSON-based document store. 
-
-#### Mango
-
-CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [http://127.0.0.1:5984/_utils/docs/intro/api.html#documents](http://127.0.0.1:5984/_utils/docs/intro/api.html#documents). Selecteer een database, klik op "run a query with Mango":
-
-```javascript
-{
-   "selector": {
-      "year": 3
-   }
-}
-```
-
-De `selector` attribute bepaalt op welke keys er wordt gefilterd. Indexen leggen op zwaar belaste "kolommen" (keys dus) is in geval van miljarden records zeker geen overbodige luxe. 
-
-Mango werkt met een _selector syntax_ (zie documentatie) die impliciet bovenstaande omzet naar `{"year": {"$eq": 3}}`. Er zijn ook andere dollar-based operatoren. Geneste attributes kan je raadplegen met de `.` separator: `{"student.name": {"eq": "Joske"}}`. 
-
-Een ander voorbeeld: Zoek leerlingen ouder dan 20 en geef hun naam terug:
-
-```js
-function(doc) {
-    if(doc.age > 20) {
-        emit(doc._id, doc.name);
+            collectie.aggregate(Arrays.asList(
+                new Document("$match", new Document("date", new Document("$gte", "2014-01-01").append("$lt", "2015-01-01"))),
+                new Document("$group", new Document("_id", "$item")
+                    .append("totalSaleAmount", new Document("$sum", new Document("$multiply", Arrays.asList("$price", "$quantity"))))),
+                new Document("$sort", new Document("totalSaleAmount", -1)),
+                new Document("$limit", 5)
+            )).forEach(doc -> System.out.println(doc.toJson()));
+        }
     }
 }
 ```
 
-De functie `emit(key, value)` beslist in welke hoedanigheid een document wordt teruggeven. In dit geval geven we de `doc.name` terug: de naam van de leerling. We filteren met een simpele `if()` in de code zelf! Dit kunnen we ook functioneel schrijven in pure JavaScript, los van CouchDB en zijn Mango API, met `filter()`---zie de data filtering introductie hierboven. 
-
-Nog een ander voorbeeld: van 10 rijen de som teruggeven. In SQL doe je dit met een `GROUP BY` en `COUNT`, maar daar bestaat geen alternatief voor in NoSQL, behalve de kracht van JS `reduce()`:
-
-```js
-function(keys, values, rereduce) {
-    return values.reduce(function(a, b) {
-        return a + b
-    })
-}
+**Aggregatie in de console (mongosh)**
+```javascript
+use mijnDatabase;
+db.mijnCollectie.aggregate([
+  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+  { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } } } },
+  { $sort: { totalSaleAmount: -1 } },
+  { $limit: 5 }
+]);
 ```
 
-Opnieuw, hetzelfde kan ook met "plain old JavaScript", zoals in de data filtering recap aangegeven (`[1, 2, 3, 4].reduce(a, b => a + b)`).
+**Let wel op! De volgorde bij aggregaties zeer belangrijk is: Stel dat je in bovenstaande voorbeeld eerst een `$limit 5` zou doen en daarna pas een `$match`, dan zou je dus enkel matchen zoeken binnen de 5 documenten die nog over hebt na je voorgaande `$limit` commando.** 
 
-Je kan in Mango de `map()` en de `reduce()` uiteraard ook **combineren**, net zoals je in JS kan _chainen_. Hieronder berekenen we bijvoorbeeld de gemiddelde leeftijd van "oudere" studenten (ouder dan 20 jaar):
+Meer informatie over aggregaties is te vinden in de [MongoDB-documentatie](https://www.mongodb.com/docs/manual/aggregation/).
 
-```js
-function map(doc) {
-    if(doc.age > 20) {
-        emit(doc._id, doc.age);
+#### Schema-validatie
+
+Schema-validatie in MongoDB biedt een manier om de structuur van documenten in een collectie te definiëren en te valideren. Dit helpt om de integriteit van gegevens te waarborgen en fouten te voorkomen. Met schema-validatie kun je regels instellen voor de velden in een document, zoals het type, de vereiste velden en de toegestane waarden.
+
+**Hoe schema-validatie aanbrengen?**<br/>
+Schema-validatie wordt ingesteld op het niveau van een collectie. Bij het aanmaken van een collectie kun je een validatieregelspecificatie opgeven met behulp van het `validator`-veld. Dit veld bevat een query die de validatieregels definieert.
+
+**Syntax voor schema-validatie in Java**<br/>
+Hier is een voorbeeld van hoe je schema-validatie kunt instellen in Java:
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+
+public class SchemaValidationExample {
+    public static void main(String[] args) {
+        String uri = "mongodb://localhost:27017";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("mijnDatabase");
+
+            Document schema = new Document("bsonType", "object")
+                .append("required", List.of("naam", "leeftijd"))
+                .append("properties", new Document("naam", new Document("bsonType", "string")
+                        .append("description", "Naam is verplicht en moet een string zijn."))
+                    .append("leeftijd", new Document("bsonType", "int")
+                        .append("minimum", 0)
+                        .append("description", "Leeftijd is verplicht en moet een positief geheel getal zijn.")));
+
+            database.createCollection("mijnCollectie", new Document("validator", new Document("$jsonSchema", schema)));
+        }
     }
 }
-function reduce(keys, values, rereduce) {
-    return sum(values) / values.length;
+```
+
+**Syntax voor schema-validatie in de console (mongosh)**
+```javascript
+use mijnDatabase;
+db.createCollection("mijnCollectie", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["naam", "leeftijd"],
+      properties: {
+        naam: {
+          bsonType: "string",
+          description: "Naam is verplicht en moet een string zijn."
+        },
+        leeftijd: {
+          bsonType: "int",
+          minimum: 0,
+          description: "Leeftijd is verplicht en moet een positief geheel getal zijn."
+        }
+      }
+    }
+  }
+});
+```
+
+**Validatie aanpassen**<br/>
+Je kunt de validatieregels van een bestaande collectie aanpassen met het commando `collMod`:
+
+```javascript
+db.runCommand({
+  collMod: "mijnCollectie",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["naam", "leeftijd"],
+      properties: {
+        naam: {
+          bsonType: "string"
+        },
+        leeftijd: {
+          bsonType: "int",
+          minimum: 0
+        }
+      }
+    }
+  }
+});
+```
+
+**Validatie uitschakelen**<br/>
+Als je schema-validatie tijdelijk wilt uitschakelen, kun je de validatieactie instellen op "warn" in plaats van "error":
+
+```javascript
+db.runCommand({
+  collMod: "mijnCollectie",
+  validationAction: "warn"
+});
+```
+
+Met deze aanpak kun je schema-validatie flexibel toepassen en aanpassen aan de behoeften van je applicatie.
+
+### MongoDB Compass
+
+MongoDB Compass is een grafische gebruikersinterface (GUI) waarmee je eenvoudig je MongoDB-databases kan beheren en verkennen. Met Compass kan je:
+
+- **Databases en collecties bekijken**: Je kan de structuur van je database en collecties visueel inspecteren.
+- **Query's uitvoeren**: Compass biedt een intuïtieve interface om query's te schrijven en resultaten te bekijken.
+- **Documenten bewerken**: Je kan individuele documenten in je collecties bekijken, bewerken en verwijderen.
+- **Indexen beheren**: Compass laat je indexen bekijken en beheren om de prestaties van je database te optimaliseren.
+- **Aggregaties uitvoeren**: Met de ingebouwde aggregatie-pipeline-builder kan je complexe aggregaties maken en testen.
+
+Om MongoDB Compass te gebruiken:
+1. Start Compass en verbind met je MongoDB-database door de connection string in te voeren.
+2. Navigeer door je databases en collecties in de linkernavigatiebalk.
+3. Gebruik de zoekbalk om query's te schrijven en resultaten te filteren.
+4. Klik op een document om het te bewerken of te verwijderen.
+
+Meer informatie over MongoDB Compass is te vinden op de [officiële website](https://www.mongodb.com/products/compass).
+
+### MongoDB VSCode Extensie
+
+De MongoDB VSCode-extensie integreert MongoDB-functionaliteit direct in Visual Studio Code. Hiermee kun je:
+
+- **Verbinden met MongoDB**: Maak verbinding met een lokale of cloudgebaseerde MongoDB-database.
+- **Gegevens verkennen**: Bekijk databases, collecties en documenten in een boomstructuur.
+- **Query's uitvoeren**: Schrijf en voer query's uit in een geïntegreerde editor.
+- **Gegevens exporteren**: Exporteer gegevens naar JSON of andere formaten.
+- **Code genereren**: Genereer codefragmenten voor je applicatie, zoals Java of Node.js.
+
+Om de extensie te gebruiken:
+1. Installeer de extensie "MongoDB for VSCode" via de VSCode Marketplace.
+2. Open de MongoDB Explorer in de zijbalk.
+3. Voeg een nieuwe verbinding toe door de connection string in te voeren.
+4. Navigeer door je databases en voer query's uit in de editor.
+
+Meer informatie over de extensie is te vinden op de [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode).
+
+### MongoDB in Java
+
+Om een verbinding te maken met een MongoDB-database in Java, heb je de volgende Gradle-dependency nodig:
+
+```groovy
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
 }
 ```
 
-{{% notice note %}}
-Wat is het verschil tussen `function(a, b) {}` en `(a, b => `? (Bijna) geen (die jullie moeten kennen). De arrow notatie (`=>`) is de nieuwe syntax voor anonieme functies aan te maken in JavaScript, en in CouchDB/Mango werken we nog met de oude notatie omdat (1) dit door Couch wordt gegenereerd en (2) de meeste voorbeelden in de documentatie nog zo werken. Dus, `function hallokes() { console.log('sup') }` is exact hetzelfde als `let hallokes = () => { console.log('sup') }`. <br/>Zie [MDN docs: Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions?retiredLocale=vi) voor meer informatie.
+Hier is een voorbeeld van hoe je een verbinding kunt maken en een eenvoudige CRUD-operatie kunt uitvoeren:
+
+```java
+import com.mongodb.client.*;
+import org.bson.Document;
+
+public class MongoDBExample {
+    public static void main(String[] args) {
+        // Verbinden met de MongoDB-database
+        String uri = "mongodb://localhost:27017";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("mijnDatabase");
+            MongoCollection<Document> collectie = database.getCollection("mijnCollectie");
+
+            // Create: Document toevoegen
+            Document nieuwDocument = new Document("naam", "John Doe")
+                    .append("leeftijd", 30)
+                    .append("beroep", "Software Engineer");
+            collectie.insertOne(nieuwDocument);
+
+            // Read: Documenten opvragen
+            for (Document doc : collectie.find()) {
+                System.out.println(doc.toJson());
+            }
+
+            // Update: Document bijwerken
+            collectie.updateOne(new Document("naam", "John Doe"),
+                    new Document("$set", new Document("leeftijd", 31)));
+
+            // Delete: Document verwijderen
+            collectie.deleteOne(new Document("naam", "John Doe"));
+        }
+    }
+}
+```
+{{% notice info %}}
+Meer informatie kan je [hier in de documentatie](https://www.mongodb.com/docs/drivers/java/sync/current/get-started/) terugvinden!
 {{% /notice %}}
 
+#### CRUD-commando's
 
+Hier zijn de belangrijkste commando's die je nodig hebt om een kleine CRUD-applicatie te maken:
 
-**LET OP**:
+1. **Create**:
+   ```java
+   collectie.insertOne(new Document("key", "value"));
+   ```
 
-`reduce()` schiet (misschien) in actie als `map()` nog bezig is. We gaan hier later nog verder op in in [NoSQL - Advanced queries](/nosql/mapreduce).
+2. **Read**:
+   ```java
+   for (Document doc : collectie.find()) {
+       System.out.println(doc.toJson());
+   }
+   ```
 
+3. **Update**:
+   ```java
+   collectie.updateOne(new Document("key", "value"),
+           new Document("$set", new Document("key", "newValue")));
+   ```
 
-#### De CouchDB API interface: alles via HTTP(S)
+4. **Delete**:
+   ```java
+   collectie.deleteOne(new Document("key", "value"));
+   ```
 
-`curl` is een snelle cmd-line tool waarbij je via `-X` kan meegeven of het over een HTTPs `GET`, `POST`, `PUT`, ... gaat. De DB locatie en poort met het juiste **endpoint** zijn hier de belangrijkste factoren. Een bepaald document raadplegen doe je met:
+Met deze tools en voorbeelden kun je eenvoudig aan de slag met MongoDB in Java en andere ontwikkelomgevingen.
 
-```
-curl -X GET http://127.0.0.1:5984/[database]/[id]
-```
+#### Java Objecten en JSON
 
-Het resultaat is altijd een geldig `JSON` object (ook al geef je een ongeldige ID mee): `curl -X GET "http://127.0.0.1:5984/courses/aalto-university;bachelor-data-science;professional-development;1"`
+Om een Java-object om te zetten naar JSON en omgekeerd, kun je gebruik maken van Gson. Deze bibliotheek maakt het eenvoudig om objecten te serialiseren en deserialiseren. Hier is een voorbeeld met de klasse `Student` en het bijbehorende JSON-document.
 
-```
-{"_id":"aalto-university;bachelor-data-science;professional-development;1","_rev":"1-f7872c4254bfc2e0e5507502e2fafd6f","title":"Professional Development","url":"https://oodi.aalto.fi/a/opintjakstied.jsp?OpinKohd=1125443391&haettuOpas=-1","university":"Aalto University","country":"Finland","category":"professional","ECTS":5,"year":1,"optional":true,"skills":["motivate self","oral communication","self-directed learning","self-reflection","give/receive feedback","set/keep timelines","show initiative"],"course":"Bachelor Data Science","lo":"<br/>Learning Outcomes   <br/>Being able to effectively communicate one's strenghts and professional capacities<br/>Finding one’s own academic and professional interests and taking initiative in one’s own learning<br/>Planning and prototyping one's own professional development<br/> <br/>Content     <br/>The course is integrated to the Aaltonaut program to promote reflection, skill articulation and initiative. The course comprises workshops on different themes related to developing professional skills, independently building a learning portfolio, and taking part in feedback, reflection and goal setting activities.<br/><br/> "}
-```
+**Gradle Dependencies**<br/>
+Voor Gson:
 
-Indien ongeldig: `{"error":"not_found","reason":"missing"}`.
-
-Indien geen toegang: `{"error":"unauthorized","reason":"You are not authorized to access this db."}`. Zie "LET OP" hieronder---gebruik het `-u` argument. 
-
-### 2. Oefeningen: Voorbereidingswerk
-
-1. Download CouchDB via [https://couchdb.apache.org](https://couchdb.apache.org).
-2. Download de [testdatabase JSON file](/db/dump.db)
-3. Maak een nieuwe databases aan via de Fauxton Web-based admin tool. Open CouchDB, ga naar "**Open Admin Console**" of surf zelf naar [http://127.0.0.1:5984/_utils/](http://127.0.0.1:5984/_utils/). Maak een database aan genaamd '_courses_'.
-4. Importeer de test JSON met `curl` in cmdnline:
-
-```
-curl -d @dump.db -H "Content-Type: application/json" -X POST http://127.0.0.1:5984/courses/_bulk_docs
-```
-
-**LET OP**: 
-
-1. Bij het aanmaken van een database kan je kiezen tussen partitioned en non-partitioned. Kies hiervoor _non-partitioned_.
-2. Het kan zijn dat CURL een security fout geeft. Bij het installeren van CouchDB moet je een admin username/password meegeven. Voeg aan het einde van je curl commando dit toe: `-u username:wachtwoord`.
-
-Nadien kan je in Fauxton op `F5` drukken en zou je dit moeten zien:
-
-![](/img/fauxton.jpg)
-
-Ik heb voor jullie de dump genomen door het omgekeerde (exporteren) te doen:
-
-```
-curl -X GET http://127.0.0.1:5984/courses/_all_docs\?include_docs\=true > dump.db
-```
-
-(Voor mensen op Windows-curl: verander `\` naar `/`. Ook; bij meegeven van JSON data: enkele quotes '' vervangen door dubbele  "" en dubbele in de enkele escapen met backlash \").
-
-Daarna volgt wat post-processing (`rows` wordt `docs`, elke `doc` moet in de root array zitten en `_rev` moet weg) om tot bovenstaande [dump.db](/db/dump.db) filte te komen. Dit hebben wij handmatig voor jullie gedaan, zodat de downloadbare file klaar is om te importeren. 
-
-### 3. Oefeningen met Fauxton/Curl
-
-1. Schrijf een Mango query die cursussen ophaalt waarbij het aantal `ECTS` punten groter is dan 5. 
-2. Hoe voer je de query uit oefening 1 uit, _zonder_ de Admin console, maar met `curl`? 
-3. Selecteer alle documenten die als `skill` de waarde `self-reflection` én `show initiative` bevatten.
-4. Probeer zelf een dump te nemen van je eigen database zoals hierboven beschreven, met het `_all_docs` endpoint. Wat gebeurt er als je die dump opnieuw wilt importeren via het `_bulk_docs` endpoint?
-5. Maak een nieuwe database genaamd `studenten`. `POST` via `curl` enkele nieuwe documenten, met als template `{ name: $naam, age: $age, favouriteCourses: [$course1, $course2]}` naar deze DB. Controleer in Fauxton of de records correct zijn ingegeven. Verzin zelf wat Mango queries om studenten te filteren. 
-6. Maak een index aan op `age` voor je `studenten` database. Merk op dat indexes, zichtbaar in http://127.0.0.1:5984/_utils/#database/studenten/_index ook worden beschouwd als documenten op zich!
-
-Tip: CouchDB heeft een eenvoudige ingebouwde query syntax genaamd **Mango**. Documentatie op [https://github.com/cloudant/mango](https://github.com/cloudant/mango) en [https://docs.couchdb.org/en/stable/api/database/find.html](https://docs.couchdb.org/en/stable/api/database/find.html). Lees eerst na hoe dit in elkaar zit! 
-
-<!-- Een uitgewerkt voorbeeld van oefening 1 en 2 in begeleidende video: -->
-
-<!-- <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/723d495a34bb4a77aa8e406761a3ba4d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div> -->
-
-
-### 4. Java Client API
-
-Als je geen toegang hebt tot de admin console, of je wenst vanuit een Java programma records weg te schrijven naar een Couch database (of query's uit te voeren), dan heb je de Java API nodig. 
-
-In principe kan je met eender welke `HTTP` client REST calls uitvoeren en de responses zelf verwerken. Om het jezelf gemakkelijker te maken, gebruiken we hier ter illustratie [LightCouch](http://www.lightcouch.org).
-
-Lees de [LightCouch Getting Started guide](http://www.lightcouch.org/getstarted.html). Maak een nieuw gradle 6 project met de volgende dependencies:
-
-```
+```groovy
 dependencies {
-    implementation group: 'org.lightcouch', name: 'lightcouch', version: '0.2.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
 }
 ```
 
-In je `java/main/resources` map dien je een `couchdb.properties` file aan te maken die verwijst naar de DB URL/poort/naam (zie getting started):
+**Klasse `Student`**<br/>
+Hier is een voorbeeld van hoe je de klasse `Student` kunt definiëren:
 
-```
-couchdb.name=testdb
-couchdb.createdb.if-not-exist=true
-couchdb.protocol=http
-couchdb.host=127.0.0.1
-couchdb.port=5984
-couchdb.username=
-couchdb.password=
-```
+```java
+import com.google.gson.annotations.SerializedName;
+import org.bson.types.ObjectId;
+import java.util.List;
 
-Vanaf dan is het heel eenvoudig: Maak een `CouchDbClient` instantie aan. Nu kan je `.save()`, `.shutdown()` en `.find()` uitvoeren. Wat kan je bewaren? POJO (**Plain Old Java Objects**) klassen---of in geval van Kotlin, data objects---waarbij alle members automatisch worden geserialiseerd. 
+public class Student {
 
-#### LightCouch oefeningen
+    @SerializedName("_id")
+    private ObjectId id;
+    private int studnr;
+    private String naam;
+    private String voornaam;
+    private boolean goedBezig;
+    private Opleiding opleiding;
+    private List<String> vakken;
 
-1. Maak zoals hierboven beschreven een nieuw gradle project aan (IntelliJ?) en voeg LightCouch toe als dependency. Probeer naar een nieuwe database enkele objecten weg te schrijven. Gebruik hiervoor een `Student` klasse met als velden `name` en `age` (respectievelijk `String` en `int` als type). Controleer of dit is aangekomen in de admin console. Dat ziet er dan hopelijk zo uit:
+    // Getters en setters
 
-```javascript
-{
-  "_id": "387a34be062140e4be1390e846242114",
-  "_rev": "1-742f438439fd68bc6c67ca0d615f1469",
-  "name": "Joske",
-  "age": 10
+    public static class Opleiding {
+        private String naam;
+        private String keuze;
+
+        // Getters en setters
+    }
 }
 ```
 
-2. Probeer de views en query's even uit. Zoek bijvoorbeeld alle studenten in `List<Student>` en druk de namen af door middel van `println()`.
+**Object naar JSON en JSON naar Object**<br/>
+Hier is een voorbeeld van hoe je een `Student`-object kunt omzetten naar JSON en hoe je JSON kunt omzetten naar een `Student`-object met Gson:
 
-### Denkvragen
+```java
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.bson.Document;
 
-1. Wat is het verschil tussen een key/value store en een document store?
-2. Kan je een verklaring geven waarom NoSQL databases zonder DB SCHEME werken, als je weet dat bijvoorbeeld CouchDB plain JSON objecten kan bewaren? 
-3. Wat is het verschil tussen het bewaren van een JSON object via Curl en het bewaren van een POJO via LightCouc (De Client API verschillen zelf niet in rekening gebracht)? 
+public class JsonExample {
+    public static void main(String[] args) {
+        Gson gson = new GsonBuilder().create();
+
+        // Voorbeeld: Student-object naar JSON
+        Student student = new Student();
+        student.setStudnr(123);
+        student.setNaam("Trekhaak");
+        student.setVoornaam("Jaak");
+        student.setGoedBezig(false);
+
+        Student.Opleiding opleiding = new Student.Opleiding();
+        opleiding.setNaam("IIW");
+        opleiding.setKeuze("Informatica");
+        student.setOpleiding(opleiding);
+
+        student.setVakken(List.of("DAB", "SES", "FSWEB"));
+
+        // Object naar JSON
+        String json = gson.toJson(student);
+        System.out.println("JSON: " + json);
+
+        // JSON naar Object
+        String jsonString = "{\"_id\":\"00000020f51bb4362eee2a4d\",\"studnr\":123,\"naam\":\"Trekhaak\",\"voornaam\":\"Jaak\",\"goedBezig\":false,\"opleiding\":{\"naam\":\"IIW\",\"keuze\":\"Informatica\"},\"vakken\":[\"DAB\",\"SES\",\"FSWEB\"]}";
+        Student deserializedStudent = gson.fromJson(jsonString, Student.class);
+        System.out.println("Student: " + deserializedStudent.getNaam());
+    }
+}
+```
+
+**Opslaan en Ophalen in MongoDB**<br/>
+Hier is een voorbeeld van hoe je een `Student`-object kunt opslaan in en ophalen uit een MongoDB-database met Gson:
+
+```java
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+
+public class MongoDBJsonExample {
+    public static void main(String[] args) {
+        String uri = "mongodb://localhost:27017";
+        Gson gson = new GsonBuilder().create();
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("mijnDatabase");
+            MongoCollection<Document> collectie = database.getCollection("studenten");
+
+            // Student-object naar JSON en opslaan in MongoDB
+            Student student = new Student();
+            student.setStudnr(123);
+            student.setNaam("Trekhaak");
+            student.setVoornaam("Jaak");
+            student.setGoedBezig(false);
+
+            Student.Opleiding opleiding = new Student.Opleiding();
+            opleiding.setNaam("IIW");
+            opleiding.setKeuze("Informatica");
+            student.setOpleiding(opleiding);
+
+            student.setVakken(List.of("DAB", "SES", "FSWEB"));
+
+            String json = gson.toJson(student);
+            Document document = Document.parse(json);
+            collectie.insertOne(document);
+
+            // Ophalen uit MongoDB en JSON naar Student-object
+            Document dbDocument = collectie.find().first();
+            if (dbDocument != null) {
+                String dbJson = dbDocument.toJson();
+                Student deserializedStudent = gson.fromJson(dbJson, Student.class);
+                System.out.println("Ophalen uit MongoDB: " + deserializedStudent.getNaam());
+            }
+        }
+    }
+}
+```
+
+### Replicatie
+
+Bij gebruik van MongoDB Atlas is **replicatie** standaard inbegrepen. Dit zorgt voor een hogere beschikbaarheid en betrouwbaarheid. Replicatie in MongoDB wordt gerealiseerd via een replica set, een groep `mongod`-processen die dezelfde dataset onderhouden. Een replica set bevat meerdere data-dragers en optioneel een arbiter. 
+
+Replicatie houdt in dat gegevens automatisch worden gekopieerd van de primaire node naar secundaire nodes. Dit biedt niet alleen fouttolerantie, maar verhoogt ook de leescapaciteit, omdat leesbewerkingen naar secundaire nodes kunnen worden gestuurd. In het geval van een storing van de primaire node, wordt een secundaire node automatisch gepromoveerd tot primaire node via een verkiezingsproces. Dit garandeert dat de database beschikbaar blijft, zelfs bij hardware- of netwerkproblemen.
+
+Meer informatie over replicatie is te vinden in de [MongoDB-documentatie](https://www.mongodb.com/docs/manual/replication/) en in deze [video](https://www.youtube.com/watch?v=QPFlGswpyJY).
+
+### Het concept van Foreign Keys in MongoDb
+<!-- TODO: tegen volgend jaar verder uitbreiden: Foreign key:  eg. company_id: db.info.find(…)._id => …find({_id: …find(…).company_id}) -->
+In document stores gaan we hier zo min mogelijk van gebruik maken, maar het kan wel geïmplementeerd worden. We gaan daar hier echter niet verder op in en daarvoor kijk je best de videos over dit onderwerp hieronder.
+
+<!-- TODO: Transactions -->
+
+### Interessante videos
+- [Algemene tutorial over CMD-commands, Mongo Atlas, Aggregations, MongoDb Compass en VSCode extention](https://www.youtube.com/watch?v=2QQGWYe7IDU)
+- [Tutorial met meer complexe queries](https://www.youtube.com/watch?v=ofme2o29ngU)
+- [Meer advanced tutorial over Mongo Atlas, auto replication, ACID & Transaction, aggregations, schema-validation, relationships, join, indexes](https://www.youtube.com/watch?v=QPFlGswpyJY)
+  - [Praktisch gebruik van Foreign keys in MongoDb](https://www.youtube.com/watch?v=vQnhkuRuVkw)
+- [Tutorial over het gebruik van MongoDb in Java inclusief aggregaties](https://www.youtube.com/watch?v=L5ORfm4i350&list=PLdnyVeMcpY7_Q3ms_ykCBgXOeCFGDleS2)
+- [Tutorial over de VSCode extensie](https://www.youtube.com/watch?v=MLWlWrRAb4w)
+- [Extra video over de installatie van de GUI voor mongoDb (Compass) op Windows](https://www.youtube.com/watch?v=wJRV2hlXpSY&list=PLmCsXDGbJHdg-In6CP3FsRjusanyhzZwZ*)
+- [Extra video over Replication](https://www.youtube.com/watch?v=ZGHowQHMOoM)
+- [Extra tutorial voor beginners 1](https://www.youtube.com/watch?v=ExcRbA7fy_A&list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA)
+- [Extra tutorial voor beginners 2](https://www.youtube.com/watch?v=c2M-rlkkT5o)
+
+### Demo
+<!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
+
+<!-- EXSOL -->
+<!-- TODO: add correct file
+**_[Hier](/files/) vind je een zipfolder met een oplossing voor MongoDb demo Student_** -->
+
+<!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->

@@ -1,6 +1,7 @@
 ---
 title: NoSQL Basics
 draft: false
+weight: 1
 ---
 
 ## Het schaalbaarheid probleem
