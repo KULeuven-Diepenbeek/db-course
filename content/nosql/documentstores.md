@@ -575,7 +575,6 @@ In document stores gaan we hier zo min mogelijk van gebruik maken, maar het kan 
 <!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
 
 <!-- EXSOL -->
-<!-- TODO: add correct file
-**_[Hier](/files/) vind je een zipfolder met een oplossing voor MongoDb demo Student_** -->
+**_[Hier](/files/dab-mongo-demo.zip) vind je een zipfolder met een oplossing voor MongoDb demo Student_**
 
 <!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
