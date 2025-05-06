@@ -420,7 +420,14 @@ public class AggregationExample {
 Met deze aanpak kun je aggregaties uitvoeren en analyseren in zowel de Flux-querytaal als in Java.
 
 ### Interessante videos
-- [Algemene tutorial over CMD-commands, Mongo Atlas, Aggregations, MongoDb Compass en VSCode extention](https://www.youtube.com/watch?v=2QQGWYe7IDU)
+- [Algemene tutorial over CMD-commands met InfluxDb](https://www.youtube.com/watch?v=Vq4cDIdz_M8)
+- [Full overview en visualisatie met Graphana](https://www.youtube.com/watch?v=gb6AiqCJqP0)
+- [InfluxDb met Java 1](https://www.youtube.com/watch?v=89YOT0Cgtp4)
+- [InfluxDb met Java 2](https://www.youtube.com/watch?v=EFnG7rUDvR4)
+- [InfluxDb met VSCode: Flux](https://www.youtube.com/watch?v=yI5zCkhk6a0)
+
+### Oefening:
+Maak een klein appje dat CO2 gegevens aanmaakt in een Java project en doorstuurt naar InfluxDb. Lees de waarden uit een zet een boolean op true wanneer CO2 een bepaalde hoeveelheid overschrijdt (= een raam open zetten). En zet weer op false wanneer de waarde weer daalt.
 
 <!-- TODO volgend jaar: -->
 
