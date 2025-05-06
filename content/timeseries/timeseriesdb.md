@@ -80,6 +80,35 @@ from(bucket: "classroom_data")
   |> mean()
 ```
 
+#### Stap-voor-stap uitleg
+
+1. **`from(bucket: "sensor_data")`**  
+   Deze regel specificeert de bron van de gegevens. Hier wordt de bucket "sensor_data" gebruikt, wat een container is voor tijdreeksgegevens.
+
+2. **`|> range(start: -1h)`**  
+   Beperkt de gegevens tot de afgelopen 1 uur. Dit zorgt ervoor dat alleen recente gegevens worden geanalyseerd.
+
+3. **`|> filter(fn: (r) => r["_measurement"] == "CO2_levels")`**  
+   Filtert de gegevens om alleen de metingen met de naam "CO2_levels" te selecteren. Measurements groeperen gegevenspunten met dezelfde naam.
+
+4. **`|> filter(fn: (r) => r["location"] == "Room 101")`**  
+   Beperkt de gegevens verder tot alleen die met de tag "location" gelijk aan "Room 101". Tags zijn metadata die gegevens beschrijven.
+
+5. **`|> mean()`**  
+   Berekening van het gemiddelde van de geselecteerde gegevenspunten. Dit geeft een samenvattend getal terug dat de gemiddelde waarde vertegenwoordigt.
+
+#### Output
+
+De output van deze query is een enkel getal dat het gemiddelde van de CO2-concentratie in "Room 101" over de afgelopen 1 uur weergeeft. Bijvoorbeeld:
+
+```flux
+_time                _value
+2025-05-06T10:00:00Z 450.5
+```
+
+- **`_time`**: De tijdstempel waarop het gemiddelde is berekend.
+- **`_value`**: Het gemiddelde van de CO2-concentratie.
+
 ### Basics: buckets, measurements, tags, fields, retention ...
 
 InfluxDB gebruikt een aantal kernconcepten:
@@ -100,6 +129,8 @@ from(bucket: "sensor_data")
   |> filter(fn: (r) => r["location"] == "Room 101")
   |> mean()
 ```
+
+Meer info over de query syntax vind je [hier](https://docs.influxdata.com/influxdb/v2/query-data/get-started/query-influxdb/)
 
 #### Measurements
 
@@ -220,24 +251,38 @@ import java.time.Instant;
 
 public class InfluxDBExample {
     public static void main(String[] args) {
-        String url = "http://localhost:8086";
-        String token = "your-token";
-        String org = "your-org";
-        String bucket = "sensor_data";
+      String BUCKET = "bucketname"
+      String ORG = "Orgname"
 
-        try (InfluxDBClient client = InfluxDBClientFactory.create(url, token.toCharArray(), org, bucket)) {
-            WriteApiBlocking writeApi = client.getWriteApiBlocking();
+      InfluxDBClient influxDBClient = InfluxDBClientFactory.create(DB_URI, TOKEN.toCharArray(), ORG, BUCKET);
 
-            Point point = Point.measurement("CO2_levels")
-                .addTag("room", "Room 101")
-                .addField("CO2_concentration", 450)
-                .time(Instant.now(), WritePrecision.MS);
+      var bucketsApi = influxDBClient.getBucketsApi();
+      Bucket bucket = bucketsApi.findBucketByName(BUCKET);
+      if (bucket == null) {
+        bucketsApi.createBucket(BUCKET, new BucketRetentionRules(), ORG);
+        System.out.println("Bucket created: " + BUCKET);
+      }
 
-            writeApi.writePoint(point);
-        }
+      WriteApiBlocking writeApi = influxDBClient.getWriteApiBlocking();
+      LocalDateTime customDateTime1 = LocalDateTime.of(2025, 5, 6, 8, 30, 0);
+      Instant time1 = customDateTime1.atZone(ZoneId.systemDefault()).toInstant();
+
+      Point point1 = Point.measurement("co2_concentration")
+          .addTag("Room", "Room 403")
+          .addField("value", 450)
+          .time(time1.minusSeconds(60), WritePrecision.MS);
+
+      writeApi.writePoint(point1);
+
+      // DELETE bucket
+      String deleteQuery = "from(bucket: \"" + BUCKET + "\") |> range(start: 0) |> drop(columns: [\"_value\"])";
+      QueryApi queryApi = influxDBClient.getQueryApi();
+      queryApi.query(deleteQuery, ORG);
+  
     }
 }
 ```
+
 
 **Vaak wil je omvormen van LocalDateTime naar milis of omgekeerd:**
 ```Java
@@ -306,62 +351,20 @@ public static void main(String[] args) {
     }
 
 public static List<FluxRecord> getPointsInRange(LocalDateTime start, LocalDateTime end) {
-        // Convert LocalDateTime to ISO 8601 format for Flux query
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-        String startIso = start.atZone(ZoneOffset.systemDefault()).toInstant().toString();
-        String endIso = end.atZone(ZoneOffset.systemDefault()).toInstant().toString();
+    QueryApi queryApi = influxDBClient.getQueryApi();
+    String fluxQuery = String.format(
+        "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"my_measurement\")", BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(), endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
 
-        // Construct the Flux query
-        String fluxQuery = String.format(
-            "from(bucket: \"%s\") " +
-            "|> range(start: %s, stop: %s) " +
-            "|> filter(fn: (r) => r[\"_measurement\"] == \"CO2_levels\")",
-            BUCKET, startIso, endIso
-        );
+    List<MyClass> myObjects = new ArrayList<>();
+    queryApi.query(fluxQuery, ORG).forEach(table -> table.getRecords().forEach(record -> {
+      LocalDateTime time = LocalDateTime.ofInstant(record.getTime(), ZoneId.systemDefault());
+      double value = ((Number) record.getValueByKey("_value")).doubleValue();
+      myObjects.add(new MyClass(value, time));
+    }));
 
-        // Execute the query
-        try (InfluxDBClient client = InfluxDBClientFactory.create(INFLUXDB_URL, TOKEN.toCharArray())) {
-            QueryApi queryApi = client.getQueryApi();
-            List<FluxTable> tables = queryApi.query(fluxQuery, ORG);
-
-            // Collect all records from the query result
-            List<FluxRecord> records = new ArrayList<>();
-            for (FluxTable table : tables) {
-                records.addAll(table.getRecords());
-            }
-            return records;
-        }
-    }
-
-    public static double getSumOfValuesInRange(LocalDateTime start, LocalDateTime end) {
-        // Convert LocalDateTime to ISO 8601 format for Flux query
-        String startIso = start.atZone(ZoneOffset.systemDefault()).toInstant().toString();
-        String endIso = end.atZone(ZoneOffset.systemDefault()).toInstant().toString();
-
-        // Construct the Flux query
-        String fluxQuery = String.format(
-            "from(bucket: \"%s\") " +
-            "|> range(start: %s, stop: %s) " +
-            "|> filter(fn: (r) => r[\"_measurement\"] == \"CO2_levels\") " +
-            "|> filter(fn: (r) => r[\"_field\"] == \"value\") " +
-            "|> sum()",
-            BUCKET, startIso, endIso
-        );
-
-        // Execute the query
-        try (InfluxDBClient client = InfluxDBClientFactory.create(INFLUXDB_URL, TOKEN.toCharArray())) {
-            QueryApi queryApi = client.getQueryApi();
-            List<FluxTable> tables = queryApi.query(fluxQuery, ORG);
-
-            // Extract the sum from the query result
-            for (FluxTable table : tables) {
-                for (FluxRecord record : table.getRecords()) {
-                    return ((Number) record.getValueByKey("_value")).doubleValue();
-                }
-            }
-        }
-        return 0.0; // Return 0 if no data is found
-    }
+    return myObjects;
+    
+  }
 
 ```
 
