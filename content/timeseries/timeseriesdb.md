@@ -237,7 +237,7 @@ Om InfluxDB te gebruiken in een Java-toepassing, voeg je de volgende Gradle-depe
 
 ```groovy
 dependencies {
-  implementation 'com.influxdb:influxdb-client-java:1.2.0'
+  implementation 'com.influxdb:influxdb-client-java:7.2.0'
 }
 ```
 
