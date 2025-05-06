@@ -67,28 +67,40 @@ De web GUI van InfluxDB biedt een intuïtieve interface voor het beheren van geg
 ### Voorbeeld: een CO2 sensor voor een klaslokaal
 
 Stel je hebt een CO2-sensor in een klaslokaal. Je kunt de gegevens opslaan in InfluxDB met de volgende structuur:
-- **Measurement**: "CO2_levels"
+- **Measurement**: "CO2_concentration"
 - **Tags**: "room", "sensor_id"
-- **Fields**: "CO2_concentration"
+- **Fields**: "value"
+
+### Basics: buckets, measurements, tags, fields, retention ...
+
+InfluxDB gebruikt een aantal kernconcepten:
+- **Buckets**: Containers voor gegevens met een ingestelde retentieperiode.
+- **Measurements**: De naam van een verzameling gegevenspunten (bijvoorbeeld "temperatuur").
+- **Tags**: Metadata die gegevens beschrijft (bijvoorbeeld "locatie").
+- **Fields**: De werkelijke gegevenswaarden (bijvoorbeeld "23.5°C").
+- **Retention Policies**: Regels die bepalen hoe lang gegevens worden bewaard.
+
+### Influx query syntax
 
 Een voorbeeld query om de gemiddelde CO2-concentratie van de afgelopen 24 uur te berekenen:
 
 ```flux
 from(bucket: "classroom_data")
   |> range(start: -24h)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_levels")
+  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
+  |> filter(fn: (r) => r["location"] == "Room 101")
   |> mean()
 ```
 
 #### Stap-voor-stap uitleg
 
-1. **`from(bucket: "sensor_data")`**  
+1. **`from(bucket: "classroom_data")`**  
    Deze regel specificeert de bron van de gegevens. Hier wordt de bucket "sensor_data" gebruikt, wat een container is voor tijdreeksgegevens.
 
-2. **`|> range(start: -1h)`**  
+2. **`|> range(start: -24h)`**  
    Beperkt de gegevens tot de afgelopen 1 uur. Dit zorgt ervoor dat alleen recente gegevens worden geanalyseerd.
 
-3. **`|> filter(fn: (r) => r["_measurement"] == "CO2_levels")`**  
+3. **`|> filter(fn: (r) => r["_measurement"] == "CO2_concentration")`**  
    Filtert de gegevens om alleen de metingen met de naam "CO2_levels" te selecteren. Measurements groeperen gegevenspunten met dezelfde naam.
 
 4. **`|> filter(fn: (r) => r["location"] == "Room 101")`**  
@@ -109,46 +121,25 @@ _time                _value
 - **`_time`**: De tijdstempel waarop het gemiddelde is berekend.
 - **`_value`**: Het gemiddelde van de CO2-concentratie.
 
-### Basics: buckets, measurements, tags, fields, retention ...
-
-InfluxDB gebruikt een aantal kernconcepten:
-- **Buckets**: Containers voor gegevens met een ingestelde retentieperiode.
-- **Measurements**: De naam van een verzameling gegevenspunten (bijvoorbeeld "temperatuur").
-- **Tags**: Metadata die gegevens beschrijft (bijvoorbeeld "locatie").
-- **Fields**: De werkelijke gegevenswaarden (bijvoorbeeld "23.5°C").
-- **Retention Policies**: Regels die bepalen hoe lang gegevens worden bewaard.
-
-### Influx query syntax
-
-InfluxDB gebruikt de Flux-taal voor query's. Een voorbeeld:
-
-```flux
-from(bucket: "sensor_data")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_levels")
-  |> filter(fn: (r) => r["location"] == "Room 101")
-  |> mean()
-```
-
 Meer info over de query syntax vind je [hier](https://docs.influxdata.com/influxdb/v2/query-data/get-started/query-influxdb/)
 
 #### Measurements
 
 ##### Wat zijn measurements?
 
-Measurements in InfluxDB zijn de logische namen die worden gebruikt om een verzameling gegevenspunten te groeperen. Ze fungeren als tabellen in een relationele database en bevatten velden en tags die de gegevens beschrijven. Een measurement kan bijvoorbeeld "temperature" of "CO2_levels" heten.
+Measurements in InfluxDB zijn de logische namen die worden gebruikt om een verzameling gegevenspunten te groeperen. Ze fungeren als tabellen in een relationele database en bevatten velden en tags die de gegevens beschrijven. Een measurement kan bijvoorbeeld "temperature" of "CO2_concentration" heten.
 
 ##### Werken met measurements
 
 Measurements worden gebruikt om gegevens te organiseren en te groeperen. Hier is een voorbeeld van hoe je een measurement kunt gebruiken in een Flux-query:
 
 ```flux
-from(bucket: "sensor_data")
+from(bucket: "classroom_data")
   |> range(start: -1h)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_levels")
+  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
 ```
 
-In dit voorbeeld worden alleen de gegevens uit de measurement "CO2_levels" geselecteerd.
+In dit voorbeeld worden alleen de gegevens uit de measurement "CO2_concentration" geselecteerd.
 
 
 #### Tags
@@ -162,7 +153,7 @@ Tags in InfluxDB zijn key-value paren die worden gebruikt om metadata aan gegeve
 Tags worden gebruikt om gegevens te filteren of te groeperen. Hier is een voorbeeld van een Flux-query die gegevens filtert op basis van een tag:
 
 ```flux
-from(bucket: "sensor_data")
+from(bucket: "classroom_data")
   |> range(start: -1h)
   |> filter(fn: (r) => r["location"] == "Room 101")
 ```
@@ -181,7 +172,7 @@ Fields in InfluxDB zijn de werkelijke gegevenswaarden die worden opgeslagen in e
 Fields worden gebruikt om de werkelijke gegevenswaarden op te slaan. Hier is een voorbeeld van een Flux-query die gegevens filtert op basis van een field:
 
 ```flux
-from(bucket: "sensor_data")
+from(bucket: "classroom_data")
   |> range(start: -1h)
   |> filter(fn: (r) => r["_field"] == "value")
 ```
@@ -201,15 +192,15 @@ Aggregaties zijn bewerkingen die worden uitgevoerd op een verzameling gegevens o
 Hier is een voorbeeld van een Flux-query die de gemiddelde temperatuur berekent over de afgelopen 7 dagen:
 
 ```flux
-from(bucket: "sensor_data")
+from(bucket: "classroom_data")
   |> range(start: -7d)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_levels")
+  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
   |> mean()
 ```
 
 In dit voorbeeld:
 - **`range(start: -7d)`**: Selecteert gegevens van de afgelopen 7 dagen.
-- **`filter(fn: (r) => r["_measurement"] == "CO2_levels")`**: Filtert alleen de CO2-metingen.
+- **`filter(fn: (r) => r["_measurement"] == "CO2_concentration")`**: Filtert alleen de CO2-metingen.
 - **`mean()`**: Berekent het gemiddelde van de geselecteerde gegevens.
 
 ##### Aggregaties combineren
@@ -217,15 +208,15 @@ In dit voorbeeld:
 Je kunt meerdere aggregaties combineren in één query. Bijvoorbeeld, om zowel het gemiddelde als de maximale temperatuur te berekenen:
 
 ```flux
-from(bucket: "sensor_data")
+from(bucket: "classroom_data")
   |> range(start: -7d)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_levels")
+  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
   |> group(columns: ["location"])
   |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
   |> map(fn: (r) => ({
       location: r.location,
-      avg_temp: mean(r.CO2_levels),
-      max_temp: max(r.CO2_levels)
+      avg_temp: mean(r.CO2_concentration),
+      max_temp: max(r.CO2_concentration)
   }))
 ```
 
@@ -276,7 +267,7 @@ public class App {
     private static final String ORG = "influxdb";
     private static final String PASSWORD = "influxdb";
     private static final String TOKEN = "Rp5cZ0FlsUrZi94Mbyx881rLyrgqR2ig2weiot6TWaj_sjMDNmsXCt5gPyBvsMYZdnCraN5QoDs73RUoY1Yn7Q==";
-    private static final String BUCKET = "co2";
+    private static final String BUCKET = "classroom_data";
 
     public static void main(String[] args) {
         InfluxDBClient influxDBClient = InfluxDBClientFactory.create(DB_URI, TOKEN.toCharArray(), ORG, BUCKET);
@@ -287,11 +278,11 @@ public class App {
 
         // ADD a value (point)
         WriteApiBlocking writeApi = influxDBClient.getWriteApiBlocking();
-        Point point1 = Point.measurement("co2_concentration")
+        Point point1 = Point.measurement("CO2_concentration")
                 .addTag("location", "Room 403")
                 .addField("value", 460)
                 .time(time1.minusSeconds(60), WritePrecision.MS);
-        Point point2 = Point.measurement("co2_concentration")
+        Point point2 = Point.measurement("CO2_concentration")
                 .addTag("location", "Room 403")
                 .addField("value", 440)
                 .time(System.currentTimeMillis(), WritePrecision.MS);
@@ -320,7 +311,7 @@ public class App {
             LocalDateTime endDate) {
         QueryApi queryApi = influxDBClient.getQueryApi();
         String fluxQuery = String.format(
-                "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"co2_concentration\")",
+                "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"CO2_concentration\")",
                 BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
                 endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
 
@@ -341,7 +332,7 @@ public class App {
         String fluxQuery = String.format(
                 "from(bucket: \"%s\") " +
                         "|> range(start: %s, stop: %s) " +
-                        "|> filter(fn: (r) => r._measurement == \"co2_concentration\") " +
+                        "|> filter(fn: (r) => r._measurement == \"CO2_concentration\") " +
                         "|> sum(column: \"_value\")",
                 BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
                 endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
@@ -390,7 +381,7 @@ Meer informatie over tijdformaten in InfluxDB is te vinden in de [officiële doc
 Met de InfluxDB Java-client kun je gegevens schrijven naar een specifieke measurement. Hier is een voorbeeld:
 
 ```java
-Point point = Point.measurement("CO2_levels")
+Point point = Point.measurement("CO2_concentration")
     .addTag("location", "Room 101")
     .addField("value", 450)
     .time(Instant.now(), WritePrecision.MS);
@@ -402,7 +393,7 @@ writeApi.writePoint(point);
 Met de InfluxDB Java-client kun je tags toevoegen aan een gegevenspunt. Hier is een voorbeeld:
 
 ```java
-Point point = Point.measurement("CO2_levels")
+Point point = Point.measurement("CO2_concentration")
     .addTag("location", "Room 101")
     .addField("value", 450)
     .time(Instant.now(), WritePrecision.MS);
@@ -414,7 +405,7 @@ writeApi.writePoint(point);
 Met de InfluxDB Java-client kun je fields toevoegen aan een gegevenspunt. Hier is een voorbeeld:
 
 ```java
-Point point = Point.measurement("CO2_levels")
+Point point = Point.measurement("CO2_concentration")
     .addTag("location", "Room 101")
     .addField("value", 450)
     .time(Instant.now(), WritePrecision.MS);
@@ -424,6 +415,9 @@ writeApi.writePoint(point);
 #### Influx Queries in Java
 
 ```java
+
+public static final InfluxDBClient influxDBClient = InfluxDBClientFactory.create(DB_URI, TOKEN.toCharArray(), ORG, BUCKET);
+
 public static void main(String[] args) {
         // Example usage
         LocalDateTime start = LocalDateTime.of(2023, 5, 1, 0, 0);
@@ -436,7 +430,7 @@ public static void main(String[] args) {
         System.out.println("Sum of values: " + sum);
     }
 
-public static List<FluxRecord> getPointsInRange(LocalDateTime start, LocalDateTime end) {
+public static List<MyClass> getPointsInRange(LocalDateTime start, LocalDateTime end) {
     QueryApi queryApi = influxDBClient.getQueryApi();
     String fluxQuery = String.format(
         "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"my_measurement\")", BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(), endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
@@ -452,6 +446,24 @@ public static List<FluxRecord> getPointsInRange(LocalDateTime start, LocalDateTi
     
   }
 
+public static double getSumOfValuesInRange(LocalDateTime start, LocalDateTime end) {
+  QueryApi queryApi = influxDBClient.getQueryApi();
+  String fluxQuery = String.format(
+          "from(bucket: \"%s\") " +
+                  "|> range(start: %s, stop: %s) " +
+                  "|> filter(fn: (r) => r._measurement == \"my_measurement\") " +
+                  "|> sum(column: \"_value\")",
+          BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
+          endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
+
+  List<FluxRecord> records = new ArrayList<>();
+  queryApi.query(fluxQuery, ORG).forEach(table -> records.addAll(table.getRecords()));
+  if (records.get(0).getValueByKey("_value") != null) {
+      return (long) records.get(0).getValueByKey("_value");
+  } else {
+      return -1.0;
+  }
+}
 ```
 
 #### Aggregaties in Java
@@ -465,17 +477,14 @@ import java.util.List;
 
 public class AggregationExample {
     public static void main(String[] args) {
-        String url = "http://localhost:8086";
-        String token = "your-token";
-        String org = "your-org";
 
-        try (InfluxDBClient client = InfluxDBClientFactory.create(url, token.toCharArray())) {
+        try (InfluxDBClient client = InfluxDBClientFactory.create(DB_URL, TOKEN.toCharArray())) {
             String flux = "from(bucket: \"sensor_data\") " +
                           "|> range(start: -7d) " +
                           "|> filter(fn: (r) => r[\"_measurement\"] == \"temperature\") " +
                           "|> mean()";
 
-            List<FluxTable> tables = client.getQueryApi().query(flux, org);
+            List<FluxTable> tables = client.getQueryApi().query(flux, ORG);
             tables.forEach(table -> table.getRecords().forEach(record -> {
                 System.out.println("Gemiddelde temperatuur: " + record.getValueByKey("_value"));
             }));
