@@ -202,14 +202,12 @@ Hier worden de gegevens gegroepeerd per locatie en worden zowel het gemiddelde a
 
 ### Demo in Java
 
-Om InfluxDB te gebruiken in een Java-toepassing, voeg je de volgende Maven-dependency toe:
+Om InfluxDB te gebruiken in een Java-toepassing, voeg je de volgende Gradle-dependency toe:
 
-```xml
-<dependency>
-  <groupId>com.influxdb</groupId>
-  <artifactId>influxdb-client-java</artifactId>
-  <version>3.3.0</version>
-</dependency>
+```groovy
+dependencies {
+  implementation 'com.influxdb:influxdb-client-java:1.2.0'
+}
 ```
 
 Een voorbeeld van het schrijven van gegevens:
@@ -291,26 +289,6 @@ Point point = Point.measurement("CO2_levels")
     .time(Instant.now(), WritePrecision.MS);
 writeApi.writePoint(point);
 ```
-#### Simpele Queries in Java
-```java
-String queryStr = String.format("SELECT * FROM CO2_levels WHERE time >= %dms AND time <= %dms", startMillis,endMillis);
-Query query = new Query(queryStr, BUCKET);
-List<QueryResult.Result> results = influxDB.query(query).getResults();
-for (QueryResult.Result result : results) {
-  if (result.getSeries() != null) {
-    for (QueryResult.Series series : result.getSeries()) {
-      List<List<Object>> values = series.getValues();
-      for (List<Object> value : values) {
-        String timeString = value.get(0).toString(); // ISO 8601 format
-        double CO2_level = Double.parseDouble(value.get(1).toString());
-        System.out.println("CO2_level = "+CO2_level+" at time: "+timeString);
-      }
-    }
-  }
-}
-```
-
-Voor een som wordt dit `String queryStr = String.format("SELECT SUM(value) FROM temperature WHERE time >= %dms AND time <= %dms", startMillis, endMillis);`
 
 #### Influx Queries in Java
 
