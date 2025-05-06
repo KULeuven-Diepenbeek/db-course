@@ -83,6 +83,8 @@ Een voorbeeld van een collectie met 3 documents in MongoDB:
 
 **Merk op dat voor de derde student de Opleiding ontbreekt, dit kan dus in NoSql document stores. Het is dan wel belangrijk dat je software hier rekening mee houdt!**
 
+
+<!-- TODO mongosh installeren: https://www.mongodb.com/try/download/shell, https://www.mongodb.com/docs/mongodb-shell/install/ -->
 ### Belangrijke Commando's
 
 Hieronder een overzicht van veelgebruikte commando's in MongoDB:
@@ -379,6 +381,7 @@ public class MongoDBExample {
     }
 }
 ```
+<!-- TODO: hierboven ook een voorbeeld van een find met een query ingeven volgend jaar -->
 {{% notice info %}}
 Meer informatie kan je [hier in de documentatie](https://www.mongodb.com/docs/drivers/java/sync/current/get-started/) terugvinden!
 {{% /notice %}}
