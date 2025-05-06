@@ -6,7 +6,7 @@ weight: 2
 
 ## Opdracht InfluxDb met als deadline vrijdag 16 mei 2025 23u59
 
-Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende `Github Classroom`. En pull je de repository van [**Opdracht rond InfluxDb**](). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
+Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende `Github Classroom`. En pull je de repository van [**Opdracht rond InfluxDb**](https://classroom.github.com/a/gA5Tsw48). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
 
 ### Opdracht: 
 <!-- TODO: Volgend jaar ... -->
