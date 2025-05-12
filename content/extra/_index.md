@@ -1,5 +1,5 @@
 ---
-title: 'X. Extras'
+title: 'Extras'
 chapter: true
 draft: true
 ---
