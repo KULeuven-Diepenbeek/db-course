@@ -1,7 +1,8 @@
 ---
-title: 6. XML Data Storage
+title: XML Data Storage
 chapter: true
 draft: false
+weight: 6
 ---
 
 # XML
