@@ -1,5 +1,6 @@
 ---
-title: 2. XSD
+title: XSD
+weight: 2
 ---
 
 # XML Schema Definition
@@ -51,7 +52,74 @@ Je kan je XML bestanden laten valideren tegen een XSD schema, door daar zelf log
 
 ### Oefeningen
 1. Maak een XSD schema voor de studenten XML die jullie in de vorige opgave hebben gemaakt.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="school">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="studnr" type="xs:integer"/>
+              <xs:element name="naam" type="xs:string"/>
+              <xs:element name="voornaam" type="xs:string"/>
+              <xs:element name="goedbezig" type="xs:boolean"/>
+              <xs:element name="gender" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+```
+
+</p>
+</details> -->
+
 2. Voeg een nieuw element `Gender` toe aan XML en XSD. 
+
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```XML
+<school>
+    <student>
+        <studnr>123</studnr>
+        <naam>Trekhaak</naam>
+        <voornaam>Jaak</voornaam>
+        <goedbezig>false</goedbezig>
+        <gender>Male</gender>
+    </student>
+    <student>
+        <studnr>456</studnr>
+        <naam>Peeters</naam>
+        <voornaam>Jos</voornaam>
+        <goedbezig>false</goedbezig>
+        <gender>Male</gender>
+    </student>
+    <student>
+        <studnr>890</studnr>
+        <naam>Dongmans</naam>
+        <voornaam>Ding</voornaam>
+        <goedbezig>true</goedbezig>
+        <gender>Male</gender>
+    </student>
+</school>
+```
+
+</p>
+</details> -->
 
 We kunnen ons XSD schema uitbreiden door er ook attributen aan toe te voegen. Laten we een `Genre` attribuut definiëren op ons `boek` element.
 
@@ -121,4 +189,112 @@ We kunnen aan XSD ook nog validatieregels toevoegen die de data-integriteit verz
 
 ### Oefeningen
 1. Voeg een attribuut toe aan de studenten XML dat aangeeft of de student een Bachelor of Master volgt.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```XML
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="school">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="student" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="studnr" type="xs:integer"/>
+              <xs:element name="naam" type="xs:string"/>
+              <xs:element name="voornaam" type="xs:string"/>
+              <xs:element name="goedbezig" type="xs:boolean"/>
+              <xs:element name="gender" type="xs:string"/>
+              <xs:element name="vak" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="naam" type="xs:string"/>
+                    <xs:element name="studiepunten" type="xs:integer"/>
+                    <xs:element name="score" type="xs:integer"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="opleiding">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Bachelor"/>
+                  <xs:enumeration value="Master"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+```
+
+</p>
+</details> -->
+
 2. Voeg voor elke student nu ook een lijst van vakken toe. Per vak willen we zien voor hoeveel studiepunten dit meetelt en een score? Voeg dit ook toe in je XML en valideer dit tegen je XSD.
+
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```XML
+<school>
+    <student opleiding="Bachelor">
+        <studnr>123</studnr>
+        <naam>Trekhaak</naam>
+        <voornaam>Jaak</voornaam>
+        <goedbezig>false</goedbezig>
+        <gender>Male</gender>
+        <vak>
+            <naam>Wiskunde</naam>
+            <studiepunten>6</studiepunten>
+            <score>15</score>
+        </vak>
+        <vak>
+            <naam>Natuurkunde</naam>
+            <studiepunten>5</studiepunten>
+            <score>12</score>
+        </vak>
+    </student>
+    <student opleiding="Master">
+        <studnr>456</studnr>
+        <naam>Peeters</naam>
+        <voornaam>Jos</voornaam>
+        <goedbezig>false</goedbezig>
+        <gender>Male</gender>
+        <vak>
+            <naam>Informatica</naam>
+            <studiepunten>7</studiepunten>
+            <score>18</score>
+        </vak>
+        <vak>
+            <naam>Statistiek</naam>
+            <studiepunten>4</studiepunten>
+            <score>14</score>
+        </vak>
+    </student>
+    <student opleiding="Bachelor">
+        <studnr>890</studnr>
+        <naam>Dongmans</naam>
+        <voornaam>Ding</voornaam>
+        <goedbezig>true</goedbezig>
+        <gender>Male</gender>
+        <vak>
+            <naam>Engels</naam>
+            <studiepunten>3</studiepunten>
+            <score>16</score>
+        </vak>
+    </student>
+</school>
+```
+
+</p>
+</details> -->

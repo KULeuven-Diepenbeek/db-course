@@ -1,5 +1,6 @@
 ---
-title: '1. Big Data Basics'
+title: 'Big Data Basics'
+weight: 1
 ---
 
 

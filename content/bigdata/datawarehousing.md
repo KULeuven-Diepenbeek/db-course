@@ -1,5 +1,6 @@
 ---
-title: '2. Data Warehousing & BI'
+title: 'Data Warehousing & BI'
+weight: 2
 ---
 
 Tot nu toe hebben we ons toegelegd op het zo optimaal mogelijk _bewaren en ophalen van data_---rekening houdend met integriteit en anderen ACID/BASE principes. Maar wat zijn we hier nu allemaal mee, los van een werkende applicatie? In dit hoofdstuk gaan we **data benaderen vanuit business perspectief**. 
