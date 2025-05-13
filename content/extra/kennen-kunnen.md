@@ -5,6 +5,9 @@ draft: false
 ---
 
 ### Voorbeeldvragen Examen databases
+
+EER + SQL en XML is open boek, de rest is gesloten boek. Print dus zelf de relevante documenten af. (Als je enkel de bovenstaande delen meeneemt kan je je papieren ook al bij je gesloten boek gedeelte naast je leggen, zodat het examen vlotter verloopt.)
+
 **Voorbeeld vragen:**
 - Leg uit wat de "write-ahead log strategy" betekend in transaction management en hoe deze strategie gebruikt wordt om rollbacks uit te voeren bij een transaction failure.
 
