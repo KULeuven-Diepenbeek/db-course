@@ -57,7 +57,7 @@ Daarbinnen kunnen we dan wel meerdere keren het `<boek>` element definiëren.
 - Voeg zelf een boek toe aan het bovenstaande voorbeeld
 
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -87,12 +87,12 @@ Daarbinnen kunnen we dan wel meerdere keren het `<boek>` element definiëren.
 ```
 
 </p>
-</details> -->
+</details>
 
 - Schrijf zelf een XML bestand dat studenten omschrijft. Volgende elementen moeten aanwezig zijn: studnr, naam, voornaam en goedbezig (boolean).
 
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -120,4 +120,8 @@ Daarbinnen kunnen we dan wel meerdere keren het `<boek>` element definiëren.
 ```
 
 </p>
-</details> -->
+</details>
+
+{{% notice info %}}
+Meer info over XML vind je [hier](https://www.w3schools.com/xml/default.asp)
+{{% /notice %}}

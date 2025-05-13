@@ -3,8 +3,6 @@ title: XPath
 weight: 3
 ---
 
-# XPath
-
 XPath is een taal die we gebruiken om specifieke elementen of attributen te vinden in een XML bestand. Zoals je in de voorbije oefeningen al hebt gemerkt zijn XML bestanden nogal groot en niet zo makkelijk in een oogopslag om alle informatie uit te halen.
 
 Laten we ons voorbeeldbestand nemen:
@@ -38,6 +36,10 @@ Dit selecteert het meest top level object. In de praktijk geeft dit dus het hele
 `/boeken`
 
 Dit zou het boeken element teruggeven. Wat dus ook het hele bestand is.
+
+`/boeken/boek[1]`
+
+Dit geeft het eerste element van 'boek' in 'boeken' terug.
 
 `/boeken/boek/titel`
 
@@ -221,16 +223,20 @@ Hieronder vind je een xml bestand waarop we de XPath oefeningen gaan uitvoeren. 
 
 1. Geef alle prijzen weer. Schrijf hiervoor 2 verschillende XPath queries die hetzelfde resultaat geven.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```//price OF /catalog/price```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```//price OF /catalog/price``` 
 2. Geef de titel van het boek met id bk110.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[@id='bk110']/title```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[@id='bk110']/title``` 
 3. Geef de description van alle boeken.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```//description```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```//description``` 
 4. Geef alle non-fictie boeken
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='0']```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='0']``` 
 5. Lijst alle subgenres van de fictie boeken op.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='1']/genre/subgenre/text()```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='1']/genre/subgenre/text()``` 
+
+{{% notice info %}}
+Meer info over XPath vind je [hier](https://www.w3schools.com/xml/xpath_intro.asp)
+{{% /notice %}}

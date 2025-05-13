@@ -1,46 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>X. Extras on Databases</title>
+    <title>Extras on Databases</title>
     <link>http://localhost:1313/db-course/extra/</link>
-    <description>Recent content in X. Extras on Databases</description>
+    <description>Recent content in Extras on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <atom:link href="http://localhost:1313/db-course/extra/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Examen info</title>
-      <link>http://localhost:1313/db-course/extra/examen/</link>
+      <title>Examen: Kennen en kunnen</title>
+      <link>http://localhost:1313/db-course/extra/kennen-kunnen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/extra/examen/</guid>
-      <description>&lt;h3 id=&#34;wat-moet-ik-wel-kennen-voor-mijn-examen&#34;&gt;Wat moet ik &lt;strong&gt;WEL&lt;/strong&gt; kennen voor mijn examen?&lt;/h3&gt;&#xA;&lt;h4 id=&#34;uit-_hoorcolleges-en-labos_&#34;&gt;Uit &lt;em&gt;Hoorcolleges en labos&lt;/em&gt;&lt;/h4&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Fundamental Concepts of Database Management: Elementaire kennis / ACID (&lt;em&gt;gesloten boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;EER en omzetting naar database - Zelf opstellen = taak&lt;/li&gt;&#xA;&lt;li&gt;Reflectie op een gegeven EER = examen. Bespreking en eventueel aanpassing (&lt;em&gt;open boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;UML = Reflectie op een gegeven ontwerp (= uitleg geven bij, ook correct benoemen) (&lt;em&gt;gesloten boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;relationeel model - Concepten kennen (&lt;em&gt;gesloten boek&lt;/em&gt;), Omzetten van EER naar DB als verderzetting oef op EER  (&lt;em&gt;open boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;SQL Oefeningen (&lt;em&gt;open boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;concepten van XML - Kennen voor het examen (&lt;em&gt;gesloten boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;li&gt;XSD en XML opstellen - Oefening op XML (&lt;em&gt;open boek&lt;/em&gt;)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;uit-_principles-of-database-management_&#34;&gt;Uit &lt;em&gt;Principles of Database Management&lt;/em&gt;&lt;/h4&gt;&#xA;&lt;p&gt;Hoofdstuk 11:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Gebruikte Software</title>
-      <link>http://localhost:1313/db-course/extra/software/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/extra/software/</guid>
-      <description>&lt;h2 id=&#34;sql&#34;&gt;SQL&lt;/h2&gt;&#xA;&lt;p&gt;SQL-gebaseerde oefeningen nemen plaats in de &lt;a href=&#34;https://sqlitebrowser.org/&#34;&gt;SQLite DB Browser&lt;/a&gt; omgeving, een visuele open source tool om eenvoudig database files te maken en bewerken die compatibel zijn met SQLite, een SQL variant.&lt;/p&gt;&#xA;&lt;p&gt;Vanuit SQLiteBrowser kan je een nieuwe database aanmaken, een bestaande &lt;code&gt;.SQL&lt;/code&gt; file openen en uitvoeren, of een bestaande &lt;code&gt;.db&lt;/code&gt; SQLite database openen.&lt;/p&gt;&#xA;&lt;p&gt;Voor het hoofdstuk SQL DDL &amp;amp; DML gebruiken we het &lt;code&gt;chinook.db&lt;/code&gt; bestand dat je hier kan downloaden: &lt;a href=&#34;../chinook.db&#34;&gt;chinook.db&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Project 2023-2024</title>
-      <link>http://localhost:1313/db-course/extra/project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/extra/project/</guid>
-      <description>&lt;p&gt;Het project voor dit vak bestaat uit &lt;strong&gt;drie delen&lt;/strong&gt; met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;deel&lt;/th&gt;&#xA;          &lt;th&gt;opdracht&lt;/th&gt;&#xA;          &lt;th&gt;deadline&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;1.&lt;/td&gt;&#xA;          &lt;td&gt;domein model&lt;/td&gt;&#xA;          &lt;td&gt;03/11/2023&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;2.&lt;/td&gt;&#xA;          &lt;td&gt;SQLite database&lt;/td&gt;&#xA;          &lt;td&gt;01/12/2023&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;3.&lt;/td&gt;&#xA;          &lt;td&gt;Uitwerking in Java/Kotlin&lt;/td&gt;&#xA;          &lt;td&gt;een week voor het examen (TBD)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Het is opnieuw een &lt;strong&gt;groepsproject&lt;/strong&gt; waarbij je samenwerkt per 2 of per 3.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Project opdracht 2022-2023</title>
-      <link>http://localhost:1313/db-course/extra/project-202223/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/extra/project-202223/</guid>
-      <description>&lt;p&gt;Het project voor dit vak bestaat uit &lt;strong&gt;drie delen&lt;/strong&gt; met elk hun aparte deadline. Op die manier is er ruimte voor tussentijdse feedback. Hieronder volgt een overzicht van de delen, die in de volgende secties zijn beschreven:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;deel&lt;/th&gt;&#xA;          &lt;th&gt;opdracht&lt;/th&gt;&#xA;          &lt;th&gt;deadline&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;1.&lt;/td&gt;&#xA;          &lt;td&gt;domein model&lt;/td&gt;&#xA;          &lt;td&gt;17/10/2022&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;2.&lt;/td&gt;&#xA;          &lt;td&gt;SQLite database&lt;/td&gt;&#xA;          &lt;td&gt;14/11/2022&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;3.&lt;/td&gt;&#xA;          &lt;td&gt;Java uitwerking&lt;/td&gt;&#xA;          &lt;td&gt;een week voor het examen (TBD)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Het is opnieuw een &lt;strong&gt;groepsproject&lt;/strong&gt; waarbij je samenwerkt per 2.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Indienen&lt;/strong&gt; doe je gewoon door je Git project te pushen naar jullie repository en een mail te sturen naar het docententeam met link. Uploaden naar Toledo is dus &lt;em&gt;niet&lt;/em&gt; nodig. De opdrachten die daar officiëel geplaatst worden zijn dezelfde delen als hieronder.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Project opdracht 2023-2024</title>
-      <link>http://localhost:1313/db-course/extra/project-2324/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/db-course/extra/project-2324/</guid>
-      <description>&lt;h2 id=&#34;zie-toledo&#34;&gt;Zie toledo&lt;/h2&gt;&#xA;&lt;p&gt;Om verwarring te vermijden kan je de opdracht voor het project op Toledo terugvinden zodat dat de enige correcte informatie is.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Je moet je oplossingen voor de verschillende delen dus ook via Toledo uploaden.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Moesten er zich problemen met de opdrachtuitleg voordoen waarvoor een update aan de uitleg nodig is, wordt dit via mail gecommuniceerd en de geüpdate versie op Toledo geplaatst.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;!--OPDRACHT UITLEG via versiebeheer aantonen welke versie op Toledo verschenen is: https://kuleuven-my.sharepoint.com/:w:/g/personal/arne_duyver_kuleuven_be/Efy5lt8wh8hMi5EJMjplmdEB6VaVHmtS1_KesEFv5uXLoA --&gt;&#xD;&#xA;&lt;!-- Eerste versie op Toledo is v13.0 2024_03_12_14_47 --&gt;</description>
+      <guid>http://localhost:1313/db-course/extra/kennen-kunnen/</guid>
+      <description>&lt;h3 id=&#34;voorbeeldvragen-examen-databases&#34;&gt;Voorbeeldvragen Examen databases&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Voorbeeld vragen:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Leg uit wat de &amp;ldquo;write-ahead log strategy&amp;rdquo; betekend in transaction management en hoe deze strategie gebruikt wordt om rollbacks uit te voeren bij een transaction failure.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Gegeven een figuur figuur, waarin twee transacties tegelijkertijd items op een beurs verkopen binnen één database&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Welk probleem wordt hier uitgebeeld, én waarom?&lt;/li&gt;&#xA;&lt;li&gt;Beschrijf twee verschillende mogelijkheden om dit probleem op te lossen, én wat de voor- en nadelen zijn van de mogelijkheid. Illustreer voor elke mogelijkheid een figuur zoals bovenstaande dat bewijst dat het probleem verholpen werd.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Stel dat een bank je benadert voor advies omdat hun systeem traag is. Ze hebben één groot Maria DB-based database systeem dat zowel smartphone apps als de globale website als applicaties op kantoren data voedt. Ze verwachten van jou twee mogelijke scenario&amp;rsquo;s om dit probleem aan te pakken. Schets deze hieronder.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

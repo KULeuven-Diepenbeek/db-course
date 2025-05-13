@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>7. Big Data &amp; Analytics on Databases</title>
+    <title>Big Data &amp; Analytics on Databases</title>
     <link>http://localhost:1313/db-course/bigdata/</link>
-    <description>Recent content in 7. Big Data &amp; Analytics on Databases</description>
+    <description>Recent content in Big Data &amp; Analytics on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <atom:link href="http://localhost:1313/db-course/bigdata/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1. Big Data Basics</title>
+      <title>Big Data Basics</title>
       <link>http://localhost:1313/db-course/bigdata/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/bigdata/basics/</guid>
       <description>&lt;p&gt;De &lt;strong&gt;Big&lt;/strong&gt; in &lt;em&gt;Big Data&lt;/em&gt; mag je letterlijk nemen. IBM berekende onlangs dat wij allemaal 2.5 quintillion bytes aan data genereren. Elke minuut meer dan 350.000 tweets, 75.000 uren van Netflix video streams, meer dan 35.000 Apple store apps gedownload, enzovoort.&lt;/p&gt;&#xA;&lt;p&gt;De term &lt;em&gt;Big Data&lt;/em&gt; is al sinds eind de jaren negentig aan een opmars bezig. We kunnen &amp;ldquo;grote datasets&amp;rdquo; categoriseren afhankelijk van wat we noemen de &lt;strong&gt;vijf Vs&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Volume&lt;/strong&gt;&amp;mdash;Het gaat (uiteraard) over een alsmaar groeiend &amp;ldquo;groot volume&amp;rdquo; aan data;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Velocity&lt;/strong&gt;&amp;mdash;De snelheid waarmee de data in en uit systemem vloeit die altijd maar toeneemt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Variety&lt;/strong&gt;&amp;mdash;De range aan data types breidt altijd maar uit (JSON, XML, RDBMS, noSQL, files, &amp;hellip;);&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Veracity&lt;/strong&gt;&amp;mdash;Hoe waarheidsgetrouw is de data eigenlijk wel? Data vertoont alsmaar vaker inconsistenties/ambiguiteit;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Value&lt;/strong&gt;&amp;mdash;Wat heb je aan al die data zonder er iets waardevol mee te doen (zoals een crutiale business beslissing)?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;figure&gt;&#xD;&#xA;&#x9;&lt;a href=&#34;../img/5vs.jpg&#34; data-featherlight=&#34;image&#34;&gt;&#xD;&#xA;&#x9;&#x9;&lt;img src=&#34;../img/5vs.jpg&#34;   title=&#34;src: tistory.com&#34;&gt;&#xD;&#xA;&#x9;&lt;/a&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&lt;figcaption&gt;src: tistory.com&lt;/figcaption&gt;&#xD;&#xA;&#x9;&#xD;&#xA;&lt;/figure&gt;&#xD;&#xA;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2. Data Warehousing &amp; BI</title>
+      <title>Data Warehousing &amp; BI</title>
       <link>http://localhost:1313/db-course/bigdata/datawarehousing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/bigdata/datawarehousing/</guid>

@@ -52,8 +52,10 @@ Je kan je XML bestanden laten valideren tegen een XSD schema, door daar zelf log
 
 ### Oefeningen
 1. Maak een XSD schema voor de studenten XML die jullie in de vorige opgave hebben gemaakt.
+2. Voeg een nieuw element `Gender` toe aan XML en XSD. 
+
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -83,12 +85,10 @@ Je kan je XML bestanden laten valideren tegen een XSD schema, door daar zelf log
 ```
 
 </p>
-</details> -->
-
-2. Voeg een nieuw element `Gender` toe aan XML en XSD. 
+</details>
 
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -119,7 +119,9 @@ Je kan je XML bestanden laten valideren tegen een XSD schema, door daar zelf log
 ```
 
 </p>
-</details> -->
+</details>
+
+## Attributen toevoegen 
 
 We kunnen ons XSD schema uitbreiden door er ook attributen aan toe te voegen. Laten we een `Genre` attribuut definiëren op ons `boek` element.
 
@@ -189,8 +191,10 @@ We kunnen aan XSD ook nog validatieregels toevoegen die de data-integriteit verz
 
 ### Oefeningen
 1. Voeg een attribuut toe aan de studenten XML dat aangeeft of de student een Bachelor of Master volgt.
+2. Voeg voor elke student nu ook een lijst van vakken toe. Per vak willen we de naam, zien voor hoeveel studiepunten dit meetelt en een score? Voeg dit ook toe in je XML en valideer dit tegen je XSD.
+
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -236,12 +240,10 @@ We kunnen aan XSD ook nog validatieregels toevoegen die de data-integriteit verz
 ```
 
 </p>
-</details> -->
-
-2. Voeg voor elke student nu ook een lijst van vakken toe. Per vak willen we zien voor hoeveel studiepunten dit meetelt en een score? Voeg dit ook toe in je XML en valideer dit tegen je XSD.
+</details>
 
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de oplossing te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -297,4 +299,9 @@ We kunnen aan XSD ook nog validatieregels toevoegen die de data-integriteit verz
 ```
 
 </p>
-</details> -->
+</details>
+
+{{% notice info %}}
+Meer info over de mogelijkheden met XSD vind je [hier](https://www.w3schools.com/xml/schema_intro.asp)
+en [hier](https://www.w3schools.com/xml/schema_dtypes_string.asp)
+{{% /notice %}}

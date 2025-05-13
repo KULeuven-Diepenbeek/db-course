@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>6. XML Data Storage on Databases</title>
+    <title>XML Data Storage on Databases</title>
     <link>http://localhost:1313/db-course/xml/</link>
-    <description>Recent content in 6. XML Data Storage on Databases</description>
+    <description>Recent content in XML Data Storage on Databases</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <atom:link href="http://localhost:1313/db-course/xml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1. XML Basics</title>
+      <title>XML Basics</title>
       <link>http://localhost:1313/db-course/xml/basics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/xml/basics/</guid>
-      <description>&lt;h1 id=&#34;xml-data-storage&#34;&gt;XML Data Storage&lt;/h1&gt;&#xA;&lt;p&gt;XML staat voor &lt;strong&gt;Extensible Markup Language&lt;/strong&gt;. Het is een taal die we gebruiken om met tags gegevens te structureren. Een tag opent zich op volgende manier: &lt;code&gt;&amp;lt;boek&amp;gt;&lt;/code&gt; en sluit op deze manier: &lt;code&gt;&amp;lt;/boek&amp;gt;&lt;/code&gt;.&#xA;Je herkent misschien het gebruik van deze tags van &lt;strong&gt;HTML&lt;/strong&gt;? Dat komt omdat HTML en XML allebei gegroeid zijn uit dezelfde taal (SGML).&lt;/p&gt;&#xA;&lt;h2 id=&#34;waarom-xml-gebruiken&#34;&gt;Waarom XML gebruiken?&lt;/h2&gt;&#xA;&lt;p&gt;XML is nog steeds een vaak voorkomende manier om data te structureren en definiëren. Denk bijvoorbeeld aan webhook calls waarbij je kan kiezen tussen een response te krijgen in XML of JSON.&#xA;Al krijgt JSON de laaste jaren meer en meer voorkeur omwille van zijn makkelijke en leesbare syntax, toch zijn er nog instanties waarbij XML de enige optie is.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;xml-data-storage&#34;&gt;XML Data Storage&lt;/h1&gt;&#xA;&lt;p&gt;XML staat voor &lt;strong&gt;Extensible Markup Language&lt;/strong&gt;. Het is een taal die we gebruiken om met tags gegevens te structureren. Een tag opent zich op volgende manier: &lt;code&gt;&amp;lt;boek&amp;gt;&lt;/code&gt; en sluit op deze manier: &lt;code&gt;&amp;lt;/boek&amp;gt;&lt;/code&gt;.&#xA;Je herkent misschien het gebruik van deze tags van &lt;strong&gt;HTML&lt;/strong&gt;? Dat komt omdat HTML en XML allebei gegroeid zijn uit dezelfde taal (SGML).&lt;/p&gt;&#xA;&lt;h2 id=&#34;waarom-xml-gebruiken&#34;&gt;Waarom XML gebruiken?&lt;/h2&gt;&#xA;&lt;p&gt;XML is nog steeds een vaak voorkomende manier om data te structureren en definiëren. Denk bijvoorbeeld aan webhook calls waarbij je kan kiezen tussen een response te krijgen in XML of JSON.&#xA;Al krijgt JSON de laatste jaren meer en meer voorkeur omwille van zijn makkelijke en leesbare syntax, toch zijn er nog instanties waarbij XML de enige optie is.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2. XSD</title>
+      <title>XSD</title>
       <link>http://localhost:1313/db-course/xml/xsd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/xml/xsd/</guid>
       <description>&lt;h1 id=&#34;xml-schema-definition&#34;&gt;XML Schema Definition&lt;/h1&gt;&#xA;&lt;p&gt;Wanneer we met XML communiceren tussen twee verschillende partijen, hebben we natuurlijk ook spelregels nodig. Daarvoor kunnen we een &lt;strong&gt;XML schema&lt;/strong&gt; of &lt;strong&gt;XSD&lt;/strong&gt; gebruiken. Daarin leggen we vast:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;welke tags wel of niet mogen voorkomen,&lt;/li&gt;&#xA;&lt;li&gt;in welke volgorde die moeten staan,&lt;/li&gt;&#xA;&lt;li&gt;hoe vaak een element mag voorkomen,&lt;/li&gt;&#xA;&lt;li&gt;of een element optioneel of verplicht is,&lt;/li&gt;&#xA;&lt;li&gt;het datatype van het element,&lt;/li&gt;&#xA;&lt;li&gt;welke attributen op een tag toegelaten zijn&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Ons vorige XML representatie van een collectie boeken kan met volgende XSD beschreven worden:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>3. XPath</title>
+      <title>XPath</title>
       <link>http://localhost:1313/db-course/xml/xpath/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/db-course/xml/xpath/</guid>
