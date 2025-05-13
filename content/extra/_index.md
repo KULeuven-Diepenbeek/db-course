@@ -1,8 +1,8 @@
 ---
 title: 'Extras'
 chapter: true
-draft: true
-weight: 8
+draft: false
+weight: 9
 ---
 
 # Extra informatie

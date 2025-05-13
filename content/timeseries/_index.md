@@ -2,6 +2,7 @@
 title: "Timeseries database"
 chapter: true
 draft: false
+weight: 6
 ---
 
 # Timeseries Databases
