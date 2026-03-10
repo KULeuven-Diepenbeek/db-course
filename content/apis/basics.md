@@ -29,4 +29,4 @@ Je Gradle versie verhogen kan door de URL in `gradle/gradlew.properties` te wijz
 
 Gradle dependency of Git source control problemen? Grijp terug naar [de cursus van SES](https://kuleuven-diepenbeek.github.io/ses-course/).
 
-## API solutions testen
+<!-- ## API solutions testen -->

@@ -1,6 +1,6 @@
 ---
 title: VERPLICHTE opdracht
-draft: false
+draft: true
 weight: 6
 ---
 
