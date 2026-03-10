@@ -1,7 +1,7 @@
 ---
 title: Big Data & Analytics
 chapter: true
-draft: false
+draft: true
 weight: 8
 ---
 

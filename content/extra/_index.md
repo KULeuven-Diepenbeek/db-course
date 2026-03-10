@@ -1,7 +1,7 @@
 ---
 title: 'Extras'
 chapter: true
-draft: false
+draft: true
 weight: 9
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "NoSQL"
 chapter: true
-draft: false
+draft: true
 weight: 5
 ---
 

@@ -10,11 +10,11 @@ title: 'Index'
 
 | nr  | datum         | onderwerp                 |
 |-----|---------------|---------------------------|
-| 01  | vr 16-02-2024 | RDBMS & SQL: Basics, DB Componenten
-| 02  | vr 23-02-2024 | ER-schema
-| 03  | di 27-02-2024 | ACID & SQL Deel 1
-| 04  | vr 08-03-2024 | SQL deel 2
-| 05  | vr 15-03-2024 | RDBMS transacties: basics, concurrency control
+| 01  |  | RDBMS & SQL: Basics, DB Componenten
+| 02  |  | ER-schema
+| 03  |  | ACID & SQL Deel 1
+| 04  |  | SQL deel 2
+| 05  |  | RDBMS transacties: basics, concurrency control
 | 06  | vr 22-03-2024 | DB APIs: basics, JDBC, JDBI
 | 07  | di 26-03-2024 | DB APIs: JPA & Hibernate
 | 08  | di 16-04-2024 | Re Transacties: rollbacks, concurrency in practice
@@ -88,7 +88,7 @@ En anderzijds op twee toepassingen:
 
 #### Doelstellingen
 
-Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2025&i=4290)
+Zie ook [Studiegids UHasselt](https://studiegidswww.uhasselt.be/opleidingsonderdeel.aspx?a=2026&i=4290)
     
 De context en het overzicht worden aangereikt in de eerste lessen van dit vak.
 
