@@ -216,7 +216,7 @@ Deze concepten komen ook terug in schedulers voor besturingssystemen en zie ook 
 Pessimistic locking kan veel problemen opvangen, maar ten koste van performantie---wat meestal belangrijker is. Voor veel transacties is het oké om met een minimum aan conflicten de throughput van transacties zo hoog mogelijk te houden. De meeste DBMS systemen zijn hier flexibel in: je kan wat we noemen **isolation levels** instellen, dat meestal bestaat uit de volgende vier opties (van low naar high isolation):
 
 1. **Read uncommited**---Dit laat toe om "uncommited" data te lezen (dat problemen geeft, zie boven), en wordt meestal gebruikt in combinatie met read-only transacties. 
-2. **Read committed**---Gebruikt _short-term_ read locks en _long-term_ write locks, en lost zo het inconsistent analysis/lost update probleem op, maar is niet krachtig genoeg om phantom reads tegen te houden. 
+2. **Read committed**---Gebruikt _short-term_ read locks en _long-term_ write locks, en lost zo het inconsistent analysis/dirty reads probleem op, maar is niet krachtig genoeg om phantom reads tegen te houden. 
 3. **Repeatable read**---Gebruikt _long-term_ read & write locks. Een transactie kan zo dezelfde rij verschillende keren opnieuw lezen zonder conflicten van insert/updates van andere transacties. Het phantom read probleem is echter nog steeds niet opgelost. 
 4. **Serializable**---het krachtigste isolation level dat in theorie aansluit met serial scheduling. 
 
