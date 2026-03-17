@@ -4,7 +4,7 @@ draft: false
 weight: 6
 ---
 
-## Opdracht JDBC en JDBI met als deadline zondag 2 april 2026 23u59
+## Opdracht JDBC en JDBI met als deadline zondag 19 april 2026 23u59
 
 Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende [Github Classroom](https://classroom.github.com/classrooms/58585791-dab-2526). En pull je de repository van [**Opdracht rond Database API's**](https://classroom.github.com/a/8d4G7Wjv). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
 
@@ -26,14 +26,14 @@ In het project zijn alle klassen die je nodig hebt al aangemaakt op de correcte 
 
 **BELANGRIJK** wanneer je SQL specifieke imports moet doen, gebruik dan de generieke `java.sql` imports en geen `com.mysql` imports aangezien de testen dan niet zullen werken !!!
 
-**Push voor de deadline van zondag 2 april 2026 23u59 je oplossingen naar je repository**
+**Push voor de deadline van zondag 19 april 2026 23u59 je oplossingen naar je repository**
 
 Veel succes! Je mag me altijd contacteren via [arne.duyver@kuleuven.be](mailto::arne.duyver@kuleuven.be) voor vragen of in de les aanspreken.
 
 Er is ook een video met deze uitleg voorzien die je op [Toledo](https://toledo.kuleuven.be) bij de opdracht kan terugvinden.
 
 
-## Opdracht JPA met als deadline zondag 2 april 2026 23u59
+## Opdracht JPA met als deadline zondag 19 april 2026 23u59
 Vul het bovenstaande project verder aan met een werkende `SpelerRespositoryJPAimpl`-klasse en bijhorende dependencies en `persistence.xml`-file op de correcte manier.
 
 **Denk eraan dat je in de `persistence.xml` die bij de testen hoort ook de juiste DATABASE url gebruikt**
