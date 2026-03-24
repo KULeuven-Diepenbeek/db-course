@@ -211,10 +211,16 @@ Deze functie haalt het eerste resultaat op van de query. Als je er zeker van ben
 - `mapToBean`: Nadat je een SELECT-query hebt uitgevoerd, zet deze functie elke rij uit het resultaat om in een Java bean (bijvoorbeeld een Student object). JDBI vergelijkt de kolomnamen uit de query met de velden in de bean.
 
 ## Oefening
+
+#### 1. Maak van het simpele student JDBC een JDBI versie
 {{% notice info %}}
 <!-- EXSOL -->
 <!-- **_[Hier](/files/jdbi-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
 {{% /notice %}} -->
+
+#### 2. Breid deze versie nu uit met Vak en Opleiding
+
+#### 3. Zorg ervoor dat je snel kan switchen tussen een JDBI of JDBC repository versie door gebruik te maken van een repository interface
 
 <!-- ### EER-schema/database mapping naar Java Objects -->
 
