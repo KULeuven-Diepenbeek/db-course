@@ -215,8 +215,8 @@ Deze functie haalt het eerste resultaat op van de query. Als je er zeker van ben
 #### 1. Maak van het simpele student JDBC een JDBI versie
 {{% notice info %}}
 <!-- EXSOL -->
-<!-- **_[Hier](/files/jdbi-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
-{{% /notice %}} -->
+**_[Hier](/files/jdbi-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
+{{% /notice %}}
 
 #### 2. Breid deze versie nu uit met Vak en Opleiding
 
