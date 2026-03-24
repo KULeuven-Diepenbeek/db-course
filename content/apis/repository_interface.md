@@ -39,5 +39,5 @@ In de main van je programma kan je dus overal waar je een StudentRepository nodi
 ## Oefening
 {{% notice info %}}
 <!-- EXSOL -->
-**_[Hier](/files/interface-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
-{{% /notice %}}
+<!-- **_[Hier](/files/interface-simple.zip) vind je een zipfolder met een oplossing voor onderstaande oefening: dashboard voor database met enkel studenten tabel_**
+{{% /notice %}} -->
