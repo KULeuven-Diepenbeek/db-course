@@ -585,7 +585,7 @@ Meer informatie over indexes is te vinden in de [MongoDB-documentatie](https://w
   - `inStock` (bool, optioneel)
 
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -627,27 +627,27 @@ db.runCommand({
 ```
 
 </p>
-</details> -->
+</details>
 
 ##### Oefeningenreeks 2: Indexes 
 
 - Maak een index aan op het veld `item` in de `producten`-collectie.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.createIndex({ item: 1 })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.createIndex({ item: 1 })```
 - Bekijk alle bestaande indexes op de `producten`-collectie.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.getIndexes()``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.getIndexes()```
 
 <br>
 
 - Maak een samengestelde index aan op `item` (oplopend) en `price` (aflopend), en controleer daarna via `explain()` of een query op `item: "Laptop"` gebruik maakt van deze index.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+_**<span style="color: #03C03C;">Solution:</span>**_  
 ```javascript
 db.producten.createIndex({ item: 1, price: -1 })
 db.producten.find({ item: "Laptop" }).explain("executionStats")
 // Controleer in de output of winningPlan een IXSCAN toont
-``` -->
+```
 
 ### MongoDB Compass
 
