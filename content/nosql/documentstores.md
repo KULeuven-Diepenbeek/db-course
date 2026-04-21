@@ -259,64 +259,64 @@ db.producten.insertMany([
 
 - Toon alle documenten in `producten`.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find()``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find()```
 - Toon enkel de documenten waar `item` gelijk is aan `"Laptop"`.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Laptop" })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Laptop" })```
 - Toon alle documenten met een `price` groter dan 500.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gt: 500 } })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gt: 500 } })```
 - Toon alle documenten met een `price` tussen 200 en 500 (inclusief grenzen).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gte: 200, $lte: 500 } })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gte: 200, $lte: 500 } })```
 - Toon het eerste document in de collectie.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.findOne()``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.findOne()```
 - Tel het totaal aantal documenten in de collectie.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().count()``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().count()```
 - Tel het aantal documenten waar `item` gelijk is aan `"Phone"`.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Phone" }).count()``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Phone" }).count()```
 - Toon alle documenten gesorteerd op `price` van laag naar hoog.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().sort({ price: 1 })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().sort({ price: 1 })```
 
 <br>
 
 - Toon de 3 duurste documenten (gesorteerd op `price` van hoog naar laag, maximum 3 resultaten).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+_**<span style="color: #03C03C;">Solution:</span>**_  
 ```javascript
 db.producten.find().sort({ price: -1 }).limit(3)
-``` -->
+```
 - Toon alle documenten met een `quantity` groter dan 5, gesorteerd op `quantity` aflopend, en sla de eerste 2 resultaten over.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+_**<span style="color: #03C03C;">Solution:</span>**_  
 ```javascript
 db.producten.find({ quantity: { $gt: 5 } }).sort({ quantity: -1 }).skip(2)
-``` -->
+```
 
 ##### Oefeningenreeks 2: Updates & Deletes
 
 - Zet de `price` van de `"Mouse"` op `55`.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateOne({ item: "Mouse" }, { $set: { price: 55 } })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateOne({ item: "Mouse" }, { $set: { price: 55 } })```
 - Verhoog de `quantity` van alle `"Keyboard"`-documenten met `5` (gebruik `$inc`).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ item: "Keyboard" }, { $inc: { quantity: 5 } })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ item: "Keyboard" }, { $inc: { quantity: 5 } })```
 - Voeg een veld `inStock: true` toe aan alle documenten met een `quantity` groter dan 5.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ quantity: { $gt: 5 } }, { $set: { inStock: true } })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ quantity: { $gt: 5 } }, { $set: { inStock: true } })```
 - Verwijder het document met `item` gelijk aan `"Printer"`.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.deleteOne({ item: "Printer" })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.deleteOne({ item: "Printer" })```
 
 <br>
 
 - Verwijder alle documenten waarvan de `date` buiten het jaar 2014 valt (dus vóór 2014 of na 2014).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+_**<span style="color: #03C03C;">Solution:</span>**_  
 ```javascript
 db.producten.deleteMany({
   $or: [
@@ -324,13 +324,13 @@ db.producten.deleteMany({
     { date: { $gte: new Date("2015-01-01") } }
   ]
 })
-``` -->
+```
 
 ##### Oefeningenreeks 3: Aggregaties
 
 - Bereken per `item` het totale verkoopbedrag (`price * quantity`) en sorteer de resultaten van hoog naar laag.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -342,11 +342,11 @@ db.producten.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 - Bereken de gemiddelde `price` per `item`.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -357,11 +357,11 @@ db.producten.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 - Toon enkel de documenten uit het jaar 2014, groepeer ze per `item`, bereken het totale verkoopbedrag en toon enkel de top 3 resultaten (gesorteerd van hoog naar laag).
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -375,7 +375,7 @@ db.producten.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 ### Schema-validatie
 
