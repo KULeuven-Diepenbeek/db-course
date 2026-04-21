@@ -12,22 +12,22 @@
     <title>Document Stores met MongoDB :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1774359340" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1774359340" rel="stylesheet">
-    <link href="../../css/hybrid.css?1774359340" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1774359340" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1774359340" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1774359340" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1774359340" rel="stylesheet">
-    <link href="../../css/theme.css?1774359340" rel="stylesheet">
-    <link href="../../css/autonumbering.css?1774359340" rel="stylesheet">
-    <link href="../../css/devselector.css?1774359340" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1774359340" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1774359340" rel="stylesheet">
+    <link href="../../css/nucleus.css?1776765217" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1776765217" rel="stylesheet">
+    <link href="../../css/hybrid.css?1776765217" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1776765217" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1776765217" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1776765217" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1776765217" rel="stylesheet">
+    <link href="../../css/theme.css?1776765217" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1776765217" rel="stylesheet">
+    <link href="../../css/devselector.css?1776765217" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1776765217" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1776765217" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1774359340"></script>
-    <script src="../../js/devselector.js?1774359340"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1776765217"></script>
+    <script src="../../js/devselector.js?1776765217"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1774359340"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1774359340"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1776765217"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1776765217"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1774359340"></script>
+<script type="text/javascript" src="../../js/search.js?1776765217"></script>
 
     
   </div>
@@ -535,6 +535,103 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/nosql/" title="NoSQL" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="../../nosql/">
+          NoSQL
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/basics/" title="NoSQL Basics" class="dd-item ">
+        <a href="../../nosql/basics/">
+        NoSQL Basics
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/documentstores/" title="Document Stores met MongoDB" class="dd-item active">
+        <a href="../../nosql/documentstores/">
+        Document Stores met MongoDB
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/nosql/4oef3/" title="" class="dd-item ">
+        <a href="../../nosql/4oef3/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
         
     </ul>
 
@@ -602,7 +699,7 @@
             
           
           
-            <a href='../../'>Index</a> > <a href=''>NoSQL</a> > Document Stores met MongoDB
+            <a href='../../'>Index</a> > <a href='../../nosql/'>NoSQL</a> > Document Stores met MongoDB
           
         
           
@@ -623,6 +720,9 @@
         <li><a href="#overzicht-van-gebruik">Overzicht van Gebruik</a></li>
         <li><a href="#voorbeeld">Voorbeeld</a></li>
         <li><a href="#belangrijke-commandos">Belangrijke Commando&rsquo;s</a></li>
+        <li><a href="#aggregaties">Aggregaties</a></li>
+        <li><a href="#schema-validatie">Schema-validatie</a></li>
+        <li><a href="#indexes">Indexes</a></li>
         <li><a href="#mongodb-compass">MongoDB Compass</a></li>
         <li><a href="#mongodb-vscode-extensie">MongoDB VSCode Extensie</a></li>
         <li><a href="#mongodb-in-java">MongoDB in Java</a></li>
@@ -722,8 +822,12 @@
 </span></span></code></pre></div><p><strong>Merk op dat voor de derde student de Opleiding ontbreekt, dit kan dus in NoSql document stores. Het is dan wel belangrijk dat je software hier rekening mee houdt!</strong></p>
 <!-- TODO mongosh installeren: https://www.mongodb.com/try/download/shell, https://www.mongodb.com/docs/mongodb-shell/install/ -->
 <h3 id="belangrijke-commandos">Belangrijke Commando&rsquo;s</h3>
-<p>Hieronder een overzicht van veelgebruikte commando&rsquo;s in MongoDB:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Versie controleren</span>
+<p>De querytaal van MongoDB is <strong>JavaScript</strong>, of meer specifiek: mongosh (de MongoDB Shell) is een volwaardige JavaScript-omgeving. Dat betekent dat je in mongosh gewone JavaScript-code kunt schrijven: variabelen declareren, loops gebruiken, functies definiëren, enz.</p>
+<p>De query-objecten die je meegeeft aan <code>find()</code>, <code>insertOne()</code>, <code>updateOne()</code> e.d. zijn gewone <strong>JavaScript-objecten</strong> (letterlijk JSON-structuren). MongoDB vertaalt die intern naar BSON voor opslag, maar als gebruiker schrijf je altijd in JSON-notatie.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Dit is gewone JavaScript in mongosh
+</span></span></span><span style="display:flex;"><span><span style="color:#00a8c8">let</span> <span style="color:#75af00">prijsgrens</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">({</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$gt</span><span style="color:#f92672">:</span> <span style="color:#75af00">prijsgrens</span> <span style="color:#111">}</span> <span style="color:#111">}).</span><span style="color:#75af00">forEach</span><span style="color:#111">(</span><span style="color:#75af00">doc</span> <span style="color:#111">=&gt;</span> <span style="color:#75af00">print</span><span style="color:#111">(</span><span style="color:#75af00">doc</span><span style="color:#111">.</span><span style="color:#75af00">item</span><span style="color:#111">));</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Versie controleren</span>
 </span></span><span style="display:flex;"><span>$ mongosh --version
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Verbinden met een database</span>
@@ -754,7 +858,7 @@
 </span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">({</span>&lt;keyname&gt;: <span style="color:#d88200">&#34;&lt;value&gt;&#34;</span><span style="color:#f92672">})</span>
 </span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">({</span>&lt;keyname&gt;: <span style="color:#f92672">{</span>&lt;operation&gt;<span style="color:#f92672">}})</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">()[</span>0<span style="color:#f92672">]</span>._id
+</span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">()</span>.toArray<span style="color:#f92672">()[</span>0<span style="color:#f92672">]</span>._id
 </span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">(</span>…<span style="color:#f92672">)</span>.sort<span style="color:#f92672">({</span>&lt;key&gt;: 1<span style="color:#f92672">})</span>  or -1 <span style="color:#00a8c8">for</span> descending order
 </span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">(</span>…<span style="color:#f92672">)</span>.count<span style="color:#f92672">()</span>
 </span></span><span style="display:flex;"><span>db.&lt;collection name&gt;.find<span style="color:#f92672">(</span>…<span style="color:#f92672">)</span>.limit<span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>
@@ -776,9 +880,9 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>db.&lt;db name&gt;.replaceOne<span style="color:#f92672">(</span>&lt;query&gt;<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>db.&lt;db name&gt;.replaceMany<span style="color:#f92672">(</span>&lt;query&gt;<span style="color:#f92672">)</span>
-</span></span></code></pre></div><p>Meer informatie over query- en updateoperators is te vinden in de <a href="https://www.mongodb.com/docs/manual/reference/operator/">MongoDB-documentatie</a>.</p>
-<h4 id="aggregaties">Aggregaties</h4>
-<p>MongoDB ondersteunt aggregaties, waarmee je complexe bewerkingen op gegevens kunt uitvoeren. Aggregaties zijn een krachtige manier om gegevens te transformeren en te analyseren. Ze worden vaak gebruikt om samenvattingen, statistieken of andere berekeningen uit te voeren op grote datasets. Aggregaties worden uitgevoerd met behulp van een aggregatie-pijplijn, die bestaat uit een reeks stappen die gegevens verwerken en transformeren.</p>
+</span></span></code></pre></div><p>Meer informatie over query- en updateoperators is te vinden in de <a href="https://www.mongodb.com/docs/development/">MongoDB-documentatie</a>.</p>
+<h3 id="aggregaties">Aggregaties</h3>
+<p>MongoDB ondersteunt aggregaties, waarmee je complexe bewerkingen op gegevens kunt uitvoeren. Aggregaties zijn een krachtige manier om gegevens te transformeren en te analyseren. Ze worden vaak gebruikt om samenvattingen, statistieken of andere berekeningen uit te voeren op grote datasets. Aggregaties worden uitgevoerd met behulp van een aggregatie-pipeline, die bestaat uit een reeks stappen die gegevens verwerken en transformeren.</p>
 <p>Enkele veelgebruikte aggregatiestappen zijn:</p>
 <ul>
 <li><code>$match</code>: Filteren van gegevens op basis van criteria.</li>
@@ -789,6 +893,24 @@
 <li><code>$skip</code>: Overslaan van een bepaald aantal resultaten.</li>
 </ul>
 <p>Een voorbeeld van een aggregatie in Java en in de console.</p>
+<!-- 
+db.mijnCollectie.insertMany([
+  { item: "Laptop",     price: 900, quantity: 3, date: new Date("2014-01-15") },
+  { item: "Laptop",     price: 950, quantity: 2, date: new Date("2014-03-10") },
+  { item: "Phone",      price: 600, quantity: 5, date: new Date("2014-02-20") },
+  { item: "Phone",      price: 650, quantity: 4, date: new Date("2014-07-05") },
+  { item: "Tablet",     price: 400, quantity: 6, date: new Date("2014-04-12") },
+  { item: "Tablet",     price: 420, quantity: 3, date: new Date("2014-09-18") },
+  { item: "Monitor",    price: 250, quantity: 7, date: new Date("2014-05-22") },
+  { item: "Keyboard",   price: 80,  quantity: 10, date: new Date("2014-06-30") },
+  { item: "Mouse",      price: 50,  quantity: 12, date: new Date("2014-08-14") },
+  { item: "Printer",    price: 300, quantity: 2, date: new Date("2014-11-11") },
+
+  // outside 2014 (to test filter)
+  { item: "Laptop",     price: 1000, quantity: 1, date: new Date("2015-01-10") },
+  { item: "Phone",      price: 700,  quantity: 2, date: new Date("2013-12-25") }
+]);
+-->
 <p><strong>Aggregatie in Java:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClient</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClients</span><span style="color:#111">;</span>
@@ -824,12 +946,176 @@
 </span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
 </span></span></code></pre></div><p><strong>Let wel op! De volgorde bij aggregaties zeer belangrijk is: Stel dat je in bovenstaande voorbeeld eerst een <code>$limit 5</code> zou doen en daarna pas een <code>$match</code>, dan zou je dus enkel matchen zoeken binnen de 5 documenten die nog over hebt na je voorgaande <code>$limit</code> commando.</strong></p>
 <p>Meer informatie over aggregaties is te vinden in de <a href="https://www.mongodb.com/docs/manual/aggregation/">MongoDB-documentatie</a>.</p>
-<h4 id="schema-validatie">Schema-validatie</h4>
+<h4 id="oefeningen">Oefeningen</h4>
+<p><em>De gegeven oplossingen zijn EEN mogelijke oplossing, soms zijn meerdere mogelijkheden juist. Is het gewenste gedrag bereikt, dan is je oplossing correct!</em></p>
+<p>Voor de volgende oefeningen gebruik je de onderstaande dataset. Maak eerst een database aan genaamd <code>winkel</code>, selecteer ze en voeg de data in met het volgende commando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">use</span> <span style="color:#75af00">winkel</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">insertMany</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Laptop&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">900</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-01-15&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Laptop&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">950</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-03-10&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Phone&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">600</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-02-20&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Phone&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">650</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-07-05&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Tablet&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">400</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-04-12&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Tablet&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">420</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-09-18&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Monitor&#34;</span><span style="color:#111">,</span>  <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">250</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">7</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-05-22&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Keyboard&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80</span><span style="color:#111">,</span>   <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-06-30&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Mouse&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span><span style="color:#111">,</span>   <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span><span style="color:#111">,</span> <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-08-14&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Printer&#34;</span><span style="color:#111">,</span>  <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-11-11&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Laptop&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span> <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2015-01-10&#34;</span><span style="color:#111">)</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Phone&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">700</span><span style="color:#111">,</span>  <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>  <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2013-12-25&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
+</span></span></code></pre></div><h5 id="oefeningenreeks-1-queries">Oefeningenreeks 1: Queries</h5>
+<ul>
+<li>Toon alle documenten in <code>producten</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find()``` -->
+<ul>
+<li>Toon enkel de documenten waar <code>item</code> gelijk is aan <code>&quot;Laptop&quot;</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Laptop" })``` -->
+<ul>
+<li>Toon alle documenten met een <code>price</code> groter dan 500.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gt: 500 } })``` -->
+<ul>
+<li>Toon alle documenten met een <code>price</code> tussen 200 en 500 (inclusief grenzen).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gte: 200, $lte: 500 } })``` -->
+<ul>
+<li>Toon het eerste document in de collectie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.findOne()``` -->
+<ul>
+<li>Tel het totaal aantal documenten in de collectie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().count()``` -->
+<ul>
+<li>Tel het aantal documenten waar <code>item</code> gelijk is aan <code>&quot;Phone&quot;</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Phone" }).count()``` -->
+<ul>
+<li>Toon alle documenten gesorteerd op <code>price</code> van laag naar hoog.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().sort({ price: 1 })``` -->
+<br>
+<ul>
+<li>Toon de 3 duurste documenten (gesorteerd op <code>price</code> van hoog naar laag, maximum 3 resultaten).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+```javascript
+db.producten.find().sort({ price: -1 }).limit(3)
+``` -->
+<ul>
+<li>Toon alle documenten met een <code>quantity</code> groter dan 5, gesorteerd op <code>quantity</code> aflopend, en sla de eerste 2 resultaten over.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+```javascript
+db.producten.find({ quantity: { $gt: 5 } }).sort({ quantity: -1 }).skip(2)
+``` -->
+<h5 id="oefeningenreeks-2-updates--deletes">Oefeningenreeks 2: Updates &amp; Deletes</h5>
+<ul>
+<li>Zet de <code>price</code> van de <code>&quot;Mouse&quot;</code> op <code>55</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateOne({ item: "Mouse" }, { $set: { price: 55 } })``` -->
+<ul>
+<li>Verhoog de <code>quantity</code> van alle <code>&quot;Keyboard&quot;</code>-documenten met <code>5</code> (gebruik <code>$inc</code>).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ item: "Keyboard" }, { $inc: { quantity: 5 } })``` -->
+<ul>
+<li>Voeg een veld <code>inStock: true</code> toe aan alle documenten met een <code>quantity</code> groter dan 5.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ quantity: { $gt: 5 } }, { $set: { inStock: true } })``` -->
+<ul>
+<li>Verwijder het document met <code>item</code> gelijk aan <code>&quot;Printer&quot;</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.deleteOne({ item: "Printer" })``` -->
+<br>
+<ul>
+<li>Verwijder alle documenten waarvan de <code>date</code> buiten het jaar 2014 valt (dus vóór 2014 of na 2014).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+```javascript
+db.producten.deleteMany({
+  $or: [
+    { date: { $lt: new Date("2014-01-01") } },
+    { date: { $gte: new Date("2015-01-01") } }
+  ]
+})
+``` -->
+<h5 id="oefeningenreeks-3-aggregaties">Oefeningenreeks 3: Aggregaties</h5>
+<ul>
+<li>Bereken per <code>item</code> het totale verkoopbedrag (<code>price * quantity</code>) en sorteer de resultaten van hoog naar laag.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.producten.aggregate([
+  { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } } } },
+  { $sort: { totalSaleAmount: -1 } }
+])
+```
+
+</p>
+</details> -->
+<ul>
+<li>Bereken de gemiddelde <code>price</code> per <code>item</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.producten.aggregate([
+  { $group: { _id: "$item", avgPrice: { $avg: "$price" } } }
+])
+```
+
+</p>
+</details> -->
+<ul>
+<li>Toon enkel de documenten uit het jaar 2014, groepeer ze per <code>item</code>, bereken het totale verkoopbedrag en toon enkel de top 3 resultaten (gesorteerd van hoog naar laag).</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.producten.aggregate([
+  { $match: { date: { $gte: new Date("2014-01-01"), $lt: new Date("2015-01-01") } } },
+  { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } } } },
+  { $sort: { totalSaleAmount: -1 } },
+  { $limit: 3 }
+])
+```
+
+</p>
+</details> -->
+<h3 id="schema-validatie">Schema-validatie</h3>
 <p>Schema-validatie in MongoDB biedt een manier om de structuur van documenten in een collectie te definiëren en te valideren. Dit helpt om de integriteit van gegevens te waarborgen en fouten te voorkomen. Met schema-validatie kun je regels instellen voor de velden in een document, zoals het type, de vereiste velden en de toegestane waarden.</p>
 <p><strong>Hoe schema-validatie aanbrengen?</strong><br/>
 Schema-validatie wordt ingesteld op het niveau van een collectie. Bij het aanmaken van een collectie kun je een validatieregelspecificatie opgeven met behulp van het <code>validator</code>-veld. Dit veld bevat een query die de validatieregels definieert.</p>
 <p><strong>Syntax voor schema-validatie in Java</strong><br/>
-Hier is een voorbeeld van hoe je schema-validatie kunt instellen in Java:</p>
+Hier is een voorbeeld van hoe je schema-validatie kunt instellen in Java voor de <code>students</code>-collectie:</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClient</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClients</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoDatabase</span><span style="color:#111">;</span>
@@ -842,33 +1128,65 @@ Hier is een voorbeeld van hoe je schema-validatie kunt instellen in Java:</p>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">MongoDatabase</span> <span style="color:#111">database</span> <span style="color:#f92672">=</span> <span style="color:#111">mongoClient</span><span style="color:#111">.</span><span style="color:#75af00">getDatabase</span><span style="color:#111">(</span><span style="color:#d88200">&#34;mijnDatabase&#34;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">Document</span> <span style="color:#111">schema</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;required&#34;</span><span style="color:#111">,</span> <span style="color:#111">List</span><span style="color:#111">.</span><span style="color:#75af00">of</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">))</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;properties&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;required&#34;</span><span style="color:#111">,</span> <span style="color:#111">List</span><span style="color:#111">.</span><span style="color:#75af00">of</span><span style="color:#111">(</span><span style="color:#d88200">&#34;studnr&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;voornaam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;vakken&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;properties&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;studnr&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Studentnummer is verplicht en moet een geheel getal zijn.&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Naam is verplicht en moet een string zijn.&#34;</span><span style="color:#111">))</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;minimum&#34;</span><span style="color:#111">,</span> <span style="color:#111">0</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Leeftijd is verplicht en moet een positief geheel getal zijn.&#34;</span><span style="color:#111">)));</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;voornaam&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Voornaam is verplicht en moet een string zijn.&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;bool&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;goedBezig is verplicht en moet een boolean zijn.&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;opleiding&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Opleiding is optioneel maar moet een object zijn indien aanwezig.&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;properties&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;keuze&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">))))</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;vakken&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;array&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;items&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bsonType&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;description&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Vakken is verplicht en moet een array van strings zijn.&#34;</span><span style="color:#111">)));</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">createCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;mijnCollectie&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;validator&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;$jsonSchema&#34;</span><span style="color:#111">,</span> <span style="color:#111">schema</span><span style="color:#111">)));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">createCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;students&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;validator&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;$jsonSchema&#34;</span><span style="color:#111">,</span> <span style="color:#111">schema</span><span style="color:#111">)));</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
 </span></span></code></pre></div><p><strong>Syntax voor schema-validatie in de console (mongosh)</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">use</span> <span style="color:#75af00">mijnDatabase</span><span style="color:#111">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">createCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;mijnCollectie&#34;</span><span style="color:#111">,</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">createCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;students&#34;</span><span style="color:#111">,</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">validator</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">$jsonSchema</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75af00">required</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">required</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;studnr&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;voornaam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;vakken&#34;</span><span style="color:#111">],</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">properties</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">studnr</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Studentnummer is verplicht en moet een geheel getal zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">,</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Naam is verplicht en moet een string zijn.&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">leeftijd</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">minimum</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Leeftijd is verplicht en moet een positief geheel getal zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">voornaam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Voornaam is verplicht en moet een string zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">goedBezig</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;bool&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;goedBezig is verplicht en moet een boolean zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">opleiding</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Opleiding is optioneel maar moet een object zijn indien aanwezig.&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">properties</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">keuze</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">vakken</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;array&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">items</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Vakken is verplicht en moet een array van strings zijn.&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
@@ -877,18 +1195,26 @@ Hier is een voorbeeld van hoe je schema-validatie kunt instellen in Java:</p>
 </span></span></code></pre></div><p><strong>Validatie aanpassen</strong><br/>
 Je kunt de validatieregels van een bestaande collectie aanpassen met het commando <code>collMod</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">runCommand</span><span style="color:#111">({</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75af00">collMod</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;mijnCollectie&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">collMod</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;students&#34;</span><span style="color:#111">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">validator</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75af00">$jsonSchema</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75af00">required</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">required</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;studnr&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;voornaam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;vakken&#34;</span><span style="color:#111">],</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#75af00">properties</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">studnr</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;int&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">voornaam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">goedBezig</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;bool&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">opleiding</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">properties</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75af00">keuze</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75af00">leeftijd</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#75af00">minimum</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">vakken</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;array&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">items</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span> <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
@@ -900,7 +1226,124 @@ Als je schema-validatie tijdelijk wilt uitschakelen, kun je de validatieactie in
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">collMod</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;mijnCollectie&#34;</span><span style="color:#111">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75af00">validationAction</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;warn&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">});</span>
-</span></span></code></pre></div><p>Met deze aanpak kun je schema-validatie flexibel toepassen en aanpassen aan de behoeften van je applicatie.</p>
+</span></span></code></pre></div><p>Met deze aanpak kun je schema-validatie flexibel toepassen en aanpassen aan de behoeften van je applicatie. We beperkten ons hier tot een simpel voorbeeld, maar voor een volledige lijst van JSON schema object fields kan je <a href="https://www.mongodb.com/docs/manual/reference/operator/query/jsonSchema/#json-schema">deze link</a> gebruiken.</p>
+<h3 id="indexes">Indexes</h3>
+<p>Een <strong>index</strong> is een aparte datastructuur die MongoDB bijhoudt naast je collectie. Die structuur bevat een gesorteerde kopie van de waarden van één of meer velden, samen met een verwijzing naar het bijhorende document. Dit maakt het mogelijk om snel te zoeken op die velden, vergelijkbaar met de index achteraan een boek: je hoeft het hele boek niet te lezen, maar gaat meteen naar de juiste pagina.</p>
+<p>Zonder een index moet MongoDB een <strong>collection scan</strong> uitvoeren: elk document in de collectie wordt één voor één bekeken om te controleren of het aan de query voldoet. Bij een kleine collectie is dit nauwelijks merkbaar, maar bij miljoenen documenten loopt dit snel op.</p>
+<p>Met een index kan MongoDB via de gesorteerde structuur in een paar stappen naar de juiste waarde navigeren - de complexiteit daalt van $O(n)$ naar $O(\log n)$.</p>
+<p><strong>Voorbeeld:</strong> Stel je hebt een collectie met 1 000 000 producten en je zoekt op <code>item: &quot;Laptop&quot;</code>.</p>
+<ul>
+<li><em>Zonder index:</em> MongoDB leest alle 1 000 000 documenten.</li>
+<li><em>Met een index op <code>item</code>:</em> MongoDB navigeert direct naar alle documenten met <code>item = &quot;Laptop&quot;</code> - typisch slechts een handvol stappen.</li>
+</ul>
+<p><strong>Nadelen van indexes</strong></p>
+<p>Indexes versnellen lezen, maar brengen kosten mee:</p>
+<ul>
+<li>Ze nemen <strong>extra schijfruimte</strong> in.</li>
+<li>Bij elke <strong>schrijfoperatie</strong> (insert, update, delete) moeten alle betrokken indexes bijgewerkt worden, wat schrijven iets trager maakt.</li>
+</ul>
+<p>Indexes aanmaken op velden die weinig of niet gebruikt worden in queries is dus geen goed idee.</p>
+<p>Standaard maakt MongoDB automatisch een index aan op het <code>_id</code>-veld. Je kunt zelf extra indexes aanmaken op andere velden.</p>
+<p><strong>Index aanmaken</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Enkelvoudige index op één veld (oplopend)
+</span></span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">createIndex</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Enkelvoudige index (aflopend)
+</span></span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">createIndex</span><span style="color:#111">({</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Samengestelde index op meerdere velden
+</span></span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">createIndex</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Unieke index (geen duplicaten toegestaan)
+</span></span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">createIndex</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#111">},</span> <span style="color:#111">{</span> <span style="color:#75af00">unique</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">})</span>
+</span></span></code></pre></div><p><strong>Indexes bekijken</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">getIndexes</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><strong>Index verwijderen</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">dropIndex</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#111">})</span>
+</span></span></code></pre></div><p><strong>Query-uitvoeringsplan bekijken</strong><br/>
+Met <code>explain()</code> kun je zien of een query gebruik maakt van een index:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Laptop&#34;</span> <span style="color:#111">}).</span><span style="color:#75af00">explain</span><span style="color:#111">(</span><span style="color:#d88200">&#34;executionStats&#34;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>In de output zie je bij <code>winningPlan</code> of er een <code>IXSCAN</code> (index scan) of een <code>COLLSCAN</code> (collection scan) gebruikt wordt. Een <code>IXSCAN</code> betekent dat de index gebruikt wordt, wat veel sneller is bij grote datasets.</p>
+<p>Meer informatie over indexes is te vinden in de <a href="https://www.mongodb.com/docs/manual/indexes/">MongoDB-documentatie</a>.</p>
+<h4 id="oefeningen-1">Oefeningen</h4>
+<h5 id="oefeningenreeks-1-schema-validatie">Oefeningenreeks 1: Schema-validatie</h5>
+<ul>
+<li>Voeg schema-validatie toe aan de bestaande <code>producten</code>-collectie in de <code>winkel</code>-database (gebruik <code>collMod</code>). Elk document moet voldoen aan de volgende regels:
+<ul>
+<li><code>item</code> (string, verplicht)</li>
+<li><code>price</code> (double of int, verplicht, minimum 0)</li>
+<li><code>quantity</code> (int, verplicht, minimum 0)</li>
+<li><code>date</code> (date, verplicht)</li>
+<li><code>inStock</code> (bool, optioneel)</li>
+</ul>
+</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+use winkel;
+db.runCommand({
+  collMod: "producten",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["item", "price", "quantity", "date"],
+      properties: {
+        item: {
+          bsonType: "string",
+          description: "item is verplicht en moet een string zijn."
+        },
+        price: {
+          bsonType: ["double", "int"],
+          minimum: 0,
+          description: "price is verplicht en moet een getal zijn groter dan of gelijk aan 0."
+        },
+        quantity: {
+          bsonType: "int",
+          minimum: 0,
+          description: "quantity is verplicht en moet een geheel getal zijn groter dan of gelijk aan 0."
+        },
+        date: {
+          bsonType: "date",
+          description: "date is verplicht en moet een datum zijn."
+        },
+        inStock: {
+          bsonType: "bool",
+          description: "inStock is optioneel maar moet een boolean zijn indien aanwezig."
+        }
+      }
+    }
+  }
+});
+```
+
+</p>
+</details> -->
+<h5 id="oefeningenreeks-2-indexes">Oefeningenreeks 2: Indexes</h5>
+<ul>
+<li>Maak een index aan op het veld <code>item</code> in de <code>producten</code>-collectie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.createIndex({ item: 1 })``` -->
+<ul>
+<li>Bekijk alle bestaande indexes op de <code>producten</code>-collectie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.getIndexes()``` -->
+<br>
+<ul>
+<li>Maak een samengestelde index aan op <code>item</code> (oplopend) en <code>price</code> (aflopend), en controleer daarna via <code>explain()</code> of een query op <code>item: &quot;Laptop&quot;</code> gebruik maakt van deze index.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
+```javascript
+db.producten.createIndex({ item: 1, price: -1 })
+db.producten.find({ item: "Laptop" }).explain("executionStats")
+// Controleer in de output of winningPlan een IXSCAN toont
+``` -->
 <h3 id="mongodb-compass">MongoDB Compass</h3>
 <p>MongoDB Compass is een grafische gebruikersinterface (GUI) waarmee je eenvoudig je MongoDB-databases kan beheren en verkennen. Met Compass kan je:</p>
 <ul>
@@ -951,25 +1394,32 @@ Als je schema-validatie tijdelijk wilt uitschakelen, kun je de validatieactie in
 </span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">uri</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;mongodb://localhost:27017&#34;</span><span style="color:#111">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">try</span> <span style="color:#111">(</span><span style="color:#111">MongoClient</span> <span style="color:#111">mongoClient</span> <span style="color:#f92672">=</span> <span style="color:#111">MongoClients</span><span style="color:#111">.</span><span style="color:#75af00">create</span><span style="color:#111">(</span><span style="color:#111">uri</span><span style="color:#111">))</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">MongoDatabase</span> <span style="color:#111">database</span> <span style="color:#f92672">=</span> <span style="color:#111">mongoClient</span><span style="color:#111">.</span><span style="color:#75af00">getDatabase</span><span style="color:#111">(</span><span style="color:#d88200">&#34;mijnDatabase&#34;</span><span style="color:#111">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">MongoCollection</span><span style="color:#f92672">&lt;</span><span style="color:#111">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#111">collectie</span> <span style="color:#f92672">=</span> <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">getCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;mijnCollectie&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">MongoCollection</span><span style="color:#f92672">&lt;</span><span style="color:#111">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#111">collectie</span> <span style="color:#f92672">=</span> <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">getCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;students&#34;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Create: Document toevoegen</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">Document</span> <span style="color:#111">nieuwDocument</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;John Doe&#34;</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">,</span> <span style="color:#111">30</span><span style="color:#111">)</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;beroep&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Software Engineer&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">Document</span> <span style="color:#111">nieuwDocument</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;studnr&#34;</span><span style="color:#111">,</span> <span style="color:#111">999</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Janssen&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;voornaam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Lisa&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">true</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">append</span><span style="color:#111">(</span><span style="color:#d88200">&#34;vakken&#34;</span><span style="color:#111">,</span> <span style="color:#111">java</span><span style="color:#111">.</span><span style="color:#75af00">util</span><span style="color:#111">.</span><span style="color:#75af00">List</span><span style="color:#111">.</span><span style="color:#75af00">of</span><span style="color:#111">(</span><span style="color:#d88200">&#34;DAB&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;FSWEB&#34;</span><span style="color:#111">));</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">insertOne</span><span style="color:#111">(</span><span style="color:#111">nieuwDocument</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Read: Documenten opvragen</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Read: Alle documenten opvragen</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#111">Document</span> <span style="color:#111">doc</span> <span style="color:#111">:</span> <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">())</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#111">doc</span><span style="color:#111">.</span><span style="color:#75af00">toJson</span><span style="color:#111">());</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Read: Documenten opvragen met een query (enkel studenten die goedBezig zijn)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#111">Document</span> <span style="color:#111">doc</span> <span style="color:#111">:</span> <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">true</span><span style="color:#111">)))</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#111">doc</span><span style="color:#111">.</span><span style="color:#75af00">toJson</span><span style="color:#111">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Update: Document bijwerken</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">updateOne</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;John Doe&#34;</span><span style="color:#111">),</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;$set&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;leeftijd&#34;</span><span style="color:#111">,</span> <span style="color:#111">31</span><span style="color:#111">)));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">updateOne</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Janssen&#34;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;$set&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;goedBezig&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">false</span><span style="color:#111">)));</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Delete: Document verwijderen</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">deleteOne</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;John Doe&#34;</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">collectie</span><span style="color:#111">.</span><span style="color:#75af00">deleteOne</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;naam&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;Janssen&#34;</span><span style="color:#111">));</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
@@ -1117,7 +1567,116 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
 </span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><h3 id="replicatie">Replicatie</h3>
+</span></span></code></pre></div><h5 id="oefeningen-2">Oefeningen</h5>
+<p>Maak een nieuw <strong>Gradle-project</strong> aan en voeg de juiste dependencies toe in <code>build.gradle</code>.</p>
+<p>Maak een klasse <code>Main</code> aan met een <code>main</code>-methode. Zet in die methode alle eerdere oefeningen om van mongosh naar Java. Verbind telkens met de database <code>winkel</code> en de collectie <code>producten</code>. Druk de resultaten af via <code>System.out.println()</code>.</p>
+<p><strong>Oefeningenreeks 1 — Queries:</strong></p>
+<ul>
+<li>Haal alle producten op.</li>
+<li>Haal alle producten op met een prijs groter dan 500.</li>
+<li>Haal alle producten op waar <code>inStock</code> gelijk is aan <code>true</code>.</li>
+<li>Haal het eerste product op met de naam <code>&quot;Laptop&quot;</code>.</li>
+<li>Haal alle producten op gesorteerd op prijs (aflopend).</li>
+<li>Haal alleen de velden <code>item</code> en <code>price</code> op van alle producten (projectie — gebruik <code>Projections.include(...)</code>).</li>
+</ul>
+<p><strong>Oefeningenreeks 2 — Updates &amp; Deletes:</strong></p>
+<ul>
+<li>Verhoog de prijs van alle producten van het type <code>&quot;Laptop&quot;</code> met 100.</li>
+<li>Stel voor alle producten met <code>quantity</code> kleiner dan 5 het veld <code>inStock</code> in op <code>false</code>.</li>
+<li>Verwijder het product met de naam <code>&quot;Muis&quot;</code>.</li>
+</ul>
+<p><strong>Oefeningenreeks 3 — Aggregaties:</strong></p>
+<ul>
+<li>Bereken de totale waarde van de voorraad (som van <code>price * quantity</code>) voor alle producten.</li>
+<li>Groepeer producten per type (<code>item</code>) en bereken de gemiddelde prijs per type.</li>
+<li>Filter producten met <code>inStock: true</code>, groepeer ze daarna per <code>item</code> en tel per groep het totale aantal (<code>quantity</code>).</li>
+</ul>
+
+<div class="notices tip" ><p>Gebruik <code>com.mongodb.client.model.Filters</code>, <code>com.mongodb.client.model.Updates</code>, <code>com.mongodb.client.model.Sorts</code>, <code>com.mongodb.client.model.Projections</code> en <code>com.mongodb.client.model.Aggregates</code> voor een overzichtelijker code.</p>
+</div>
+
+<br>
+<h6 id="deel-2-product-klasse-en-productrepository">Deel 2: <code>Product</code>-klasse en <code>ProductRepository</code></h6>
+<p><strong>Stap 1 — Klasse <code>Product</code></strong></p>
+<p>Maak een klasse <code>Product</code> aan met de volgende velden (gebruik Gson-annotaties waar nodig voor <code>_id</code>):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Veld</th>
+          <th>Type</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>id</code></td>
+          <td><code>ObjectId</code></td>
+      </tr>
+      <tr>
+          <td><code>item</code></td>
+          <td><code>String</code></td>
+      </tr>
+      <tr>
+          <td><code>price</code></td>
+          <td><code>double</code></td>
+      </tr>
+      <tr>
+          <td><code>quantity</code></td>
+          <td><code>int</code></td>
+      </tr>
+      <tr>
+          <td><code>date</code></td>
+          <td><code>java.util.Date</code></td>
+      </tr>
+      <tr>
+          <td><code>inStock</code></td>
+          <td><code>boolean</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Voorzie een constructor, getters en setters.</p>
+<p><strong>Stap 2 — Klasse <code>ProductRepository</code></strong></p>
+<p>Maak een klasse <code>ProductRepository</code> aan die bij instantiëren een <code>MongoCollection&lt;Document&gt;</code> opent op de collectie <code>producten</code> in de database <code>winkel</code>. Voeg de volgende methoden toe:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Methode</th>
+          <th>Beschrijving</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>List&lt;Product&gt; findAll()</code></td>
+          <td>Geeft alle producten terug als lijst van <code>Product</code>-objecten.</td>
+      </tr>
+      <tr>
+          <td><code>Product findByItem(String item)</code></td>
+          <td>Geeft het eerste product terug met de opgegeven <code>item</code>-naam, of <code>null</code> als het niet bestaat.</td>
+      </tr>
+      <tr>
+          <td><code>void insert(Product product)</code></td>
+          <td>Voegt een nieuw product toe aan de collectie.</td>
+      </tr>
+      <tr>
+          <td><code>void updatePrice(String item, double newPrice)</code></td>
+          <td>Past de prijs aan van het product met de opgegeven <code>item</code>-naam.</td>
+      </tr>
+      <tr>
+          <td><code>void delete(String item)</code></td>
+          <td>Verwijdert het product met de opgegeven <code>item</code>-naam.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Gebruik <strong>Gson</strong> om te serialiseren/deserialiseren tussen <code>Product</code>-objecten en MongoDB-documenten (zie het eerdere voorbeeld met <code>Document.parse(gson.toJson(...))</code> en <code>gson.fromJson(doc.toJson(), Product.class)</code>).</p>
+<p><strong>Stap 3 — Testen in <code>Main</code></strong></p>
+<p>Test alle methoden van <code>ProductRepository</code> in de <code>main</code>-methode:</p>
+<ol>
+<li>Voeg een nieuw product toe via <code>insert()</code>.</li>
+<li>Haal het zojuist ingevoegde product op via <code>findByItem()</code> en druk het af.</li>
+<li>Pas de prijs aan via <code>updatePrice()</code> en controleer het resultaat met <code>findByItem()</code>.</li>
+<li>Haal alle producten op via <code>findAll()</code> en druk ze af.</li>
+<li>Verwijder het product via <code>delete()</code> en controleer met <code>findAll()</code> dat het weg is.</li>
+</ol>
+<h3 id="replicatie">Replicatie</h3>
 <p>Bij gebruik van MongoDB Atlas is <strong>replicatie</strong> standaard inbegrepen. Dit zorgt voor een hogere beschikbaarheid en betrouwbaarheid. Replicatie in MongoDB wordt gerealiseerd via een replica set, een groep <code>mongod</code>-processen die dezelfde dataset onderhouden. Een replica set bevat meerdere data-dragers en optioneel een arbiter.</p>
 <p>Replicatie houdt in dat gegevens automatisch worden gekopieerd van de primaire node naar secundaire nodes. Dit biedt niet alleen fouttolerantie, maar verhoogt ook de leescapaciteit, omdat leesbewerkingen naar secundaire nodes kunnen worden gestuurd. In het geval van een storing van de primaire node, wordt een secundaire node automatisch gepromoveerd tot primaire node via een verkiezingsproces. Dit garandeert dat de database beschikbaar blijft, zelfs bij hardware- of netwerkproblemen.</p>
 <p>Meer informatie over replicatie is te vinden in de <a href="https://www.mongodb.com/docs/manual/replication/">MongoDB-documentatie</a> en in deze <a href="https://www.youtube.com/watch?v=QPFlGswpyJY">video</a>.</p>
@@ -1485,6 +2044,78 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
 
@@ -1494,8 +2125,10 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
 	 
 	 
 		
+			<a class="nav nav-prev" href="../../nosql/basics/" title="NoSQL Basics"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="../../sql/" title="RDBMS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="../../nosql/4oef3/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1505,15 +2138,15 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1774359340"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1774359340"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1774359340"></script>
-    <script src="../../js/jquery.sticky.js?1774359340"></script>
-    <script src="../../js/featherlight.min.js?1774359340"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1774359340"></script>
-    <script src="../../js/learn.js?1774359340"></script>
-    <script src="../../js/hugo-learn.js?1774359340"></script>
-    <script src="../../js/mermaid.min.js?1774359340"></script>
+    <script src="../../js/clipboard.min.js?1776765217"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1776765217"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1776765217"></script>
+    <script src="../../js/jquery.sticky.js?1776765217"></script>
+    <script src="../../js/featherlight.min.js?1776765217"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1776765217"></script>
+    <script src="../../js/learn.js?1776765217"></script>
+    <script src="../../js/hugo-learn.js?1776765217"></script>
+    <script src="../../js/mermaid.min.js?1776765217"></script>
     <script>
     window.MathJax = {
       chtml: {
