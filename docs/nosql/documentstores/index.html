@@ -12,22 +12,22 @@
     <title>Document Stores met MongoDB :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1776765217" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1776765217" rel="stylesheet">
-    <link href="../../css/hybrid.css?1776765217" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1776765217" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1776765217" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1776765217" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1776765217" rel="stylesheet">
-    <link href="../../css/theme.css?1776765217" rel="stylesheet">
-    <link href="../../css/autonumbering.css?1776765217" rel="stylesheet">
-    <link href="../../css/devselector.css?1776765217" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1776765217" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1776765217" rel="stylesheet">
+    <link href="../../css/nucleus.css?1777434617" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1777434617" rel="stylesheet">
+    <link href="../../css/hybrid.css?1777434617" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1777434617" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1777434617" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1777434617" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1777434617" rel="stylesheet">
+    <link href="../../css/theme.css?1777434617" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1777434617" rel="stylesheet">
+    <link href="../../css/devselector.css?1777434617" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1777434617" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1777434617" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1776765217"></script>
-    <script src="../../js/devselector.js?1776765217"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1777434617"></script>
+    <script src="../../js/devselector.js?1777434617"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1776765217"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1776765217"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1777434617"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1777434617"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1776765217"></script>
+<script type="text/javascript" src="../../js/search.js?1777434617"></script>
 
     
   </div>
@@ -612,6 +612,27 @@
  
   
     
+      <li data-nav-id="/nosql/opdracht/" title="VERPLICHTE opdracht" class="dd-item ">
+        <a href="../../nosql/opdracht/">
+        VERPLICHTE opdracht
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/nosql/4oef3/" title="" class="dd-item ">
         <a href="../../nosql/4oef3/">
         
@@ -726,10 +747,10 @@
         <li><a href="#mongodb-compass">MongoDB Compass</a></li>
         <li><a href="#mongodb-vscode-extensie">MongoDB VSCode Extensie</a></li>
         <li><a href="#mongodb-in-java">MongoDB in Java</a></li>
-        <li><a href="#replicatie">Replicatie</a></li>
-        <li><a href="#het-concept-van-foreign-keys-in-mongodb">Het concept van Foreign Keys in MongoDb</a></li>
-        <li><a href="#interessante-videos">Interessante videos</a></li>
         <li><a href="#demo">Demo</a></li>
+        <li><a href="#het-concept-van-foreign-keys-in-mongodb">Het concept van Foreign Keys in MongoDb</a></li>
+        <li><a href="#replicatie">Replicatie</a></li>
+        <li><a href="#interessante-videos">Interessante videos</a></li>
       </ul>
     </li>
   </ul>
@@ -969,147 +990,129 @@ db.mijnCollectie.insertMany([
 <li>Toon alle documenten in <code>producten</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find()``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find()</code></p>
 <ul>
 <li>Toon enkel de documenten waar <code>item</code> gelijk is aan <code>&quot;Laptop&quot;</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Laptop" })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find({ item: &quot;Laptop&quot; })</code></p>
 <ul>
 <li>Toon alle documenten met een <code>price</code> groter dan 500.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gt: 500 } })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find({ price: { $gt: 500 } })</code></p>
 <ul>
 <li>Toon alle documenten met een <code>price</code> tussen 200 en 500 (inclusief grenzen).</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ price: { $gte: 200, $lte: 500 } })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find({ price: { $gte: 200, $lte: 500 } })</code></p>
 <ul>
 <li>Toon het eerste document in de collectie.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.findOne()``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.findOne()</code></p>
 <ul>
 <li>Tel het totaal aantal documenten in de collectie.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().count()``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find().count()</code></p>
 <ul>
 <li>Tel het aantal documenten waar <code>item</code> gelijk is aan <code>&quot;Phone&quot;</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find({ item: "Phone" }).count()``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find({ item: &quot;Phone&quot; }).count()</code></p>
 <ul>
 <li>Toon alle documenten gesorteerd op <code>price</code> van laag naar hoog.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.find().sort({ price: 1 })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.find().sort({ price: 1 })</code></p>
 <br>
 <ul>
 <li>Toon de 3 duurste documenten (gesorteerd op <code>price</code> van hoog naar laag, maximum 3 resultaten).</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
-```javascript
-db.producten.find().sort({ price: -1 }).limit(3)
-``` -->
-<ul>
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">().</span><span style="color:#75af00">sort</span><span style="color:#111">({</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">}).</span><span style="color:#75af00">limit</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">)</span>
+</span></span></code></pre></div><ul>
 <li>Toon alle documenten met een <code>quantity</code> groter dan 5, gesorteerd op <code>quantity</code> aflopend, en sla de eerste 2 resultaten over.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
-```javascript
-db.producten.find({ quantity: { $gt: 5 } }).sort({ quantity: -1 }).skip(2)
-``` -->
-<h5 id="oefeningenreeks-2-updates--deletes">Oefeningenreeks 2: Updates &amp; Deletes</h5>
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">({</span> <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$gt</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span> <span style="color:#111">}</span> <span style="color:#111">}).</span><span style="color:#75af00">sort</span><span style="color:#111">({</span> <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">}).</span><span style="color:#75af00">skip</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h5 id="oefeningenreeks-2-updates--deletes">Oefeningenreeks 2: Updates &amp; Deletes</h5>
 <ul>
 <li>Zet de <code>price</code> van de <code>&quot;Mouse&quot;</code> op <code>55</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateOne({ item: "Mouse" }, { $set: { price: 55 } })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.updateOne({ item: &quot;Mouse&quot; }, { $set: { price: 55 } })</code></p>
 <ul>
 <li>Verhoog de <code>quantity</code> van alle <code>&quot;Keyboard&quot;</code>-documenten met <code>5</code> (gebruik <code>$inc</code>).</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ item: "Keyboard" }, { $inc: { quantity: 5 } })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.updateMany({ item: &quot;Keyboard&quot; }, { $inc: { quantity: 5 } })</code></p>
 <ul>
 <li>Voeg een veld <code>inStock: true</code> toe aan alle documenten met een <code>quantity</code> groter dan 5.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.updateMany({ quantity: { $gt: 5 } }, { $set: { inStock: true } })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.updateMany({ quantity: { $gt: 5 } }, { $set: { inStock: true } })</code></p>
 <ul>
 <li>Verwijder het document met <code>item</code> gelijk aan <code>&quot;Printer&quot;</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.deleteOne({ item: "Printer" })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.deleteOne({ item: &quot;Printer&quot; })</code></p>
 <br>
 <ul>
 <li>Verwijder alle documenten waarvan de <code>date</code> buiten het jaar 2014 valt (dus vóór 2014 of na 2014).</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
-```javascript
-db.producten.deleteMany({
-  $or: [
-    { date: { $lt: new Date("2014-01-01") } },
-    { date: { $gte: new Date("2015-01-01") } }
-  ]
-})
-``` -->
-<h5 id="oefeningenreeks-3-aggregaties">Oefeningenreeks 3: Aggregaties</h5>
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">deleteMany</span><span style="color:#111">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">$or</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">{</span> <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$lt</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-01-01&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">{</span> <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$gte</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2015-01-01&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">})</span>
+</span></span></code></pre></div><h5 id="oefeningenreeks-3-aggregaties">Oefeningenreeks 3: Aggregaties</h5>
 <ul>
 <li>Bereken per <code>item</code> het totale verkoopbedrag (<code>price * quantity</code>) en sorteer de resultaten van hoog naar laag.</li>
 </ul>
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
-
-```javascript
-db.producten.aggregate([
-  { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } } } },
-  { $sort: { totalSaleAmount: -1 } }
-])
-```
-
-</p>
-</details> -->
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">aggregate</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$group</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;$item&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">totalSaleAmount</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$sum</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$multiply</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;$price&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;$quantity&#34;</span><span style="color:#111">]</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$sort</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">totalSaleAmount</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">}</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">])</span>
+</span></span></code></pre></div></p>
+</details>
 <ul>
 <li>Bereken de gemiddelde <code>price</code> per <code>item</code>.</li>
 </ul>
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
-
-```javascript
-db.producten.aggregate([
-  { $group: { _id: "$item", avgPrice: { $avg: "$price" } } }
-])
-```
-
-</p>
-</details> -->
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">aggregate</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$group</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;$item&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">avgPrice</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$avg</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;$price&#34;</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">])</span>
+</span></span></code></pre></div></p>
+</details>
 <ul>
 <li>Toon enkel de documenten uit het jaar 2014, groepeer ze per <code>item</code>, bereken het totale verkoopbedrag en toon enkel de top 3 resultaten (gesorteerd van hoog naar laag).</li>
 </ul>
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
-
-```javascript
-db.producten.aggregate([
-  { $match: { date: { $gte: new Date("2014-01-01"), $lt: new Date("2015-01-01") } } },
-  { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: ["$price", "$quantity"] } } } },
-  { $sort: { totalSaleAmount: -1 } },
-  { $limit: 3 }
-])
-```
-
-</p>
-</details> -->
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">aggregate</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$match</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$gte</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2014-01-01&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">$lt</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Date</span><span style="color:#111">(</span><span style="color:#d88200">&#34;2015-01-01&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$group</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;$item&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">totalSaleAmount</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$sum</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$multiply</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;$price&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;$quantity&#34;</span><span style="color:#111">]</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">}</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$sort</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">totalSaleAmount</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">}</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">$limit</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">])</span>
+</span></span></code></pre></div></p>
+</details>
 <h3 id="schema-validatie">Schema-validatie</h3>
 <p>Schema-validatie in MongoDB biedt een manier om de structuur van documenten in een collectie te definiëren en te valideren. Dit helpt om de integriteit van gegevens te waarborgen en fouten te voorkomen. Met schema-validatie kun je regels instellen voor de velden in een document, zoals het type, de vereiste velden en de toegestane waarden.</p>
 <p><strong>Hoe schema-validatie aanbrengen?</strong><br/>
@@ -1279,72 +1282,66 @@ Met <code>explain()</code> kun je zien of een query gebruik maakt van een index:
 </li>
 </ul>
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
-
-```javascript
-use winkel;
-db.runCommand({
-  collMod: "producten",
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["item", "price", "quantity", "date"],
-      properties: {
-        item: {
-          bsonType: "string",
-          description: "item is verplicht en moet een string zijn."
-        },
-        price: {
-          bsonType: ["double", "int"],
-          minimum: 0,
-          description: "price is verplicht en moet een getal zijn groter dan of gelijk aan 0."
-        },
-        quantity: {
-          bsonType: "int",
-          minimum: 0,
-          description: "quantity is verplicht en moet een geheel getal zijn groter dan of gelijk aan 0."
-        },
-        date: {
-          bsonType: "date",
-          description: "date is verplicht en moet een datum zijn."
-        },
-        inStock: {
-          bsonType: "bool",
-          description: "inStock is optioneel maar moet een boolean zijn indien aanwezig."
-        }
-      }
-    }
-  }
-});
-```
-
-</p>
-</details> -->
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">use</span> <span style="color:#75af00">winkel</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">runCommand</span><span style="color:#111">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">collMod</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;producten&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">validator</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">$jsonSchema</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;object&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">required</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;item&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;price&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;quantity&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;date&#34;</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">properties</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;string&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;item is verplicht en moet een string zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#111">[</span><span style="color:#d88200">&#34;double&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">minimum</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;price is verplicht en moet een getal zijn groter dan of gelijk aan 0.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">quantity</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;int&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">minimum</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;quantity is verplicht en moet een geheel getal zijn groter dan of gelijk aan 0.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">date</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;date&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;date is verplicht en moet een datum zijn.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">inStock</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">bsonType</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;bool&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75af00">description</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;inStock is optioneel maar moet een boolean zijn indien aanwezig.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">});</span>
+</span></span></code></pre></div></p>
+</details>
 <h5 id="oefeningenreeks-2-indexes">Oefeningenreeks 2: Indexes</h5>
 <ul>
 <li>Maak een index aan op het veld <code>item</code> in de <code>producten</code>-collectie.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.createIndex({ item: 1 })``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.createIndex({ item: 1 })</code></p>
 <ul>
 <li>Bekijk alle bestaande indexes op de <code>producten</code>-collectie.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.producten.getIndexes()``` -->
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em> <code>db.producten.getIndexes()</code></p>
 <br>
 <ul>
 <li>Maak een samengestelde index aan op <code>item</code> (oplopend) en <code>price</code> (aflopend), en controleer daarna via <code>explain()</code> of een query op <code>item: &quot;Laptop&quot;</code> gebruik maakt van deze index.</li>
 </ul>
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  
-```javascript
-db.producten.createIndex({ item: 1, price: -1 })
-db.producten.find({ item: "Laptop" }).explain("executionStats")
-// Controleer in de output of winningPlan een IXSCAN toont
-``` -->
-<h3 id="mongodb-compass">MongoDB Compass</h3>
+<p><em><strong><span style="color: #03C03C;">Solution:</span></strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">createIndex</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#75af00">price</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">producten</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">({</span> <span style="color:#75af00">item</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Laptop&#34;</span> <span style="color:#111">}).</span><span style="color:#75af00">explain</span><span style="color:#111">(</span><span style="color:#d88200">&#34;executionStats&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Controleer in de output of winningPlan een IXSCAN toont
+</span></span></span></code></pre></div><h3 id="mongodb-compass">MongoDB Compass</h3>
 <p>MongoDB Compass is een grafische gebruikersinterface (GUI) waarmee je eenvoudig je MongoDB-databases kan beheren en verkennen. Met Compass kan je:</p>
 <ul>
 <li><strong>Databases en collecties bekijken</strong>: Je kan de structuur van je database en collecties visueel inspecteren.</li>
@@ -1676,14 +1673,602 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
 <li>Haal alle producten op via <code>findAll()</code> en druk ze af.</li>
 <li>Verwijder het product via <code>delete()</code> en controleer met <code>findAll()</code> dat het weg is.</li>
 </ol>
-<h3 id="replicatie">Replicatie</h3>
-<p>Bij gebruik van MongoDB Atlas is <strong>replicatie</strong> standaard inbegrepen. Dit zorgt voor een hogere beschikbaarheid en betrouwbaarheid. Replicatie in MongoDB wordt gerealiseerd via een replica set, een groep <code>mongod</code>-processen die dezelfde dataset onderhouden. Een replica set bevat meerdere data-dragers en optioneel een arbiter.</p>
-<p>Replicatie houdt in dat gegevens automatisch worden gekopieerd van de primaire node naar secundaire nodes. Dit biedt niet alleen fouttolerantie, maar verhoogt ook de leescapaciteit, omdat leesbewerkingen naar secundaire nodes kunnen worden gestuurd. In het geval van een storing van de primaire node, wordt een secundaire node automatisch gepromoveerd tot primaire node via een verkiezingsproces. Dit garandeert dat de database beschikbaar blijft, zelfs bij hardware- of netwerkproblemen.</p>
-<p>Meer informatie over replicatie is te vinden in de <a href="https://www.mongodb.com/docs/manual/replication/">MongoDB-documentatie</a> en in deze <a href="https://www.youtube.com/watch?v=QPFlGswpyJY">video</a>.</p>
+<h3 id="demo">Demo</h3>
+<!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
+<!-- EXSOL -->
+<p><strong><em><a href="../../files/dab-mongo-demo.zip">Hier</a> vind je een zipfolder met een oplossing voor MongoDb demo Student</em></strong></p>
+<!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
 <h3 id="het-concept-van-foreign-keys-in-mongodb">Het concept van Foreign Keys in MongoDb</h3>
-<!-- TODO: tegen volgend jaar verder uitbreiden: Foreign key:  eg. company_id: db.info.find(…)._id => …find({_id: …find(…).company_id}) -->
-<p>In document stores gaan we hier zo min mogelijk van gebruik maken, maar het kan wel geïmplementeerd worden. We gaan daar hier echter niet verder op in en daarvoor kijk je best de videos over dit onderwerp hieronder.</p>
-<!-- TODO: Transactions -->
+<p>MongoDB is geen relationele database en heeft dus geen ingebouwde ondersteuning voor foreign key constraints zoals SQL. Toch kun je relaties tussen documenten modelleren. Er zijn twee veelgebruikte aanpakken:</p>
+<ol>
+<li><strong>Embedding (inbedden)</strong>: het gerelateerde document wordt volledig opgenomen in het hoofddocument.</li>
+<li><strong>Referencing (verwijzen)</strong>: er wordt enkel de <code>_id</code> van het gerelateerde document opgeslagen, vergelijkbaar met een foreign key in SQL.</li>
+</ol>
+<p>In document stores gaan we zo min mogelijk van referenties gebruik maken en kiezen we liever voor embedding. Toch zijn er situaties waar referenties zinvol zijn, bijvoorbeeld wanneer hetzelfde document vanuit meerdere andere documenten gerefereerd wordt.</p>
+<h4 id="embedding-vs-referencing">Embedding vs Referencing</h4>
+<p><strong>Embedding</strong> — geschikt wanneer de gerelateerde data altijd samen met het hoofddocument opgevraagd wordt en niet te groot is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Bedrijf met zijn werknemers ingebed
+</span></span></span><span style="display:flex;"><span><span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64a1f2c3e4b0a1234567890a&#34;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Acme Corp&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">werknemers</span><span style="color:#f92672">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">{</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Alice&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">functie</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Developer&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">{</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Bob&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">functie</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Designer&#34;</span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p><strong>Referencing</strong> — geschikt wanneer de gerelateerde data groot is, vaak onafhankelijk opgevraagd wordt of vanuit meerdere documenten gedeeld wordt:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Collectie: bedrijven
+</span></span></span><span style="display:flex;"><span><span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64a1f2c3e4b0a1234567890a&#34;</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Acme Corp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Collectie: werknemers
+</span></span></span><span style="display:flex;"><span><span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64b2e3d4f5c1b2345678901b&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Alice&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">functie</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Developer&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">company_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64a1f2c3e4b0a1234567890a&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64c3f4e5g6d2c3456789012c&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Bob&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">functie</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Designer&#34;</span><span style="color:#111">,</span>  <span style="color:#75af00">company_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;64a1f2c3e4b0a1234567890a&#34;</span><span style="color:#111">)</span> <span style="color:#111">}</span>
+</span></span></code></pre></div><h4 id="referenties-opvolgen-met-handmatige-query">Referenties opvolgen met handmatige query</h4>
+<p>Je kunt een referentie handmatig opvolgen door de <code>_id</code> van het ene document te gebruiken als filter in het andere:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Stap 1: zoek het bedrijf
+</span></span></span><span style="display:flex;"><span><span style="color:#00a8c8">let</span> <span style="color:#75af00">bedrijf</span> <span style="color:#f92672">=</span> <span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">bedrijven</span><span style="color:#111">.</span><span style="color:#75af00">findOne</span><span style="color:#111">({</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Acme Corp&#34;</span> <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Stap 2: zoek alle werknemers van dat bedrijf
+</span></span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">werknemers</span><span style="color:#111">.</span><span style="color:#75af00">find</span><span style="color:#111">({</span> <span style="color:#75af00">company_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">bedrijf</span><span style="color:#111">.</span><span style="color:#75af00">_id</span> <span style="color:#111">});</span>
+</span></span></code></pre></div><h4 id="relaties-opvolgen-met-lookup-join-in-mongodb">Relaties opvolgen met <code>$lookup</code> (JOIN in MongoDB)</h4>
+<p>MongoDB biedt <code>$lookup</code> in de aggregation pipeline om twee collecties samen te voegen, vergelijkbaar met een SQL JOIN:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">bedrijven</span><span style="color:#111">.</span><span style="color:#75af00">aggregate</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">$lookup</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">from</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;werknemers&#34;</span><span style="color:#111">,</span>       <span style="color:#75715e">// de andere collectie
+</span></span></span><span style="display:flex;"><span>      <span style="color:#75af00">localField</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;_id&#34;</span><span style="color:#111">,</span>        <span style="color:#75715e">// veld in bedrijven
+</span></span></span><span style="display:flex;"><span>      <span style="color:#75af00">foreignField</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;company_id&#34;</span><span style="color:#111">,</span> <span style="color:#75715e">// veld in werknemers
+</span></span></span><span style="display:flex;"><span>      <span style="color:#75af00">as</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;werknemers&#34;</span>          <span style="color:#75715e">// naam van het resulterende array-veld
+</span></span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
+</span></span></code></pre></div><p>Resultaat:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64a1f2c3e4b0a1234567890a&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;naam&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Acme Corp&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;werknemers&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">{</span> <span style="color:#f92672">&#34;_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64b2...&#34;</span><span style="color:#111">,</span> <span style="color:#f92672">&#34;naam&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Alice&#34;</span><span style="color:#111">,</span> <span style="color:#f92672">&#34;functie&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Developer&#34;</span><span style="color:#111">,</span> <span style="color:#f92672">&#34;company_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64a1...&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">{</span> <span style="color:#f92672">&#34;_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64c3...&#34;</span><span style="color:#111">,</span> <span style="color:#f92672">&#34;naam&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Bob&#34;</span><span style="color:#111">,</span>   <span style="color:#f92672">&#34;functie&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Designer&#34;</span><span style="color:#111">,</span>  <span style="color:#f92672">&#34;company_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64a1...&#34;</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]</span>
+</span></span></code></pre></div><p>Je kunt <code>$lookup</code> ook combineren met andere aggregatiestappen. Wil je enkel bedrijven tonen met minstens één werknemer, dan voeg je een <code>$match</code> toe na de <code>$lookup</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">bedrijven</span><span style="color:#111">.</span><span style="color:#75af00">aggregate</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">$lookup</span><span style="color:#f92672">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">from</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;werknemers&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">localField</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;_id&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">foreignField</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;company_id&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75af00">as</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;werknemers&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">$match</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#d88200">&#34;werknemers.0&#34;</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">$exists</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span> <span style="color:#111">}</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
+</span></span></code></pre></div><h4 id="oefeningen-3">Oefeningen</h4>
+<h5 id="dataset">Dataset</h5>
+<p>Voer de volgende commando&rsquo;s uit om de voorbeelddataset aan te maken:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">use</span> <span style="color:#75af00">bibliotheek</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">auteurs</span><span style="color:#111">.</span><span style="color:#75af00">insertMany</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000001&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;J.K. Rowling&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">nationaliteit</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Brits&#34;</span>    <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000002&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;George Orwell&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">nationaliteit</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Brits&#34;</span>    <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000003&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">naam</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Harper Lee&#34;</span><span style="color:#111">,</span>      <span style="color:#75af00">nationaliteit</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Amerikaans&#34;</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">db</span><span style="color:#111">.</span><span style="color:#75af00">boeken</span><span style="color:#111">.</span><span style="color:#75af00">insertMany</span><span style="color:#111">([</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">titel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Harry Potter en de Steen der Wijzen&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">jaar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1997</span><span style="color:#111">,</span> <span style="color:#75af00">auteur_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000001&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">genre</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Fantasy&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">beschikbaar</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>  <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">titel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Harry Potter en de Geheime Kamer&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">jaar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1998</span><span style="color:#111">,</span> <span style="color:#75af00">auteur_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000001&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">genre</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Fantasy&#34;</span><span style="color:#111">,</span>   <span style="color:#75af00">beschikbaar</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">titel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;1984&#34;</span><span style="color:#111">,</span>                                <span style="color:#75af00">jaar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1949</span><span style="color:#111">,</span> <span style="color:#75af00">auteur_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000002&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">genre</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Dystopie&#34;</span><span style="color:#111">,</span>  <span style="color:#75af00">beschikbaar</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>  <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">titel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Animal Farm&#34;</span><span style="color:#111">,</span>                         <span style="color:#75af00">jaar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1945</span><span style="color:#111">,</span> <span style="color:#75af00">auteur_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000002&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">genre</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Satire&#34;</span><span style="color:#111">,</span>    <span style="color:#75af00">beschikbaar</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">true</span>  <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">{</span> <span style="color:#75af00">titel</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;To Kill a Mockingbird&#34;</span><span style="color:#111">,</span>               <span style="color:#75af00">jaar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1960</span><span style="color:#111">,</span> <span style="color:#75af00">auteur_id</span><span style="color:#f92672">:</span> <span style="color:#75af00">ObjectId</span><span style="color:#111">(</span><span style="color:#d88200">&#34;aaa000000000000000000003&#34;</span><span style="color:#111">),</span> <span style="color:#75af00">genre</span><span style="color:#f92672">:</span> <span style="color:#d88200">&#34;Drama&#34;</span><span style="color:#111">,</span>     <span style="color:#75af00">beschikbaar</span><span style="color:#f92672">:</span> <span style="color:#00a8c8">false</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">]);</span>
+</span></span></code></pre></div><p><em>De gegeven oplossingen zijn EEN mogelijke oplossing, soms zijn meerdere mogelijkheden juist. Is het gewenste gedrag bereikt, dan is je oplossing correct!</em></p>
+<h5 id="oefeningenreeks-1-referenties-en-handmatige-joins">Oefeningenreeks 1: Referenties en handmatige joins</h5>
+<ul>
+<li>Haal alle boeken op die beschikbaar zijn (<code>beschikbaar: true</code>).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.boeken.find({ beschikbaar: true })``` -->
+<ul>
+<li>Zoek de auteur met de naam <code>&quot;George Orwell&quot;</code> en toon vervolgens alle boeken van die auteur (handmatig via twee queries).</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+```javascript
+let auteur = db.auteurs.findOne({ naam: "George Orwell" });
+db.boeken.find({ auteur_id: auteur._id });
+``` -->
+<ul>
+<li>Zoek het boek met titel <code>&quot;1984&quot;</code> en toon daarna de bijbehorende auteursinformatie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+```javascript
+let boek = db.boeken.findOne({ titel: "1984" });
+db.auteurs.findOne({ _id: boek.auteur_id });
+``` -->
+<h5 id="oefeningenreeks-2-lookup">Oefeningenreeks 2: <code>$lookup</code></h5>
+<ul>
+<li>Gebruik <code>$lookup</code> om alle boeken te tonen, uitgebreid met de bijbehorende auteursinformatie.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.boeken.aggregate([
+  {
+    $lookup: {
+      from: "auteurs",
+      localField: "auteur_id",
+      foreignField: "_id",
+      as: "auteur"
+    }
+  }
+]);
+```
+
+</p>
+</details> -->
+<ul>
+<li>Gebruik <code>$lookup</code> om per auteur alle boeken op te lijsten. Toon enkel auteurs waarbij er minstens één boek beschikbaar is (<code>beschikbaar: true</code> in de boeken-array).</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.auteurs.aggregate([
+  {
+    $lookup: {
+      from: "boeken",
+      localField: "_id",
+      foreignField: "auteur_id",
+      as: "boeken"
+    }
+  },
+  {
+    $match: { "boeken": { $elemMatch: { beschikbaar: true } } }
+  }
+]);
+```
+
+</p>
+</details> -->
+<ul>
+<li>Gebruik <code>$lookup</code> gevolgd door <code>$unwind</code> en <code>$group</code> om per auteur het aantal boeken te tellen.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.auteurs.aggregate([
+  {
+    $lookup: {
+      from: "boeken",
+      localField: "_id",
+      foreignField: "auteur_id",
+      as: "boeken"
+    }
+  },
+  {
+    $project: {
+      naam: 1,
+      aantalBoeken: { $size: "$boeken" }
+    }
+  },
+  {
+    $sort: { aantalBoeken: -1 }
+  }
+]);
+```
+
+</p>
+</details> -->
+<!-- ### Transacties
+
+MongoDB ondersteunt **multi-document transacties** vanaf versie 4.0 (voor replica sets) en 4.2 (voor sharded clusters). Net zoals in relationele databases garandeert een transactie **ACID**-eigenschappen:
+
+- **Atomicity**: alle bewerkingen in de transactie slagen, of geen enkele.
+- **Consistency**: de database blijft in een geldige toestand.
+- **Isolation**: lopende transacties zijn niet zichtbaar voor andere sessies tot ze gecommit zijn.
+- **Durability**: eenmaal gecommit, blijven de wijzigingen bewaard.
+
+
+<div class="notices warning" ><p>Transacties zijn in MongoDB bedoeld als vangnet voor uitzonderlijke gevallen, niet als standaard werkwijze. Goed ontworpen schema&rsquo;s (embedding) vermijden de nood aan transacties grotendeels. Gebruik transacties enkel wanneer je echt meerdere documenten of collecties atomisch moet aanpassen.</p>
+</div>
+
+
+#### Voorbeeld use case
+
+Stel: een student leent een boek uit. Je moet dan:
+1. In de collectie `boeken` het veld `beschikbaar` op `false` zetten.
+2. In de collectie `uitleningen` een nieuw document aanmaken.
+
+Als stap 1 slaagt maar stap 2 mislukt (bv. door een netwerkfout), raakt de database inconsistent. Een transactie voorkomt dit.
+
+#### Transacties in mongosh
+
+```javascript
+use bibliotheek;
+
+// Start een sessie
+const sessie = db.getMongo().startSession();
+sessie.startTransaction();
+
+try {
+  const boeken     = sessie.getDatabase("bibliotheek").boeken;
+  const uitleningen = sessie.getDatabase("bibliotheek").uitleningen;
+
+  // Stap 1: markeer het boek als niet beschikbaar
+  boeken.updateOne(
+    { titel: "1984", beschikbaar: true },
+    { $set: { beschikbaar: false } },
+    { session: sessie }
+  );
+
+  // Stap 2: registreer de uitleen
+  uitleningen.insertOne(
+    { boekTitel: "1984", studentNaam: "Alice", datum: new Date() },
+    { session: sessie }
+  );
+
+  // Alles geslaagd: commit
+  sessie.commitTransaction();
+  print("Transactie geslaagd.");
+} catch (fout) {
+  // Iets misliep: rollback
+  sessie.abortTransaction();
+  print("Transactie afgebroken: " + fout);
+} finally {
+  sessie.endSession();
+}
+```
+
+#### Transacties in Java
+
+```java
+import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import org.bson.Document;
+
+import java.util.Date;
+
+public class TransactieVoorbeeld {
+    public static void main(String[] args) {
+        String uri = "mongodb://localhost:27017";
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("bibliotheek");
+            MongoCollection<Document> boeken      = database.getCollection("boeken");
+            MongoCollection<Document> uitleningen = database.getCollection("uitleningen");
+
+            // Start een sessie
+            try (ClientSession sessie = mongoClient.startSession()) {
+                sessie.startTransaction();
+
+                try {
+                    // Stap 1: markeer het boek als niet beschikbaar
+                    boeken.updateOne(
+                        sessie,
+                        Filters.and(Filters.eq("titel", "1984"), Filters.eq("beschikbaar", true)),
+                        Updates.set("beschikbaar", false)
+                    );
+
+                    // Stap 2: registreer de uitleen
+                    Document uitleen = new Document("boekTitel", "1984")
+                        .append("studentNaam", "Alice")
+                        .append("datum", new Date());
+                    uitleningen.insertOne(sessie, uitleen);
+
+                    // Alles geslaagd: commit
+                    sessie.commitTransaction();
+                    System.out.println("Transactie geslaagd.");
+
+                } catch (Exception e) {
+                    // Iets misliep: rollback
+                    sessie.abortTransaction();
+                    System.out.println("Transactie afgebroken: " + e.getMessage());
+                }
+            }
+        }
+    }
+}
+```
+
+
+<div class="notices info" ><p>Lokaal werken transacties <strong>alleen</strong> met een replica set of met een MongoDB Atlas-cluster. Een standalone lokale instantie ondersteunt geen transacties. Je kunt een lokale replica set opstarten met <code>mongod --replSet rs0</code>, of gebruik maken van MongoDB Atlas (gratis tier volstaat).</p>
+</div>
+ 
+
+#### Oefeningen
+
+_De gegeven oplossingen zijn EEN mogelijke oplossing. Is het gewenste gedrag bereikt, dan is je oplossing correct!_
+
+Gebruik de `bibliotheek`-database met de collecties `auteurs`, `boeken` en `uitleningen` uit vorige oefeningen.
+
+- Schrijf een transactie in mongosh die een boek naar keuze markeert als `beschikbaar: false` en tegelijk een document toevoegt aan de collectie `uitleningen`. Controleer daarna (buiten de transactie) of beide wijzigingen doorgevoerd zijn.
+ EXSOL 
+<details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+const sessie = db.getMongo().startSession();
+sessie.startTransaction();
+try {
+  sessie.getDatabase("bibliotheek").boeken.updateOne(
+    { titel: "Animal Farm", beschikbaar: true },
+    { $set: { beschikbaar: false } },
+    { session: sessie }
+  );
+  sessie.getDatabase("bibliotheek").uitleningen.insertOne(
+    { boekTitel: "Animal Farm", studentNaam: "Bob", datum: new Date() },
+    { session: sessie }
+  );
+  sessie.commitTransaction();
+} catch(e) {
+  sessie.abortTransaction();
+} finally {
+  sessie.endSession();
+}
+
+// Controleer
+db.boeken.findOne({ titel: "Animal Farm" });
+db.uitleningen.find({ boekTitel: "Animal Farm" });
+```
+
+</p>
+</details>
+
+- Schrijf dezelfde transactie in Java. Gebruik de `bibliotheek`-database. Vang eventuele fouten op en druk de melding af via `System.out.println()`.
+ EXSOL 
+<details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```java
+try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+    MongoDatabase db       = mongoClient.getDatabase("bibliotheek");
+    MongoCollection<Document> boeken      = db.getCollection("boeken");
+    MongoCollection<Document> uitleningen = db.getCollection("uitleningen");
+
+    try (ClientSession sessie = mongoClient.startSession()) {
+        sessie.startTransaction();
+        try {
+            boeken.updateOne(
+                sessie,
+                Filters.and(Filters.eq("titel", "Animal Farm"), Filters.eq("beschikbaar", true)),
+                Updates.set("beschikbaar", false)
+            );
+            uitleningen.insertOne(sessie,
+                new Document("boekTitel", "Animal Farm")
+                    .append("studentNaam", "Bob")
+                    .append("datum", new Date())
+            );
+            sessie.commitTransaction();
+            System.out.println("Transactie geslaagd.");
+        } catch (Exception e) {
+            sessie.abortTransaction();
+            System.out.println("Transactie afgebroken: " + e.getMessage());
+        }
+    }
+}
+```
+
+</p>
+</details>
+
+-->
+<h3 id="replicatie">Replicatie</h3>
+<p>Replicatie in MongoDB wordt gerealiseerd via een <strong>replica set</strong>: een groep van drie of meer <code>mongod</code>-processen die exact dezelfde dataset bijhouden. Eén node is de <strong>primaire</strong> node, de overige zijn <strong>secundaire</strong> nodes.</p>
+<div class="mermaid" align="center" >
+<p>flowchart LR
+Client[&ldquo;Client&rdquo;] &ndash;&gt; P[&ldquo;Primaire node<br/>lezen + schrijven&rdquo;]
+P &ndash;&gt;|oplog| S1[&ldquo;Secundaire node 1<br/>alleen lezen&rdquo;]
+P &ndash;&gt;|oplog| S2[&ldquo;Secundaire node 2<br/>alleen lezen&rdquo;]</p>
+</div>
+<h4 id="eigenschappen-van-replicatie">Eigenschappen van replicatie</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Eigenschap</th>
+          <th>Detail</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Richting</strong></td>
+          <td>Eénrichtingsverkeer: primaire → secundaire. Writes gaan altijd naar de primaire.</td>
+      </tr>
+      <tr>
+          <td><strong>Leesgedrag</strong></td>
+          <td>Standaard worden ook leesbewerkingen naar de primaire gestuurd. Je kunt secundaire nodes inschakelen voor lezen (<code>readPreference</code>), maar dan kan de data iets verouderd zijn.</td>
+      </tr>
+      <tr>
+          <td><strong>Automatische failover</strong></td>
+          <td>Als de primaire node wegvalt, kiezen de resterende nodes via een verkiezingsproces een nieuwe primaire. Dit duurt normaal 10–30 seconden.</td>
+      </tr>
+      <tr>
+          <td><strong>oplog</strong></td>
+          <td>Elke schrijfbewerking op de primaire wordt bijgehouden in een circulaire log (de <em>oplog</em>). Secundaire nodes lezen deze log continu en passen dezelfde bewerkingen toe.</td>
+      </tr>
+      <tr>
+          <td><strong>Arbiter</strong></td>
+          <td>Een optionele node die geen data bijhoudt maar wel meestemt in verkiezingen. Nuttig om een even getal nodes oneven te maken.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Replicatie werkt dus <strong>niet</strong> in twee richtingen: je kunt niet rechtstreeks naar een secundaire node schrijven. De secundaire is alleen een leeskopie en een automatische reserve.</p>
+<h4 id="mongodb-atlas-gratis-replica-set-in-de-cloud">MongoDB Atlas: gratis replica set in de cloud</h4>
+<p>MongoDB Atlas biedt een <strong>gratis tier (M0)</strong> aan waarmee je meteen over een volledig beheerde 3-node replica set beschikt, zonder lokale installatie.</p>
+<p><strong>Stappen om een gratis Atlas-cluster aan te maken:</strong></p>
+<ol>
+<li>Ga naar <a href="https://www.mongodb.com/atlas">mongodb.com/atlas</a> en maak een gratis account aan.</li>
+<li>Klik op <strong>&ldquo;Build a Database&rdquo;</strong> en kies <strong>M0 Free</strong>.</li>
+<li>Kies een cloudprovider (AWS/Azure/GCP) en een regio dicht bij jou.</li>
+<li>Geef het cluster een naam en klik op <strong>&ldquo;Create&rdquo;</strong>.</li>
+<li>Maak een databasegebruiker aan (username + password) via <strong>&ldquo;Database Access&rdquo;</strong>.</li>
+<li>Sta je IP-adres toe via <strong>&ldquo;Network Access&rdquo;</strong> → <strong>&ldquo;Add IP Address&rdquo;</strong> (of gebruik <code>0.0.0.0/0</code> om overal toegang toe te staan tijdens ontwikkeling).</li>
+<li>Haal de connection string op via <strong>&ldquo;Connect&rdquo;</strong> → <strong>&ldquo;Compass&rdquo;</strong> of <strong>&ldquo;Drivers&rdquo;</strong>.</li>
+</ol>
+<p>De connection string ziet er zo uit:</p>
+<pre tabindex="0"><code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@&lt;clusternaam&gt;.xxxxx.mongodb.net/&lt;database&gt;
+</code></pre><h4 id="lokale-database-migreren-naar-atlas">Lokale database migreren naar Atlas</h4>
+<p>Als je al data hebt in een lokale MongoDB-instantie, kun je die exporteren en importeren naar Atlas met <code>mongodump</code> en <code>mongorestore</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Exporteer de lokale database &#39;bibliotheek&#39;</span>
+</span></span><span style="display:flex;"><span>mongodump --db bibliotheek --out ./backup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Importeer naar Atlas</span>
+</span></span><span style="display:flex;"><span>mongorestore --uri <span style="color:#d88200">&#34;mongodb+srv://&lt;user&gt;:&lt;password&gt;@&lt;cluster&gt;.mongodb.net&#34;</span> ./backup
+</span></span></code></pre></div><p>Of gebruik MongoDB Compass: verbind met je lokale database, exporteer een collectie als JSON, verbind vervolgens met Atlas en importeer het JSON-bestand.</p>
+<h4 id="verbinden-met-atlas-via-mongosh">Verbinden met Atlas via mongosh</h4>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mongosh <span style="color:#d88200">&#34;mongodb+srv://&lt;clusternaam&gt;.xxxxx.mongodb.net/&lt;database&gt;&#34;</span> --username &lt;username&gt;
+</span></span></code></pre></div><p>Na het invoeren van het wachtwoord ben je verbonden. Alle commando&rsquo;s die je eerder leerde (<code>use</code>, <code>find()</code>, <code>insertOne()</code>, &hellip;) werken identiek.</p>
+<p>Je kunt de replica set-status bekijken via:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75af00">rs</span><span style="color:#111">.</span><span style="color:#75af00">status</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>Dit toont welke node momenteel primair is, de status van alle leden en wanneer de oplog voor het laatst gesynchroniseerd werd.</p>
+<h4 id="verbinden-met-atlas-in-java">Verbinden met Atlas in Java</h4>
+<p>Vervang de lokale connection string door de Atlas-URI:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClient</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoClients</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">com.mongodb.client.MongoDatabase</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">org.bson.Document</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">AtlasVerbinding</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">main</span><span style="color:#111">(</span><span style="color:#111">String</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Atlas connection string (haal op via Atlas UI → Connect → Drivers)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">uri</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;mongodb+srv://&lt;username&gt;:&lt;password&gt;@&lt;cluster&gt;.mongodb.net/&lt;database&gt;?retryWrites=true&amp;w=majority&#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">try</span> <span style="color:#111">(</span><span style="color:#111">MongoClient</span> <span style="color:#111">mongoClient</span> <span style="color:#f92672">=</span> <span style="color:#111">MongoClients</span><span style="color:#111">.</span><span style="color:#75af00">create</span><span style="color:#111">(</span><span style="color:#111">uri</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">MongoDatabase</span> <span style="color:#111">database</span> <span style="color:#f92672">=</span> <span style="color:#111">mongoClient</span><span style="color:#111">.</span><span style="color:#75af00">getDatabase</span><span style="color:#111">(</span><span style="color:#d88200">&#34;bibliotheek&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Test de verbinding</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">runCommand</span><span style="color:#111">(</span><span style="color:#00a8c8">new</span> <span style="color:#111">Document</span><span style="color:#111">(</span><span style="color:#d88200">&#34;ping&#34;</span><span style="color:#111">,</span> <span style="color:#111">1</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Verbonden met MongoDB Atlas!&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Gewone operaties werken identiek als lokaal</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#111">Document</span> <span style="color:#111">doc</span> <span style="color:#111">:</span> <span style="color:#111">database</span><span style="color:#111">.</span><span style="color:#75af00">getCollection</span><span style="color:#111">(</span><span style="color:#d88200">&#34;boeken&#34;</span><span style="color:#111">).</span><span style="color:#75af00">find</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#111">doc</span><span style="color:#111">.</span><span style="color:#75af00">toJson</span><span style="color:#111">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div>
+<div class="notices warning" ><p>Zet je Atlas-wachtwoord <strong>nooit</strong> rechtstreeks in je broncode. Gebruik omgevingsvariabelen of een configuratiebestand dat je niet incheckt in Git.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#111">String</span> <span style="color:#111">uri</span> <span style="color:#f92672">=</span> <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#75af00">getenv</span><span style="color:#111">(</span><span style="color:#d88200">&#34;MONGODB_URI&#34;</span><span style="color:#111">);</span>
+</span></span></code></pre></div></div>
+
+<p>Meer informatie over replicatie is te vinden in de <a href="https://www.mongodb.com/docs/manual/replication/">MongoDB-documentatie</a> en in deze <a href="https://www.youtube.com/watch?v=QPFlGswpyJY">video</a>.</p>
+<h4 id="oefeningen-4">Oefeningen</h4>
+<p><em>De gegeven oplossingen zijn EEN mogelijke oplossing. Is het gewenste gedrag bereikt, dan is je oplossing correct!</em></p>
+<h5 id="oefeningenreeks-1-atlas-instellen-en-verbinden">Oefeningenreeks 1: Atlas instellen en verbinden</h5>
+<ul>
+<li>Maak een gratis MongoDB Atlas M0-cluster aan. Maak een databasegebruiker aan en zorg dat je IP-adres toegang heeft. Haal de connection string op.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ Volg de stappen uit de sectie "MongoDB Atlas: gratis replica set in de cloud" hierboven. -->
+<ul>
+<li>Verbind met je Atlas-cluster via mongosh en voer <code>show dbs</code> uit. Maak daarna een database <code>testAtlas</code> aan, voeg een collectie <code>items</code> toe met minstens twee documenten, en controleer via <code>db.items.find()</code>.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```bash
+mongosh "mongodb+srv://<clusternaam>.xxxxx.mongodb.net/testAtlas" --username <username>
+```
+```javascript
+use testAtlas;
+db.items.insertMany([
+  { naam: "Item A", waarde: 10 },
+  { naam: "Item B", waarde: 20 }
+]);
+db.items.find();
+```
+
+</p>
+</details> -->
+<ul>
+<li>Bekijk de replica set-status via mongosh. Noteer welke node momenteel primair is.</li>
+</ul>
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```rs.status()``` → zoek in de output het lid met `"stateStr": "PRIMARY"`. -->
+<h5 id="oefeningenreeks-2-atlas-verbinden-vanuit-java">Oefeningenreeks 2: Atlas verbinden vanuit Java</h5>
+<ul>
+<li>Maak een nieuw Gradle-project aan en voeg de MongoDB driver dependency toe. Schrijf een klasse <code>AtlasVerbinding</code> die verbinding maakt met je Atlas-cluster, een <code>ping</code>-commando uitvoert en de naam van alle databases afdrukt.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```groovy
+// build.gradle
+dependencies {
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
+}
+```
+
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import org.bson.Document;
+
+public class AtlasVerbinding {
+    public static void main(String[] args) {
+        String uri = System.getenv("MONGODB_URI"); // sla de URI op als omgevingsvariabele
+        try (MongoClient client = MongoClients.create(uri)) {
+            client.getDatabase("admin").runCommand(new Document("ping", 1));
+            System.out.println("Verbonden!");
+            for (String naam : client.listDatabaseNames()) {
+                System.out.println(naam);
+            }
+        }
+    }
+}
+```
+
+</p>
+</details> -->
+<ul>
+<li>Migreer de <code>bibliotheek</code>-database van je lokale MongoDB naar Atlas via <code>mongodump</code> en <code>mongorestore</code>. Controleer daarna via mongosh (verbonden met Atlas) of de collecties <code>auteurs</code> en <code>boeken</code> aanwezig zijn.</li>
+</ul>
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```bash
+# Exporteer lokaal
+mongodump --db bibliotheek --out ./backup
+
+# Importeer naar Atlas
+mongorestore --uri "mongodb+srv://<user>:<password>@<cluster>.mongodb.net" ./backup
+
+# Controleer
+mongosh "mongodb+srv://<cluster>.mongodb.net/bibliotheek" --username <user>
+```
+```javascript
+show collections;
+db.auteurs.find();
+db.boeken.find();
+```
+
+</p>
+</details> -->
 <h3 id="interessante-videos">Interessante videos</h3>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=2QQGWYe7IDU">Algemene tutorial over CMD-commands, Mongo Atlas, Aggregations, MongoDb Compass en VSCode extention</a></li>
@@ -1700,11 +2285,7 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
 <li><a href="https://www.youtube.com/watch?v=ExcRbA7fy_A&amp;list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA">Extra tutorial voor beginners 1</a></li>
 <li><a href="https://www.youtube.com/watch?v=c2M-rlkkT5o">Extra tutorial voor beginners 2</a></li>
 </ul>
-<h3 id="demo">Demo</h3>
-<!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
-<!-- EXSOL -->
-<p><strong><em><a href="../../files/dab-mongo-demo.zip">Hier</a> vind je een zipfolder met een oplossing voor MongoDb demo Student</em></strong></p>
-<!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
+
 </article>
 
 <footer class="footline">
@@ -2113,6 +2694,22 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -2128,7 +2725,7 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
 			<a class="nav nav-prev" href="../../nosql/basics/" title="NoSQL Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/4oef3/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../nosql/opdracht/" title="VERPLICHTE opdracht" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2138,15 +2735,15 @@ Hier is een voorbeeld van hoe je een <code>Student</code>-object kunt opslaan in
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1776765217"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1776765217"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1776765217"></script>
-    <script src="../../js/jquery.sticky.js?1776765217"></script>
-    <script src="../../js/featherlight.min.js?1776765217"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1776765217"></script>
-    <script src="../../js/learn.js?1776765217"></script>
-    <script src="../../js/hugo-learn.js?1776765217"></script>
-    <script src="../../js/mermaid.min.js?1776765217"></script>
+    <script src="../../js/clipboard.min.js?1777434617"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1777434617"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1777434617"></script>
+    <script src="../../js/jquery.sticky.js?1777434617"></script>
+    <script src="../../js/featherlight.min.js?1777434617"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1777434617"></script>
+    <script src="../../js/learn.js?1777434617"></script>
+    <script src="../../js/hugo-learn.js?1777434617"></script>
+    <script src="../../js/mermaid.min.js?1777434617"></script>
     <script>
     window.MathJax = {
       chtml: {

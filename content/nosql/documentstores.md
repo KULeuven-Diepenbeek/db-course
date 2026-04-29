@@ -975,19 +975,644 @@ Test alle methoden van `ProductRepository` in de `main`-methode:
 4. Haal alle producten op via `findAll()` en druk ze af.
 5. Verwijder het product via `delete()` en controleer met `findAll()` dat het weg is.
 
+### Demo
+<!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
+
+<!-- EXSOL -->
+**_[Hier](/files/dab-mongo-demo.zip) vind je een zipfolder met een oplossing voor MongoDb demo Student_**
+
+<!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
+
+### Het concept van Foreign Keys in MongoDb
+
+MongoDB is geen relationele database en heeft dus geen ingebouwde ondersteuning voor foreign key constraints zoals SQL. Toch kun je relaties tussen documenten modelleren. Er zijn twee veelgebruikte aanpakken:
+
+1. **Embedding (inbedden)**: het gerelateerde document wordt volledig opgenomen in het hoofddocument.
+2. **Referencing (verwijzen)**: er wordt enkel de `_id` van het gerelateerde document opgeslagen, vergelijkbaar met een foreign key in SQL.
+
+In document stores gaan we zo min mogelijk van referenties gebruik maken en kiezen we liever voor embedding. Toch zijn er situaties waar referenties zinvol zijn, bijvoorbeeld wanneer hetzelfde document vanuit meerdere andere documenten gerefereerd wordt.
+
+#### Embedding vs Referencing
+
+**Embedding** — geschikt wanneer de gerelateerde data altijd samen met het hoofddocument opgevraagd wordt en niet te groot is:
+
+```javascript
+// Bedrijf met zijn werknemers ingebed
+{
+  _id: ObjectId("64a1f2c3e4b0a1234567890a"),
+  naam: "Acme Corp",
+  werknemers: [
+    { naam: "Alice", functie: "Developer" },
+    { naam: "Bob",   functie: "Designer"  }
+  ]
+}
+```
+
+**Referencing** — geschikt wanneer de gerelateerde data groot is, vaak onafhankelijk opgevraagd wordt of vanuit meerdere documenten gedeeld wordt:
+
+```javascript
+// Collectie: bedrijven
+{
+  _id: ObjectId("64a1f2c3e4b0a1234567890a"),
+  naam: "Acme Corp"
+}
+
+// Collectie: werknemers
+{ _id: ObjectId("64b2e3d4f5c1b2345678901b"), naam: "Alice", functie: "Developer", company_id: ObjectId("64a1f2c3e4b0a1234567890a") }
+{ _id: ObjectId("64c3f4e5g6d2c3456789012c"), naam: "Bob",   functie: "Designer",  company_id: ObjectId("64a1f2c3e4b0a1234567890a") }
+```
+
+#### Referenties opvolgen met handmatige query
+
+Je kunt een referentie handmatig opvolgen door de `_id` van het ene document te gebruiken als filter in het andere:
+
+```javascript
+// Stap 1: zoek het bedrijf
+let bedrijf = db.bedrijven.findOne({ naam: "Acme Corp" });
+
+// Stap 2: zoek alle werknemers van dat bedrijf
+db.werknemers.find({ company_id: bedrijf._id });
+```
+
+#### Relaties opvolgen met `$lookup` (JOIN in MongoDB)
+
+MongoDB biedt `$lookup` in de aggregation pipeline om twee collecties samen te voegen, vergelijkbaar met een SQL JOIN:
+
+```javascript
+db.bedrijven.aggregate([
+  {
+    $lookup: {
+      from: "werknemers",       // de andere collectie
+      localField: "_id",        // veld in bedrijven
+      foreignField: "company_id", // veld in werknemers
+      as: "werknemers"          // naam van het resulterende array-veld
+    }
+  }
+]);
+```
+
+Resultaat:
+```json
+[
+  {
+    "_id": "64a1f2c3e4b0a1234567890a",
+    "naam": "Acme Corp",
+    "werknemers": [
+      { "_id": "64b2...", "naam": "Alice", "functie": "Developer", "company_id": "64a1..." },
+      { "_id": "64c3...", "naam": "Bob",   "functie": "Designer",  "company_id": "64a1..." }
+    ]
+  }
+]
+```
+
+Je kunt `$lookup` ook combineren met andere aggregatiestappen. Wil je enkel bedrijven tonen met minstens één werknemer, dan voeg je een `$match` toe na de `$lookup`:
+
+```javascript
+db.bedrijven.aggregate([
+  {
+    $lookup: {
+      from: "werknemers",
+      localField: "_id",
+      foreignField: "company_id",
+      as: "werknemers"
+    }
+  },
+  {
+    $match: { "werknemers.0": { $exists: true } }
+  }
+]);
+```
+
+#### Oefeningen
+
+##### Dataset
+
+Voer de volgende commando's uit om de voorbeelddataset aan te maken:
+
+```javascript
+use bibliotheek;
+
+db.auteurs.insertMany([
+  { _id: ObjectId("aaa000000000000000000001"), naam: "J.K. Rowling",    nationaliteit: "Brits"    },
+  { _id: ObjectId("aaa000000000000000000002"), naam: "George Orwell",   nationaliteit: "Brits"    },
+  { _id: ObjectId("aaa000000000000000000003"), naam: "Harper Lee",      nationaliteit: "Amerikaans" }
+]);
+
+db.boeken.insertMany([
+  { titel: "Harry Potter en de Steen der Wijzen", jaar: 1997, auteur_id: ObjectId("aaa000000000000000000001"), genre: "Fantasy",   beschikbaar: true  },
+  { titel: "Harry Potter en de Geheime Kamer",    jaar: 1998, auteur_id: ObjectId("aaa000000000000000000001"), genre: "Fantasy",   beschikbaar: false },
+  { titel: "1984",                                jaar: 1949, auteur_id: ObjectId("aaa000000000000000000002"), genre: "Dystopie",  beschikbaar: true  },
+  { titel: "Animal Farm",                         jaar: 1945, auteur_id: ObjectId("aaa000000000000000000002"), genre: "Satire",    beschikbaar: true  },
+  { titel: "To Kill a Mockingbird",               jaar: 1960, auteur_id: ObjectId("aaa000000000000000000003"), genre: "Drama",     beschikbaar: false }
+]);
+```
+
+_De gegeven oplossingen zijn EEN mogelijke oplossing, soms zijn meerdere mogelijkheden juist. Is het gewenste gedrag bereikt, dan is je oplossing correct!_
+
+##### Oefeningenreeks 1: Referenties en handmatige joins
+
+- Haal alle boeken op die beschikbaar zijn (`beschikbaar: true`).
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.boeken.find({ beschikbaar: true })``` -->
+
+- Zoek de auteur met de naam `"George Orwell"` en toon vervolgens alle boeken van die auteur (handmatig via twee queries).
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+```javascript
+let auteur = db.auteurs.findOne({ naam: "George Orwell" });
+db.boeken.find({ auteur_id: auteur._id });
+``` -->
+
+- Zoek het boek met titel `"1984"` en toon daarna de bijbehorende auteursinformatie.
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+```javascript
+let boek = db.boeken.findOne({ titel: "1984" });
+db.auteurs.findOne({ _id: boek.auteur_id });
+``` -->
+
+##### Oefeningenreeks 2: `$lookup`
+
+- Gebruik `$lookup` om alle boeken te tonen, uitgebreid met de bijbehorende auteursinformatie.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.boeken.aggregate([
+  {
+    $lookup: {
+      from: "auteurs",
+      localField: "auteur_id",
+      foreignField: "_id",
+      as: "auteur"
+    }
+  }
+]);
+```
+
+</p>
+</details> -->
+
+- Gebruik `$lookup` om per auteur alle boeken op te lijsten. Toon enkel auteurs waarbij er minstens één boek beschikbaar is (`beschikbaar: true` in de boeken-array).
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.auteurs.aggregate([
+  {
+    $lookup: {
+      from: "boeken",
+      localField: "_id",
+      foreignField: "auteur_id",
+      as: "boeken"
+    }
+  },
+  {
+    $match: { "boeken": { $elemMatch: { beschikbaar: true } } }
+  }
+]);
+```
+
+</p>
+</details> -->
+
+- Gebruik `$lookup` gevolgd door `$unwind` en `$group` om per auteur het aantal boeken te tellen.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+db.auteurs.aggregate([
+  {
+    $lookup: {
+      from: "boeken",
+      localField: "_id",
+      foreignField: "auteur_id",
+      as: "boeken"
+    }
+  },
+  {
+    $project: {
+      naam: 1,
+      aantalBoeken: { $size: "$boeken" }
+    }
+  },
+  {
+    $sort: { aantalBoeken: -1 }
+  }
+]);
+```
+
+</p>
+</details> -->
+
+<!-- ### Transacties
+
+MongoDB ondersteunt **multi-document transacties** vanaf versie 4.0 (voor replica sets) en 4.2 (voor sharded clusters). Net zoals in relationele databases garandeert een transactie **ACID**-eigenschappen:
+
+- **Atomicity**: alle bewerkingen in de transactie slagen, of geen enkele.
+- **Consistency**: de database blijft in een geldige toestand.
+- **Isolation**: lopende transacties zijn niet zichtbaar voor andere sessies tot ze gecommit zijn.
+- **Durability**: eenmaal gecommit, blijven de wijzigingen bewaard.
+
+{{% notice warning %}}
+Transacties zijn in MongoDB bedoeld als vangnet voor uitzonderlijke gevallen, niet als standaard werkwijze. Goed ontworpen schema's (embedding) vermijden de nood aan transacties grotendeels. Gebruik transacties enkel wanneer je echt meerdere documenten of collecties atomisch moet aanpassen.
+{{% /notice %}}
+
+#### Voorbeeld use case
+
+Stel: een student leent een boek uit. Je moet dan:
+1. In de collectie `boeken` het veld `beschikbaar` op `false` zetten.
+2. In de collectie `uitleningen` een nieuw document aanmaken.
+
+Als stap 1 slaagt maar stap 2 mislukt (bv. door een netwerkfout), raakt de database inconsistent. Een transactie voorkomt dit.
+
+#### Transacties in mongosh
+
+```javascript
+use bibliotheek;
+
+// Start een sessie
+const sessie = db.getMongo().startSession();
+sessie.startTransaction();
+
+try {
+  const boeken     = sessie.getDatabase("bibliotheek").boeken;
+  const uitleningen = sessie.getDatabase("bibliotheek").uitleningen;
+
+  // Stap 1: markeer het boek als niet beschikbaar
+  boeken.updateOne(
+    { titel: "1984", beschikbaar: true },
+    { $set: { beschikbaar: false } },
+    { session: sessie }
+  );
+
+  // Stap 2: registreer de uitleen
+  uitleningen.insertOne(
+    { boekTitel: "1984", studentNaam: "Alice", datum: new Date() },
+    { session: sessie }
+  );
+
+  // Alles geslaagd: commit
+  sessie.commitTransaction();
+  print("Transactie geslaagd.");
+} catch (fout) {
+  // Iets misliep: rollback
+  sessie.abortTransaction();
+  print("Transactie afgebroken: " + fout);
+} finally {
+  sessie.endSession();
+}
+```
+
+#### Transacties in Java
+
+```java
+import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import org.bson.Document;
+
+import java.util.Date;
+
+public class TransactieVoorbeeld {
+    public static void main(String[] args) {
+        String uri = "mongodb://localhost:27017";
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("bibliotheek");
+            MongoCollection<Document> boeken      = database.getCollection("boeken");
+            MongoCollection<Document> uitleningen = database.getCollection("uitleningen");
+
+            // Start een sessie
+            try (ClientSession sessie = mongoClient.startSession()) {
+                sessie.startTransaction();
+
+                try {
+                    // Stap 1: markeer het boek als niet beschikbaar
+                    boeken.updateOne(
+                        sessie,
+                        Filters.and(Filters.eq("titel", "1984"), Filters.eq("beschikbaar", true)),
+                        Updates.set("beschikbaar", false)
+                    );
+
+                    // Stap 2: registreer de uitleen
+                    Document uitleen = new Document("boekTitel", "1984")
+                        .append("studentNaam", "Alice")
+                        .append("datum", new Date());
+                    uitleningen.insertOne(sessie, uitleen);
+
+                    // Alles geslaagd: commit
+                    sessie.commitTransaction();
+                    System.out.println("Transactie geslaagd.");
+
+                } catch (Exception e) {
+                    // Iets misliep: rollback
+                    sessie.abortTransaction();
+                    System.out.println("Transactie afgebroken: " + e.getMessage());
+                }
+            }
+        }
+    }
+}
+```
+
+{{% notice info %}}
+Lokaal werken transacties **alleen** met een replica set of met een MongoDB Atlas-cluster. Een standalone lokale instantie ondersteunt geen transacties. Je kunt een lokale replica set opstarten met `mongod --replSet rs0`, of gebruik maken van MongoDB Atlas (gratis tier volstaat).
+{{% /notice %}} 
+
+#### Oefeningen
+
+_De gegeven oplossingen zijn EEN mogelijke oplossing. Is het gewenste gedrag bereikt, dan is je oplossing correct!_
+
+Gebruik de `bibliotheek`-database met de collecties `auteurs`, `boeken` en `uitleningen` uit vorige oefeningen.
+
+- Schrijf een transactie in mongosh die een boek naar keuze markeert als `beschikbaar: false` en tegelijk een document toevoegt aan de collectie `uitleningen`. Controleer daarna (buiten de transactie) of beide wijzigingen doorgevoerd zijn.
+ EXSOL 
+<details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```javascript
+const sessie = db.getMongo().startSession();
+sessie.startTransaction();
+try {
+  sessie.getDatabase("bibliotheek").boeken.updateOne(
+    { titel: "Animal Farm", beschikbaar: true },
+    { $set: { beschikbaar: false } },
+    { session: sessie }
+  );
+  sessie.getDatabase("bibliotheek").uitleningen.insertOne(
+    { boekTitel: "Animal Farm", studentNaam: "Bob", datum: new Date() },
+    { session: sessie }
+  );
+  sessie.commitTransaction();
+} catch(e) {
+  sessie.abortTransaction();
+} finally {
+  sessie.endSession();
+}
+
+// Controleer
+db.boeken.findOne({ titel: "Animal Farm" });
+db.uitleningen.find({ boekTitel: "Animal Farm" });
+```
+
+</p>
+</details>
+
+- Schrijf dezelfde transactie in Java. Gebruik de `bibliotheek`-database. Vang eventuele fouten op en druk de melding af via `System.out.println()`.
+ EXSOL 
+<details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```java
+try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+    MongoDatabase db       = mongoClient.getDatabase("bibliotheek");
+    MongoCollection<Document> boeken      = db.getCollection("boeken");
+    MongoCollection<Document> uitleningen = db.getCollection("uitleningen");
+
+    try (ClientSession sessie = mongoClient.startSession()) {
+        sessie.startTransaction();
+        try {
+            boeken.updateOne(
+                sessie,
+                Filters.and(Filters.eq("titel", "Animal Farm"), Filters.eq("beschikbaar", true)),
+                Updates.set("beschikbaar", false)
+            );
+            uitleningen.insertOne(sessie,
+                new Document("boekTitel", "Animal Farm")
+                    .append("studentNaam", "Bob")
+                    .append("datum", new Date())
+            );
+            sessie.commitTransaction();
+            System.out.println("Transactie geslaagd.");
+        } catch (Exception e) {
+            sessie.abortTransaction();
+            System.out.println("Transactie afgebroken: " + e.getMessage());
+        }
+    }
+}
+```
+
+</p>
+</details>
+
+-->
+
 ### Replicatie
 
-Bij gebruik van MongoDB Atlas is **replicatie** standaard inbegrepen. Dit zorgt voor een hogere beschikbaarheid en betrouwbaarheid. Replicatie in MongoDB wordt gerealiseerd via een replica set, een groep `mongod`-processen die dezelfde dataset onderhouden. Een replica set bevat meerdere data-dragers en optioneel een arbiter. 
+Replicatie in MongoDB wordt gerealiseerd via een **replica set**: een groep van drie of meer `mongod`-processen die exact dezelfde dataset bijhouden. Eén node is de **primaire** node, de overige zijn **secundaire** nodes.
 
-Replicatie houdt in dat gegevens automatisch worden gekopieerd van de primaire node naar secundaire nodes. Dit biedt niet alleen fouttolerantie, maar verhoogt ook de leescapaciteit, omdat leesbewerkingen naar secundaire nodes kunnen worden gestuurd. In het geval van een storing van de primaire node, wordt een secundaire node automatisch gepromoveerd tot primaire node via een verkiezingsproces. Dit garandeert dat de database beschikbaar blijft, zelfs bij hardware- of netwerkproblemen.
+{{% mermaid %}}
+flowchart LR
+    Client["Client"] --> P["Primaire node<br/>lezen + schrijven"]
+    P -->|oplog| S1["Secundaire node 1<br/>alleen lezen"]
+    P -->|oplog| S2["Secundaire node 2<br/>alleen lezen"]
+{{% /mermaid %}}
+
+#### Eigenschappen van replicatie
+
+| Eigenschap | Detail |
+|---|---|
+| **Richting** | Eénrichtingsverkeer: primaire → secundaire. Writes gaan altijd naar de primaire. |
+| **Leesgedrag** | Standaard worden ook leesbewerkingen naar de primaire gestuurd. Je kunt secundaire nodes inschakelen voor lezen (`readPreference`), maar dan kan de data iets verouderd zijn. |
+| **Automatische failover** | Als de primaire node wegvalt, kiezen de resterende nodes via een verkiezingsproces een nieuwe primaire. Dit duurt normaal 10–30 seconden. |
+| **oplog** | Elke schrijfbewerking op de primaire wordt bijgehouden in een circulaire log (de *oplog*). Secundaire nodes lezen deze log continu en passen dezelfde bewerkingen toe. |
+| **Arbiter** | Een optionele node die geen data bijhoudt maar wel meestemt in verkiezingen. Nuttig om een even getal nodes oneven te maken. |
+
+Replicatie werkt dus **niet** in twee richtingen: je kunt niet rechtstreeks naar een secundaire node schrijven. De secundaire is alleen een leeskopie en een automatische reserve.
+
+#### MongoDB Atlas: gratis replica set in de cloud
+
+MongoDB Atlas biedt een **gratis tier (M0)** aan waarmee je meteen over een volledig beheerde 3-node replica set beschikt, zonder lokale installatie. 
+
+**Stappen om een gratis Atlas-cluster aan te maken:**
+
+1. Ga naar [mongodb.com/atlas](https://www.mongodb.com/atlas) en maak een gratis account aan.
+2. Klik op **"Build a Database"** en kies **M0 Free**.
+3. Kies een cloudprovider (AWS/Azure/GCP) en een regio dicht bij jou.
+4. Geef het cluster een naam en klik op **"Create"**.
+5. Maak een databasegebruiker aan (username + password) via **"Database Access"**.
+6. Sta je IP-adres toe via **"Network Access"** → **"Add IP Address"** (of gebruik `0.0.0.0/0` om overal toegang toe te staan tijdens ontwikkeling).
+7. Haal de connection string op via **"Connect"** → **"Compass"** of **"Drivers"**.
+
+De connection string ziet er zo uit:
+```
+mongodb+srv://<username>:<password>@<clusternaam>.xxxxx.mongodb.net/<database>
+```
+
+#### Lokale database migreren naar Atlas
+
+Als je al data hebt in een lokale MongoDB-instantie, kun je die exporteren en importeren naar Atlas met `mongodump` en `mongorestore`:
+
+```bash
+# Exporteer de lokale database 'bibliotheek'
+mongodump --db bibliotheek --out ./backup
+
+# Importeer naar Atlas
+mongorestore --uri "mongodb+srv://<user>:<password>@<cluster>.mongodb.net" ./backup
+```
+
+Of gebruik MongoDB Compass: verbind met je lokale database, exporteer een collectie als JSON, verbind vervolgens met Atlas en importeer het JSON-bestand.
+
+#### Verbinden met Atlas via mongosh
+
+```bash
+mongosh "mongodb+srv://<clusternaam>.xxxxx.mongodb.net/<database>" --username <username>
+```
+
+Na het invoeren van het wachtwoord ben je verbonden. Alle commando's die je eerder leerde (`use`, `find()`, `insertOne()`, ...) werken identiek.
+
+Je kunt de replica set-status bekijken via:
+```javascript
+rs.status()
+```
+
+Dit toont welke node momenteel primair is, de status van alle leden en wanneer de oplog voor het laatst gesynchroniseerd werd.
+
+#### Verbinden met Atlas in Java
+
+Vervang de lokale connection string door de Atlas-URI:
+
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+
+public class AtlasVerbinding {
+    public static void main(String[] args) {
+        // Atlas connection string (haal op via Atlas UI → Connect → Drivers)
+        String uri = "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority";
+
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("bibliotheek");
+
+            // Test de verbinding
+            database.runCommand(new Document("ping", 1));
+            System.out.println("Verbonden met MongoDB Atlas!");
+
+            // Gewone operaties werken identiek als lokaal
+            for (Document doc : database.getCollection("boeken").find()) {
+                System.out.println(doc.toJson());
+            }
+        }
+    }
+}
+```
+
+{{% notice warning %}}
+Zet je Atlas-wachtwoord **nooit** rechtstreeks in je broncode. Gebruik omgevingsvariabelen of een configuratiebestand dat je niet incheckt in Git.
+```java
+String uri = System.getenv("MONGODB_URI");
+```
+{{% /notice %}}
 
 Meer informatie over replicatie is te vinden in de [MongoDB-documentatie](https://www.mongodb.com/docs/manual/replication/) en in deze [video](https://www.youtube.com/watch?v=QPFlGswpyJY).
 
-### Het concept van Foreign Keys in MongoDb
-<!-- TODO: tegen volgend jaar verder uitbreiden: Foreign key:  eg. company_id: db.info.find(…)._id => …find({_id: …find(…).company_id}) -->
-In document stores gaan we hier zo min mogelijk van gebruik maken, maar het kan wel geïmplementeerd worden. We gaan daar hier echter niet verder op in en daarvoor kijk je best de videos over dit onderwerp hieronder.
+#### Oefeningen
 
-<!-- TODO: Transactions -->
+_De gegeven oplossingen zijn EEN mogelijke oplossing. Is het gewenste gedrag bereikt, dan is je oplossing correct!_
+
+##### Oefeningenreeks 1: Atlas instellen en verbinden
+
+- Maak een gratis MongoDB Atlas M0-cluster aan. Maak een databasegebruiker aan en zorg dat je IP-adres toegang heeft. Haal de connection string op.
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ Volg de stappen uit de sectie "MongoDB Atlas: gratis replica set in de cloud" hierboven. -->
+
+- Verbind met je Atlas-cluster via mongosh en voer `show dbs` uit. Maak daarna een database `testAtlas` aan, voeg een collectie `items` toe met minstens twee documenten, en controleer via `db.items.find()`.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```bash
+mongosh "mongodb+srv://<clusternaam>.xxxxx.mongodb.net/testAtlas" --username <username>
+```
+```javascript
+use testAtlas;
+db.items.insertMany([
+  { naam: "Item A", waarde: 10 },
+  { naam: "Item B", waarde: 20 }
+]);
+db.items.find();
+```
+
+</p>
+</details> -->
+
+- Bekijk de replica set-status via mongosh. Noteer welke node momenteel primair is.
+<!-- EXSOL -->
+<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```rs.status()``` → zoek in de output het lid met `"stateStr": "PRIMARY"`. -->
+
+##### Oefeningenreeks 2: Atlas verbinden vanuit Java
+
+- Maak een nieuw Gradle-project aan en voeg de MongoDB driver dependency toe. Schrijf een klasse `AtlasVerbinding` die verbinding maakt met je Atlas-cluster, een `ping`-commando uitvoert en de naam van alle databases afdrukt.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```groovy
+// build.gradle
+dependencies {
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
+}
+```
+
+```java
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import org.bson.Document;
+
+public class AtlasVerbinding {
+    public static void main(String[] args) {
+        String uri = System.getenv("MONGODB_URI"); // sla de URI op als omgevingsvariabele
+        try (MongoClient client = MongoClients.create(uri)) {
+            client.getDatabase("admin").runCommand(new Document("ping", 1));
+            System.out.println("Verbonden!");
+            for (String naam : client.listDatabaseNames()) {
+                System.out.println(naam);
+            }
+        }
+    }
+}
+```
+
+</p>
+</details> -->
+
+- Migreer de `bibliotheek`-database van je lokale MongoDB naar Atlas via `mongodump` en `mongorestore`. Controleer daarna via mongosh (verbonden met Atlas) of de collecties `auteurs` en `boeken` aanwezig zijn.
+<!-- EXSOL -->
+<!-- <details closed>
+<summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
+<p>
+
+```bash
+# Exporteer lokaal
+mongodump --db bibliotheek --out ./backup
+
+# Importeer naar Atlas
+mongorestore --uri "mongodb+srv://<user>:<password>@<cluster>.mongodb.net" ./backup
+
+# Controleer
+mongosh "mongodb+srv://<cluster>.mongodb.net/bibliotheek" --username <user>
+```
+```javascript
+show collections;
+db.auteurs.find();
+db.boeken.find();
+```
+
+</p>
+</details> -->
 
 ### Interessante videos
 - [Algemene tutorial over CMD-commands, Mongo Atlas, Aggregations, MongoDb Compass en VSCode extention](https://www.youtube.com/watch?v=2QQGWYe7IDU)
@@ -1000,11 +1625,3 @@ In document stores gaan we hier zo min mogelijk van gebruik maken, maar het kan 
 - [Extra video over Replication](https://www.youtube.com/watch?v=ZGHowQHMOoM)
 - [Extra tutorial voor beginners 1](https://www.youtube.com/watch?v=ExcRbA7fy_A&list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA)
 - [Extra tutorial voor beginners 2](https://www.youtube.com/watch?v=c2M-rlkkT5o)
-
-### Demo
-<!-- TODO volgend jaar: with blogposts: author, title, tekst, categories, date, likes, dislikes, public (true or false) AND users with schema: name, age, contact: {phone: … , email …}, password, pinned post (foreign key or just a copy of the object) -->
-
-<!-- EXSOL -->
-**_[Hier](/files/dab-mongo-demo.zip) vind je een zipfolder met een oplossing voor MongoDb demo Student_**
-
-<!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->

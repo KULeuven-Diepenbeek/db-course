@@ -1,10 +1,10 @@
 ---
 title: VERPLICHTE opdracht
-draft: true
+draft: false
 weight: 4
 ---
 
-## Opdracht MongoDb met als deadline vrijdag 9 mei 2025 23u59
+## Opdracht MongoDb met als deadline zondag 10 mei 2026 23u59
 
 Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende `Github Classroom`. En pull je de repository van [**Opdracht rond MongoDb**](https://classroom.github.com/a/QOmM-zNf). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
 
@@ -34,6 +34,6 @@ Een speler ziet er als volgt uit (en je mag ervan uitgaan dat elk json object al
 ```
 
 
-**Push voor de deadline van vrijdag 9 mei 2025 23u59 je oplossingen naar je repository**
+**Push voor de deadline van vrijdag 10 mei 2026 23u59 je oplossingen naar je repository**
 
 Veel succes! Je mag me altijd contacteren via [arne.duyver@kuleuven.be](mailto::arne.duyver@kuleuven.be) voor vragen of in de les aanspreken.
