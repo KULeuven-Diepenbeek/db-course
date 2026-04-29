@@ -1410,12 +1410,12 @@ try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017"))
 
 Replicatie in MongoDB wordt gerealiseerd via een **replica set**: een groep van drie of meer `mongod`-processen die exact dezelfde dataset bijhouden. Eén node is de **primaire** node, de overige zijn **secundaire** nodes.
 
-{{% mermaid %}}
+{{< mermaid align="left" >}}
 flowchart LR
     Client["Client"] --> P["Primaire node<br/>lezen + schrijven"]
     P -->|oplog| S1["Secundaire node 1<br/>alleen lezen"]
     P -->|oplog| S2["Secundaire node 2<br/>alleen lezen"]
-{{% /mermaid %}}
+{{< /mermaid >}}
 
 #### Eigenschappen van replicatie
 

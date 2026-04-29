@@ -12,22 +12,22 @@
     <title>Document Stores met MongoDB :: Databases</title>
 
     
-    <link href="../../css/nucleus.css?1777434617" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1777434617" rel="stylesheet">
-    <link href="../../css/hybrid.css?1777434617" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1777434617" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1777434617" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1777434617" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1777434617" rel="stylesheet">
-    <link href="../../css/theme.css?1777434617" rel="stylesheet">
-    <link href="../../css/autonumbering.css?1777434617" rel="stylesheet">
-    <link href="../../css/devselector.css?1777434617" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1777434617" rel="stylesheet">
-    <link href="../../css/theme-kul.css?1777434617" rel="stylesheet">
+    <link href="../../css/nucleus.css?1777447416" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1777447416" rel="stylesheet">
+    <link href="../../css/hybrid.css?1777447416" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1777447416" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1777447416" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1777447416" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1777447416" rel="stylesheet">
+    <link href="../../css/theme.css?1777447416" rel="stylesheet">
+    <link href="../../css/autonumbering.css?1777447416" rel="stylesheet">
+    <link href="../../css/devselector.css?1777447416" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1777447416" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1777447416" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1777434617"></script>
-    <script src="../../js/devselector.js?1777434617"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1777447416"></script>
+    <script src="../../js/devselector.js?1777447416"></script>
     <script id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1777434617"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1777434617"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1777447416"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1777447416"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/db-course\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1777434617"></script>
+<script type="text/javascript" src="../../js/search.js?1777447416"></script>
 
     
   </div>
@@ -594,27 +594,6 @@
       <li data-nav-id="/nosql/documentstores/" title="Document Stores met MongoDB" class="dd-item active">
         <a href="../../nosql/documentstores/">
         Document Stores met MongoDB
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-      <li data-nav-id="/nosql/opdracht/" title="VERPLICHTE opdracht" class="dd-item ">
-        <a href="../../nosql/opdracht/">
-        VERPLICHTE opdracht
         
         </a>
     </li>
@@ -2073,11 +2052,14 @@ try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017"))
 -->
 <h3 id="replicatie">Replicatie</h3>
 <p>Replicatie in MongoDB wordt gerealiseerd via een <strong>replica set</strong>: een groep van drie of meer <code>mongod</code>-processen die exact dezelfde dataset bijhouden. Eén node is de <strong>primaire</strong> node, de overige zijn <strong>secundaire</strong> nodes.</p>
-<div class="mermaid" align="center" >
-<p>flowchart LR
-Client[&ldquo;Client&rdquo;] &ndash;&gt; P[&ldquo;Primaire node<br/>lezen + schrijven&rdquo;]
-P &ndash;&gt;|oplog| S1[&ldquo;Secundaire node 1<br/>alleen lezen&rdquo;]
-P &ndash;&gt;|oplog| S2[&ldquo;Secundaire node 2<br/>alleen lezen&rdquo;]</p>
+
+<div class="mermaid" align="left" >
+	
+flowchart LR
+    Client["Client"] --> P["Primaire node<br/>lezen + schrijven"]
+    P -->|oplog| S1["Secundaire node 1<br/>alleen lezen"]
+    P -->|oplog| S2["Secundaire node 2<br/>alleen lezen"]
+
 </div>
 <h4 id="eigenschappen-van-replicatie">Eigenschappen van replicatie</h4>
 <table>
@@ -2694,22 +2676,6 @@ db.boeken.find();
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2725,7 +2691,7 @@ db.boeken.find();
 			<a class="nav nav-prev" href="../../nosql/basics/" title="NoSQL Basics"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../nosql/opdracht/" title="VERPLICHTE opdracht" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../nosql/4oef3/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2735,15 +2701,15 @@ db.boeken.find();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1777434617"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1777434617"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1777434617"></script>
-    <script src="../../js/jquery.sticky.js?1777434617"></script>
-    <script src="../../js/featherlight.min.js?1777434617"></script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1777434617"></script>
-    <script src="../../js/learn.js?1777434617"></script>
-    <script src="../../js/hugo-learn.js?1777434617"></script>
-    <script src="../../js/mermaid.min.js?1777434617"></script>
+    <script src="../../js/clipboard.min.js?1777447416"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1777447416"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1777447416"></script>
+    <script src="../../js/jquery.sticky.js?1777447416"></script>
+    <script src="../../js/featherlight.min.js?1777447416"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1777447416"></script>
+    <script src="../../js/learn.js?1777447416"></script>
+    <script src="../../js/hugo-learn.js?1777447416"></script>
+    <script src="../../js/mermaid.min.js?1777447416"></script>
     <script>
     window.MathJax = {
       chtml: {
