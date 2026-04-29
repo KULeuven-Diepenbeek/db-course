@@ -6,7 +6,7 @@ weight: 4
 
 ## Opdracht MongoDb met als deadline zondag 10 mei 2026 23u59
 
-Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende `Github Classroom`. En pull je de repository van [**Opdracht rond MongoDb**](https://classroom.github.com/a/QOmM-zNf). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
+Voor de verplichte opdracht meld je je aan onder de correcte naam bij volgende `Github Classroom`. En pull je de repository van [**Opdracht rond MongoDb**](https://classroom.github.com/a/fBTqD3AK). Deze repository bevat een Java Gradle project met een aantal `TODO`'s die je moet oplossen. Hieronder staat de opdracht nog beschreven:
 
 ### Opdracht: 
 <!-- TODO: Volgend jaar met schema-validatie, letten op ontbrekende eigenschappen in de JSON ... -->
