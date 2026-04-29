@@ -1525,11 +1525,11 @@ _De gegeven oplossingen zijn EEN mogelijke oplossing. Is het gewenste gedrag ber
 
 - Maak een gratis MongoDB Atlas M0-cluster aan. Maak een databasegebruiker aan en zorg dat je IP-adres toegang heeft. Haal de connection string op.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ Volg de stappen uit de sectie "MongoDB Atlas: gratis replica set in de cloud" hierboven. -->
+_**<span style="color: #03C03C;">Solution:</span>**_ Volg de stappen uit de sectie "MongoDB Atlas: gratis replica set in de cloud" hierboven.
 
 - Verbind met je Atlas-cluster via mongosh en voer `show dbs` uit. Maak daarna een database `testAtlas` aan, voeg een collectie `items` toe met minstens twee documenten, en controleer via `db.items.find()`.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1546,17 +1546,17 @@ db.items.find();
 ```
 
 </p>
-</details> -->
+</details>
 
 - Bekijk de replica set-status via mongosh. Noteer welke node momenteel primair is.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```rs.status()``` → zoek in de output het lid met `"stateStr": "PRIMARY"`. -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```rs.status()``` → zoek in de output het lid met `"stateStr": "PRIMARY"`.
 
 ##### Oefeningenreeks 2: Atlas verbinden vanuit Java
 
 - Maak een nieuw Gradle-project aan en voeg de MongoDB driver dependency toe. Schrijf een klasse `AtlasVerbinding` die verbinding maakt met je Atlas-cluster, een `ping`-commando uitvoert en de naam van alle databases afdrukt.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1587,11 +1587,11 @@ public class AtlasVerbinding {
 ```
 
 </p>
-</details> -->
+</details>
 
 - Migreer de `bibliotheek`-database van je lokale MongoDB naar Atlas via `mongodump` en `mongorestore`. Controleer daarna via mongosh (verbonden met Atlas) of de collecties `auteurs` en `boeken` aanwezig zijn.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1612,7 +1612,7 @@ db.boeken.find();
 ```
 
 </p>
-</details> -->
+</details>
 
 ### Interessante videos
 - [Algemene tutorial over CMD-commands, Mongo Atlas, Aggregations, MongoDb Compass en VSCode extention](https://www.youtube.com/watch?v=2QQGWYe7IDU)
