@@ -1113,29 +1113,29 @@ _De gegeven oplossingen zijn EEN mogelijke oplossing, soms zijn meerdere mogelij
 
 - Haal alle boeken op die beschikbaar zijn (`beschikbaar: true`).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_ ```db.boeken.find({ beschikbaar: true })``` -->
+_**<span style="color: #03C03C;">Solution:</span>**_ ```db.boeken.find({ beschikbaar: true })```
 
 - Zoek de auteur met de naam `"George Orwell"` en toon vervolgens alle boeken van die auteur (handmatig via twee queries).
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+_**<span style="color: #03C03C;">Solution:</span>**_
 ```javascript
 let auteur = db.auteurs.findOne({ naam: "George Orwell" });
 db.boeken.find({ auteur_id: auteur._id });
-``` -->
+```
 
 - Zoek het boek met titel `"1984"` en toon daarna de bijbehorende auteursinformatie.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_
+_**<span style="color: #03C03C;">Solution:</span>**_
 ```javascript
 let boek = db.boeken.findOne({ titel: "1984" });
 db.auteurs.findOne({ _id: boek.auteur_id });
-``` -->
+```
 
 ##### Oefeningenreeks 2: `$lookup`
 
 - Gebruik `$lookup` om alle boeken te tonen, uitgebreid met de bijbehorende auteursinformatie.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1153,11 +1153,11 @@ db.boeken.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 - Gebruik `$lookup` om per auteur alle boeken op te lijsten. Toon enkel auteurs waarbij er minstens één boek beschikbaar is (`beschikbaar: true` in de boeken-array).
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1178,11 +1178,11 @@ db.auteurs.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 - Gebruik `$lookup` gevolgd door `$unwind` en `$group` om per auteur het aantal boeken te tellen.
 <!-- EXSOL -->
-<!-- <details closed>
+<details closed>
 <summary><i><b><span style="color: #03C03C;">Solution:</span> Klik hier om de code te zien/verbergen</b></i>🔽</summary>
 <p>
 
@@ -1209,7 +1209,7 @@ db.auteurs.aggregate([
 ```
 
 </p>
-</details> -->
+</details>
 
 <!-- ### Transacties
 
