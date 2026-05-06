@@ -1,6 +1,6 @@
 ---
 title: Timeseries database met InfluxDb
-draft: false
+draft: true
 weight: 1
 ---
 
