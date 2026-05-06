@@ -511,5 +511,9 @@ Met deze aanpak kun je aggregaties uitvoeren en analyseren in zowel de Flux-quer
 
 <!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
 
-### Oefening:
+### Oefeningen:
+#### Oefening 1:
 Maak een klein appje dat CO2 gegevens aanmaakt in een Java project en doorstuurt naar InfluxDb. Lees de waarden uit een zet een boolean op true wanneer CO2 een bepaalde hoeveelheid overschrijdt (= een raam open zetten). En zet weer op false wanneer de waarde weer daalt.
+
+#### Oefening 2:
+Tegenwoordig kan je MongoDB ook gebruiken als TimeSeries databank. Ga zelf eens na wat de verschillen zijn met de werking van MongoDB t.o.v. InfluxDB. Maak een kopie van de CO2 Java applicatie maar pas het aan zodat het gebruik maakt van MongoDB.

@@ -1,7 +1,7 @@
 ---
 title: XML Data Storage
 chapter: true
-draft: true
+draft: false
 weight: 7
 ---
 
