@@ -223,23 +223,23 @@ Hieronder vind je een xml bestand waarop we de XPath oefeningen gaan uitvoeren. 
 
 1. Geef alle prijzen weer. Schrijf hiervoor 2 verschillende XPath queries die hetzelfde resultaat geven.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```//price OF /catalog/price```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```//price OF /catalog/price``` 
 
 2. Geef de titel van het boek met id bk110.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[@id='bk110']/title```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[@id='bk110']/title``` 
 
 3. Geef de description van alle boeken.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```//description```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```//description``` 
 
 4. Geef alle non-fictie boeken
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='0']```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='0']``` 
 
 5. Lijst alle subgenres van de fictie boeken op.
 <!-- EXSOL -->
-<!-- _**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='1']/genre/subgenre/text()```  -->
+_**<span style="color: #03C03C;">Solution:</span>**_  ```/catalog/book[genre/@fiction='1']/genre/subgenre/text()``` 
 
 {{% notice info %}}
 Meer info over XPath vind je [hier](https://www.w3schools.com/xml/xpath_intro.asp)
