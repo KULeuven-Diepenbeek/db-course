@@ -1,6 +1,6 @@
 ---
-title: Timeseries database met InfluxDb
-draft: true
+title: Timeseries database met InfluxDB
+draft: false
 weight: 1
 ---
 
@@ -8,512 +8,366 @@ weight: 1
 
 ### Introductie
 
-Een timeseries database (TSDB) is een database die is geoptimaliseerd voor het opslaan en ophalen van tijdgestempelde gegevens. Dit type database wordt vaak gebruikt in toepassingen zoals IoT, monitoring, en financiële analyses, waar gegevens in de tijd worden verzameld en geanalyseerd. TSDB's zijn ontworpen om efficiënt om te gaan met grote hoeveelheden gegevens die continu worden toegevoegd en om snelle query's uit te voeren op basis van tijd.
+Een timeseries database (TSDB) is een database die geoptimaliseerd is voor het opslaan en ophalen van tijdgestempelde gegevens. Dit type database wordt vaak gebruikt in toepassingen zoals IoT, monitoring, en financiële analyses, waar gegevens in de tijd worden verzameld en geanalyseerd. TSDB's zijn ontworpen om efficiënt om te gaan met grote hoeveelheden data die continu worden toegevoegd en om snelle queries uit te voeren op basis van tijd.
 
-#### Verschil met SQL en NoSQL databases
+#### Verschil met SQL- en NoSQL-databases
 
-Time Series Databases (TSDB's) onderscheiden zich van traditionele SQL- en NoSQL-databases door hun focus op tijdgestempelde gegevens. Terwijl SQL-databases goed zijn in het beheren van gestructureerde gegevens en NoSQL-databases flexibel zijn in het omgaan met verschillende datatypes, zijn TSDB's specifiek ontworpen voor tijdgebaseerde gegevens.
+Time Series Databases (TSDB's) onderscheiden zich van traditionele SQL- en NoSQL-databases door hun focus op tijdgestempelde gegevens. Terwijl SQL-databases sterk zijn in relationele, gestructureerde data en NoSQL-databases flexibel omgaan met verschillende datatypes, zijn TSDB's specifiek ontworpen voor tijdsgebaseerde workloads.
 
-- **Indexering**: TSDB's gebruiken gespecialiseerde indexstructuren zoals R-trees of Bitmap-indexen, die zijn geoptimaliseerd voor tijdgebaseerde query's. Dit maakt ze efficiënter dan de B-trees van SQL of de hash-indexen van NoSQL.
-- **Lees- en schrijfbewerkingen**: TSDB's bieden een balans tussen snelle schrijfbewerkingen en efficiënte leesbewerkingen. Ze zijn geoptimaliseerd voor sequentiële schrijfbewerkingen en tijdgebaseerde query's.
-- **Beperkingen van SQL en NoSQL**: Hoewel SQL en NoSQL kunnen worden gebruikt voor tijdgebaseerde gegevens, missen ze de gespecialiseerde structuren en optimalisaties van TSDB's. Het gebruik van een TSDB is vergelijkbaar met het gebruik van een pizzasnijder in plaats van een botermes om een pizza te snijden: het is ontworpen voor de taak en werkt efficiënter.
+- **Indexering en opslag**: TSDB's gebruiken opslagformaten en indexering die geoptimaliseerd zijn voor tijdsfilters en append-heavy workloads.
+- **Lees- en schrijfbewerkingen**: TSDB's bieden snelle ingest (veel writes) en efficiiente queries over tijdvensters.
+- **Waarom niet gewoon SQL of NoSQL?**: Het kan, maar vaak met meer overhead en minder performantie voor typische tijdreeksanalyses.
 
-In een wereld waar tijdgevoelige gegevens steeds belangrijker worden, bieden TSDB's een unieke oplossing voor het efficiënt beheren en analyseren van deze gegevens.
+In een wereld waar tijdsgevoelige gegevens steeds belangrijker worden, bieden TSDB's een sterke oplossing voor efficiënt beheer en analyse.
 
-#### Link tussen IoT, Industry4.0 en Timeseries Databases
+#### Link tussen IoT, Industry 4.0 en timeseries databases
 
-IoT (Internet of Things) en Industry 4.0 genereren enorme hoeveelheden tijdgestempelde gegevens. Sensoren in IoT-apparaten en industriële machines verzamelen continu gegevens zoals temperatuur, druk, en trillingen. Deze gegevens zijn essentieel voor het monitoren, analyseren en optimaliseren van processen.
+IoT (Internet of Things) en Industry 4.0 genereren enorme hoeveelheden tijdgestempelde gegevens. Sensoren in IoT-apparaten en industriële machines verzamelen continu waarden zoals temperatuur, druk en trillingen. Die data is essentieel om processen te monitoren, te analyseren en te optimaliseren.
 
-Timeseries databases spelen een cruciale rol in deze context door:
-- **Efficiënt opslaan van gegevens**: TSDB's kunnen grote hoeveelheden gegevens opslaan met minimale overhead.
-- **Snelle query's**: Ze bieden snelle toegang tot historische gegevens, wat essentieel is voor analyses en rapportages.
-- **Geavanceerde analyses**: Met functies zoals aggregaties en trendanalyses kunnen TSDB's waardevolle inzichten bieden.
+Timeseries databases spelen hierin een cruciale rol door:
+- **Efficient opslaan van data** met lage overhead.
+- **Snelle tijdsqueries** op recente en historische data.
+- **Geavanceerde analyses** zoals aggregaties, trenddetectie en anomaliedetectie.
 
-Door de groei van IoT en Industry 4.0 wordt het gebruik van TSDB's steeds belangrijker voor bedrijven die concurrerend willen blijven.
+## InfluxDB: een open source timeseries database
 
-## InfluxDb: een open source timeseries database 
+### Belangrijk over querytaal
 
-### Installatie lokaal
-
-Om InfluxDB lokaal te installeren op Windows:
-1. Download de InfluxDB OSS v2 van de [officiële website](https://docs.influxdata.com/influxdb/v2/install/?t=Windows#download-and-install-influxdb-v2).
-2. Pak het gedownloade ZIP-bestand uit in de map `C:\Program Files\InfluxData\influxdb`.
-3. Open een terminal en navigeer naar de map:
-   ```bash
-   cd "C:\Program Files\InfluxData\influxdb"
-   ```
-4. Start de InfluxDB-server:
-   ```bash
-   ./influxd
-   ```
-5. Open de GUI in je browser via [http://localhost:8086](http://localhost:8086).
-6. Maak een "all-purpose token" aan om toegang te krijgen tot de database.
+In recente InfluxDB-versies (InfluxDB 3) werk je primair met **SQL** voor query's. 
 
 ### Andere populaire timeseries databases
 
 Naast InfluxDB zijn er andere populaire TSDB's zoals:
-- **Prometheus**: Gericht op monitoring en alerting.
-- **Graphite**: Geschikt voor het visualiseren van tijdreeksen.
-- **OpenTSDB**: Gebouwd op HBase voor schaalbaarheid.
+- **Prometheus**: gericht op monitoring en alerting.
+- **Graphite**: sterk in metriekvisualisatie.
+- **OpenTSDB**: gebouwd op HBase voor schaalbaarheid.
 
-### Overzicht van Gebruik met de web gui
+### Overzicht van gebruik
 
-De web GUI van InfluxDB biedt een intuïtieve interface voor het beheren van gegevens. Je kunt:
-- **Buckets maken en beheren**.
-- **Query's uitvoeren met Flux**.
-- **Dashboards maken voor visualisaties**.
-- **Alerting instellen**.
+In InfluxDB werk je doorgaans met:
+- **Line Protocol** om data te schrijven.
+- **SQL** om data op te vragen en te aggregeren.
+- Eventueel dashboards/visualisatie via externe tools.
 
-### Voorbeeld: een CO2 sensor voor een klaslokaal
+### Voorbeeld: CO2-sensor voor een klaslokaal
 
-Stel je hebt een CO2-sensor in een klaslokaal. Je kunt de gegevens opslaan in InfluxDB met de volgende structuur:
-- **Measurement**: "CO2_concentration"
-- **Tags**: "room", "sensor_id"
-- **Fields**: "value"
+Stel dat je een CO2-sensor in een klaslokaal hebt. Je kunt de data logisch modelleren met:
+- **Measurement/table**: `CO2_concentration`
+- **Tags/dimensies**: `location`, `sensor_id`
+- **Fields/metriekwaarde**: `value`
 
-### Basics: buckets, measurements, tags, fields, retention ...
+#### Voorbeelddata in Line Protocol formaat
 
-InfluxDB gebruikt een aantal kernconcepten:
-- **Buckets**: Containers voor gegevens met een ingestelde retentieperiode.
-- **Measurements**: De naam van een verzameling gegevenspunten (bijvoorbeeld "temperatuur").
-- **Tags**: Metadata die gegevens beschrijft (bijvoorbeeld "locatie").
-- **Fields**: De werkelijke gegevenswaarden (bijvoorbeeld "23.5°C").
-- **Retention Policies**: Regels die bepalen hoe lang gegevens worden bewaard.
+Sla het onderstaande op als `co2_data.lp` en importeer het in InfluxDB. Dit is het native **Line Protocol** formaat: `measurement,tag=waarde field=waarde unix-timestamp-seconden`.
 
-### Influx query syntax
-
-Een voorbeeld query om de gemiddelde CO2-concentratie van de afgelopen 24 uur te berekenen:
-
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -24h)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
-  |> filter(fn: (r) => r["location"] == "Room 101")
-  |> mean()
+```
+CO2_concentration,location=Room_101,sensor_id=s1 value=412.0 1778400000
+CO2_concentration,location=Room_101,sensor_id=s1 value=438.0 1778403600
+CO2_concentration,location=Room_101,sensor_id=s1 value=875.0 1778407200
+CO2_concentration,location=Room_101,sensor_id=s1 value=1120.0 1778410800
+CO2_concentration,location=Room_101,sensor_id=s1 value=980.0 1778414400
+CO2_concentration,location=Room_101,sensor_id=s1 value=430.0 1778418000
+CO2_concentration,location=Room_101,sensor_id=s1 value=820.0 1778421600
+CO2_concentration,location=Room_101,sensor_id=s1 value=1050.0 1778425200
+CO2_concentration,location=Room_403,sensor_id=s2 value=420.0 1778400000
+CO2_concentration,location=Room_403,sensor_id=s2 value=610.0 1778403600
+CO2_concentration,location=Room_403,sensor_id=s2 value=1340.0 1778407200
+CO2_concentration,location=Room_403,sensor_id=s2 value=1580.0 1778410800
+CO2_concentration,location=Room_403,sensor_id=s2 value=1210.0 1778414400
+CO2_concentration,location=Room_403,sensor_id=s2 value=450.0 1778418000
+CO2_concentration,location=Room_403,sensor_id=s2 value=990.0 1778421600
+CO2_concentration,location=Room_403,sensor_id=s2 value=1420.0 1778425200
+CO2_concentration,location=Room_101,sensor_id=s1 value=415.0 1778486400
+CO2_concentration,location=Room_101,sensor_id=s1 value=455.0 1778490000
+CO2_concentration,location=Room_101,sensor_id=s1 value=890.0 1778493600
+CO2_concentration,location=Room_403,sensor_id=s2 value=425.0 1778486400
+CO2_concentration,location=Room_403,sensor_id=s2 value=780.0 1778490000
+CO2_concentration,location=Room_403,sensor_id=s2 value=1650.0 1778493600
 ```
 
-#### Stap-voor-stap uitleg
+De data stelt twee lokalen voor over twee dagen (2026-05-10 en 2026-05-11), met metingen per uur. Waarden boven 1000 ppm duiden op slechte luchtkwaliteit.
 
-1. **`from(bucket: "classroom_data")`**  
-   Deze regel specificeert de bron van de gegevens. Hier wordt de bucket "sensor_data" gebruikt, wat een container is voor tijdreeksgegevens.
+Importeer via de `influx3` CLI:
 
-2. **`|> range(start: -24h)`**  
-   Beperkt de gegevens tot de afgelopen 1 uur. Dit zorgt ervoor dat alleen recente gegevens worden geanalyseerd.
-
-3. **`|> filter(fn: (r) => r["_measurement"] == "CO2_concentration")`**  
-   Filtert de gegevens om alleen de metingen met de naam "CO2_levels" te selecteren. Measurements groeperen gegevenspunten met dezelfde naam.
-
-4. **`|> filter(fn: (r) => r["location"] == "Room 101")`**  
-   Beperkt de gegevens verder tot alleen die met de tag "location" gelijk aan "Room 101". Tags zijn metadata die gegevens beschrijven.
-
-5. **`|> mean()`**  
-   Berekening van het gemiddelde van de geselecteerde gegevenspunten. Dit geeft een samenvattend getal terug dat de gemiddelde waarde vertegenwoordigt.
-
-#### Output
-
-De output van deze query is een enkel getal dat het gemiddelde van de CO2-concentratie in "Room 101" over de afgelopen 1 uur weergeeft. Bijvoorbeeld:
-
-```flux
-_time                _value
-2025-05-06T10:00:00Z 450.5
+```bash
+influx3 write --database classroom_data --precision second --file co2_data.lp
 ```
 
-- **`_time`**: De tijdstempel waarop het gemiddelde is berekend.
-- **`_value`**: Het gemiddelde van de CO2-concentratie.
+Of via de InfluxDB UI: ga naar **Load Data → Line Protocol** en plak de inhoud van het bestand.
 
-Meer info over de query syntax vind je [hier](https://docs.influxdata.com/influxdb/v2/query-data/get-started/query-influxdb/)
+### Basics: bucket/database, measurement, tags, fields, retention
 
-#### Measurements
+Belangrijke concepten in InfluxDB:
+- **Database (of bucket, afhankelijk van versie)**: container voor tijdreeksdata.
+- **Measurement**: logische naam van een reeks metingen (vergelijkbaar met een tabelconcept).
+- **Tags**: dimensionele metadata (bijv. `location`) waarop je vaak filtert/groepeert.
+- **Fields**: de echte meetwaarden (bijv. `value = 460`).
+- **Retention**: hoe lang data bewaard blijft.
 
-##### Wat zijn measurements?
+## Influx query syntax (SQL)
 
-Measurements in InfluxDB zijn de logische namen die worden gebruikt om een verzameling gegevenspunten te groeperen. Ze fungeren als tabellen in een relationele database en bevatten velden en tags die de gegevens beschrijven. Een measurement kan bijvoorbeeld "temperature" of "CO2_concentration" heten.
+Voorbeeld: gemiddelde CO2-concentratie van de afgelopen 24 uur in lokaal Room 101.
 
-##### Werken met measurements
-
-Measurements worden gebruikt om gegevens te organiseren en te groeperen. Hier is een voorbeeld van hoe je een measurement kunt gebruiken in een Flux-query:
-
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
+```sql
+SELECT AVG(value) AS avg_co2
+FROM "CO2_concentration"
+WHERE time >= now() - INTERVAL '24 hours'
+  AND location = 'Room 101';
 ```
 
-In dit voorbeeld worden alleen de gegevens uit de measurement "CO2_concentration" geselecteerd.
+### Stap-voor-stap uitleg
 
+1. **`FROM "CO2_concentration"`**
+   Selecteert de measurement/table waarin de CO2-data staat.
 
-#### Tags
+2. **`WHERE time >= now() - INTERVAL '24 hours'`**
+   Beperkt de query tot de laatste 24 uur.
 
-##### Wat zijn tags?
+3. **`AND location = 'Room 101'`**
+   Filtert op een specifieke tag/dimensie.
 
-Tags in InfluxDB zijn key-value paren die worden gebruikt om metadata aan gegevens toe te voegen. Ze worden vaak gebruikt om gegevens te groeperen of te filteren. Tags zijn geïndexeerd, wat betekent dat ze efficiënt kunnen worden gebruikt in query's.
+4. **`AVG(value)`**
+   Berekent het gemiddelde van het veld `value`.
 
-##### Werken met tags
+### Output
 
-Tags worden gebruikt om gegevens te filteren of te groeperen. Hier is een voorbeeld van een Flux-query die gegevens filtert op basis van een tag:
+Een typische output bevat een rij met het berekende gemiddelde:
 
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r["location"] == "Room 101")
+```text
+avg_co2
+-------
+450.5
 ```
 
-In dit voorbeeld worden alleen de gegevens geselecteerd die de tag "location" hebben met de waarde "Room 101".
+Meer info over SQL in InfluxDB vind je in de [officiële InfluxDB 3-documentatie](https://docs.influxdata.com/influxdb3/core/query-data/sql/).
 
+## Measurements
 
-#### Fields
+### Wat zijn measurements?
 
-##### Wat zijn fields?
+Measurements in InfluxDB zijn logische namen om tijdreeksdatapunten te groeperen. In SQL-context kun je ze benaderen zoals tabellen.
 
-Fields in InfluxDB zijn de werkelijke gegevenswaarden die worden opgeslagen in een measurement. Ze bevatten numerieke, string-, of booleaanse waarden en worden niet geïndexeerd. Fields worden gebruikt voor berekeningen en analyses.
+### Werken met measurements
 
-##### Werken met fields
-
-Fields worden gebruikt om de werkelijke gegevenswaarden op te slaan. Hier is een voorbeeld van een Flux-query die gegevens filtert op basis van een field:
-
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r["_field"] == "value")
+```sql
+SELECT time, location, value
+FROM "CO2_concentration"
+WHERE time >= now() - INTERVAL '1 hour';
 ```
 
-In dit voorbeeld worden alleen de gegevens geselecteerd die het field "value" bevatten.
+## Tags
 
-#### Aggregaties
+### Wat zijn tags?
 
-InfluxDB ondersteunt aggregaties, waarmee je complexe bewerkingen op tijdreeksen kunt uitvoeren. Aggregaties zijn essentieel voor het analyseren van trends, het berekenen van gemiddelden, en het samenvatten van grote datasets. In Flux, de querytaal van InfluxDB, kun je aggregaties uitvoeren met behulp van functies zoals `mean()`, `sum()`, `count()`, en `median()`.
+Tags zijn key-value metadata om data te beschrijven, filteren en groeperen. Denk aan `location`, `sensor_id`, `room_type`.
 
-##### Wat zijn aggregaties?
+### Werken met tags
 
-Aggregaties zijn bewerkingen die worden uitgevoerd op een verzameling gegevens om samenvattende informatie te verkrijgen. In de context van InfluxDB worden aggregaties vaak gebruikt om trends te analyseren, pieken te identificeren, en statistieken te berekenen over tijdreeksen. Aggregaties kunnen worden toegepast op velden binnen een meting en kunnen worden gecombineerd met filters en groeperingen.
-
-##### Voorbeeld van een aggregatie
-
-Hier is een voorbeeld van een Flux-query die de gemiddelde temperatuur berekent over de afgelopen 7 dagen:
-
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -7d)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
-  |> mean()
+```sql
+SELECT time, value
+FROM "CO2_concentration"
+WHERE location = 'Room 101'
+  AND time >= now() - INTERVAL '1 hour';
 ```
 
-In dit voorbeeld:
-- **`range(start: -7d)`**: Selecteert gegevens van de afgelopen 7 dagen.
-- **`filter(fn: (r) => r["_measurement"] == "CO2_concentration")`**: Filtert alleen de CO2-metingen.
-- **`mean()`**: Berekent het gemiddelde van de geselecteerde gegevens.
+## Fields
 
-##### Aggregaties combineren
+### Wat zijn fields?
 
-Je kunt meerdere aggregaties combineren in één query. Bijvoorbeeld, om zowel het gemiddelde als de maximale temperatuur te berekenen:
+Fields zijn de effectieve meetwaarden (numeriek, string, boolean, ...). In dit voorbeeld is `value` de CO2-concentratie.
 
-```flux
-from(bucket: "classroom_data")
-  |> range(start: -7d)
-  |> filter(fn: (r) => r["_measurement"] == "CO2_concentration")
-  |> group(columns: ["location"])
-  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
-  |> map(fn: (r) => ({
-      location: r.location,
-      avg_temp: mean(r.CO2_concentration),
-      max_temp: max(r.CO2_concentration)
-  }))
+### Werken met fields
+
+```sql
+SELECT time, value
+FROM "CO2_concentration"
+WHERE value > 800
+  AND time >= now() - INTERVAL '1 hour';
 ```
 
-Hier worden de gegevens gegroepeerd per locatie en worden zowel het gemiddelde als de maximale temperatuur berekend.
+## Aggregaties
 
-### Demo in Java
+Aggregaties zijn essentieel in tijdreeksanalyse om trends en samenvattingen te berekenen.
 
-Om InfluxDB te gebruiken in een Java-toepassing, voeg je de volgende Gradle-dependency toe:
+### Wat zijn aggregaties?
+
+Aggregaties zijn bewerkingen op een set metingen, zoals `AVG`, `SUM`, `COUNT`, `MIN`, `MAX`.
+
+### Voorbeeld van een aggregatie
+
+```sql
+SELECT AVG(value) AS avg_co2
+FROM "CO2_concentration"
+WHERE time >= now() - INTERVAL '7 days';
+```
+
+### Aggregaties combineren
+
+```sql
+SELECT location,
+       AVG(value) AS avg_co2,
+       MAX(value) AS max_co2,
+       MIN(value) AS min_co2
+FROM "CO2_concentration"
+WHERE time >= now() - INTERVAL '7 days'
+GROUP BY location
+ORDER BY location;
+```
+
+## Demo in Java
+
+### Gradle dependencies
+
+Voeg de volgende dependencies toe aan `build.gradle`:
 
 ```groovy
+plugins {
+    id 'application'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
 dependencies {
-  implementation 'com.influxdb:influxdb-client-java:7.2.0'
+    implementation 'com.influxdb:influxdb3-java:1.1.0'
 }
 ```
 
-Een voorbeeld van het schrijven en lezen van gegevens:
+Meer info: [InfluxDB 3 Java client op GitHub](https://github.com/InfluxCommunity/influxdb3-java).
+
+### Code
+
+Het onderstaand voorbeeld gebruikt de officiële `influxdb3-java` client om:
+1. CO2-datapunten te schrijven via `Point`.
+2. Data op te vragen met een SQL-query.
 
 ```java
-/*
- * This source file was generated by the Gradle 'init' task
- */
 package be.kuleuven;
 
-import java.util.concurrent.TimeUnit;
-
-import com.influxdb.client.InfluxDBClient;
-import com.influxdb.client.InfluxDBClientFactory;
-import com.influxdb.client.QueryApi;
-import com.influxdb.client.WriteApiBlocking;
-import com.influxdb.client.domain.Bucket;
-import com.influxdb.client.domain.BucketRetentionRules;
-import com.influxdb.client.domain.WritePrecision;
-import com.influxdb.client.write.Point;
-import com.influxdb.query.FluxRecord;
+import com.influxdb.v3.client.InfluxDBClient;
+import com.influxdb.v3.client.Point;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class App {
 
-    private static final String DB_URI = "http://localhost:8086";
-    private static final String USERNAME = "influxdb";
-    private static final String ORG = "influxdb";
-    private static final String PASSWORD = "influxdb";
-    private static final String TOKEN = "Rp5cZ0FlsUrZi94Mbyx881rLyrgqR2ig2weiot6TWaj_sjMDNmsXCt5gPyBvsMYZdnCraN5QoDs73RUoY1Yn7Q==";
-    private static final String BUCKET = "classroom_data";
+    // Vind je cluster-URL via: InfluxDB Cloud UI → "Load Data" → "API Tokens" → cluster hostname
+    private static final String HOST = "https://<your-cluster>.influxdata.io";
+    private static final String DATABASE = "classroom_data";
+    private static final String TOKEN = "<YOUR_TOKEN_HERE>";
 
-    public static void main(String[] args) {
-        InfluxDBClient influxDBClient = InfluxDBClientFactory.create(DB_URI, TOKEN.toCharArray(), ORG, BUCKET);
-        clearBucket(influxDBClient);
-        // Set correct time
-        LocalDateTime customDateTime1 = LocalDateTime.of(2025, 5, 6, 8, 30, 0);
-        Instant time1 = customDateTime1.atZone(ZoneId.systemDefault()).toInstant();
+    public static void main(String[] args) throws Exception {
+        try (InfluxDBClient client = InfluxDBClient.getInstance(HOST, TOKEN.toCharArray(), DATABASE)) {
+            writeSampleData(client);
+            queryAverage(client);
+        }
+    }
 
-        // ADD a value (point)
-        WriteApiBlocking writeApi = influxDBClient.getWriteApiBlocking();
+    // Schrijft 2 CO2-datapunten.
+    private static void writeSampleData(InfluxDBClient client) throws Exception {
         Point point1 = Point.measurement("CO2_concentration")
-                .addTag("location", "Room 403")
-                .addField("value", 460)
-                .time(time1.minusSeconds(60), WritePrecision.MS);
+                .setTag("location", "Room_403")
+                .setTag("sensor_id", "s1")
+                .setField("value", 460L)
+                .setTimestamp(Instant.now().minusSeconds(60));
+
         Point point2 = Point.measurement("CO2_concentration")
-                .addTag("location", "Room 403")
-                .addField("value", 440)
-                .time(System.currentTimeMillis(), WritePrecision.MS);
-        writeApi.writePoint(point1);
-        writeApi.writePoint(point2);
+                .setTag("location", "Room_403")
+                .setTag("sensor_id", "s1")
+                .setField("value", 440L)
+                .setTimestamp(Instant.now());
 
-        // GET all values in range
-        List<CO2Point> points = getPointsInRange(influxDBClient,
-                LocalDateTime.of(2025, 5, 4, 13, 30, 0),
-                LocalDateTime.of(2025, 5, 10, 14, 30, 0));
-
-        for (CO2Point co2Point : points) {
-            System.out.println(co2Point);
-        }
-
-        // Print SUM
-        System.out.println(getSumValues(influxDBClient,
-                LocalDateTime.of(2025, 5, 4, 13, 30, 0),
-                LocalDateTime.of(2025, 5, 10, 14, 30, 0)));
-
-        influxDBClient.close();
-
+        client.writePoint(point1);
+        client.writePoint(point2);
+        System.out.println("Data geschreven.");
     }
 
-    public static List<CO2Point> getPointsInRange(InfluxDBClient influxDBClient, LocalDateTime startDate,
-            LocalDateTime endDate) {
-        QueryApi queryApi = influxDBClient.getQueryApi();
-        String fluxQuery = String.format(
-                "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"CO2_concentration\")",
-                BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
-                endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
+    // Vraagt gemiddelde CO2 op via SQL.
+    private static void queryAverage(InfluxDBClient client) throws Exception {
+        String sql = "SELECT AVG(value) AS avg_co2 " +
+                     "FROM \"CO2_concentration\" " +
+                     "WHERE time >= now() - INTERVAL '24 hours' " +
+                     "AND location = 'Room_403'";
 
-        List<CO2Point> myObjects = new ArrayList<>();
-        queryApi.query(fluxQuery, ORG).forEach(table -> table.getRecords().forEach(record -> {
-            LocalDateTime time = LocalDateTime.ofInstant(record.getTime(), ZoneId.systemDefault());
-            double value = ((Number) record.getValueByKey("_value")).doubleValue();
-            myObjects.add(new CO2Point(value, time));
-        }));
-
-        return myObjects;
-
-    }
-
-    public static double getSumValues(InfluxDBClient influxDBClient, LocalDateTime startDate,
-            LocalDateTime endDate) {
-        QueryApi queryApi = influxDBClient.getQueryApi();
-        String fluxQuery = String.format(
-                "from(bucket: \"%s\") " +
-                        "|> range(start: %s, stop: %s) " +
-                        "|> filter(fn: (r) => r._measurement == \"CO2_concentration\") " +
-                        "|> sum(column: \"_value\")",
-                BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
-                endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
-
-        List<FluxRecord> records = new ArrayList<>();
-        queryApi.query(fluxQuery, ORG).forEach(table -> records.addAll(table.getRecords()));
-        if (records.get(0).getValueByKey("_value") != null) {
-            return (long) records.get(0).getValueByKey("_value");
-        } else {
-            return -1.0;
-        }
-    }
-
-    public static void clearBucket(InfluxDBClient influxDBClient) {
-        // Use DeleteApi to clear all data in the bucket
-        influxDBClient.getDeleteApi().delete(
-                OffsetDateTime.ofInstant(Instant.ofEpochMilli(0), ZoneId.systemDefault()), // Start time (epoch 0 to delete all data)
-                OffsetDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()), // End time (current time)
-                "", // Empty predicate to delete all measurements
-                BUCKET, // Bucket name
-                ORG // Organization name
-        );
-    }
-}
-
-```
-
-
-**Vaak wil je omvormen van LocalDateTime naar milis of omgekeerd:**
-```Java
-// Method to convert LocalDateTime to milliseconds
-public static long timeToMillis(LocalDateTime time) {
-  return time.atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
-}
-
-// Method to convert milliseconds to LocalDateTime
-public static LocalDateTime millisToTime(long millis) {
-  return LocalDateTime.ofInstant(java.time.Instant.ofEpochMilli(millis), java.time.ZoneId.systemDefault());
-}
-```
-
-Meer informatie over tijdformaten in InfluxDB is te vinden in de [officiële documentatie](https://docs.influxdata.com/flux/v0/data-types/basic/time/).
-
-#### Measurements in Java
-
-Met de InfluxDB Java-client kun je gegevens schrijven naar een specifieke measurement. Hier is een voorbeeld:
-
-```java
-Point point = Point.measurement("CO2_concentration")
-    .addTag("location", "Room 101")
-    .addField("value", 450)
-    .time(Instant.now(), WritePrecision.MS);
-writeApi.writePoint(point);
-```
-
-#### Tags in Java
-
-Met de InfluxDB Java-client kun je tags toevoegen aan een gegevenspunt. Hier is een voorbeeld:
-
-```java
-Point point = Point.measurement("CO2_concentration")
-    .addTag("location", "Room 101")
-    .addField("value", 450)
-    .time(Instant.now(), WritePrecision.MS);
-writeApi.writePoint(point);
-```
-
-#### Fields in Java
-
-Met de InfluxDB Java-client kun je fields toevoegen aan een gegevenspunt. Hier is een voorbeeld:
-
-```java
-Point point = Point.measurement("CO2_concentration")
-    .addTag("location", "Room 101")
-    .addField("value", 450)
-    .time(Instant.now(), WritePrecision.MS);
-writeApi.writePoint(point);
-```
-
-#### Influx Queries in Java
-
-```java
-
-public static final InfluxDBClient influxDBClient = InfluxDBClientFactory.create(DB_URI, TOKEN.toCharArray(), ORG, BUCKET);
-
-public static void main(String[] args) {
-        // Example usage
-        LocalDateTime start = LocalDateTime.of(2023, 5, 1, 0, 0);
-        LocalDateTime end = LocalDateTime.of(2023, 5, 7, 23, 59);
-
-        List<FluxRecord> records = getPointsInRange(start, end);
-        records.forEach(record -> System.out.println(record.getTime() + " -> " + record.getValueByKey("_value")));
-
-        double sum = getSumOfValuesInRange(start, end);
-        System.out.println("Sum of values: " + sum);
-    }
-
-public static List<MyClass> getPointsInRange(LocalDateTime start, LocalDateTime end) {
-    QueryApi queryApi = influxDBClient.getQueryApi();
-    String fluxQuery = String.format(
-        "from(bucket: \"%s\") |> range(start: %s, stop: %s) |> filter(fn: (r) => r._measurement == \"my_measurement\")", BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(), endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
-
-    List<MyClass> myObjects = new ArrayList<>();
-    queryApi.query(fluxQuery, ORG).forEach(table -> table.getRecords().forEach(record -> {
-      LocalDateTime time = LocalDateTime.ofInstant(record.getTime(), ZoneId.systemDefault());
-      double value = ((Number) record.getValueByKey("_value")).doubleValue();
-      myObjects.add(new MyClass(value, time));
-    }));
-
-    return myObjects;
-    
-  }
-
-public static double getSumOfValuesInRange(LocalDateTime start, LocalDateTime end) {
-  QueryApi queryApi = influxDBClient.getQueryApi();
-  String fluxQuery = String.format(
-          "from(bucket: \"%s\") " +
-                  "|> range(start: %s, stop: %s) " +
-                  "|> filter(fn: (r) => r._measurement == \"my_measurement\") " +
-                  "|> sum(column: \"_value\")",
-          BUCKET, startDate.atZone(ZoneId.systemDefault()).toInstant().toString(),
-          endDate.atZone(ZoneId.systemDefault()).toInstant().toString());
-
-  List<FluxRecord> records = new ArrayList<>();
-  queryApi.query(fluxQuery, ORG).forEach(table -> records.addAll(table.getRecords()));
-  if (records.get(0).getValueByKey("_value") != null) {
-      return (long) records.get(0).getValueByKey("_value");
-  } else {
-      return -1.0;
-  }
-}
-```
-
-#### Aggregaties in Java
-
-Met de InfluxDB Java-client kun je ook aggregaties uitvoeren. Hier is een voorbeeld:
-
-```java
-import com.influxdb.client.*;
-import com.influxdb.query.FluxTable;
-import java.util.List;
-
-public class AggregationExample {
-    public static void main(String[] args) {
-
-        try (InfluxDBClient client = InfluxDBClientFactory.create(DB_URL, TOKEN.toCharArray())) {
-            String flux = "from(bucket: \"sensor_data\") " +
-                          "|> range(start: -7d) " +
-                          "|> filter(fn: (r) => r[\"_measurement\"] == \"temperature\") " +
-                          "|> mean()";
-
-            List<FluxTable> tables = client.getQueryApi().query(flux, ORG);
-            tables.forEach(table -> table.getRecords().forEach(record -> {
-                System.out.println("Gemiddelde temperatuur: " + record.getValueByKey("_value"));
-            }));
+        try (Stream<Object[]> rows = client.query(sql)) {
+            rows.forEach(row -> System.out.println("avg_co2 = " + row[0]));
         }
     }
 }
 ```
 
-Met deze aanpak kun je aggregaties uitvoeren en analyseren in zowel de Flux-querytaal als in Java.
+### Tijd omzetten in Java
 
-### Interessante videos
-- [Algemene tutorial over CMD-commands met InfluxDb](https://www.youtube.com/watch?v=Vq4cDIdz_M8)
-- [Full overview en visualisatie met Graphana](https://www.youtube.com/watch?v=gb6AiqCJqP0)
-- [InfluxDb met Java 1](https://www.youtube.com/watch?v=89YOT0Cgtp4)
-- [InfluxDb met Java 2](https://www.youtube.com/watch?v=EFnG7rUDvR4)
-- [InfluxDb met VSCode: Flux](https://www.youtube.com/watch?v=yI5zCkhk6a0)
+```java
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
+public static Instant localDateTimeToInstant(LocalDateTime time) {
+    return time.atZone(ZoneId.systemDefault()).toInstant();
+}
 
-### Demo
+public static LocalDateTime instantToLocalDateTime(Instant instant) {
+    return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+}
+```
+
+### SQL-queries in Java (voorbeeld)
+
+```java
+String sql = "SELECT time, location, value " +
+             "FROM \"CO2_concentration\" " +
+             "WHERE time >= now() - INTERVAL '7 days' " +
+             "ORDER BY time DESC";
+
+try (Stream<Object[]> rows = client.query(sql)) {
+    rows.forEach(row -> System.out.println(Arrays.toString(row)));
+}
+```
+
+### Aggregaties in Java (voorbeeld)
+
+```java
+String sql = "SELECT location, AVG(value) AS avg_co2, MAX(value) AS max_co2 " +
+             "FROM \"CO2_concentration\" " +
+             "WHERE time >= now() - INTERVAL '7 days' " +
+             "GROUP BY location";
+
+try (Stream<Object[]> rows = client.query(sql)) {
+    rows.forEach(row ->
+        System.out.println("location=" + row[0] + ", avg=" + row[1] + ", max=" + row[2])
+    );
+}
+```
+
+Met deze aanpak voer je aggregaties uit via SQL en verwerk je de resultaten in Java.
+
+## Interessante video's
+
+- [Algemene tutorial over CMD-commands met InfluxDB](https://www.youtube.com/watch?v=Vq4cDIdz_M8)
+- [Full overview en visualisatie met Grafana](https://www.youtube.com/watch?v=gb6AiqCJqP0)
+- [InfluxDB met Java 1](https://www.youtube.com/watch?v=89YOT0Cgtp4)
+- [InfluxDB met Java 2](https://www.youtube.com/watch?v=EFnG7rUDvR4)
+
+## Demo
+
 <!-- TODO volgend jaar: -->
 
 <!-- EXSOL -->
-**_[Hier](/files/influxdb-demo.zip) vind je een zipfolder met een oplossing voor InfluxDb demo CO2**
+**_[Hier](/files/influxdb-demo.zip) vind je een zipfolder met een oplossing voor InfluxDB demo CO2**
 
 <!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
 
-### Oefeningen:
-#### Oefening 1:
-Maak een klein appje dat CO2 gegevens aanmaakt in een Java project en doorstuurt naar InfluxDb. Lees de waarden uit een zet een boolean op true wanneer CO2 een bepaalde hoeveelheid overschrijdt (= een raam open zetten). En zet weer op false wanneer de waarde weer daalt.
+## Oefeningen
 
-#### Oefening 2:
-Tegenwoordig kan je MongoDB ook gebruiken als TimeSeries databank. Ga zelf eens na wat de verschillen zijn met de werking van MongoDB t.o.v. InfluxDB. Maak een kopie van de CO2 Java applicatie maar pas het aan zodat het gebruik maakt van MongoDB.
+### Oefening 1
+
+Maak een klein appje dat CO2-gegevens aanmaakt in een Java-project en doorstuurt naar InfluxDB. Lees de waarden uit en zet een boolean op `true` wanneer CO2 een bepaalde drempel overschrijdt (raam open). Zet die terug op `false` wanneer de waarde weer daalt.
+
+### Oefening 2
+
+MongoDB kan ook gebruikt worden als Time Series databank. Vergelijk de werking van MongoDB met InfluxDB voor dit CO2-scenario. Maak een kopie van de Java-applicatie en pas ze aan zodat ze met MongoDB werkt.
