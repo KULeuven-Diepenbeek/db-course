@@ -405,7 +405,7 @@ Voorbeeld output:
 <!-- TODO volgend jaar: -->
 
 <!-- EXSOL -->
-**_[Hier](/files/influxdb-demo.zip) vind je een zipfolder met een oplossing voor InfluxDB demo CO2**
+**_[Hier](/files/influxdb-demo.zip) vind je een zipfolder met een oplossing voor InfluxDB demo CO2_**
 
 <!-- TODO: volgend jaar opsplitsen in meerdere pagina's -->
 
