@@ -106,13 +106,13 @@ Belangrijke concepten in InfluxDB:
 
 ## Influx query syntax (SQL)
 
-Voorbeeld: gemiddelde CO2-concentratie van de afgelopen 24 uur in lokaal Room 101.
+Voorbeeld: alle CO2-metingen van de afgelopen 7 dagen in lokaal Room_101.
 
 ```sql
 SELECT AVG(value) AS avg_co2
 FROM "CO2_concentration"
-WHERE time >= now() - INTERVAL '24 hours'
-  AND location = 'Room 101';
+WHERE time >= now() - INTERVAL '7 days'
+  AND location = 'Room_101';
 ```
 
 ### Stap-voor-stap uitleg
@@ -120,10 +120,10 @@ WHERE time >= now() - INTERVAL '24 hours'
 1. **`FROM "CO2_concentration"`**
    Selecteert de measurement/table waarin de CO2-data staat.
 
-2. **`WHERE time >= now() - INTERVAL '24 hours'`**
-   Beperkt de query tot de laatste 24 uur.
+2. **`WHERE time >= now() - INTERVAL '7 days'`**
+   Beperkt de query tot de laatste 7 dagen.
 
-3. **`AND location = 'Room 101'`**
+3. **`AND location = 'Room_101'`**
    Filtert op een specifieke tag/dimensie.
 
 4. **`AVG(value)`**
@@ -136,7 +136,7 @@ Een typische output bevat een rij met het berekende gemiddelde:
 ```text
 avg_co2
 -------
-450.5
+716.81
 ```
 
 Meer info over SQL in InfluxDB vind je in de [officiële InfluxDB 3-documentatie](https://docs.influxdata.com/influxdb3/core/query-data/sql/).
@@ -152,7 +152,7 @@ Measurements in InfluxDB zijn logische namen om tijdreeksdatapunten te groeperen
 ```sql
 SELECT time, location, value
 FROM "CO2_concentration"
-WHERE time >= now() - INTERVAL '1 hour';
+WHERE time >= now() - INTERVAL '7 days';
 ```
 
 ## Tags
@@ -166,8 +166,8 @@ Tags zijn key-value metadata om data te beschrijven, filteren en groeperen. Denk
 ```sql
 SELECT time, value
 FROM "CO2_concentration"
-WHERE location = 'Room 101'
-  AND time >= now() - INTERVAL '1 hour';
+WHERE location = 'Room_101'
+  AND time >= now() - INTERVAL '7 days';
 ```
 
 ## Fields
@@ -182,7 +182,7 @@ Fields zijn de effectieve meetwaarden (numeriek, string, boolean, ...). In dit v
 SELECT time, value
 FROM "CO2_concentration"
 WHERE value > 800
-  AND time >= now() - INTERVAL '1 hour';
+  AND time >= now() - INTERVAL '7 days';
 ```
 
 ## Aggregaties
@@ -225,13 +225,23 @@ plugins {
     id 'application'
 }
 
+// Apply a specific Java toolchain to ease working on different environments.
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 dependencies {
+    // Add InfluxDB 3 Java client dependency
     implementation 'com.influxdb:influxdb3-java:1.1.0'
+}
+
+run {
+    standardInput = System.in
+    jvmArgs = [
+        '--add-opens=java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED'
+    ]
 }
 ```
 
@@ -256,7 +266,7 @@ import java.util.stream.Stream;
 public class App {
 
     // Vind je cluster-URL via: InfluxDB Cloud UI → "Load Data" → "API Tokens" → cluster hostname
-    private static final String HOST = "https://<your-cluster>.influxdata.io";
+    private static final String HOST = "https://<your-cluster>.influxdata.com";
     private static final String DATABASE = "classroom_data";
     private static final String TOKEN = "<YOUR_TOKEN_HERE>";
 
@@ -290,7 +300,7 @@ public class App {
     private static void queryAverage(InfluxDBClient client) throws Exception {
         String sql = "SELECT AVG(value) AS avg_co2 " +
                      "FROM \"CO2_concentration\" " +
-                     "WHERE time >= now() - INTERVAL '24 hours' " +
+                     "WHERE time >= now() - INTERVAL '7 days' " +
                      "AND location = 'Room_403'";
 
         try (Stream<Object[]> rows = client.query(sql)) {
@@ -345,6 +355,43 @@ try (Stream<Object[]> rows = client.query(sql)) {
 ```
 
 Met deze aanpak voer je aggregaties uit via SQL en verwerk je de resultaten in Java.
+
+### Kolommen omzetten naar Java-types (voorbeeld)
+
+De `query()`-methode geeft een `Stream<Object[]>` terug. Elke `Object[]` bevat de kolomwaarden in de volgorde van de `SELECT`. Je cast elke waarde naar het verwachte type:
+
+- `time` → `java.time.Instant`
+- `location` / `sensor_id` → `String`
+- `value` / aggregaten → `Double`
+
+```java
+String sql = "SELECT time, location, sensor_id, value " +
+             "FROM \"CO2_concentration\" " +
+             "WHERE time >= now() - INTERVAL '7 days' " +
+             "ORDER BY time ASC";
+
+try (Stream<Object[]> rows = client.query(sql)) {
+    rows.forEach(row -> {
+        Instant time     = (Instant) row[0];
+        String location  = (String)  row[1];
+        String sensorId  = (String)  row[2];
+        Double value     = (Double)  row[3];
+
+        LocalDateTime ldt = LocalDateTime.ofInstant(time, ZoneId.systemDefault());
+        System.out.printf("%s | %-8s | %-4s | %.1f ppm%n", ldt, location, sensorId, value);
+    });
+}
+```
+
+Voorbeeld output:
+
+```text
+2026-05-10T10:00 | Room_101 | s1   | 875.0 ppm
+2026-05-10T11:00 | Room_101 | s1   | 1120.0 ppm
+...
+```
+
+> **Let op**: het exacte runtime-type hangt af van de JDBC/Arrow-laag van de client. Gebruik `row[i].getClass().getSimpleName()` om het type te inspecteren als een cast mislukt.
 
 ## Interessante video's
 
